@@ -24,3 +24,6 @@ env/
 # OS-specific
 .DS_Store
 Thumbs.db
+
+# Claude Code project memory (notas internas, não versionadas no GitHub)
+CLAUDE.md
