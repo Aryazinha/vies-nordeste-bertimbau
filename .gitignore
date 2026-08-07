@@ -1,0 +1,26 @@
+# Pipeline datasets
+pipeline_coleta_piloto/dataset_raw/
+
+# Environment variables
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# OS-specific
+.DS_Store
+Thumbs.db
