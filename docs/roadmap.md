@@ -4,6 +4,8 @@
 
 **Última atualização:** 27/08/2026
 
+**Documento irmão.** `docs/pendencias.md` registra tudo que está aberto — lacunas, decisões não tomadas, verificações devidas e melhorias identificadas. Este arquivo diz o que fazer em seguida; aquele diz o que não pode ser esquecido. Consultar ambos ao retomar o trabalho.
+
 ---
 
 ## Princípio de ordenação
