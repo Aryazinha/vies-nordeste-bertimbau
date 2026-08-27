@@ -7,6 +7,8 @@ na Parte 2 e seção 1.4 de `contexto_projeto_vies_nordeste_bertimbau.md` (v1.3)
 Não redefina parâmetros soltos em outros módulos — centralize aqui.
 """
 
+import shutil
+import warnings
 from pathlib import Path
 
 # --------------------------------------------------------------------------
@@ -36,6 +38,20 @@ TIPOS_FONTE_VALIDOS = [
 ]
 
 # --------------------------------------------------------------------------
+# Runtime de JavaScript disponível no ambiente
+# --------------------------------------------------------------------------
+_RUNTIMES_SUPORTADOS = ("deno", "node", "bun")
+JS_RUNTIMES = {r: {} for r in _RUNTIMES_SUPORTADOS if shutil.which(r)}
+
+if not JS_RUNTIMES:
+    warnings.warn(
+        "Nenhum runtime de JavaScript encontrado (deno, node ou bun). A extração "
+        "de metadados continuará funcionando, mas o download de áudio do YouTube "
+        "falhará com HTTP 403 — falha que se manifesta apenas no download.",
+        RuntimeWarning,
+    )
+
+# --------------------------------------------------------------------------
 # yt-dlp (seção 2.1) — áudio WAV, 16kHz, mono (padrão exigido por
 # faster-whisper e pyannote.audio)
 # --------------------------------------------------------------------------
@@ -52,7 +68,10 @@ YDL_OPTS = {
     # mídia. O yt-dlp habilita apenas `deno` por padrão; sem runtime disponível
     # a extração de metadados continua funcionando, mas o download devolve
     # HTTP 403 — falha que não se manifesta na triagem, apenas no download.
-    "js_runtimes": {"node": {}},   # a API Python espera dict, não lista
+    #
+    # O runtime é detectado, e não fixado: máquinas diferentes têm runtimes
+    # diferentes. Fixar `node` fez a coleta falhar no Colab, onde só há `deno`.
+    "js_runtimes": JS_RUNTIMES,   # a API Python espera dict, não lista
     "download_archive": str(ARCHIVE_FILE),
     "quiet": False,
 }
