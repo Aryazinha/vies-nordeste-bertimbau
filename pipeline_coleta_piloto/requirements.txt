@@ -1,4 +1,6 @@
-yt-dlp>=2024.1.0
+# Piso elevado em 27/08/2026: a versão 2026.07.04 devolvia HTTP 403 no download
+# (a extração de metadados seguia funcionando, o que mascarava a falha).
+yt-dlp>=2026.08.19
 faster-whisper>=1.0.0
 pyannote.audio>=3.1.0
 torch>=2.0.0

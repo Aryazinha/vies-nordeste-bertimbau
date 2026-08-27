@@ -10,11 +10,12 @@ from __future__ import annotations
 import logging
 import re
 from dataclasses import dataclass, asdict
+from pathlib import Path
 from typing import Optional
 
 import yt_dlp
 
-from config import YDL_OPTS, ESTADOS_VALIDOS, TIPOS_FONTE_VALIDOS
+from config import YDL_OPTS, AUDIO_DIR, ESTADOS_VALIDOS, TIPOS_FONTE_VALIDOS
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
@@ -71,7 +72,8 @@ def triagem_metadados(url: str, estado_alvo: str, tipo_fonte: str,
             "Para expandir um canal em vídeos, use selecionar_videos.py."
         )
 
-    ydl_opts = {"skip_download": True, "quiet": True, "extract_flat": False}
+    ydl_opts = {"skip_download": True, "quiet": True, "extract_flat": False,
+                "js_runtimes": YDL_OPTS.get("js_runtimes", {})}
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=False)
 
@@ -99,7 +101,7 @@ def triagem_metadados(url: str, estado_alvo: str, tipo_fonte: str,
     return meta
 
 
-def baixar_audio(url: str, trecho: Optional[dict] = None) -> None:
+def baixar_audio(url: str, video_id: str, trecho: Optional[dict] = None) -> Path:
     """
     Baixa e extrai áudio (WAV, 16kHz, mono) com os parâmetros de `config.py`.
     Respeita download_archive — não reprocessa vídeos de execuções anteriores.
@@ -123,6 +125,22 @@ def baixar_audio(url: str, trecho: Optional[dict] = None) -> None:
     with yt_dlp.YoutubeDL(opts) as ydl:
         ydl.download([url])
 
+    # Confirmação de que o arquivo existe. `ignoreerrors` faz o yt-dlp registrar
+    # a falha e prosseguir sem levantar exceção, de modo que uma falha de rede,
+    # de formato ou de autenticação passaria por sucesso e produziria um
+    # registro apontando para áudio inexistente. Foi o que ocorreu no teste de
+    # 27/08/2026: três vídeos reportados como coletados, nenhum no disco.
+    destino = AUDIO_DIR / f"{video_id}.wav"
+    if not destino.exists():
+        raise RuntimeError(
+            f"download não produziu áudio para {video_id}: {destino} não existe. "
+            "Causas frequentes: HTTP 403 por ausência de runtime de JavaScript, "
+            "versão desatualizada do yt-dlp, ou vídeo com restrição etária."
+        )
+    if destino.stat().st_size < 32000:          # menos de 1 segundo a 16 kHz mono
+        raise RuntimeError(f"áudio truncado para {video_id}: {destino.stat().st_size} bytes")
+    return destino
+
 
 def coletar_lote(video_specs: list[dict]) -> list[VideoMetadata]:
     """
@@ -139,7 +157,7 @@ def coletar_lote(video_specs: list[dict]) -> list[VideoMetadata]:
             trecho = spec.get("trecho")
             meta = triagem_metadados(spec["url"], spec["estado_alvo"],
                                      spec["tipo_fonte"], trecho=trecho)
-            baixar_audio(spec["url"], trecho=trecho)
+            baixar_audio(spec["url"], meta.id, trecho=trecho)
             resultados.append(meta)
         except Exception as exc:  # noqa: BLE001 — lote não pode parar por 1 vídeo
             logger.warning("Falha ao processar %s: %s", spec.get("url"), exc)

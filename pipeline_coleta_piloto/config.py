@@ -48,6 +48,11 @@ YDL_OPTS = {
     ],
     "postprocessor_args": {"ffmpeg": ["-ar", "16000", "-ac", "1"]},
     "ignoreerrors": True,
+    # O YouTube passou a exigir execução de JavaScript para liberar as URLs de
+    # mídia. O yt-dlp habilita apenas `deno` por padrão; sem runtime disponível
+    # a extração de metadados continua funcionando, mas o download devolve
+    # HTTP 403 — falha que não se manifesta na triagem, apenas no download.
+    "js_runtimes": {"node": {}},   # a API Python espera dict, não lista
     "download_archive": str(ARCHIVE_FILE),
     "quiet": False,
 }
