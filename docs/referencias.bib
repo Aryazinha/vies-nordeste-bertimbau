@@ -1,0 +1,300 @@
+% =====================================================================
+% Referências consolidadas do projeto
+% Investigação de Vieses Sociolinguísticos no BERTimbau:
+% Variedades do Nordeste (PB, PE, CE, BA) vs. Controle do Sudeste (SP, RJ)
+%
+% Formato BibTeX, deliberadamente neutro quanto ao estilo de citação:
+% o estilo (ABNT, ACL, APA) é escolhido na compilação, conforme o veículo.
+%
+% Convenção de anotação: o campo `annote` registra o papel da referência
+% no argumento do artigo e o estado de verificação da fonte.
+% Última verificação das URLs: 27/08/2026.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% 1. Modelo-alvo e corpus de treinamento
+% ---------------------------------------------------------------------
+
+@inproceedings{souza2020bertimbau,
+  author    = {Souza, F{\'a}bio and Nogueira, Rodrigo and Lotufo, Roberto},
+  title     = {{BERT}imbau: Pretrained {BERT} Models for {B}razilian {P}ortuguese},
+  booktitle = {Intelligent Systems (BRACIS 2020)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12319},
+  publisher = {Springer},
+  year      = {2020},
+  doi       = {10.1007/978-3-030-61377-8_28},
+  annote    = {Modelo-alvo do experimento. Treinado exclusivamente sobre o brWaC, com MLM e Whole Word Masking; versoes Base e Large.}
+}
+
+@inproceedings{wagnerfilho2018brwac,
+  author    = {Wagner Filho, Jorge A. and Wilkens, Rodrigo and Idiart, Marco and Villavicencio, Aline},
+  title     = {The br{W}a{C} Corpus: A New Open Resource for {B}razilian {P}ortuguese},
+  booktitle = {Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018)},
+  year      = {2018},
+  url       = {https://aclanthology.org/L18-1686/},
+  annote    = {Corpus unico de treinamento do BERTimbau; 2,7 bilhoes de tokens. Nao documenta estratificacao geografica por documento, o que impede auditoria direta da hipotese de sub-representacao do Nordeste.}
+}
+
+@inproceedings{devlin2019bert,
+  author    = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  title     = {{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  booktitle = {Proceedings of NAACL-HLT 2019},
+  year      = {2019},
+  annote    = {Arquitetura base do BERTimbau.}
+}
+
+% ---------------------------------------------------------------------
+% 2. Metodologia de medição de viés em modelos de linguagem
+% ---------------------------------------------------------------------
+
+@inproceedings{nangia2020crowspairs,
+  author    = {Nangia, Nikita and Vania, Clara and Bhalerao, Rasika and Bowman, Samuel R.},
+  title     = {{C}row{S}-{P}airs: A Challenge Dataset for Measuring Social Biases in Masked Language Models},
+  booktitle = {Proceedings of EMNLP 2020},
+  year      = {2020},
+  eprint    = {2010.00133},
+  archivePrefix = {arXiv},
+  annote    = {Desenho de pares minimos estereotipo/anti-estereotipo com escore por pseudo-log-likelihood. Referencia estrutural do conjunto de itens deste projeto.}
+}
+
+@inproceedings{nadeem2021stereoset,
+  author    = {Nadeem, Moin and Bethke, Anna and Reddy, Siva},
+  title     = {{S}tereo{S}et: Measuring Stereotypical Bias in Pretrained Language Models},
+  booktitle = {Proceedings of ACL-IJCNLP 2021},
+  year      = {2021},
+  annote    = {Benchmark complementar ao CrowS-Pairs; mede vies e capacidade de modelagem de lingua simultaneamente.}
+}
+
+@inproceedings{salazar2020mlmscoring,
+  author    = {Salazar, Julian and Liang, Davis and Nguyen, Toan Q. and Kirchhoff, Katrin},
+  title     = {Masked Language Model Scoring},
+  booktitle = {Proceedings of ACL 2020},
+  year      = {2020},
+  annote    = {Metodologia base do escore de pseudo-log-likelihood (PLL) usado pelo CrowS-Pairs.}
+}
+
+@inproceedings{kaneko2022unmasking,
+  author    = {Kaneko, Masahiro and Bollegala, Danushka},
+  title     = {Unmasking the Mask -- Evaluating Social Biases in Masked Language Models},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2022},
+  eprint    = {2104.07496},
+  archivePrefix = {arXiv},
+  annote    = {Critica metodologica ao PLL puro e proposta das metricas AUL e AULA. Justifica reportar AUL/AULA ao lado do PLL, e e obrigatoria para atributos multi-token.}
+}
+
+@inproceedings{neveol2022frenchcrowspairs,
+  author    = {N{\'e}v{\'e}ol, Aur{\'e}lie and Dupont, Yoann and Bezan{\c c}on, Julien and Fort, Kar{\"e}n},
+  title     = {French {C}row{S}-{P}airs: Extending a Challenge Dataset for Measuring Social Bias in Masked Language Models to a Language Other than {E}nglish},
+  booktitle = {Proceedings of ACL 2022},
+  year      = {2022},
+  url       = {https://aclanthology.org/2022.acl-long.583/},
+  annote    = {Precedente de adaptacao do CrowS-Pairs para lingua diferente do ingles; modelo de procedimento para o caso do portugues brasileiro.}
+}
+
+@article{hofmann2024dialect,
+  author  = {Hofmann, Valentin and Kalluri, Pratyusha Ria and Jurafsky, Dan and King, Sharese},
+  title   = {AI Generates Covertly Racist Decisions about People Based on their Dialect},
+  journal = {Nature},
+  volume  = {633},
+  pages   = {147--154},
+  year    = {2024},
+  doi     = {10.1038/s41586-024-07856-5},
+  note    = {Preprint: arXiv:2403.00742},
+  annote  = {Precedente central. Introduz o matched-guise probing: mesmo conteudo proposicional em duas variedades, sem mencao explicita a identidade. Fundamenta a distincao entre preconceito manifesto (overt) e encoberto (covert), que e o eixo de posicionamento deste projeto.}
+}
+
+@inproceedings{melo2026estima,
+  author    = {Melo, Jo{\~a}o Lucas Lima de and Souza, Marlo},
+  title     = {Levados em Considera{\c c}{\~a}o: Uma Avalia{\c c}{\~a}o de Vieses de Estima por Ra{\c c}a, G{\^e}nero e Regi{\~a}o em Grandes Modelos de Linguagem em Portugu{\^e}s Brasileiro},
+  booktitle = {Proceedings of the 17th International Conference on Computational Processing of Portuguese (PROPOR 2026)},
+  volume    = {1},
+  pages     = {516--528},
+  address   = {Salvador, Brasil},
+  publisher = {Association for Computational Linguistics},
+  year      = {2026},
+  url       = {https://aclanthology.org/2026.propor-1.51/},
+  annote    = {Trabalho relacionado direto, a diferenciar explicitamente. PDF integral lido em 27/08/2026. Marcadores regionais EXPLICITOS, LLMs fechados, metrica de estima autoatribuida em escala Likert. Sua secao de trabalhos futuros propoe justamente marcadores implicitos e variacao linguistica regional -- ou seja, este projeto executa a continuacao que os autores nomeiam.}
+}
+
+@inproceedings{assi2024biases,
+  author    = {Assi, Fernanda and Caseli, Helena},
+  title     = {Biases in {GPT}-3.5 Turbo Model: A Case Study Regarding Gender and Language},
+  booktitle = {Anais do XV Simp{\'o}sio Brasileiro de Tecnologia da Informa{\c c}{\~a}o e da Linguagem Humana (STIL)},
+  pages     = {294--305},
+  publisher = {SBC},
+  year      = {2024},
+  annote    = {Origem do protocolo de atribuicao de notas de estima adotado por Melo e Souza (2026). Consultar se o projeto vier a incluir um bracO generativo comparativo.}
+}
+
+% ---------------------------------------------------------------------
+% 3. Dialetologia e sociolinguística do português brasileiro
+% ---------------------------------------------------------------------
+
+@incollection{oliveira2017imperativo,
+  author    = {Oliveira, Josane Moreira de},
+  title     = {O imperativo gramatical nas capitais do {N}ordeste: an{\'a}lise sociolingu{\'i}stica de dados do {AL}i{B}},
+  booktitle = {Estudos sobre o portugu{\^e}s do {N}ordeste: l{\'i}ngua, lugar e sociedade},
+  editor    = {Lopes, N. S. and Oliveira, Josane Moreira de and Parcero, L. M. J.},
+  publisher = {Blucher},
+  address   = {S{\~a}o Paulo},
+  pages     = {27--44},
+  year      = {2017},
+  annote    = {FONTE PRIMARIA do marcador M1 (imperativo). Referencia completa recuperada em 27/08/2026 a partir da bibliografia de Figuereido (2025); o capitulo em si NAO foi lido -- o repositorio Blucher retornou HTTP 403. Os percentuais por capital usados no projeto precisam ser conferidos contra o capitulo impresso antes da submissao.}
+}
+
+@incollection{scherre2004norma,
+  author    = {Scherre, Maria Marta Pereira},
+  title     = {Norma e uso: o imperativo no portugu{\^e}s brasileiro},
+  booktitle = {O portugu{\^e}s do {B}rasil: perspectivas da pesquisa atual},
+  editor    = {Dietrich, W. and Noll, V.},
+  publisher = {Vervuert},
+  address   = {Frankfurt am Main},
+  pages     = {231--260},
+  year      = {2004},
+  annote    = {Referencia classica sobre a variacao do imperativo no PB e sua relacao com norma prescritiva.}
+}
+
+@article{scherre2007aspectos,
+  author  = {Scherre, Maria Marta Pereira},
+  title   = {Aspectos sincr{\^o}nicos e diacr{\^o}nicos do imperativo gramatical no portugu{\^e}s brasileiro},
+  journal = {Alfa: Revista de Lingu{\'i}stica},
+  volume  = {51},
+  number  = {1},
+  pages   = {189--222},
+  year    = {2007},
+  url     = {https://periodicos.fclar.unesp.br/alfa/article/view/1432},
+  annote  = {Complementa Scherre (2004) com a dimensao diacronica.}
+}
+
+@article{figuereido2025imperativo,
+  author  = {Figuereido, Joana Gomes dos Santos},
+  title   = {A express{\~a}o vari{\'a}vel do modo imperativo nas cidades de {F}eira de {S}antana-{BA} e {C}ampinas-{SP}: um estudo comparativo},
+  journal = {Revista de Estudos da Linguagem},
+  volume  = {33},
+  number  = {4},
+  pages   = {101--126},
+  year    = {2025},
+  doi     = {10.17851/2237-2083.33.4.101-126},
+  annote  = {FONTE VERIFICADA (PDF integral lido em 27/08/2026). Fornece o contraste NE x SE mais util disponivel: Campinas-SP 81 por cento de imperativo com morfologia de indicativo contra 47 por cento em Feira de Santana-BA. Documenta tambem o confundidor de escolaridade: em Feira de Santana, falantes de nivel superior usam MENOS indicativo (40 por cento) que os menos escolarizados (53 por cento).}
+}
+
+@phdthesis{cardoso2009variacao,
+  author  = {Cardoso, D. B. B.},
+  title   = {Varia{\c c}{\~a}o e mudan{\c c}a do imperativo no portugu{\^e}s brasileiro: g{\^e}nero e identidade},
+  school  = {Universidade de Bras{\'i}lia},
+  address = {Bras{\'i}lia},
+  year    = {2009},
+  annote  = {Tese de doutorado; dimensao de genero e identidade na variacao do imperativo.}
+}
+
+@mastersthesis{sampaio2001imperativo,
+  author  = {Sampaio, D. A.},
+  title   = {Modo imperativo: sua manifesta{\c c}{\~a}o/express{\~a}o no portugu{\^e}s contempor{\^a}neo},
+  school  = {Universidade Federal da Bahia},
+  address = {Salvador},
+  year    = {2001},
+  annote  = {Dados de Salvador. Diverge de Figuereido (2025) quanto ao efeito da escolaridade -- em Salvador, os mais escolarizados favorecem as formas indicativas. Divergencia relevante para a discussao do confundidor de prestigio.}
+}
+
+@article{santos2025negacao,
+  author  = {Santos, Pedro Henrique Sousa dos and Vit{\'o}rio, Elyne Giselle de Santana Lima Aguiar},
+  title   = {Meta-Analysis of Verbal Negation Studies in the {N}ortheast and {S}outheast Regions: Investigation of the Relevance of Social Conditionings},
+  journal = {Cadernos de Lingu{\'i}stica},
+  volume  = {6},
+  number  = {4},
+  pages   = {e858},
+  year    = {2025},
+  doi     = {10.25189/2675-4916.2025.v6.n4.id858},
+  annote  = {FONTE VERIFICADA. Meta-analise das tres estrategias de negacao verbal (pre-verbal, dupla, pos-verbal) no NE e SE. Estabelece que a negacao pos-verbal tem produtividade baixa em todas as localidades estudadas -- maximo de 5,6 por cento, em comunidades rurais afro-brasileiras da Bahia (Cavalcante, 2007) -- e que o Rio de Janeiro apresenta uso ELEVADO de dupla negacao. Fundamenta o rebaixamento do marcador M2 no desenho dos pares minimos.}
+}
+
+@book{rossi1963apfb,
+  author    = {Rossi, Nelson},
+  title     = {Atlas Pr{\'e}vio dos Falares Baianos},
+  publisher = {Instituto Nacional do Livro / MEC},
+  address   = {Rio de Janeiro},
+  year      = {1963},
+  annote    = {Primeiro atlas linguistico brasileiro. Rede de 50 localidades nas 16 zonas fisiograficas da Bahia; questionario reduzido de 182 questoes. Fecha a pendencia de cobertura dialetologica primaria da Bahia, aberta na v1.1.}
+}
+
+@book{bessa2010alece,
+  editor    = {Bessa, Jos{\'e} Rog{\'e}rio Fontenele},
+  title     = {Atlas Lingu{\'i}stico do Estado do {C}ear{\'a} ({ALECE})},
+  publisher = {Edi{\c c}{\~o}es UFC},
+  address   = {Fortaleza},
+  year      = {2010},
+  volume    = {2},
+  annote    = {Fecha a pendencia de cobertura dialetologica primaria do Ceara, aberta na v1.1. Iniciado em 1978 e publicado em 2010; 256 cartogramas lexicais e foneticos, 70 localidades, 4 informantes por localidade (homens e mulheres, analfabetos e com primario completo, 30 a 60 anos).}
+}
+
+@phdthesis{sa2013alipe,
+  author  = {S{\'a}, Edmilson Jos{\'e} de},
+  title   = {Atlas Lingu{\'i}stico de {P}ernambuco ({ALiPE})},
+  school  = {Universidade Federal da Para{\'i}ba},
+  year    = {2013},
+  url     = {https://alib.ufba.br/atlas-linguistico-de-pernambuco-alipe},
+  annote  = {20 pontos de inquerito, 84 informantes, 105 cartas linguisticas (50 foneticas, 47 semantico-lexicais, 8 morfossintaticas). Fonte primaria para marcadores de Pernambuco. Ano da defesa a confirmar na versao impressa.}
+}
+
+@book{aragao1984atlasparaiba,
+  author    = {Arag{\~a}o, Maria do Socorro and Menezes, Cleusa Palmeira Bezerra de},
+  title     = {Atlas Lingu{\'i}stico da {P}ara{\'i}ba},
+  publisher = {UFPB/CNPq},
+  address   = {Bras{\'i}lia},
+  year      = {1984},
+  annote    = {Fonte primaria para marcadores da Paraiba.}
+}
+
+@misc{alib_palatalizacao,
+  author       = {{Projeto Atlas Lingu{\'i}stico do Brasil (ALiB)}},
+  title        = {A realiza{\c c}{\~a}o de /t,d/ diante de /i/ no {N}ordeste brasileiro},
+  howpublished = {UEFS/UFBA},
+  url          = {http://www.mel.uefs.br/modules/conteudo/conteudo.php?conteudo=67},
+  annote       = {Corpus de 78 localidades nordestinas e 348 informantes (72 nas 9 capitais, 276 no interior), estratificados por sexo, duas faixas etarias e, nas capitais, dois niveis de escolaridade. Marcador de AUDIO do projeto (palatalizacao); nao usavel em texto por ser fenomeno fonetico. Sitio acessivel apenas por HTTP; verificar citacao na versao impressa.}
+}
+
+@book{bagno1999preconceito,
+  author    = {Bagno, Marcos},
+  title     = {Preconceito Lingu{\'i}stico: o que {\'e}, como se faz},
+  publisher = {Edi{\c c}{\~o}es Loyola},
+  address   = {S{\~a}o Paulo},
+  year      = {1999},
+  annote    = {Referencia classica sobre preconceito linguistico no Brasil. Fundamenta o eixo de escolaridade/status entre as molduras de sondagem.}
+}
+
+% ---------------------------------------------------------------------
+% 4. Dados socioeconômicos de acesso digital (hipótese de mecanismo)
+% ---------------------------------------------------------------------
+
+@techreport{cetic2024tic,
+  author      = {{Cetic.br/NIC.br}},
+  title       = {Pesquisa sobre o uso das tecnologias de informa{\c c}{\~a}o e comunica{\c c}{\~a}o nos domic{\'i}lios brasileiros: TIC Domic{\'i}lios 2024},
+  institution = {N{\'u}cleo de Informa{\c c}{\~a}o e Coordena{\c c}{\~a}o do Ponto BR},
+  year        = {2024},
+  url         = {https://cetic.br/pt/pesquisa/domicilios/},
+  annote      = {Sustenta a hipotese de mecanismo sobre a composicao geografica do brWaC. Deve ser apresentada como evidencia indireta, nunca como quantificacao do corpus.}
+}
+
+% ---------------------------------------------------------------------
+% 5. Stack técnica de coleta
+% ---------------------------------------------------------------------
+
+@misc{ytdlp,
+  title        = {yt-dlp: A feature-rich command-line audio/video downloader},
+  howpublished = {\url{https://github.com/yt-dlp/yt-dlp}},
+  annote       = {Coleta de audio e metadados.}
+}
+
+@misc{fasterwhisper,
+  title        = {faster-whisper: Faster {W}hisper transcription with {CTranslate2}},
+  howpublished = {\url{https://github.com/SYSTRAN/faster-whisper}},
+  annote       = {Transcricao automatica com timestamps em nivel de palavra.}
+}
+
+@misc{pyannote,
+  title        = {pyannote.audio: Neural building blocks for speaker diarization},
+  howpublished = {\url{https://github.com/pyannote/pyannote-audio}},
+  annote       = {Diarizacao de locutores.}
+}

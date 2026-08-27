@@ -1,7 +1,7 @@
 # Documentação Técnica da Stack de Dados
 ## Referência de apoio ao projeto — Investigação de Vieses Sociolinguísticos no BERTimbau
 
-> Este arquivo é referenciado pelo `CLAUDE.md` na raiz do projeto (seção 2, movida pra cá em 06/08/2026 para manter o CLAUDE.md enxuto — ver Log de revisões). Não é carregado automaticamente em toda sessão; o Claude Code lê sob demanda quando o trabalho envolve o pipeline `yt-dlp`/`faster-whisper`/`pyannote.audio`.
+> Este arquivo é referenciado pelo `CLAUDE.md` na raiz do projeto (seção 2, transferida para este arquivo em 06/08/2026, a fim de reduzir o tamanho do CLAUDE.md — ver Log de revisões). Não é carregado automaticamente em toda sessão; o Claude Code lê sob demanda quando o trabalho envolve o pipeline `yt-dlp`/`faster-whisper`/`pyannote.audio`.
 
 # PARTE 2 — DOCUMENTAÇÃO TÉCNICA DA STACK DE DADOS
 
@@ -91,10 +91,10 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
 ```
 
 **Vantagens / Desvantagens (`yt-dlp`):**
-- ✅ Gratuito, open source, ativamente mantido (fork robusto do `youtube-dl`), suporta >1000 sites além do YouTube.
-- ✅ `download_archive` é essencial em pipelines de pesquisa incrementais (evita reprocessar e reintroduzir vídeos já anotados/excluídos por QA).
-- ⚠️ Sujeito a mudanças frequentes no *player* do YouTube que podem quebrar extração — monitorem a versão instalada (`pip install -U yt-dlp` regularmente) e o *issue tracker* oficial em caso de falha súbita.
-- ⚠️ **Aspecto ético/legal a documentar no artigo:** verificar Termos de Serviço da plataforma de origem e, quando aplicável, licença de uso do conteúdo (Creative Commons vs. todos os direitos reservados) antes de redistribuir qualquer trecho de áudio/transcrição como parte do dataset publicado. Para publicação científica, o padrão mais seguro é **disponibilizar os IDs dos vídeos e o código de coleta**, não o áudio bruto redistribuído, salvo licença explícita que permita.
+- *Vantagem.* Gratuito, open source, ativamente mantido (fork robusto do `youtube-dl`), suporta >1000 sites além do YouTube.
+- *Vantagem.* `download_archive` é essencial em pipelines de pesquisa incrementais (evita reprocessar e reintroduzir vídeos já anotados/excluídos por QA).
+- *Ressalva.* Sujeito a mudanças frequentes no *player* do YouTube que podem quebrar extração — convém monitorar a versão instalada (`pip install -U yt-dlp` regularmente) e o *issue tracker* oficial em caso de falha súbita.
+- *Ressalva.* **Aspecto ético/legal a documentar no artigo:** verificar Termos de Serviço da plataforma de origem e, quando aplicável, licença de uso do conteúdo (Creative Commons vs. todos os direitos reservados) antes de redistribuir qualquer trecho de áudio/transcrição como parte do dataset publicado. Para publicação científica, o padrão mais seguro é **disponibilizar os IDs dos vídeos e o código de coleta**, não o áudio bruto redistribuído, salvo licença explícita que permita.
 
 ---
 
@@ -172,10 +172,10 @@ for segment in segments:
 - `vad_filter=True`: reduz processamento de silêncio e mitiga um problema conhecido do Whisper de "alucinar" texto em trechos sem fala.
 
 **Vantagens / Desvantagens:**
-- ✅ Muito mais rápido e leve em memória que o Whisper original, mantendo acurácia equivalente.
-- ✅ Suporte nativo a quantização (INT8) viabiliza rodar em GPUs com VRAM limitada ou até CPU.
-- ⚠️ `word_timestamps` do faster-whisper é uma estimativa baseada em atenção, **não é *forced alignment* fonético** — para timestamps de palavra de altíssima precisão (ex. se o projeto precisar de análise prosódica/fonética fina), o padrão da literatura é usar **WhisperX**, que faz alinhamento fonético pós-hoc com `wav2vec2`.
-- ⚠️ Modelos `large-v3` têm custo computacional significativo — para triagem em larga escala antes da curadoria manual, considerar `distil-large-v3` (mais rápido, leve perda de WER, principalmente calibrado para inglês — validar WER em PT-BR antes de adotar para a versão final do dataset).
+- *Vantagem.* Muito mais rápido e leve em memória que o Whisper original, mantendo acurácia equivalente.
+- *Vantagem.* Suporte nativo a quantização (INT8) viabiliza rodar em GPUs com VRAM limitada ou até CPU.
+- *Ressalva.* `word_timestamps` do faster-whisper é uma estimativa baseada em atenção, **não é *forced alignment* fonético** — para timestamps de palavra de altíssima precisão (ex. se o projeto precisar de análise prosódica/fonética fina), o padrão da literatura é usar **WhisperX**, que faz alinhamento fonético pós-hoc com `wav2vec2`.
+- *Ressalva.* Modelos `large-v3` têm custo computacional significativo — para triagem em larga escala antes da curadoria manual, pode-se considerar `distil-large-v3` (mais rápido, leve perda de WER, principalmente calibrado para inglês — validar WER em PT-BR antes de adotar para a versão final do dataset).
 
 ---
 
@@ -254,10 +254,10 @@ def atribuir_locutor(word_start, word_end, diarization_output):
 - Ingere áudio **mono, 16 kHz** — se a entrada tiver outro formato, o `pyannote.audio` faz *downmix* e *resample* automaticamente, mas é mais eficiente já entregar áudio nesse formato (coerente com a configuração do `yt-dlp` recomendada na seção 2.1).
 
 **Vantagens / Desvantagens:**
-- ✅ Pipeline pronto, *state of the art* em benchmarks acadêmicos abertos (AMI, VoxConverse, DIHARD, etc.), integração nativa com Hugging Face Hub.
-- ✅ Suporta cenários com número de locutores desconhecido (clustering automático) ou conhecido (`num_speakers`).
-- ⚠️ Requer aceite de termos de uso + token do Hugging Face por modelo (fricção operacional a documentar no protocolo de coleta).
-- ⚠️ Desempenho de diarização pode degradar em áudio de baixa qualidade/ruído de fundo típico de gravações amadoras do YouTube — recomenda-se etapa de QA manual amostral (ex. checar DER — *Diarization Error Rate* — em uma subamostra anotada manualmente) antes de confiar cegamente na diarização automática para curadoria do dataset final.
-- ⚠️ Licenciamento: verificar a licença específica do checkpoint usado (`community-1` é CC-BY-4.0; versões anteriores podem ter termos distintos) antes de redistribuir artefatos derivados.
+- *Vantagem.* Pipeline pronto, *state of the art* em benchmarks acadêmicos abertos (AMI, VoxConverse, DIHARD, etc.), integração nativa com Hugging Face Hub.
+- *Vantagem.* Suporta cenários com número de locutores desconhecido (clustering automático) ou conhecido (`num_speakers`).
+- *Ressalva.* Requer aceite de termos de uso + token do Hugging Face por modelo (fricção operacional a documentar no protocolo de coleta).
+- *Ressalva.* Desempenho de diarização pode degradar em áudio de baixa qualidade/ruído de fundo típico de gravações amadoras do YouTube — recomenda-se etapa de QA manual amostral (ex. checar DER — *Diarization Error Rate* — em uma subamostra anotada manualmente) antes de tomar a diarização automática como confiável para curadoria do dataset final.
+- *Ressalva.* Licenciamento: verificar a licença específica do checkpoint usado (`community-1` é CC-BY-4.0; versões anteriores podem ter termos distintos) antes de redistribuir artefatos derivados.
 
 ---

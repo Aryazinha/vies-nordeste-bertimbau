@@ -1,0 +1,643 @@
+{
+  "_meta": {
+    "descricao": "Lista semente de canais para coleta, por estado e camada. Documentação e regra de atribuição em docs/fontes_coleta.md.",
+    "levantado_em": "2026-08-27",
+    "metodo": "Consulta ao YouTube via yt-dlp; identificadores de canal confirmados na data.",
+    "regra_de_atribuicao": "estado_alvo é atribuído pelo canal, nunca pela consulta de busca ou pelo título do vídeo. Exige vínculo institucional com o estado ou evidência geográfica recorrente no conteúdo.",
+    "camadas_validas": [
+      "entrevista_vox_pop",
+      "podcast_radio_tv_regional",
+      "vlog_amador"
+    ],
+    "atualizado_em": "2026-08-27",
+    "nota_vlogs": "Camada vlog_amador ampliada em 27/08/2026. Dos 101 candidatos levantados, 34 passaram na triagem automática e 13 sobreviveram à revisão humana. Ver docs/fontes_coleta.md, seção 2.4."
+  },
+  "PB": [
+    {
+      "canal": "TV ARAPUAN",
+      "channel_id": "UCFWkgzJ360DGEJMU4XsQzSA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Programa Cidade em Ação"
+    },
+    {
+      "canal": "TH+ SBT TAMBAÚ",
+      "channel_id": "UCdFKGMlvchusRx1u3mBUwrQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Programa Tambaú da Gente"
+    },
+    {
+      "canal": "CBN Paraíba",
+      "channel_id": "UCOJfaGzIcQIPBaiRyCjLtyQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "CBN Cotidiano"
+    },
+    {
+      "canal": "Sistema 83 Podcast",
+      "channel_id": "UCelNb6fi8eQQcB-74NokR0A",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Entrevistas longas"
+    },
+    {
+      "canal": "COISAS DA PARAÍBA OFICIAL",
+      "channel_id": "UCCRbfYz7GEMu4B3Hf-lgdYw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Interior; Campina Grande e Puxinanã"
+    },
+    {
+      "canal": "VLOG DO PARAÍBA",
+      "channel_id": "UCt4oCmo4R0zaJZUifjnRavQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Campina Grande, Lagoa Seca; comércio e bairros"
+    },
+    {
+      "canal": "Coisas de Cajazeiras",
+      "channel_id": "UCq33E7-YdVXpRucBRVkNCdw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Cajazeiras; cultura local e forró"
+    },
+    {
+      "canal": "Tia Noza",
+      "channel_id": "UCz187zucLvWxdIPI8135g0g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "São José de Piranhas; sertão paraibano"
+    },
+    {
+      "canal": "TV Correio",
+      "channel_id": "UCJ4uxK_mo6gNoqk9cyvgWkw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Emissora estadual; sabatinas e agenda política, registro formal"
+    },
+    {
+      "canal": "Canal Reality do Casal",
+      "channel_id": "UCpthj4pmjNspHRN6MLDK43A",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "João Pessoa e Pombal; vlog familiar"
+    },
+    {
+      "canal": "Canal Oxente Paraíba",
+      "channel_id": "UCKCaPZH4rEZGIvDn3Mkv4ig",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Zona rural de Campina Grande e Lagoa Seca"
+    },
+    {
+      "canal": "Daniel Alves",
+      "channel_id": "UCEiUJdzUOkOsj8SK6nscZBg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "João Pessoa e Cabedelo; confirmar se não é conteúdo imobiliário"
+    }
+  ],
+  "PE": [
+    {
+      "canal": "TVTribunaPE",
+      "channel_id": "UCCbJ6DzrYeuzKb3lljEOQNw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Programa Ronda Geral"
+    },
+    {
+      "canal": "Folha de Pernambuco",
+      "channel_id": "UCFs1-aEBwg7d_n9a0gwUAZw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Série Cotidiano"
+    },
+    {
+      "canal": "TV Jornal SBT",
+      "channel_id": "UCe1XGNDeEwAx5xaLGcNPEbQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Sistema Jornal do Commercio, Recife"
+    },
+    {
+      "canal": "TV Jornal Interior",
+      "channel_id": "UCQD_Fq8NZXbHz9LI8Fa1Q9A",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Cobertura de interior"
+    },
+    {
+      "canal": "Radio Jornal",
+      "channel_id": "UCJmUR7pEaYgWquW6YwEXw6A",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Super Manhã, com participação de ouvintes"
+    },
+    {
+      "canal": "Recife Podcast",
+      "channel_id": "UCR15jJ_w5J7yLU52Nlz9u0g",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": ""
+    },
+    {
+      "canal": "CANAPÉ PODCAST",
+      "channel_id": "UCcjRt_xpaI-eAMZRjBXVB3Q",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Convidados locais"
+    },
+    {
+      "canal": "ESTRELA ALVES",
+      "channel_id": "UChpNJfaiccqD5FjbPhZ0AfA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Comunidade Sanharó, agreste de PE"
+    },
+    {
+      "canal": "Vlog com Diogo",
+      "channel_id": "UCccloBzO8YHKF0GqcunbHfQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Caruaru; feira e cotidiano do agreste"
+    },
+    {
+      "canal": "candido leal",
+      "channel_id": "UCEHW6Hz3b8RLeYdS7srQ1mQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Surubim; sítio e cotidiano rural"
+    },
+    {
+      "canal": "38313067",
+      "channel_id": "UCjFHDmE_dwrI3jr5psQCkEg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Serra Talhada; verificar proporção de fala"
+    },
+    {
+      "canal": "TV Guararapes Oficial",
+      "channel_id": "UCOFMoDHG-vKXs-f5vcG7JaQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Recife e Caruaru; reportagem policial com moradores"
+    }
+  ],
+  "CE": [
+    {
+      "canal": "Diário do Nordeste",
+      "channel_id": "UCMf_wuiFqxdhZI1GVx02mmw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Reportagem e entrevista"
+    },
+    {
+      "canal": "TV Jangadeiro SBT",
+      "channel_id": "UCEjtlZD61V7Aj-zVCi3QaUQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Programa Barra"
+    },
+    {
+      "canal": "O POVO",
+      "channel_id": "UCj-RTZE-V3Q6jleatRR9k2A",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Entrevistas ao vivo"
+    },
+    {
+      "canal": "Fortaleza Ordinária",
+      "channel_id": "UCykKsnCll1OJgbgWq-jY82A",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Convidados cearenses"
+    },
+    {
+      "canal": "Câmara de Fortaleza",
+      "channel_id": "UCaa7wRZqVT8rrv69BZB079g",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Podcast Nossa Voz"
+    },
+    {
+      "canal": "RAÍZES DO REI",
+      "channel_id": "UCNvSpGz7kXMxpkG23uWA2wA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Interior; sertão do Ceará, Pacujá"
+    },
+    {
+      "canal": "PELAS VIAS DO CARIRI",
+      "channel_id": "UClG0yi8VeV2fTyM5Qr-KfaQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Juazeiro do Norte; bairros e comércio"
+    },
+    {
+      "canal": "Luchano Malik",
+      "channel_id": "UC5ThrxE79tj30lsj-LK5v2w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Cariri; vlog estudantil, Juazeiro e Crato"
+    },
+    {
+      "canal": "Cidade Alerta Ceará",
+      "channel_id": "UCFG0PpSEK6YUUvyA9-AH2WA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Juazeiro do Norte; reportagem com moradores. Encerra a dependência de fonte única no vox-pop do estado"
+    },
+    {
+      "canal": "Acervo Mucuripe",
+      "channel_id": "UC-SFNxh2EGCqhOF0yqfIMQg",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Memória oral do Mucuripe, Fortaleza; depoimentos de moradores antigos e pescadores"
+    },
+    {
+      "canal": "Hallyson Motovlog",
+      "channel_id": "UCBknbM0sfC13DB5UQfXKo4Q",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Fortaleza; motovlog com fala corrida"
+    },
+    {
+      "canal": "Sara Emilly",
+      "channel_id": "UChz6i3wDPo7HVgb_6klP0Sw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Sobral; rotina doméstica"
+    },
+    {
+      "canal": "Aglais Rodrigues",
+      "channel_id": "UC_AoEPCamv0OKurXEVPoGdQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Sobral; Mercado Central e comércio local"
+    },
+    {
+      "canal": "Erneston Gonçalves",
+      "channel_id": "UCA1dhE6CRnUn7abJDDrQhEg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Aquiraz e estradas do interior; cotidiano e mecânica"
+    },
+    {
+      "canal": "Jenniffer Emmanuellen",
+      "channel_id": "UC3TwhBS7790aFijWDZc-pww",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Iguatu; vaquejada e cotidiano do interior"
+    },
+    {
+      "canal": "Evelyn Ferreira",
+      "channel_id": "UCKloHJ0XbUJYAoL2JBAYDdQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "Fortaleza e Canindé; séries documentais, confirmar se é portfólio jornalístico"
+    }
+  ],
+  "BA": [
+    {
+      "canal": "Tv Baianidade Oficial",
+      "channel_id": "UCmGDamP2EG1qD89d6SyJ01w",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Reportagem de bairro em Salvador"
+    },
+    {
+      "canal": "Jornal Correio",
+      "channel_id": "UCSbUDnouVlBoCFAA7OUrcqg",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Reportagem com moradores"
+    },
+    {
+      "canal": "TV Aratu",
+      "channel_id": "UCX_Nxpcz-9EXhRIlaoo2c-w",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Alô Juca, com participação de ouvintes; fonte de maior valor identificada"
+    },
+    {
+      "canal": "Portal Metro1 - Rádio Metropole",
+      "channel_id": "UCKbuLR06szTjZRNSPB0Aeuw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Jornal da Bahia no Ar"
+    },
+    {
+      "canal": "Bahia Notícias",
+      "channel_id": "UCelevrrg2g7NdlrJMPrunhw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Voz Própria Podcast"
+    },
+    {
+      "canal": "Vida no Interior da Bahia",
+      "channel_id": "UCJgIwzY6ZAOvSRDusRM5JwA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Interior; Serrolândia, Conceição do Coité, Jacobina"
+    },
+    {
+      "canal": "Isabela Libório",
+      "channel_id": "UCqAjNsKDiVvs0sXSa1wTLNA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Salvador; cotidiano e eventos locais"
+    },
+    {
+      "canal": "Jairo DroneX",
+      "channel_id": "UC9LbJbLsdiRIkyQu04KiOTQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Juazeiro-BA; ATENÇÃO: divisa com Petrolina-PE, risco de mistura de variedades"
+    },
+    {
+      "canal": "Band Bahia Oficial",
+      "channel_id": "UClXz2Nus3ASfscB60dC5gxQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "a_confirmar",
+      "nota": "Emissora regional; conteúdo esportivo de estúdio"
+    },
+    {
+      "canal": "Sabor com Dri",
+      "channel_id": "UCvc_34czo-Ol4nGB6VOXr8A",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Salvador; cotidiano doméstico e culinária"
+    },
+    {
+      "canal": "Izabella Silva",
+      "channel_id": "UCBy-xcN8gGMoGdBehIwe78g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Ilhéus; vlog semanal de rotina"
+    },
+    {
+      "canal": "João Yurley",
+      "channel_id": "UClf8--I7S_LWx7exp4afLWw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Ilhéus; parte do acervo é jogo eletrônico"
+    }
+  ],
+  "SP": [
+    {
+      "canal": "TV Band Paulista",
+      "channel_id": "UCnMfPFJ5B7pQdEl7hVwTCFQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Band Cidade, Brasil Urgente Regional"
+    },
+    {
+      "canal": "Jornal da Gazeta",
+      "channel_id": "UCNl_i-ggJbZNyOLlhE7yyhw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Jornalismo local"
+    },
+    {
+      "canal": "TV Câmara São Paulo",
+      "channel_id": "UCP8XlGjPSGj8JkuZ8hgDAJw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Séries sobre periferias"
+    },
+    {
+      "canal": "Fernando Alves",
+      "channel_id": "UC-cMolhazk6A3WszU22EvRg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Tatuapé, capital; morar sozinho em São Paulo"
+    },
+    {
+      "canal": "Kaio D'Elaqua",
+      "channel_id": "UCSp9JYcUHrU7WOAMOVI-vsw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Mooca e cena urbana da capital; documentário de bairro"
+    },
+    {
+      "canal": "Luki MotoVlog",
+      "channel_id": "UCHx0b7B1rdKZW5vsZBh31Tg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Motovlog urbano; Zona Sul, Marginal Pinheiros"
+    },
+    {
+      "canal": "Will Vlogs",
+      "channel_id": "UCIiwZH_bTfGsEhPoeLpJUXQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Parelheiros e Bororé; cotidiano da Zona Sul"
+    },
+    {
+      "canal": "Cavani Original",
+      "channel_id": "UC9Xkj2idxMFBgzO9rJrILww",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Penha, Cangaíba, Mauá; percurso por bairros da capital"
+    },
+    {
+      "canal": "Bielzau",
+      "channel_id": "UCnoSIjynxXS5SE7CqeRH9gA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Vlog pessoal na capital"
+    },
+    {
+      "canal": "Filosofia 2 Rodas",
+      "channel_id": "UCPSo2AAdJxJNIRMJ-GDAWiQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Motovlog; capital, Mauá e Santo André"
+    },
+    {
+      "canal": "Bruno Reis",
+      "channel_id": "UC2ftSjkx9TcPtqaa5X37b9g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Ribeirão Preto; daily vlog"
+    },
+    {
+      "canal": "Beatriz Salustiano",
+      "channel_id": "UCYN8VWQ_WckW8_X2DpTq4Fg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Presidente Prudente; rotina doméstica e maternidade"
+    },
+    {
+      "canal": "Marco Santos 012",
+      "channel_id": "UC1u0koYujXv4n7SXS8rUmhw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Entregador de aplicativo; região de São José dos Campos"
+    },
+    {
+      "canal": "Alan City",
+      "channel_id": "UCOu8tmZzHxFdpui4q6n73DQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "História urbana da capital; verificar se é narração roteirizada"
+    },
+    {
+      "canal": "Kellynha Costa",
+      "channel_id": "UCDMuhTKfP5PxCgXFC0Sb7jg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Campinas e Limeira; acervo majoritariamente de 2019"
+    },
+    {
+      "canal": "Record Paulista",
+      "channel_id": "UCdd1PhFKkX96UUr8KmK1DhA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Emissora regional; Bauru, Sorocaba, Marília"
+    },
+    {
+      "canal": "TH+ SBT Interior",
+      "channel_id": "UCfgLINec5p8KFyWVnogp1BA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Emissora do interior paulista; Presidente Prudente e Araçatuba"
+    },
+    {
+      "canal": "EducaPrefSP SME",
+      "channel_id": "UC5A8Zp0SzXnsyjGt_LmS2yQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Escolas municipais em Paraisópolis e Perus; alunos e professores. Amplia o vox-pop paulista, que dependia de fonte única"
+    },
+    {
+      "canal": "Mais um na pista",
+      "channel_id": "UCCAtY4pLHaGsSsFrZJcMc1A",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Motorista de aplicativo; capital e Jundiaí"
+    }
+  ],
+  "RJ": [
+    {
+      "canal": "Record Rio",
+      "channel_id": "UC-5q6GpZ1my8fV7VGT6LsWg",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Reportagem com moradores"
+    },
+    {
+      "canal": "Jornal O São Gonçalo",
+      "channel_id": "UCLRZOdi6KtqcRtncWO5sUog",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Região metropolitana"
+    },
+    {
+      "canal": "TV Band Rio",
+      "channel_id": "UCzQxHUiLa5prpJoyOxS0GSA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Jornal do Rio"
+    },
+    {
+      "canal": "Jeitinho Carioca",
+      "channel_id": "UC002CUgSIkHJG496r6PBnqw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Papo de Carioca"
+    },
+    {
+      "canal": "Rodrigo Santos",
+      "channel_id": "UCk-z5pXwPzy7NFr3QSil__w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Belford Roxo; deslocamento diário e vida de CLT"
+    },
+    {
+      "canal": "Me leva para conhecer",
+      "channel_id": "UC5iDCiLTrOebInoqyHG008A",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Vila da Penha, Bonsucesso, Tijuca; subúrbio carioca"
+    },
+    {
+      "canal": "AS AVENTURAS DE ADRIANO RJ",
+      "channel_id": "UCqm7wMBkh8dv9MIjbcVkZ9w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Transporte público carioca; BRT, cartão Jaé, Penha, Madureira"
+    },
+    {
+      "canal": "Dgw Raiz",
+      "channel_id": "UC1b9HVkWnKrpLcrs9vrAxHA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Feiras cariocas; Marechal Hermes, Praça XV, Bangu"
+    },
+    {
+      "canal": "Personal Daniel Santos",
+      "channel_id": "UCj5L5g7CaL0lSyuGjVqrZlw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Motovlog; Copacabana e zona sul"
+    },
+    {
+      "canal": "Madrugada RJ",
+      "channel_id": "UCTim5T0iUZwfHsmyWdJ8Xjg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Baixada Fluminense; Belford Roxo, Nova Iguaçu, Tinguá"
+    },
+    {
+      "canal": "Thay Magalhães",
+      "channel_id": "UCm-A8ismf7K6YjsXUSAzemA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Vlog doméstico; rotina na capital"
+    },
+    {
+      "canal": "Caty Senna",
+      "channel_id": "UCgfaioA9LZdwfmX8nP4-DVA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Duque de Caxias; rotina doméstica, feira local"
+    },
+    {
+      "canal": "EXPEDIÇÃO KL",
+      "channel_id": "UCl-wjMCg6kwdR_3mao3TTBQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Mudança da capital para Cabo Frio; ambos no RJ"
+    },
+    {
+      "canal": "Destinos Escolhidos",
+      "channel_id": "UCAbkS1NK68lgqWiaAzVgT5Q",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Feiras e comida de rua no Rio; confirmar residência"
+    },
+    {
+      "canal": "Mania de carro",
+      "channel_id": "UCxFBGY68PJqq0pSFcCodh5w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Itaboraí e Nova Iguaçu; tema automotivo com fala espontânea"
+    },
+    {
+      "canal": "Manu Trindade",
+      "channel_id": "UCbgme8gXDhZ6f-j-kKZAonA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Ipanema; confirmar residência"
+    },
+    {
+      "canal": "Anjodoasfalto13",
+      "channel_id": "UCGVqO-7zPAEq-T8X2LML1FQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Motovlog; capital e Baixada"
+    }
+  ]
+}
