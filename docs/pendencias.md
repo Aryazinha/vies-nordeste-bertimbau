@@ -238,6 +238,20 @@ Excluído do corpus principal por dissociação entre origem do vídeo e origem 
 
 ---
 
+## 5-A. Padrão recorrente: falha silenciosa
+
+Cinco defeitos distintos identificados em 27/08/2026 pertencem à mesma classe — o programa prossegue e relata sucesso em situação de erro:
+
+1. URL de canal aceita onde se esperava vídeo, produzindo registro com identificador de canal e duração vazia.
+2. Download dado por bem-sucedido sem arquivo em disco, por efeito de `ignoreerrors`.
+3. Caminho de dados relativo ao diretório de trabalho, criando pasta paralela vazia.
+4. Metadados sobrescritos entre lotes, deixando áudio sem procedência regional.
+5. Detecção de marcadores por expressão regular contabilizando "que não" como negação pós-verbal.
+
+Nenhum emitiu erro. Todos foram descobertos por conferência posterior, e três deles apenas porque a coleta foi efetivamente executada — não por leitura do código.
+
+**Encaminhamento.** A regra adotada é que toda etapa que produza artefato verifique o artefato, e não apenas o retorno da chamada. Aplicada em (1) a (4). Falta aplicá-la sistematicamente ao restante da esteira, e ao Filtro 2 em particular, cujo modo de falha inflaria a contagem de marcadores de modo desigual entre grupos — isto é, produziria resultado, e não erro.
+
 ## 6. Melhorias identificadas
 
 ### 6.1 Gazeteiro parcial em `verificar_fontes.py`

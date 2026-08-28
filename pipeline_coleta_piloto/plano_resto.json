@@ -1,0 +1,428 @@
+{
+  "_meta": {
+    "gerado_por": "selecionar_videos.py",
+    "semente": 20260827,
+    "metas_horas": {
+      "entrevista_vox_pop": 0.25,
+      "podcast_radio_tv_regional": 0.25,
+      "vlog_amador": 0.25
+    },
+    "max_canais_por_camada": 2,
+    "min_videos_por_canal": 1,
+    "regra": "estado_alvo e tipo_fonte derivam do canal em fontes.json, nunca de digitação manual",
+    "nota": "restante do plano piloto"
+  },
+  "specs": [
+    {
+      "url": "https://www.youtube.com/watch?v=9NzvVaDDGQU",
+      "video_id": "9NzvVaDDGQU",
+      "estado_alvo": "PB",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "TV ARAPUAN",
+      "channel_id": "UCFWkgzJ360DGEJMU4XsQzSA",
+      "titulo": "CIDADE EM AÇÃO: Porteiro cai no golpe da IA e perde R$ 20 mil em falsa venda de veículo online",
+      "duracao_total_s": 416.0,
+      "duracao_coletada_s": 416
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=laIn5rdHc6A",
+      "video_id": "laIn5rdHc6A",
+      "estado_alvo": "PB",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "TH+ SBT TAMBAÚ",
+      "channel_id": "UCdFKGMlvchusRx1u3mBUwrQ",
+      "titulo": "Hytalo Santos e Israel respondem por crimes envolvendo menores - TH+ Notícias - 14 08 26",
+      "duracao_total_s": 369.0,
+      "duracao_coletada_s": 369
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=OezDdyhXyr0",
+      "video_id": "OezDdyhXyr0",
+      "estado_alvo": "PB",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "CBN Paraíba",
+      "channel_id": "UCOJfaGzIcQIPBaiRyCjLtyQ",
+      "titulo": "Eleições 2024: Sabatina com Inácio Falcão (PC do B), pré-candidato a prefeito de Campina Grande",
+      "duracao_total_s": 3265.0,
+      "trecho": {
+        "inicio_s": 163,
+        "fim_s": 763
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=EVtT4QOWj9g",
+      "video_id": "EVtT4QOWj9g",
+      "estado_alvo": "PB",
+      "tipo_fonte": "vlog_amador",
+      "canal": "COISAS DA PARAÍBA OFICIAL",
+      "channel_id": "UCCRbfYz7GEMu4B3Hf-lgdYw",
+      "titulo": "FUI CONHECER A FAZENDA RIACHO DO NAVIO CRIAÇÃO DE GADO DA RAÇA SINDI ",
+      "duracao_total_s": 768.0,
+      "duracao_coletada_s": 768
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pb2dnYWo33U",
+      "video_id": "pb2dnYWo33U",
+      "estado_alvo": "PE",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Folha de Pernambuco",
+      "channel_id": "UCFs1-aEBwg7d_n9a0gwUAZw",
+      "titulo": "Ebola: febre, dores de cabeça e no corpo estão entre os sintomas",
+      "duracao_total_s": 207.0,
+      "duracao_coletada_s": 207
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=31AhyVPw5uY",
+      "video_id": "31AhyVPw5uY",
+      "estado_alvo": "PE",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "TVTribunaPE",
+      "channel_id": "UCCbJ6DzrYeuzKb3lljEOQNw",
+      "titulo": "Carros vão voltar a circular na rua da Imperatriz",
+      "duracao_total_s": 233.0,
+      "duracao_coletada_s": 233
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=tjp63KRDVyg",
+      "video_id": "tjp63KRDVyg",
+      "estado_alvo": "PE",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Folha de Pernambuco",
+      "channel_id": "UCFs1-aEBwg7d_n9a0gwUAZw",
+      "titulo": "AVC: o que fazer e como identificar os primeiros sintomas",
+      "duracao_total_s": 236.0,
+      "duracao_coletada_s": 236
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=b82HS4Dnevg",
+      "video_id": "b82HS4Dnevg",
+      "estado_alvo": "PE",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Jornal SBT",
+      "channel_id": "UCe1XGNDeEwAx5xaLGcNPEbQ",
+      "titulo": "SANTA CRUZ 2 X 0 CAXIAS - MELHORES MOMENTOS - 22.08.2026",
+      "duracao_total_s": 178.0,
+      "duracao_coletada_s": 178
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qV84l1kYR7Q",
+      "video_id": "qV84l1kYR7Q",
+      "estado_alvo": "PE",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Jornal Interior",
+      "channel_id": "UCQD_Fq8NZXbHz9LI8Fa1Q9A",
+      "titulo": "Belezas naturais e culinária regional atraem turistas a Lagoa dos Gatos",
+      "duracao_total_s": 257.0,
+      "duracao_coletada_s": 257
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=YpVeQxah5uw",
+      "video_id": "YpVeQxah5uw",
+      "estado_alvo": "PE",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Jornal Interior",
+      "channel_id": "UCQD_Fq8NZXbHz9LI8Fa1Q9A",
+      "titulo": "Cidade em Foco visita município de Cumaru, no Agreste de Pernambuco",
+      "duracao_total_s": 1802.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=UgCRpYGlsDA",
+      "video_id": "UgCRpYGlsDA",
+      "estado_alvo": "PE",
+      "tipo_fonte": "vlog_amador",
+      "canal": "Vlog com Diogo",
+      "channel_id": "UCccloBzO8YHKF0GqcunbHfQ",
+      "titulo": "Sairé Pernambuco  terra da laranja. ",
+      "duracao_total_s": 5769.0,
+      "trecho": {
+        "inicio_s": 288,
+        "fim_s": 888
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=jkjrOvv6eXw",
+      "video_id": "jkjrOvv6eXw",
+      "estado_alvo": "PE",
+      "tipo_fonte": "vlog_amador",
+      "canal": "candido leal",
+      "channel_id": "UCEHW6Hz3b8RLeYdS7srQ1mQ",
+      "titulo": "Fui em #Caruaru.Av;Agamenon voltando para casa #surubim",
+      "duracao_total_s": 224.0,
+      "duracao_coletada_s": 224
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xDJn4U0KY38",
+      "video_id": "xDJn4U0KY38",
+      "estado_alvo": "CE",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Diário do Nordeste",
+      "channel_id": "UCMf_wuiFqxdhZI1GVx02mmw",
+      "titulo": "#04 Economia circular: transformar resíduos em soluções coletivas. Com André Melo e Márcia Alencar",
+      "duracao_total_s": 1710.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=-6LLNImm2e4",
+      "video_id": "-6LLNImm2e4",
+      "estado_alvo": "CE",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Cidade Alerta Ceará",
+      "channel_id": "UCFG0PpSEK6YUUvyA9-AH2WA",
+      "titulo": "Guarda municipal prende ladrão de fios e frustra assalto a coletivo | Cidade Alerta CE",
+      "duracao_total_s": 310.0,
+      "duracao_coletada_s": 310
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eKZAtOB8XFo",
+      "video_id": "eKZAtOB8XFo",
+      "estado_alvo": "CE",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Jangadeiro SBT",
+      "channel_id": "UCEjtlZD61V7Aj-zVCi3QaUQ",
+      "titulo": "QUANDO O ASSUNTO É 'TRÊ-LÊ-LÊ', O POVO DA FEIRA RESPONDE",
+      "duracao_total_s": 240.0,
+      "duracao_coletada_s": 240
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=UVEpwsIMieU",
+      "video_id": "UVEpwsIMieU",
+      "estado_alvo": "CE",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Jangadeiro SBT",
+      "channel_id": "UCEjtlZD61V7Aj-zVCi3QaUQ",
+      "titulo": "PIZZAIOLO ITALIANO FAZ SUCESSO NA PRAIA DO FUTURO COM PIZZA DE 2 METROS",
+      "duracao_total_s": 286.0,
+      "duracao_coletada_s": 286
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Ucaw-abEtMQ",
+      "video_id": "Ucaw-abEtMQ",
+      "estado_alvo": "CE",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "O POVO",
+      "channel_id": "UCj-RTZE-V3Q6jleatRR9k2A",
+      "titulo": "João Campos e Raquel Lyra trocam acusações sobre gabinete do ódio | JPB",
+      "duracao_total_s": 161.0,
+      "duracao_coletada_s": 161
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=egs941W2_mc",
+      "video_id": "egs941W2_mc",
+      "estado_alvo": "CE",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "O POVO",
+      "channel_id": "UCj-RTZE-V3Q6jleatRR9k2A",
+      "titulo": "Relator da PEC da escala 6×1 no Senado mantém texto aprovado na Câmara l O POVO NEWS",
+      "duracao_total_s": 175.0,
+      "duracao_coletada_s": 175
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=EsbITt03Mc8",
+      "video_id": "EsbITt03Mc8",
+      "estado_alvo": "CE",
+      "tipo_fonte": "vlog_amador",
+      "canal": "PELAS VIAS DO CARIRI",
+      "channel_id": "UClG0yi8VeV2fTyM5Qr-KfaQ",
+      "titulo": "MERCADO SENHORA SANTANA-JUAZEIRO DO NORTE ",
+      "duracao_total_s": 481.0,
+      "duracao_coletada_s": 481
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bWlmWW-wPYI",
+      "video_id": "bWlmWW-wPYI",
+      "estado_alvo": "BA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Tv Baianidade Oficial",
+      "channel_id": "UCmGDamP2EG1qD89d6SyJ01w",
+      "titulo": "jornalismo verdade",
+      "duracao_total_s": 273.0,
+      "duracao_coletada_s": 273
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=cAIzvDSJMrA",
+      "video_id": "cAIzvDSJMrA",
+      "estado_alvo": "BA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Tv Baianidade Oficial",
+      "channel_id": "UCmGDamP2EG1qD89d6SyJ01w",
+      "titulo": "Moradores do Bairro 2 de Julho em Salvador reclamam de descaso da codesal referente a uma cratera",
+      "duracao_total_s": 666.0,
+      "duracao_coletada_s": 666
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bzP_BV0eXAE",
+      "video_id": "bzP_BV0eXAE",
+      "estado_alvo": "BA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "Portal Metro1 - Rádio Metropole",
+      "channel_id": "UCKbuLR06szTjZRNSPB0Aeuw",
+      "titulo": "Primeira Dama Janja defende maior participação de mulheres na política - JBA - Rádio Metropole",
+      "duracao_total_s": 2916.0,
+      "trecho": {
+        "inicio_s": 146,
+        "fim_s": 746
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=cY9sXWY3Ga8",
+      "video_id": "cY9sXWY3Ga8",
+      "estado_alvo": "BA",
+      "tipo_fonte": "vlog_amador",
+      "canal": "Isabela Libório",
+      "channel_id": "UCqAjNsKDiVvs0sXSa1wTLNA",
+      "titulo": "os próximos LANÇAMENTOS de LIVROS BRASILEIROS 💫",
+      "duracao_total_s": 1230.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8gJu0njZ7G0",
+      "video_id": "8gJu0njZ7G0",
+      "estado_alvo": "SP",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "TV Band Paulista",
+      "channel_id": "UCnMfPFJ5B7pQdEl7hVwTCFQ",
+      "titulo": "PROGRAMA DNA - 22/08/2026 - THAIS AMADO | Band Paulista",
+      "duracao_total_s": 1358.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=gqhVsXGZ4TY",
+      "video_id": "gqhVsXGZ4TY",
+      "estado_alvo": "SP",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "Jornal da Gazeta",
+      "channel_id": "UCNl_i-ggJbZNyOLlhE7yyhw",
+      "titulo": "Risco de nova avalanche ameaça Nepal e Tibete",
+      "duracao_total_s": 209.0,
+      "duracao_coletada_s": 209
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=sY2bM5G9nS0",
+      "video_id": "sY2bM5G9nS0",
+      "estado_alvo": "SP",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Câmara São Paulo",
+      "channel_id": "UCP8XlGjPSGj8JkuZ8hgDAJw",
+      "titulo": "+ 50 Faz Muito Bem - Estamos Preparados para Envelhecer Parte 2/2",
+      "duracao_total_s": 914.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=D1W7mVw37KM",
+      "video_id": "D1W7mVw37KM",
+      "estado_alvo": "SP",
+      "tipo_fonte": "vlog_amador",
+      "canal": "Kaio D'Elaqua",
+      "channel_id": "UCSp9JYcUHrU7WOAMOVI-vsw",
+      "titulo": "Uma manhã de sábado com o Negão do Pari (+ um sambalele)",
+      "duracao_total_s": 1923.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ck2s60E559w",
+      "video_id": "ck2s60E559w",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Jornal O São Gonçalo",
+      "channel_id": "UCLRZOdi6KtqcRtncWO5sUog",
+      "titulo": "Flim 2025: Editoras de Maricá destacam força da literatura regional no evento",
+      "duracao_total_s": 207.0,
+      "duracao_coletada_s": 207
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=lhxyaIYfMvc",
+      "video_id": "lhxyaIYfMvc",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Record Rio",
+      "channel_id": "UC-5q6GpZ1my8fV7VGT6LsWg",
+      "titulo": "VIH TUBE E ELIZIER FICAM PRESOS EM BARCO NA ITÁLIA",
+      "duracao_total_s": 226.0,
+      "duracao_coletada_s": 226
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rocdHIyi5a0",
+      "video_id": "rocdHIyi5a0",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Jornal O São Gonçalo",
+      "channel_id": "UCLRZOdi6KtqcRtncWO5sUog",
+      "titulo": "OSG Encontros | Júlio São Paio",
+      "duracao_total_s": 1326.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Xs5y13Zvf4c",
+      "video_id": "Xs5y13Zvf4c",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Band Rio",
+      "channel_id": "UCzQxHUiLa5prpJoyOxS0GSA",
+      "titulo": "Forte de Copacabana será concedido pelo exército brasileiro em 2027",
+      "duracao_total_s": 233.0,
+      "duracao_coletada_s": 233
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ucdOz-OJY0o",
+      "video_id": "ucdOz-OJY0o",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "Jeitinho Carioca",
+      "channel_id": "UC002CUgSIkHJG496r6PBnqw",
+      "titulo": "CARIOCAS DO BEM: Sebastião Oliveira, fundador do Centro de Treinamento de Badminton Miratus",
+      "duracao_total_s": 1456.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_LyIIt812Gk",
+      "video_id": "_LyIIt812Gk",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "vlog_amador",
+      "canal": "Me leva para conhecer",
+      "channel_id": "UC5iDCiLTrOebInoqyHG008A",
+      "titulo": "Da Barra ao bairro da Tijuca, Rio de Janeiro.",
+      "duracao_total_s": 1201.0,
+      "trecho": {
+        "inicio_s": 120,
+        "fim_s": 720
+      },
+      "duracao_coletada_s": 600
+    }
+  ]
+}

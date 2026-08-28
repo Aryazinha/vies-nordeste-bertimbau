@@ -59,8 +59,24 @@ def main() -> None:
         d["arquivo"] = f"{m.id}.wav"
         registros.append(d)
 
-    METADADOS.write_text(json.dumps(registros, ensure_ascii=False, indent=2),
+    # Mescla com o que já existe, em vez de substituir. A coleta é incremental
+    # por natureza — o plano é executado em lotes —, e sobrescrever apagaria a
+    # procedência dos lotes anteriores, deixando áudio no disco sem indicação de
+    # estado nem de camada. Ocorreu em 27/08/2026, entre o primeiro lote e o
+    # segundo: o áudio permaneceu, a atribuição regional não.
+    anteriores = []
+    if METADADOS.exists():
+        anteriores = json.loads(METADADOS.read_text(encoding="utf-8"))
+
+    por_id = {r["id"]: r for r in anteriores}
+    por_id.update({r["id"]: r for r in registros})
+    consolidado = list(por_id.values())
+
+    METADADOS.write_text(json.dumps(consolidado, ensure_ascii=False, indent=2),
                          encoding="utf-8")
+    if anteriores:
+        print(f"metadados mesclados: {len(anteriores)} anteriores + "
+              f"{len(registros)} novos = {len(consolidado)}")
 
     tamanho = sum(f.stat().st_size for f in AUDIO_DIR.glob("*.wav")) / 1024**2
     faltaram = len(specs) - len(metas)
