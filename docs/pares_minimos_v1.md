@@ -209,7 +209,13 @@ A conjunção é desconfortável: **o que o modelo percebe é o que a fala real 
 
 **(c) Reduzir o peso do bloco e reposicionar o artigo.** O instrumento passa a apoiar-se predominantemente na morfossintaxe, e o artigo assume que mede viés morfossintático-dialetal. Coerente com o paradigma de Hofmann et al., que emprega feixes de traços gramaticais, e imune à objeção de frequência. O custo é direto: o bloco morfossintático é o que produz menos sinal no modelo, e a medição pode não distinguir condição alguma.
 
-**Recomendação registrada.** Não decidir antes de a coleta em curso elevar o volume por estado. Com quatro vezes o material atual, a distinção entre "o léxico é raro" e "o léxico não ocorre" torna-se possível, e a escolha deixa de ser especulativa. A conduta (a) é a única que não exige trabalho adicional; as outras duas exigem, e por isso não devem ser adotadas por inércia.
+**Atualização de 28/08/2026 — a coleta ocorreu, e a conduta (a) caiu.** Com 5,52 h e 30 mil palavras de fala nordestina, os itens do bloco não registraram nenhuma ocorrência, ao passo que os itens sudestinos ocorreram cinco vezes em 15 mil palavras, distribuídos pelas três camadas. Na camada de vlog isoladamente, o Nordeste tem mais material e zero ocorrências. Sob taxas iguais, esperar-se-iam dez ocorrências no material nordestino.
+
+O bloco não é apenas frágil: é **assimétrico**. Contrastaria itens sudestinos atestados em fala real contra itens nordestinos não atestados — o que não constitui *matched-guise*, e sim oposição entre fala real e fala construída, precisamente no eixo que o estudo mede. Efeito medido nessas condições seria indistinguível de artefato.
+
+**A escolha reduz-se a (b) ou (c).** Detalhamento em `experimentos/resultados/piloto_medicoes.md`, seção A.3.
+
+**Recomendação anterior, superada.** Não decidir antes de a coleta em curso elevar o volume por estado. Com quatro vezes o material atual, a distinção entre "o léxico é raro" e "o léxico não ocorre" torna-se possível, e a escolha deixa de ser especulativa. A conduta (a) é a única que não exige trabalho adicional; as outras duas exigem, e por isso não devem ser adotadas por inércia.
 
 ## 9. Pendências
 

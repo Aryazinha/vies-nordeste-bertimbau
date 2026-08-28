@@ -124,13 +124,19 @@ O volume de fala necessário por variedade foi derivado da condição estatísti
 **Não verificado:** que o locutor dominante da camada de vox-pop seja o repórter, e não um entrevistado loquaz. Da suposição depende toda a estimativa de fala aproveitável.
 **Libera a afirmação:** verificar se o mesmo perfil de voz reaparece em vídeos distintos do mesmo canal.
 
-## 2.4 Os marcadores lexicais não ocorrem em fala espontânea
+## 2.4 Assimetria de ocorrência entre os itens lexicais dos dois grupos
 
-**Estado:** indício forte, volume insuficiente.
-**Medido:** nenhuma ocorrência de *oxe*, *oxente*, *arretado*, *aperreado* ou *avexado* em 1,55 h de fala regional. A única ocorrência aparente é homógrafo — "se você **visse** as imagens" é o imperfeito do subjuntivo de *ver*, não o marcador discursivo recifense.
-**Libera a afirmação:** volume compatível com a frequência esperada dos itens. Com 0,25 h por estado, ausência não distingue "não ocorre" de "não foi amostrado" — que é precisamente o que o dimensionamento do item 1.8 formaliza.
-**Se confirmado:** o Bloco B do instrumento perde sustentação e a limitação deve ser declarada.
-**Observação citável desde já:** a homografia de *visse* é armadilha real para detecção automática, e recai sobre o único marcador proposto para Pernambuco.
+**Estado:** medido em 5,52 h; forte, e com consequência decidida sobre o instrumento.
+**Medido:** nenhuma ocorrência dos itens nordestinos do instrumento em 29.999 palavras de fala nordestina; cinco ocorrências dos itens sudestinos em 14.934 palavras de fala sudestina — *mano* (3), *maneiro* (1) e *caraca* (1) —, distribuídas pelas três camadas. Na camada de vlog isoladamente, o grupo nordestino dispõe de mais material (7.917 palavras contra 5.338) e registra zero. Sob taxas iguais, esperar-se-iam cerca de dez ocorrências no material nordestino; a probabilidade de observar zero é da ordem de 4×10⁻⁵.
+**Homógrafos excluídos após inspeção individual:** *visse* como imperfeito do subjuntivo de *ver*, e *da hora* na acepção literal, ocorrida no Ceará.
+
+**O que autoriza afirmar:** neste corpus, os itens lexicais nordestinos do instrumento não ocorrem, os sudestinos ocorrem, e a diferença de taxa é improvável sob hipótese de igualdade.
+
+**O que não autoriza afirmar:** que falantes nordestinos não empreguem léxico regional. Os itens foram escolhidos sem evidência de frequência, e as duas listas não são equivalentes em natureza — a sudestina reúne gíria urbana corrente; a nordestina, itens possivelmente restritos a registros, faixas etárias ou contextos que este corpus não amostra. **O achado é sobre os itens do instrumento, não sobre os falantes.** Escrever o contrário seria erro grave, e do tipo que confirma o próprio preconceito que o artigo investiga.
+
+**Consequência já decidida:** o bloco lexical do instrumento é assimétrico, e não apenas frágil. Contrastaria itens sudestinos atestados em fala real contra itens nordestinos não atestados, o que não constitui *matched-guise*. Efeito medido nessas condições é indistinguível de artefato.
+
+**Libera afirmação mais forte:** levantamento de frequência dos itens em corpus de fala de referência, que permitiria distinguir "itens raros" de "itens mal escolhidos".
 
 ## 2.5 A sensibilidade do modelo concentra-se no léxico
 

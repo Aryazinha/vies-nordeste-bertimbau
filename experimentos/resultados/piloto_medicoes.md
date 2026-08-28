@@ -129,3 +129,71 @@ Um vídeo do plano tornou-se indisponível entre o planejamento e a coleta — 1
 | Transcrição penaliza fala nordestina | **Não corroborada**; diferença de +0,010 a favor do Nordeste |
 | Negação pós-verbal exige volume alto | **Confirmada**; zero ocorrências em volume abaixo do dimensionado |
 | Léxico regional ocorre em fala espontânea | **Não corroborada**; nenhuma ocorrência em 1,55 h |
+
+
+---
+
+# Adendo — segundo lote, 28/08/2026
+
+**Material:** 52 registros, 5,52 h, cerca de 0,92 h por estado. Distribuição: CE 10, PB 10, PE 9, RJ 9, BA 7, SP 7. Triplica o volume do primeiro lote e permite distinguir raridade de ausência.
+
+## A.1 Rendimento — estável
+
+| Camada | n | Fala / duração | Primeiro lote | Suposto | Dominante |
+|---|---|---|---|---|---|
+| `entrevista_vox_pop` | 21 | 91,8% | 92,3% | 35% | 51,0% |
+| `podcast_radio_tv_regional` | 20 | 87,3% | 89,2% | 60% | 73,0% |
+| `vlog_amador` | 11 | 85,1% | 81,0% | 70% | 83,0% |
+
+As medidas mantêm-se com o triplo do material, o que eleva a confiança na revisão da meta de volume. As suposições permanecem pessimistas por larga margem, exceto a do vlog.
+
+## A.2 Confiança de transcrição — a diferença entre grupos desaparece
+
+| Estado | Palavras | Confiança | Primeiro lote |
+|---|---|---|---|
+| PB | 9.069 | 0,947 | 0,941 |
+| PE | 5.681 | 0,948 | 0,975 |
+| CE | 7.192 | 0,944 | 0,961 |
+| BA | 8.205 | 0,940 | 0,904 |
+| SP | 7.554 | 0,948 | 0,953 |
+| RJ | 7.431 | 0,929 | 0,898 |
+
+**Nordeste 0,944; Sudeste 0,939; diferença +0,006.**
+
+A dispersão entre estados, que no primeiro lote ia de 0,898 a 0,975, reduziu-se a 0,929–0,948. A variação anterior era ruído de amostra pequena; com 45 mil palavras os estados convergem, e o Rio de Janeiro permanece como o menor valor.
+
+Reforça-se a leitura preliminar: **não há indício de que o reconhecimento penalize a fala nordestina.** Segue valendo que confiança não é WER, e que a verificação definitiva exige transcrição humana de referência.
+
+## A.3 Léxico regional — assimetria entre grupos, e ela é decisiva
+
+Todas as ocorrências foram inspecionadas individualmente. Dois homógrafos foram excluídos da contagem:
+
+- ***visse*** — "se você **visse** as imagens" é o imperfeito do subjuntivo de *ver*, não o marcador discursivo recifense.
+- ***da hora*** — "os pacotinhos **da hora** e da roça", no Ceará, é a expressão literal, não a gíria paulistana.
+
+Contagem após inspeção:
+
+| Grupo | Ocorrências | Palavras | Taxa |
+|---|---|---|---|
+| Nordeste | **0** | 29.999 | 0,00 por 10 mil |
+| Sudeste | 5 | 14.934 | 3,35 por 10 mil |
+
+As ocorrências sudestinas são *mano* (3, em vlog de São Paulo), *maneiro* (1, em rádio e TV do Rio) e *caraca* (1, em vox-pop do Rio).
+
+**O resultado não se explica por composição de camadas.** As ocorrências sudestinas distribuem-se pelas três camadas, e não se concentram no vlog. Na camada de vlog isoladamente, o Nordeste dispõe de **mais** material — 7.917 palavras contra 5.338 — e registra zero ocorrências, contra três do Sudeste.
+
+Sob a hipótese de taxas iguais, esperar-se-iam cerca de 10 ocorrências no material nordestino. A probabilidade de observar zero é da ordem de 4×10⁻⁵.
+
+### O que isso autoriza e o que não autoriza afirmar
+
+**Autoriza:** neste corpus, os itens lexicais nordestinos do instrumento não ocorrem, ao passo que os itens sudestinos ocorrem, e a diferença de taxa é improvável sob a hipótese de igualdade.
+
+**Não autoriza:** afirmar que falantes nordestinos não empregam léxico regional. Os itens foram escolhidos sem evidência de frequência, e as duas listas não são equivalentes em natureza — a sudestina reúne gíria urbana corrente, a nordestina reúne itens possivelmente restritos a registros ou faixas etárias que o corpus não amostra. **O achado é sobre os itens do instrumento, não sobre os falantes.**
+
+### Consequência para o Bloco B
+
+A conduta (a) da seção 8 de `docs/pares_minimos_v1.md` — manter o bloco declarando a fragilidade — **deixa de ser sustentável**. O problema não é o bloco ser fraco, e sim ser **assimétrico**: contrastaria itens sudestinos que ocorrem em fala real contra itens nordestinos que não ocorrem. Isso não é *matched-guise* — é opor fala atestada a fala construída, e no eixo exato que o estudo mede.
+
+Um efeito medido nessas condições seria indistinguível do artefato de um lado do contraste ser artificial.
+
+Restam as condutas (b), substituir os itens por outros de frequência atestada, e (c), reduzir o peso do bloco e reposicionar o instrumento sobre a morfossintaxe.
