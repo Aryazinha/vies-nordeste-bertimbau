@@ -64,7 +64,17 @@ As revisões anteriores do projeto registram, a partir de Oliveira (2017), que F
 
 **Consequência operacional:** o item **C1, que representa o Ceará, está suspenso** até a conferência do capítulo impresso. Se a segunda leitura estiver correta, o guise cearense apoiado em M1 estará invertido, e o Ceará precisará de marcador próprio, à semelhança do que já ocorre com Pernambuco (seção 5).
 
-### 3.3 Requalificação de M2
+### 3.3 Evidência empírica sobre M3, obtida no piloto de 27/08/2026
+
+A primeira aplicação do Filtro 2, sobre 1,55 h de fala espontânea coletada pelo projeto, **não registrou nenhuma ocorrência** de `oxe`, `oxente`, `arretado`, `aperreado` ou `avexado`. Medições completas em `experimentos/resultados/piloto_medicoes.md`.
+
+O volume é pequeno demais para reprovar os itens, mas estabelece que sua frequência é baixa o suficiente para que a confirmação exija volume consideravelmente maior que o dimensionado para os marcadores morfossintáticos — cujo cálculo, no passo 4.2, tomou a negação pós-verbal como caso dimensionante. Se o léxico for mais raro que ela, é o léxico que deve dimensionar a coleta, e não o contrário.
+
+**Armadilha de homografia em *visse*.** A única ocorrência aparente, no Ceará, é o imperfeito do subjuntivo de *ver* — "se você visse as imagens" —, e não o marcador discursivo recifense. A distinção não é acessível a busca por forma gráfica.
+
+A consequência recai sobre Pernambuco, que a seção 6 já registrava como o único estado-alvo sem marcador morfossintático próprio, e cuja proposta de marcador era justamente *visse?*. Um detector que não separe o homógrafo registrará o marcador em toda variedade, inclusive no grupo de controle, produzindo a aparência de ausência de contraste.
+
+### 3.4 Requalificação de M2
 
 A meta-análise de Santos e Vitório (2025) estabelece que a ordem de produtividade das estratégias de negação — pré-verbal, dupla, pós-verbal — é constante nas localidades estudadas do Nordeste e do Sudeste, e que a negação pós-verbal é rara em toda parte, com máximo de 5,6% de ocorrências.
 
@@ -154,7 +164,7 @@ Dois filtros independentes e cumulativos. Um item integra o experimento apenas s
 
 **Filtro 2 — ocorrência em corpus de fala espontânea.** A seção 1.4 do `CLAUDE.md` atribui ao corpus de áudio do projeto exatamente esta função: um marcador candidato só é promovido a confirmado se ocorrer em fala espontânea nas transcrições coletadas para o estado correspondente. Marcador ausente do corpus não integra o experimento.
 
-**Calibração do Filtro 2 para variantes raras.** Conforme 3.3, a negação pós-verbal tem produtividade da ordem de 5%. Antes de aplicar o filtro a M2, deve-se estimar o volume de fala necessário para que a ausência de ocorrências seja informativa; do contrário, o filtro reprovaria o marcador por insuficiência amostral e não por inadequação. O mesmo cuidado vale para itens lexicais de baixa frequência.
+**Calibração do Filtro 2 para variantes raras.** Conforme 3.4, a negação pós-verbal tem produtividade da ordem de 5%. Antes de aplicar o filtro a M2, deve-se estimar o volume de fala necessário para que a ausência de ocorrências seja informativa; do contrário, o filtro reprovaria o marcador por insuficiência amostral e não por inadequação. O mesmo cuidado vale para itens lexicais de baixa frequência.
 
 ---
 

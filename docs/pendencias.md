@@ -188,6 +188,34 @@ O cálculo de WER e DER exige transcrição manual de referência: 20 minutos po
 
 ---
 
+## 4-A. Achados do piloto de 27/08/2026
+
+Medições completas em `experimentos/resultados/piloto_medicoes.md`.
+
+### 4A.1 Detecção de marcadores por expressão regular é inadequada
+
+A busca automática contabilizou "que não" como negação pós-verbal, "ele vai" como imperativo e o subjuntivo de *ver* como o marcador recifense *visse?*. Os três erros inflam a contagem, e de modo desigual entre marcadores — o que enviesaria a comparação entre grupos, não apenas a sua magnitude.
+
+**Encerra a pendência:** detector que opere sobre texto com pontuação preservada e com análise morfossintática capaz de distinguir imperativo de presente do indicativo e de identificar fronteira de oração. Sem isso, o Filtro 2 não pode ser aplicado em escala.
+
+### 4A.2 Hipótese do locutor dominante em vox-pop não verificada
+
+O recálculo do rendimento supõe que o locutor dominante da camada de vox-pop seja o repórter, e não um entrevistado loquaz. Da suposição depende a estimativa de fala aproveitável e, por consequência, a meta de volume.
+
+**Encerra a pendência:** verificar se o mesmo perfil de voz reaparece em vídeos distintos do mesmo canal, o que caracterizaria o repórter.
+
+### 4A.3 Revisão da meta de volume, pendente de piloto maior
+
+As medições indicam cerca de 6,4 h de áudio bruto por estado, contra as 8,3 h supostas, e cerca de 38 h no total contra 50 h. A amostra é de 6, 6 e 5 arquivos por camada, insuficiente para revisar o parâmetro. A revisão fica condicionada a piloto de maior volume.
+
+### 4A.4 O léxico regional pode ser o caso dimensionante, e não a negação
+
+O cálculo do passo 4.2 tomou a negação pós-verbal como marcador mais raro, e dela derivou a meta. O piloto não registrou nenhuma ocorrência de léxico regional em 1,55 h, o que levanta a possibilidade de que o léxico seja ainda mais raro. Sendo esse o caso, é ele que deve dimensionar a coleta.
+
+**Encerra a pendência:** estimar a frequência dos itens lexicais em corpus de fala já existente, ou no próprio corpus do projeto quando alcançar volume suficiente.
+
+---
+
 ## 5. Decisões pendentes da equipe
 
 ### 5.1 Simetria entre os grupos

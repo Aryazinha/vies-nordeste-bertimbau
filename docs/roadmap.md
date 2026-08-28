@@ -23,7 +23,7 @@ Segue-se o critério de priorização: **trabalho que aproxima o projeto de ter 
 | **1** | Teste de fumaça do instrumento | **Concluído** em 27/08/2026 | — |
 | **2** | Fechamento das pendências de citação e revisão editorial | **Concluído** em 27/08/2026 | — |
 | **3** | Validação dos itens por juízes falantes nativos | Não iniciado, **bloqueado** | Passo 3.1 |
-| **4** | Coleta do corpus de áudio | **Desbloqueado** em 27/08/2026; execução não iniciada | — |
+| **4** | Coleta do corpus de áudio | **Piloto executado** em 27/08/2026: 17 trechos, 1,55 h, esteira validada de ponta a ponta. Coleta em escala não iniciada | — |
 
 ### Passo 1 — Teste de fumaça do instrumento (concluído)
 
@@ -50,6 +50,8 @@ Execução do pipeline já implementado em `pipeline_coleta_piloto/`. É o passo
 **4.1 — Lista de fontes. Concluído** em 27/08/2026. Lista semente de 32 canais verificados, em `docs/fontes_coleta.md` e `pipeline_coleta_piloto/fontes.json`. Estabelecida a regra de atribuição por canal, depois de o levantamento por consulta de busca ter demonstrado contaminação entre estados.
 
 **4.2 — Meta de volume. Concluído** em 27/08/2026. Derivada do requisito estatístico do Filtro 2 em `experimentos/meta_volume_corpus.py`, com resultado em `experimentos/resultados/meta_volume.md`: 4,1 h de fala do locutor-alvo por estado, equivalentes a 8,3 h de áudio bruto, totalizando cerca de 50 h no conjunto dos seis estados.
+
+**4.3 — Piloto executado** em 27/08/2026. Dezessete trechos, 1,55 h, seis estados e três camadas. A esteira funciona de ponta a ponta; as medições estão em `experimentos/resultados/piloto_medicoes.md`. Três resultados alteram o planejamento: o rendimento por camada é bem superior ao suposto, o que reduziria a meta de 50 h para cerca de 38 h; não há indício de que a transcrição penalize a fala nordestina, o que removeria um confundidor; e a primeira aplicação do Filtro 2 não registrou nenhuma ocorrência do léxico regional em que o Bloco B do instrumento se apoia.
 
 **Restrição prática.** A transcrição com `large-v3` em CPU opera a uma fração do tempo real. Para escala, o processamento vai para ambiente com GPU, e essa conta de tempo deve entrar no planejamento antes da coleta, não depois.
 
