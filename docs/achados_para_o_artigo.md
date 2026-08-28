@@ -166,6 +166,30 @@ A contabilização de perdas por estado e camada é, portanto, requisito de mét
 
 **Procedência:** `docs/pendencias.md`, seção 4.5.
 
+## 1.13 O BERTimbau não responde a marcadores dialetais morfossintáticos
+
+**Seção do artigo:** Resultados — é o primeiro item que pertence a essa seção.
+
+Em teste com condições de controle que estabelecem piso e teto de sensibilidade, a alternância do imperativo e o deslocamento da negação produzem diferença de escore igual à do piso: 1,00× a mediana da condição neutra, com os cinco pares entre 0,70× e 1,27×, dentro da faixa da própria condição neutra (0,41× a 1,55×).
+
+**A afirmação é sustentada porque a medição foi calibrada nos dois extremos.** O controle de conteúdo proposicional produz 6,32× o piso, o que demonstra capacidade de detecção; e a condição dialetal morfossintática é pareada em frequência — *feche* e *fecha* são ambas correntes —, o que exclui a explicação por raridade. Nulo com instrumento demonstradamente capaz é resultado, não ausência de resultado.
+
+**Procedência:** `experimentos/teste_sensibilidade.py`, resultado em `experimentos/resultados/sensibilidade_guise.md`.
+
+**Qualificação obrigatória:** cinco pares por condição, um modelo (BERTimbau Base), uma métrica (PLL sobre alvo mascarado), sem teste de significância. A afirmação deve ser formulada como ausência de efeito detectável nessas condições, e não como impossibilidade.
+
+## 1.14 O efeito do bloco lexical é atribuível à raridade das palavras
+
+**Seção do artigo:** Resultados, e Ameaças à Validade.
+
+Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso, com correspondência item a item.
+
+**Consequência metodológica de alcance amplo:** nesta métrica, a diferença de escore entre dois contextos é dominada pela frequência das palavras que os distinguem. Comparação entre guises só é interpretável se os guises forem pareados em frequência. Trabalhos que empreguem *matched-guise probing* com métricas de verossimilhança sem esse pareamento medem raridade lexical.
+
+O ponto atinge também a leitura da menção explícita à região: a condição correspondente produz 2,75×, indistinguível do controle de raridade, e seus termos carregam razão de frequência mediana de 13× — *paulista* contra *nordestino*, *São Paulo* contra *Paraíba*.
+
+**Procedência:** mesma execução.
+
 # 2. CONDICIONAL — depende de verificação nomeada
 
 ## 2.1 A transcrição automática não penaliza a fala nordestina
@@ -232,9 +256,15 @@ A contabilização de perdas por estado e camada é, portanto, requisito de mét
 
 # 3. VEDADO — não pode ser escrito
 
-## 3.1 Qualquer afirmação sobre viés do BERTimbau contra fala nordestina
+## 3.1 Afirmação sobre viés do BERTimbau contra fala nordestina
 
-**Não foi medido.** Nenhuma vez. O instrumento não está validado, o conjunto de itens não está fechado, nenhum juiz foi consultado e nenhum escore de viés foi calculado. Não há resultado — nem positivo, nem negativo, nem nulo.
+**Requalificado em 28/08/2026.** Deixa de ser "não foi medido" e passa a ser "mediu-se a condição de possibilidade, e ela não se verificou para a morfossintaxe".
+
+**Continua vedado** afirmar que o BERTimbau enviesa, ou que não enviesa, contra fala nordestina. O que se estabeleceu é que os marcadores morfossintáticos do instrumento não produzem resposta detectável, e que o efeito dos marcadores lexicais é atribuível à raridade. Não havendo resposta ao guise, não há viés a medir por esse caminho — o que é afirmação sobre o método, e não sobre a existência do preconceito.
+
+**Formulação correta:** não foi possível detectar, com este desenho, resposta do modelo à sinalização dialetal. **Formulação incorreta:** o BERTimbau não apresenta viés regional.
+
+**Segue vedado sem qualquer atenuação:** nenhum teste de significância foi executado. O instrumento não está validado, o conjunto de itens não está fechado, nenhum juiz foi consultado e nenhum escore de viés foi calculado. Não há resultado — nem positivo, nem negativo, nem nulo.
 
 Nada no material atual autoriza sequer a formulação "resultados preliminares sugerem".
 
