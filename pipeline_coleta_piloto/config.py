@@ -14,7 +14,13 @@ from pathlib import Path
 # --------------------------------------------------------------------------
 # Diretórios
 # --------------------------------------------------------------------------
-BASE_DIR = Path("dataset_raw")
+# Ancorado no arquivo do módulo, e não no diretório de trabalho. Com caminho
+# relativo, a pasta de dados nascia onde quer que o comando fosse dado: em
+# 27/08/2026 uma execução a partir da raiz do projeto criou uma segunda
+# `dataset_raw` vazia. O risco não é a pasta duplicada, e sim a coleta gravar
+# num lugar e a transcrição ler de outro — sem erro, apenas sem encontrar nada.
+_MODULO_DIR = Path(__file__).resolve().parent
+BASE_DIR = _MODULO_DIR / "dataset_raw"
 AUDIO_DIR = BASE_DIR / "audio"
 TRANSCRIPT_DIR = BASE_DIR / "transcricoes"
 DIARIZATION_DIR = BASE_DIR / "diarizacao"
