@@ -169,17 +169,27 @@ class Medidor:
         return float(sum(lp[i, ids[0, i]] for i in posicoes) / len(list(posicoes)))
 
     # ------------------------------------------------------------------
-    def escore(self, texto: str, alvo: str) -> Escore:
+    def escore(self, texto: str, alvo: str, apenas_pll: bool = False) -> Escore:
         """
         Escora `alvo` dentro de `texto`, nas três métricas.
 
         O escore é por token, e não somado, para que atributos de extensões
         diferentes sejam comparáveis — condição necessária num experimento em
         que a extensão do atributo se correlaciona com o prestígio.
+
+        `apenas_pll` calcula somente a métrica principal, reduzindo a três vezes
+        menos passagens do modelo. Os demais campos vêm preenchidos com `nan`,
+        de modo que o uso indevido de um valor não calculado se propague em vez
+        de passar por zero. Destina-se a delineamentos que empregam apenas o
+        PLL, e não altera o valor dele.
         """
         ids = self.tok(texto, return_tensors="pt")["input_ids"]
         posicoes = self._posicoes_do_alvo(ids[0], alvo)
         pll = self._pll(ids, posicoes)
+        if apenas_pll:
+            nan = float("nan")
+            return Escore(pll=pll, aul=nan, aula=nan,
+                          aul_sentenca=nan, n_tokens=len(posicoes))
         aul, aula = self._aul_aula(ids, posicoes)
         return Escore(pll=pll, aul=aul, aula=aula,
                       aul_sentenca=self._aul_sentenca(ids), n_tokens=len(posicoes))

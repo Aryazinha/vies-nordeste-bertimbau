@@ -189,7 +189,9 @@ def main() -> None:
     linhas.append("")
 
     texto = "\n".join(linhas)
-    (SAIDA / "sensibilidade_guise.md").write_text(texto, encoding="utf-8")
+    # Ver a nota em `teste_construcional.py`: o relatório interpretado é
+    # `sensibilidade_guise.md` e não deve ser sobrescrito por reexecução.
+    (SAIDA / "sensibilidade_guise_tabela.md").write_text(texto, encoding="utf-8")
     print("\n" + texto)
 
 

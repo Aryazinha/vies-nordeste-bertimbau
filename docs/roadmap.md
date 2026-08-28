@@ -82,14 +82,35 @@ Execução do pipeline já implementado em `pipeline_coleta_piloto/`. É o passo
 
 Resultado em `experimentos/resultados/sensibilidade_guise.md`. Com controles que estabelecem piso e teto de sensibilidade: o instrumento detecta diferença de conteúdo a 6,32× o piso, mas os marcadores morfossintáticos ficam em 1,00×, e o efeito dos lexicais é reproduzido por um controle com palavras raras não regionais.
 
-**Decisão de rumo, em aberto, e é ela que destrava o resto:**
+**Decisão de rumo, e é ela que destrava o resto:**
 
-| Caminho | Custo | O que responde |
-|---|---|---|
-| Marcadores construcionais pareados em frequência | baixo | se ainda existe instrumento possível neste modelo |
-| BERTimbau Large, ou métrica baseada em representação | médio | se o limite é do modelo ou da métrica |
-| Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés |
+| Caminho | Custo | O que responde | Situação |
+|---|---|---|---|
+| **5.1** Marcadores construcionais pareados em frequência | baixo | se ainda existe instrumento possível neste modelo | **Concluído** em 28/08/2026 — resposta negativa |
+| **5.2** BERTimbau Large, ou métrica baseada em representação | médio | se o limite é do modelo ou da métrica | Não iniciado |
+| **5.3** Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés | Não iniciado, e hoje o mais amparado |
+| **5.4** Menção explícita em volume | baixo | se o modelo responde ao rótulo regional, ainda que não à variedade | Aberto, e novo |
 
-Os três não se excluem. O primeiro é o mais barato e determina se os demais são necessários.
+Os quatro não se excluem. O 5.1 era o mais barato e determinava se os demais eram necessários; a resposta dele é que sim.
+
+### 5.1 — Marcadores construcionais (concluído, resposta negativa)
+
+Relatório em `experimentos/resultados/construcional.md`; tabelas regeráveis em `construcional_tabelas.md`.
+
+**Desenho.** Como o pareamento perfeito de frequência é inalcançável para marcadores construcionais — os melhores candidatos apresentam razão de 5 a 11 vezes —, abandonou-se a comparação de medianas e adotou-se a **calibração da lei de frequência**: ajusta-se |Δ| contra log₁₀ da razão de frequência sobre 22 pares não regionais, e mede-se o **resíduo** de cada par dialetal contra essa reta. Toda estatística passa a operar no nível do par.
+
+**Resultado.** A condição construcional apresenta resíduo médio de −0,0141, com três de dez pares acima da reta e p = 0,71. A pista que motivou o passo — o vocativo *menino* — não replica: seu irmão, o vocativo *rapaz*, apresenta o maior resíduo negativo da condição.
+
+Somam-se agora **quatro famílias testadas sem efeito**: morfossintática, lexical, feixe e construcional. O caso mais limpo é a negação pós-verbal, cujos pares empregam as mesmas palavras em ordem diferente — razão de frequência 1,0 por construção — e cujo resíduo é negativo.
+
+**Dois subprodutos que valem por si.** O controle de conteúdo funciona como controle positivo do método de resíduo (p = 0,0003 após Holm), o que torna o nulo legível. E a calibração revelou que a frequência explica bem menos do que o relatório anterior afirmava — R² = 0,180 —, o que **exigiu revisão do item 1.14** de `docs/achados_para_o_artigo.md`.
+
+### 5.4 — Menção explícita em volume (aberto)
+
+Não estava previsto. Surgiu porque a condição de menção explícita é a **única** com resíduo consistente entre as regionais: cinco pares em cinco acima da reta, p = 0,026 bruto, 0,13 após Holm. E tem estrutura interna interpretável — os resíduos grandes são os que nomeiam a região como categoria; os que nomeiam estados ficam próximos de zero.
+
+Exige um conjunto de pares de menção explícita em volume comparável ao dos demais blocos, com a distinção entre rótulo de região e nome de estado como variável de desenho. Detalhamento no item 2.8 de `docs/achados_para_o_artigo.md`.
+
+**Relação com o restante.** É barato e usa a esteira já construída. Se confirmar, produz o contraste que sustentaria o artigo pretendido em nova chave — o modelo responde à categoria regional nomeada e não à variedade que a indicia. Se não confirmar, o 5.3 passa a ser o único caminho disponível.
 
 **Sai do "fora de escopo".** A comparação com o BERTimbau Large fora afastada por ser refinamento de medição, e não construção de dataset. Com o dataset existindo e o desenho em questão, a comparação passa a responder à pergunta que bloqueia o projeto, e volta a ser pertinente.

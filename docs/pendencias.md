@@ -236,6 +236,20 @@ O arquivo permanece local por decisão registrada em agosto. Como os demais docu
 
 Excluído do corpus principal por dissociação entre origem do vídeo e origem da voz (seção 2.3.1 de `docs/fontes_coleta.md`). Admite-se reabertura, sob quatro critérios cumulativos, caso a diversidade de falantes não se complete pelas fontes adotadas. Não reavaliado desde então.
 
+### 5.5 Rumo do projeto depois do resultado negativo do passo 5.1
+
+**Aberta em 28/08/2026, e é a decisão que bloqueia o restante.** Quatro famílias de sinalização dialetal implícita foram testadas e nenhuma produz resposta detectável no BERTimbau Base sob pseudo-verossimilhança. O passo 5.1 do `docs/roadmap.md` está concluído com resposta negativa, e restam três rumos, detalhados ali: 5.2, trocar de modelo ou de métrica; 5.3, reposicionar como artigo de método e recurso; 5.4, levar a menção explícita a volume.
+
+A recomendação registrada é encadear 5.4 antes de 5.2, por ser barato, por usar a esteira existente e por ser o único caminho em que um resultado sobre o modelo voltaria a ser a contribuição central do artigo. O 5.3 permanece disponível em qualquer cenário e hoje é o mais amparado pelo material existente.
+
+### 5.6 Validação dos marcadores construcionais, caso o 5.4 confirme
+
+Os dez marcadores de `dialeto_D` foram formulados para testar a **existência de sinal**, e não como itens de instrumento. Três deles — *lhe* de segunda pessoa, *tu* sem flexão, comitativo com *mais* — têm respaldo na literatura dialetológica cuja conferência em fonte primária permanece pendente. Os demais são candidatos derivados do corpus próprio (*menino*, *rapaz*, *massa*) ou sem fonte alguma (clivagem *que foi que*, durativo *tá com*, *toda vida*).
+
+Dado o resultado negativo, não há razão para submetê-los ao Filtro 1 agora. A pendência fica registrada para o caso de o passo 5.2 mostrar que o limite era da métrica, e não do fenômeno — situação em que o conjunto voltaria a ter uso e a validação passaria a ser exigível.
+
+Registre-se ainda uma ressalva de construto identificada durante a formulação: *tu* com verbo não flexionado ocorre também no Rio de Janeiro, que integra o grupo de controle. O item não serve para separar os grupos deste desenho, ainda que a construção seja legítima.
+
 ---
 
 ## 5-A. Padrão recorrente: falha silenciosa
@@ -251,6 +265,14 @@ Cinco defeitos distintos identificados em 27/08/2026 pertencem à mesma classe �
 Nenhum emitiu erro. Todos foram descobertos por conferência posterior, e três deles apenas porque a coleta foi efetivamente executada — não por leitura do código.
 
 **Encaminhamento.** A regra adotada é que toda etapa que produza artefato verifique o artefato, e não apenas o retorno da chamada. Aplicada em (1) a (4). Falta aplicá-la sistematicamente ao restante da esteira, e ao Filtro 2 em particular, cujo modo de falha inflaria a contagem de marcadores de modo desigual entre grupos — isto é, produziria resultado, e não erro.
+
+**Três casos acrescentados em 28/08/2026**, todos da mesma classe, e nenhum deles emitindo erro:
+
+6. Consulta de frequência sobre forma sem diacrítico, devolvendo o valor de outra palavra. Detalhamento em 6.5.
+7. Piso da comparação calculado sobre medições individuais enquanto as medianas passaram a ser calculadas sobre medianas de par, o que fazia a condição de controle neutro aparecer como 1,25× de si mesma. Numerador e denominador precisam compartilhar a unidade de replicação.
+8. Script de medição gravando a tabela no mesmo caminho do relatório interpretado escrito à mão. Reexecutar o script apagaria a interpretação sem aviso — inclusive as correções nela registradas. Corrigido pela separação entre `*_tabelas.md`, regerável, e o relatório, que o script não toca.
+
+O sétimo caso merece nota: não era defeito de programa, e sim de **coerência entre a estatística e a unidade de replicação**. Pertence à mesma classe porque produz número plausível em vez de erro, e porque só apareceu na conferência de uma tabela contra a anterior.
 
 ## 6. Melhorias identificadas
 
@@ -269,6 +291,12 @@ Cerca de 41% dos canais aprovados automaticamente sobrevivem à revisão humana.
 ### 6.4 Sem verificação de reincidência de falante entre canais
 
 Nada impede que a mesma pessoa apareça em canais distintos — convidado que circula por vários podcasts regionais, por exemplo. Isso violaria silenciosamente o teto de 5% por falante estabelecido em `docs/fontes_coleta.md`, seção 2.4.5. A detecção exigiria comparação de vozes na etapa de diarização.
+
+### 6.5 Consulta de frequência sensível a diacrítico
+
+A fonte de frequência lexical trata forma acentuada e não acentuada como palavras distintas, e devolve valor para ambas sem sinalizar a diferença. Em 28/08/2026 constatou-se que a frequência atribuída a *moço* no relatório de sensibilidade — 0,158 por milhão — fora obtida sobre *moco*; o valor correto é 4,90, cerca de trinta vezes maior. A consulta não falha: devolve o número de outra palavra.
+
+Pertence à classe descrita na seção 5-A. O encaminhamento é o mesmo: toda consulta de frequência deve partir da forma tal como ocorre no enunciado medido, e não de transcrição manual do item, e valores destinados ao artigo devem ser regerados por código a partir dos próprios enunciados. Implementado em `experimentos/teste_construcional.py`, cuja função `razao_frequencia` extrai as palavras diretamente dos dois lados do par. Falta reconferir os valores do adendo B de `experimentos/resultados/piloto_medicoes.md`, que foram digitados a partir de consulta avulsa.
 
 ---
 

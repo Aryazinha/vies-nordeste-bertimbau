@@ -184,11 +184,63 @@ Em teste com condições de controle que estabelecem piso e teto de sensibilidad
 
 Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso, com correspondência item a item.
 
-**Consequência metodológica de alcance amplo:** nesta métrica, a diferença de escore entre dois contextos é dominada pela frequência das palavras que os distinguem. Comparação entre guises só é interpretável se os guises forem pareados em frequência. Trabalhos que empreguem *matched-guise probing* com métricas de verossimilhança sem esse pareamento medem raridade lexical.
-
-O ponto atinge também a leitura da menção explícita à região: a condição correspondente produz 2,75×, indistinguível do controle de raridade, e seus termos carregam razão de frequência mediana de 13× — *paulista* contra *nordestino*, *São Paulo* contra *Paraíba*.
-
 **Procedência:** mesma execução.
+
+### Revisão de 28/08/2026, obrigatória
+
+A redação original deste item prosseguia afirmando que "nesta métrica, a diferença de escore entre dois contextos é **dominada** pela frequência das palavras que os distinguem", e lia a menção explícita à região como indistinguível do controle de raridade. Com conjunto de calibração três vezes maior — 22 pares não regionais, com razões de frequência de 1,0× a 2.883× —, a forma forte não se sustenta e **não deve ser escrita**.
+
+O que a calibração mostra é que a razão de frequência responde por R² = 0,180 da variação entre pares, com p = 0,0493 para a inclinação. O efeito é real, positivo e modesto. Entre pares de razão de frequência praticamente idêntica, |Δ| varia por um fator de sete.
+
+**Formulação sustentada:**
+
+- a frequência lexical tem efeito positivo e mensurável sobre a diferença de escore;
+- um controle de raridade não regional reproduz o efeito do bloco lexical, o que continua a impedir a leitura dialetal daquele bloco — esta é a parte central do item, e permanece intacta;
+- **a maior parte da variação entre pares é idiossincrática**, determinada por quais palavras foram trocadas e não pela frequência delas.
+
+**A consequência metodológica muda de forma junto com o diagnóstico, e ganha alcance.** O que inviabiliza a comparação ingênua entre guises não é apenas o desbalanceamento de frequência, corrigível por pareamento: é que o **ruído no nível do par é da ordem do efeito procurado** — desvio-padrão de 0,0618 nos resíduos de calibração, contra mediana de 0,1360. Segue-se que *matched-guise probing* com métrica de verossimilhança exige muitos pares, calibração explícita da resposta à frequência e estatística por conglomerado no nível do par. Delineamentos que comparem duas condições por uma diferença de médias sobre medições individuais tratam como replicação o que é a mesma frase medida várias vezes.
+
+**Procedência da revisão:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/construcional.md`, seção 5.
+
+## 1.15 Nenhuma das quatro famílias de sinalização dialetal implícita produz resposta detectável
+
+**Seção do artigo:** Resultados.
+
+Quatro famílias foram testadas contra a mesma calibração, e nenhuma apresenta resíduo acima do que a frequência lexical prevê:
+
+| Família | Pares | Resíduo médio | Pares acima da reta | p | p Holm |
+|---|---|---|---|---|---|
+| morfossintática — imperativo e negação | 5 | −0,0608 | 0/5 | 0,9900 | 1,0000 |
+| lexical — itens regionais | 5 | +0,0447 | 4/5 | 0,1266 | 0,5064 |
+| feixe combinado | 5 | −0,0063 | 3/5 | 0,5671 | 1,0000 |
+| **construcional** | **10** | **−0,0141** | **3/10** | **0,7129** | **1,0000** |
+
+A família construcional foi acrescentada em 28/08/2026 para testar a única pista que a explicação por raridade não cobria, e é a mais informativa por dois motivos. Primeiro, seus itens são de frequência atestada — *lhe* de segunda pessoa, *tu* sem flexão, comitativo com *mais*, vocativos *menino* e *rapaz*, avaliativo *massa* —, de modo que a raridade não é explicação disponível. Segundo, a pista original não replicou: o vocativo *menino* contra *cara* apresenta resíduo de +0,0443, mas o vocativo *rapaz* contra o mesmo *cara* apresenta −0,0846, o maior resíduo negativo da condição. Mesma construção, mesmo termo de comparação, sinais opostos.
+
+**O caso mais limpo é a negação pós-verbal.** Os pares *fui não* / *não fui* e *sei não* / *não sei* empregam exatamente as mesmas palavras em ordem diferente, com razão de frequência 1,0 por construção. O confundidor não é atenuado, é eliminado. Ambos apresentam resíduo negativo.
+
+**Duas condições de interpretabilidade estão satisfeitas**, e sem elas o nulo não seria legível:
+
+1. *A medição detecta o que existe.* O controle de conteúdo proposicional apresenta resíduo de +0,3597, com p = 0,0003 após correção de Holm, apesar de razão de frequência baixa (2,3×). É o controle positivo do próprio método de resíduo.
+2. *O confundidor de frequência está descontado*, e não apenas declarado, pela reta ajustada sobre 22 pares não regionais.
+
+**Formulação correta:** o BERTimbau Base não exibe, sob pseudo-verossimilhança, resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas. **Formulação incorreta:** o BERTimbau não distingue as variedades, ou não apresenta viés regional.
+
+**Qualificação obrigatória:** um modelo, uma métrica, e cinco pares em três das quatro famílias. A afirmação é sobre ausência de efeito detectável nestas condições.
+
+**Procedência:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/construcional.md`.
+
+## 1.16 A unidade de replicação em *matched-guise probing* é o par, não a medição
+
+**Seção do artigo:** Método. Contribuição metodológica autônoma.
+
+Um instrumento de *matched-guise* multiplica pares por molduras por atributos, e o número de medições cresce depressa: 28 medições por par neste desenho. As medições de um mesmo par compartilham o enunciado e não são independentes, de modo que tratá-las como replicações infla o tamanho amostral por uma ordem de grandeza e produz significância espúria.
+
+A consequência é verificável neste conjunto: com o piso e as medianas calculados sobre medições individuais, a condição de controle neutro aparece como 1,25× de si mesma quando confrontada com medianas de par. Ambos os números descrevem os mesmos dados.
+
+Adotou-se, por isso, estatística por conglomerado — reamostragem de pares para o intervalo, permutação de rótulos de par para o valor-p, e correção de Holm para a família de condições confrontadas com a mesma calibração.
+
+**Procedência:** medição própria. O ponto vale para qualquer trabalho do gênero, e a literatura consultada não o explicita.
 
 # 2. CONDICIONAL — depende de verificação nomeada
 
@@ -238,6 +290,16 @@ O ponto atinge também a leitura da menção explícita à região: a condição
 **Libera a afirmação:** conjunto de itens em volume adequado e teste estatístico. Doze itens não sustentam inferência.
 **Se confirmado:** exige reposicionamento do artigo, pois um efeito de origem lexical é atacável como efeito de frequência, e não de dialeto. É a objeção mais previsível em revisão.
 
+## 2.8 O modelo responde à menção explícita da região, e não à variedade que a indicia
+
+**Estado:** único resíduo consistente entre as condições regionais; não sobrevive à correção de multiplicidade.
+**Medido:** a condição de menção explícita apresenta resíduo médio de +0,0711 acima da reta da frequência, com **os cinco pares acima da reta** e p = 0,026 por permutação. Cinco positivos em cinco têm probabilidade 1/32 sob sinal aleatório.
+**Estrutura interna, e é ela que torna o achado interessante:** os dois maiores resíduos são os pares que nomeiam a região como categoria — "do Nordeste" contra "do Sudeste" (+0,1820) e "um nordestino" contra "um paulista" (+0,1123). Os três que nomeiam estados ficam próximos de zero: Paraíba (+0,0322), Ceará (+0,0235), Pernambuco (+0,0052). É o padrão de um modelo que associa conteúdo ao rótulo regional e trata topônimos estaduais como topônimos quaisquer.
+**Revisa leitura anterior.** O relatório de sensibilidade registrara esta condição como indistinguível do controle de raridade. Era leitura correta enquanto a comparação era de medianas brutas, e deixa de sê-la quando a frequência é descontada — precisamente porque os pares desta condição são os que mais dela sofriam.
+**Libera a afirmação:** volume. Com correção de Holm para as seis condições, p sobe a 0,13, e são cinco pares. É necessário um conjunto de pares de menção explícita em volume comparável ao dos demais blocos, com a distinção entre rótulo de região e nome de estado como variável de desenho.
+**Se confirmado:** produz o contraste central do artigo — o modelo responde à categoria regional nomeada e não à variedade linguística que a indicia. É o recorte de Hofmann et al. (2024) com os termos invertidos, e o contraste direto com Melo e Souza (2026), que mediram exatamente a sinalização explícita.
+**Se não confirmado:** o projeto fica sem qualquer resposta do modelo a estímulo regional, e o caminho 5.3 do roadmap torna-se o único disponível.
+
 ## 2.6 A marcação explícita de região não revela o viés
 
 **Estado:** leitura própria de tabela publicada, não confirmada contra o texto integral.
@@ -264,9 +326,15 @@ O ponto atinge também a leitura da menção explícita à região: a condição
 
 **Formulação correta:** não foi possível detectar, com este desenho, resposta do modelo à sinalização dialetal. **Formulação incorreta:** o BERTimbau não apresenta viés regional.
 
-**Segue vedado sem qualquer atenuação:** nenhum teste de significância foi executado. O instrumento não está validado, o conjunto de itens não está fechado, nenhum juiz foi consultado e nenhum escore de viés foi calculado. Não há resultado — nem positivo, nem negativo, nem nulo.
+**Atualização de 28/08/2026, segunda requalificação.** O teste construcional acrescentou a quarta família de marcadores, descontou o confundidor de frequência por calibração explícita e executou os primeiros testes de significância do projeto. O que era "não foi possível detectar resposta" passa a ser afirmação com controle positivo e valor-p, registrada em 1.15.
 
-Nada no material atual autoriza sequer a formulação "resultados preliminares sugerem".
+**Segue vedado:** afirmar que o BERTimbau enviesa, ou que não enviesa, contra fala nordestina. Não havendo resposta ao guise, não há viés a medir por esse caminho, e a afirmação é sobre o método e o modelo, não sobre a existência do preconceito.
+
+**Segue vedado igualmente:** apresentar como resultado de viés o resíduo da menção explícita (item 2.8). Ele é direção a investigar, com cinco pares e sem sobreviver à correção de multiplicidade.
+
+**Formulação correta:** o BERTimbau Base não exibe, sob pseudo-verossimilhança, resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas. **Formulação incorreta:** o BERTimbau não apresenta viés regional.
+
+O instrumento continua não validado por juízes, e o conjunto de itens continua aberto. O que o material autoriza é uma seção de Resultados sobre **a viabilidade do desenho**, e não sobre a magnitude de um viés.
 
 ## 3.2 O índice de 94% de imperativo indicativo no Rio de Janeiro
 
@@ -286,9 +354,15 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 
 **Qualificação obrigatória:** a fonte de frequência não estratifica por variedade nem separa português brasileiro de europeu. Item regionalmente restrito tem frequência nacional baixa por construção, de modo que a medida compara itens entre si e não caracteriza uso regional.
 
-## 3.5 Qualquer afirmação de significância estatística
+## 3.5 Qualquer afirmação de significância estatística — parcialmente endereçado
 
-Nenhum teste foi executado sobre nenhuma medida.
+**Deixa de ser inteiramente vedado em 28/08/2026.** Os testes de `experimentos/teste_construcional.py` são os primeiros do projeto: permutação de rótulos de par, intervalo por reamostragem de conglomerado, correção de Holm sobre a família de seis condições, e teste t para a inclinação da reta de frequência.
+
+**Pode ser afirmado**, com os valores tais como o relatório os traz, para as condições ali medidas — o que abrange os itens 1.13, 1.14, 1.15, 1.16 e 2.8.
+
+**Continua vedado** para todo o restante. Nenhum teste foi executado sobre as medidas do corpus de áudio — rendimento por camada, confiança de transcrição, taxa de ocorrência de marcadores —, e as comparações entre Nordeste e Sudeste registradas na seção 2 permanecem descritivas.
+
+**Qualificação obrigatória, a declarar junto de cada valor-p:** os 22 pares que definem a reta de calibração têm resíduo de média zero por construção, o que estreita a distribuição nula da permutação e torna o teste ligeiramente anticonservador. Um conjunto de validação separado do de ajuste seria preferível, e não foi constituído.
 
 ## 3.6 Que a composição do brWaC explique o viés observado
 
@@ -313,10 +387,10 @@ Em termos de estrutura de texto submetido:
 | Introdução e motivação | sustentada |
 | Trabalhos relacionados | sustentada |
 | Fundamentação | sustentada |
-| Método | sustentada, e com contribuições próprias (itens 1.1, 1.2, 1.7, 1.8) |
-| **Resultados** | **vazio** |
+| Método | sustentada, e com contribuições próprias (itens 1.1, 1.2, 1.7, 1.8, 1.16) |
+| **Resultados** | **deixa de estar vazia** em 28/08/2026, com os itens 1.13, 1.14 e 1.15 — um nulo com controle positivo, confundidor descontado e teste de significância |
 | Ameaças à validade | madura, e mais desenvolvida que o usual |
-| Conclusão | inexistente, por depender de Resultados |
+| Conclusão | escrevível na chave do segundo caminho abaixo; não na do primeiro |
 
 **Dois caminhos possíveis, não excludentes.**
 
@@ -325,3 +399,11 @@ O primeiro é o artigo pretendido: medição de viés dialetal implícito no BER
 O segundo é um **artigo de recurso e método**: o conjunto de pares mínimos para variação regional do português brasileiro, o protocolo de validação em dois filtros, o dimensionamento por requisito de detecção, e os achados sobre tokenização e sobre construção de corpus a partir de plataforma. Os precedentes que o projeto adota — CrowS-Pairs e French CrowS-Pairs — são exatamente dessa natureza, com a medição no modelo servindo de demonstração de uso. É alcançável com o que já existe, mais a validação por juízes, e constrói o terreno do primeiro.
 
 A escolha é da equipe. Registre-se apenas que, no estado atual, o segundo caminho está muito mais próximo do que o primeiro.
+
+**Atualização de 28/08/2026.** O teste construcional altera a relação entre os dois caminhos, e não apenas a distância a cada um.
+
+O primeiro caminho deixa de estar apenas distante e passa a ter uma condição declarada: exige que alguma sinalização dialetal produza resposta no modelo, e quatro famílias já foram testadas sem que nenhuma produzisse. Prossegui-lo significa trocar de modelo ou de métrica — os caminhos 5.2 do roadmap —, e não acrescentar itens ao instrumento atual.
+
+O segundo caminho, em contrapartida, ganhou material que não tinha. A seção de Resultados deixa de estar vazia: o nulo sobre quatro famílias, com controle positivo, confundidor de frequência descontado por calibração e teste de significância, é resultado publicável na chave de um artigo de método. Acrescentam-se as duas contribuições metodológicas novas — a calibração da resposta à frequência (1.14, revisado) e a unidade de replicação por par (1.16).
+
+Há ainda uma terceira possibilidade, que não existia antes e que combina os dois: um artigo cuja pergunta seja **por que a sinalização implícita não produz resposta onde a explícita produz** (item 2.8). Depende inteiramente da confirmação de 2.8 em volume, e é a única linha em que o resultado sobre o modelo voltaria a ser a contribuição central.

@@ -74,7 +74,9 @@ Não se pode, portanto, ler os 2,75× como associação regional do modelo. É a
 
 ## 5. A única pista que sobra
 
-O par *menino* / *cara* apresenta 3,38× com razão de frequência de apenas 7,1× — enquanto seu correspondente no controle, *moço* / *cara*, apresenta 2,23× com razão muito maior, já que *moço* (0,158) é bem mais raro que *menino* (67,600).
+O par *menino* / *cara* apresenta 3,38× com razão de frequência de apenas 7,1× — enquanto seu correspondente no controle, *moço* / *cara*, apresenta 2,23× com razão de 97,8×, já que *moço* (4,90 por milhão) é bem mais raro que *menino* (67,60).
+
+> **Correção, 28/08/2026.** A redação original desta seção atribuía a *moço* a frequência de 0,158 por milhão, e a razão do par não era declarada. O valor fora obtido sobre a forma sem cedilha, *moco*, que a fonte trata como palavra distinta. O valor correto é 4,90, e a razão do par é 97,8×. A direção do argumento não se altera — o par de controle continua tendo razão de frequência muito maior e efeito menor —, mas o número anterior não deve ser citado.
 
 O padrão é o inverso do esperado sob explicação por raridade, e é o único caso em que isso ocorre. Trata-se de um par isolado, e a diferença pode dever-se a semântica — *menino* e *cara* implicam idades distintas do interlocutor —, mas é a única pista de efeito lexical não redutível a frequência, e coincide com a classe de itens que o levantamento de frequência havia apontado como viável: marcadores de alta frequência cuja marcação regional é construcional.
 

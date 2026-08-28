@@ -1,0 +1,1014 @@
+[
+ {
+  "condicao": "controle_conteudo",
+  "par": 0,
+  "a": "Fui preso ontem à noite.",
+  "b": "Defendi minha tese ontem à noite.",
+  "n": 28,
+  "mediana": 0.5208553075790405,
+  "razao": 3.9649566109665226,
+  "so_a": [
+   "fui",
+   "preso"
+  ],
+  "so_b": [
+   "defendi",
+   "minha",
+   "tese"
+  ],
+  "previsto": 0.14842467380934238,
+  "residuo": 0.37243063376969815
+ },
+ {
+  "condicao": "controle_conteudo",
+  "par": 1,
+  "a": "Estou desempregado há dois anos.",
+  "b": "Fui promovido a diretor.",
+  "n": 28,
+  "mediana": 0.662338376045227,
+  "razao": 1.125520078367739,
+  "so_a": [
+   "estou",
+   "desempregado",
+   "há",
+   "dois",
+   "anos"
+  ],
+  "so_b": [
+   "fui",
+   "promovido",
+   "a",
+   "diretor"
+  ],
+  "previsto": 0.12985783776947596,
+  "residuo": 0.5324805382757511
+ },
+ {
+  "condicao": "controle_conteudo",
+  "par": 2,
+  "a": "Não sei ler direito.",
+  "b": "Terminei o doutorado em física.",
+  "n": 28,
+  "mediana": 0.629751443862915,
+  "razao": 2.3304579992776366,
+  "so_a": [
+   "não",
+   "sei",
+   "ler",
+   "direito"
+  ],
+  "so_b": [
+   "terminei",
+   "o",
+   "doutorado",
+   "em",
+   "física"
+  ],
+  "previsto": 0.14058907491590952,
+  "residuo": 0.4891623689470055
+ },
+ {
+  "condicao": "controle_conteudo",
+  "par": 3,
+  "a": "Moro na rua com meus filhos.",
+  "b": "Moro num apartamento na praia.",
+  "n": 28,
+  "mediana": 0.3613630533218384,
+  "razao": 4.857129504750277,
+  "so_a": [
+   "rua",
+   "com",
+   "meus",
+   "filhos"
+  ],
+  "so_b": [
+   "num",
+   "apartamento",
+   "praia"
+  ],
+  "previsto": 0.15141708254315053,
+  "residuo": 0.20994597077868785
+ },
+ {
+  "condicao": "controle_conteudo",
+  "par": 4,
+  "a": "Nunca fui à escola.",
+  "b": "Dou aula na universidade.",
+  "n": 28,
+  "mediana": 0.3343207836151123,
+  "razao": 2.2011436357829894,
+  "so_a": [
+   "nunca",
+   "fui",
+   "à",
+   "escola"
+  ],
+  "so_b": [
+   "dou",
+   "aula",
+   "na",
+   "universidade"
+  ],
+  "previsto": 0.13974735227004473,
+  "residuo": 0.19457343134506758
+ },
+ {
+  "condicao": "controle_explicito",
+  "par": 0,
+  "a": "Um nordestino falou comigo ontem.",
+  "b": "Um paulista falou comigo ontem.",
+  "n": 28,
+  "mediana": 0.27844488620758057,
+  "razao": 13.161592505854797,
+  "so_a": [
+   "nordestino"
+  ],
+  "so_b": [
+   "paulista"
+  ],
+  "previsto": 0.16611508016539572,
+  "residuo": 0.11232980604218484
+ },
+ {
+  "condicao": "controle_explicito",
+  "par": 1,
+  "a": "A pessoa é do Nordeste.",
+  "b": "A pessoa é do Sudeste.",
+  "n": 28,
+  "mediana": 0.31794580817222595,
+  "razao": 1.6958333333333342,
+  "so_a": [
+   "nordeste"
+  ],
+  "so_b": [
+   "sudeste"
+  ],
+  "previsto": 0.1359019808428939,
+  "residuo": 0.18204382732933205
+ },
+ {
+  "condicao": "controle_explicito",
+  "par": 2,
+  "a": "Ele nasceu na Paraíba.",
+  "b": "Ele nasceu em São Paulo.",
+  "n": 28,
+  "mediana": 0.18858975172042847,
+  "razao": 6.791862784159675,
+  "so_a": [
+   "na",
+   "paraíba"
+  ],
+  "so_b": [
+   "em",
+   "são",
+   "paulo"
+  ],
+  "previsto": 0.15636053786884357,
+  "residuo": 0.03222921385158489
+ },
+ {
+  "condicao": "controle_explicito",
+  "par": 3,
+  "a": "Ela mora no Ceará.",
+  "b": "Ela mora no Rio de Janeiro.",
+  "n": 28,
+  "mediana": 0.20937997102737427,
+  "razao": 50.12372390206125,
+  "so_a": [
+   "ceará"
+  ],
+  "so_b": [
+   "rio",
+   "de",
+   "janeiro"
+  ],
+  "previsto": 0.1858311185780493,
+  "residuo": 0.023548852449324975
+ },
+ {
+  "condicao": "controle_explicito",
+  "par": 4,
+  "a": "O rapaz veio de Pernambuco.",
+  "b": "O rapaz veio de São Paulo.",
+  "n": 28,
+  "mediana": 0.18643689155578613,
+  "razao": 36.73545448924015,
+  "so_a": [
+   "pernambuco"
+  ],
+  "so_b": [
+   "são",
+   "paulo"
+  ],
+  "previsto": 0.18124927680199143,
+  "residuo": 0.0051876147537947
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 0,
+  "a": "Comprei pão na feira hoje.",
+  "b": "Comprei leite na feira hoje.",
+  "n": 28,
+  "mediana": 0.13940680027008057,
+  "razao": 1.146938775510202,
+  "so_a": [
+   "pão"
+  ],
+  "so_b": [
+   "leite"
+  ],
+  "previsto": 0.13013578728885175,
+  "residuo": 0.009271012981228816
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 1,
+  "a": "Comprei arroz na feira hoje.",
+  "b": "Comprei sal na feira hoje.",
+  "n": 28,
+  "mediana": 0.11971145868301392,
+  "razao": 1.046099290780142,
+  "so_a": [
+   "arroz"
+  ],
+  "so_b": [
+   "sal"
+  ],
+  "previsto": 0.1287788903857734,
+  "residuo": -0.009067431702759476
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 2,
+  "a": "Fechei a porta antes de sair.",
+  "b": "Fechei a janela antes de sair.",
+  "n": 28,
+  "mediana": 0.1284021933873496,
+  "razao": 2.8746928746928746,
+  "so_a": [
+   "porta"
+  ],
+  "so_b": [
+   "janela"
+  ],
+  "previsto": 0.14368363722499097,
+  "residuo": -0.015281443837641379
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 3,
+  "a": "Comprei açúcar na feira hoje.",
+  "b": "Comprei farinha na feira hoje.",
+  "n": 28,
+  "mediana": 0.1447520653406782,
+  "razao": 3.0869565217391277,
+  "so_a": [
+   "açúcar"
+  ],
+  "so_b": [
+   "farinha"
+  ],
+  "previsto": 0.14473402305682204,
+  "residuo": 1.8042283856156693e-05
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 4,
+  "a": "Comprei leite na feira hoje.",
+  "b": "Comprei manteiga na feira hoje.",
+  "n": 28,
+  "mediana": 0.15570253133773804,
+  "razao": 5.109090909090901,
+  "so_a": [
+   "leite"
+  ],
+  "so_b": [
+   "manteiga"
+  ],
+  "previsto": 0.1521627619170038,
+  "residuo": 0.0035397694207342234
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 5,
+  "a": "Deixei a chave em cima do balcão.",
+  "b": "Deixei a chave em cima da mesa.",
+  "n": 28,
+  "mediana": 0.10259375969568874,
+  "razao": 3.164430390477252,
+  "so_a": [
+   "do",
+   "balcão"
+  ],
+  "so_b": [
+   "da",
+   "mesa"
+  ],
+  "previsto": 0.14509949761080565,
+  "residuo": -0.042505737915116915
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 6,
+  "a": "Comprei pão na feira hoje.",
+  "b": "Comprei fermento na feira hoje.",
+  "n": 28,
+  "mediana": 0.20336902141571045,
+  "razao": 44.545454545454604,
+  "so_a": [
+   "pão"
+  ],
+  "so_b": [
+   "fermento"
+  ],
+  "previsto": 0.18409151496350684,
+  "residuo": 0.019277506452203608
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 7,
+  "a": "Ele foi ao mercado de manhã.",
+  "b": "Ele foi ao açougue de manhã.",
+  "n": 28,
+  "mediana": 0.12022268772125244,
+  "razao": 112.1739130434783,
+  "so_a": [
+   "mercado"
+  ],
+  "so_b": [
+   "açougue"
+  ],
+  "previsto": 0.19770853012400114,
+  "residuo": -0.0774858424027487
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 8,
+  "a": "Ela foi comigo até o centro.",
+  "b": "Ela foi sozinha até o centro.",
+  "n": 28,
+  "mediana": 0.24410557746887207,
+  "razao": 4.674922600619193,
+  "so_a": [
+   "comigo"
+  ],
+  "so_b": [
+   "sozinha"
+  ],
+  "previsto": 0.1508533314846648,
+  "residuo": 0.09325224598420728
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 9,
+  "a": "Amanhã eu te ligo, pode deixar.",
+  "b": "Amanhã eu te escrevo, pode deixar.",
+  "n": 28,
+  "mediana": 0.18927645683288574,
+  "razao": 1.5177304964539013,
+  "so_a": [
+   "ligo"
+  ],
+  "so_b": [
+   "escrevo"
+  ],
+  "previsto": 0.13426597365569268,
+  "residuo": 0.055010483177193065
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 10,
+  "a": "Você vai sair hoje à noite?",
+  "b": "Você vai voltar hoje à noite?",
+  "n": 28,
+  "mediana": 0.11197733879089355,
+  "razao": 1.580000000000001,
+  "so_a": [
+   "sair"
+  ],
+  "so_b": [
+   "voltar"
+  ],
+  "previsto": 0.1348588257018281,
+  "residuo": -0.022881486910934556
+ },
+ {
+  "condicao": "controle_frequencia",
+  "par": 11,
+  "a": "Ele sempre foi assim.",
+  "b": "Ele nunca foi assim.",
+  "n": 28,
+  "mediana": 0.1325682799021406,
+  "razao": 1.0961538461538465,
+  "so_a": [
+   "sempre"
+  ],
+  "so_b": [
+   "nunca"
+  ],
+  "previsto": 0.1294680311134203,
+  "residuo": 0.0031002487887202834
+ },
+ {
+  "condicao": "controle_neutro",
+  "par": 0,
+  "a": "Feche a porta, por favor.",
+  "b": "Feche a janela, por favor.",
+  "n": 28,
+  "mediana": 0.12797802686691284,
+  "razao": 2.8746928746928746,
+  "so_a": [
+   "porta"
+  ],
+  "so_b": [
+   "janela"
+  ],
+  "previsto": 0.14368363722499097,
+  "residuo": -0.01570561035807813
+ },
+ {
+  "condicao": "controle_neutro",
+  "par": 1,
+  "a": "Comprei pão na padaria hoje.",
+  "b": "Comprei leite na padaria hoje.",
+  "n": 28,
+  "mediana": 0.0725855827331543,
+  "razao": 1.146938775510202,
+  "so_a": [
+   "pão"
+  ],
+  "so_b": [
+   "leite"
+  ],
+  "previsto": 0.13013578728885175,
+  "residuo": -0.057550204555697454
+ },
+ {
+  "condicao": "controle_neutro",
+  "par": 2,
+  "a": "O ônibus passa às sete horas.",
+  "b": "O ônibus passa às oito horas.",
+  "n": 28,
+  "mediana": 0.0341646671295166,
+  "razao": 1.290684624017956,
+  "so_a": [
+   "sete"
+  ],
+  "so_b": [
+   "oito"
+  ],
+  "previsto": 0.1318767477743577,
+  "residuo": -0.0977120806448411
+ },
+ {
+  "condicao": "controle_neutro",
+  "par": 3,
+  "a": "Deixei a chave em cima da mesa.",
+  "b": "Deixei a chave em cima do balcão.",
+  "n": 28,
+  "mediana": 0.10259375969568874,
+  "razao": 3.164430390477252,
+  "so_a": [
+   "da",
+   "mesa"
+  ],
+  "so_b": [
+   "do",
+   "balcão"
+  ],
+  "previsto": 0.14509949761080565,
+  "residuo": -0.042505737915116915
+ },
+ {
+  "condicao": "controle_neutro",
+  "par": 4,
+  "a": "Vou resolver isso na segunda.",
+  "b": "Vou resolver isso na terça.",
+  "n": 28,
+  "mediana": 0.11303877830505371,
+  "razao": 5.25121555915721,
+  "so_a": [
+   "segunda"
+  ],
+  "so_b": [
+   "terça"
+  ],
+  "previsto": 0.15256731926725844,
+  "residuo": -0.03952854096220473
+ },
+ {
+  "condicao": "controle_raridade",
+  "par": 0,
+  "a": "Isso aí ficou muito chinfrim.",
+  "b": "Isso aí ficou muito maneiro.",
+  "n": 28,
+  "mediana": 0.3346472978591919,
+  "razao": 43.665436654366594,
+  "so_a": [
+   "chinfrim"
+  ],
+  "so_b": [
+   "maneiro"
+  ],
+  "previsto": 0.18379731694371992,
+  "residuo": 0.15084998091547197
+ },
+ {
+  "condicao": "controle_raridade",
+  "par": 1,
+  "a": "Estou combalido com essa conta.",
+  "b": "Estou estressado com essa conta.",
+  "n": 28,
+  "mediana": 0.23986077308654785,
+  "razao": 26.97740112994349,
+  "so_a": [
+   "combalido"
+  ],
+  "so_b": [
+   "estressado"
+  ],
+  "previsto": 0.17669706006787236,
+  "residuo": 0.06316371301867549
+ },
+ {
+  "condicao": "controle_raridade",
+  "par": 2,
+  "a": "Arre, e agora?",
+  "b": "Nossa, e agora?",
+  "n": 28,
+  "mediana": 0.16500669717788696,
+  "razao": 2883.2684824902726,
+  "so_a": [
+   "arre"
+  ],
+  "so_b": [
+   "nossa"
+  ],
+  "previsto": 0.24557801572113716,
+  "residuo": -0.0805713185432502
+ },
+ {
+  "condicao": "controle_raridade",
+  "par": 3,
+  "a": "Ele é muito afoito.",
+  "b": "Ele é muito apressado.",
+  "n": 28,
+  "mediana": 0.27837419509887695,
+  "razao": 11.0,
+  "so_a": [
+   "afoito"
+  ],
+  "so_b": [
+   "apressado"
+  ],
+  "previsto": 0.16346982833628082,
+  "residuo": 0.11490436676259613
+ },
+ {
+  "condicao": "controle_raridade",
+  "par": 4,
+  "a": "Moço, vem cá ver isso.",
+  "b": "Cara, vem cá ver isso.",
+  "n": 28,
+  "mediana": 0.18408799171447754,
+  "razao": 97.75510204081638,
+  "so_a": [
+   "moço"
+  ],
+  "so_b": [
+   "cara"
+  ],
+  "previsto": 0.19567992575097465,
+  "residuo": -0.011591934036497109
+ },
+ {
+  "condicao": "dialeto_A",
+  "par": 0,
+  "a": "Feche a porta, por favor.",
+  "b": "Fecha a porta, por favor.",
+  "n": 28,
+  "mediana": 0.09005263447761536,
+  "razao": 3.547008547008545,
+  "so_a": [
+   "feche"
+  ],
+  "so_b": [
+   "fecha"
+  ],
+  "previsto": 0.14678229426825337,
+  "residuo": -0.056729659790638015
+ },
+ {
+  "condicao": "dialeto_A",
+  "par": 1,
+  "a": "Me diga que horas o ônibus passa.",
+  "b": "Me diz que horas o ônibus passa.",
+  "n": 28,
+  "mediana": 0.10502612590789795,
+  "razao": 12.004175365344455,
+  "so_a": [
+   "diga"
+  ],
+  "so_b": [
+   "diz"
+  ],
+  "previsto": 0.1647578851328761,
+  "residuo": -0.05973175922497814
+ },
+ {
+  "condicao": "dialeto_A",
+  "par": 2,
+  "a": "Traga a chave que eu esqueci lá.",
+  "b": "Traz a chave que eu esqueci lá.",
+  "n": 28,
+  "mediana": 0.09171462059020996,
+  "razao": 6.162962962962956,
+  "so_a": [
+   "traga"
+  ],
+  "so_b": [
+   "traz"
+  ],
+  "previsto": 0.15492786362617686,
+  "residuo": -0.0632132430359669
+ },
+ {
+  "condicao": "dialeto_A",
+  "par": 3,
+  "a": "Fui não, eu estava cansado.",
+  "b": "Não fui, eu estava cansado.",
+  "n": 28,
+  "mediana": 0.05768907070159912,
+  "razao": 1.0,
+  "so_a": [],
+  "so_b": [],
+  "previsto": 0.12811438717292292,
+  "residuo": -0.0704253164713238
+ },
+ {
+  "condicao": "dialeto_A",
+  "par": 4,
+  "a": "Sei não, ninguém me avisou.",
+  "b": "Não sei, ninguém me avisou.",
+  "n": 28,
+  "mediana": 0.07420855760574341,
+  "razao": 1.0,
+  "so_a": [],
+  "so_b": [],
+  "previsto": 0.12811438717292292,
+  "residuo": -0.053905829567179514
+ },
+ {
+  "condicao": "dialeto_B",
+  "par": 0,
+  "a": "Isso aí ficou muito arretado.",
+  "b": "Isso aí ficou muito maneiro.",
+  "n": 28,
+  "mediana": 0.323361873626709,
+  "razao": 35.50000000000003,
+  "so_a": [
+   "arretado"
+  ],
+  "so_b": [
+   "maneiro"
+  ],
+  "previsto": 0.18074487719588786,
+  "residuo": 0.14261699643082112
+ },
+ {
+  "condicao": "dialeto_B",
+  "par": 1,
+  "a": "Estou aperreado com essa conta.",
+  "b": "Estou estressado com essa conta.",
+  "n": 28,
+  "mediana": 0.2348393201828003,
+  "razao": 191.00000000000034,
+  "so_a": [
+   "aperreado"
+  ],
+  "so_b": [
+   "estressado"
+  ],
+  "previsto": 0.20555581935960093,
+  "residuo": 0.02928350082319936
+ },
+ {
+  "condicao": "dialeto_B",
+  "par": 2,
+  "a": "Oxe, e agora?",
+  "b": "Nossa, e agora?",
+  "n": 28,
+  "mediana": 0.10134673118591309,
+  "razao": 10000.000000000018,
+  "so_a": [
+   "oxe"
+  ],
+  "so_b": [
+   "nossa"
+  ],
+  "previsto": 0.2639149998226503,
+  "residuo": -0.16256826863673723
+ },
+ {
+  "condicao": "dialeto_B",
+  "par": 3,
+  "a": "Ele é muito avexado.",
+  "b": "Ele é muito apressado.",
+  "n": 28,
+  "mediana": 0.2926880717277527,
+  "razao": 132.0000000000002,
+  "so_a": [
+   "avexado"
+  ],
+  "so_b": [
+   "apressado"
+  ],
+  "previsto": 0.20010819692962178,
+  "residuo": 0.0925798747981309
+ },
+ {
+  "condicao": "dialeto_B",
+  "par": 4,
+  "a": "Menino, vem cá ver isso.",
+  "b": "Cara, vem cá ver isso.",
+  "n": 28,
+  "mediana": 0.27858108282089233,
+  "razao": 7.085798816568046,
+  "so_a": [
+   "menino"
+  ],
+  "so_b": [
+   "cara"
+  ],
+  "previsto": 0.1569852177737481,
+  "residuo": 0.12159586504714423
+ },
+ {
+  "condicao": "dialeto_C",
+  "par": 0,
+  "a": "Me traga a chave, que eu estou avexado.",
+  "b": "Me traz a chave, que eu estou com pressa.",
+  "n": 28,
+  "mediana": 0.24038857221603394,
+  "razao": 663.2018767512922,
+  "so_a": [
+   "traga",
+   "avexado"
+  ],
+  "so_b": [
+   "traz",
+   "com",
+   "pressa"
+  ],
+  "previsto": 0.22390969243758102,
+  "residuo": 0.016478879778452915
+ },
+ {
+  "condicao": "dialeto_C",
+  "par": 1,
+  "a": "Vou não, hoje estou muito aperreado.",
+  "b": "Não vou, hoje estou muito estressado.",
+  "n": 28,
+  "mediana": 0.2818472385406494,
+  "razao": 191.00000000000034,
+  "so_a": [
+   "aperreado"
+  ],
+  "so_b": [
+   "estressado"
+  ],
+  "previsto": 0.20555581935960093,
+  "residuo": 0.07629141918104848
+ },
+ {
+  "condicao": "dialeto_C",
+  "par": 2,
+  "a": "Oxe, deixe isso aí que eu resolvo.",
+  "b": "Nossa, deixa isso aí que eu resolvo.",
+  "n": 28,
+  "mediana": 0.0872414906819663,
+  "razao": 149.66915997990031,
+  "so_a": [
+   "oxe",
+   "deixe"
+  ],
+  "so_b": [
+   "nossa",
+   "deixa"
+  ],
+  "previsto": 0.20196046262561715,
+  "residuo": -0.11471897194365085
+ },
+ {
+  "condicao": "dialeto_C",
+  "par": 3,
+  "a": "Chegou não, visse? Ligue depois.",
+  "b": "Não chegou, entendeu? Liga depois.",
+  "n": 28,
+  "mediana": 0.13713546593983983,
+  "razao": 6.452439339695134,
+  "so_a": [
+   "visse",
+   "ligue"
+  ],
+  "so_b": [
+   "entendeu",
+   "liga"
+  ],
+  "previsto": 0.15560463862829021,
+  "residuo": -0.018469172688450386
+ },
+ {
+  "condicao": "dialeto_C",
+  "par": 4,
+  "a": "Rapaz, feche a porta que está frio.",
+  "b": "Cara, fecha a porta que está frio.",
+  "n": 28,
+  "mediana": 0.16389572620391846,
+  "razao": 6.235311516107938,
+  "so_a": [
+   "rapaz",
+   "feche"
+  ],
+  "so_b": [
+   "cara",
+   "fecha"
+  ],
+  "previsto": 0.155099943301517,
+  "residuo": 0.008795782902401461
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 0,
+  "a": "Eu lhe vi na feira ontem.",
+  "b": "Eu te vi na feira ontem.",
+  "n": 28,
+  "mediana": 0.13263416290283203,
+  "razao": 5.3819444444444455,
+  "so_a": [
+   "lhe"
+  ],
+  "so_b": [
+   "te"
+  ],
+  "previsto": 0.15292988531880544,
+  "residuo": -0.02029572241597341
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 1,
+  "a": "Amanhã eu lhe ligo, pode deixar.",
+  "b": "Amanhã eu te ligo, pode deixar.",
+  "n": 28,
+  "mediana": 0.10871803760528564,
+  "razao": 5.3819444444444455,
+  "so_a": [
+   "lhe"
+  ],
+  "so_b": [
+   "te"
+  ],
+  "previsto": 0.15292988531880544,
+  "residuo": -0.0442118477135198
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 2,
+  "a": "Ela foi mais eu até o centro.",
+  "b": "Ela foi comigo até o centro.",
+  "n": 28,
+  "mediana": 0.12844645977020264,
+  "razao": 19.726319216697338,
+  "so_a": [
+   "mais",
+   "eu"
+  ],
+  "so_b": [
+   "comigo"
+  ],
+  "previsto": 0.17208139915085646,
+  "residuo": -0.043634939380653825
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 3,
+  "a": "Menino, olha o preço disso.",
+  "b": "Cara, olha o preço disso.",
+  "n": 28,
+  "mediana": 0.2013084441423416,
+  "razao": 7.085798816568046,
+  "so_a": [
+   "menino"
+  ],
+  "so_b": [
+   "cara"
+  ],
+  "previsto": 0.1569852177737481,
+  "residuo": 0.04432322636859351
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 4,
+  "a": "Rapaz, eu não sabia de nada.",
+  "b": "Cara, eu não sabia de nada.",
+  "n": 28,
+  "mediana": 0.07881689071655273,
+  "razao": 10.961098398169348,
+  "so_a": [
+   "rapaz"
+  ],
+  "so_b": [
+   "cara"
+  ],
+  "previsto": 0.16341759233478065,
+  "residuo": -0.08460070161822791
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 5,
+  "a": "A festa ontem foi massa.",
+  "b": "A festa ontem foi legal.",
+  "n": 28,
+  "mediana": 0.23040497303009033,
+  "razao": 1.9117647058823555,
+  "so_a": [
+   "massa"
+  ],
+  "so_b": [
+   "legal"
+  ],
+  "previsto": 0.1376691295025465,
+  "residuo": 0.09273584352754383
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 6,
+  "a": "Tu vai sair hoje à noite?",
+  "b": "Você vai sair hoje à noite?",
+  "n": 28,
+  "mediana": 0.08910048007965088,
+  "razao": 8.315789473684214,
+  "so_a": [
+   "tu"
+  ],
+  "so_b": [
+   "você"
+  ],
+  "previsto": 0.15934525141733202,
+  "residuo": -0.07024477133768114
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 7,
+  "a": "Que foi que houve com ele?",
+  "b": "O que houve com ele?",
+  "n": 28,
+  "mediana": 0.08717381954193115,
+  "razao": 2.8857843294626586,
+  "so_a": [
+   "que",
+   "foi"
+  ],
+  "so_b": [
+   "o"
+  ],
+  "previsto": 0.14374041608017624,
+  "residuo": -0.056566596538245084
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 8,
+  "a": "Tá com dois dias que não vejo ele.",
+  "b": "Faz dois dias que não vejo ele.",
+  "n": 28,
+  "mediana": 0.09252786636352539,
+  "razao": 1.4640558215910948,
+  "so_a": [
+   "tá",
+   "com"
+  ],
+  "so_b": [
+   "faz"
+  ],
+  "previsto": 0.13373509426686864,
+  "residuo": -0.041207227903343246
+ },
+ {
+  "condicao": "dialeto_D",
+  "par": 9,
+  "a": "Ele foi toda vida assim.",
+  "b": "Ele sempre foi assim.",
+  "n": 28,
+  "mediana": 0.21429860591888428,
+  "razao": 1.228345494175489,
+  "so_a": [
+   "toda",
+   "vida"
+  ],
+  "so_b": [
+   "sempre"
+  ],
+  "previsto": 0.131146833087695,
+  "residuo": 0.08315177283118927
+ }
+]

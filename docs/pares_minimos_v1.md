@@ -215,6 +215,14 @@ O bloco não é apenas frágil: é **assimétrico**. Contrastaria itens sudestin
 
 **A escolha reduz-se a (b) ou (c).** Detalhamento em `experimentos/resultados/piloto_medicoes.md`, seção A.3.
 
+**Segunda atualização de 28/08/2026 — a conduta (b) foi executada e não produziu efeito.** O passo 5.1 do `docs/roadmap.md` implementou exatamente o que a conduta (b) prescrevia: dez marcadores selecionados por frequência atestada, com a marcação regional especificada na **construção** e não na forma isolada — *lhe* como pronome de segunda pessoa, *tu* sem flexão, comitativo com *mais*, vocativos *menino* e *rapaz*, avaliativo *massa*, clivagem *que foi que*, durativo *tá com*, *toda vida* com valor de sempre.
+
+A condição apresenta resíduo médio de −0,0141 contra a reta da frequência, com três de dez pares acima dela e p = 0,71. A pista que motivara a conduta não replicou: o vocativo *menino* apresenta resíduo positivo, e o vocativo *rapaz*, com o mesmo termo de comparação, apresenta o maior resíduo negativo da condição.
+
+**Das três condutas, nenhuma resta como via para salvar o Bloco B.** A (a) caíra por assimetria de atestação em corpus; a (b) foi testada e é nula; a (c), que deslocaria o peso para a morfossintaxe, já havia sido eliminada pelo teste de sensibilidade, que não encontrou sinal algum naquele bloco.
+
+A decisão deixa, portanto, de ser sobre o Bloco B e passa a ser sobre o rumo do projeto, registrada em `docs/pendencias.md`, seção 5.5, e detalhada no passo 5 do `docs/roadmap.md`. Relatório completo em `experimentos/resultados/construcional.md`.
+
 **Recomendação anterior, superada.** Não decidir antes de a coleta em curso elevar o volume por estado. Com quatro vezes o material atual, a distinção entre "o léxico é raro" e "o léxico não ocorre" torna-se possível, e a escolha deixa de ser especulativa. A conduta (a) é a única que não exige trabalho adicional; as outras duas exigem, e por isso não devem ser adotadas por inércia.
 
 ## 9. Pendências
