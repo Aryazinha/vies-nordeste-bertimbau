@@ -1,0 +1,1195 @@
+{
+  "carater_fem": [
+    {
+      "atributo": "inteligente",
+      "n_tokens": 1,
+      "segmentacao": [
+        "inteligente"
+      ],
+      "prob": 0.015707027167081833,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "burra",
+      "n_tokens": 2,
+      "segmentacao": [
+        "bur",
+        "##ra"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "culta",
+      "n_tokens": 2,
+      "segmentacao": [
+        "cul",
+        "##ta"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "ignorante",
+      "n_tokens": 2,
+      "segmentacao": [
+        "igno",
+        "##rante"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "educada",
+      "n_tokens": 2,
+      "segmentacao": [
+        "educa",
+        "##da"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "grosseira",
+      "n_tokens": 3,
+      "segmentacao": [
+        "gros",
+        "##sei",
+        "##ra"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "honesta",
+      "n_tokens": 2,
+      "segmentacao": [
+        "hon",
+        "##esta"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "desonesta",
+      "n_tokens": 3,
+      "segmentacao": [
+        "des",
+        "##ones",
+        "##ta"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "trabalhadora",
+      "n_tokens": 2,
+      "segmentacao": [
+        "trabalhador",
+        "##a"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "preguiçosa",
+      "n_tokens": 3,
+      "segmentacao": [
+        "pre",
+        "##gui",
+        "##çosa"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "calma",
+      "n_tokens": 2,
+      "segmentacao": [
+        "cal",
+        "##ma"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "nervosa",
+      "n_tokens": 2,
+      "segmentacao": [
+        "nerv",
+        "##osa"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "humilde",
+      "n_tokens": 1,
+      "segmentacao": [
+        "humilde"
+      ],
+      "prob": 0.013784022070467472,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "arrogante",
+      "n_tokens": 2,
+      "segmentacao": [
+        "arro",
+        "##gante"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "simples",
+      "n_tokens": 1,
+      "segmentacao": [
+        "simples"
+      ],
+      "prob": 0.0059122187085449696,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "sofisticada",
+      "n_tokens": 2,
+      "segmentacao": [
+        "sofistic",
+        "##ada"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "pobre",
+      "n_tokens": 1,
+      "segmentacao": [
+        "pobre"
+      ],
+      "prob": 0.004005560651421547,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "rica",
+      "n_tokens": 1,
+      "segmentacao": [
+        "rica"
+      ],
+      "prob": 0.007810353301465511,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "séria",
+      "n_tokens": 1,
+      "segmentacao": [
+        "séria"
+      ],
+      "prob": 0.07005888223648071,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "engraçada",
+      "n_tokens": 2,
+      "segmentacao": [
+        "engra",
+        "##çada"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "forte",
+      "n_tokens": 1,
+      "segmentacao": [
+        "forte"
+      ],
+      "prob": 0.0034913141280412674,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "fraca",
+      "n_tokens": 1,
+      "segmentacao": [
+        "fraca"
+      ],
+      "prob": 0.0030347718857228756,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "boa",
+      "n_tokens": 1,
+      "segmentacao": [
+        "boa"
+      ],
+      "prob": 0.036033790558576584,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "má",
+      "n_tokens": 1,
+      "segmentacao": [
+        "má"
+      ],
+      "prob": 0.009191197343170643,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "esperta",
+      "n_tokens": 2,
+      "segmentacao": [
+        "esper",
+        "##ta"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "lenta",
+      "n_tokens": 1,
+      "segmentacao": [
+        "lenta"
+      ],
+      "prob": 2.9692148018511944e-05,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "confiável",
+      "n_tokens": 1,
+      "segmentacao": [
+        "confiável"
+      ],
+      "prob": 0.016606340184807777,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "perigosa",
+      "n_tokens": 1,
+      "segmentacao": [
+        "perigosa"
+      ],
+      "prob": 0.00551673024892807,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "carinhosa",
+      "n_tokens": 3,
+      "segmentacao": [
+        "car",
+        "##inhos",
+        "##a"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "fria",
+      "n_tokens": 1,
+      "segmentacao": [
+        "fria"
+      ],
+      "prob": 0.008948254399001598,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "gentil",
+      "n_tokens": 2,
+      "segmentacao": [
+        "gent",
+        "##il"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "rude",
+      "n_tokens": 2,
+      "segmentacao": [
+        "ru",
+        "##de"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "estudiosa",
+      "n_tokens": 2,
+      "segmentacao": [
+        "estudios",
+        "##a"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "desleixada",
+      "n_tokens": 3,
+      "segmentacao": [
+        "desl",
+        "##eix",
+        "##ada"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "capaz",
+      "n_tokens": 1,
+      "segmentacao": [
+        "capaz"
+      ],
+      "prob": 0.00020384638628456742,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "incapaz",
+      "n_tokens": 1,
+      "segmentacao": [
+        "incapaz"
+      ],
+      "prob": 0.00014823494711890817,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "normal",
+      "n_tokens": 1,
+      "segmentacao": [
+        "normal"
+      ],
+      "prob": 0.11040271073579788,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "estranha",
+      "n_tokens": 1,
+      "segmentacao": [
+        "estranha"
+      ],
+      "prob": 0.052392370998859406,
+      "uso": "máscara"
+    }
+  ],
+  "carater_masc": [
+    {
+      "atributo": "inteligente",
+      "n_tokens": 1,
+      "segmentacao": [
+        "inteligente"
+      ],
+      "prob": 0.023321915417909622,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "burro",
+      "n_tokens": 2,
+      "segmentacao": [
+        "bur",
+        "##ro"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "culto",
+      "n_tokens": 1,
+      "segmentacao": [
+        "culto"
+      ],
+      "prob": 0.0006524977507069707,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "ignorante",
+      "n_tokens": 2,
+      "segmentacao": [
+        "igno",
+        "##rante"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "educado",
+      "n_tokens": 1,
+      "segmentacao": [
+        "educado"
+      ],
+      "prob": 0.0034849229268729687,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "grosseiro",
+      "n_tokens": 3,
+      "segmentacao": [
+        "gros",
+        "##sei",
+        "##ro"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "honesto",
+      "n_tokens": 2,
+      "segmentacao": [
+        "hon",
+        "##esto"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "desonesto",
+      "n_tokens": 3,
+      "segmentacao": [
+        "des",
+        "##ones",
+        "##to"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "trabalhador",
+      "n_tokens": 1,
+      "segmentacao": [
+        "trabalhador"
+      ],
+      "prob": 0.0008385026594623923,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "preguiçoso",
+      "n_tokens": 4,
+      "segmentacao": [
+        "pre",
+        "##gui",
+        "##ços",
+        "##o"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "calmo",
+      "n_tokens": 2,
+      "segmentacao": [
+        "cal",
+        "##mo"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "nervoso",
+      "n_tokens": 1,
+      "segmentacao": [
+        "nervoso"
+      ],
+      "prob": 0.0022330705542117357,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "humilde",
+      "n_tokens": 1,
+      "segmentacao": [
+        "humilde"
+      ],
+      "prob": 0.0038853255100548267,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "arrogante",
+      "n_tokens": 2,
+      "segmentacao": [
+        "arro",
+        "##gante"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "simples",
+      "n_tokens": 1,
+      "segmentacao": [
+        "simples"
+      ],
+      "prob": 0.009476707316935062,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "sofisticado",
+      "n_tokens": 2,
+      "segmentacao": [
+        "sofistic",
+        "##ado"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "pobre",
+      "n_tokens": 1,
+      "segmentacao": [
+        "pobre"
+      ],
+      "prob": 0.005338314455002546,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "rico",
+      "n_tokens": 1,
+      "segmentacao": [
+        "rico"
+      ],
+      "prob": 0.11630859971046448,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "sério",
+      "n_tokens": 1,
+      "segmentacao": [
+        "sério"
+      ],
+      "prob": 0.03650790825486183,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "engraçado",
+      "n_tokens": 2,
+      "segmentacao": [
+        "engra",
+        "##çado"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "forte",
+      "n_tokens": 1,
+      "segmentacao": [
+        "forte"
+      ],
+      "prob": 0.017528334632515907,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "fraco",
+      "n_tokens": 1,
+      "segmentacao": [
+        "fraco"
+      ],
+      "prob": 0.004430062603205442,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "bom",
+      "n_tokens": 1,
+      "segmentacao": [
+        "bom"
+      ],
+      "prob": 0.01341814175248146,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "mau",
+      "n_tokens": 1,
+      "segmentacao": [
+        "mau"
+      ],
+      "prob": 0.0035318934824317694,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "esperto",
+      "n_tokens": 2,
+      "segmentacao": [
+        "esper",
+        "##to"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "lento",
+      "n_tokens": 1,
+      "segmentacao": [
+        "lento"
+      ],
+      "prob": 0.00011822060332633555,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "confiável",
+      "n_tokens": 1,
+      "segmentacao": [
+        "confiável"
+      ],
+      "prob": 0.003488341346383095,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "perigoso",
+      "n_tokens": 1,
+      "segmentacao": [
+        "perigoso"
+      ],
+      "prob": 0.01255704089999199,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "carinhoso",
+      "n_tokens": 3,
+      "segmentacao": [
+        "car",
+        "##inhos",
+        "##o"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "frio",
+      "n_tokens": 1,
+      "segmentacao": [
+        "frio"
+      ],
+      "prob": 0.007010236382484436,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "gentil",
+      "n_tokens": 2,
+      "segmentacao": [
+        "gent",
+        "##il"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "rude",
+      "n_tokens": 2,
+      "segmentacao": [
+        "ru",
+        "##de"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "estudioso",
+      "n_tokens": 1,
+      "segmentacao": [
+        "estudioso"
+      ],
+      "prob": 0.00018370016186963767,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "desleixado",
+      "n_tokens": 3,
+      "segmentacao": [
+        "desl",
+        "##eix",
+        "##ado"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "capaz",
+      "n_tokens": 1,
+      "segmentacao": [
+        "capaz"
+      ],
+      "prob": 0.00023780220362823457,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "incapaz",
+      "n_tokens": 1,
+      "segmentacao": [
+        "incapaz"
+      ],
+      "prob": 0.00012784352293238044,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "normal",
+      "n_tokens": 1,
+      "segmentacao": [
+        "normal"
+      ],
+      "prob": 0.018738899379968643,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "estranho",
+      "n_tokens": 1,
+      "segmentacao": [
+        "estranho"
+      ],
+      "prob": 0.009109416045248508,
+      "uso": "máscara"
+    }
+  ],
+  "ocupacao_alta": [
+    {
+      "atributo": "médico",
+      "n_tokens": 1,
+      "segmentacao": [
+        "médico"
+      ],
+      "prob": 0.019505858421325684,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "advogado",
+      "n_tokens": 1,
+      "segmentacao": [
+        "advogado"
+      ],
+      "prob": 0.04047412797808647,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "engenheiro",
+      "n_tokens": 1,
+      "segmentacao": [
+        "engenheiro"
+      ],
+      "prob": 0.011953305453062057,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "professor",
+      "n_tokens": 1,
+      "segmentacao": [
+        "professor"
+      ],
+      "prob": 0.013838494196534157,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "juiz",
+      "n_tokens": 1,
+      "segmentacao": [
+        "juiz"
+      ],
+      "prob": 0.009790745563805103,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "dentista",
+      "n_tokens": 2,
+      "segmentacao": [
+        "dent",
+        "##ista"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "empresário",
+      "n_tokens": 1,
+      "segmentacao": [
+        "empresário"
+      ],
+      "prob": 0.01632525585591793,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "arquiteto",
+      "n_tokens": 1,
+      "segmentacao": [
+        "arquiteto"
+      ],
+      "prob": 0.0008332151337526739,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "economista",
+      "n_tokens": 1,
+      "segmentacao": [
+        "economista"
+      ],
+      "prob": 0.006926518864929676,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "cientista",
+      "n_tokens": 1,
+      "segmentacao": [
+        "cientista"
+      ],
+      "prob": 0.00044011237332597375,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "diretor",
+      "n_tokens": 1,
+      "segmentacao": [
+        "diretor"
+      ],
+      "prob": 0.002297157421708107,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "gerente",
+      "n_tokens": 1,
+      "segmentacao": [
+        "gerente"
+      ],
+      "prob": 0.015264428220689297,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "consultor",
+      "n_tokens": 1,
+      "segmentacao": [
+        "consultor"
+      ],
+      "prob": 0.01820434257388115,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "jornalista",
+      "n_tokens": 1,
+      "segmentacao": [
+        "jornalista"
+      ],
+      "prob": 0.053646765649318695,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "promotor",
+      "n_tokens": 1,
+      "segmentacao": [
+        "promotor"
+      ],
+      "prob": 0.0036478335969150066,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "delegado",
+      "n_tokens": 1,
+      "segmentacao": [
+        "delegado"
+      ],
+      "prob": 0.015108246356248856,
+      "uso": "máscara"
+    }
+  ],
+  "ocupacao_baixa": [
+    {
+      "atributo": "pedreiro",
+      "n_tokens": 2,
+      "segmentacao": [
+        "ped",
+        "##reiro"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "lavrador",
+      "n_tokens": 2,
+      "segmentacao": [
+        "lav",
+        "##rador"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "empregada",
+      "n_tokens": 1,
+      "segmentacao": [
+        "empregada"
+      ],
+      "prob": 0.00024601974291726947,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "faxineiro",
+      "n_tokens": 4,
+      "segmentacao": [
+        "fa",
+        "##xi",
+        "##ne",
+        "##iro"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "vendedor",
+      "n_tokens": 2,
+      "segmentacao": [
+        "vende",
+        "##dor"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "garçom",
+      "n_tokens": 3,
+      "segmentacao": [
+        "gar",
+        "##ço",
+        "##m"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "porteiro",
+      "n_tokens": 2,
+      "segmentacao": [
+        "porte",
+        "##iro"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "cozinheiro",
+      "n_tokens": 2,
+      "segmentacao": [
+        "coz",
+        "##inheiro"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "agricultor",
+      "n_tokens": 2,
+      "segmentacao": [
+        "agricul",
+        "##tor"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "pescador",
+      "n_tokens": 2,
+      "segmentacao": [
+        "pesca",
+        "##dor"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "costureira",
+      "n_tokens": 2,
+      "segmentacao": [
+        "costu",
+        "##reira"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "diarista",
+      "n_tokens": 2,
+      "segmentacao": [
+        "dia",
+        "##rista"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "motorista",
+      "n_tokens": 1,
+      "segmentacao": [
+        "motorista"
+      ],
+      "prob": 0.040728285908699036,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "mecânico",
+      "n_tokens": 1,
+      "segmentacao": [
+        "mecânico"
+      ],
+      "prob": 0.026248451322317123,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "ambulante",
+      "n_tokens": 2,
+      "segmentacao": [
+        "amb",
+        "##ulante"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "vigia",
+      "n_tokens": 2,
+      "segmentacao": [
+        "vig",
+        "##ia"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "caseiro",
+      "n_tokens": 2,
+      "segmentacao": [
+        "cas",
+        "##eiro"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "servente",
+      "n_tokens": 2,
+      "segmentacao": [
+        "serve",
+        "##nte"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "feirante",
+      "n_tokens": 2,
+      "segmentacao": [
+        "feira",
+        "##nte"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    },
+    {
+      "atributo": "operário",
+      "n_tokens": 2,
+      "segmentacao": [
+        "oper",
+        "##ário"
+      ],
+      "prob": null,
+      "uso": "AUL (multi-token)"
+    }
+  ],
+  "escolaridade": [
+    {
+      "atributo": "fundamental",
+      "n_tokens": 1,
+      "segmentacao": [
+        "fundamental"
+      ],
+      "prob": 0.41424164175987244,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "médio",
+      "n_tokens": 1,
+      "segmentacao": [
+        "médio"
+      ],
+      "prob": 0.5600526928901672,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "superior",
+      "n_tokens": 1,
+      "segmentacao": [
+        "superior"
+      ],
+      "prob": 0.002753639593720436,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "doutorado",
+      "n_tokens": 1,
+      "segmentacao": [
+        "doutorado"
+      ],
+      "prob": 9.641665599247062e-08,
+      "uso": "AUL (o modelo não o produz)"
+    },
+    {
+      "atributo": "primário",
+      "n_tokens": 1,
+      "segmentacao": [
+        "primário"
+      ],
+      "prob": 0.0017104358412325382,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "técnico",
+      "n_tokens": 1,
+      "segmentacao": [
+        "técnico"
+      ],
+      "prob": 0.0007758790743537247,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "universitário",
+      "n_tokens": 1,
+      "segmentacao": [
+        "universitário"
+      ],
+      "prob": 0.0001471064315410331,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "básico",
+      "n_tokens": 1,
+      "segmentacao": [
+        "básico"
+      ],
+      "prob": 0.0045929220505058765,
+      "uso": "máscara"
+    },
+    {
+      "atributo": "alto",
+      "n_tokens": 1,
+      "segmentacao": [
+        "alto"
+      ],
+      "prob": 3.7973956068526604e-07,
+      "uso": "AUL (o modelo não o produz)"
+    },
+    {
+      "atributo": "baixo",
+      "n_tokens": 1,
+      "segmentacao": [
+        "baixo"
+      ],
+      "prob": 3.905379344359972e-06,
+      "uso": "AUL (o modelo não o produz)"
+    },
+    {
+      "atributo": "elevado",
+      "n_tokens": 1,
+      "segmentacao": [
+        "elevado"
+      ],
+      "prob": 4.809705842490075e-07,
+      "uso": "AUL (o modelo não o produz)"
+    },
+    {
+      "atributo": "regular",
+      "n_tokens": 1,
+      "segmentacao": [
+        "regular"
+      ],
+      "prob": 0.0013053113361820579,
+      "uso": "máscara"
+    }
+  ]
+}
