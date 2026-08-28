@@ -197,3 +197,61 @@ A conduta (a) da seção 8 de `docs/pares_minimos_v1.md` — manter o bloco decl
 Um efeito medido nessas condições seria indistinguível do artefato de um lado do contraste ser artificial.
 
 Restam as condutas (b), substituir os itens por outros de frequência atestada, e (c), reduzir o peso do bloco e reposicionar o instrumento sobre a morfossintaxe.
+
+
+---
+
+# Adendo — frequência dos itens lexicais, 28/08/2026
+
+Levantamento feito para decidir entre as condutas (b) e (c) da seção 8 de `docs/pares_minimos_v1.md`, e para atender ao balanceamento de frequência exigido pela terceira crítica de Kaneko e Bollegala (2022). Fonte: `wordfreq`, corpus de português.
+
+**Limitação da fonte, a declarar sempre.** O recurso não estratifica por variedade nem separa português brasileiro de europeu, e mistura registros. Item de circulação regionalmente restrita apresenta, por construção, frequência nacional baixa. A medida serve para comparar itens entre si, não para caracterizar uso regional.
+
+## B.1 As duas listas nunca foram comparáveis
+
+| Item nordestino | Por milhão | Item sudestino | Por milhão |
+|---|---|---|---|
+| *vixe* | 0,21 | *mano* | 25,10 |
+| *peba* | 0,20 | *treta* | 7,59 |
+| *arretado* | 0,10 | *sinistro* | 4,57 |
+| *oxente* | 0,09 | *maneiro* | 3,55 |
+| *oxe* | 0,07 | *bagulho* | 1,23 |
+| *abestado* | 0,05 | *caracá* | 0,78 |
+| *aperreado* | **0,00** | | |
+| *avexado* | **0,00** | | |
+
+A distância é de uma a três ordens de grandeza — *mano* é cerca de 350 vezes mais frequente que *oxe* —, e dois itens nordestinos não registram ocorrência alguma na fonte.
+
+O Bloco B, portanto, jamais foi um contraste balanceado. Um efeito medido sobre esses itens seria em larga medida efeito de frequência, que é exatamente o confundidor que o desenho declarava controlar.
+
+## B.2 O diagnóstico não é "itens raros", e sim duas listas erradas de modos opostos
+
+**Do lado nordestino**, os itens escolhidos são de circulação restrita a ponto de dois deles não constarem da fonte.
+
+**Do lado sudestino**, os itens não são regionalmente específicos. *Mano*, com 25 por milhão, é gíria de circulação nacional, não marca do Sudeste. Nossa própria amostra sugere o mesmo para itens vizinhos: *cara* ocorre 6,33 por dez mil palavras no material nordestino e 32,81 no sudestino, e *meu* ocorre 21,00 contra 32,81 — presentes nos dois grupos, com diferença de grau e não de presença.
+
+Um bloco assim não contrasta variedade contra variedade. Contrasta **item regional raro contra item nacional frequente**.
+
+## B.3 Existem candidatos nordestinos com frequência viável, e eles mudam a natureza do bloco
+
+| Candidato | Por milhão | No nosso corpus (por 10 mil palavras) |
+|---|---|---|
+| *massa* | 102,00 | NE 1,00 / SE 0,00 |
+| *menino* | 67,60 | NE 2,67 / SE 0,00 |
+| *rapaz* | 43,70 | NE 3,67 / SE 2,68 |
+| *bicho* | 10,50 | NE 0,00 / SE 0,67 |
+| *cabra* | 5,62 | — |
+| *danado* | 1,95 | — |
+| *eita* | 1,17 | — |
+
+Três deles — *massa*, *menino*, *rapaz* — apresentam frequência compatível com a dos itens sudestinos **e** distribuição favorável ao Nordeste no material coletado.
+
+**Mas os três são polissêmicos, e é isso que importa.** *Massa* é também matéria e alimento; *menino* é também substantivo comum; *rapaz* é também substantivo comum. O que marca a variedade não é a palavra, e sim o **uso**: *massa* como avaliativo, *menino* e *rapaz* como vocativo ou interjeição.
+
+Segue-se uma reformulação do Bloco B: os itens de frequência mensurável são aqueles cuja marcação regional é **construcional e pragmática**, não lexical em isolamento. O bloco deixa de testar palavras e passa a testar construções — o que exige desambiguação por contexto, e reencontra a exigência já registrada na seção 4.3.
+
+## B.4 Consequência para a decisão
+
+A conduta (b), substituir os itens, é viável, mas não consiste em trocar uma lista por outra: exige selecionar por frequência atestada **e** especificar a construção, não a forma. A conduta (c), reduzir o peso do bloco, continua disponível e é mais barata.
+
+A decisão permanece da equipe. O que mudou é que ela já não depende de dado ausente.

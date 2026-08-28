@@ -246,9 +246,15 @@ Registrado em revisão anterior do projeto e **não confirmado por nenhuma fonte
 
 Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2 em volume suficiente. Os itens são candidatos, e o texto deve tratá-los como tais.
 
-## 3.4 Balanceamento de frequência lexical entre condições
+## 3.4 Balanceamento de frequência lexical entre condições — parcialmente endereçado
 
-Não foi medido. A terceira crítica de Kaneko e Bollegala é reconhecida no desenho, e não endereçada empiricamente.
+**Deixa de ser inteiramente vedado.** A frequência dos itens lexicais foi medida em 28/08/2026, com resultado registrado em `experimentos/resultados/piloto_medicoes.md`, adendo B.
+
+**Pode ser afirmado:** as listas do Bloco B não eram comparáveis em frequência — de uma a três ordens de grandeza de distância, com dois itens nordestinos ausentes da fonte —, e o desequilíbrio é de dupla natureza: itens nordestinos de circulação restrita contra itens sudestinos de circulação nacional. Declarar como limitação identificada e corrigida, não como controle que o desenho sempre teve.
+
+**Continua vedado:** afirmar que o instrumento final está balanceado, o que depende da reformulação do bloco.
+
+**Qualificação obrigatória:** a fonte de frequência não estratifica por variedade nem separa português brasileiro de europeu. Item regionalmente restrito tem frequência nacional baixa por construção, de modo que a medida compara itens entre si e não caracteriza uso regional.
 
 ## 3.5 Qualquer afirmação de significância estatística
 
