@@ -2,7 +2,7 @@
 
 **Função deste arquivo.** Separar o que o projeto já pode afirmar em texto submetido do que ainda não pode, e registrar, para cada item em suspenso, a condição precisa que o liberaria. Existe porque a distinção se perde com facilidade: uma medição feita em ambiente controlado, com dezessete arquivos, tem aparência de resultado e não o é — e a diferença só aparece em revisão por pares, quando já é tarde.
 
-**Última revisão:** 27/08/2026
+**Última revisão:** 28/08/2026
 
 ## Convenção de estado
 
@@ -19,15 +19,31 @@
 
 ## 1.1 Assimetria de tokenização no BERTimbau, alinhada ao eixo de prestígio
 
-**Seção do artigo:** Método, e Ameaças à Validade.
+**Seção do artigo:** Método, e Ameaças à Validade. Constitui contribuição metodológica autônoma.
 
-As ocupações de alto prestígio testadas — *médico*, *advogado*, *engenheiro*, *professor*, *juiz* — são representadas por token único no vocabulário do BERTimbau. As de baixo prestígio e os adjetivos de traço negativo fragmentam-se: *pedreiro* e *lavrador* em dois subtokens, *faxineiro* em quatro, *grosseira*, *desonesta* e *preguiçosa* em três. Entre os adjetivos de caráter testados, apenas *inteligente* é token único.
+Sobre trinta e seis ocupações testadas: das dezesseis de alto prestígio, **quinze** são utilizáveis por probabilidade de máscara — token único e produzidas pelo modelo com probabilidade não desprezível. Das vinte de baixo prestígio, **três** — e destas, *motorista* e *mecânico* são ofícios qualificados de prestígio intermediário, restando *empregada* como único representante do extremo inferior.
 
-A fragmentação acompanha o eixo de prestígio que o experimento pretende medir. A consequência é metodológica e independe do resultado de viés: comparação por probabilidade de máscara única favorece estruturalmente os itens de token único, de modo que o confundidor de frequência descrito por Kaneko e Bollegala (2022) encontra-se materializado no próprio tokenizador. O emprego de AUL deixa de ser recomendação e torna-se condição de possibilidade.
+Os itens propriamente estigmatizados fragmentam-se sem exceção: *pedreiro*, *lavrador*, *faxineiro*, *garçom*, *porteiro*, *cozinheiro*, *agricultor*, *pescador*, *costureira*, *diarista*, *ambulante*, *vigia*, *caseiro*, *servente*, *feirante*, *operário*.
 
-**Procedência:** medição própria, `experimentos/smoke_test_bertimbau.py`, resultado em `experimentos/resultados/smoke_test.md`. Reprodutível por terceiros com o script.
+**Formulação forte, e sustentada:** não é possível perguntar ao BERTimbau, por preenchimento de máscara única, se ele associa um falante a ocupação de baixo prestígio — esse léxico não integra seu vocabulário como palavra inteira. Estudo de viés ocupacional em português por *fill-mask* que ignore o fato mede a segmentação do tokenizador e a reporta como viés do modelo.
 
-**Qualificação obrigatória:** o conjunto de atributos testado é o do rascunho do instrumento, não um inventário exaustivo do vocabulário. A afirmação deve descrever o padrão observado nesses itens, não generalizar para todo o léxico.
+O confundidor de frequência descrito por Kaneko e Bollegala (2022) encontra-se, portanto, materializado no próprio tokenizador, e alinhado ao eixo que o experimento pretende medir. O emprego de AUL deixa de ser recomendação e torna-se condição de possibilidade.
+
+**Procedência:** medição própria, `experimentos/selecionar_atributos.py`, resultado em `experimentos/resultados/atributos_selecionados.md`. Reprodutível por terceiros.
+
+**Qualificação obrigatória:** o repertório testado é amplo mas não exaustivo, e a seleção de itens de baixo prestígio partiu de ocupações de circulação corrente. A afirmação descreve o padrão nesse repertório.
+
+## 1.1-A Assimetria de tokenização entre gêneros gramaticais
+
+**Seção do artigo:** Método.
+
+O repertório de adjetivos de caráter no feminino fragmenta mais que o masculino — 18 utilizáveis por máscara contra 23 —, e não se trata dos mesmos itens: *culto*, *educado*, *trabalhador*, *nervoso* e *estudioso* passam no masculino e falham no feminino.
+
+Segue-se que molduras de gênero feminino e masculino operam sobre espaços de atributo distintos em tamanho e composição, e **seus resultados não são diretamente comparáveis**. A comparação exige restringi-los à interseção ou empregar AUL em ambos.
+
+O ponto é pertinente a qualquer estudo que compare viés de gênero por *fill-mask* em português, e não apenas a este.
+
+**Procedência:** mesma medição de 1.1.
 
 ## 1.2 Duas molduras de sondagem degeneram, e substitutas testadas
 
@@ -96,31 +112,84 @@ O volume de fala necessário por variedade foi derivado da condição estatísti
 
 **Procedência:** `experimentos/meta_volume_corpus.py`, com premissas declaradas no próprio script.
 
+**Confirmação empírica.** Com 0,25 h de fala por estado no primeiro lote, o cálculo previa menos de uma ocorrência de negação pós-verbal por estado, e observaram-se zero — situação que o próprio cálculo descreve como não informativa. O dimensionamento, portanto, descreveu corretamente o regime em que a ausência não distingue "não ocorre" de "não foi amostrado".
+
 **Qualificação obrigatória:** as premissas de fala — palavras por minuto, palavras por oração, proporção de orações negadas — são estimativas declaradas, não medições.
 
 ---
+
+## 1.9 Detecção de marcadores dialetais por correspondência de forma é inadequada
+
+**Seção do artigo:** Método, e contribuição metodológica.
+
+A busca por expressão regular sobre transcrição normalizada produz três classes de erro, todas verificadas neste corpus:
+
+1. **Fronteira de oração suprimida.** "foi. Não ia dar certo" é contabilizado como negação pós-verbal "foi não". Os três únicos candidatos encontrados no primeiro lote eram desse tipo.
+2. **Homonímia de forma verbal.** "ele vai" é contabilizado como imperativo no indicativo, quando é presente do indicativo.
+3. **Homografia lexical.** *visse*, imperfeito do subjuntivo de *ver*, é contabilizado como o marcador discursivo recifense; *da hora*, na acepção literal — "os pacotinhos da hora e da roça" —, é contabilizado como gíria paulistana.
+
+Os três erros inflam a contagem, e o fazem **de modo desigual entre marcadores e entre grupos**, o que enviesa a comparação e não apenas sua magnitude. A detecção precisa operar sobre texto com pontuação preservada e com análise morfossintática.
+
+O ponto vale para qualquer trabalho que pretenda confirmar marcadores dialetais em corpus por meio de listas de formas.
+
+**Procedência:** inspeção individual de todas as ocorrências em 5,52 h de transcrição, `experimentos/resultados/piloto_medicoes.md`.
+
+## 1.10 Critérios de escopo de plataforma para corpus de fala regional
+
+**Seção do artigo:** Método.
+
+TikTok e Instagram foram excluídos do corpus principal por razão que não é de conveniência: o reaproveitamento de áudio de terceiros é mecanismo central dessas plataformas, de modo que um vídeo publicado por perfil sediado no estado-alvo pode veicular áudio gravado por falante de outra região. **A dissociação entre origem do vídeo e origem da voz não é detectável por inspeção do perfil ou do conteúdo visual** — diferentemente da contaminação por consulta de busca, que o é.
+
+Registram-se ainda três fatores onerosos: alta incidência de encenação de sotaque com finalidade humorística, que é a caricatura que a validade de construto exige excluir; sobreposição de música à fala; e duração típica que eleva o custo de curadoria por hora aproveitável.
+
+Em contrapartida, podcast distribuído por feed aberto é publicado com a finalidade explícita de ser baixado, e constitui a fonte de situação jurídica mais clara disponível — superior, nesse aspecto, ao próprio YouTube.
+
+**Procedência:** `docs/fontes_coleta.md`, seção 2.3.
+
+## 1.11 Confundidor de escolaridade no marcador do imperativo
+
+**Seção do artigo:** Método, validade de construto.
+
+A forma subjuntiva do imperativo é a prescrita pela tradição gramatical, e seu uso correlaciona-se com escolaridade mais alta **dentro da própria comunidade nordestina**. Figuereido (2025) reporta, para Feira de Santana, estimativa negativa para o nível superior (−2,23) frente ao intercepto: falantes mais escolarizados empregam menos a forma indicativa — 40% contra 53% dos menos escolarizados. Em Campinas a variável não é significativa.
+
+Segue-se que um *guise* nordestino construído sobre a forma subjuntiva fica parcialmente sobreposto à condição "falante mais escolarizado", e o efeito medido pode ter sinal invertido em relação ao viés pretendido. Registre-se que Sampaio (2001), para Salvador, encontra direção oposta do efeito.
+
+**Procedência:** fonte verificada, leitura integral. O mesmo trabalho fornece o contraste interregional disponível: Campinas-SP 81% de morfologia indicativa contra Feira de Santana-BA 47%.
+
+## 1.12 Perda não aleatória por restrição etária
+
+**Seção do artigo:** Método, e Ameaças à Validade.
+
+Parte do material exige autenticação por restrição etária, e o download é abortado. A perda não é aleatória: a restrição recai tipicamente sobre matérias de violência e crime, que constituem parcela expressiva do vox-pop de telejornalismo policial — justamente o conteúdo em que moradores são entrevistados na rua. A exclusão silenciosa removeria um tipo de conteúdo, possivelmente em proporção desigual entre estados.
+
+A contabilização de perdas por estado e camada é, portanto, requisito de método, e não zelo administrativo.
+
+**Procedência:** `docs/pendencias.md`, seção 4.5.
 
 # 2. CONDICIONAL — depende de verificação nomeada
 
 ## 2.1 A transcrição automática não penaliza a fala nordestina
 
-**Estado:** indício favorável, insuficiente.
-**Medido:** confiança média por palavra — Nordeste 0,935, Sudeste 0,925, diferença de +0,010 em favor do Nordeste. A dispersão entre estados (0,077, de PE 0,975 a RJ 0,898) supera em muito a diferença entre grupos.
-**Libera a afirmação:** WER calculado contra transcrição humana de referência, sobre a amostra estratificada já exportada. Confiança mede certeza do modelo, não acerto.
-**Se confirmado:** remove um confundidor previsto na Parte 3 do `CLAUDE.md` e constitui resultado secundário publicável por si só.
-**Se não confirmado:** torna-se limitação central, pois erro de transcrição desigual entre variedades se apresentaria como resultado sobre o modelo.
+**Estado:** indício consistente em dois lotes; falta o WER.
+**Medido, 52 arquivos e 45 mil palavras:** Nordeste 0,944, Sudeste 0,939, diferença de +0,006 em favor do Nordeste. Por estado, entre 0,929 (RJ) e 0,948 (PE e SP).
+**Estabilidade:** no primeiro lote, com 17 arquivos, a dispersão entre estados ia de 0,898 a 0,975; com o triplo do material reduziu-se a 0,929–0,948. A variação anterior era ruído de amostra pequena, e a convergência reforça a leitura em vez de enfraquecê-la.
+**Libera a afirmação:** WER contra transcrição humana de referência. Confiança mede certeza do modelo, não acerto, e nenhuma quantidade de confiança substitui a comparação com referência.
+**Se confirmado:** remove confundidor previsto na Parte 3 do `CLAUDE.md`, e constitui resultado secundário publicável.
+**Se não confirmado:** torna-se limitação central.
+**Ressalva de balanceamento:** o material nordestino tem o dobro de palavras do sudestino (30 mil contra 15 mil), o que não invalida a comparação de médias mas deve ser declarado.
 
 ## 2.2 Rendimento por camada e revisão da meta de volume
 
-**Estado:** medido em amostra insuficiente.
-**Medido:** 92,3% de fala em vox-pop contra 35% supostos; 89,2% em podcast contra 60%; 81,0% em vlog contra 70%. Descontado o locutor dominante, cerca de 47% de fala-alvo em vox-pop e 68% em vlog. O recálculo indicaria cerca de 38 h no total, contra as 50 h previstas.
-**Libera a afirmação:** piloto de maior volume. A amostra atual é de 6, 6 e 5 arquivos por camada.
-**Depende ainda de 2.3.**
+**Estado:** medido em dois lotes, com estabilidade entre eles.
+**Medido, 52 arquivos:** 91,8% de fala em vox-pop contra 35% supostos; 87,3% em podcast contra 60%; 85,1% em vlog contra 70%. No primeiro lote, 92,3%, 89,2% e 81,0% — variação pequena com o triplo do material.
+**Descontado o locutor dominante:** cerca de 47% de fala-alvo em vox-pop, e a suposição de 70% para vlog foi a única correta.
+**Recálculo:** cerca de 6,4 h de áudio bruto por estado, e 38 h no total, contra 8,3 h e 50 h supostas.
+**Libera a afirmação:** verificação de 2.3, da qual a leitura do vox-pop depende.
 
 ## 2.3 A diarização separa o morador entrevistado do repórter
 
 **Estado:** sustentado quanto à separação; não verificado quanto à identidade.
-**Medido:** 4,2 locutores por arquivo em vox-pop, 3,0 em podcast, 2,2 em vlog — coerente com a natureza de cada camada.
+**Medido, 52 arquivos:** a média de locutores por arquivo mantém a ordenação entre camadas observada no primeiro lote, com o dominante ocupando 51% do tempo em vox-pop, 73% em podcast e 83% em vlog — coerente com a natureza de cada camada.
 **Não verificado:** que o locutor dominante da camada de vox-pop seja o repórter, e não um entrevistado loquaz. Da suposição depende toda a estimativa de fala aproveitável.
 **Libera a afirmação:** verificar se o mesmo perfil de voz reaparece em vídeos distintos do mesmo canal.
 
