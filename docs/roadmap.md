@@ -63,10 +63,21 @@ Execução do pipeline já implementado em `pipeline_coleta_piloto/`. É o passo
 
 ## Situação dos dois conjuntos de dados
 
+Atualizada em 28/08/2026. A redação anterior descrevia o estado de 26/08 — um vídeo avulso, sem transcrição — e permaneceu no arquivo depois do piloto e da coleta, o que é defeito de manutenção do próprio plano canônico.
+
 | Conjunto | Situação |
 |---|---|
-| Corpus de áudio | Um vídeo, baixado como teste avulso, sem `estado_alvo` nem `tipo_fonte` registrados. Nenhuma transcrição. |
-| Pares mínimos | Doze itens rascunhados, nenhum validado, um suspenso por pendência bibliográfica, conjunto de atributos por refazer. |
+| **Corpus de áudio** | **Especificação fechada, execução em curso.** Esquema de oito campos definido em `CLAUDE.md`, seção 1.4.1, e implementado. Regra de atribuição por canal estabelecida e verificada contra contaminação. Meta de volume derivada de requisito estatístico, e não arbitrada. Coletados 52 trechos, 5,52 h, cerca de 0,92 h por estado, contra meta revista de cerca de 6,4 h por estado. Esteira validada de ponta a ponta, com 88 canais verificados disponíveis. |
+| **Pares mínimos** | **Especificação aberta, e o conteúdo perdeu sustentação.** Doze itens rascunhados, nenhum validado por juízes. Os quatro blocos testados — morfossintático, lexical, feixe e construcional — não produzem resposta no modelo, de modo que o conjunto atual não serve como instrumento de medição de viés. Faltam, além do conteúdo, quatro definições formais: tamanho-alvo, formato de publicação, licença e ficha de conjunto de dados. |
+
+### Por que a assimetria importa
+
+O princípio de ordenação deste arquivo estabelece que a contribuição publicável do projeto é o dataset, e os precedentes adotados — CrowS-Pairs e French CrowS-Pairs — são artigos de conjunto de dados. Ocorre que o conjunto que sustentaria essa contribuição é o de **pares mínimos**, e é justamente o que não está definido. O corpus de áudio, bem especificado, tem no desenho original função **instrumental**: serve ao Filtro 2, isto é, a confirmar que os marcadores ocorrem em fala espontânea.
+
+Duas consequências, registradas para a decisão do passo 5:
+
+1. Enquanto o passo 5 não se resolver, não há critério para decidir **quais** pares mínimos construir, e escalar a coleta de áudio produz material cuja função de validação está suspensa junto com os marcadores que ela validaria.
+2. Se o rumo adotado for o 5.3, o corpus de áudio deixa de ser instrumento e passa a ser **entregável autônomo** — corpus de fala regional documentado, com WER estratificado por variedade. Isso alteraria o que precisa ser definido a seu respeito: formato de distribuição, licença e ficha passariam a ser exigíveis também para ele.
 
 ---
 

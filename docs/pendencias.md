@@ -236,6 +236,19 @@ O arquivo permanece local por decisão registrada em agosto. Como os demais docu
 
 Excluído do corpus principal por dissociação entre origem do vídeo e origem da voz (seção 2.3.1 de `docs/fontes_coleta.md`). Admite-se reabertura, sob quatro critérios cumulativos, caso a diversidade de falantes não se complete pelas fontes adotadas. Não reavaliado desde então.
 
+### 5.7 O conjunto de pares mínimos não tem especificação de entrega
+
+**Aberta em 28/08/2026.** O projeto declara o dataset como sua contribuição publicável e adota CrowS-Pairs e French CrowS-Pairs como precedentes, que são artigos de conjunto de dados. O conjunto que sustentaria essa contribuição é o de pares mínimos, e dele estão definidos o desenho conceitual — princípios da seção 2 de `docs/pares_minimos_v1.md`, decomposição em blocos, protocolo de validação em dois filtros — mas **nenhuma das definições de entrega**. Faltam quatro, e as quatro são exigidas em submissão a veículo que aceite artigo de recurso:
+
+1. **Tamanho-alvo.** O documento observa que doze itens são insuficientes e cita os 1.508 pares do CrowS-Pairs, sem fixar meta. Diferentemente do corpus de áudio, cuja meta foi derivada de requisito estatístico em `experimentos/meta_volume_corpus.py`, aqui não há número nem critério que o produza.
+2. **Formato de publicação.** Não há esquema de registro definido — campos, tipos, codificação, unidade de linha. O CrowS-Pairs distribui pares com identificador, os dois lados, tipo de viés e anotações de juízes; nada equivalente foi especificado.
+3. **Licença.** Não decidida. A questão é distinta da do áudio, cuja conduta está registrada em `docs/stack_tecnica.md` — publicar identificadores e código, não mídia. Os pares mínimos são texto de autoria do projeto e podem ser licenciados de modo permissivo, mas a decisão não foi tomada nem registrada.
+4. **Ficha de conjunto de dados.** Não existe. É prática consolidada em publicação de recurso, e descreve motivação, composição, processo de coleta, usos pretendidos e usos desaconselhados. Este último item é particularmente pertinente aqui: um conjunto de enunciados dialetais rotulados por região presta-se a uso indevido como classificador de procedência de falantes.
+
+**O que encerra.** Um documento de especificação de entrega, a escrever depois da decisão do passo 5 — antes dela não há critério para fixar o tamanho-alvo nem para definir o que o conjunto contém.
+
+**Ressalva de sequenciamento.** Se o rumo adotado for o 5.3, o corpus de áudio deixa de ser instrumento do Filtro 2 e passa a entregável autônomo, e as quatro definições acima passam a ser exigíveis também para ele.
+
 ### 5.5 Rumo do projeto depois do resultado negativo do passo 5.1
 
 **Aberta em 28/08/2026, e é a decisão que bloqueia o restante.** Quatro famílias de sinalização dialetal implícita foram testadas e nenhuma produz resposta detectável no BERTimbau Base sob pseudo-verossimilhança. O passo 5.1 do `docs/roadmap.md` está concluído com resposta negativa, e restam três rumos, detalhados ali: 5.2, trocar de modelo ou de métrica; 5.3, reposicionar como artigo de método e recurso; 5.4, levar a menção explícita a volume.
