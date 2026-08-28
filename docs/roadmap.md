@@ -2,7 +2,7 @@
 
 **Função deste arquivo.** Plano único e canônico do projeto. Toda proposta de trabalho deve ser situada em um dos passos abaixo, e não apresentada como lista nova. A numeração dos passos é estável: passos concluídos permanecem na tabela com a situação atualizada, e nenhum passo é renumerado.
 
-**Última atualização:** 27/08/2026
+**Última atualização:** 28/08/2026
 
 **Documentos irmãos.** `docs/achados_para_o_artigo.md` separa o que já pode ser afirmado em texto submetido do que não pode, com a condição precisa que liberaria cada item em suspenso — é o filtro a consultar antes de escrever qualquer trecho do artigo. `docs/pendencias.md` registra tudo que está aberto — lacunas, decisões não tomadas, verificações devidas e melhorias identificadas. Este arquivo diz o que fazer em seguida; aquele diz o que não pode ser esquecido. Consultar ambos ao retomar o trabalho.
 
@@ -22,7 +22,7 @@ Segue-se o critério de priorização: **trabalho que aproxima o projeto de ter 
 |---|---|---|---|
 | **1** | Teste de fumaça do instrumento | **Concluído** em 27/08/2026 | — |
 | **2** | Fechamento das pendências de citação e revisão editorial | **Concluído** em 27/08/2026 | — |
-| **3** | Validação dos itens por juízes falantes nativos | Não iniciado, **bloqueado** | Passo 3.1 |
+| **3** | Validação dos itens por juízes falantes nativos | Não iniciado, **suspenso** | ver passo 5 |
 | **4** | Coleta do corpus de áudio | **Piloto executado** em 27/08/2026: 17 trechos, 1,55 h, esteira validada de ponta a ponta. Coleta em escala não iniciada | — |
 
 ### Passo 1 — Teste de fumaça do instrumento (concluído)
@@ -42,6 +42,10 @@ Fechadas as pendências de cobertura dialetológica de Ceará e Bahia; localizad
 Aplicação do Filtro 1 descrito em `docs/pares_minimos_v1.md`, seção 7. Não deve ser iniciado antes da conclusão do passo 3.1, sob pena de consumir a disponibilidade dos juízes com itens que o instrumento descartaria.
 
 **3.1 — Correção do instrumento (bloqueia o passo 3).** Substituir as molduras inoperantes pelas alternativas já testadas; refazer o conjunto de atributos considerando a segmentação em subtokens; decidir quais atributos são lidos por probabilidade de máscara e quais exigem AUL. Trabalho de escrivaninha, da ordem de horas.
+
+**3.1 — Correção do instrumento. Concluído** em 28/08/2026. Molduras inoperantes substituídas pelas testadas; conjunto de atributos reconstruído a partir do vocabulário do modelo, por `experimentos/selecionar_atributos.py`. A correção revelou a assimetria de tokenização por eixo de prestígio, hoje um dos achados sustentados do artigo.
+
+**Por que o passo 3 está suspenso, e não apenas bloqueado.** Convocar juízes exige um conjunto de itens que valha a pena validar, e o passo 5 mostrou que o conjunto atual não produz resposta mensurável no modelo. Validar itens que não medem nada gastaria a disponibilidade dos juízes sem contrapartida.
 
 ### Passo 4 — Coleta do corpus de áudio
 
@@ -69,3 +73,23 @@ Execução do pipeline já implementado em `pipeline_coleta_piloto/`. É o passo
 ## Fora de escopo por ora
 
 - **Comparação com o BERTimbau Large.** Refinamento do instrumento de medição, não construção de dataset. Retomar apenas se e quando o conjunto estiver montado e o efeito medido no modelo Base se mostrar insuficiente para sustentar o artigo.
+
+---
+
+## Passo 5 — Viabilidade do desenho *matched-guise*
+
+**Concluído** em 28/08/2026, e não previsto no plano original. Foi inserido porque investir em juízes e em dezenas de horas de coleta sem saber se o modelo responde ao guise seria apostar sem olhar a carta.
+
+Resultado em `experimentos/resultados/sensibilidade_guise.md`. Com controles que estabelecem piso e teto de sensibilidade: o instrumento detecta diferença de conteúdo a 6,32× o piso, mas os marcadores morfossintáticos ficam em 1,00×, e o efeito dos lexicais é reproduzido por um controle com palavras raras não regionais.
+
+**Decisão de rumo, em aberto, e é ela que destrava o resto:**
+
+| Caminho | Custo | O que responde |
+|---|---|---|
+| Marcadores construcionais pareados em frequência | baixo | se ainda existe instrumento possível neste modelo |
+| BERTimbau Large, ou métrica baseada em representação | médio | se o limite é do modelo ou da métrica |
+| Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés |
+
+Os três não se excluem. O primeiro é o mais barato e determina se os demais são necessários.
+
+**Sai do "fora de escopo".** A comparação com o BERTimbau Large fora afastada por ser refinamento de medição, e não construção de dataset. Com o dataset existindo e o desenho em questão, a comparação passa a responder à pergunta que bloqueia o projeto, e volta a ser pertinente.
