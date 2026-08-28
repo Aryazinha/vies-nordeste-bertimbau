@@ -42,6 +42,46 @@ def get_pipeline() -> Pipeline:
     return _pipeline
 
 
+def _extrair_anotacao(saida):
+    """
+    Devolve a `Annotation` do resultado do pipeline, qualquer que seja a versão.
+
+    Até a versão 3.x o pipeline devolvia diretamente um objeto com `itertracks`.
+    Versões posteriores encapsulam o resultado — o pipeline
+    `speaker-diarization-community-1` devolve um `DiarizeOutput`, cujo atributo
+    carrega a anotação. A execução de 27/08/2026 falhou em todos os arquivos por
+    causa dessa mudança, depois de a transcrição já ter rodado.
+
+    A função procura o atributo por nome e, não o encontrando, varre o objeto em
+    busca de algo que exponha `itertracks` — de modo que uma nova mudança de
+    nomenclatura não volte a interromper a coleta.
+    """
+    if hasattr(saida, "itertracks"):
+        return saida
+
+    for nome in ("speaker_diarization", "diarization", "annotation", "output"):
+        candidato = getattr(saida, nome, None)
+        if candidato is not None and hasattr(candidato, "itertracks"):
+            return candidato
+
+    for nome in dir(saida):
+        if nome.startswith("_"):
+            continue
+        try:
+            candidato = getattr(saida, nome)
+        except Exception:
+            continue
+        if hasattr(candidato, "itertracks"):
+            logger.info("anotação localizada no atributo %r de %s",
+                        nome, type(saida).__name__)
+            return candidato
+
+    raise TypeError(
+        f"não foi possível extrair a anotação de {type(saida).__name__}. "
+        f"Atributos disponíveis: {[n for n in dir(saida) if not n.startswith('_')]}"
+    )
+
+
 def diarizar_audio(audio_path: Path, num_speakers: int | None = None) -> list[dict]:
     """
     Roda a diarização e retorna uma lista de turnos:
@@ -53,10 +93,11 @@ def diarizar_audio(audio_path: Path, num_speakers: int | None = None) -> list[di
     pipeline = get_pipeline()
     kwargs = {"num_speakers": num_speakers} if num_speakers else {}
     output = pipeline(str(audio_path), **kwargs)
+    anotacao = _extrair_anotacao(output)
 
     turnos = [
         {"start": turn.start, "end": turn.end, "speaker": speaker}
-        for turn, _, speaker in output.itertracks(yield_label=True)
+        for turn, _, speaker in anotacao.itertracks(yield_label=True)
     ]
     logger.info("Diarizado %s: %d turnos, %d locutores distintos",
                 audio_path.name, len(turnos), len({t["speaker"] for t in turnos}))
