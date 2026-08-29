@@ -249,6 +249,24 @@ Excluído do corpus principal por dissociação entre origem do vídeo e origem 
 
 **Ressalva de sequenciamento.** Se o rumo adotado for o 5.3, o corpus de áudio deixa de ser instrumento do Filtro 2 e passa a entregável autônomo, e as quatro definições acima passam a ser exigíveis também para ele.
 
+### 5.8 Dimensionamento da análise de direção (passo 5.5 do roadmap)
+
+**Aberta em 29/08/2026.** A medida com sinal — se a resposta do modelo é preconceituosa, e não apenas diferente — está implementada em `experimentos/analise_valencia.py` e é inconclusiva por falta de resolução estatística, e não por ausência de efeito. O diagnóstico é o próprio controle positivo, que não sobrevive à correção de Holm em nenhum dos dois eixos apesar de apresentar as maiores magnitudes brutas.
+
+**Três providências, todas de custo baixo:**
+
+1. **Ampliar o grupo de referência.** O controle neutro tem cinco pares, e é contra ele que toda permutação é feita. Com cinco pares no grupo de referência a distribuição nula é grossa demais para que qualquer condição atinja significância após correção.
+2. **Ampliar os pares por condição**, hoje entre cinco e dez.
+3. **Descartar o artefato de segmentação no eixo de ocupação.** O gentílico de estado apresenta viés de −0,271, com apenas um de oito pares positivo, o que significaria ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino. Antes de qualquer leitura substantiva é preciso descartar a assimetria de tokenização registrada no item 1.1 de `docs/achados_para_o_artigo.md`, segundo a qual as ocupações de baixo prestígio são majoritariamente multi-token. O mascaramento do alvo por inteiro foi adotado para neutralizar isso e pode não bastar.
+
+**Por que importa mais que as demais pendências.** Sem ela, o artigo afirma que o modelo distingue e não pode afirmar que deprecia — a diferença entre um resultado sobre representação e um resultado sobre viés, que é o objeto declarado da pesquisa.
+
+### 5.9 Classificação de valência dos atributos não validada
+
+A partição dos atributos entre favoráveis e desfavoráveis, e entre alto e baixo prestígio ocupacional, foi feita pelo projeto por circulação corrente e está declarada em código, em `analise_valencia.py`, para ser auditável e contestável. Atributos ambíguos — *simples*, *normal*, *séria*, *fria*, *vendedor*, *motorista* — foram excluídos em vez de arbitrados.
+
+Não foi submetida a juízes. Como a medida de viés é inteiramente definida por essa partição, ela deve integrar o Filtro 1 quando este for aplicado, sob pena de o escore de viés depender de julgamento não validado de uma única fonte.
+
 ### 5.5 Rumo do projeto depois do resultado negativo do passo 5.1
 
 **Aberta em 28/08/2026, e é a decisão que bloqueia o restante.** Quatro famílias de sinalização dialetal implícita foram testadas e nenhuma produz resposta detectável no BERTimbau Base sob pseudo-verossimilhança. O passo 5.1 do `docs/roadmap.md` está concluído com resposta negativa, e restam três rumos, detalhados ali: 5.2, trocar de modelo ou de métrica; 5.3, reposicionar como artigo de método e recurso; 5.4, levar a menção explícita a volume.

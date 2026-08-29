@@ -100,7 +100,8 @@ Resultado em `experimentos/resultados/sensibilidade_guise.md`. Com controles que
 | **5.1** Marcadores construcionais pareados em frequência | baixo | se ainda existe instrumento possível neste modelo | **Concluído** em 28/08/2026 — resposta negativa |
 | **5.2** BERTimbau Large, ou métrica baseada em representação | médio | se o limite é do modelo ou da métrica | Não iniciado |
 | **5.3** Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés | Não iniciado, e hoje o mais amparado |
-| **5.4** Menção explícita em volume | baixo | se o modelo responde ao rótulo regional, ainda que não à variedade | Aberto, e novo |
+| **5.4** Menção explícita em volume | baixo | se o modelo responde ao rótulo regional, ainda que não à variedade | **Concluído** em 29/08/2026 — resposta afirmativa |
+| **5.5** Direção do efeito, e não sua magnitude | baixo | se a resposta é preconceituosa, e não apenas diferente | Aberto, e agora o caminho crítico |
 
 Os quatro não se excluem. O 5.1 era o mais barato e determinava se os demais eram necessários; a resposta dele é que sim.
 
@@ -116,12 +117,28 @@ Somam-se agora **quatro famílias testadas sem efeito**: morfossintática, lexic
 
 **Dois subprodutos que valem por si.** O controle de conteúdo funciona como controle positivo do método de resíduo (p = 0,0003 após Holm), o que torna o nulo legível. E a calibração revelou que a frequência explica bem menos do que o relatório anterior afirmava — R² = 0,180 —, o que **exigiu revisão do item 1.14** de `docs/achados_para_o_artigo.md`.
 
-### 5.4 — Menção explícita em volume (aberto)
+### 5.4 — Menção explícita em volume (concluído, resposta afirmativa)
 
 Não estava previsto. Surgiu porque a condição de menção explícita é a **única** com resíduo consistente entre as regionais: cinco pares em cinco acima da reta, p = 0,026 bruto, 0,13 após Holm. E tem estrutura interna interpretável — os resíduos grandes são os que nomeiam a região como categoria; os que nomeiam estados ficam próximos de zero.
 
 Exige um conjunto de pares de menção explícita em volume comparável ao dos demais blocos, com a distinção entre rótulo de região e nome de estado como variável de desenho. Detalhamento no item 2.8 de `docs/achados_para_o_artigo.md`.
 
 **Relação com o restante.** É barato e usa a esteira já construída. Se confirmar, produz o contraste que sustentaria o artigo pretendido em nova chave — o modelo responde à categoria regional nomeada e não à variedade que a indicia. Se não confirmar, o 5.3 passa a ser o único caminho disponível.
+
+**Resultado**, em `experimentos/resultados/explicito.md`. Vinte e quatro pares novos, em três níveis de granularidade do rótulo, todos de autoidentificação. Duas condições produzem resíduo acima da reta da frequência **e sobrevivem à correção de Holm**: gentílico de estado, com p ajustado de 0,0012 e oito de oito pares acima da reta, e macrorregião, com 0,0038 e sete de oito. Topônimo não sobrevive. Não é efeito de raridade: as duas condições significativas têm as razões de frequência mais baixas do conjunto, e o par mais bem pareado — *pernambucano* contra *paulistano*, 1,1× — está entre os de maior efeito.
+
+**É o primeiro resultado positivo do projeto**, e produz o contraste que sustenta o artigo: mesma régua, mesma calibração, mesma estatística, e quatro famílias implícitas sem efeito contra menção explícita com efeito.
+
+**A predição registrada era ordinal e não se confirmou como escrita.** Previa-se macrorregião acima de gentílico; observou-se o inverso. A inspeção por par mostra que o corte não é de granularidade, e sim entre **rótulo de pessoa** e **rótulo de lugar** — distinção que atravessa a condição de macrorregião, cujos pares com *Nordeste* rendem +0,043 e os com *nordestino*, +0,172. Reagrupados, os rótulos de pessoa somam +0,162 com doze de doze pares acima da reta, contra +0,036 dos de lugar. O reagrupamento é posterior aos dados e está declarado como tal.
+
+### 5.5 — Direção do efeito (aberto, e agora o caminho crítico)
+
+Aberto em 29/08/2026, pelo resultado do 5.4. Toda a medição do projeto até aqui emprega |Δ| em **valor absoluto**, o que responde a "o modelo responde ao guise?" e não a "o modelo responde com preconceito?" — um modelo que assinalasse ao guise nordestino atributos mais favoráveis produziria o mesmo número.
+
+`experimentos/analise_valencia.py` implementa a medida com sinal, sobre as medições já existentes, em dois eixos separados: traço de caráter e prestígio ocupacional. O resultado é **inconclusivo, e por razão demonstrável**: o controle positivo não sobrevive à correção de Holm em nenhum dos dois eixos, ainda que apresente as maiores magnitudes brutas das duas tabelas. Com cinco pares no grupo de referência, a permutação não tem resolução. Pela lógica de interpretabilidade adotada desde o passo 5, quando o controle positivo não passa, nenhum nulo é legível.
+
+**O que o passo exige:** conjunto maior de pares por condição, ampliação do grupo de referência para além dos cinco pares do controle neutro, e descarte do artefato de segmentação no eixo de ocupação — onde o gentílico de estado apresenta viés de −0,271, isto é, ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino, o que pode ser efeito da assimetria de tokenização registrada no item 1.1 de `docs/achados_para_o_artigo.md`.
+
+**Por que é o caminho crítico.** Sem ele, o artigo pode afirmar que o modelo **distingue**, e não pode afirmar que **deprecia**. É a diferença entre um resultado sobre representação e um resultado sobre viés.
 
 **Sai do "fora de escopo".** A comparação com o BERTimbau Large fora afastada por ser refinamento de medição, e não construção de dataset. Com o dataset existindo e o desenho em questão, a comparação passa a responder à pergunta que bloqueia o projeto, e volta a ser pertinente.

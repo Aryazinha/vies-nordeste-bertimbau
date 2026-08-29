@@ -242,6 +242,52 @@ Adotou-se, por isso, estatística por conglomerado — reamostragem de pares par
 
 **Procedência:** medição própria. O ponto vale para qualquer trabalho do gênero, e a literatura consultada não o explicita.
 
+## 1.17 O modelo responde à menção explícita da região, e o efeito concentra-se em rótulos de pessoa
+
+**Seção do artigo:** Resultados. É o primeiro resultado positivo do projeto, e forma par com 1.15.
+
+Duas condições de menção explícita produzem resíduo acima da reta da frequência e **sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
+
+| Condição | Pares | Razão med. | Resíduo médio | Acima da reta | p Holm |
+|---|---|---|---|---|---|
+| gentílico de estado — *pernambucano*, *baiano*, *cearense* | 8 | 3,8× | +0,1567 | 8/8 | **0,0012** |
+| macrorregião — *Nordeste*, *nordestino* | 8 | 1,8× | +0,1072 | 7/8 | **0,0038** |
+| topônimo — *Ceará*, *Recife*, *Salvador* | 8 | 4,9× | +0,0326 | 6/8 | 0,4177 |
+
+**Não é efeito de raridade,** e a comparação com 1.14 é o que o estabelece: as duas condições significativas têm as razões de frequência **mais baixas** de todo o conjunto, e o par mais bem pareado — *pernambucano* contra *paulistano*, a 1,1× — apresenta resíduo de +0,0895, uma vez e meia o desvio-padrão do ruído de calibração.
+
+**O contraste com 1.15 é a contribuição.** Mesmo modelo, mesma métrica, mesma reta de calibração, mesma estatística por conglomerado: quatro famílias de sinalização implícita entre −0,061 e +0,050, nenhuma significativa; menção explícita a +0,107 e +0,157, ambas sobreviventes à correção.
+
+**Formulação sustentada:** o BERTimbau Base responde à menção explícita da região acima do que a frequência lexical prevê, e não responde à sinalização dialetal implícita. **Formulação vedada:** que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, em valor absoluto, e nada diz sobre direção. Ver 3.7.
+
+**Procedência:** `experimentos/teste_explicito.py`, relatório em `experimentos/resultados/explicito.md`.
+
+**Qualificação obrigatória:** oito pares por condição, um modelo, uma métrica. O contraste de gentílico não é simétrico, pela inexistência de *sudestino* — ver 1.18.
+
+## 1.17-A Rótulo de pessoa contra rótulo de lugar — exploratório
+
+**Seção do artigo:** Resultados, e **apenas com a declaração de estatuto abaixo**.
+
+A predição registrada antes da medição era ordinal por granularidade do rótulo, e não se confirmou: o gentílico de estado supera a macrorregião. A inspeção por par mostra que o corte é outro — entre enunciados que nomeiam uma **pessoa** e os que nomeiam um **lugar** —, e que ele atravessa a condição de macrorregião, cujos quatro pares com *Nordeste* rendem +0,043 contra +0,172 dos quatro com *nordestino*.
+
+Reagrupados os 24 pares explícitos por essa distinção: rótulo de pessoa, 12 pares, +0,1618, **doze de doze acima da reta**; rótulo de lugar, 12 pares, +0,0359, nove de doze. Diferença entre os agrupamentos, p = 0,0003.
+
+**Declaração de estatuto, obrigatória em qualquer menção:** a hipótese foi formulada **depois** de ver os dados. O valor-p não tem o estatuto dos de 1.17 e vale como magnitude de efeito a testar em conjunto novo. O que permanece confirmatório é 1.17: as duas condições que contêm rótulos de pessoa sobrevivem a Holm, e a que contém apenas topônimos não sobrevive.
+
+**Leitura substantiva, se confirmado:** o modelo associa conteúdo a categorias de pessoa e trata nomes de lugar como topônimos quaisquer. *Nordestino* carrega representação social; *Recife* não.
+
+## 1.18 O português não dispõe de gentílico corrente para o Sudeste
+
+**Seção do artigo:** Método, e Ameaças à Validade.
+
+*Sudestino* apresenta frequência de 0,015 por milhão contra 4,27 de *nordestino* — razão de 285 vezes. O contraste simétrico de gentílico de macrorregião é, por isso, impossível de construir, e os controles empregados foram gentílicos de outra macrorregião (*sulista*) ou de estados do Sudeste (*mineiro*, *carioca*, *paulista*, *paulistano*, *fluminense*).
+
+O fato é dado, e não apenas obstáculo de desenho: a categoria "nordestino" existe na língua como rótulo de pessoa de um modo que "sudestino" não existe. É consistente com a leitura de que a primeira funciona como categoria social e a segunda como coordenada geográfica, e deve ser reportada como limitação **e** como evidência.
+
+**Procedência:** medição própria com `wordfreq`, registrada em `experimentos/teste_explicito.py`.
+
+**Qualificação obrigatória:** a fonte de frequência não estratifica por variedade nem separa português brasileiro de europeu.
+
 # 2. CONDICIONAL — depende de verificação nomeada
 
 ## 2.1 A transcrição automática não penaliza a fala nordestina
@@ -353,6 +399,20 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 **Continua vedado:** afirmar que o instrumento final está balanceado, o que depende da reformulação do bloco.
 
 **Qualificação obrigatória:** a fonte de frequência não estratifica por variedade nem separa português brasileiro de europeu. Item regionalmente restrito tem frequência nacional baixa por construção, de modo que a medida compara itens entre si e não caracteriza uso regional.
+
+## 3.7 Que a resposta do modelo à região seja preconceituosa
+
+**Aberto em 29/08/2026, e é hoje a vedação mais importante do documento.**
+
+Toda a medição do projeto emprega |Δ PLL| em **valor absoluto**. Isso responde a "o modelo responde ao guise?" e não responde a "o modelo responde com preconceito?" — um modelo que assinalasse ao guise nordestino atributos *mais favoráveis* produziria exatamente o mesmo número.
+
+A medida com sinal foi implementada em `experimentos/analise_valencia.py`, em dois eixos separados, e o resultado é **inconclusivo por subdimensionamento**: o controle positivo não sobrevive à correção de Holm em nenhum dos dois eixos, ainda que apresente as maiores magnitudes brutas de ambas as tabelas. Com cinco pares no grupo de referência, a permutação não tem resolução. Pela lógica de interpretabilidade que o projeto aplica desde o passo 5, quando o controle positivo não passa, nenhum nulo é legível.
+
+**Vedado, portanto:** afirmar que o modelo deprecia falantes nordestinos; afirmar que **não** os deprecia; e citar qualquer valor da tabela de valência como resultado, inclusive o viés de caráter de +0,195 da condição de macrorregião, com sete de oito pares positivos, que é o mais sugestivo do conjunto.
+
+**Vedado com ênfase particular:** ler o viés de ocupação de −0,271 da condição de gentílico — ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino — como ausência de estigma ocupacional. A explicação alternativa mais provável é o artefato de segmentação registrado em 1.1, e não foi descartada.
+
+**Formulação correta:** o modelo **distingue**; se **deprecia**, não se sabe. **Libera a afirmação:** o passo 5.5 do roadmap.
 
 ## 3.5 Qualquer afirmação de significância estatística — parcialmente endereçado
 
