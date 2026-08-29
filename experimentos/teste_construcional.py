@@ -65,6 +65,11 @@ from teste_sensibilidade import ATRIBUTOS, CONDICOES, MOLDURAS
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
 SAIDA.mkdir(exist_ok=True)
+# Saída de máquina fica em subpasta própria. A pasta `resultados/` guarda apenas
+# relatórios escritos à mão, e a separação existe porque misturá-los já levou um
+# script a sobrescrever uma interpretação (`docs/pendencias.md`, seção 5-A).
+TABELAS = SAIDA / "tabelas"
+TABELAS.mkdir(parents=True, exist_ok=True)
 BRUTO_ANTERIOR = SAIDA / "sensibilidade_bruto.json"
 
 SEMENTE = 20260828
@@ -492,7 +497,7 @@ def main() -> None:
     # `construcional.md`, escrito à mão sobre estes números, e o script não o
     # toca: gravar interpretação no mesmo caminho que a tabela faria a
     # reexecução apagá-la sem aviso.
-    (SAIDA / "construcional_tabelas.md").write_text(texto, encoding="utf-8")
+    (TABELAS / "construcional_tabelas.md").write_text(texto, encoding="utf-8")
     (SAIDA / "construcional_pares.json").write_text(
         json.dumps(pares, ensure_ascii=False, indent=1), encoding="utf-8")
     print("\n" + texto)

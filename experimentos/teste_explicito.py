@@ -79,6 +79,8 @@ from teste_construcional import (
 from teste_sensibilidade import CONDICOES as CONDICOES_BASE
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
+TABELAS = SAIDA / "tabelas"          # ver nota em `teste_construcional.py`
+TABELAS.mkdir(parents=True, exist_ok=True)
 BRUTO_ANTERIOR = SAIDA / "construcional_bruto.json"
 BRUTO = SAIDA / "explicito_bruto.json"
 
@@ -342,7 +344,7 @@ def main() -> None:
     texto = chr(10).join(L)
     # Saída de máquina, regerável. O relatório interpretado é `explicito.md`,
     # escrito à mão sobre estes números, e o script não o toca.
-    (SAIDA / "explicito_tabelas.md").write_text(texto, encoding="utf-8")
+    (TABELAS / "explicito_tabelas.md").write_text(texto, encoding="utf-8")
     (SAIDA / "explicito_pares.json").write_text(
         json.dumps(pares, ensure_ascii=False, indent=1), encoding="utf-8")
     print(chr(10) + texto)

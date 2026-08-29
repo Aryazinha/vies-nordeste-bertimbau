@@ -108,7 +108,7 @@ Os quatro não se excluem. O 5.1 era o mais barato e determinava se os demais er
 
 ### 5.1 — Marcadores construcionais (concluído, resposta negativa)
 
-Relatório em `experimentos/resultados/construcional.md`; tabelas regeráveis em `construcional_tabelas.md`.
+Relatório em `experimentos/resultados/construcional.md`; tabelas regeráveis em `tabelas/construcional_tabelas.md`.
 
 **Desenho.** Como o pareamento perfeito de frequência é inalcançável para marcadores construcionais — os melhores candidatos apresentam razão de 5 a 11 vezes —, abandonou-se a comparação de medianas e adotou-se a **calibração da lei de frequência**: ajusta-se |Δ| contra log₁₀ da razão de frequência sobre 22 pares não regionais, e mede-se o **resíduo** de cada par dialetal contra essa reta. Toda estatística passa a operar no nível do par.
 
@@ -154,7 +154,7 @@ O mecanismo está identificado: entre os atributos multi-token, os desfavorávei
 
 **Conclusão do passo.** Não há viés de valência detectável no eixo de caráter. O de prestígio ocupacional **não é mensurável por PLL neste modelo**, e a impossibilidade não é de volume: das quatro ocupações de baixo prestígio apenas *empregada* é de token único, e é também a única do feminino, de modo que restringir trocaria um confundidor por outro.
 
-**Consequência para o artigo.** O trabalho não é sobre viés medido, e sim sobre o que o modelo distingue e o que não distingue, em três resultados que se sustentam mutuamente — e ganha uma contribuição de método que não existiria sem o resultado negativo: a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à tokenização. Detalhamento na seção 5 de `docs/achados_para_o_artigo.md`.
+**Consequência para o artigo.** O trabalho não é sobre viés medido, e sim sobre o que o modelo distingue e o que não distingue, em três resultados que se sustentam mutuamente — e ganha uma contribuição de método que não existiria sem o resultado negativo: a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à tokenização. Detalhamento na seção "Situação do artigo", ao final deste arquivo.
 
 ### 5.6 — Eixo ocupacional por AUL (aberto)
 
@@ -165,3 +165,56 @@ A necessidade não é preferência entre métricas. É condição de possibilida
 Custo: uma execução sobre os 73 pares do conjunto acumulado, com as três métricas em vez de uma. Não depende de decisão da equipe.
 
 **Sai do "fora de escopo".** A comparação com o BERTimbau Large fora afastada por ser refinamento de medição, e não construção de dataset. Com o dataset existindo e o desenho em questão, a comparação passa a responder à pergunta que bloqueia o projeto, e volta a ser pertinente.
+
+---
+
+## Situação do artigo
+
+Em termos de estrutura de texto submetido:
+
+| Seção | Situação |
+|---|---|
+| Introdução e motivação | sustentada |
+| Trabalhos relacionados | sustentada |
+| Fundamentação | sustentada |
+| Método | sustentada, e com contribuições próprias (itens 1.1, 1.2, 1.7, 1.8, 1.16) |
+| **Resultados** | **Completa** em 29/08/2026, em três partes: nulo sobre a sinalização implícita (1.13, 1.14, 1.15); resposta à menção explícita (1.17, 1.18); e ausência de organização por valência nessa resposta (1.19). O eixo ocupacional permanece sem medição válida (1.20) |
+| Ameaças à validade | madura, e mais desenvolvida que o usual |
+| Conclusão | escrevível na chave do terceiro caminho abaixo, que passou a existir em 29/08/2026 |
+
+**Dois caminhos possíveis, não excludentes.**
+
+O primeiro é o artigo pretendido: medição de viés dialetal implícito no BERTimbau. Exige instrumento corrigido e validado, corpus em volume suficiente para o Filtro 2, e a medição propriamente dita. É o de maior alcance e o mais distante.
+
+O segundo é um **artigo de recurso e método**: o conjunto de pares mínimos para variação regional do português brasileiro, o protocolo de validação em dois filtros, o dimensionamento por requisito de detecção, e os achados sobre tokenização e sobre construção de corpus a partir de plataforma. Os precedentes que o projeto adota — CrowS-Pairs e French CrowS-Pairs — são exatamente dessa natureza, com a medição no modelo servindo de demonstração de uso. É alcançável com o que já existe, mais a validação por juízes, e constrói o terreno do primeiro.
+
+A escolha é da equipe. Registre-se apenas que, no estado atual, o segundo caminho está muito mais próximo do que o primeiro.
+
+**Atualização de 28/08/2026.** O teste construcional altera a relação entre os dois caminhos, e não apenas a distância a cada um.
+
+O primeiro caminho deixa de estar apenas distante e passa a ter uma condição declarada: exige que alguma sinalização dialetal produza resposta no modelo, e quatro famílias já foram testadas sem que nenhuma produzisse. Prossegui-lo significa trocar de modelo ou de métrica — os caminhos 5.2 do roadmap —, e não acrescentar itens ao instrumento atual.
+
+O segundo caminho, em contrapartida, ganhou material que não tinha. A seção de Resultados deixa de estar vazia: o nulo sobre quatro famílias, com controle positivo, confundidor de frequência descontado por calibração e teste de significância, é resultado publicável na chave de um artigo de método. Acrescentam-se as duas contribuições metodológicas novas — a calibração da resposta à frequência (1.14, revisado) e a unidade de replicação por par (1.16).
+
+Há ainda uma terceira possibilidade, que não existia antes e que combina os dois: um artigo cuja pergunta seja **por que a sinalização implícita não produz resposta onde a explícita produz** (item 2.8). Depende inteiramente da confirmação de 2.8 em volume, e é a única linha em que o resultado sobre o modelo voltaria a ser a contribuição central.
+
+**Atualização de 29/08/2026 — o terceiro caminho deixou de ser possibilidade.** O item 2.8 foi confirmado em volume e promovido a 1.17: duas condições de menção explícita sobrevivem à correção de Holm, com razões de frequência mais baixas que as de qualquer condição dialetal. O contraste que aquele parágrafo tratava como hipotético está medido.
+
+Segue-se uma recomendação, e não apenas o registro de uma opção. **O artigo a escrever é o do terceiro caminho**, cuja pergunta é o contraste entre sinalização implícita e explícita, pelas seguintes razões:
+
+- É a única chave em que os dois blocos de resultado se sustentam mutuamente. O nulo sobre quatro famílias implícitas, isolado, é um resultado fraco e atacável como falha de instrumento; ao lado de um positivo obtido com **a mesma régua, a mesma calibração e a mesma estatística**, torna-se demonstração de que o instrumento funciona e de que a diferença está no fenômeno.
+- Incorpora integralmente as contribuições de método do segundo caminho — tokenização (1.1), molduras (1.2), armadilhas de corpus (1.7), dimensionamento (1.8), unidade de replicação (1.16), calibração da frequência (1.14) —, que passam de contribuição central a fundamentação do resultado.
+- Reposiciona a literatura de forma favorável: Hofmann et al. (2024) encontram, em modelos alinhados, preconceito encoberto preservado sob manifesto suprimido; o BERTimbau Base, não alinhado, apresenta o padrão inverso. E o contraste com Melo e Souza (2026) deixa de ser diferenciação defensiva e passa a ser complementaridade — eles mediram o eixo explícito, que é justamente o que aqui responde.
+- Reconduz à hipótese de mecanismo sobre o brWaC com evidência nova: a associação com o **rótulo** existe, e a associação com a **forma linguística** não. Um corpus sem estratificação geográfica explicaria exatamente esse padrão.
+
+**Atualização de 29/08/2026 — a condição que faltava foi cumprida, e a resposta muda o título.** O passo 5.5 mediu a direção do efeito. Não há viés de valência detectável: o único candidato dissolveu-se ao se controlar o artefato de tokenização, justamente quando o poder do teste aumentou.
+
+O artigo, portanto, **não é sobre viés medido**. É sobre o que o modelo distingue e o que não distingue, com três resultados que se sustentam mutuamente:
+
+1. Não responde à sinalização dialetal implícita, em quatro famílias (1.15).
+2. Responde à menção explícita da região, acima do que a frequência prevê, concentrada em rótulos de pessoa (1.17).
+3. Essa resposta não se organiza por valência dos atributos de caráter (1.19).
+
+**E ganha uma contribuição metodológica que não existiria sem o resultado negativo:** a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à assimetria de tokenização (1.1, consequência demonstrada, e 1.20). O projeto encontrou um viés aparente a p = 0,049 e o desfez. Isso é resultado de método com valor próprio, e é o tipo de coisa que a literatura de *bias probing* raramente reporta.
+
+**A ressalva que preserva a honestidade do texto:** não detectar não é demonstrar ausência. O eixo ocupacional segue sem medição válida, a classificação de valência não passou por juízes, e são oito pares por condição.

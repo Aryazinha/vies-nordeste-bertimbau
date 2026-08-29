@@ -7,8 +7,8 @@
 **Passo:** 5.4 do `docs/roadmap.md`
 
 Números gerados por `experimentos/teste_explicito.py` e
-`experimentos/analise_valencia.py`, com tabelas em `explicito_tabelas.md` e
-`valencia_tabelas.md`. Este documento os interpreta e não é sobrescrito pela
+`experimentos/analise_valencia.py`, com tabelas em `tabelas/explicito_tabelas.md` e
+`tabelas/valencia_tabelas.md`. Este documento os interpreta e não é sobrescrito pela
 reexecução dos scripts.
 
 ---

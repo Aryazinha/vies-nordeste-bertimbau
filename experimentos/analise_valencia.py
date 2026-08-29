@@ -58,6 +58,8 @@ from teste_explicito import CONDICOES_NOVAS as CONDICOES_5_4
 from teste_sensibilidade import CONDICOES as CONDICOES_BASE
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
+TABELAS = SAIDA / "tabelas"          # ver nota em `teste_construcional.py`
+TABELAS.mkdir(parents=True, exist_ok=True)
 BRUTO = SAIDA / "explicito_bruto.json"
 
 # --------------------------------------------------------------------------
@@ -265,7 +267,7 @@ def main() -> None:
             add("")
 
     texto = chr(10).join(L)
-    (SAIDA / "valencia_tabelas.md").write_text(texto, encoding="utf-8")
+    (TABELAS / "valencia_tabelas.md").write_text(texto, encoding="utf-8")
     print(texto)
 
 

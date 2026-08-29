@@ -7,7 +7,7 @@
 **Passo:** 5.1 do `docs/roadmap.md`
 
 Números gerados por `experimentos/teste_construcional.py`, com tabelas em
-`construcional_tabelas.md`. Este documento os interpreta e não é sobrescrito
+`tabelas/construcional_tabelas.md`. Este documento os interpreta e não é sobrescrito
 pela reexecução do script.
 
 ---

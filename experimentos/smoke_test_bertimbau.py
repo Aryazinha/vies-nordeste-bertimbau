@@ -20,7 +20,7 @@ o desenho antes que se gaste tempo de juízes ou de coleta de áudio:
 Uso:
     python experimentos/smoke_test_bertimbau.py
 
-A saída é gravada em `experimentos/resultados/smoke_test.md` e também impressa.
+A saída é gravada em `experimentos/resultados/tabelas/smoke_test.md` e também impressa.
 Requer `torch` e `transformers`; roda em CPU.
 """
 
@@ -37,7 +37,9 @@ TOP_K = 12
 
 RAIZ = Path(__file__).resolve().parent
 SAIDA_DIR = RAIZ / "resultados"
-SAIDA_DIR.mkdir(parents=True, exist_ok=True)
+# Saída de máquina fica em `resultados/tabelas/`; `resultados/` guarda apenas
+# relatórios escritos à mão (ver nota em `teste_construcional.py`).
+(SAIDA_DIR / "tabelas").mkdir(parents=True, exist_ok=True)
 
 # ---------------------------------------------------------------------------
 # Itens — espelham `docs/pares_minimos_v1.md` (v2), seção 5.
@@ -262,10 +264,10 @@ def main() -> None:
             escrever(f"- *{rotulo}:* {formatado}")
         escrever()
 
-    (SAIDA_DIR / "smoke_test.md").write_text("\n".join(linhas), encoding="utf-8")
+    (SAIDA_DIR / "tabelas" / "smoke_test.md").write_text("\n".join(linhas), encoding="utf-8")
     (SAIDA_DIR / "smoke_test.json").write_text(
         json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\nGravado em {SAIDA_DIR / 'smoke_test.md'}")
+    print(f"\nGravado em {SAIDA_DIR / 'tabelas' / 'smoke_test.md'}")
 
 
 if __name__ == "__main__":

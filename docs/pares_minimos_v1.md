@@ -221,7 +221,7 @@ A condição apresenta resíduo médio de −0,0141 contra a reta da frequência
 
 **Das três condutas, nenhuma resta como via para salvar o Bloco B.** A (a) caíra por assimetria de atestação em corpus; a (b) foi testada e é nula; a (c), que deslocaria o peso para a morfossintaxe, já havia sido eliminada pelo teste de sensibilidade, que não encontrou sinal algum naquele bloco.
 
-A decisão deixa, portanto, de ser sobre o Bloco B e passa a ser sobre o rumo do projeto, registrada em `docs/pendencias.md`, seção 5.5, e detalhada no passo 5 do `docs/roadmap.md`. Relatório completo em `experimentos/resultados/construcional.md`.
+A decisão deixa, portanto, de ser sobre o Bloco B e passa a ser sobre o rumo do projeto, registrada em `docs/pendencias.md`, D5, e detalhada no passo 5 do `docs/roadmap.md`. Relatório completo em `experimentos/resultados/construcional.md`.
 
 **Recomendação anterior, superada.** Não decidir antes de a coleta em curso elevar o volume por estado. Com quatro vezes o material atual, a distinção entre "o léxico é raro" e "o léxico não ocorre" torna-se possível, e a escolha deixa de ser especulativa. A conduta (a) é a única que não exige trabalho adicional; as outras duas exigem, e por isso não devem ser adotadas por inércia.
 

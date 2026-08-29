@@ -133,7 +133,7 @@ A repartição interna da camada âncora — 35% para vox-pop e 30% para podcast
 
 **Qualificação da camada âncora.** O levantamento mostrou que ela carrega custo não previsto: apresentadores e repórteres empregam variedade de radiodifusão deliberadamente neutralizada, e parte do conteúdo institucional consiste em sabatinas com políticos, cuja fala pública é profissionalmente treinada — exatamente os falantes em que os marcadores dialetais estão mais suprimidos. O que interessa na camada não é o jornalismo de estúdio, e sim os segmentos em que fala gente comum: rádio com participação do ouvinte e vox-pop de reportagem local (`docs/fontes_coleta.md` §2.1).
 
-> `PENDENTE:` a composição entre camadas está sob revisão não decidida. O rádio com participação de ouvinte fornece, por hora coletada, mais falantes distintos que o vlog, com atribuição mais segura, situação jurídica mais clara e áudio melhor; recomenda-se deslocar volume nessa direção, mas a alteração exige revisão formal do protocolo e não deve ser adotada tacitamente (`docs/fontes_coleta.md` §2.4.5; `docs/pendencias.md` §5.2).
+> `PENDENTE:` a composição entre camadas está sob revisão não decidida. O rádio com participação de ouvinte fornece, por hora coletada, mais falantes distintos que o vlog, com atribuição mais segura, situação jurídica mais clara e áudio melhor; recomenda-se deslocar volume nessa direção, mas a alteração exige revisão formal do protocolo e não deve ser adotada tacitamente (`docs/fontes_coleta.md` §2.4.5; `docs/pendencias.md` D2).
 
 ### 1.4.3 As quatro armadilhas que excluem um canal
 
@@ -169,7 +169,7 @@ Nenhum canal entra em `fontes.json` sem revisão humana. A triagem automática �
 
 Três fatores adicionais, onerosos mas não determinantes: alta incidência de encenação de sotaque com finalidade humorística, que é precisamente a caricatura que a validade de construto exige excluir; sobreposição de música à fala, que degrada transcrição e diarização; e duração típica de 15 a 60 segundos, que eleva o custo de curadoria por hora aproveitável.
 
-**Reabertura condicionada.** Admite-se subcorpus secundário, declarado à parte, caso a diversidade de falantes não se complete pelas fontes adotadas, sob quatro critérios cumulativos: áudio original do próprio autor; ausência de música de fundo; procedência declarada pelo falante ou verificável no perfil; e ao menos 60 segundos de fala contínua. O subcorpus deve ser aplicado **simetricamente aos dois grupos regionais**, sob pena de a diferença observada refletir a plataforma e não a região (§2.3.1). Não reavaliado desde a decisão original (`docs/pendencias.md` §5.4).
+**Reabertura condicionada.** Admite-se subcorpus secundário, declarado à parte, caso a diversidade de falantes não se complete pelas fontes adotadas, sob quatro critérios cumulativos: áudio original do próprio autor; ausência de música de fundo; procedência declarada pelo falante ou verificável no perfil; e ao menos 60 segundos de fala contínua. O subcorpus deve ser aplicado **simetricamente aos dois grupos regionais**, sob pena de a diferença observada refletir a plataforma e não a região (§2.3.1). Não reavaliado desde a decisão original (`docs/pendencias.md` D4).
 
 **Canais de arquivo não oficiais estão excluídos.** Republicadores de material de emissoras — "Muito Além do JPB", "Muito Além do CETV" — têm conteúdo adequado, mas a redistribuição por terceiros agrava a exposição de direitos autorais. Havendo canal oficial da emissora, é ele que entra (§2.2).
 
@@ -269,7 +269,7 @@ O diretório `dataset_raw/registros_finais/` está **vazio**, e os diretórios `
 
 > `PENDENTE:` os 11 canais marcados `a_confirmar` exigem inspeção de conteúdo antes da coleta (`docs/fontes_coleta.md` §4).
 
-> `PENDENTE:` a simetria de composição entre os grupos não está decidida. O grupo de controle dispõe de treze vozes por estado na camada de vlog, contra quatro a oito nos estados nordestinos, sendo Pernambuco o mais frágil. Para o experimento importa a simetria entre grupos, não o máximo disponível em cada um. Duas condutas admissíveis, e a escolha cabe à equipe: limitar todos os estados ao patamar do mais fraco, ou reforçar PE e BA antes de coletar (`docs/fontes_coleta.md` §4; `docs/pendencias.md` §5.1).
+> `PENDENTE:` a simetria de composição entre os grupos não está decidida. O grupo de controle dispõe de treze vozes por estado na camada de vlog, contra quatro a oito nos estados nordestinos, sendo Pernambuco o mais frágil. Para o experimento importa a simetria entre grupos, não o máximo disponível em cada um. Duas condutas admissíveis, e a escolha cabe à equipe: limitar todos os estados ao patamar do mais fraco, ou reforçar PE e BA antes de coletar (`docs/fontes_coleta.md` §4; `docs/pendencias.md` D1).
 
 ---
 
@@ -292,11 +292,11 @@ Ocorre que **o conteúdo perdeu sustentação empírica em 28/08/2026**. Quatro 
 
 O nulo é legível, e não indício de aparelho quebrado: o controle de conteúdo proposicional produz resíduo de +0,3597 com p = 0,0003 após correção de Holm, e o confundidor de frequência está descontado por calibração explícita sobre 22 pares não regionais (`experimentos/resultados/construcional.md`).
 
-**Consequência para esta especificação.** Sem a decisão do passo 5 do roadmap — trocar de modelo ou de métrica (5.2), reposicionar como artigo de método e recurso (5.3), ou levar a menção explícita a volume (5.4) — não há critério para dizer o que o conjunto contém, e sem isso não há como fixar tamanho-alvo nem esquema de registro. Fixá-los agora seria arbitrar (`docs/pendencias.md` §5.5 e §5.7).
+**Consequência para esta especificação.** Sem a decisão do passo 5 do roadmap — trocar de modelo ou de métrica (5.2), reposicionar como artigo de método e recurso (5.3), ou levar a menção explícita a volume (5.4) — não há critério para dizer o que o conjunto contém, e sem isso não há como fixar tamanho-alvo nem esquema de registro. Fixá-los agora seria arbitrar (`docs/pendencias.md`, D5 e D7).
 
 ## 2.2 As quatro definições ausentes
 
-Reproduzidas de `docs/pendencias.md` §5.7. As quatro são exigidas em submissão a veículo que aceite artigo de recurso.
+Reproduzidas de `docs/pendencias.md` D7. As quatro são exigidas em submissão a veículo que aceite artigo de recurso.
 
 ### 2.2.1 Tamanho-alvo — `PENDENTE`
 
@@ -352,9 +352,9 @@ Acrescentem-se duas exigências metodológicas estabelecidas por medição próp
 
 Doze itens rascunhados em três blocos — A morfossintático puro (4 itens), B lexical puro (4 itens), C feixe completo por estado (4 itens) —, dos quais um está suspenso por pendência bibliográfica não resolvida quanto à direção do marcador do imperativo em Fortaleza (`docs/pares_minimos_v1.md` §5 e §3.2). Nenhum validado.
 
-Acrescentam-se dez marcadores construcionais formulados em 28/08/2026 (`experimentos/teste_construcional.py`, `CONSTRUCIONAIS`), que **não são itens de instrumento**: foram formulados para testar a existência de sinal, e três deles têm respaldo dialetológico cuja conferência em fonte primária permanece pendente, enquanto os demais são candidatos derivados do corpus próprio ou sem fonte alguma (`docs/pendencias.md` §5.6).
+Acrescentam-se dez marcadores construcionais formulados em 28/08/2026 (`experimentos/teste_construcional.py`, `CONSTRUCIONAIS`), que **não são itens de instrumento**: foram formulados para testar a existência de sinal, e três deles têm respaldo dialetológico cuja conferência em fonte primária permanece pendente, enquanto os demais são candidatos derivados do corpus próprio ou sem fonte alguma (`docs/pendencias.md` D6).
 
-Registre-se uma ressalva de construto identificada na formulação: *tu* com verbo não flexionado ocorre também no Rio de Janeiro, que integra o grupo de controle, e o item não serve para separar os grupos deste desenho, ainda que a construção seja legítima (`docs/pendencias.md` §5.6).
+Registre-se uma ressalva de construto identificada na formulação: *tu* com verbo não flexionado ocorre também no Rio de Janeiro, que integra o grupo de controle, e o item não serve para separar os grupos deste desenho, ainda que a construção seja legítima (`docs/pendencias.md` D6).
 
 **Pernambuco continua sem marcador morfossintático próprio.** Recife apresenta uso simétrico do imperativo, sem predominância, de modo que o marcador não distingue o estado do grupo de controle. É o único dos quatro estados-alvo nessa situação, e a coincidência é incômoda porque Pernambuco é também o estado mais frágil na camada de vlog do corpus de áudio (`docs/pares_minimos_v1.md` §6; `docs/fontes_coleta.md` §4).
 
@@ -369,15 +369,15 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | 1 | ~~Semântica de `duracao_s`~~ — **encerrado em 29/08/2026** pelo campo `duracao_coletada_s` (§1.3) | 1.3 | — |
 | 2 | Qual registro constitui o artefato publicado — o de coleta, o final, ou ambos | 1.2 | Decisão da equipe |
 | 3 | Função do corpus pode mudar de instrumental para entregável autônomo | 1.1 | Decisão do passo 5 |
-| 4 | Composição entre camadas sob revisão não decidida | 1.4.2 | `docs/pendencias.md` §5.2 |
+| 4 | Composição entre camadas sob revisão não decidida | 1.4.2 | `docs/pendencias.md` D2 |
 | 5 | Teto de 5% por falante sem verificação implementada | 1.4.5 | `docs/pendencias.md` §6.4 |
 | 6 | Checagem de coerência dialetal contra falante migrante não implementada | 1.4.3 | `docs/pendencias.md` §6.2 |
 | 7 | Meta de volume: 50 h vigente, revisão para 38 h condicionada a verificação não feita | 1.5 | `docs/achados_para_o_artigo.md` §2.3 |
 | 8 | Licença dos artefatos do projeto não definida, para nenhum dos dois conjuntos | 1.6, 2.2.3 | Decisão da equipe |
 | 9 | Ficha de conjunto de dados inexistente, para nenhum dos dois conjuntos | 1.6, 2.2.4 | Decisão da equipe |
 | 10 | Onze canais marcados `a_confirmar` | 1.7 | Inspeção de conteúdo |
-| 11 | Simetria de composição entre grupos não decidida | 1.7 | `docs/pendencias.md` §5.1 |
-| 12 | Subcorpus de TikTok não reavaliado desde a exclusão | 1.4.4 | `docs/pendencias.md` §5.4 |
+| 11 | Simetria de composição entre grupos não decidida | 1.7 | `docs/pendencias.md` D1 |
+| 12 | Subcorpus de TikTok não reavaliado desde a exclusão | 1.4.4 | `docs/pendencias.md` D4 |
 | 13 | Tamanho-alvo dos pares mínimos — **deixa de ser inarbitrável em 29/08/2026**, ver nota abaixo | 2.2.1 | Estimativa de efeito do passo 5.5 |
 | 14 | Formato de publicação dos pares mínimos inexistente | 2.2.2 | Decisão da equipe; deixa de depender do passo 5 |
 

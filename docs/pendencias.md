@@ -218,25 +218,30 @@ O cálculo do passo 4.2 tomou a negação pós-verbal como marcador mais raro, e
 
 ## 5. Decisões pendentes da equipe
 
-### 5.1 Simetria entre os grupos
+**Convenção de numeração, adotada em 29/08/2026.** Os itens desta seção usam o prefixo `D`, e não `5.x`. O motivo é concreto: o passo 5 de `docs/roadmap.md` também emprega subitens `5.1` a `5.6`, para **etapas de trabalho**, de modo que "5.4" designava duas coisas distintas em dois documentos — "menção explícita em volume" no roadmap e "subcorpus de TikTok" aqui. A ambiguidade já produziu erro: o item D5 permaneceu desatualizado por descrever o mesmo rumo que o roadmap descrevia, sem que a atualização de um alcançasse o outro.
+
+Referências a estes itens devem ser escritas como `docs/pendencias.md`, D4 — e as referências ao roadmap, como passo 5.4.
+
+
+### D1 Simetria entre os grupos
 
 O grupo de controle tem 9 a 11 vlogs verificados por estado; Pernambuco tem 3. Como um canal de vlog corresponde na prática a um falante, a composição dos grupos difere. Duas condutas: limitar todos os estados ao patamar do mais fraco, ou reforçar PE e BA antes de coletar. `selecionar_videos.py --max-canais N` já implementa a primeira.
 
 **Recomendação registrada:** decidir depois do piloto, com o rendimento real medido, em vez de agora por estimativa.
 
-### 5.2 Composição entre camadas
+### D2 Composição entre camadas
 
 As proporções da seção 1.4.3 do `CLAUDE.md` — 60% a 70% para a camada âncora, 30% a 40% para a espontânea — foram fixadas antes de se conhecer o rendimento de cada fonte. O levantamento sugere deslocar volume do vlog, de baixa diversidade por hora, para rádio de participação. Alterar exige revisão formal do protocolo.
 
-### 5.3 CLAUDE.md fora do versionamento
+### D3 CLAUDE.md fora do versionamento
 
 O arquivo permanece local por decisão registrada em agosto. Como os demais documentos remetem a suas seções — protocolo em 1.4, ameaças à validade na Parte 3 —, quem acessar o repositório encontrará dezenas de referências a um arquivo ausente. Afeta a reprodutibilidade se o material acompanhar uma submissão. Duas saídas: versionar o arquivo, ou transferir as partes públicas para um `docs/protocolo.md` versionado.
 
-### 5.4 Subcorpus de TikTok
+### D4 Subcorpus de TikTok
 
 Excluído do corpus principal por dissociação entre origem do vídeo e origem da voz (seção 2.3.1 de `docs/fontes_coleta.md`). Admite-se reabertura, sob quatro critérios cumulativos, caso a diversidade de falantes não se complete pelas fontes adotadas. Não reavaliado desde então.
 
-### 5.7 O conjunto de pares mínimos não tem especificação de entrega
+### D7 O conjunto de pares mínimos não tem especificação de entrega
 
 **Aberta em 28/08/2026.** O projeto declara o dataset como sua contribuição publicável e adota CrowS-Pairs e French CrowS-Pairs como precedentes, que são artigos de conjunto de dados. O conjunto que sustentaria essa contribuição é o de pares mínimos, e dele estão definidos o desenho conceitual — princípios da seção 2 de `docs/pares_minimos_v1.md`, decomposição em blocos, protocolo de validação em dois filtros — mas **nenhuma das definições de entrega**. Faltam quatro, e as quatro são exigidas em submissão a veículo que aceite artigo de recurso:
 
@@ -249,7 +254,7 @@ Excluído do corpus principal por dissociação entre origem do vídeo e origem 
 
 **Ressalva de sequenciamento.** Se o rumo adotado for o 5.3, o corpus de áudio deixa de ser instrumento do Filtro 2 e passa a entregável autônomo, e as quatro definições acima passam a ser exigíveis também para ele.
 
-### 5.8 Dimensionamento da análise de direção — ENCERRADA em 29/08/2026
+### D8 Dimensionamento da análise de direção — ENCERRADA em 29/08/2026
 
 O diagnóstico registrado abaixo estava **parcialmente errado**, e o registro do erro importa mais que o item. Atribuía-se a inconclusividade a falta de volume; era erro de desenho. O grupo de referência da permutação empregava cinco pares quando havia vinte e seis pares não regionais já medidos e adequados ao papel. Corrigido, o controle positivo passou a sobreviver à correção, e a análise ganhou resolução **sem nenhuma medição nova**.
 
@@ -259,7 +264,7 @@ A providência 3 abaixo — descartar o artefato de segmentação — foi execut
 
 **Registro original, conservado:**
 
-### 5.8-A Diagnóstico original (superado)
+### D8-A Diagnóstico original (superado)
 
 **Aberta em 29/08/2026.** A medida com sinal — se a resposta do modelo é preconceituosa, e não apenas diferente — está implementada em `experimentos/analise_valencia.py` e é inconclusiva por falta de resolução estatística, e não por ausência de efeito. O diagnóstico é o próprio controle positivo, que não sobrevive à correção de Holm em nenhum dos dois eixos apesar de apresentar as maiores magnitudes brutas.
 
@@ -271,19 +276,21 @@ A providência 3 abaixo — descartar o artefato de segmentação — foi execut
 
 **Por que importa mais que as demais pendências.** Sem ela, o artigo afirma que o modelo distingue e não pode afirmar que deprecia — a diferença entre um resultado sobre representação e um resultado sobre viés, que é o objeto declarado da pesquisa.
 
-### 5.9 Classificação de valência dos atributos não validada
+### D9 Classificação de valência dos atributos não validada
 
 A partição dos atributos entre favoráveis e desfavoráveis, e entre alto e baixo prestígio ocupacional, foi feita pelo projeto por circulação corrente e está declarada em código, em `analise_valencia.py`, para ser auditável e contestável. Atributos ambíguos — *simples*, *normal*, *séria*, *fria*, *vendedor*, *motorista* — foram excluídos em vez de arbitrados.
 
 Não foi submetida a juízes. Como a medida de viés é inteiramente definida por essa partição, ela deve integrar o Filtro 1 quando este for aplicado, sob pena de o escore de viés depender de julgamento não validado de uma única fonte.
 
-### 5.5 Rumo do projeto depois do resultado negativo do passo 5.1
+### D5 Rumo do projeto — remetido ao roadmap
 
-**Aberta em 28/08/2026, e é a decisão que bloqueia o restante.** Quatro famílias de sinalização dialetal implícita foram testadas e nenhuma produz resposta detectável no BERTimbau Base sob pseudo-verossimilhança. O passo 5.1 do `docs/roadmap.md` está concluído com resposta negativa, e restam três rumos, detalhados ali: 5.2, trocar de modelo ou de métrica; 5.3, reposicionar como artigo de método e recurso; 5.4, levar a menção explícita a volume.
+**Reduzido a ponteiro em 29/08/2026.** Este item descrevia os rumos disponíveis depois do passo 5.1, duplicando o que o passo 5 de `docs/roadmap.md` já descrevia. A duplicação teve o custo previsível: permaneceu registrando "restam três rumos: 5.2, 5.3 e 5.4" depois de 5.4 e 5.5 terem sido concluídos e de 5.6 ter sido aberto.
 
-A recomendação registrada é encadear 5.4 antes de 5.2, por ser barato, por usar a esteira existente e por ser o único caminho em que um resultado sobre o modelo voltaria a ser a contribuição central do artigo. O 5.3 permanece disponível em qualquer cenário e hoje é o mais amparado pelo material existente.
+**O rumo do projeto vive no passo 5 do `docs/roadmap.md`, e só lá.** Situação em 29/08/2026: 5.1 concluído com resposta negativa, 5.4 concluído com resposta afirmativa, 5.5 concluído sem viés detectável, 5.6 aberto e é a última medição pendente; 5.2 e 5.3 não iniciados.
 
-### 5.6 Validação dos marcadores construcionais, caso o 5.4 confirme
+O que permanece **aqui**, por ser decisão e não etapa: a escolha entre prosseguir a medição no modelo e reposicionar o artigo. A recomendação registrada em `docs/achados_para_o_artigo.md`, seção 5, é o terceiro caminho — o contraste entre sinalização implícita e explícita.
+
+### D6 Validação dos marcadores construcionais, caso o 5.4 confirme
 
 Os dez marcadores de `dialeto_D` foram formulados para testar a **existência de sinal**, e não como itens de instrumento. Três deles — *lhe* de segunda pessoa, *tu* sem flexão, comitativo com *mais* — têm respaldo na literatura dialetológica cuja conferência em fonte primária permanece pendente. Os demais são candidatos derivados do corpus próprio (*menino*, *rapaz*, *massa*) ou sem fonte alguma (clivagem *que foi que*, durativo *tá com*, *toda vida*).
 

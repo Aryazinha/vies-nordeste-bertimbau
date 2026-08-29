@@ -3,7 +3,8 @@ config.py
 Configuração central do pipeline de coleta piloto (Fase 4 do roadmap do projeto).
 
 Todos os parâmetros aqui refletem exatamente o que já está documentado e decidido
-na Parte 2 e seção 1.4 de `contexto_projeto_vies_nordeste_bertimbau.md` (v1.3).
+na Parte 2 e seção 1.4 de `CLAUDE.md`, que até a revisão v1.4 do projeto
+chamava-se `contexto_projeto_vies_nordeste_bertimbau.md`.
 Não redefina parâmetros soltos em outros módulos — centralize aqui.
 """
 

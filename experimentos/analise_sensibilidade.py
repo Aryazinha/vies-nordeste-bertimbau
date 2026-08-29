@@ -28,7 +28,9 @@ from smoke_test_bertimbau import ITENS, MOLDURAS, MODELO
 
 RAIZ = Path(__file__).resolve().parent
 SAIDA_DIR = RAIZ / "resultados"
-SAIDA_DIR.mkdir(parents=True, exist_ok=True)
+# Saída de máquina fica em `resultados/tabelas/`; `resultados/` guarda apenas
+# relatórios escritos à mão (ver nota em `teste_construcional.py`).
+(SAIDA_DIR / "tabelas").mkdir(parents=True, exist_ok=True)
 
 # Apenas atributos de token único no vocabulário do BERTimbau (ver Q2 do teste
 # de fumaça). Os demais exigem AUL e ficam fora desta verificação.
@@ -129,10 +131,10 @@ def main() -> None:
         escrever(f"| {item['id']} | " + " | ".join(celulas) + " |")
     escrever()
 
-    (SAIDA_DIR / "sensibilidade.md").write_text("\n".join(linhas), encoding="utf-8")
+    (SAIDA_DIR / "tabelas" / "sensibilidade.md").write_text("\n".join(linhas), encoding="utf-8")
     (SAIDA_DIR / "sensibilidade.json").write_text(
         json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\nGravado em {SAIDA_DIR / 'sensibilidade.md'}")
+    print(f"\nGravado em {SAIDA_DIR / 'tabelas' / 'sensibilidade.md'}")
 
 
 if __name__ == "__main__":
