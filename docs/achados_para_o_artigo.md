@@ -329,22 +329,22 @@ O fato é dado, e não apenas obstáculo de desenho: a categoria "nordestino" ex
 
 **Libera afirmação mais forte:** levantamento de frequência dos itens em corpus de fala de referência, que permitiria distinguir "itens raros" de "itens mal escolhidos".
 
-## 2.5 A sensibilidade do modelo concentra-se no léxico
+## 2.5 A sensibilidade do modelo concentra-se no léxico — SUPERADO
 
-**Estado:** medido em conjunto pequeno, sem teste estatístico.
+**Superado em 28/08/2026 por 1.14 e 1.15, e não deve ser citado.** A medição por divergência de Jensen-Shannon, sobre doze itens e sem controle de frequência, foi substituída por |Δ PLL| com calibração explícita da resposta à frequência e estatística no nível do par. A conclusão mudou de forma: o efeito do bloco lexical não é sensibilidade ao dialeto, e sim à raridade das palavras.
+
+**Estado original, conservado como histórico:** medido em conjunto pequeno, sem teste estatístico.
 **Medido:** divergência de Jensen-Shannon mediana de 0,0144 bits no bloco lexical contra 0,0023 no morfossintático, tendo 0,0963 como referência de conteúdo proposicional distinto.
 **Libera a afirmação:** conjunto de itens em volume adequado e teste estatístico. Doze itens não sustentam inferência.
 **Se confirmado:** exige reposicionamento do artigo, pois um efeito de origem lexical é atacável como efeito de frequência, e não de dialeto. É a objeção mais previsível em revisão.
 
-## 2.8 O modelo responde à menção explícita da região, e não à variedade que a indicia
+## 2.8 O modelo responde à menção explícita da região — ENCERRADO, promovido a 1.17
 
-**Estado:** único resíduo consistente entre as condições regionais; não sobrevive à correção de multiplicidade.
-**Medido:** a condição de menção explícita apresenta resíduo médio de +0,0711 acima da reta da frequência, com **os cinco pares acima da reta** e p = 0,026 por permutação. Cinco positivos em cinco têm probabilidade 1/32 sob sinal aleatório.
-**Estrutura interna, e é ela que torna o achado interessante:** os dois maiores resíduos são os pares que nomeiam a região como categoria — "do Nordeste" contra "do Sudeste" (+0,1820) e "um nordestino" contra "um paulista" (+0,1123). Os três que nomeiam estados ficam próximos de zero: Paraíba (+0,0322), Ceará (+0,0235), Pernambuco (+0,0052). É o padrão de um modelo que associa conteúdo ao rótulo regional e trata topônimos estaduais como topônimos quaisquer.
-**Revisa leitura anterior.** O relatório de sensibilidade registrara esta condição como indistinguível do controle de raridade. Era leitura correta enquanto a comparação era de medianas brutas, e deixa de sê-la quando a frequência é descontada — precisamente porque os pares desta condição são os que mais dela sofriam.
-**Libera a afirmação:** volume. Com correção de Holm para as seis condições, p sobe a 0,13, e são cinco pares. É necessário um conjunto de pares de menção explícita em volume comparável ao dos demais blocos, com a distinção entre rótulo de região e nome de estado como variável de desenho.
-**Se confirmado:** produz o contraste central do artigo — o modelo responde à categoria regional nomeada e não à variedade linguística que a indicia. É o recorte de Hofmann et al. (2024) com os termos invertidos, e o contraste direto com Melo e Souza (2026), que mediram exatamente a sinalização explícita.
-**Se não confirmado:** o projeto fica sem qualquer resposta do modelo a estímulo regional, e o caminho 5.3 do roadmap torna-se o único disponível.
+**Encerrado em 29/08/2026.** Este item era condicional a volume, e o volume foi produzido pelo passo 5.4 do roadmap: vinte e quatro pares novos, em três níveis de granularidade do rótulo. A condição liberadora foi cumprida e o achado passa a **SUSTENTADO**, no item 1.17.
+
+**Uma parte da leitura original não sobreviveu, e o registro importa.** O item afirmava que a estrutura interna era de granularidade — região como categoria acima, nomes de estado próximos de zero. Com oito pares por nível, o corte revelou-se outro: entre **rótulo de pessoa** e **rótulo de lugar**, distinção que atravessa a condição de macrorregião e que os cinco pares originais não permitiam ver. Ver 1.17-A, e a declaração de estatuto que o acompanha.
+
+**Conservado como histórico**, e não removido, porque a previsão registrada antes da medição é parte do que torna 1.17 confirmatório e 1.17-A exploratório.
 
 ## 2.6 A marcação explícita de região não revela o viés
 
@@ -374,13 +374,22 @@ O fato é dado, e não apenas obstáculo de desenho: a categoria "nordestino" ex
 
 **Atualização de 28/08/2026, segunda requalificação.** O teste construcional acrescentou a quarta família de marcadores, descontou o confundidor de frequência por calibração explícita e executou os primeiros testes de significância do projeto. O que era "não foi possível detectar resposta" passa a ser afirmação com controle positivo e valor-p, registrada em 1.15.
 
-**Segue vedado:** afirmar que o BERTimbau enviesa, ou que não enviesa, contra fala nordestina. Não havendo resposta ao guise, não há viés a medir por esse caminho, e a afirmação é sobre o método e o modelo, não sobre a existência do preconceito.
+**Atualização de 29/08/2026, terceira requalificação, e ela altera a premissa das duas anteriores.**
 
-**Segue vedado igualmente:** apresentar como resultado de viés o resíduo da menção explícita (item 2.8). Ele é direção a investigar, com cinco pares e sem sobreviver à correção de multiplicidade.
+As requalificações acima repousavam sobre "não havendo resposta ao guise, não há viés a medir". A premissa deixou de valer: o passo 5.4 estabeleceu que **existe** resposta à menção explícita da região, sobrevivente à correção de multiplicidade (item 1.17). O que não existe é resposta à sinalização **implícita**.
 
-**Formulação correta:** o BERTimbau Base não exibe, sob pseudo-verossimilhança, resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas. **Formulação incorreta:** o BERTimbau não apresenta viés regional.
+A vedação, portanto, muda de fundamento — e deixa de ser sobre ausência de resposta para ser sobre ausência de **direção medida**.
 
-O instrumento continua não validado por juízes, e o conjunto de itens continua aberto. O que o material autoriza é uma seção de Resultados sobre **a viabilidade do desenho**, e não sobre a magnitude de um viés.
+**Segue vedado, agora por outra razão:** afirmar que o BERTimbau deprecia falantes nordestinos, ou que não os deprecia. Toda a medição do projeto emprega |Δ| em valor absoluto, e a análise com sinal é inconclusiva por subdimensionamento. O detalhamento está em 3.7, que é hoje a vedação operante sobre este ponto.
+
+**Formulação correta, em três partes que não devem ser separadas:**
+1. O BERTimbau Base **não** exibe resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas (1.15).
+2. O BERTimbau Base **exibe** resposta à menção explícita da região, acima do que a frequência lexical prevê, concentrada em rótulos de pessoa (1.17).
+3. **Não se sabe** se essa resposta é depreciativa: a medida é de magnitude, e a de direção não tem poder estatístico (3.7).
+
+**Formulação incorreta, e a mais tentadora:** que o modelo apresente, ou deixe de apresentar, viés regional. Distinguir não é depreciar.
+
+O instrumento continua não validado por juízes, e o conjunto de itens continua aberto. O que o material autoriza é uma seção de Resultados sobre **a viabilidade do desenho e sobre o contraste entre sinalização implícita e explícita**, e não sobre a magnitude de um viés.
 
 ## 3.2 O índice de 94% de imperativo indicativo no Rio de Janeiro
 
@@ -418,11 +427,13 @@ A medida com sinal foi implementada em `experimentos/analise_valencia.py`, em do
 
 **Deixa de ser inteiramente vedado em 28/08/2026.** Os testes de `experimentos/teste_construcional.py` são os primeiros do projeto: permutação de rótulos de par, intervalo por reamostragem de conglomerado, correção de Holm sobre a família de seis condições, e teste t para a inclinação da reta de frequência.
 
-**Pode ser afirmado**, com os valores tais como o relatório os traz, para as condições ali medidas — o que abrange os itens 1.13, 1.14, 1.15, 1.16 e 2.8.
+**Pode ser afirmado**, com os valores tais como o relatório os traz, para as condições ali medidas — o que abrange os itens 1.13, 1.14, 1.15, 1.16, 1.17 e 1.18. O passo 5.4, de 29/08/2026, estendeu a mesma maquinaria ao conjunto de menção explícita, com a calibração passando a 26 pares.
+
+**Não abrange a análise de direção.** Os valores-p de `analise_valencia.py` são reportados no relatório, mas o próprio controle positivo não sobrevive à correção, o que significa que a análise não tem poder e que nenhum de seus valores — significativo ou não — sustenta afirmação. Ver 3.7.
 
 **Continua vedado** para todo o restante. Nenhum teste foi executado sobre as medidas do corpus de áudio — rendimento por camada, confiança de transcrição, taxa de ocorrência de marcadores —, e as comparações entre Nordeste e Sudeste registradas na seção 2 permanecem descritivas.
 
-**Qualificação obrigatória, a declarar junto de cada valor-p:** os 22 pares que definem a reta de calibração têm resíduo de média zero por construção, o que estreita a distribuição nula da permutação e torna o teste ligeiramente anticonservador. Um conjunto de validação separado do de ajuste seria preferível, e não foi constituído.
+**Qualificação obrigatória, a declarar junto de cada valor-p:** os pares que definem a reta de calibração — 22 no passo 5.1, 26 no 5.4 — têm resíduo de média zero por construção, o que estreita a distribuição nula da permutação e torna o teste ligeiramente anticonservador. Um conjunto de validação separado do de ajuste seria preferível, e não foi constituído.
 
 ## 3.6 Que a composição do brWaC explique o viés observado
 
@@ -432,7 +443,9 @@ Não há viés observado, e a composição do corpus não é auditável. A rela�
 
 # 4. CADERNO — pertence ao repositório, não ao texto
 
-Defeitos identificados e corrigidos durante o desenvolvimento: falha silenciosa que reportava download bem-sucedido sem arquivo em disco; aceitação de URL de canal onde se esperava vídeo; caminhos de dados relativos ao diretório de trabalho; incompatibilidade com a API nova do `pyannote`; dependência de versão do `yt-dlp` e de runtime de JavaScript.
+Defeitos identificados e corrigidos durante o desenvolvimento: falha silenciosa que reportava download bem-sucedido sem arquivo em disco; aceitação de URL de canal onde se esperava vídeo; caminhos de dados relativos ao diretório de trabalho; incompatibilidade com a API nova do `pyannote`; dependência de versão do `yt-dlp` e de runtime de JavaScript; consulta de frequência sobre forma sem diacrítico; piso e medianas calculados sobre unidades de replicação diferentes; script de medição gravando tabela no caminho do relatório interpretado.
+
+Acrescente-se, de 29/08/2026, o campo `duracao_s`, que registrava a duração do vídeo de origem e não a do áudio coletado, de modo que somá-lo devolvia 11,43 h contra as 5,52 h reais do corpus. Corrigido pelo campo `duracao_coletada_s`. **Este merece nota em apêndice, e não apenas no caderno:** o conjunto de dados será publicado, e um consumidor que somasse o campo antigo obteria o dobro do corpus sem receber erro. A distinção entre duração de origem e duração coletada é requisito de qualquer corpus construído por recorte de material mais longo.
 
 Pertencem à documentação de reprodutibilidade. Uma exceção possível: o bloqueio de downloads originados de datacenter, que afeta qualquer tentativa de replicação em ambiente de nuvem e justifica nota em apêndice de reprodutibilidade.
 
@@ -448,9 +461,9 @@ Em termos de estrutura de texto submetido:
 | Trabalhos relacionados | sustentada |
 | Fundamentação | sustentada |
 | Método | sustentada, e com contribuições próprias (itens 1.1, 1.2, 1.7, 1.8, 1.16) |
-| **Resultados** | **deixa de estar vazia** em 28/08/2026, com os itens 1.13, 1.14 e 1.15 — um nulo com controle positivo, confundidor descontado e teste de significância |
+| **Resultados** | **Deixa de estar vazia** em 28/08/2026 com o nulo sobre a sinalização implícita (1.13, 1.14, 1.15), e **ganha resultado positivo** em 29/08/2026 com a resposta à menção explícita (1.17, 1.18). O contraste entre os dois é hoje o eixo da seção. Falta a direção do efeito (3.7) |
 | Ameaças à validade | madura, e mais desenvolvida que o usual |
-| Conclusão | escrevível na chave do segundo caminho abaixo; não na do primeiro |
+| Conclusão | escrevível na chave do terceiro caminho abaixo, que passou a existir em 29/08/2026 |
 
 **Dois caminhos possíveis, não excludentes.**
 
@@ -467,3 +480,14 @@ O primeiro caminho deixa de estar apenas distante e passa a ter uma condição d
 O segundo caminho, em contrapartida, ganhou material que não tinha. A seção de Resultados deixa de estar vazia: o nulo sobre quatro famílias, com controle positivo, confundidor de frequência descontado por calibração e teste de significância, é resultado publicável na chave de um artigo de método. Acrescentam-se as duas contribuições metodológicas novas — a calibração da resposta à frequência (1.14, revisado) e a unidade de replicação por par (1.16).
 
 Há ainda uma terceira possibilidade, que não existia antes e que combina os dois: um artigo cuja pergunta seja **por que a sinalização implícita não produz resposta onde a explícita produz** (item 2.8). Depende inteiramente da confirmação de 2.8 em volume, e é a única linha em que o resultado sobre o modelo voltaria a ser a contribuição central.
+
+**Atualização de 29/08/2026 — o terceiro caminho deixou de ser possibilidade.** O item 2.8 foi confirmado em volume e promovido a 1.17: duas condições de menção explícita sobrevivem à correção de Holm, com razões de frequência mais baixas que as de qualquer condição dialetal. O contraste que aquele parágrafo tratava como hipotético está medido.
+
+Segue-se uma recomendação, e não apenas o registro de uma opção. **O artigo a escrever é o do terceiro caminho**, cuja pergunta é o contraste entre sinalização implícita e explícita, pelas seguintes razões:
+
+- É a única chave em que os dois blocos de resultado se sustentam mutuamente. O nulo sobre quatro famílias implícitas, isolado, é um resultado fraco e atacável como falha de instrumento; ao lado de um positivo obtido com **a mesma régua, a mesma calibração e a mesma estatística**, torna-se demonstração de que o instrumento funciona e de que a diferença está no fenômeno.
+- Incorpora integralmente as contribuições de método do segundo caminho — tokenização (1.1), molduras (1.2), armadilhas de corpus (1.7), dimensionamento (1.8), unidade de replicação (1.16), calibração da frequência (1.14) —, que passam de contribuição central a fundamentação do resultado.
+- Reposiciona a literatura de forma favorável: Hofmann et al. (2024) encontram, em modelos alinhados, preconceito encoberto preservado sob manifesto suprimido; o BERTimbau Base, não alinhado, apresenta o padrão inverso. E o contraste com Melo e Souza (2026) deixa de ser diferenciação defensiva e passa a ser complementaridade — eles mediram o eixo explícito, que é justamente o que aqui responde.
+- Reconduz à hipótese de mecanismo sobre o brWaC com evidência nova: a associação com o **rótulo** existe, e a associação com a **forma linguística** não. Um corpus sem estratificação geográfica explicaria exatamente esse padrão.
+
+**A condição que falta, e é uma só:** a direção do efeito (3.7 e passo 5.5 do roadmap). Sem ela o artigo afirma que o modelo distingue, e não que deprecia — o que é publicável, mas muda o título e a moldura. Com ela, o trabalho volta a ser sobre viés.
