@@ -60,7 +60,17 @@ Corpus de fala espontânea regional, coletado de plataformas públicas, cobrindo
 
 A função no desenho original é **instrumental**: serve ao Filtro 2 do protocolo de validação, segundo o qual um marcador dialetal só integra o experimento de texto se ocorrer em fala espontânea nas transcrições coletadas para o estado correspondente (`docs/pares_minimos_v1.md` §7). O corpus existe para impedir que o instrumento se apoie em estereótipo de circulação popular em lugar de traço atestado (`CLAUDE.md` Parte 3, validade de construto).
 
-> `PENDENTE:` a função pode deixar de ser instrumental. Caso o rumo adotado seja o 5.3 do roadmap — reposicionar o trabalho como artigo de método e recurso —, o corpus passa a entregável autônomo, e as definições de formato de distribuição, licença e ficha, hoje ausentes, tornam-se exigíveis também para ele (`docs/roadmap.md`, "Situação dos dois conjuntos de dados").
+### Decisão de 29/08/2026: o corpus é entregável autônomo
+
+**A função instrumental descrita acima deixou de ser a principal.** A equipe decidiu que o corpus de áudio passa a **entregável autônomo** — corpus de fala regional publicado por si, e não apenas instrumento de validação de marcadores.
+
+**A razão é o resultado do passo 5.** O corpus fora dimensionado para confirmar marcadores dialetais em fala espontânea, e quatro famílias de marcadores implícitos foram testadas sem que nenhuma produzisse resposta no modelo (`docs/achados_para_o_artigo.md`, item 1.15). Um instrumento de validação sem nada a validar não se sustenta como justificativa de coleta.
+
+**Três consequências, todas registradas nas seções seguintes:**
+
+1. **A meta muda de unidade.** Deixa de ser volume de fala para detectar uma variante rara e passa a ser **cobertura de falantes**. Nova derivação em §1.5.
+2. **As definições de entrega passam a valer para ele.** Formato de distribuição, licença e ficha de conjunto — antes exigidas apenas do conjunto de pares mínimos — tornam-se exigíveis também para o corpus.
+3. **O Filtro 2 não desaparece, mas deixa de ser o que dimensiona.** Continua sendo o procedimento pelo qual um marcador se confirma em fala real; apenas não é mais a razão de ser do corpus.
 
 ## 1.2 Dois registros distintos, e a relação entre eles
 
@@ -227,7 +237,11 @@ O critério recomendado é o último, pela seguinte razão: presença ou ausênc
 
 **Meta vigente: 8,3 h de áudio bruto por estado, 50 h no conjunto dos seis**, equivalentes a 25 h de fala-alvo.
 
-> `PENDENTE:` existe uma revisão da meta que **não foi adotada**. O piloto mediu rendimentos por camada muito superiores aos supostos — 91,8% em vox-pop contra 35%, 87,3% em podcast contra 60%, 85,1% em vlog contra 70% —, o que reduziria a meta para cerca de 6,4 h por estado e 38 h no total. A revisão está registrada em estado **condicional**, e depende de uma verificação ainda não feita: a de que o locutor dominante da camada de vox-pop é o repórter, e não um entrevistado loquaz. Dessa suposição depende toda a estimativa de fala aproveitável (`docs/achados_para_o_artigo.md` §2.2 e §2.3). Enquanto não verificada, a meta vigente é 50 h.
+> **Substituída em 29/08/2026.** Com o corpus decidido como entregável autônomo (§1.1), a meta acima deixa de valer: ela derivava da função de validar marcadores. A meta vigente está em `experimentos/resultados/meta_corpus_autonomo.md`, e muda de unidade — passa de horas de fala para **cobertura de falantes**. O teto de 5% por falante, já fixado, impõe por aritmética ao menos **20 falantes distintos por estado**; e a densidade de contextos de palatalização, **medida em 13,6 por minuto** (`densidade_palatalizacao.md`), mostra que um minuto de fala por pessoa basta para o marcador de áudio. O gargalo deixa de ser horas e passa a ser a verificação de que os falantes são pessoas distintas, hoje não implementada (`docs/pendencias.md`, seção 6.4).
+>
+> A conta antiga é conservada abaixo como histórico, e a revisão para 38 h que ela previa perde objeto.
+>
+> `HISTÓRICO:` existe uma revisão da meta que **não foi adotada**. O piloto mediu rendimentos por camada muito superiores aos supostos — 91,8% em vox-pop contra 35%, 87,3% em podcast contra 60%, 85,1% em vlog contra 70% —, o que reduziria a meta para cerca de 6,4 h por estado e 38 h no total. A revisão está registrada em estado **condicional**, e depende de uma verificação ainda não feita: a de que o locutor dominante da camada de vox-pop é o repórter, e não um entrevistado loquaz. Dessa suposição depende toda a estimativa de fala aproveitável (`docs/achados_para_o_artigo.md` §2.2 e §2.3). Enquanto não verificada, a meta vigente é 50 h.
 
 **Amostra de verificação manual.** Independente do volume total, o cálculo de WER e DER exige transcrição manual de referência: 20 minutos por estado, estratificados entre as camadas, totalizando 2 h de transcrição manual (`experimentos/resultados/meta_volume.md`). É o suficiente para estimar WER por variedade, que é ameaça à validade registrada na Parte 3 do `CLAUDE.md` e resultado publicável por si só.
 
@@ -298,9 +312,23 @@ O nulo é legível, e não indício de aparelho quebrado: o controle de conteúd
 
 Reproduzidas de `docs/pendencias.md` D7. As quatro são exigidas em submissão a veículo que aceite artigo de recurso.
 
-### 2.2.1 Tamanho-alvo — `PENDENTE`
+### 2.2.1 Tamanho-alvo — DECIDIDO em 29/08/2026
 
-O instrumento observa que doze itens são insuficientes e cita os 1.508 pares do CrowS-Pairs, sem fixar meta (`docs/pares_minimos_v1.md` §5, "Cobertura"). Diferentemente do corpus de áudio, cuja meta foi derivada de requisito estatístico, aqui não há número **nem critério que o produza**.
+**Meta: 37 pares por condição de teste e 80 pares no grupo de referência não regional**, o que perfaz entre 228 e 265 pares conforme o conjunto tenha quatro ou cinco condições. Hoje há oito e vinte e seis, respectivamente.
+
+Derivação reproduzível em `experimentos/meta_pares_minimos.py`, com relatório em `experimentos/resultados/meta_pares_minimos.md`. O raciocínio, em resumo:
+
+**A pergunta mudou de forma.** Não é "quantos pares para detectar o efeito", porque o passo 5.5 estabeleceu que não há efeito de valência a detectar — o único candidato dissolveu-se ao se controlar o artefato de tokenização. É **quantos pares para que a ausência de efeito seja informativa**, mesma lógica de que saiu a meta do corpus de áudio. Um nulo obtido sem poder não distingue "não há viés" de "não olhamos direito", e é essa distinção que a seção de Resultados precisa sustentar.
+
+**O insumo é decisão, não medição: o menor efeito de viés que se queira poder excluir.** A equipe fixou **0,08 em unidade bruta de escore de viés**, cerca de 0,7 desvio-padrão do ruído entre pares. Três razões:
+
+1. **É metade do artefato que o próprio projeto desmontou.** O falso viés de tokenização media 0,195 antes do controle (`docs/achados_para_o_artigo.md`, item 1.1). Poder excluir 0,08 autoriza a afirmação verificável de que, houvesse viés com metade daquela força, ele teria sido detectado — e não mera retórica de cautela.
+2. **Guarda margem de quase três vezes para o controle positivo**, que produz 0,235. Uma alegação de poder vale o quanto for a distância entre o que se pretende excluir e o que o instrumento comprovadamente detecta.
+3. **É alcançável.** Descer a 0,059 exigiria 108 pares por condição; subir a 0,095 pouparia catorze, ao custo de só poder excluir viés grande.
+
+**Uma restrição que a conta revelou, e que não constava de plano anterior.** O grupo de referência impõe **teto** ao que é detectável, por mais pares de teste que se acrescentem, porque sua própria incerteza não desaparece. Com os 26 pares de referência atuais, nenhum efeito abaixo de 0,078 é detectável sob correção de multiplicidade. **O grupo de referência precisa crescer junto com as condições de teste** — daí a meta de 80, e não apenas a de 37 por condição.
+
+**Restrição de conteúdo, que precede o tamanho.** Qualquer conjunto futuro deve balancear a extensão em subtokens entre os polos do eixo medido, sob pena de reproduzir o artefato de que a decisão acima toma a medida.
 
 ### 2.2.2 Formato de publicação — `PENDENTE`
 
@@ -368,17 +396,17 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 |---|---|---|---|
 | 1 | ~~Semântica de `duracao_s`~~ — **encerrado em 29/08/2026** pelo campo `duracao_coletada_s` (§1.3) | 1.3 | — |
 | 2 | Qual registro constitui o artefato publicado — o de coleta, o final, ou ambos | 1.2 | Decisão da equipe |
-| 3 | Função do corpus pode mudar de instrumental para entregável autônomo | 1.1 | Decisão do passo 5 |
+| 3 | ~~Função do corpus~~ — **decidido em 29/08/2026**: entregável autônomo (§1.1) | 1.1 | — |
 | 4 | Composição entre camadas sob revisão não decidida | 1.4.2 | `docs/pendencias.md` D2 |
 | 5 | Teto de 5% por falante sem verificação implementada | 1.4.5 | `docs/pendencias.md` §6.4 |
 | 6 | Checagem de coerência dialetal contra falante migrante não implementada | 1.4.3 | `docs/pendencias.md` §6.2 |
-| 7 | Meta de volume: 50 h vigente, revisão para 38 h condicionada a verificação não feita | 1.5 | `docs/achados_para_o_artigo.md` §2.3 |
+| 7 | Meta de volume do corpus — **recalculada em 29/08/2026** sob o novo critério (§1.5); o que resta é a verificação de falantes distintos | 1.5 | `docs/pendencias.md` §6.4 |
 | 8 | Licença dos artefatos do projeto não definida, para nenhum dos dois conjuntos | 1.6, 2.2.3 | Decisão da equipe |
 | 9 | Ficha de conjunto de dados inexistente, para nenhum dos dois conjuntos | 1.6, 2.2.4 | Decisão da equipe |
 | 10 | Onze canais marcados `a_confirmar` | 1.7 | Inspeção de conteúdo |
 | 11 | Simetria de composição entre grupos não decidida | 1.7 | `docs/pendencias.md` D1 |
 | 12 | Subcorpus de TikTok não reavaliado desde a exclusão | 1.4.4 | `docs/pendencias.md` D4 |
-| 13 | Tamanho-alvo dos pares mínimos — **deixa de ser inarbitrável em 29/08/2026**, ver nota abaixo | 2.2.1 | Estimativa de efeito do passo 5.5 |
+| 13 | ~~Tamanho-alvo dos pares mínimos~~ — **decidido em 29/08/2026**: 37 por condição e 80 de referência, para excluir efeitos acima de 0,08 (§2.2.1) | 2.2.1 | — |
 | 14 | Formato de publicação dos pares mínimos inexistente | 2.2.2 | Decisão da equipe; deixa de depender do passo 5 |
 
 ### Nota de 29/08/2026 — o tamanho-alvo passa a ser derivável
