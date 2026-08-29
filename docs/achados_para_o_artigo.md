@@ -33,6 +33,18 @@ O confundidor de frequência descrito por Kaneko e Bollegala (2022) encontra-se,
 
 **Qualificação obrigatória:** o repertório testado é amplo mas não exaustivo, e a seleção de itens de baixo prestígio partiu de ocupações de circulação corrente. A afirmação descreve o padrão nesse repertório.
 
+### Consequência demonstrada, acrescentada em 29/08/2026
+
+O item deixa de ser advertência metodológica e passa a ter **caso documentado**. No passo 5.5, uma medição de viés de valência produziu efeito aparentemente significativo — a condição de menção explícita à macrorregião apresentava viés de +0,1952, com sete de oito pares positivos e p ajustado de 0,0486. Restrita a análise aos atributos de **token único**, o efeito caiu para +0,0309, com três de oito pares positivos e p de 0,56.
+
+**A restrição aumentou o poder do teste em vez de reduzi-lo:** o controle positivo passou de +0,2352, que não sobrevivia à correção, para +0,4758 com p ajustado de 0,0013. Com menos atributos e mais poder, o efeito da condição regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído.
+
+O mecanismo é identificável no próprio repertório: entre os atributos multi-token, os desfavoráveis fragmentam-se mais que os favoráveis — *burra* (2), *grosseira* (3), *ignorante* (2), *preguiçosa* (3), média de 2,5 tokens, contra *culta*, *educada*, *honesta* e *trabalhadora*, todos de 2.
+
+**Formulação forte, e é a contribuição:** em português, uma medição de viés por pseudo-verossimilhança pode produzir efeito significativo inteiramente atribuível à assimetria de tokenização entre os atributos comparados. O mascaramento do alvo por inteiro, adotado neste projeto justamente para neutralizar isso, **é correção parcial e não bastou**. O controle exige balanceamento explícito da extensão em subtokens entre os polos do eixo medido, ou o emprego de AUL.
+
+**Procedência:** `experimentos/analise_valencia.py`, relatório em `experimentos/resultados/explicito.md`.
+
 ## 1.1-A Assimetria de tokenização entre gêneros gramaticais
 
 **Seção do artigo:** Método.
@@ -288,6 +300,56 @@ O fato é dado, e não apenas obstáculo de desenho: a categoria "nordestino" ex
 
 **Qualificação obrigatória:** a fonte de frequência não estratifica por variedade nem separa português brasileiro de europeu.
 
+## 1.19 A resposta do modelo à menção explícita não é depreciativa de forma detectável
+
+**Seção do artigo:** Resultados. Fecha o par com 1.17 e é a terceira parte da conclusão.
+
+O item 1.17 estabelece que o modelo responde à menção explícita da região. A medida ali é de **magnitude**, em valor absoluto, e não diz se a resposta é desfavorável. A medida com sinal foi executada em 29/08/2026, sobre as mesmas medições, em dois eixos separados.
+
+**Escore de viés por par:** média de Δ PLL nos atributos desfavoráveis menos média nos favoráveis, positiva quando o guise nordestino torna os desfavoráveis relativamente mais prováveis. É a definição operacional do CrowS-Pairs.
+
+**Resultado, eixo de caráter, com controle do artefato de segmentação:**
+
+| Condição | Viés (7+7 atributos) | Viés (3+3, token único) |
+|---|---|---|
+| menção explícita — macrorregião | +0,1952 (p Holm 0,0486) | +0,0309 (p 0,56) |
+| menção explícita — gentílico de estado | +0,0337 | +0,0368 |
+| menção explícita — topônimo | +0,0663 | −0,0089 |
+| **controle de conteúdo — positivo** | +0,2352 (p Holm 0,0556) | **+0,4758 (p Holm 0,0013)** |
+
+**Três condições de interpretabilidade estão satisfeitas**, e sem elas o nulo não seria legível:
+
+1. *O grupo de referência é adequado.* São 26 pares não regionais, com viés médio de +0,0300, e não os cinco do controle neutro empregados na primeira versão da análise — erro de desenho corrigido, cujo sintoma foi o controle positivo não sobreviver à correção apesar das maiores magnitudes brutas.
+2. *A verificação de sanidade passa.* O controle neutro, testado contra o grupo do qual faz parte, resulta não significativo em todos os eixos.
+3. *O teste tem poder, e o tem mais na versão restrita.* O controle positivo sobrevive à correção de Holm a 0,0013.
+
+**Formulação sustentada:** nas condições testadas, a resposta do BERTimbau Base à menção explícita da região não se organiza por valência dos atributos de caráter. O único efeito candidato mostrou-se atribuível à assimetria de tokenização (ver 1.1).
+
+**Formulação vedada:** que o modelo não apresente viés regional. Um instrumento que não detecta não demonstra ausência, e o eixo de prestígio ocupacional permanece sem medição válida — ver 3.7, requalificado.
+
+**Qualificação obrigatória:** oito pares por condição, seis atributos na versão restrita, um modelo, uma métrica. A classificação de valência é do projeto e não foi validada por juízes.
+
+**Procedência:** `experimentos/analise_valencia.py`, relatório em `experimentos/resultados/explicito.md`.
+
+## 1.20 O eixo de prestígio ocupacional não é mensurável por PLL neste modelo
+
+**Seção do artigo:** Método, e Ameaças à Validade. Decorre de 1.1 e é sua consequência mais dura.
+
+A verificação do artefato de segmentação, executável no eixo de caráter, **não é executável no de ocupação**:
+
+| Prestígio | Atributos | Tokens |
+|---|---|---|
+| alto | *advogado*, *juiz*, *médico*, *professor* | 1, 1, 1, 1 |
+| baixo | *empregada* / *lavrador*, *pedreiro* / *faxineiro* | 1 / 2, 2 / 4 |
+
+Restringir a análise a atributos de token único deixaria quatro ocupações de alto prestígio contra **uma** de baixo, e essa uma — *empregada* — é também a única do feminino, o que substituiria o confundidor de segmentação pelo de gênero.
+
+A impossibilidade não é acidente deste conjunto de itens: é o item 1.1 operando. O léxico ocupacional de baixo prestígio não integra o vocabulário do BERTimbau como palavra inteira, e não há do que restringir.
+
+**Consequência prática, e citável:** medir viés de prestígio ocupacional em português por pseudo-verossimilhança sobre este modelo exige AUL, e não PLL. Não se trata de preferência entre métricas, e sim de condição de possibilidade — o que confirma, por via independente, a conclusão já registrada em 1.1.
+
+**Estado no projeto:** o eixo permanece sem medição válida. O valor de −0,2706 observado na condição de gentílico, que significaria ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino, **não deve ser citado em nenhuma direção**.
+
 # 2. CONDICIONAL — depende de verificação nomeada
 
 ## 2.1 A transcrição automática não penaliza a fala nordestina
@@ -409,19 +471,21 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 
 **Qualificação obrigatória:** a fonte de frequência não estratifica por variedade nem separa português brasileiro de europeu. Item regionalmente restrito tem frequência nacional baixa por construção, de modo que a medida compara itens entre si e não caracteriza uso regional.
 
-## 3.7 Que a resposta do modelo à região seja preconceituosa
+## 3.7 Que a resposta do modelo à região seja preconceituosa — requalificado
 
-**Aberto em 29/08/2026, e é hoje a vedação mais importante do documento.**
+**Aberto em 29/08/2026 e requalificado no mesmo dia, depois de o passo 5.5 responder à pergunta.** A redação original vedava qualquer leitura de direção por subdimensionamento da análise. O subdimensionamento era erro de desenho — grupo de referência de cinco pares em vez de vinte e seis — e foi corrigido.
 
-Toda a medição do projeto emprega |Δ PLL| em **valor absoluto**. Isso responde a "o modelo responde ao guise?" e não responde a "o modelo responde com preconceito?" — um modelo que assinalasse ao guise nordestino atributos *mais favoráveis* produziria exatamente o mesmo número.
+**Deixa de ser vedado:** afirmar que, nas condições testadas e no eixo de caráter, a resposta do modelo à menção explícita **não se organiza por valência**. É o item 1.19, com controle positivo sobrevivente à correção e artefato de segmentação controlado.
 
-A medida com sinal foi implementada em `experimentos/analise_valencia.py`, em dois eixos separados, e o resultado é **inconclusivo por subdimensionamento**: o controle positivo não sobrevive à correção de Holm em nenhum dos dois eixos, ainda que apresente as maiores magnitudes brutas de ambas as tabelas. Com cinco pares no grupo de referência, a permutação não tem resolução. Pela lógica de interpretabilidade que o projeto aplica desde o passo 5, quando o controle positivo não passa, nenhum nulo é legível.
+**Continua vedado, e sem atenuação:**
 
-**Vedado, portanto:** afirmar que o modelo deprecia falantes nordestinos; afirmar que **não** os deprecia; e citar qualquer valor da tabela de valência como resultado, inclusive o viés de caráter de +0,195 da condição de macrorregião, com sete de oito pares positivos, que é o mais sugestivo do conjunto.
+- Afirmar que o BERTimbau **não apresenta viés regional**. Um instrumento que não detecta não demonstra ausência. O que se mostrou é que este instrumento, neste modelo, nesta métrica e neste repertório de atributos, não detecta.
+- Citar qualquer valor do eixo de **prestígio ocupacional**, em qualquer direção, inclusive o −0,2706 da condição de gentílico. Aquele eixo não tem medição válida por impossibilidade instrumental — ver 1.20.
+- Citar o viés de +0,1952 da condição de macrorregião como resultado. Ele não sobrevive ao controle de tokenização, e sua história pertence a 1.1, não a Resultados.
 
-**Vedado com ênfase particular:** ler o viés de ocupação de −0,271 da condição de gentílico — ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino — como ausência de estigma ocupacional. A explicação alternativa mais provável é o artefato de segmentação registrado em 1.1, e não foi descartada.
+**Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita da região (1.17); e essa resposta não é depreciativa de forma detectável no eixo de caráter (1.19), permanecendo o eixo ocupacional sem medição (1.20).
 
-**Formulação correta:** o modelo **distingue**; se **deprecia**, não se sabe. **Libera a afirmação:** o passo 5.5 do roadmap.
+**Libera afirmação mais forte:** medição do eixo ocupacional por AUL, e validação da classificação de valência por juízes.
 
 ## 3.5 Qualquer afirmação de significância estatística — parcialmente endereçado
 
@@ -461,7 +525,7 @@ Em termos de estrutura de texto submetido:
 | Trabalhos relacionados | sustentada |
 | Fundamentação | sustentada |
 | Método | sustentada, e com contribuições próprias (itens 1.1, 1.2, 1.7, 1.8, 1.16) |
-| **Resultados** | **Deixa de estar vazia** em 28/08/2026 com o nulo sobre a sinalização implícita (1.13, 1.14, 1.15), e **ganha resultado positivo** em 29/08/2026 com a resposta à menção explícita (1.17, 1.18). O contraste entre os dois é hoje o eixo da seção. Falta a direção do efeito (3.7) |
+| **Resultados** | **Completa** em 29/08/2026, em três partes: nulo sobre a sinalização implícita (1.13, 1.14, 1.15); resposta à menção explícita (1.17, 1.18); e ausência de organização por valência nessa resposta (1.19). O eixo ocupacional permanece sem medição válida (1.20) |
 | Ameaças à validade | madura, e mais desenvolvida que o usual |
 | Conclusão | escrevível na chave do terceiro caminho abaixo, que passou a existir em 29/08/2026 |
 
@@ -490,4 +554,14 @@ Segue-se uma recomendação, e não apenas o registro de uma opção. **O artigo
 - Reposiciona a literatura de forma favorável: Hofmann et al. (2024) encontram, em modelos alinhados, preconceito encoberto preservado sob manifesto suprimido; o BERTimbau Base, não alinhado, apresenta o padrão inverso. E o contraste com Melo e Souza (2026) deixa de ser diferenciação defensiva e passa a ser complementaridade — eles mediram o eixo explícito, que é justamente o que aqui responde.
 - Reconduz à hipótese de mecanismo sobre o brWaC com evidência nova: a associação com o **rótulo** existe, e a associação com a **forma linguística** não. Um corpus sem estratificação geográfica explicaria exatamente esse padrão.
 
-**A condição que falta, e é uma só:** a direção do efeito (3.7 e passo 5.5 do roadmap). Sem ela o artigo afirma que o modelo distingue, e não que deprecia — o que é publicável, mas muda o título e a moldura. Com ela, o trabalho volta a ser sobre viés.
+**Atualização de 29/08/2026 — a condição que faltava foi cumprida, e a resposta muda o título.** O passo 5.5 mediu a direção do efeito. Não há viés de valência detectável: o único candidato dissolveu-se ao se controlar o artefato de tokenização, justamente quando o poder do teste aumentou.
+
+O artigo, portanto, **não é sobre viés medido**. É sobre o que o modelo distingue e o que não distingue, com três resultados que se sustentam mutuamente:
+
+1. Não responde à sinalização dialetal implícita, em quatro famílias (1.15).
+2. Responde à menção explícita da região, acima do que a frequência prevê, concentrada em rótulos de pessoa (1.17).
+3. Essa resposta não se organiza por valência dos atributos de caráter (1.19).
+
+**E ganha uma contribuição metodológica que não existiria sem o resultado negativo:** a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à assimetria de tokenização (1.1, consequência demonstrada, e 1.20). O projeto encontrou um viés aparente a p = 0,049 e o desfez. Isso é resultado de método com valor próprio, e é o tipo de coisa que a literatura de *bias probing* raramente reporta.
+
+**A ressalva que preserva a honestidade do texto:** não detectar não é demonstrar ausência. O eixo ocupacional segue sem medição válida, a classificação de valência não passou por juízes, e são oito pares por condição.

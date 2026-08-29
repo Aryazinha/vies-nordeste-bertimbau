@@ -159,58 +159,136 @@ atributos favoráveis para os desfavoráveis, que é a definição operacional d
 viés do CrowS-Pairs. A classificação dos atributos está declarada em código, em
 `analise_valencia.py`, e os ambíguos foram excluídos em vez de arbitrados.
 
-## Resultado: inconclusivo, e a razão é demonstrável
+## Correção de 29/08/2026 — a primeira análise estava mal dimensionada por erro de desenho
 
-**Eixo de caráter**
+A versão original desta seção empregava como grupo de referência apenas o
+`controle_neutro`, de **cinco pares**, e concluía pela inconclusividade. O
+sintoma que a denunciou foi inequívoco: o controle positivo apresentava as
+maiores magnitudes brutas das duas tabelas e ainda assim não sobrevivia à
+correção de Holm. Com cinco pares na referência, a distribuição nula da
+permutação não tem resolução.
+
+A referência correta são **todos os 26 pares não regionais** já medidos —
+controle neutro, controle de frequência, calibração extra e controle de
+raridade —, que é a mesma escolha feita para calibrar a reta da frequência. A
+hipótese que os qualifica é verificável e foi verificada: viés médio de +0,0300
+no eixo de caráter e +0,0498 no de ocupação, ambos próximos de zero.
+
+**Verificação de sanidade:** o `controle_neutro`, testado contra o grupo do qual
+faz parte, resulta não significativo em ambos os eixos (p = 0,47 e p = 0,40).
+
+## Resultado
+
+**Eixo de caráter** — referência de 26 pares, viés médio +0,0300, desvio-padrão 0,1182
 
 | Condição | Pares | Viés médio | Positivos | p | p Holm |
 |---|---|---|---|---|---|
-| `controle_neutro` | 5 | +0,0325 | 3/5 | — | — |
-| `explicito_toponimo` | 8 | +0,0663 | 5/8 | 0,3768 | 1,0000 |
-| `explicito_gentilico` | 8 | +0,0337 | 6/8 | 0,5113 | 1,0000 |
-| `controle_explicito` | 5 | +0,1352 | 4/5 | 0,1845 | 1,0000 |
-| `explicito_regiao` | 8 | +0,1952 | 7/8 | 0,0472 | 0,3776 |
-| **`controle_conteudo`** | 5 | +0,2352 | 5/5 | 0,0104 | **0,0936** |
+| `controle_neutro` (sanidade) | 5 | +0,0325 | 3/5 | 0,4728 | — |
+| dialetais implícitos (quatro famílias) | 5 a 10 | +0,038 a +0,072 | — | 0,21 a 0,44 | 1,0000 |
+| `explicito_toponimo` | 8 | +0,0663 | 5/8 | 0,2587 | 1,0000 |
+| `explicito_gentilico` | 8 | +0,0337 | 6/8 | 0,5069 | 1,0000 |
+| `controle_explicito` — original | 5 | +0,1352 | 4/5 | 0,0741 | 0,5187 |
+| **`explicito_regiao`** | **8** | **+0,1952** | **7/8** | **0,0054** | **0,0486** |
+| `controle_conteudo` — positivo | 5 | +0,2352 | 5/5 | 0,0069 | 0,0556 |
 
-**Eixo de ocupação**
+**Eixo de ocupação** — referência de 26 pares, viés médio +0,0498, desvio-padrão 0,2371
 
 | Condição | Pares | Viés médio | Positivos | p Holm |
 |---|---|---|---|---|
 | `explicito_gentilico` | 8 | **−0,2706** | 1/8 | 1,0000 |
 | `explicito_toponimo` | 8 | −0,0047 | 3/8 | 1,0000 |
 | `explicito_regiao` | 8 | +0,0876 | 4/8 | 1,0000 |
-| **`controle_conteudo`** | 5 | +1,1606 | 4/5 | **0,2362** |
+| `dialeto_D` | 10 | +0,1594 | 9/10 | 0,7680 |
+| **`controle_conteudo` — positivo** | 5 | **+1,1606** | 4/5 | **0,0022** |
 
-**O controle positivo não sobrevive à correção em nenhum dos dois eixos.** O par
-"fui preso ontem à noite" contra "defendi minha tese ontem à noite" deveria
-produzir o maior viés de valência possível neste conjunto — e produz, em valor
-bruto: +0,235 no eixo de caráter e +1,161 no de ocupação, as maiores magnitudes
-das duas tabelas. Mas com cinco pares no grupo de referência, a distribuição
-nula da permutação é grossa demais, e a correção de Holm sobre nove condições
-consome o que resta.
+## O que isso estabelece, e o que não estabelece
 
-Pela mesma lógica de interpretabilidade que este projeto aplica desde o passo 5:
-**quando o controle positivo não passa, nenhum nulo é legível.** A análise de
-direção está subdimensionada, e nada nela — nem os valores positivos, nem os
-negativos — autoriza conclusão.
+**O método tem resolução.** No eixo de ocupação o controle positivo sobrevive com
+folga, a p ajustado de 0,0022. No de caráter fica em 0,0556, a um passo do
+limiar, com p bruto de 0,0069 — a diferença é de tamanho amostral, já que o
+controle tem cinco pares contra oito das condições explícitas, e não de método.
 
-## O que ainda assim se pode observar, como indicação
+**Há um resultado de viés, e é frágil.** A condição de macrorregião apresenta
+viés de caráter de +0,1952, com sete de oito pares positivos e p ajustado de
+0,0486 — a margem mais estreita possível. Sob o guise nordestino, os atributos
+desfavoráveis tornam-se relativamente mais prováveis.
 
-**Magnitude e direção dissociam-se.** A condição de maior magnitude,
-`explicito_gentilico`, tem viés de caráter praticamente nulo (+0,034). A de
-maior viés de caráter, `explicito_regiao` (+0,195, sete de oito pares), é a
-segunda em magnitude. Responder fortemente a um guise e ordenar atributos por
-valência não são o mesmo fenômeno, e o instrumento os separa.
+**Mas ele não replica na condição irmã, e isso é sério.** O gentílico de estado,
+que apresenta a **maior** magnitude de resposta de todo o conjunto (+0,157 de
+resíduo no passo 5.4), tem viés de caráter praticamente nulo: +0,0337, com p de
+0,51. A dissociação entre magnitude e direção, já observada na versão anterior,
+sai reforçada em vez de resolvida. Duas condições que respondem fortemente ao
+guise divergem por completo quanto a ordenar atributos por valência.
 
-**O eixo de ocupação aponta na direção contrária.** Sob o guise de gentílico de
-estado, ocupações de alto prestígio tornam-se relativamente **mais** prováveis:
-viés de −0,271, com apenas um de oito pares positivo. Antes de qualquer leitura
-substantiva, registre-se a explicação alternativa mais provável: o item 1.1 de
-`docs/achados_para_o_artigo.md` estabelece que as ocupações de baixo prestígio
-são majoritariamente multi-token no BERTimbau, ao passo que as de alto prestígio
-são de token único. O mascaramento do alvo por inteiro foi adotado justamente
-para neutralizar isso, e pode não bastar. **Não interpretar este número como
-ausência de estigma ocupacional sem antes descartar o artefato de segmentação.**
+Enquanto essa divergência não for explicada, **o resultado de macrorregião não
+sustenta afirmação de viés no artigo.** Um efeito que aparece numa condição e
+desaparece na condição de efeito maior é candidato a achado, não achado.
+
+**O eixo de ocupação não produz nada, e o valor anômalo persiste.** O gentílico
+apresenta −0,2706 com apenas um de oito pares positivo, o que significaria
+ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino.
+Ver a seção seguinte, sobre por que esse número não pode ser interpretado.
+
+## O único resultado de viés era artefato de segmentação (passo 5.5b)
+
+O eixo de caráter admite a verificação por restrição, porque sua tokenização é
+aproximadamente balanceada: três de sete atributos favoráveis e três de sete
+desfavoráveis são de token único. Refeita a análise **apenas sobre esses seis** —
+*confiável*, *inteligente*, *rica* contra *estranha*, *perigosa*, *pobre* —, o
+resultado é inequívoco.
+
+| Condição | Viés (7 + 7 atributos) | Positivos | Viés (3 + 3, token único) | Positivos |
+|---|---|---|---|---|
+| **`explicito_regiao`** | **+0,1952** (p Holm 0,0486) | 7/8 | **+0,0309** (p 0,56) | 3/8 |
+| `explicito_gentilico` | +0,0337 | 6/8 | +0,0368 | 6/8 |
+| `explicito_toponimo` | +0,0663 | 5/8 | −0,0089 | 3/8 |
+| `controle_conteudo` — positivo | +0,2352 (p Holm 0,0556) | 5/5 | **+0,4758 (p Holm 0,0013)** | 5/5 |
+
+**O efeito de macrorregião desaparece: de +0,195 para +0,031, e de sete pares
+positivos em oito para três.** O reagrupamento pessoa/lugar acompanha, caindo de
++0,139 para +0,065, sem significância.
+
+**E a restrição não destruiu poder — aumentou-o.** O controle positivo mais que
+dobra, de +0,2352 para +0,4758, e passa de um p ajustado de 0,0556, que não
+sobrevivia, para 0,0013, que sobrevive com folga. É a evidência decisiva: com
+menos atributos e mais poder, o efeito da condição regional evaporou enquanto o
+do controle cresceu. O que desapareceu não foi sinal perdido por ruído.
+
+**O mecanismo é identificável, e é o item 1.1 do projeto.** Entre os atributos
+multi-token, os desfavoráveis fragmentam-se mais que os favoráveis — *burra* (2),
+*grosseira* (3), *ignorante* (2), *preguiçosa* (3), média de 2,5 tokens, contra
+*culta*, *educada*, *honesta*, *trabalhadora*, todos de 2 tokens. Essa assimetria
+residual, e não associação regional, é o que produzia o viés aparente.
+
+O mascaramento do alvo por inteiro foi adotado precisamente para neutralizar a
+assimetria de tokenização, e **não bastou**. É correção parcial, não solução.
+
+## Por que o eixo de ocupação não é interpretável, e não é questão de volume
+
+A verificação do artefato de segmentação foi tentada e **não é executável por
+restrição**:
+
+| Prestígio | Atributo | Tokens |
+|---|---|---|
+| alto | *advogado*, *juiz*, *médico*, *professor* | 1, 1, 1, 1 |
+| baixo | *empregada* | 1 |
+| baixo | *lavrador*, *pedreiro* | 2, 2 |
+| baixo | *faxineiro* | 4 |
+
+Restringir a análise a atributos de token único deixaria quatro ocupações de
+alto prestígio contra **uma** de baixo — e essa uma, *empregada*, é também a
+única do feminino, o que trocaria o confundidor de segmentação pelo de gênero.
+
+A impossibilidade não é acidente deste conjunto: é o item 1.1 de
+`docs/achados_para_o_artigo.md` operando. O léxico ocupacional de baixo prestígio
+**não integra o vocabulário do BERTimbau como palavra inteira**, e não há do que
+restringir. Medir prestígio ocupacional neste modelo por pseudo-verossimilhança
+exige AUL, e não PLL — que é exatamente o que aquele item estabelece.
+
+**O eixo de caráter não sofre do mesmo problema**, e a diferença é verificável:
+três de sete atributos favoráveis e três de sete desfavoráveis são de token
+único, com média de 1,57 contra 1,86 tokens. O eixo é aproximadamente balanceado,
+e nele a verificação por restrição é executável.
 
 ---
 
@@ -246,11 +324,22 @@ famílias implícitas, medido com a mesma régua, produz o contraste que sustent
 artigo: **o modelo responde à categoria regional nomeada, e não à variedade
 linguística que a indicia.**
 
-**Abre um passo novo, e ele é agora o caminho crítico.** A pergunta de direção —
-se a resposta é preconceituosa — está formulada, implementada e subdimensionada.
-Exige conjunto maior de pares por condição, ampliação do grupo de referência, e
-o descarte do artefato de segmentação no eixo de ocupação. Sem ela, o artigo
-pode afirmar que o modelo distingue, e não pode afirmar que deprecia.
+**Responde o passo 5.5, e a resposta é negativa.** A pergunta de direção — se a
+resposta é preconceituosa — foi respondida em 29/08/2026, depois de corrigido o
+grupo de referência e controlado o artefato de segmentação: **nenhum viés de
+valência sobrevive**. O único candidato, a condição de macrorregião no eixo de
+caráter, dissolveu-se quando a análise foi restrita a atributos de token único,
+justamente quando o poder do teste aumentou.
+
+A conclusão, portanto, é de três partes, e nenhuma delas pode ser citada sem as
+outras: o modelo **não responde** à sinalização dialetal implícita; **responde**
+à menção explícita da região; e essa resposta **não é depreciativa** de forma
+detectável nas condições testadas. O modelo distingue sem, aparentemente,
+depreciar — ou deprecia por meio que este instrumento não capta.
+
+**O eixo de ocupação permanece sem resposta**, e por impossibilidade
+instrumental, não por falta de volume: exige AUL em lugar de PLL, o que demanda
+nova medição.
 
 **Requalifica o enquadramento frente à literatura.** Hofmann et al. (2024)
 encontram, em modelos alinhados, preconceito encoberto preservado sob preconceito

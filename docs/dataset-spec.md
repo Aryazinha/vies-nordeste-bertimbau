@@ -378,5 +378,21 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | 10 | Onze canais marcados `a_confirmar` | 1.7 | Inspeção de conteúdo |
 | 11 | Simetria de composição entre grupos não decidida | 1.7 | `docs/pendencias.md` §5.1 |
 | 12 | Subcorpus de TikTok não reavaliado desde a exclusão | 1.4.4 | `docs/pendencias.md` §5.4 |
-| 13 | Tamanho-alvo dos pares mínimos sem número e sem critério que o produza | 2.2.1 | Decisão do passo 5 |
-| 14 | Formato de publicação dos pares mínimos inexistente | 2.2.2 | Decisão do passo 5 |
+| 13 | Tamanho-alvo dos pares mínimos — **deixa de ser inarbitrável em 29/08/2026**, ver nota abaixo | 2.2.1 | Estimativa de efeito do passo 5.5 |
+| 14 | Formato de publicação dos pares mínimos inexistente | 2.2.2 | Decisão da equipe; deixa de depender do passo 5 |
+
+### Nota de 29/08/2026 — o tamanho-alvo passa a ser derivável
+
+O item 13 registrava que, ao contrário do corpus de áudio, o conjunto de pares mínimos não tinha meta **nem critério que a produzisse**. Duas coisas mudaram com o passo 5.4:
+
+**Sabe-se o que o conjunto contém.** A menção explícita à região produz resposta acima da reta da frequência, concentrada em rótulos de pessoa, e sobrevive à correção de multiplicidade (`docs/achados_para_o_artigo.md` §1.17). A sinalização implícita, em quatro famílias, não produz. O conteúdo do conjunto deixa de ser indeterminado.
+
+**Existe um critério estatístico disponível, e é o mesmo do corpus de áudio.** A meta do corpus foi derivada do volume necessário para que a ausência de uma variante rara fosse informativa (§1.5). O análogo aqui é o número de pares necessário para que a **análise de direção** — se a resposta é depreciativa, e não apenas diferente — atinja poder suficiente. O passo 5.5 do roadmap produzirá a estimativa de tamanho de efeito que essa conta exige.
+
+Enquanto essa estimativa não existir, o tamanho-alvo continua sem número. O que mudou é que deixou de faltar o critério, e passou a faltar apenas o insumo dele.
+
+**Complemento de 29/08/2026, depois do passo 5.5.** A estimativa foi produzida, e é negativa: nenhum viés de valência sobrevive ao controle do artefato de tokenização (`docs/achados_para_o_artigo.md` §1.19). Não há, portanto, tamanho de efeito para o qual dimensionar.
+
+O critério não desaparece por isso — muda de forma. Deixa de ser "quantos pares para detectar o efeito observado" e passa a ser **"quantos pares para que a ausência de efeito seja informativa"**, que é exatamente a mesma lógica de que saiu a meta do corpus de áudio: o volume em que zero ocorrências deixa de significar amostra pequena. O insumo passa a ser o menor efeito que se queira poder excluir, e essa é decisão da equipe, não medição.
+
+Registre-se ainda uma restrição de conteúdo que o passo 5.5 impôs e que precede o tamanho: qualquer conjunto futuro deve **balancear a extensão em subtokens entre os polos do eixo medido**, sob pena de reproduzir o artefato que produziu um viés aparente a p = 0,049 e o desfez ao ser controlado. Para o eixo de prestígio ocupacional, o balanceamento é impossível neste modelo, e a medição exige AUL (§1.20 daquele documento).

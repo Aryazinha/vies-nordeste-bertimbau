@@ -101,7 +101,8 @@ Resultado em `experimentos/resultados/sensibilidade_guise.md`. Com controles que
 | **5.2** BERTimbau Large, ou métrica baseada em representação | médio | se o limite é do modelo ou da métrica | Não iniciado |
 | **5.3** Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés | Não iniciado, e hoje o mais amparado |
 | **5.4** Menção explícita em volume | baixo | se o modelo responde ao rótulo regional, ainda que não à variedade | **Concluído** em 29/08/2026 — resposta afirmativa |
-| **5.5** Direção do efeito, e não sua magnitude | baixo | se a resposta é preconceituosa, e não apenas diferente | Aberto, e agora o caminho crítico |
+| **5.5** Direção do efeito, e não sua magnitude | baixo | se a resposta é preconceituosa, e não apenas diferente | **Concluído** em 29/08/2026 — nenhum viés de valência sobrevive |
+| **5.6** Eixo ocupacional por AUL | baixo | o único eixo que o PLL não consegue medir neste modelo | Aberto, e é a última medição pendente |
 
 Os quatro não se excluem. O 5.1 era o mais barato e determinava se os demais eram necessários; a resposta dele é que sim.
 
@@ -131,7 +132,7 @@ Exige um conjunto de pares de menção explícita em volume comparável ao dos d
 
 **A predição registrada era ordinal e não se confirmou como escrita.** Previa-se macrorregião acima de gentílico; observou-se o inverso. A inspeção por par mostra que o corte não é de granularidade, e sim entre **rótulo de pessoa** e **rótulo de lugar** — distinção que atravessa a condição de macrorregião, cujos pares com *Nordeste* rendem +0,043 e os com *nordestino*, +0,172. Reagrupados, os rótulos de pessoa somam +0,162 com doze de doze pares acima da reta, contra +0,036 dos de lugar. O reagrupamento é posterior aos dados e está declarado como tal.
 
-### 5.5 — Direção do efeito (aberto, e agora o caminho crítico)
+### 5.5 — Direção do efeito (concluído, sem viés detectável)
 
 Aberto em 29/08/2026, pelo resultado do 5.4. Toda a medição do projeto até aqui emprega |Δ| em **valor absoluto**, o que responde a "o modelo responde ao guise?" e não a "o modelo responde com preconceito?" — um modelo que assinalasse ao guise nordestino atributos mais favoráveis produziria o mesmo número.
 
@@ -140,5 +141,27 @@ Aberto em 29/08/2026, pelo resultado do 5.4. Toda a medição do projeto até aq
 **O que o passo exige:** conjunto maior de pares por condição, ampliação do grupo de referência para além dos cinco pares do controle neutro, e descarte do artefato de segmentação no eixo de ocupação — onde o gentílico de estado apresenta viés de −0,271, isto é, ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino, o que pode ser efeito da assimetria de tokenização registrada no item 1.1 de `docs/achados_para_o_artigo.md`.
 
 **Por que é o caminho crítico.** Sem ele, o artigo pode afirmar que o modelo **distingue**, e não pode afirmar que **deprecia**. É a diferença entre um resultado sobre representação e um resultado sobre viés.
+
+**Resultado, em 29/08/2026, em duas etapas.**
+
+*5.5a — o subdimensionamento era erro de desenho, não falta de dados.* O grupo de referência da permutação era o `controle_neutro`, de cinco pares, quando a referência correta são os 26 pares não regionais já medidos — a mesma escolha feita para calibrar a reta da frequência. Corrigido, o controle positivo passa a sobreviver à correção de Holm no eixo de ocupação, a p de 0,0022, e a ficar a um passo do limiar no de caráter, a 0,0556 com p bruto de 0,0069. A verificação de sanidade passa: o controle neutro, testado contra o grupo do qual faz parte, resulta não significativo.
+
+Com a correção, um efeito apareceu: a condição de macrorregião, no eixo de caráter, com viés de +0,1952, sete de oito pares positivos e p ajustado de 0,0486.
+
+*5.5b — o efeito era artefato de tokenização.* Restrita a análise aos atributos de **token único**, o viés de macrorregião cai de +0,1952 para +0,0309, e de sete pares positivos para três. **A restrição aumentou o poder do teste em vez de reduzi-lo**: o controle positivo mais que dobra, de +0,2352 para +0,4758, com p ajustado passando de 0,0556 para 0,0013. Com menos atributos e mais poder, o efeito regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído.
+
+O mecanismo está identificado: entre os atributos multi-token, os desfavoráveis fragmentam-se mais que os favoráveis, com média de 2,5 tokens contra 2,0. O mascaramento do alvo por inteiro, adotado justamente para neutralizar a assimetria de tokenização, **é correção parcial e não bastou**.
+
+**Conclusão do passo.** Não há viés de valência detectável no eixo de caráter. O de prestígio ocupacional **não é mensurável por PLL neste modelo**, e a impossibilidade não é de volume: das quatro ocupações de baixo prestígio apenas *empregada* é de token único, e é também a única do feminino, de modo que restringir trocaria um confundidor por outro.
+
+**Consequência para o artigo.** O trabalho não é sobre viés medido, e sim sobre o que o modelo distingue e o que não distingue, em três resultados que se sustentam mutuamente — e ganha uma contribuição de método que não existiria sem o resultado negativo: a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à tokenização. Detalhamento na seção 5 de `docs/achados_para_o_artigo.md`.
+
+### 5.6 — Eixo ocupacional por AUL (aberto)
+
+Aberto em 29/08/2026 pelo resultado do 5.5. É a última medição pendente para fechar a seção de Resultados, e a única que exige nova passagem pelo modelo: os escores de AUL não foram gravados, porque as medições dos passos 5.1 e 5.4 empregaram o atalho de PLL apenas, por economia de tempo de máquina.
+
+A necessidade não é preferência entre métricas. É condição de possibilidade, pelo item 1.20 de `docs/achados_para_o_artigo.md`: o léxico ocupacional de baixo prestígio não integra o vocabulário do BERTimbau como palavra inteira, e nenhuma restrição de itens contorna isso.
+
+Custo: uma execução sobre os 73 pares do conjunto acumulado, com as três métricas em vez de uma. Não depende de decisão da equipe.
 
 **Sai do "fora de escopo".** A comparação com o BERTimbau Large fora afastada por ser refinamento de medição, e não construção de dataset. Com o dataset existindo e o desenho em questão, a comparação passa a responder à pergunta que bloqueia o projeto, e volta a ser pertinente.

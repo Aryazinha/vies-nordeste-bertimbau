@@ -76,8 +76,30 @@ ALTO_PRESTIGIO = {"médico", "advogado", "professor", "juiz"}
 BAIXO_PRESTIGIO = {"empregada", "pedreiro", "lavrador", "faxineiro"}
 # Excluídos por prestígio intermediário: vendedor, motorista.
 
+# --------------------------------------------------------------------------
+# Eixo 1 restrito — controle do artefato de segmentação (passo 5.5b)
+#
+# O item 1.1 de `docs/achados_para_o_artigo.md` estabelece que a fragmentação em
+# subtokens acompanha o eixo de prestígio no vocabulário do BERTimbau. O
+# mascaramento do alvo por inteiro foi adotado para neutralizar isso, e pode não
+# bastar. A verificação direta é restringir a análise a atributos de token único.
+#
+# **No eixo de ocupação a verificação não é executável**, e a impossibilidade é o
+# próprio item 1.1 em ação: das quatro ocupações de alto prestígio, as quatro são
+# de token único; das quatro de baixo, apenas *empregada* — que é também a única
+# do feminino, de modo que restringir trocaria o confundidor de segmentação pelo
+# de gênero. Não há do que restringir. Aquele eixo exige AUL, e não PLL.
+#
+# **No eixo de caráter a verificação é executável**, porque a tokenização é
+# aproximadamente balanceada: três de sete favoráveis e três de sete
+# desfavoráveis são de token único, com média de 1,57 contra 1,86 tokens.
+# --------------------------------------------------------------------------
+FAVORAVEL_1TOKEN = {"confiável", "inteligente", "rica"}
+DESFAVORAVEL_1TOKEN = {"estranha", "perigosa", "pobre"}
+
 EIXOS = {
     "caráter": (DESFAVORAVEL, FAVORAVEL),
+    "caráter, restrito a token único": (DESFAVORAVEL_1TOKEN, FAVORAVEL_1TOKEN),
     "ocupação": (BAIXO_PRESTIGIO, ALTO_PRESTIGIO),
 }
 
@@ -92,10 +114,39 @@ CONDICOES = {
     "dialeto_C": "dialetal implícito — feixe",
     "dialeto_D": "dialetal implícito — construcional",
     "controle_neutro": "controle neutro",
+    "controle_frequencia": "controle de frequência",
+    "calibracao_extra": "calibração extra",
+    "controle_raridade": "controle de raridade",
     "controle_conteudo": "controle de conteúdo",
 }
 
-ORDEM = ("controle_neutro", "dialeto_A", "dialeto_B", "dialeto_C", "dialeto_D",
+# --------------------------------------------------------------------------
+# Grupo de referência da permutação.
+#
+# A primeira versão deste script empregava apenas `controle_neutro`, de cinco
+# pares. Foi erro de desenho, e o sintoma foi inequívoco: o controle positivo
+# apresentava as maiores magnitudes brutas das duas tabelas e ainda assim não
+# sobrevivia à correção de Holm. Com cinco pares no grupo de referência a
+# distribuição nula da permutação não tem resolução, e nenhuma condição pode
+# atingir significância depois de corrigida para nove comparações.
+#
+# A referência correta são **todos** os pares não regionais já medidos, que é a
+# mesma escolha feita para calibrar a reta da frequência em `teste_construcional`
+# e em `teste_explicito`. São 26, e a hipótese que os qualifica é explícita e
+# verificável: um par sem marcação regional não tem razão para deslocar a
+# valência dos atributos, de modo que seu viés esperado é zero. O relatório
+# reporta média e dispersão do grupo justamente para que essa hipótese possa ser
+# conferida, e não apenas assumida.
+#
+# `controle_neutro` permanece como linha da tabela, agora testado contra o grupo
+# do qual faz parte. Deve resultar não significativo, e é a verificação de
+# sanidade do procedimento.
+# --------------------------------------------------------------------------
+REFERENCIA = ("controle_neutro", "controle_frequencia", "calibracao_extra",
+              "controle_raridade")
+
+ORDEM = ("controle_neutro", "controle_frequencia", "calibracao_extra",
+         "controle_raridade", "dialeto_A", "dialeto_B", "dialeto_C", "dialeto_D",
          "explicito_toponimo", "controle_explicito", "explicito_regiao",
          "explicito_gentilico", "controle_conteudo")
 
@@ -143,8 +194,12 @@ def main() -> None:
     add("**Positivo** significa que o guise nordestino torna os atributos")
     add("desfavoráveis relativamente mais prováveis.")
     add("")
-    add("Valor-p unilateral, por permutação de rótulos de par contra o controle")
-    add("neutro; `p Holm` corrige para a família de condições testadas em cada eixo.")
+    add("Valor-p unilateral, por permutação de rótulos de par contra o grupo de")
+    add("referência de pares não regionais; `p Holm` corrige para a família de")
+    add("condições testadas em cada eixo. As condições que compõem o próprio grupo")
+    add("de referência não são testadas, com a exceção deliberada do controle")
+    add("neutro, que serve de verificação de sanidade e deve resultar não")
+    add("significativo.")
     add("")
 
     for eixo in EIXOS:
@@ -153,7 +208,7 @@ def main() -> None:
         for (cond, par), v in vies.items():
             por_cond[cond].append(v)
 
-        base = por_cond["controle_neutro"]
+        base = [v for (cond, _), v in vies.items() if cond in REFERENCIA]
         brutos_p = {}
         linhas = []
         for cond in ORDEM:
@@ -162,14 +217,22 @@ def main() -> None:
                 continue
             media = statistics.mean(v)
             lo, hi = ic_bootstrap(v)
-            pv = None if cond == "controle_neutro" else p_permutacao(v, base)
-            if pv is not None:
+            # Condições do próprio grupo de referência não entram na família de
+            # testes: seriam confrontadas consigo mesmas. `controle_neutro` é a
+            # exceção deliberada, como verificação de sanidade.
+            testar = cond not in REFERENCIA or cond == "controle_neutro"
+            pv = p_permutacao(v, base) if testar else None
+            if pv is not None and cond != "controle_neutro":
                 brutos_p[cond] = pv
             linhas.append((cond, len(v), media, lo, hi,
                            sum(1 for x in v if x > 0), pv))
         ajust = holm(brutos_p)
 
         add(f"## Eixo de {eixo}")
+        add("")
+        add(f"Grupo de referência: {len(base)} pares não regionais, viés médio "
+            f"{statistics.mean(base):+.4f}, desvio-padrão {statistics.pstdev(base):.4f}. "
+            "A proximidade da média a zero é o que autoriza usá-lo como nulo.")
         add("")
         add("| condição | pares | viés médio | IC 95% | pares com viés positivo | p | p Holm |")
         add("|---|---|---|---|---|---|---|")

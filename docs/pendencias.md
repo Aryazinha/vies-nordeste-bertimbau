@@ -249,7 +249,17 @@ Excluído do corpus principal por dissociação entre origem do vídeo e origem 
 
 **Ressalva de sequenciamento.** Se o rumo adotado for o 5.3, o corpus de áudio deixa de ser instrumento do Filtro 2 e passa a entregável autônomo, e as quatro definições acima passam a ser exigíveis também para ele.
 
-### 5.8 Dimensionamento da análise de direção (passo 5.5 do roadmap)
+### 5.8 Dimensionamento da análise de direção — ENCERRADA em 29/08/2026
+
+O diagnóstico registrado abaixo estava **parcialmente errado**, e o registro do erro importa mais que o item. Atribuía-se a inconclusividade a falta de volume; era erro de desenho. O grupo de referência da permutação empregava cinco pares quando havia vinte e seis pares não regionais já medidos e adequados ao papel. Corrigido, o controle positivo passou a sobreviver à correção, e a análise ganhou resolução **sem nenhuma medição nova**.
+
+A providência 3 abaixo — descartar o artefato de segmentação — foi executada no eixo de caráter e **não é executável** no de ocupação, pelas razões do item 1.20 de `docs/achados_para_o_artigo.md`. Substituída pelo passo 5.6 do roadmap, que exige AUL.
+
+**Lição de método, e é a que sobrevive ao item:** antes de atribuir um resultado inconclusivo a falta de dados, conferir se o grupo de comparação é o correto. O sintoma que denunciou o erro foi o controle positivo apresentar a maior magnitude bruta da tabela e ainda assim não passar — padrão que aponta para referência inadequada, e não para efeito ausente.
+
+**Registro original, conservado:**
+
+### 5.8-A Diagnóstico original (superado)
 
 **Aberta em 29/08/2026.** A medida com sinal — se a resposta do modelo é preconceituosa, e não apenas diferente — está implementada em `experimentos/analise_valencia.py` e é inconclusiva por falta de resolução estatística, e não por ausência de efeito. O diagnóstico é o próprio controle positivo, que não sobrevive à correção de Holm em nenhum dos dois eixos apesar de apresentar as maiores magnitudes brutas.
 
