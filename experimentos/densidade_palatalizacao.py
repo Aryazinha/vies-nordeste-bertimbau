@@ -227,7 +227,7 @@ def main() -> None:
     add("duas vezes. Ver `docs/pendencias.md`, seção 6.4.")
 
     texto = "\n".join(L)
-    (SAIDA / "densidade_palatalizacao.md").write_text(texto, encoding="utf-8")
+    (SAIDA / "tabelas" / "densidade_palatalizacao.md").write_text(texto, encoding="utf-8")
     print(texto)
 
 

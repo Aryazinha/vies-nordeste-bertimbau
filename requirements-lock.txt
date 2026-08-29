@@ -1,0 +1,28 @@
+# Versões exatas do ambiente que produziu os resultados publicados.
+#
+# Gerado em 2026-08-29, a partir do ambiente de execução.
+# Python 3.12.6
+#
+# Este arquivo existe para reprodução exata. Para desenvolvimento, use
+#     pip install -e ".[coleta,medicao]"
+# que respeita os pisos declarados em pyproject.toml.
+
+# --- medição no modelo ---
+torch==2.13.0+cpu
+transformers==5.16.1
+wordfreq==3.1.1
+
+# --- coleta de áudio ---
+yt-dlp==2026.8.19
+faster-whisper==1.2.1
+# pyannote.audio: NÃO INSTALADO no ambiente auditado — a coleta rodou em outro
+#   ambiente, e a versão exata não pôde ser apurada aqui.
+
+# --- transitivas relevantes, fixadas por afetarem resultado numérico ---
+numpy==2.3.3
+tokenizers==0.23.1
+huggingface-hub==1.26.1
+safetensors==0.8.0
+regex==2026.7.19
+langcodes==3.5.1
+ftfy==6.3.1

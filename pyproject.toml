@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vies-nordeste-bertimbau"
+version = "0.2.0"
+description = "Investigação de vieses sociolinguísticos no BERTimbau: variedades do Nordeste frente a um grupo de controle do Sudeste"
+readme = "README.md"
+requires-python = ">=3.12"
+
+# O projeto não tem dependências obrigatórias: as duas frentes — coleta de áudio
+# e medição no modelo — são independentes e pesadas, e quem só reexecuta as
+# medições não precisa das ferramentas de áudio, nem o contrário.
+dependencies = []
+
+[project.optional-dependencies]
+
+# Coleta de áudio. Exige ainda `ffmpeg` no caminho do sistema e um runtime de
+# JavaScript (deno, node ou bun): sem ele o download do YouTube devolve HTTP 403,
+# enquanto a extração de metadados continua funcionando — falha que se manifesta
+# apenas no download, e que já custou uma coleta inteira em 27/08/2026.
+coleta = [
+    # Piso elevado em 27/08/2026: a versão 2026.07.04 devolvia HTTP 403 no
+    # download, e a extração de metadados seguia funcionando, o que mascarava
+    # a falha.
+    "yt-dlp>=2026.08.19",
+    "faster-whisper>=1.0.0",
+    "pyannote.audio>=3.1.0",
+    "torch>=2.0.0",
+]
+
+# Medição no modelo. Roda em CPU; nenhuma medição do projeto exigiu GPU.
+# `wordfreq` não é acessório: dele saem os valores de frequência lexical sobre
+# os quais a calibração inteira repousa, e ele é sensível a diacrítico — a
+# consulta por `moco` devolve palavra diferente de `moço`, sem erro.
+medicao = [
+    "torch>=2.0.0",
+    "transformers>=4.40.0",
+    "wordfreq>=3.1.0",
+]
+
+[project.urls]
+Repository = "https://github.com/Aryazinha/vies-nordeste-bertimbau"
+
+[tool.setuptools]
+# O código ainda não está empacotado em `src/`; os scripts são executados
+# diretamente de `experimentos/` e `pipeline_coleta_piloto/`. A reorganização em
+# pacote é a etapa C da proposta em `AUDITORIA.md`, e exige reescrever as
+# importações por nome simples que hoje funcionam por adjacência de arquivos.
+py-modules = []

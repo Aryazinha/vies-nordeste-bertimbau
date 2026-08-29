@@ -67,7 +67,7 @@ As revisões anteriores do projeto registram, a partir de Oliveira (2017), que F
 
 ### 3.3 Evidência empírica sobre M3, obtida no piloto de 27/08/2026
 
-A primeira aplicação do Filtro 2, sobre 1,55 h de fala espontânea coletada pelo projeto, **não registrou nenhuma ocorrência** de `oxe`, `oxente`, `arretado`, `aperreado` ou `avexado`. Medições completas em `experimentos/resultados/piloto_medicoes.md`.
+A primeira aplicação do Filtro 2, sobre 1,55 h de fala espontânea coletada pelo projeto, **não registrou nenhuma ocorrência** de `oxe`, `oxente`, `arretado`, `aperreado` ou `avexado`. Medições completas em `experimentos/resultados/relatorios/piloto_medicoes.md`.
 
 O volume é pequeno demais para reprovar os itens, mas estabelece que sua frequência é baixa o suficiente para que a confirmação exija volume consideravelmente maior que o dimensionado para os marcadores morfossintáticos — cujo cálculo, no passo 4.2, tomou a negação pós-verbal como caso dimensionante. Se o léxico for mais raro que ela, é o léxico que deve dimensionar a coleta, e não o contrário.
 
@@ -87,7 +87,7 @@ A dupla negação, que seria a alternativa de maior frequência, está descartad
 
 ## 4. Molduras de sondagem
 
-Conjunto corrigido em 27/08/2026, após medição no próprio modelo. Duas das cinco molduras originais degeneravam e foram substituídas por alternativas testadas; os resultados constam de `experimentos/resultados/molduras_alternativas.md`.
+Conjunto corrigido em 27/08/2026, após medição no próprio modelo. Duas das cinco molduras originais degeneravam e foram substituídas por alternativas testadas; os resultados constam de `experimentos/resultados/relatorios/molduras_alternativas.md`.
 
 | ID | Eixo | Moldura | Situação |
 |---|---|---|---|
@@ -108,7 +108,7 @@ A moldura original de T3 vazava um subtoken (`##u`) na terceira posição, sinal
 
 ### 4.1 Conjuntos de atributos
 
-Construídos a partir do vocabulário do modelo, e não escolhidos por conveniência semântica — procedimento em `experimentos/selecionar_atributos.py`, resultado em `experimentos/resultados/atributos_selecionados.md`. Um atributo é utilizável por probabilidade de máscara quando é de token único **e** o modelo o produz com probabilidade não desprezível na moldura do seu eixo; um item que o modelo nunca prediz não discrimina condição alguma.
+Construídos a partir do vocabulário do modelo, e não escolhidos por conveniência semântica — procedimento em `experimentos/selecionar_atributos.py`, resultado em `experimentos/resultados/tabelas/atributos_selecionados.md`. Um atributo é utilizável por probabilidade de máscara quando é de token único **e** o modelo o produz com probabilidade não desprezível na moldura do seu eixo; um item que o modelo nunca prediz não discrimina condição alguma.
 
 | Eixo | Utilizáveis por máscara | Exigem AUL |
 |---|---|---|
@@ -213,7 +213,7 @@ A conjunção é desconfortável: **o que o modelo percebe é o que a fala real 
 
 O bloco não é apenas frágil: é **assimétrico**. Contrastaria itens sudestinos atestados em fala real contra itens nordestinos não atestados — o que não constitui *matched-guise*, e sim oposição entre fala real e fala construída, precisamente no eixo que o estudo mede. Efeito medido nessas condições seria indistinguível de artefato.
 
-**A escolha reduz-se a (b) ou (c).** Detalhamento em `experimentos/resultados/piloto_medicoes.md`, seção A.3.
+**A escolha reduz-se a (b) ou (c).** Detalhamento em `experimentos/resultados/relatorios/piloto_medicoes.md`, seção A.3.
 
 **Segunda atualização de 28/08/2026 — a conduta (b) foi executada e não produziu efeito.** O passo 5.1 do `docs/roadmap.md` implementou exatamente o que a conduta (b) prescrevia: dez marcadores selecionados por frequência atestada, com a marcação regional especificada na **construção** e não na forma isolada — *lhe* como pronome de segunda pessoa, *tu* sem flexão, comitativo com *mais*, vocativos *menino* e *rapaz*, avaliativo *massa*, clivagem *que foi que*, durativo *tá com*, *toda vida* com valor de sempre.
 
@@ -221,7 +221,7 @@ A condição apresenta resíduo médio de −0,0141 contra a reta da frequência
 
 **Das três condutas, nenhuma resta como via para salvar o Bloco B.** A (a) caíra por assimetria de atestação em corpus; a (b) foi testada e é nula; a (c), que deslocaria o peso para a morfossintaxe, já havia sido eliminada pelo teste de sensibilidade, que não encontrou sinal algum naquele bloco.
 
-A decisão deixa, portanto, de ser sobre o Bloco B e passa a ser sobre o rumo do projeto, registrada em `docs/pendencias.md`, D5, e detalhada no passo 5 do `docs/roadmap.md`. Relatório completo em `experimentos/resultados/construcional.md`.
+A decisão deixa, portanto, de ser sobre o Bloco B e passa a ser sobre o rumo do projeto, registrada em `docs/pendencias.md`, D5, e detalhada no passo 5 do `docs/roadmap.md`. Relatório completo em `experimentos/resultados/relatorios/construcional.md`.
 
 **Recomendação anterior, superada.** Não decidir antes de a coleta em curso elevar o volume por estado. Com quatro vezes o material atual, a distinção entre "o léxico é raro" e "o léxico não ocorre" torna-se possível, e a escolha deixa de ser especulativa. A conduta (a) é a única que não exige trabalho adicional; as outras duas exigem, e por isso não devem ser adotadas por inércia.
 

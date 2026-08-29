@@ -5,7 +5,7 @@ O passo 5.1 fechou quatro famílias de sinalização dialetal **implícita** sem
 encontrar resposta no modelo, e deixou uma única condição com resíduo
 consistente acima da reta da frequência: a **menção explícita** à região, com os
 cinco pares acima da reta e p = 0,026 — que não sobrevive à correção de Holm com
-apenas cinco pares (`experimentos/resultados/construcional.md`, seção 4).
+apenas cinco pares (`experimentos/resultados/relatorios/construcional.md`, seção 4).
 
 Aqueles cinco pares sugeriram um padrão interno que este teste existe para
 confirmar ou desmentir: **os dois maiores resíduos eram os que nomeavam a região
@@ -79,10 +79,16 @@ from teste_construcional import (
 from teste_sensibilidade import CONDICOES as CONDICOES_BASE
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
-TABELAS = SAIDA / "tabelas"          # ver nota em `teste_construcional.py`
-TABELAS.mkdir(parents=True, exist_ok=True)
-BRUTO_ANTERIOR = SAIDA / "construcional_bruto.json"
-BRUTO = SAIDA / "explicito_bruto.json"
+# Quatro destinos, e a separação não é estética: `relatorios/` guarda texto
+# escrito à mão que script algum pode sobrescrever, `tabelas/` guarda saída de
+# máquina regerável, `dados/` guarda medição bruta e `historico/` guarda o que
+# foi superado. Misturá-los já fez um script apagar uma análise interpretada.
+TABELAS = SAIDA / "tabelas"
+DADOS = SAIDA / "dados"
+for _d in (TABELAS, DADOS):
+    _d.mkdir(parents=True, exist_ok=True)
+BRUTO_ANTERIOR = DADOS / "construcional_bruto.json"
+BRUTO = DADOS / "explicito_bruto.json"
 
 # --------------------------------------------------------------------------
 # Nível 1 — macrorregião e gentílico de macrorregião
@@ -345,7 +351,7 @@ def main() -> None:
     # Saída de máquina, regerável. O relatório interpretado é `explicito.md`,
     # escrito à mão sobre estes números, e o script não o toca.
     (TABELAS / "explicito_tabelas.md").write_text(texto, encoding="utf-8")
-    (SAIDA / "explicito_pares.json").write_text(
+    (DADOS / "explicito_pares.json").write_text(
         json.dumps(pares, ensure_ascii=False, indent=1), encoding="utf-8")
     print(chr(10) + texto)
 

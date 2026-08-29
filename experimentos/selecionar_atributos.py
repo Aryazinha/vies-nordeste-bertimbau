@@ -36,7 +36,7 @@ MODELO = "neuralmind/bert-base-portuguese-cased"
 SAIDA = Path(__file__).resolve().parent / "resultados"
 SAIDA.mkdir(exist_ok=True)
 
-# Molduras corrigidas, conforme experimentos/resultados/molduras_alternativas.md
+# Molduras corrigidas, conforme experimentos/resultados/relatorios/molduras_alternativas.md
 MOLDURAS = {
     "T1a": "— Ele chegou cedo hoje. Quem falou isso é uma pessoa {mask}.",
     "T1b": "— Ele chegou cedo hoje. Quem falou isso é um homem {mask}.",
@@ -158,8 +158,8 @@ def main() -> None:
         escrever(f"| {eixo} | {m} | {len(registro[eixo]) - m} |")
     escrever()
 
-    (SAIDA / "atributos_selecionados.md").write_text("\n".join(relatorio), encoding="utf-8")
-    (SAIDA / "atributos_selecionados.json").write_text(
+    (SAIDA / "tabelas" / "atributos_selecionados.md").write_text("\n".join(relatorio), encoding="utf-8")
+    (SAIDA / "dados" / "atributos_selecionados.json").write_text(
         json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nGravado em {SAIDA / 'atributos_selecionados.md'}")
 

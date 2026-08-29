@@ -204,7 +204,7 @@ def main() -> None:
     add("Reduzir o número de condições reduz o custo por condição.")
 
     texto = "\n".join(L)
-    (SAIDA / "meta_pares_minimos.md").write_text(texto, encoding="utf-8")
+    (SAIDA / "tabelas" / "meta_pares_minimos.md").write_text(texto, encoding="utf-8")
     print(texto)
 
 

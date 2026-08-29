@@ -58,9 +58,15 @@ from teste_explicito import CONDICOES_NOVAS as CONDICOES_5_4
 from teste_sensibilidade import CONDICOES as CONDICOES_BASE
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
-TABELAS = SAIDA / "tabelas"          # ver nota em `teste_construcional.py`
-TABELAS.mkdir(parents=True, exist_ok=True)
-BRUTO = SAIDA / "explicito_bruto.json"
+# Quatro destinos, e a separação não é estética: `relatorios/` guarda texto
+# escrito à mão que script algum pode sobrescrever, `tabelas/` guarda saída de
+# máquina regerável, `dados/` guarda medição bruta e `historico/` guarda o que
+# foi superado. Misturá-los já fez um script apagar uma análise interpretada.
+TABELAS = SAIDA / "tabelas"
+DADOS = SAIDA / "dados"
+for _d in (TABELAS, DADOS):
+    _d.mkdir(parents=True, exist_ok=True)
+BRUTO = DADOS / "explicito_bruto.json"
 
 # --------------------------------------------------------------------------
 # Eixo 1 — traço de caráter (molduras T1a e T3)

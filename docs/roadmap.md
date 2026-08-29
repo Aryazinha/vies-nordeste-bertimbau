@@ -29,7 +29,7 @@ Segue-se o critério de priorização: **trabalho que aproxima o projeto de ter 
 
 Verificou a viabilidade do instrumento antes de investir em volume. Resultados em `experimentos/resultados/`. Três achados alteram o desenho:
 
-- Duas das cinco molduras estavam inoperantes. `Quem falou isso é [MASK]` colapsa em pronomes; `estudou até o [MASK]` colapsa em expressão idiomática. Substitutas testadas e aprovadas em `experimentos/resultados/molduras_alternativas.md`.
+- Duas das cinco molduras estavam inoperantes. `Quem falou isso é [MASK]` colapsa em pronomes; `estudou até o [MASK]` colapsa em expressão idiomática. Substitutas testadas e aprovadas em `experimentos/resultados/relatorios/molduras_alternativas.md`.
 - O vocabulário de estereótipo negativo é majoritariamente multi-token no BERTimbau, ao passo que as ocupações de alto prestígio são todas de token único. O confundidor de frequência está materializado no tokenizador, alinhado ao eixo de interesse. AUL passa de recomendação a condição de possibilidade.
 - A sensibilidade ao *guise* concentra-se no léxico. O bloco morfossintático puro apresenta divergência de Jensen-Shannon mediana de 0,0023 bits, contra 0,0144 do bloco lexical e 0,0963 da referência de conteúdo distinto.
 
@@ -53,9 +53,9 @@ Execução do pipeline já implementado em `pipeline_coleta_piloto/`. É o passo
 
 **4.1 — Lista de fontes. Concluído** em 27/08/2026. Lista semente de 32 canais verificados, em `docs/fontes_coleta.md` e `pipeline_coleta_piloto/fontes.json`. Estabelecida a regra de atribuição por canal, depois de o levantamento por consulta de busca ter demonstrado contaminação entre estados.
 
-**4.2 — Meta de volume. Concluído** em 27/08/2026. Derivada do requisito estatístico do Filtro 2 em `experimentos/meta_volume_corpus.py`, com resultado em `experimentos/resultados/meta_volume.md`: 4,1 h de fala do locutor-alvo por estado, equivalentes a 8,3 h de áudio bruto, totalizando cerca de 50 h no conjunto dos seis estados.
+**4.2 — Meta de volume. Concluído** em 27/08/2026. Derivada do requisito estatístico do Filtro 2 em `experimentos/meta_volume_corpus.py`, com resultado em `experimentos/resultados/historico/meta_volume.md`: 4,1 h de fala do locutor-alvo por estado, equivalentes a 8,3 h de áudio bruto, totalizando cerca de 50 h no conjunto dos seis estados.
 
-**4.3 — Piloto executado** em 27/08/2026. Dezessete trechos, 1,55 h, seis estados e três camadas. A esteira funciona de ponta a ponta; as medições estão em `experimentos/resultados/piloto_medicoes.md`. Três resultados alteram o planejamento: o rendimento por camada é bem superior ao suposto, o que reduziria a meta de 50 h para cerca de 38 h; não há indício de que a transcrição penalize a fala nordestina, o que removeria um confundidor; e a primeira aplicação do Filtro 2 não registrou nenhuma ocorrência do léxico regional em que o Bloco B do instrumento se apoia.
+**4.3 — Piloto executado** em 27/08/2026. Dezessete trechos, 1,55 h, seis estados e três camadas. A esteira funciona de ponta a ponta; as medições estão em `experimentos/resultados/relatorios/piloto_medicoes.md`. Três resultados alteram o planejamento: o rendimento por camada é bem superior ao suposto, o que reduziria a meta de 50 h para cerca de 38 h; não há indício de que a transcrição penalize a fala nordestina, o que removeria um confundidor; e a primeira aplicação do Filtro 2 não registrou nenhuma ocorrência do léxico regional em que o Bloco B do instrumento se apoia.
 
 **Restrição prática.** A transcrição com `large-v3` em CPU opera a uma fração do tempo real. Para escala, o processamento vai para ambiente com GPU, e essa conta de tempo deve entrar no planejamento antes da coleta, não depois.
 
@@ -91,7 +91,7 @@ Duas consequências, registradas para a decisão do passo 5:
 
 **Concluído** em 28/08/2026, e não previsto no plano original. Foi inserido porque investir em juízes e em dezenas de horas de coleta sem saber se o modelo responde ao guise seria apostar sem olhar a carta.
 
-Resultado em `experimentos/resultados/sensibilidade_guise.md`. Com controles que estabelecem piso e teto de sensibilidade: o instrumento detecta diferença de conteúdo a 6,32× o piso, mas os marcadores morfossintáticos ficam em 1,00×, e o efeito dos lexicais é reproduzido por um controle com palavras raras não regionais.
+Resultado em `experimentos/resultados/relatorios/sensibilidade_guise.md`. Com controles que estabelecem piso e teto de sensibilidade: o instrumento detecta diferença de conteúdo a 6,32× o piso, mas os marcadores morfossintáticos ficam em 1,00×, e o efeito dos lexicais é reproduzido por um controle com palavras raras não regionais.
 
 **Decisão de rumo, e é ela que destrava o resto:**
 
@@ -108,7 +108,7 @@ Os quatro não se excluem. O 5.1 era o mais barato e determinava se os demais er
 
 ### 5.1 — Marcadores construcionais (concluído, resposta negativa)
 
-Relatório em `experimentos/resultados/construcional.md`; tabelas regeráveis em `tabelas/construcional_tabelas.md`.
+Relatório em `experimentos/resultados/relatorios/construcional.md`; tabelas regeráveis em `tabelas/construcional_tabelas.md`.
 
 **Desenho.** Como o pareamento perfeito de frequência é inalcançável para marcadores construcionais — os melhores candidatos apresentam razão de 5 a 11 vezes —, abandonou-se a comparação de medianas e adotou-se a **calibração da lei de frequência**: ajusta-se |Δ| contra log₁₀ da razão de frequência sobre 22 pares não regionais, e mede-se o **resíduo** de cada par dialetal contra essa reta. Toda estatística passa a operar no nível do par.
 
@@ -126,7 +126,7 @@ Exige um conjunto de pares de menção explícita em volume comparável ao dos d
 
 **Relação com o restante.** É barato e usa a esteira já construída. Se confirmar, produz o contraste que sustentaria o artigo pretendido em nova chave — o modelo responde à categoria regional nomeada e não à variedade que a indicia. Se não confirmar, o 5.3 passa a ser o único caminho disponível.
 
-**Resultado**, em `experimentos/resultados/explicito.md`. Vinte e quatro pares novos, em três níveis de granularidade do rótulo, todos de autoidentificação. Duas condições produzem resíduo acima da reta da frequência **e sobrevivem à correção de Holm**: gentílico de estado, com p ajustado de 0,0012 e oito de oito pares acima da reta, e macrorregião, com 0,0038 e sete de oito. Topônimo não sobrevive. Não é efeito de raridade: as duas condições significativas têm as razões de frequência mais baixas do conjunto, e o par mais bem pareado — *pernambucano* contra *paulistano*, 1,1× — está entre os de maior efeito.
+**Resultado**, em `experimentos/resultados/relatorios/explicito.md`. Vinte e quatro pares novos, em três níveis de granularidade do rótulo, todos de autoidentificação. Duas condições produzem resíduo acima da reta da frequência **e sobrevivem à correção de Holm**: gentílico de estado, com p ajustado de 0,0012 e oito de oito pares acima da reta, e macrorregião, com 0,0038 e sete de oito. Topônimo não sobrevive. Não é efeito de raridade: as duas condições significativas têm as razões de frequência mais baixas do conjunto, e o par mais bem pareado — *pernambucano* contra *paulistano*, 1,1× — está entre os de maior efeito.
 
 **É o primeiro resultado positivo do projeto**, e produz o contraste que sustenta o artigo: mesma régua, mesma calibração, mesma estatística, e quatro famílias implícitas sem efeito contra menção explícita com efeito.
 

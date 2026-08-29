@@ -265,7 +265,7 @@ def main() -> None:
         escrever()
 
     (SAIDA_DIR / "tabelas" / "smoke_test.md").write_text("\n".join(linhas), encoding="utf-8")
-    (SAIDA_DIR / "smoke_test.json").write_text(
+    (SAIDA_DIR / "historico" / "smoke_test.json").write_text(
         json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nGravado em {SAIDA_DIR / 'tabelas' / 'smoke_test.md'}")
 

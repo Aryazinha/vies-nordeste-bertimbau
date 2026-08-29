@@ -64,13 +64,15 @@ from metricas import Medidor
 from teste_sensibilidade import ATRIBUTOS, CONDICOES, MOLDURAS
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
-SAIDA.mkdir(exist_ok=True)
-# Saída de máquina fica em subpasta própria. A pasta `resultados/` guarda apenas
-# relatórios escritos à mão, e a separação existe porque misturá-los já levou um
-# script a sobrescrever uma interpretação (`docs/pendencias.md`, seção 5-A).
+# Quatro destinos, e a separação não é estética: `relatorios/` guarda texto
+# escrito à mão que script algum pode sobrescrever, `tabelas/` guarda saída de
+# máquina regerável, `dados/` guarda medição bruta e `historico/` guarda o que
+# foi superado. Misturá-los já fez um script apagar uma análise interpretada.
 TABELAS = SAIDA / "tabelas"
-TABELAS.mkdir(parents=True, exist_ok=True)
-BRUTO_ANTERIOR = SAIDA / "sensibilidade_bruto.json"
+DADOS = SAIDA / "dados"
+for _d in (TABELAS, DADOS):
+    _d.mkdir(parents=True, exist_ok=True)
+BRUTO_ANTERIOR = DADOS / "sensibilidade_bruto.json"
 
 SEMENTE = 20260828
 N_PERMUTACOES = 20000
@@ -87,7 +89,7 @@ PISO_FREQUENCIA = 1e-8          # 0,01 por milhão, para itens ausentes da fonte
 #       literatura dialetológica; a conferência das fontes primárias está
 #       registrada como pendência.
 #   vocativo `menino`/`rapaz`, avaliativo `massa` — candidatos derivados do
-#       adendo B de `experimentos/resultados/piloto_medicoes.md`, com
+#       adendo B de `experimentos/resultados/relatorios/piloto_medicoes.md`, com
 #       distribuição favorável ao Nordeste no corpus próprio e **sem** fonte
 #       dialetológica.
 #   clivagem `que foi que`, durativo `tá com`, `toda vida` — candidatos sem
@@ -354,7 +356,7 @@ def main() -> None:
     # Idempotente por construção: mede apenas as condições ausentes do arquivo
     # bruto. Reexecutar o script depois de alterar somente a análise não
     # recarrega o modelo nem repete medição alguma.
-    caminho_bruto = SAIDA / "construcional_bruto.json"
+    caminho_bruto = DADOS / "construcional_bruto.json"
     if caminho_bruto.exists():
         bruto = json.loads(caminho_bruto.read_text(encoding="utf-8"))
     else:
@@ -498,7 +500,7 @@ def main() -> None:
     # toca: gravar interpretação no mesmo caminho que a tabela faria a
     # reexecução apagá-la sem aviso.
     (TABELAS / "construcional_tabelas.md").write_text(texto, encoding="utf-8")
-    (SAIDA / "construcional_pares.json").write_text(
+    (DADOS / "construcional_pares.json").write_text(
         json.dumps(pares, ensure_ascii=False, indent=1), encoding="utf-8")
     print("\n" + texto)
 

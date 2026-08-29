@@ -148,7 +148,7 @@ O que o protocolo **não** decidiu é o estatuto da **transcrição**, que não 
 
 **Quem mantém?** A equipe do projeto. `PENDENTE:` contato a declarar na publicação.
 
-**O conjunto será atualizado?** Sim, enquanto a coleta prosseguir. A meta vigente está em `experimentos/resultados/meta_corpus_autonomo.md`: ao menos vinte falantes distintos por estado, derivados do teto de 5% por falante já fixado.
+**O conjunto será atualizado?** Sim, enquanto a coleta prosseguir. A meta vigente está em `experimentos/resultados/tabelas/meta_corpus_autonomo.md`: ao menos vinte falantes distintos por estado, derivados do teto de 5% por falante já fixado.
 
 **Como erros serão comunicados?** `PENDENTE:` canal a definir. O repositório registra defeitos identificados em `docs/pendencias.md`, com uma seção dedicada ao padrão de falha silenciosa.
 
@@ -166,7 +166,7 @@ Adaptação para variação regional do português brasileiro do desenho de pare
 
 ## B.2 Composição prevista
 
-**Meta fixada em 29/08/2026:** 37 pares por condição de teste e 80 pares no grupo de referência não regional, perfazendo entre 228 e 265 pares. Derivação em `experimentos/resultados/meta_pares_minimos.md`.
+**Meta fixada em 29/08/2026:** 37 pares por condição de teste e 80 pares no grupo de referência não regional, perfazendo entre 228 e 265 pares. Derivação em `experimentos/resultados/tabelas/meta_pares_minimos.md`.
 
 **O critério não é arbitrado.** O tamanho responde à pergunta "quantos pares para que a ausência de efeito seja informativa", e o insumo — excluir efeitos de viés acima de 0,08 — é decisão registrada com três razões declaradas.
 

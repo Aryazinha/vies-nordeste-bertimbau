@@ -29,7 +29,7 @@ Os itens propriamente estigmatizados fragmentam-se sem exceção: *pedreiro*, *l
 
 O confundidor de frequência descrito por Kaneko e Bollegala (2022) encontra-se, portanto, materializado no próprio tokenizador, e alinhado ao eixo que o experimento pretende medir. O emprego de AUL deixa de ser recomendação e torna-se condição de possibilidade.
 
-**Procedência:** medição própria, `experimentos/selecionar_atributos.py`, resultado em `experimentos/resultados/atributos_selecionados.md`. Reprodutível por terceiros.
+**Procedência:** medição própria, `experimentos/selecionar_atributos.py`, resultado em `experimentos/resultados/tabelas/atributos_selecionados.md`. Reprodutível por terceiros.
 
 **Qualificação obrigatória:** o repertório testado é amplo mas não exaustivo, e a seleção de itens de baixo prestígio partiu de ocupações de circulação corrente. A afirmação descreve o padrão nesse repertório.
 
@@ -43,7 +43,7 @@ O mecanismo é identificável no próprio repertório: entre os atributos multi-
 
 **Formulação forte, e é a contribuição:** em português, uma medição de viés por pseudo-verossimilhança pode produzir efeito significativo inteiramente atribuível à assimetria de tokenização entre os atributos comparados. O mascaramento do alvo por inteiro, adotado neste projeto justamente para neutralizar isso, **é correção parcial e não bastou**. O controle exige balanceamento explícito da extensão em subtokens entre os polos do eixo medido, ou o emprego de AUL.
 
-**Procedência:** `experimentos/analise_valencia.py`, relatório em `experimentos/resultados/explicito.md`.
+**Procedência:** `experimentos/analise_valencia.py`, relatório em `experimentos/resultados/relatorios/explicito.md`.
 
 ## 1.1-A Assimetria de tokenização entre gêneros gramaticais
 
@@ -67,7 +67,7 @@ As substitutas testadas comportam-se adequadamente: `Quem falou isso completou o
 
 **Consequência metodológica citável:** em português, deixar o gênero gramatical livre na lacuna não produz atribuição de traço. O controle de gênero na moldura não é refinamento, é requisito.
 
-**Procedência:** medição própria, `experimentos/resultados/molduras_alternativas.md`.
+**Procedência:** medição própria, `experimentos/resultados/relatorios/molduras_alternativas.md`.
 
 ## 1.3 Ausência de adaptação consolidada de CrowS-Pairs ou StereoSet para o português brasileiro
 
@@ -144,7 +144,7 @@ Os três erros inflam a contagem, e o fazem **de modo desigual entre marcadores 
 
 O ponto vale para qualquer trabalho que pretenda confirmar marcadores dialetais em corpus por meio de listas de formas.
 
-**Procedência:** inspeção individual de todas as ocorrências em 5,52 h de transcrição, `experimentos/resultados/piloto_medicoes.md`.
+**Procedência:** inspeção individual de todas as ocorrências em 5,52 h de transcrição, `experimentos/resultados/relatorios/piloto_medicoes.md`.
 
 ## 1.10 Critérios de escopo de plataforma para corpus de fala regional
 
@@ -186,7 +186,7 @@ Em teste com condições de controle que estabelecem piso e teto de sensibilidad
 
 **A afirmação é sustentada porque a medição foi calibrada nos dois extremos.** O controle de conteúdo proposicional produz 6,32× o piso, o que demonstra capacidade de detecção; e a condição dialetal morfossintática é pareada em frequência — *feche* e *fecha* são ambas correntes —, o que exclui a explicação por raridade. Nulo com instrumento demonstradamente capaz é resultado, não ausência de resultado.
 
-**Procedência:** `experimentos/teste_sensibilidade.py`, resultado em `experimentos/resultados/sensibilidade_guise.md`.
+**Procedência:** `experimentos/teste_sensibilidade.py`, resultado em `experimentos/resultados/relatorios/sensibilidade_guise.md`.
 
 **Qualificação obrigatória:** cinco pares por condição, um modelo (BERTimbau Base), uma métrica (PLL sobre alvo mascarado), sem teste de significância. A afirmação deve ser formulada como ausência de efeito detectável nessas condições, e não como impossibilidade.
 
@@ -212,7 +212,7 @@ O que a calibração mostra é que a razão de frequência responde por R² = 0,
 
 **A consequência metodológica muda de forma junto com o diagnóstico, e ganha alcance.** O que inviabiliza a comparação ingênua entre guises não é apenas o desbalanceamento de frequência, corrigível por pareamento: é que o **ruído no nível do par é da ordem do efeito procurado** — desvio-padrão de 0,0618 nos resíduos de calibração, contra mediana de 0,1360. Segue-se que *matched-guise probing* com métrica de verossimilhança exige muitos pares, calibração explícita da resposta à frequência e estatística por conglomerado no nível do par. Delineamentos que comparem duas condições por uma diferença de médias sobre medições individuais tratam como replicação o que é a mesma frase medida várias vezes.
 
-**Procedência da revisão:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/construcional.md`, seção 5.
+**Procedência da revisão:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/relatorios/construcional.md`, seção 5.
 
 ## 1.15 Nenhuma das quatro famílias de sinalização dialetal implícita produz resposta detectável
 
@@ -240,7 +240,7 @@ A família construcional foi acrescentada em 28/08/2026 para testar a única pis
 
 **Qualificação obrigatória:** um modelo, uma métrica, e cinco pares em três das quatro famílias. A afirmação é sobre ausência de efeito detectável nestas condições.
 
-**Procedência:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/construcional.md`.
+**Procedência:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/relatorios/construcional.md`.
 
 ## 1.16 A unidade de replicação em *matched-guise probing* é o par, não a medição
 
@@ -272,7 +272,7 @@ Duas condições de menção explícita produzem resíduo acima da reta da frequ
 
 **Formulação sustentada:** o BERTimbau Base responde à menção explícita da região acima do que a frequência lexical prevê, e não responde à sinalização dialetal implícita. **Formulação vedada:** que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, em valor absoluto, e nada diz sobre direção. Ver 3.7.
 
-**Procedência:** `experimentos/teste_explicito.py`, relatório em `experimentos/resultados/explicito.md`.
+**Procedência:** `experimentos/teste_explicito.py`, relatório em `experimentos/resultados/relatorios/explicito.md`.
 
 **Qualificação obrigatória:** oito pares por condição, um modelo, uma métrica. O contraste de gentílico não é simétrico, pela inexistência de *sudestino* — ver 1.18.
 
@@ -329,7 +329,7 @@ O item 1.17 estabelece que o modelo responde à menção explícita da região. 
 
 **Qualificação obrigatória:** oito pares por condição, seis atributos na versão restrita, um modelo, uma métrica. A classificação de valência é do projeto e não foi validada por juízes.
 
-**Procedência:** `experimentos/analise_valencia.py`, relatório em `experimentos/resultados/explicito.md`.
+**Procedência:** `experimentos/analise_valencia.py`, relatório em `experimentos/resultados/relatorios/explicito.md`.
 
 ## 1.20 O eixo de prestígio ocupacional não é mensurável por PLL neste modelo
 
@@ -463,7 +463,7 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 
 ## 3.4 Balanceamento de frequência lexical entre condições — parcialmente endereçado
 
-**Deixa de ser inteiramente vedado.** A frequência dos itens lexicais foi medida em 28/08/2026, com resultado registrado em `experimentos/resultados/piloto_medicoes.md`, adendo B.
+**Deixa de ser inteiramente vedado.** A frequência dos itens lexicais foi medida em 28/08/2026, com resultado registrado em `experimentos/resultados/relatorios/piloto_medicoes.md`, adendo B.
 
 **Pode ser afirmado:** as listas do Bloco B não eram comparáveis em frequência — de uma a três ordens de grandeza de distância, com dois itens nordestinos ausentes da fonte —, e o desequilíbrio é de dupla natureza: itens nordestinos de circulação restrita contra itens sudestinos de circulação nacional. Declarar como limitação identificada e corrigida, não como controle que o desenho sempre teve.
 

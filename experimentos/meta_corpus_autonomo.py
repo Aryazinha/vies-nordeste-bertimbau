@@ -35,7 +35,7 @@ anterior — a regra já aceita pelo projeto produz o número, e não o contrár
 
 As horas passam a ser consequência, e não meta. Convertem-se pelos rendimentos
 de falantes por arquivo **medidos** no piloto, e não supostos
-(`experimentos/resultados/piloto_medicoes.md`, seção 2).
+(`experimentos/resultados/relatorios/piloto_medicoes.md`, seção 2).
 
 Duas premissas de contagem, declaradas porque alteram o resultado:
 
@@ -220,7 +220,7 @@ def main() -> None:
     add("de que a meta inteira deriva.")
 
     texto = "\n".join(L)
-    (SAIDA / "meta_corpus_autonomo.md").write_text(texto, encoding="utf-8")
+    (SAIDA / "tabelas" / "meta_corpus_autonomo.md").write_text(texto, encoding="utf-8")
     print(texto)
 
 

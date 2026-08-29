@@ -52,7 +52,14 @@ from pathlib import Path
 from metricas import Medidor
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
-SAIDA.mkdir(exist_ok=True)
+# Quatro destinos, e a separação não é estética: `relatorios/` guarda texto
+# escrito à mão que script algum pode sobrescrever, `tabelas/` guarda saída de
+# máquina regerável, `dados/` guarda medição bruta e `historico/` guarda o que
+# foi superado. Misturá-los já fez um script apagar uma análise interpretada.
+TABELAS = SAIDA / "tabelas"
+DADOS = SAIDA / "dados"
+for _d in (TABELAS, DADOS):
+    _d.mkdir(parents=True, exist_ok=True)
 
 # --------------------------------------------------------------------------
 # Molduras corrigidas (docs/pares_minimos_v1.md, seção 4)
@@ -163,7 +170,7 @@ def main() -> None:
                     })
         print(f"    {sum(1 for r in bruto if r['condicao']==condicao)} medições")
 
-    (SAIDA / "sensibilidade_bruto.json").write_text(
+    (DADOS / "sensibilidade_bruto.json").write_text(
         json.dumps(bruto, ensure_ascii=False), encoding="utf-8")
 
     # ----------------------------------------------------------------------
@@ -191,7 +198,7 @@ def main() -> None:
     texto = "\n".join(linhas)
     # Ver a nota em `teste_construcional.py`: o relatório interpretado é
     # `sensibilidade_guise.md` e não deve ser sobrescrito por reexecução.
-    (SAIDA / "sensibilidade_guise_tabela.md").write_text(texto, encoding="utf-8")
+    (TABELAS / "sensibilidade_guise_tabela.md").write_text(texto, encoding="utf-8")
     print("\n" + texto)
 
 

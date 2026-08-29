@@ -137,7 +137,7 @@ Duas camadas, com a lógica de diversidade diafásica do C-ORAL-BRASIL (`CLAUDE.
 | Âncora | `entrevista_vox_pop`, `podcast_radio_tv_regional` | 60% a 70% do volume | Áudio mais limpo, com WER e DER esperados mais baixos |
 | Espontânea | `vlog_amador` | 30% a 40% do volume | Fala mais informal, exigindo verificação manual mais criteriosa |
 
-A repartição interna da camada âncora — 35% para vox-pop e 30% para podcast, rádio e TV — consta do cálculo de volume (`experimentos/resultados/meta_volume.md`, tabela de conversão), e é compatível com a faixa de 60% a 70% fixada no protocolo.
+A repartição interna da camada âncora — 35% para vox-pop e 30% para podcast, rádio e TV — consta do cálculo de volume (`experimentos/resultados/historico/meta_volume.md`, tabela de conversão), e é compatível com a faixa de 60% a 70% fixada no protocolo.
 
 **Estado atual**, apurado por horas efetivamente coletadas: `podcast_radio_tv_regional` 34,7%, `vlog_amador` 33,3%, `entrevista_vox_pop` 32,0%. A camada âncora soma 66,7% e a espontânea 33,3%, ambas dentro das faixas previstas.
 
@@ -212,7 +212,7 @@ Parâmetros de processamento, fixados em `config.py` e justificados em `docs/sta
 
 ## 1.5 Meta de volume, e de onde ela sai
 
-**A meta não é arbitrada.** Deriva do requisito estatístico do Filtro 2: o volume de fala necessário para que a **ausência** de uma variante seja informativa, e não mera insuficiência amostral (`experimentos/meta_volume_corpus.py`, resultado em `experimentos/resultados/meta_volume.md`).
+**A meta não é arbitrada.** Deriva do requisito estatístico do Filtro 2: o volume de fala necessário para que a **ausência** de uma variante seja informativa, e não mera insuficiência amostral (`experimentos/meta_volume_corpus.py`, resultado em `experimentos/resultados/historico/meta_volume.md`).
 
 **Suposições declaradas**, todas a recalibrar, exceto a última: 130 palavras por minuto, 9 palavras por oração, 5% de orações negadas, e produtividade da negação pós-verbal de 5,6% — este último o máximo observado por Santos e Vitório (2025). Disso resultam 43 contextos de negação por hora de fala do locutor-alvo, e 2,4 ocorrências esperadas da variante por hora.
 
@@ -237,13 +237,13 @@ O critério recomendado é o último, pela seguinte razão: presença ou ausênc
 
 **Meta vigente: 8,3 h de áudio bruto por estado, 50 h no conjunto dos seis**, equivalentes a 25 h de fala-alvo.
 
-> **Substituída em 29/08/2026.** Com o corpus decidido como entregável autônomo (§1.1), a meta acima deixa de valer: ela derivava da função de validar marcadores. A meta vigente está em `experimentos/resultados/meta_corpus_autonomo.md`, e muda de unidade — passa de horas de fala para **cobertura de falantes**. O teto de 5% por falante, já fixado, impõe por aritmética ao menos **20 falantes distintos por estado**; e a densidade de contextos de palatalização, **medida em 13,6 por minuto** (`densidade_palatalizacao.md`), mostra que um minuto de fala por pessoa basta para o marcador de áudio. O gargalo deixa de ser horas e passa a ser a verificação de que os falantes são pessoas distintas, hoje não implementada (`docs/pendencias.md`, seção 6.4).
+> **Substituída em 29/08/2026.** Com o corpus decidido como entregável autônomo (§1.1), a meta acima deixa de valer: ela derivava da função de validar marcadores. A meta vigente está em `experimentos/resultados/tabelas/meta_corpus_autonomo.md`, e muda de unidade — passa de horas de fala para **cobertura de falantes**. O teto de 5% por falante, já fixado, impõe por aritmética ao menos **20 falantes distintos por estado**; e a densidade de contextos de palatalização, **medida em 13,6 por minuto** (`densidade_palatalizacao.md`), mostra que um minuto de fala por pessoa basta para o marcador de áudio. O gargalo deixa de ser horas e passa a ser a verificação de que os falantes são pessoas distintas, hoje não implementada (`docs/pendencias.md`, seção 6.4).
 >
 > A conta antiga é conservada abaixo como histórico, e a revisão para 38 h que ela previa perde objeto.
 >
 > `HISTÓRICO:` existe uma revisão da meta que **não foi adotada**. O piloto mediu rendimentos por camada muito superiores aos supostos — 91,8% em vox-pop contra 35%, 87,3% em podcast contra 60%, 85,1% em vlog contra 70% —, o que reduziria a meta para cerca de 6,4 h por estado e 38 h no total. A revisão está registrada em estado **condicional**, e depende de uma verificação ainda não feita: a de que o locutor dominante da camada de vox-pop é o repórter, e não um entrevistado loquaz. Dessa suposição depende toda a estimativa de fala aproveitável (`docs/achados_para_o_artigo.md` §2.2 e §2.3). Enquanto não verificada, a meta vigente é 50 h.
 
-**Amostra de verificação manual.** Independente do volume total, o cálculo de WER e DER exige transcrição manual de referência: 20 minutos por estado, estratificados entre as camadas, totalizando 2 h de transcrição manual (`experimentos/resultados/meta_volume.md`). É o suficiente para estimar WER por variedade, que é ameaça à validade registrada na Parte 3 do `CLAUDE.md` e resultado publicável por si só.
+**Amostra de verificação manual.** Independente do volume total, o cálculo de WER e DER exige transcrição manual de referência: 20 minutos por estado, estratificados entre as camadas, totalizando 2 h de transcrição manual (`experimentos/resultados/historico/meta_volume.md`). É o suficiente para estimar WER por variedade, que é ameaça à validade registrada na Parte 3 do `CLAUDE.md` e resultado publicável por si só.
 
 ## 1.6 Anonimização e publicação
 
@@ -304,7 +304,7 @@ Ocorre que **o conteúdo perdeu sustentação empírica em 28/08/2026**. Quatro 
 | feixe combinado | 5 | −0,0063 | 1,0000 |
 | construcional | 10 | −0,0141 | 1,0000 |
 
-O nulo é legível, e não indício de aparelho quebrado: o controle de conteúdo proposicional produz resíduo de +0,3597 com p = 0,0003 após correção de Holm, e o confundidor de frequência está descontado por calibração explícita sobre 22 pares não regionais (`experimentos/resultados/construcional.md`).
+O nulo é legível, e não indício de aparelho quebrado: o controle de conteúdo proposicional produz resíduo de +0,3597 com p = 0,0003 após correção de Holm, e o confundidor de frequência está descontado por calibração explícita sobre 22 pares não regionais (`experimentos/resultados/relatorios/construcional.md`).
 
 **Consequência para esta especificação.** Sem a decisão do passo 5 do roadmap — trocar de modelo ou de métrica (5.2), reposicionar como artigo de método e recurso (5.3), ou levar a menção explícita a volume (5.4) — não há critério para dizer o que o conjunto contém, e sem isso não há como fixar tamanho-alvo nem esquema de registro. Fixá-los agora seria arbitrar (`docs/pendencias.md`, D5 e D7).
 
@@ -316,7 +316,7 @@ Reproduzidas de `docs/pendencias.md` D7. As quatro são exigidas em submissão a
 
 **Meta: 37 pares por condição de teste e 80 pares no grupo de referência não regional**, o que perfaz entre 228 e 265 pares conforme o conjunto tenha quatro ou cinco condições. Hoje há oito e vinte e seis, respectivamente.
 
-Derivação reproduzível em `experimentos/meta_pares_minimos.py`, com relatório em `experimentos/resultados/meta_pares_minimos.md`. O raciocínio, em resumo:
+Derivação reproduzível em `experimentos/meta_pares_minimos.py`, com relatório em `experimentos/resultados/tabelas/meta_pares_minimos.md`. O raciocínio, em resumo:
 
 **A pergunta mudou de forma.** Não é "quantos pares para detectar o efeito", porque o passo 5.5 estabeleceu que não há efeito de valência a detectar — o único candidato dissolveu-se ao se controlar o artefato de tokenização. É **quantos pares para que a ausência de efeito seja informativa**, mesma lógica de que saiu a meta do corpus de áudio. Um nulo obtido sem poder não distingue "não há viés" de "não olhamos direito", e é essa distinção que a seção de Resultados precisa sustentar.
 

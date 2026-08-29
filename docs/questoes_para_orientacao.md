@@ -160,6 +160,6 @@ Se a orientação quiser examinar o material:
 |---|---|
 | Estado geral e plano | `docs/roadmap.md` |
 | O que pode e o que não pode ser escrito | `docs/achados_para_o_artigo.md` |
-| O resultado central | `experimentos/resultados/explicito.md` |
+| O resultado central | `experimentos/resultados/relatorios/explicito.md` |
 | Especificação do dataset | `docs/dataset-spec.md` |
 | Ficha dos conjuntos | `docs/ficha_conjunto.md` |

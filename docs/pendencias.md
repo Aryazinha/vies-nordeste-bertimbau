@@ -66,7 +66,7 @@ A seção 2.3.2 de `docs/fontes_coleta.md` estabelece que podcast distribuído p
 
 ### 2.1 Molduras inoperantes ainda não substituídas no documento
 
-O teste de fumaça (passo 1) mostrou que duas das cinco molduras não funcionam: `Quem falou isso é [MASK]` colapsa em pronomes (*você* 0,385; *ele* 0,294) e `estudou até o [MASK]` colapsa em expressão idiomática (*fim* 0,386). As substitutas foram testadas e aprovadas — `completou o ensino [MASK]` concentra 97% da massa em *médio* e *fundamental*; `parece uma pessoa [MASK]` elimina o vazamento de subtoken — e constam de `experimentos/resultados/molduras_alternativas.md`, mas **não foram incorporadas** a `docs/pares_minimos_v1.md`.
+O teste de fumaça (passo 1) mostrou que duas das cinco molduras não funcionam: `Quem falou isso é [MASK]` colapsa em pronomes (*você* 0,385; *ele* 0,294) e `estudou até o [MASK]` colapsa em expressão idiomática (*fim* 0,386). As substitutas foram testadas e aprovadas — `completou o ensino [MASK]` concentra 97% da massa em *médio* e *fundamental*; `parece uma pessoa [MASK]` elimina o vazamento de subtoken — e constam de `experimentos/resultados/relatorios/molduras_alternativas.md`, mas **não foram incorporadas** a `docs/pares_minimos_v1.md`.
 
 ### 2.2 Conjunto de atributos precisa ser refeito
 
@@ -190,7 +190,7 @@ O cálculo de WER e DER exige transcrição manual de referência: 20 minutos po
 
 ## 4-A. Achados do piloto de 27/08/2026
 
-Medições completas em `experimentos/resultados/piloto_medicoes.md`.
+Medições completas em `experimentos/resultados/relatorios/piloto_medicoes.md`.
 
 ### 4A.1 Detecção de marcadores por expressão regular é inadequada
 
@@ -341,7 +341,7 @@ Cerca de 41% dos canais aprovados automaticamente sobrevivem à revisão humana.
 
 **Deixa de ser melhoria desejável em 29/08/2026, e passa a condição para declarar o corpus completo.** A decisão de tratar o corpus como entregável autônomo mudou a meta de horas para cobertura de falantes, e a meta inteira deriva do teto de 5% por falante. Sem verificar que os locutores são pessoas distintas, não é possível afirmar que o teto é respeitado — e os 211 rótulos de locutor do corpus atual são limite superior, possivelmente muito acima do número real de pessoas, já que repórteres e apresentadores reaparecem entre arquivos do mesmo canal.
 
-Detalhamento em `experimentos/resultados/meta_corpus_autonomo.md`, seção final.
+Detalhamento em `experimentos/resultados/tabelas/meta_corpus_autonomo.md`, seção final.
 
 Nada impede que a mesma pessoa apareça em canais distintos — convidado que circula por vários podcasts regionais, por exemplo. Isso violaria silenciosamente o teto de 5% por falante estabelecido em `docs/fontes_coleta.md`, seção 2.4.5. A detecção exigiria comparação de vozes na etapa de diarização.
 
@@ -349,7 +349,7 @@ Nada impede que a mesma pessoa apareça em canais distintos — convidado que ci
 
 A fonte de frequência lexical trata forma acentuada e não acentuada como palavras distintas, e devolve valor para ambas sem sinalizar a diferença. Em 28/08/2026 constatou-se que a frequência atribuída a *moço* no relatório de sensibilidade — 0,158 por milhão — fora obtida sobre *moco*; o valor correto é 4,90, cerca de trinta vezes maior. A consulta não falha: devolve o número de outra palavra.
 
-Pertence à classe descrita na seção 5-A. O encaminhamento é o mesmo: toda consulta de frequência deve partir da forma tal como ocorre no enunciado medido, e não de transcrição manual do item, e valores destinados ao artigo devem ser regerados por código a partir dos próprios enunciados. Implementado em `experimentos/teste_construcional.py`, cuja função `razao_frequencia` extrai as palavras diretamente dos dois lados do par. Falta reconferir os valores do adendo B de `experimentos/resultados/piloto_medicoes.md`, que foram digitados a partir de consulta avulsa.
+Pertence à classe descrita na seção 5-A. O encaminhamento é o mesmo: toda consulta de frequência deve partir da forma tal como ocorre no enunciado medido, e não de transcrição manual do item, e valores destinados ao artigo devem ser regerados por código a partir dos próprios enunciados. Implementado em `experimentos/teste_construcional.py`, cuja função `razao_frequencia` extrai as palavras diretamente dos dois lados do par. Falta reconferir os valores do adendo B de `experimentos/resultados/relatorios/piloto_medicoes.md`, que foram digitados a partir de consulta avulsa.
 
 ---
 
