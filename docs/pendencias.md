@@ -282,6 +282,7 @@ Nenhum emitiu erro. Todos foram descobertos por conferência posterior, e três 
 **Três casos acrescentados em 28/08/2026**, todos da mesma classe, e nenhum deles emitindo erro:
 
 6. Consulta de frequência sobre forma sem diacrítico, devolvendo o valor de outra palavra. Detalhamento em 6.5.
+6-A. Campo `duracao_s` registrando a duração do vídeo de origem, e não a do áudio coletado, sem que nome ou documentação o declarassem. Somar o campo sobre os 52 registros devolvia 11,43 h contra 5,52 h reais. **Encerrado em 29/08/2026** pelo campo `duracao_coletada_s`, acrescentado ao registro de coleta e ao registro final e preenchido retroativamente com verificação de que nenhum outro campo se alterou. O campo antigo foi preservado com seu significado original, e não redefinido, porque os produtos de transcrição já gerados foram escritos sob a semântica antiga.
 7. Piso da comparação calculado sobre medições individuais enquanto as medianas passaram a ser calculadas sobre medianas de par, o que fazia a condição de controle neutro aparecer como 1,25× de si mesma. Numerador e denominador precisam compartilhar a unidade de replicação.
 8. Script de medição gravando a tabela no mesmo caminho do relatório interpretado escrito à mão. Reexecutar o script apagaria a interpretação sem aviso — inclusive as correções nela registradas. Corrigido pela separação entre `*_tabelas.md`, regerável, e o relatório, que o script não toca.
 

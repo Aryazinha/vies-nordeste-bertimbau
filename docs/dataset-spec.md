@@ -2,7 +2,7 @@
 
 **Função deste documento.** Consolidar em definição única o que hoje está distribuído entre `CLAUDE.md`, os documentos de `docs/`, o código de `pipeline_coleta_piloto/` e os relatórios de `experimentos/resultados/`. Não introduz decisão nova: onde o material é omisso, o ponto é marcado como `PENDENTE` e permanece omisso.
 
-**Produzido em:** 28/08/2026, por leitura do material existente. Nenhum arquivo foi alterado, nenhum script foi executado e os pacotes `piloto_resultados (1).zip` e `(2).zip` não foram abertos, por conterem transcrição não anonimizada.
+**Produzido em:** 28/08/2026, por leitura do material existente, sem alteração de arquivo algum. **Revisado em 29/08/2026**, quando o campo `duracao_coletada_s` foi acrescentado ao esquema e preenchido retroativamente, encerrando o primeiro item do registro de pendentes. Os pacotes `piloto_resultados (1).zip` e `(2).zip` não foram abertos em nenhuma das duas ocasiões, por conterem transcrição não anonimizada.
 
 **Convenção de procedência.** Toda afirmação não trivial indica entre parênteses o arquivo e a seção de origem. Valores marcados como *apurados* foram obtidos por leitura direta de `pipeline_coleta_piloto/dataset_raw/metadados.json` e de `pipeline_coleta_piloto/fontes.json`, e não constavam somados em documento algum.
 
@@ -46,7 +46,7 @@ Ocorre que o passo 5.1 do roadmap estabeleceu que nenhuma das quatro famílias d
 
 E, caso o rumo adotado seja o 5.3 — reposicionar o trabalho como artigo de método e recurso —, o corpus deixa de ser instrumento e passa a entregável autônomo. O critério de conclusão muda por inteiro: deixa de ser a detecção de uma variante rara e passa a ser diversidade de falantes, simetria entre grupos e WER estratificado. Não há razão para supor que o volume resultante seja 50 h, nem que sejam as mesmas 50 h.
 
-**Segue-se a ordenação de trabalho.** Decidir o passo 5 → recalcular o critério de conclusão do corpus conforme a decisão → executar a coleta → validar. As pendências de licença, ficha de conjunto e semântica de `duracao_s` correm em paralelo, por não dependerem daquela decisão.
+**Segue-se a ordenação de trabalho.** Decidir o passo 5 → recalcular o critério de conclusão do corpus conforme a decisão → executar a coleta → validar. As pendências de licença e de ficha de conjunto correm em paralelo, por não dependerem daquela decisão.
 
 ---
 
@@ -71,15 +71,15 @@ O material emprega **dois formatos de registro**, correspondentes a duas etapas.
 | **Registro de coleta** | `dataset_raw/metadados.json`, lista única | `coletar_local.py` | Após o download do áudio, antes do processamento |
 | **Registro final** | `dataset_raw/registros_finais/{id}.json`, um por vídeo | `pipeline.py`, função `_montar_registro_final` | Após transcrição e diarização |
 
-O registro final é o registro de coleta acrescido de `transcricao` e `diarizacao`, e **sem** o campo `arquivo` (`pipeline_coleta_piloto/pipeline.py`, linhas 47–51). O campo auxiliar `title`, usado apenas na triagem, é removido e não integra o esquema publicado (`pipeline_coleta_piloto/collect.py`, `VideoMetadata`).
+O registro final é o registro de coleta acrescido de `transcricao` e `diarizacao`, e **sem** o campo `arquivo` (`pipeline_coleta_piloto/pipeline.py`, `_montar_registro_final`). Ambos os registros trazem `duracao_coletada_s`, acrescentado em 29/08/2026 (§1.3). O campo auxiliar `title`, usado apenas na triagem, é removido e não integra o esquema publicado (`pipeline_coleta_piloto/collect.py`, `VideoMetadata`).
 
-O esquema de oito campos descrito na seção 1.4.1 do `CLAUDE.md` corresponde ao **registro final**, não ao de coleta: lista `transcricao` e `diarizacao`, e não menciona `arquivo` nem `trecho`. O campo `trecho` é extensão posterior, declarada como parte do esquema publicado e não como auxiliar, porque publicar identificador de vídeo sem o recorte utilizado não permitiria reconstruir o material analisado (`pipeline_coleta_piloto/collect.py`, docstring de `VideoMetadata`).
+O esquema descrito na seção 1.4.1 do `CLAUDE.md` corresponde ao **registro final**, não ao de coleta: lista `transcricao` e `diarizacao`, e não menciona `arquivo` nem `trecho`. O campo `trecho` é extensão posterior, declarada como parte do esquema publicado e não como auxiliar, porque publicar identificador de vídeo sem o recorte utilizado não permitiria reconstruir o material analisado (`pipeline_coleta_piloto/collect.py`, docstring de `VideoMetadata`).
 
 > `PENDENTE:` qual dos dois registros constitui o artefato publicado. A regra de publicação está fixada quanto ao conteúdo — identificadores e código, nunca áudio (`CLAUDE.md` §1.4.2) —, mas nenhum documento declara se o que se publica é o registro de coleta, o registro final, ou ambos.
 
 ## 1.3 Esquema do registro de coleta
 
-Oito campos, tal como gravados em `dataset_raw/metadados.json`. Vocabulário controlado conforme `pipeline_coleta_piloto/config.py`.
+Nove campos, tal como gravados em `dataset_raw/metadados.json`. Vocabulário controlado conforme `pipeline_coleta_piloto/config.py`.
 
 | Campo | Tipo | Vocabulário controlado | Obrigatório |
 |---|---|---|---|
@@ -90,11 +90,20 @@ Oito campos, tal como gravados em `dataset_raw/metadados.json`. Vocabulário con
 | `estado_alvo` | string | **Exatamente um de:** `PB`, `PE`, `CE`, `BA`, `SP`, `RJ` (`config.py`, `ESTADOS_VALIDOS`). Os quatro primeiros formam o grupo-alvo, os dois últimos o de controle | Sim |
 | `tipo_fonte` | string | **Exatamente um de:** `entrevista_vox_pop`, `podcast_radio_tv_regional`, `vlog_amador` (`config.py`, `TIPOS_FONTE_VALIDOS`) | Sim |
 | `trecho` | objeto ou `null` | `null` quando o vídeo foi coletado por inteiro; objeto `{"inicio_s": inteiro, "fim_s": inteiro}` quando apenas um recorte foi baixado. Regra de recorte em 1.4.6 | Sim, admitindo `null` |
-| `arquivo` | string | Nome do arquivo de áudio, no formato `{id}.wav` (`coletar_local.py`, linha 59). Não integra o registro final | Sim |
+| `arquivo` | string | Nome do arquivo de áudio, no formato `{id}.wav` (`coletar_local.py`). Não integra o registro final | Sim |
+| `duracao_coletada_s` | inteiro | Segundos de áudio **efetivamente coletados**: `fim_s − inicio_s` quando há recorte, `duracao_s` quando não há. É este o campo a somar para obter o volume do corpus | Sim |
 
 **Estado atual dos valores**, apurado sobre os 52 registros existentes: `estado_alvo` distribui-se em PB 10, CE 10, PE 9, RJ 9, BA 7, SP 7; `tipo_fonte` em `entrevista_vox_pop` 21, `podcast_radio_tv_regional` 20, `vlog_amador` 11; `trecho` é `null` em 38 registros e objeto em 14. Nenhum valor fora do vocabulário controlado.
 
-> `PENDENTE:` a semântica de `duracao_s` não está declarada em nenhum documento, e o nome do campo não a desambigua. **Apurado:** o campo registra a duração do **vídeo de origem**, não a do áudio efetivamente coletado. A soma de `duracao_s` sobre os 52 registros é de 11,43 h, ao passo que a duração efetivamente coletada — recorte quando `trecho` está preenchido, vídeo inteiro quando é `null` — é de 5,52 h, que é o valor reportado em todos os documentos do projeto. Um consumidor que somasse `duracao_s` obteria o dobro do corpus real, sem receber erro algum.
+### Sobre a distinção entre `duracao_s` e `duracao_coletada_s`
+
+Os dois campos coexistem, e confundi-los altera o volume do corpus por um fator de dois. **`duracao_s` é a duração do vídeo de origem; `duracao_coletada_s` é a do áudio que existe em disco.** Divergem sempre que o vídeo excede `LIMITE_TRECHO_S` e apenas um recorte é baixado (§1.4.6). Sobre os 52 registros atuais, a soma de `duracao_s` é de 11,43 h e a de `duracao_coletada_s` é de 5,52 h, que é o valor reportado em todos os documentos do projeto.
+
+**Origem da distinção.** Até 29/08/2026 existia apenas `duracao_s`, sem que documento algum declarasse seu significado e sem que o nome o desambiguasse. Um consumidor que somasse o campo obteria o dobro do corpus real **sem receber erro** — defeito da classe catalogada em `docs/pendencias.md` §5-A, que produz número plausível em vez de falha.
+
+**Por que um campo novo, e não a redefinição do existente.** Os produtos de transcrição e diarização já gerados foram escritos sob a semântica antiga. Alterar o significado de `duracao_s` em silêncio tornaria os lotes incoerentes entre si, que é exatamente o modo de falha que a correção pretende encerrar. `duracao_s` permanece, portanto, com o significado que sempre teve.
+
+**Implementação.** Função `duracao_coletada_s` em `pipeline_coleta_piloto/collect.py`, empregada por `coletar_local.py` no registro de coleta e por `pipeline.py` no registro final. Os 52 registros existentes foram preenchidos retroativamente, com verificação de que nenhum outro campo se alterou.
 
 ## 1.4 Critérios de inclusão
 
@@ -357,7 +366,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 
 | # | Pendente | Parte | Onde se resolve |
 |---|---|---|---|
-| 1 | Semântica de `duracao_s`: registra a duração do vídeo de origem, não a do áudio coletado. Somar o campo devolve 11,43 h contra 5,52 h reais | 1.3 | Declaração no esquema, ou campo separado |
+| 1 | ~~Semântica de `duracao_s`~~ — **encerrado em 29/08/2026** pelo campo `duracao_coletada_s` (§1.3) | 1.3 | — |
 | 2 | Qual registro constitui o artefato publicado — o de coleta, o final, ou ambos | 1.2 | Decisão da equipe |
 | 3 | Função do corpus pode mudar de instrumental para entregável autônomo | 1.1 | Decisão do passo 5 |
 | 4 | Composição entre camadas sob revisão não decidida | 1.4.2 | `docs/pendencias.md` §5.2 |

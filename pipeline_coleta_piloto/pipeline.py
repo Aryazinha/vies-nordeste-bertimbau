@@ -27,7 +27,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from config import AUDIO_DIR, FINAL_DIR
-from collect import coletar_lote, VideoMetadata
+from collect import coletar_lote, duracao_coletada_s, VideoMetadata
 from transcribe import transcrever_audio
 from diarize import diarizar_audio, atribuir_locutor
 
@@ -46,6 +46,9 @@ def _montar_registro_final(meta: VideoMetadata, transcricao: dict, turnos: list[
 
     registro = asdict(meta)
     registro.pop("title", None)  # campo auxiliar de triagem, não faz parte do schema publicado
+    # `duracao_s` é a duração do vídeo de origem; quando há recorte, o áudio
+    # analisado é menor. Ver `duracao_coletada_s` em collect.py.
+    registro["duracao_coletada_s"] = duracao_coletada_s(meta)
     registro["transcricao"] = transcricao
     registro["diarizacao"] = turnos
     return registro

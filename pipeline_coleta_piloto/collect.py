@@ -47,6 +47,32 @@ class VideoMetadata:
     title: str = ""          # auxiliar de triagem, não faz parte do schema final publicado
 
 
+def duracao_coletada_s(registro) -> Optional[int]:
+    """
+    Segundos de áudio efetivamente coletados, que **não** são `duracao_s`.
+
+    `duracao_s` guarda a duração do vídeo de origem. Quando o vídeo excede
+    `LIMITE_TRECHO_S`, apenas um recorte é baixado, e a duração do material em
+    disco é a do recorte. Somar `duracao_s` sobre o conjunto devolve, por isso,
+    um valor maior que o corpus real — apurado em 28/08/2026 sobre os 52
+    registros então existentes: 11,43 h contra 5,52 h de áudio coletado.
+
+    O defeito é da classe catalogada em `docs/pendencias.md`, seção 5-A: não
+    produz erro, produz número plausível. Daí a existência deste campo em vez
+    da redefinição de `duracao_s` — os produtos de processamento já gerados
+    foram escritos sob a semântica antiga, e alterá-la em silêncio tornaria os
+    lotes incoerentes entre si.
+
+    Aceita `VideoMetadata` ou dicionário já serializado.
+    """
+    obter = (registro.get if isinstance(registro, dict)
+             else lambda campo: getattr(registro, campo, None))
+    trecho = obter("trecho")
+    if trecho:
+        return int(trecho["fim_s"]) - int(trecho["inicio_s"])
+    return obter("duracao_s")
+
+
 def triagem_metadados(url: str, estado_alvo: str, tipo_fonte: str,
                       trecho: Optional[dict] = None) -> VideoMetadata:
     """

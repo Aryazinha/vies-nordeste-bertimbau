@@ -29,7 +29,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from config import AUDIO_DIR, BASE_DIR
-from collect import coletar_lote
+from collect import coletar_lote, duracao_coletada_s
 
 METADADOS = BASE_DIR / "metadados.json"
 
@@ -57,6 +57,7 @@ def main() -> None:
         d = asdict(m)
         d.pop("title", None)
         d["arquivo"] = f"{m.id}.wav"
+        d["duracao_coletada_s"] = duracao_coletada_s(m)
         registros.append(d)
 
     # Mescla com o que já existe, em vez de substituir. A coleta é incremental
