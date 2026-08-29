@@ -338,9 +338,11 @@ Não há esquema de registro definido: nem campos, nem tipos, nem codificação,
 
 Não decidida. A questão é distinta da do áudio, cuja conduta está fixada — publicar identificadores e código, não mídia. Os pares mínimos são texto de autoria do projeto e admitem licenciamento permissivo, mas a decisão não foi tomada nem registrada.
 
-### 2.2.4 Ficha de conjunto de dados — `PENDENTE`
+### 2.2.4 Ficha de conjunto de dados — RASCUNHADA em 29/08/2026
 
-Não existe. É prática consolidada em publicação de recurso, e descreve motivação, composição, processo de coleta, usos pretendidos e **usos desaconselhados**. Este último item é particularmente pertinente: um conjunto de enunciados dialetais rotulados por região presta-se a uso indevido como classificador de procedência de falantes.
+Existe em `docs/ficha_conjunto.md`, em estado **preliminar**, cobrindo os dois conjuntos em separado e no formato consolidado por Gebru et al. Seis lacunas ficam declaradas ao final dela, e duas dependem de consulta externa à equipe técnica.
+
+Segue por escrever. É prática consolidada em publicação de recurso, e descreve motivação, composição, processo de coleta, usos pretendidos e **usos desaconselhados**. Este último item é particularmente pertinente: um conjunto de enunciados dialetais rotulados por região presta-se a uso indevido como classificador de procedência de falantes.
 
 ## 2.3 O que já está especificado, e é aproveitável: o protocolo de validação
 
@@ -402,7 +404,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | 6 | Checagem de coerência dialetal contra falante migrante não implementada | 1.4.3 | `docs/pendencias.md` §6.2 |
 | 7 | Meta de volume do corpus — **recalculada em 29/08/2026** sob o novo critério (§1.5); o que resta é a verificação de falantes distintos | 1.5 | `docs/pendencias.md` §6.4 |
 | 8 | Licença dos artefatos do projeto não definida, para nenhum dos dois conjuntos | 1.6, 2.2.3 | Decisão da equipe |
-| 9 | Ficha de conjunto de dados inexistente, para nenhum dos dois conjuntos | 1.6, 2.2.4 | Decisão da equipe |
+| 9 | Ficha de conjunto de dados — **rascunhada em 29/08/2026** em `docs/ficha_conjunto.md`, preliminar, com seis lacunas declaradas | 1.6, 2.2.4 | Revisão da equipe |
 | 10 | Onze canais marcados `a_confirmar` | 1.7 | Inspeção de conteúdo |
 | 11 | Simetria de composição entre grupos não decidida | 1.7 | `docs/pendencias.md` D1 |
 | 12 | Subcorpus de TikTok não reavaliado desde a exclusão | 1.4.4 | `docs/pendencias.md` D4 |
