@@ -8,7 +8,7 @@
 
 ## 1. Regra de atribuição
 
-O campo `estado_alvo` do esquema da seção 1.4.1 do `CLAUDE.md` é atribuído **pelo canal, nunca pela consulta de busca nem pelo título do vídeo.** Um canal só entra na lista se satisfizer um destes critérios:
+O campo `estado_alvo` do esquema da seção 1.4.1 de `docs/protocolo.md` é atribuído **pelo canal, nunca pela consulta de busca nem pelo título do vídeo.** Um canal só entra na lista se satisfizer um destes critérios:
 
 - **Vínculo institucional com o estado.** Emissora, rádio, jornal ou órgão público sediado no estado. A atribuição é verificável e estável.
 - **Evidência geográfica recorrente no próprio conteúdo.** Para criadores independentes, exige-se menção repetida a municípios identificáveis do estado nos títulos ou descrições recentes.
@@ -43,7 +43,7 @@ Para cada criador independente candidato, foram extraídos os títulos dos quatr
 
 ### 2.1 A camada âncora tende a capturar a fala mais padronizada
 
-A seção 1.4.3 do `CLAUDE.md` justifica a camada âncora pela qualidade do áudio — menor WER e DER esperados. O levantamento mostra que essa camada carrega um custo não previsto: apresentadores de telejornal e repórteres empregam uma variedade de radiodifusão deliberadamente neutralizada, e boa parte do conteúdo institucional recuperado consiste em sabatinas com políticos, cuja fala pública é profissionalmente treinada. São exatamente os falantes em que os marcadores dialetais estão mais suprimidos.
+A seção 1.4.3 de `docs/protocolo.md` justifica a camada âncora pela qualidade do áudio — menor WER e DER esperados. O levantamento mostra que essa camada carrega um custo não previsto: apresentadores de telejornal e repórteres empregam uma variedade de radiodifusão deliberadamente neutralizada, e boa parte do conteúdo institucional recuperado consiste em sabatinas com políticos, cuja fala pública é profissionalmente treinada. São exatamente os falantes em que os marcadores dialetais estão mais suprimidos.
 
 Segue-se uma qualificação da camada âncora: **o que interessa nela não é o jornalismo de estúdio, e sim os segmentos em que fala gente comum.** Duas subclasses concentram esse valor:
 
@@ -52,7 +52,7 @@ Segue-se uma qualificação da camada âncora: **o que interessa nela não é o 
 
 ### 2.2 Canais de arquivo não oficiais estão excluídos
 
-O levantamento recuperou canais como "Muito Além do JPB" e "Muito Além do CETV", que republicam material de emissoras. O conteúdo seria adequado, mas a redistribuição por terceiros agrava a exposição de direitos autorais que a seção 1.4.2 do `CLAUDE.md` procura evitar. Sempre que houver canal oficial da emissora, é ele que entra.
+O levantamento recuperou canais como "Muito Além do JPB" e "Muito Além do CETV", que republicam material de emissoras. O conteúdo seria adequado, mas a redistribuição por terceiros agrava a exposição de direitos autorais que a seção 1.4.2 de `docs/protocolo.md` procura evitar. Sempre que houver canal oficial da emissora, é ele que entra.
 
 ---
 
@@ -80,7 +80,7 @@ Registre-se ainda a limitação instrumental: os extratores `tiktok:tag` e `tikt
 
 ### 2.3.2 Fundamento da adoção do podcast por feed aberto
 
-Podcast distribuído por RSS é publicado com a finalidade explícita de ser baixado. A coleta por essa via não incorre na zona cinzenta de termos de uso que motiva a cautela da seção 1.4.2 do `CLAUDE.md`, e constitui **a fonte de situação jurídica mais clara disponível ao projeto**, superior nesse aspecto ao próprio YouTube. O `yt-dlp` dispõe do extrator `ApplePodcasts` e do extrator genérico, que resolve feeds RSS e arquivos diretos.
+Podcast distribuído por RSS é publicado com a finalidade explícita de ser baixado. A coleta por essa via não incorre na zona cinzenta de termos de uso que motiva a cautela da seção 1.4.2 de `docs/protocolo.md`, e constitui **a fonte de situação jurídica mais clara disponível ao projeto**, superior nesse aspecto ao próprio YouTube. O `yt-dlp` dispõe do extrator `ApplePodcasts` e do extrator genérico, que resolve feeds RSS e arquivos diretos.
 
 Não há alteração no esquema de dados: a camada `podcast_radio_tv_regional` já contempla essas fontes. Altera-se apenas a rota de download.
 
@@ -124,7 +124,7 @@ A triagem automática permanece, portanto, como redutora de esforço e como regi
 
 A camada de vlogs revelou-se de baixo rendimento: cerca de oito candidatos levantados para cada canal aproveitável. Os estados de controle são os mais afetados, e São Paulo permanece com um único vlog — criadores urbanos raramente nomeiam o município, que é exatamente o critério de atribuição.
 
-Recomenda-se, em consequência, **reconsiderar a composição entre camadas** fixada na seção 1.4.3 do `CLAUDE.md`. As proporções ali (60% a 70% para a camada âncora, 30% a 40% para a espontânea) foram estipuladas antes de se conhecer o rendimento real de cada fonte. O rádio com participação de ouvinte fornece, por hora coletada, muito mais falantes distintos que o vlog, com atribuição de estado mais segura, situação jurídica mais clara e áudio melhor. Deslocar volume da camada de vlogs para essa subclasse melhoraria simultaneamente diversidade, atribuição e qualidade — ao custo de alguma formalidade de registro, já que quem liga para um programa de rádio monitora a própria fala mais do que quem grava em casa.
+Recomenda-se, em consequência, **reconsiderar a composição entre camadas** fixada na seção 1.4.3 de `docs/protocolo.md`. As proporções ali (60% a 70% para a camada âncora, 30% a 40% para a espontânea) foram estipuladas antes de se conhecer o rendimento real de cada fonte. O rádio com participação de ouvinte fornece, por hora coletada, muito mais falantes distintos que o vlog, com atribuição de estado mais segura, situação jurídica mais clara e áudio melhor. Deslocar volume da camada de vlogs para essa subclasse melhoraria simultaneamente diversidade, atribuição e qualidade — ao custo de alguma formalidade de registro, já que quem liga para um programa de rádio monitora a própria fala mais do que quem grava em casa.
 
 A decisão é da equipe e deve ser registrada como revisão do protocolo, não adotada tacitamente.
 

@@ -4,7 +4,7 @@
 
 **Última atualização:** 28/08/2026
 
-**Documentos irmãos.** `docs/achados_para_o_artigo.md` separa o que já pode ser afirmado em texto submetido do que não pode, com a condição precisa que liberaria cada item em suspenso — é o filtro a consultar antes de escrever qualquer trecho do artigo. `docs/pendencias.md` registra tudo que está aberto — lacunas, decisões não tomadas, verificações devidas e melhorias identificadas. Este arquivo diz o que fazer em seguida; aquele diz o que não pode ser esquecido. Consultar ambos ao retomar o trabalho.
+**Documentos irmãos.** `docs/protocolo.md` reúne o método — protocolo, esquema de dados e ameaças à validade —, e é o arquivo a citar em lugar do `CLAUDE.md`, que permanece fora do versionamento. `docs/resumo_para_orientacao.md` relata o estado do projeto em duas páginas. `docs/achados_para_o_artigo.md` separa o que já pode ser afirmado em texto submetido do que não pode, com a condição precisa que liberaria cada item em suspenso — é o filtro a consultar antes de escrever qualquer trecho do artigo. `docs/pendencias.md` registra tudo que está aberto — lacunas, decisões não tomadas, verificações devidas e melhorias identificadas. Este arquivo diz o que fazer em seguida; aquele diz o que não pode ser esquecido. Consultar ambos ao retomar o trabalho.
 
 ---
 
@@ -67,7 +67,7 @@ Atualizada em 28/08/2026. A redação anterior descrevia o estado de 26/08 — u
 
 | Conjunto | Situação |
 |---|---|
-| **Corpus de áudio** | **Especificação fechada, execução em curso.** Esquema de oito campos definido em `CLAUDE.md`, seção 1.4.1, e implementado. Regra de atribuição por canal estabelecida e verificada contra contaminação. Meta de volume derivada de requisito estatístico, e não arbitrada. Coletados 52 trechos, 5,52 h, cerca de 0,92 h por estado, contra meta revista de cerca de 6,4 h por estado. Esteira validada de ponta a ponta, com 88 canais verificados disponíveis. |
+| **Corpus de áudio** | **Especificação fechada, execução em curso.** Esquema de oito campos definido em `docs/protocolo.md`, seção 1.4.1, e implementado. Regra de atribuição por canal estabelecida e verificada contra contaminação. Meta de volume derivada de requisito estatístico, e não arbitrada. Coletados 52 trechos, 5,52 h, cerca de 0,92 h por estado, contra meta revista de cerca de 6,4 h por estado. Esteira validada de ponta a ponta, com 88 canais verificados disponíveis. |
 | **Pares mínimos** | **Especificação aberta, e o conteúdo perdeu sustentação.** Doze itens rascunhados, nenhum validado por juízes. Os quatro blocos testados — morfossintático, lexical, feixe e construcional — não produzem resposta no modelo, de modo que o conjunto atual não serve como instrumento de medição de viés. Faltam, além do conteúdo, quatro definições formais: tamanho-alvo, formato de publicação, licença e ficha de conjunto de dados. |
 
 ### Por que a assimetria importa

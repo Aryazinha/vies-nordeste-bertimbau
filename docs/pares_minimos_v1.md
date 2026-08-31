@@ -16,7 +16,7 @@
 
 Este documento especifica o instrumento de estímulo do experimento de texto: conjuntos de enunciados com conteúdo proposicional idêntico, apresentados ao BERTimbau em variedades regionais distintas, sem menção explícita a região. Constitui a operacionalização do *matched-guise probing* de Hofmann et al. (2024), descrito na seção 1.3.3 de `docs/fundamentacao_teorica.md`, e fornece os itens sobre os quais se calculam os escores de PLL e AUL/AULA definidos na seção 1.3.5 do mesmo documento.
 
-O instrumento não é um inventário de traços atribuídos popularmente à fala nordestina. A ameaça de validade de construto registrada na Parte 3 do `CLAUDE.md` — emprego de estereótipo de circulação popular no lugar de traço dialetal documentado — incide de modo concentrado sobre este arquivo, e o protocolo da seção 7 existe para contê-la.
+O instrumento não é um inventário de traços atribuídos popularmente à fala nordestina. A ameaça de validade de construto registrada na Parte 3 de `docs/protocolo.md` — emprego de estereótipo de circulação popular no lugar de traço dialetal documentado — incide de modo concentrado sobre este arquivo, e o protocolo da seção 7 existe para contê-la.
 
 ---
 
@@ -185,7 +185,7 @@ Dois filtros independentes e cumulativos. Um item integra o experimento apenas s
 2. *Naturalidade,* em escala de 1 a 5: uma pessoa dessa região diria isso naturalmente? Reprovado se a mediana for inferior a 4.
 3. *Caricatura,* dicotômica: isso soa como imitação ou estereótipo? Reprovação automática se dois ou mais juízes responderem afirmativamente.
 
-**Filtro 2 — ocorrência em corpus de fala espontânea.** A seção 1.4 do `CLAUDE.md` atribui ao corpus de áudio do projeto exatamente esta função: um marcador candidato só é promovido a confirmado se ocorrer em fala espontânea nas transcrições coletadas para o estado correspondente. Marcador ausente do corpus não integra o experimento.
+**Filtro 2 — ocorrência em corpus de fala espontânea.** A seção 1.4 de `docs/protocolo.md` atribui ao corpus de áudio do projeto exatamente esta função: um marcador candidato só é promovido a confirmado se ocorrer em fala espontânea nas transcrições coletadas para o estado correspondente. Marcador ausente do corpus não integra o experimento.
 
 **Calibração do Filtro 2 para variantes raras.** Conforme 3.4, a negação pós-verbal tem produtividade da ordem de 5%. Antes de aplicar o filtro a M2, deve-se estimar o volume de fala necessário para que a ausência de ocorrências seja informativa; do contrário, o filtro reprovaria o marcador por insuficiência amostral e não por inadequação. O mesmo cuidado vale para itens lexicais de baixa frequência.
 

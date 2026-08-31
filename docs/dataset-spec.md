@@ -56,9 +56,9 @@ Especificação fechada. Descreve o que já está decidido, implementado e em ex
 
 ## 1.1 Objeto e função
 
-Corpus de fala espontânea regional, coletado de plataformas públicas, cobrindo quatro estados nordestinos — PB, PE, CE, BA — contra um grupo de controle formado por SP e RJ, capital e interior (`CLAUDE.md` §1.4.3).
+Corpus de fala espontânea regional, coletado de plataformas públicas, cobrindo quatro estados nordestinos — PB, PE, CE, BA — contra um grupo de controle formado por SP e RJ, capital e interior (`docs/protocolo.md` §1.4.3).
 
-A função no desenho original é **instrumental**: serve ao Filtro 2 do protocolo de validação, segundo o qual um marcador dialetal só integra o experimento de texto se ocorrer em fala espontânea nas transcrições coletadas para o estado correspondente (`docs/pares_minimos_v1.md` §7). O corpus existe para impedir que o instrumento se apoie em estereótipo de circulação popular em lugar de traço atestado (`CLAUDE.md` Parte 3, validade de construto).
+A função no desenho original é **instrumental**: serve ao Filtro 2 do protocolo de validação, segundo o qual um marcador dialetal só integra o experimento de texto se ocorrer em fala espontânea nas transcrições coletadas para o estado correspondente (`docs/pares_minimos_v1.md` §7). O corpus existe para impedir que o instrumento se apoie em estereótipo de circulação popular em lugar de traço atestado (`docs/protocolo.md` Parte 3, validade de construto).
 
 ### Decisão de 29/08/2026: o corpus é entregável autônomo
 
@@ -83,9 +83,9 @@ O material emprega **dois formatos de registro**, correspondentes a duas etapas.
 
 O registro final é o registro de coleta acrescido de `transcricao` e `diarizacao`, e **sem** o campo `arquivo` (`pipeline_coleta_piloto/pipeline.py`, `_montar_registro_final`). Ambos os registros trazem `duracao_coletada_s`, acrescentado em 29/08/2026 (§1.3). O campo auxiliar `title`, usado apenas na triagem, é removido e não integra o esquema publicado (`pipeline_coleta_piloto/collect.py`, `VideoMetadata`).
 
-O esquema descrito na seção 1.4.1 do `CLAUDE.md` corresponde ao **registro final**, não ao de coleta: lista `transcricao` e `diarizacao`, e não menciona `arquivo` nem `trecho`. O campo `trecho` é extensão posterior, declarada como parte do esquema publicado e não como auxiliar, porque publicar identificador de vídeo sem o recorte utilizado não permitiria reconstruir o material analisado (`pipeline_coleta_piloto/collect.py`, docstring de `VideoMetadata`).
+O esquema descrito na seção 1.4.1 de `docs/protocolo.md` corresponde ao **registro final**, não ao de coleta: lista `transcricao` e `diarizacao`, e não menciona `arquivo` nem `trecho`. O campo `trecho` é extensão posterior, declarada como parte do esquema publicado e não como auxiliar, porque publicar identificador de vídeo sem o recorte utilizado não permitiria reconstruir o material analisado (`pipeline_coleta_piloto/collect.py`, docstring de `VideoMetadata`).
 
-> `PENDENTE:` qual dos dois registros constitui o artefato publicado. A regra de publicação está fixada quanto ao conteúdo — identificadores e código, nunca áudio (`CLAUDE.md` §1.4.2) —, mas nenhum documento declara se o que se publica é o registro de coleta, o registro final, ou ambos.
+> `PENDENTE:` qual dos dois registros constitui o artefato publicado. A regra de publicação está fixada quanto ao conteúdo — identificadores e código, nunca áudio (`docs/protocolo.md` §1.4.2) —, mas nenhum documento declara se o que se publica é o registro de coleta, o registro final, ou ambos.
 
 ## 1.3 Esquema do registro de coleta
 
@@ -93,8 +93,8 @@ Nove campos, tal como gravados em `dataset_raw/metadados.json`. Vocabulário con
 
 | Campo | Tipo | Vocabulário controlado | Obrigatório |
 |---|---|---|---|
-| `id` | string | Identificador de vídeo do YouTube, 11 caracteres. Chave primária do registro (`CLAUDE.md` §1.4.1) | Sim |
-| `canal` | string | Livre. Nome do canal de origem, mantido por tratar-se de conteúdo público publicado voluntariamente (`CLAUDE.md` §1.4.2) | Sim |
+| `id` | string | Identificador de vídeo do YouTube, 11 caracteres. Chave primária do registro (`docs/protocolo.md` §1.4.1) | Sim |
+| `canal` | string | Livre. Nome do canal de origem, mantido por tratar-se de conteúdo público publicado voluntariamente (`docs/protocolo.md` §1.4.2) | Sim |
 | `data_upload` | string | Data de publicação no formato `AAAAMMDD`, sem separadores. Declarado `Optional` no código (`collect.py`, `VideoMetadata`) | Não |
 | `duracao_s` | inteiro | Segundos. Declarado `Optional` no código | Não |
 | `estado_alvo` | string | **Exatamente um de:** `PB`, `PE`, `CE`, `BA`, `SP`, `RJ` (`config.py`, `ESTADOS_VALIDOS`). Os quatro primeiros formam o grupo-alvo, os dois últimos o de controle | Sim |
@@ -130,7 +130,7 @@ Canal que não satisfaça nenhum dos dois é rejeitado, ainda que o conteúdo pa
 
 ### 1.4.2 Camadas de fonte
 
-Duas camadas, com a lógica de diversidade diafásica do C-ORAL-BRASIL (`CLAUDE.md` §1.4.3):
+Duas camadas, com a lógica de diversidade diafásica do C-ORAL-BRASIL (`docs/protocolo.md` §1.4.3):
 
 | Camada | `tipo_fonte` correspondente | Proporção prevista | Fundamento |
 |---|---|---|---|
@@ -243,17 +243,17 @@ O critério recomendado é o último, pela seguinte razão: presença ou ausênc
 >
 > `HISTÓRICO:` existe uma revisão da meta que **não foi adotada**. O piloto mediu rendimentos por camada muito superiores aos supostos — 91,8% em vox-pop contra 35%, 87,3% em podcast contra 60%, 85,1% em vlog contra 70% —, o que reduziria a meta para cerca de 6,4 h por estado e 38 h no total. A revisão está registrada em estado **condicional**, e depende de uma verificação ainda não feita: a de que o locutor dominante da camada de vox-pop é o repórter, e não um entrevistado loquaz. Dessa suposição depende toda a estimativa de fala aproveitável (`docs/achados_para_o_artigo.md` §2.2 e §2.3). Enquanto não verificada, a meta vigente é 50 h.
 
-**Amostra de verificação manual.** Independente do volume total, o cálculo de WER e DER exige transcrição manual de referência: 20 minutos por estado, estratificados entre as camadas, totalizando 2 h de transcrição manual (`experimentos/resultados/historico/meta_volume.md`). É o suficiente para estimar WER por variedade, que é ameaça à validade registrada na Parte 3 do `CLAUDE.md` e resultado publicável por si só.
+**Amostra de verificação manual.** Independente do volume total, o cálculo de WER e DER exige transcrição manual de referência: 20 minutos por estado, estratificados entre as camadas, totalizando 2 h de transcrição manual (`experimentos/resultados/historico/meta_volume.md`). É o suficiente para estimar WER por variedade, que é ameaça à validade registrada na Parte 3 de `docs/protocolo.md` e resultado publicável por si só.
 
 ## 1.6 Anonimização e publicação
 
-Regras fixadas em `CLAUDE.md` §1.4.2:
+Regras fixadas em `docs/protocolo.md` §1.4.2:
 
 - **Nomes próprios de terceiros** mencionados nas transcrições — não o autor do vídeo — são mascarados antes de qualquer publicação do conjunto.
 - **O áudio bruto não é redistribuído.** Publicam-se os identificadores de vídeo e o código de coleta, o que preserva a reprodutibilidade sem violar direitos autorais ou os termos de uso da plataforma.
 - **O nome do canal é mantido**, por tratar-se de conteúdo público publicado voluntariamente.
 - **Não se coleta geolocalização precisa**; registra-se apenas o estado-alvo, já conhecido pela origem ou temática do canal.
-- Não se coleta dado pessoal sensível: registra-se apenas o que já está publicamente disponível nos metadados do vídeo (`CLAUDE.md` §1.4.1).
+- Não se coleta dado pessoal sensível: registra-se apenas o que já está publicamente disponível nos metadados do vídeo (`docs/protocolo.md` §1.4.1).
 
 A regra de publicar identificador em vez de áudio é o que torna o campo `trecho` parte do esquema publicado e não auxiliar: identificador de vídeo sem o recorte utilizado não permite reconstruir o material analisado (`collect.py`, `VideoMetadata`).
 

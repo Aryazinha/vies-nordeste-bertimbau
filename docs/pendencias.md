@@ -231,11 +231,18 @@ O grupo de controle tem 9 a 11 vlogs verificados por estado; Pernambuco tem 3. C
 
 ### D2 Composição entre camadas
 
-As proporções da seção 1.4.3 do `CLAUDE.md` — 60% a 70% para a camada âncora, 30% a 40% para a espontânea — foram fixadas antes de se conhecer o rendimento de cada fonte. O levantamento sugere deslocar volume do vlog, de baixa diversidade por hora, para rádio de participação. Alterar exige revisão formal do protocolo.
+As proporções da seção 1.4.3 de `docs/protocolo.md` — 60% a 70% para a camada âncora, 30% a 40% para a espontânea — foram fixadas antes de se conhecer o rendimento de cada fonte. O levantamento sugere deslocar volume do vlog, de baixa diversidade por hora, para rádio de participação. Alterar exige revisão formal do protocolo.
 
-### D3 CLAUDE.md fora do versionamento
+### D3 CLAUDE.md fora do versionamento — PARCIALMENTE RESOLVIDA em 31/08/2026
 
-O arquivo permanece local por decisão registrada em agosto. Como os demais documentos remetem a suas seções — protocolo em 1.4, ameaças à validade na Parte 3 —, quem acessar o repositório encontrará dezenas de referências a um arquivo ausente. Afeta a reprodutibilidade se o material acompanhar uma submissão. Duas saídas: versionar o arquivo, ou transferir as partes públicas para um `docs/protocolo.md` versionado.
+As partes públicas do arquivo — protocolo metodológico e operacional (§1.4), esquema de dados (§1.4.1), regras de anonimização (§1.4.2), escopo e camadas de coleta (§1.4.3) e a síntese de ameaças à validade (Parte 3) — passaram a `docs/protocolo.md`, com a numeração original preservada, de modo que uma referência a "seção 1.4.2 do `CLAUDE.md`" corresponde à seção 1.4.2 daquele arquivo. Vinte linhas de referência em seis documentos foram redirecionadas.
+
+**O que permanece.** O `CLAUDE.md` segue fora do versionamento, conservando o que é interno: o log de revisões, o estado corrente do trabalho e as orientações de sessão. Restam referências a ele em documentos e em código, e são de duas naturezas:
+
+- **Ao log de revisões** — "revisão v1.3", "log v1.7". São menções históricas, e a decisão de versionar ou não o histórico é distinta da de versionar o método.
+- **Em código e nos READMEs de subpasta** — `collect.py`, `config.py`, `meta_volume_corpus.py`, `densidade_palatalizacao.py`, `notebooks/README.md` e `pipeline_coleta_piloto/README.md`. Não foram alteradas na mesma rodada por estarem fora do escopo autorizado, e devem apontar para `docs/protocolo.md` na próxima passagem por esses arquivos.
+
+**Encerra a pendência:** redirecionar as referências restantes em código e READMEs, e decidir se o log de revisões também deve ser versionado.
 
 ### D4 Subcorpus de TikTok
 

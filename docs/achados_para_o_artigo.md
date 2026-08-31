@@ -358,7 +358,7 @@ A impossibilidade não é acidente deste conjunto de itens: é o item 1.1 operan
 **Medido, 52 arquivos e 45 mil palavras:** Nordeste 0,944, Sudeste 0,939, diferença de +0,006 em favor do Nordeste. Por estado, entre 0,929 (RJ) e 0,948 (PE e SP).
 **Estabilidade:** no primeiro lote, com 17 arquivos, a dispersão entre estados ia de 0,898 a 0,975; com o triplo do material reduziu-se a 0,929–0,948. A variação anterior era ruído de amostra pequena, e a convergência reforça a leitura em vez de enfraquecê-la.
 **Libera a afirmação:** WER contra transcrição humana de referência. Confiança mede certeza do modelo, não acerto, e nenhuma quantidade de confiança substitui a comparação com referência.
-**Se confirmado:** remove confundidor previsto na Parte 3 do `CLAUDE.md`, e constitui resultado secundário publicável.
+**Se confirmado:** remove confundidor previsto na Parte 3 de `docs/protocolo.md`, e constitui resultado secundário publicável.
 **Se não confirmado:** torna-se limitação central.
 **Ressalva de balanceamento:** o material nordestino tem o dobro de palavras do sudestino (30 mil contra 15 mil), o que não invalida a comparação de médias mas deve ser declarado.
 
