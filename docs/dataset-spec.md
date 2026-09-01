@@ -299,19 +299,27 @@ A regra de publicar identificador em vez de áudio é o que torna o campo `trech
 
 ## 1.7 Estado de execução
 
-**Fontes.** 126 entradas em `pipeline_coleta_piloto/fontes.json`, apuradas: 105 com situação `verificado`, 3 com `rejeitado` e 18 com `a_confirmar` — estas últimas oriundas das duas rodadas de reforço de 31/08/2026, descritas adiante. A tabela conta apenas os `verificado`.
+**Fontes.** 187 entradas em `pipeline_coleta_piloto/fontes.json`, apuradas: 152 com situação `verificado`, 3 com `rejeitado` e 32 com `a_confirmar`. A tabela conta apenas os `verificado`.
 
 | UF | vox-pop | podcast/rádio/TV | vlog | Total |
 |---|---|---|---|---|
-| PB | 3 | 4 | 7 | 14 |
-| PE | 4 | 5 | 10 | 19 |
-| CE | 4 | 4 | 8 | 16 |
-| BA | 3 | 4 | 12 | 19 |
-| SP | 2 | 4 | 11 | 17 |
-| RJ | 5 | 2 | 13 | 20 |
-| **Total** | **21** | **23** | **61** | **105** |
+| PB | 6 | 6 | 13 | 25 |
+| PE | 6 | 6 | 13 | 25 |
+| CE | 5 | 6 | 15 | 26 |
+| BA | 5 | 6 | 13 | 24 |
+| SP | 7 | 5 | 16 | 28 |
+| RJ | 6 | 5 | 13 | 24 |
+| **Total** | **35** | **34** | **83** | **152** |
 
 (`docs/fontes_coleta.md` §4; contagens conferidas contra `fontes.json`, 31/08/2026)
+
+**Rodada de igualação entre estados, 31/08/2026 — a assimetria de fontes é encerrada.** Executadas duas rodadas adicionais, com 89 consultas e 881 candidatos distintos, das quais 61 canais sobreviveram à revisão de conteúdo. O alvo foi nivelar cada camada pelo teto então vigente — cinco canais de vox-pop, cinco de podcast/rádio/TV e treze de vlog por estado. **Os seis estados passaram a atender esse piso em todas as três camadas**, e o plano de coleta deixou de operar sem folga: a camada de vox-pop, que antes era empregada por inteiro em todos os estados, hoje tem margem em quatro deles.
+
+Três achados de método merecem registro, porque valem para além desta rodada:
+
+1. **Consulta genérica não encontra jornalismo local em São Paulo.** A rodada anterior falhara ali porque a busca devolvia rede nacional. Trocando a consulta genérica por nome de emissora regional (EPTV, VTV, TVS+ SBT, Record Interior SP) e por jornalismo comunitário de periferia, o estado saltou de dois para sete canais de vox-pop. Entre eles a *Agência Mural de Jornalismo das Periferias*, que entrevista moradores de Sapopemba, Paraisópolis e São Mateus, e que a consulta genérica jamais alcançaria.
+2. **A ameaça do falante migrante é concreta, e concentra-se nas capitais de destino.** Em João Pessoa, quatro dos vlogs mais bem posicionados na busca eram de recém-chegados de Brasília, de São Paulo e do Rio — canais cujo tema é justamente *mudar-se* para a cidade. Todos rejeitados. A cidade que mais aparece na busca é, por isso mesmo, a que exige mais cuidado.
+3. **A colisão de topônimo reapareceu.** Além do caso "Santos" (`docs/pendencias.md` 6.0), a triagem aprovou um podcast de futebol carioca com a evidência "Botafogo" e "Flamengo" — nomes de clube, não de bairro. O canal ficou `a_confirmar`.
 
 **Rodada de reforço de PE e BA, 31/08/2026 — pendência D1 encerrada.** Executada pela metodologia do próprio projeto: busca real por `yt-dlp` sobre vinte consultas ancoradas em municípios dos dois estados, triagem automática por `verificar_fontes.py` (regra de atribuição pelos títulos recentes do canal) e revisão de conteúdo canal a canal. De 178 candidatos distintos, 62 passaram na triagem automática e **24 sobreviveram à revisão: 13 aceitos e 11 marcados `a_confirmar`**, taxa de aproveitamento coerente com o histórico do projeto.
 

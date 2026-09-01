@@ -12,7 +12,8 @@
     "atualizado_em": "2026-08-31",
     "nota_vlogs": "Camada vlog_amador ampliada em 27/08/2026. Dos 101 candidatos levantados, 34 passaram na triagem automática e 13 sobreviveram à revisão humana. Ver docs/fontes_coleta.md, seção 2.4. Em 31/08/2026: 13 canais adicionais (11 antigos + 2 novos) tiveram a inspeção de conteúdo concluída — 10 aprovados, 3 rejeitados (Samiele Batista, Alan City, Kellynha Costa). Duplicata de 'Vlog com Diogo' em PE (mesmo channel_id, duas entradas) corrigida na mesma revisão.",
     "nota_reforco_pe_ba": "Rodada de reforço de PE e BA em 31/08/2026 (pendência D1). 178 candidatos levantados por busca real com yt-dlp, 62 aprovados na triagem automática de verificar_fontes.py, e 24 sobreviveram à revisão de conteúdo: 13 aceitos e 11 marcados a_confirmar. As rejeições concentraram-se em quatro perfis já previstos — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking. Um caso de falante migrante foi identificado e rejeitado (Marcela Sevla, mudança de São Paulo para Barreiras-BA declarada no próprio acervo).",
-    "nota_voxpop_pb_sp_rj": "Rodada de reforço da camada de vox-pop em PB, SP e RJ, em 31/08/2026 (pendência 1.2). 164 candidatos levantados, 36 aprovados na triagem automática, 11 sobreviveram à revisão: 4 aceitos e 7 a_confirmar. São Paulo é o caso negativo — a busca devolveu quase só rede nacional (Jornal da Record, g1, SBT News, Band Jornalismo), que não satisfaz a regra de atribuição por estado, e o único candidato paulista genuinamente local ficou a_confirmar."
+    "nota_voxpop_pb_sp_rj": "Rodada de reforço da camada de vox-pop em PB, SP e RJ, em 31/08/2026 (pendência 1.2). 164 candidatos levantados, 36 aprovados na triagem automática, 11 sobreviveram à revisão: 4 aceitos e 7 a_confirmar. São Paulo é o caso negativo — a busca devolveu quase só rede nacional (Jornal da Record, g1, SBT News, Band Jornalismo), que não satisfaz a regra de atribuição por estado, e o único candidato paulista genuinamente local ficou a_confirmar.",
+    "nota_igualacao": "Rodada de igualação entre estados, 31/08/2026: 75 consultas, 581 candidatos distintos, 188 aprovados na triagem automática e 42 sobreviventes à revisão de conteúdo. Em São Paulo a estratégia mudou — em vez de consulta genérica, que devolvia rede nacional, partiu-se de emissora regional nomeada e de jornalismo comunitário de periferia, e foi o que destravou a camada de vox-pop do estado."
   },
   "PB": [
     {
@@ -126,6 +127,97 @@
       "tipo_fonte": "entrevista_vox_pop",
       "situacao": "a_confirmar",
       "nota": "Campina Grande; telejornal ITN da Rede Ita, ativo e diário. Confirmar se o noticiário traz reportagem de rua com moradores ou apenas estúdio e entrevista institucional"
+    },
+    {
+      "canal": "eurebekagoncalves",
+      "channel_id": "UC9FkYVcwgFdPqPOSRj2Pp-A",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "João Pessoa; daily vlog numerado (#vlog52), gastronomia e cotidiano da capital. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "coisa do sertão vlog",
+      "channel_id": "UCmVigzdojRndhdwnExRWrPw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Sousa, sertão paraibano; feira livre, engenho e cotidiano, com publicação quase diária. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "João Victor",
+      "channel_id": "UC-UCPLN2W366O3uak5bqT6Q",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Cajazeiras; vlog estudantil na UFCG, mesmo perfil de Luchano Malik no CE. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Ronildo Aventura",
+      "channel_id": "UCheNTj0ZJL9GGEF_ODB0Jqw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Guarabira e sertão paraibano; pescaria e cotidiano, sempre dentro do estado. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Marcos Repórter Oficial",
+      "channel_id": "UCIt2ih4IJAtzVx4k4XKc62Q",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Campina Grande; matérias de rua de repórter local. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Mário Frade",
+      "channel_id": "UCEF6XIsLMtAADTt6GnLYcrA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Patos; reportagem local de ocorrência e câmara municipal, com moradores em pauta. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "TV SOL",
+      "channel_id": "UCB1x5SzEnJ-bcrUAe5QVBXQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Patos; TV local com cobertura comunitária. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "98 FM Digital",
+      "channel_id": "UC71nwKIxQkSws0cq-kcG4YQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Campina Grande; rádio com entrevistas e pauta local. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Sistema Diário de Comunicação",
+      "channel_id": "UCgCEjNY7eylrIVli90U9lOg",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "João Pessoa, Sousa e Cajazeiras; entrevistas de portal regional. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "VLOG DA PAULINHA PB",
+      "channel_id": "UCCH9LXhfM-jRZSCLBCdUuvg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Arara e região do brejo paraibano; feira livre e festas da cidade, publicação corrente. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "Israel Costa",
+      "channel_id": "UCXHALoIkcmk3S4Rkc1NsZkw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Solânea e Serraria; engenhos, barragem e cotidiano do brejo. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "Caio Nordestino",
+      "channel_id": "UCGYXt6XIRRjxq9suyue8ahA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Campina Grande e Arara; conteúdo de feira com título de chamariz — confirmar se há conversa com feirante ou apenas narração"
+    },
+    {
+      "canal": "Diego Mostra",
+      "channel_id": "UCOjV2BmC-uw2Wj4OFrmwJ-w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "João Pessoa e Santa Rita; mercado central e feira do rolo — confirmar proporção de fala espontânea"
     }
   ],
   "PE": [
@@ -296,6 +388,62 @@
       "tipo_fonte": "vlog_amador",
       "situacao": "a_confirmar",
       "nota": "Belo Jardim; conteúdo de dicas domésticas — confirmar se é fala espontânea ou roteiro lido, dado o precedente de rejeição de Alan City"
+    },
+    {
+      "canal": "Vozinha de Dois",
+      "channel_id": "UCZYmuTKlCR4dCglnP6FwJag",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Vitória de Santo Antão; cotidiano urbano e de sítio. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Canal beleza do sertão SN",
+      "channel_id": "UCdbq83M1bNIpwaiSlFrpL7w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Sertão de Pernambuco; dia a dia na roça e pega de boi. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Rádio Cidade 99.7",
+      "channel_id": "UCA5MZJHuE7fj6SFoTxbHEDQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Caruaru; rádio local diária, com quadro em bares da cidade. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Allan Fonseca",
+      "channel_id": "UCZf_XEN9Fvmtli_qgCaNL6g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Recife, Caruaru e interior de PE; formato de exploração de cidade ('Como é Caruaru na vida real?'). Confirmar se há entrevista com morador ou apenas narração do autor"
+    },
+    {
+      "canal": "VLOG AP",
+      "channel_id": "UCuNlGXbCzl0UpIqzctb3E9g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Ribeirão e Água Preta, mata sul de Pernambuco; usina, trilha e cotidiano. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "TV Nova Nordeste",
+      "channel_id": "UCqEXIdlNv2ffs4iZamcDq0g",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Recife e Garanhuns; telejornalismo regional com familiares e moradores falando em pauta. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "FALA SERTÃO NOTÍCIAS",
+      "channel_id": "UCaOG3L_iAr6VLL3ko1S06zA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Petrolina e Dormentes; repórter cobrindo feira de animais e pauta do sertão. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "Associação de Moradores do Bairro Caminho do Sol",
+      "channel_id": "UC4ps-XojbAnt1hK8hTwygRA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "Petrolina; associação de moradores registrando problemas do bairro. Confirmar se o canal segue ativo"
     }
   ],
   "CE": [
@@ -410,6 +558,76 @@
       "tipo_fonte": "entrevista_vox_pop",
       "situacao": "verificado",
       "nota": "Fortaleza e Canindé. Verificado em 31/08/2026: conteúdo mostra jornalista entrevistando moradores, com pessoas dando entrevistas — caracteriza vox-pop genuíno, não portfólio autopromocional."
+    },
+    {
+      "canal": "Gabriel Cell",
+      "channel_id": "UCwye4qbUXOV8O7NVTBhIqbA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Itapipoca e Itapajé; cotidiano, comércio e festas do interior. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Andre do Cariri",
+      "channel_id": "UCx7qzvZRAyipGxxvinNqUrA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Crato e Juazeiro do Norte; construção da própria casa na zona rural, cotidiano do Cariri. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Brunão de itapipoca",
+      "channel_id": "UCT2DRDGkYYCbxzruEDygYCQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Itapipoca; açude, cavalgada e desfiles da cidade. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "iury Rodriguesss",
+      "channel_id": "UCqGtbJ9Y27b9cybUiV3TTWw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Crateús; percursos de bicicleta pela cidade com comentário. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Victoria Rodrygues",
+      "channel_id": "UCbpv7ytCv0_nPHp65YUDbqQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Iguatu; rotina doméstica e maternidade. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "TV RICARDO SUPER VLOG",
+      "channel_id": "UCtj9aOgwUqhpEBhtV09ILzQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Fortaleza; cotidiano na capital, parque do Cocó e vida em família. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "GENTEDECENTEVIAJANDO",
+      "channel_id": "UC_8_r6kZg_b6F_0irZqvX3w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Fortaleza; série diária numerada (mais de 1.400 episódios) pelos bairros da capital. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Sobral Portal de Notícias",
+      "channel_id": "UCGGvxTi1iQf-zkCrD-WAemQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Sobral; SPN TV, com paciente e morador relatando em pauta. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Di Calheiros",
+      "channel_id": "UCGl_FjHY_TQJBQLiiDO3UyA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Fortaleza; programa de rádio que pede opinião do ouvinte — formato que a pendência 1.1 aponta como o de maior valor e que só existia em PE e BA. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "TV Ceará",
+      "channel_id": "UCWiwMQn0k84wn0952b5kcKw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Fortaleza; emissora estadual. Levantado na rodada de igualação de 31/08/2026"
     }
   ],
   "BA": [
@@ -594,6 +812,69 @@
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "a_confirmar",
       "nota": "Sertão baiano (Juazeiro, Sento-Sé, Uauá, Canudos); confirmar se há entrevista com moradores ou apenas narração sobre imagens"
+    },
+    {
+      "canal": "Blog do Anderson",
+      "channel_id": "UCVfzw6IRaWGU5txQl58dy3Q",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Vitória da Conquista; jornalismo local de blog, com moradores e professores em pauta. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Impressão Digital UFBA",
+      "channel_id": "UCuyRovcn9c7BtLdBB5AhRTg",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Salvador; jornalismo laboratório da UFBA, entrevistando comerciantes e moradores do Centro. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Programa Acorda Cidade",
+      "channel_id": "UConMvWHEGp_FqboAQFzKSjQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Feira de Santana; podcast e noticiário local. Cobre a cidade que a pendência 1.3 apontava como a única das quatro ainda descoberta. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Rádio Salvador FM",
+      "channel_id": "UCFrYnMVzIUXxJPCyv-WcZuw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Salvador; rádio com pauta de bairro (Cabula) e sabatinas. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Jussara vlogs.",
+      "channel_id": "UCzXwVQx92BMpwbcd3BkO_QQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Irecê e Xique-Xique; cotidiano do interior, mas parte do acervo é conferência de preço em atacadista — confirmar a proporção, dado o precedente de rejeição de Samiele Batista"
+    },
+    {
+      "canal": "Marcos Gaspar - Sertão Baiano",
+      "channel_id": "UChdBI2ycoZAe-kr1bgM8Vbg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Irecê e Chapada Diamantina; percorre povoados e cidades do sertão baiano. Confirmar se é morador de base fixa ou canal itinerante"
+    },
+    {
+      "canal": "Daqui da roça",
+      "channel_id": "UCvaLqC85AqrYc76OF0NzqnQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Irará, no interior baiano; feira livre, feira quilombola e vida na roça. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "Sara Araujo",
+      "channel_id": "UCRY2_XqY4FOBsqOc2JjtlWw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Rotina doméstica 'morando na Bahia'; a ancoragem é o nome do estado, sem município identificado — confirmar a cidade"
+    },
+    {
+      "canal": "Kenedy Santos",
+      "channel_id": "UCL2UHN6S2Z54PMuynTqnWpQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Cruz das Almas; acervo recente concentrado em São João — confirmar se há conteúdo de cotidiano fora do período de festa"
     }
   ],
   "SP": [
@@ -736,6 +1017,97 @@
       "tipo_fonte": "entrevista_vox_pop",
       "situacao": "a_confirmar",
       "nota": "São Paulo, Osasco, Barueri e Itu; jornalismo investigativo sobre violência de Estado, com depoimento de familiares de vítimas. É o único candidato paulista da rodada de 31/08/2026 genuinamente ancorado no estado. Confirmar a proporção de fala de pessoa comum ante a narração de repórter"
+    },
+    {
+      "canal": "Agência Mural de Jornalismo das Periferias",
+      "channel_id": "UC7hgBiaZsGMWit-1iF488lQ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Periferias de São Paulo (Sapopemba, Paraisópolis, São Mateus, zona leste e sul); jornalismo comunitário que entrevista moradores. É a fonte que a rodada anterior não encontrou, e só apareceu porque a consulta deixou de ser genérica. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "VTV News",
+      "channel_id": "UC40TUSUx490U5uR1lZt3Ajg",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Campinas e região; telejornalismo regional paulista com moradores em pauta. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "EPTV",
+      "channel_id": "UCRF2i3dmqb-nEFvoxEhz5Hw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Campinas e Piracicaba; emissora regional com reportagem de rua. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Record Interior SP",
+      "channel_id": "UChgP7T3tNy8VKjAHrahmBcA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Ribeirão Preto e interior paulista; reportagem policial e de bairro. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "TVS+ SBT",
+      "channel_id": "UCYO9sxy6pc0CK6A738QjOuA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Sorocaba, Jundiaí e Votorantim; emissora regional. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Marcelo Silva Campinas",
+      "channel_id": "UCL3ayvi_H9CPqtVXNPkqFCg",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Campinas; podcast sobre bairros da cidade (DICs, Ouro Verde, BRT). Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Marisa de Sorocaba SP 🫶",
+      "channel_id": "UC1HtJdnz4dmUGO9__85kxQA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Sorocaba; culinária doméstica, mesmo perfil de Sabor com Dri na BA. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Fernanda Moura",
+      "channel_id": "UCeJ5Sl13o5gsHzhLu5iNaaQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Sorocaba; vlog de rotina e vida na cidade. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Daiani Oliveira",
+      "channel_id": "UCUuFUzzgNnfcGR2_RSEtPiw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "São José do Rio Preto; rotina doméstica e organização da casa. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Renato160",
+      "channel_id": "UCQzx8M3ps9RtdMYqhXiOEuA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Capital e Osasco; entregador de aplicativo, fala corrida — mesmo perfil de Marco Santos 012. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "Show me Hao",
+      "channel_id": "UCYp7rgmQUHm5Ri-qMqw5aHw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Capital paulista; rotina e percursos pelo centro histórico. Levantado na rodada de igualação de 31/08/2026"
+    },
+    {
+      "canal": "TH+ Record",
+      "channel_id": "UCNgMVzA8J4Ns0TwySjcj7jQ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "a_confirmar",
+      "nota": "Piracicaba; sabatinas do Portal THMais. ATENÇÃO: pode ser a mesma redação de 'TH+ SBT Interior', já em fontes.json — confirmar antes de tratar como fonte independente"
+    },
+    {
+      "canal": "Repórter Diário",
+      "channel_id": "UCvJzktIjn5ZMBgwODPHCt5A",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "ABC paulista (Diadema, Mauá, São Bernardo); pauta majoritariamente institucional — confirmar se há fala de morador"
     }
   ],
   "RJ": [
@@ -906,6 +1278,62 @@
       "tipo_fonte": "entrevista_vox_pop",
       "situacao": "a_confirmar",
       "nota": "Belford Roxo e Baixada Fluminense; moradores em pauta. Mesmo problema de data do CANAL DO MARINHO: o acervo aparenta ser de 2013–2014 — confirmar atividade"
+    },
+    {
+      "canal": "Produtora TBE Midia",
+      "channel_id": "UCvaF1EGevRAOHZN8HICJbMA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "a_confirmar",
+      "nota": "Baixada Fluminense (Nova Iguaçu, Queimados, Seropédica); programas locais 'Baixada News' e 'Baixada Esportiva'. O acervo recente aparenta ser de 2023–2024 — confirmar atividade"
+    },
+    {
+      "canal": "TV METROPOLITANA RIO",
+      "channel_id": "UCKBF1-_f_oUDQFaOpjF0Jng",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "a_confirmar",
+      "nota": "Duque de Caxias; cobertura local, mas parte do acervo é lançamento de campanha política — confirmar a natureza do canal"
+    },
+    {
+      "canal": "Rádio Roquette-Pinto",
+      "channel_id": "UC9Rogd4Dz00edprokEQG-ZA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Emissora pública do estado do RJ; programas com entrevista. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "Café Underground",
+      "channel_id": "UCB6eGcv7gZ6ATFipcdaSHAg",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Nova Iguaçu e Seropédica; talkshow e reportagem local da Baixada Fluminense. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "SEANI - Sociedade dos Eng. e Arq. de Nova Iguaçu",
+      "channel_id": "UCCJ10qeciGWstAHQpR_8N4g",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Nova Iguaçu; podcast sobre a Baixada Fluminense. Ressalva: os convidados são profissionais de nível superior, de registro mais monitorado que o das demais fontes. Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "Toninho Bondade",
+      "channel_id": "UCt6uMqcGwOtZOAnNQLlfO2A",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Santa Cruz, zona oeste do Rio; morador registrando reclamação de bairro ('moradores pedem socorro', cinco dias sem água). Levantado na segunda rodada de igualação, 31/08/2026"
+    },
+    {
+      "canal": "Charla Podcast",
+      "channel_id": "UCPHvx0NxJubMU8QqZ6X_Efw",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "a_confirmar",
+      "nota": "Podcast de futebol carioca. ATENÇÃO: a evidência geográfica da triagem foi 'Botafogo' e 'Flamengo', que aqui são nomes de clube e não de bairro — é a mesma colisão de topônimo registrada em pendencias.md 6.0. Confirmar a ancoragem por outra via"
+    },
+    {
+      "canal": "Jaime França (Jaime DJ)",
+      "channel_id": "UCPEQ4oM4O5eUtizssQlfSVg",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "a_confirmar",
+      "nota": "Cascadura; grava o programa 'Rio é um Charme' da Rádio Roquette Pinto. Confirmar se é fonte independente ou mesmo acervo da emissora já aceita"
     }
   ]
 }

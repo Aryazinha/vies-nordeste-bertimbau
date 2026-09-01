@@ -14,8 +14,8 @@ A ordenação abaixo reflete o critério do `docs/roadmap.md`: aproxima-se prime
 
 | # | Pendência | Bloqueia | Seção |
 |---|---|---|---|
-| 1 | Vox-pop com apenas dois canais em PB, SP e RJ, sem folga alguma no plano de coleta | corpus final | 1.2 |
-| 1b | Assimetria de tipo de fonte entre grupos (rádio de participação) | corpus final | 1.1 |
+| ~~1~~ | ~~Vox-pop com apenas dois canais em PB, SP e RJ~~ — resolvida em 31/08/2026 pela rodada de igualação | — | 1.2 |
+| 1 | Assimetria de tipo de fonte entre grupos: rádio de participação de ouvinte, hoje verificada só em PE, BA e CE, e ausente em SP | corpus final | 1.1 |
 | 2 | Conferência dos percentuais de Oliveira (2017) | item C1 do instrumento | 3.1 |
 | 3 | Correção do instrumento de texto (molduras e atributos) | validação por juízes | 2.1, 2.2 |
 | 4 | Ambiente com GPU para o piloto de medição | piloto | 4.1 |
@@ -31,7 +31,9 @@ Programas em que o ouvinte liga — "Alô Juca" na TV Aratu (BA) e "Super Manhã
 
 O problema é que só PE e BA dispõem dela. Não se trata de diferença de quantidade, e sim de **tipo de fala**: se o material nordestino contiver fala não monitorada de gente comum e o material do grupo de controle contiver jornalismo de estúdio, a diferença observada entre os grupos passará a incluir registro e situação comunicativa, e não apenas procedência regional. O confundidor incide diretamente sobre a variável de interesse.
 
-**Encerra a pendência:** localizar programas equivalentes em PB, CE, SP e RJ; ou, não sendo possível, retirar os dois existentes e uniformizar por baixo.
+**Atualização de 31/08/2026 — a assimetria diminuiu, mas não acabou.** A rodada de igualação acrescentou ao Ceará o canal *Di Calheiros*, programa de rádio de Fortaleza que pede opinião ao ouvinte ("Qual a sua opinião sobre relacionamentos que começam nas redes sociais?"), formato até então restrito a PE e BA. Acrescentou também rádios locais em PB (*98 FM Digital*), PE (*Rádio Cidade 99.7*), BA (*Rádio Salvador FM*) e RJ (*Rádio Roquette-Pinto*), mas **não se verificou** se essas têm quadro de participação do ouvinte — a inspeção olhou ancoragem geográfica e presença de fala, não o formato. **São Paulo continua sem nenhum canal desse tipo identificado.**
+
+**Encerra a pendência:** verificar, nas rádios já aceitas de PB, PE, BA e RJ, se há quadro de participação de ouvinte; localizar um equivalente em São Paulo; ou, não sendo possível, retirar os existentes e uniformizar por baixo.
 
 ### 1.2 Camada de vox-pop com apenas dois canais — AVANÇADA, e agora é a pendência de fonte mais consequente
 
@@ -55,7 +57,13 @@ Executada pela mesma metodologia das rodadas anteriores, com consultas desenhada
 
 Uma consequência a considerar: se São Paulo permanecer com dois canais nessa camada enquanto os demais estados chegam a quatro ou cinco, a assimetria se inverte — o grupo de controle é que passa a ser o frágil. Para o experimento importa a simetria, e não o máximo por estado.
 
-**Encerra a pendência:** elevar a quatro canais por estado nessa camada. Falta São Paulo, que exige estratégia diferente da busca por palavra-chave — provavelmente partir de emissoras regionais paulistas conhecidas e de projetos de jornalismo comunitário, e não de consulta genérica; falta a Bahia, em 3; e falta confirmar os dois candidatos da Paraíba.
+### Encerrada em 31/08/2026, e a hipótese sobre São Paulo confirmou-se
+
+A rodada de igualação executou exatamente a estratégia que esta seção previu para São Paulo — partir de emissora regional nomeada e de jornalismo comunitário, em vez de consulta genérica — e o estado saltou de **dois para sete** canais de vox-pop, entre eles a *Agência Mural de Jornalismo das Periferias*, que entrevista moradores de Sapopemba, Paraisópolis e São Mateus. A previsão registrada aqui era, portanto, correta: o problema não era ausência de jornalismo de bairro paulista, era a consulta.
+
+Situação final da camada, por estado: PB 6, PE 6, CE 5, BA 5, SP 7, RJ 6. **Todos acima da meta de quatro.**
+
+E o motivo pelo qual a pendência havia sido promovida a prioridade 1 — a ausência de folga — desapareceu junto: o plano de `meta_corpus_autonomo.md` passou a empregar cinco canais por estado, com margem em quatro deles, em vez de consumir a camada inteira.
 
 ### 1.3 ~~Interior da Bahia descoberto~~ — RESOLVIDA em 31/08/2026
 
@@ -63,7 +71,7 @@ O registro original apontava que apenas 3 dos 10 canais baianos tinham marca de 
 
 **Três das quatro foram cobertas**, entre a inspeção de conteúdo e a rodada de reforço: Vitória da Conquista (*Marcinha De jesus*), Itabuna (*azulzinho Itabuna*, vox-pop) e Barreiras (*Guilherme Barreto*). Somam-se Alagoinhas (*Paty Miranda*), Paulo Afonso (*Motovlog do Marcelo*), Piritiba e Jacobina (*Rosa Oliveira*) e Ilhéus (*NEIZINHO ANDRADE*). Dos 19 canais baianos verificados, **13 têm marca de interior**, contra 3 de 10 no registro original, e nenhum deles depende da conurbação de Juazeiro.
 
-Feira de Santana segue descoberta — os candidatos testados para ela nas duas rodadas foram todos rejeitados por falta de ancoragem geográfica recorrente. Não bloqueia: a condição de encerramento era disjuntiva.
+**Feira de Santana foi coberta em 31/08/2026**, na rodada de igualação, pelo *Programa Acorda Cidade* — podcast e noticiário local da cidade. Com isso, as quatro cidades nomeadas na condição de encerramento estão cobertas.
 
 ### 1.4 Treze canais em situação `a_confirmar` — RESOLVIDA em 31/08/2026
 
