@@ -51,7 +51,13 @@ Estas travam a publicação do dataset e **não devem ser respondidas pela equip
 
 **Contexto original.** O protocolo do projeto fixou publicar identificadores de vídeo e código, nunca o áudio bruto. Nunca decidiu sobre a **transcrição**, que não é nem uma coisa nem outra. Corpora de fala publicam transcrições rotineiramente, mas uma transcrição é obra derivada do vídeo, e o conteúdo é de terceiros.
 
-## 2.2 Sob que licença podemos publicar, e o que exatamente ela cobre?
+## 2.2 Sob que licença podemos publicar, e o que exatamente ela cobre? — RESPONDIDA em 01/09/2026, pela equipe
+
+**Decisão:** licença em três camadas. CC BY 4.0 para o que é autoria do projeto; MIT para o código; e, para as transcrições, **nenhuma licença aberta** — em vez disso, uma declaração de que o material é disponibilizado para pesquisa e de que o projeto não reivindica direitos sobre a fala original (texto em `LICENSE-DATA.md`).
+
+**O raciocínio, para que a orientação possa corrigi-lo se for o caso.** Licença é permissão concedida sobre obra própria. A fala transcrita é de terceiros, publicada por eles; transcrevê-la é trabalho, não aquisição de direito. Conceder CC BY — que autoriza inclusive uso comercial — seria afirmar titularidade que o projeto não tem, e é afirmação que um parecerista de trilha de ética pode questionar. A declaração de uso em pesquisa preserva a reprodutibilidade, que é o que a submissão exige, sem essa afirmação.
+
+**Permanece útil a opinião da orientação** sobre se a cautela corresponde à prática da área, mas o ponto deixou de bloquear a publicação.
 
 **Contexto.** A orientação técnica é licença em duas camadas — CC BY 4.0 para o que é autoria do projeto e MIT para o código —, decidida em 31/08/2026 (`LICENSE`, `LICENSE-DATA.md`). A transcrição está agora autorizada a ser publicada (ver 2.1), mas segue fora do escopo do CC BY: licenciar exigiria titularidade que o projeto não tem sobre a fala de terceiros. Não sabemos se essa cautela é necessária ou excessiva frente à prática da área, nem que licença (se alguma) se aplicaria à transcrição especificamente.
 
@@ -145,7 +151,7 @@ Se houver tempo para poucas perguntas, esta é a ordem de retorno:
 
 1. **1.1 e 1.2** — enquadramento e veículo, porque determinam o significado de tudo o mais.
 2. **1.4** — o BERTimbau Large, porque precede o fechamento do enquadramento e é barato.
-3. **2.2** — a licença específica da transcrição, porque trava a publicação e tem prazo próprio (2.1 e 2.3 já foram decididas pela equipe, ver acima).
+3. ~~**2.2**~~ — também decidida pela equipe em 01/09/2026; o bloco 2 inteiro está resolvido, e o que resta ali é confirmação, não decisão.
 4. **3.1** — o delineamento de calibração, porque é a peça sobre a qual os resultados repousam.
 
 O restante pode ser resolvido por escrito depois.

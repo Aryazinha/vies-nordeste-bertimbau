@@ -8,8 +8,23 @@ Isso permite copiar, redistribuir e adaptar o material para qualquer finalidade,
 
 **Não cobre:**
 
-- **As transcrições de fala.** Não são autoria do projeto — são fala de terceiros que o projeto transcreveu —, e licenciá-las sob CC BY exigiria titularidade que o projeto não tem. **Decidido em 31/08/2026:** a equipe autorizou a publicação das transcrições, condicionada à anonimização de nomes próprios de terceiros já exigida pelo protocolo (`docs/protocolo.md` §1.4.2) — mas isso resolve apenas se podem ser publicadas, não sob que licença. A transcrição segue fora do escopo do CC BY até que esse ponto mais estreito seja decidido (`docs/questoes_para_orientacao.md`, pergunta 2.2). A anonimização em si também não está implementada ainda.
+- **As transcrições de fala**, cujos termos estão declarados à parte, logo abaixo.
 - **O áudio bruto**, que não é redistribuído em nenhuma hipótese (`docs/protocolo.md` §1.4.2).
 - **O código**, licenciado à parte sob MIT (ver `LICENSE`).
 
 **Decisão registrada em:** 31/08/2026.
+
+---
+
+# Termos das transcrições de fala
+
+**Decidido em 01/09/2026.** As transcrições **não** são publicadas sob CC BY, e a razão é de titularidade, não de cautela excessiva: licença é permissão que se concede sobre obra própria, e a fala transcrita é de terceiros, publicada por eles nos respectivos canais. O projeto realizou o trabalho de transcrever; não adquiriu com isso direito sobre o que foi dito.
+
+**Declaração aplicável às transcrições:**
+
+> Estas transcrições derivam de fala publicada publicamente por terceiros em plataforma aberta. O projeto as disponibiliza para uso em pesquisa acadêmica e **não reivindica direitos sobre a fala original**. Nomes próprios de terceiros mencionados foram mascarados. Quem as reutilizar assume a verificação das condições aplicáveis ao conteúdo de origem, cujos identificadores são publicados junto ao conjunto.
+
+**O que isso permite e o que não permite.** Permite uso em pesquisa, citação e verificação dos resultados do projeto — que é o que a reprodutibilidade exige. Não concede as permissões amplas do CC BY, em especial a de uso comercial, porque essas o projeto não tem como conceder.
+
+**Condição prévia, ainda não cumprida:** a anonimização de nomes próprios exigida pelo protocolo (`docs/protocolo.md` §1.4.2) está implementada em `pipeline_coleta_piloto/anonimizar_transcricao.py`, mas **não foi executada**. Nenhuma transcrição pode ser publicada antes disso.
+

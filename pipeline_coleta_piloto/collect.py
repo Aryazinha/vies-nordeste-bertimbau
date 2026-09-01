@@ -44,6 +44,15 @@ class VideoMetadata:
     estado_alvo: str
     tipo_fonte: str
     trecho: Optional[dict] = None
+    # Herdado do canal em fontes.json, como estado_alvo e tipo_fonte. Diz se o
+    # canal tem quadro de participação de ouvinte — não se ESTE trecho contém
+    # fala de ouvinte, que é o campo seguinte.
+    canal_tem_participacao_ouvinte: str = "nao_verificado"
+    # Fato do arquivo, e só se estabelece ouvindo. Nasce 'nao_verificado' de
+    # propósito: é o volume de fala de ouvinte por estado que precisa ser
+    # equilibrado ou descontado, e contagem de canal não mede volume
+    # (docs/pendencias.md, seção 1.1).
+    participacao_ouvinte: str = "nao_verificado"
     title: str = ""          # auxiliar de triagem, não faz parte do schema final publicado
 
 
@@ -74,7 +83,8 @@ def duracao_coletada_s(registro) -> Optional[int]:
 
 
 def triagem_metadados(url: str, estado_alvo: str, tipo_fonte: str,
-                      trecho: Optional[dict] = None) -> VideoMetadata:
+                      trecho: Optional[dict] = None,
+                      canal_participacao: str = "nao_verificado") -> VideoMetadata:
     """
     Extrai apenas metadados (sem baixar mídia) — útil para decidir, em lote,
     quais vídeos entram na coleta antes de gastar banda/tempo com download.
@@ -120,6 +130,7 @@ def triagem_metadados(url: str, estado_alvo: str, tipo_fonte: str,
         estado_alvo=estado_alvo,
         tipo_fonte=tipo_fonte,
         trecho=trecho,
+        canal_tem_participacao_ouvinte=canal_participacao,
         title=info.get("title", ""),
     )
     logger.info("Triagem OK: %s | canal=%s | %ss | %s/%s",
@@ -181,8 +192,10 @@ def coletar_lote(video_specs: list[dict]) -> list[VideoMetadata]:
     for spec in video_specs:
         try:
             trecho = spec.get("trecho")
-            meta = triagem_metadados(spec["url"], spec["estado_alvo"],
-                                     spec["tipo_fonte"], trecho=trecho)
+            meta = triagem_metadados(
+                spec["url"], spec["estado_alvo"], spec["tipo_fonte"], trecho=trecho,
+                canal_participacao=spec.get("canal_tem_participacao_ouvinte",
+                                            "nao_verificado"))
             baixar_audio(spec["url"], meta.id, trecho=trecho)
             resultados.append(meta)
         except Exception as exc:  # noqa: BLE001 — lote não pode parar por 1 vídeo

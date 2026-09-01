@@ -102,7 +102,16 @@ def montar_spec(video: dict, canal: dict, estado: str) -> dict:
 
     `estado_alvo` e `tipo_fonte` vêm do canal, jamais digitados à mão — é o
     que faz a regra de atribuição de `docs/fontes_coleta.md` valer também em
-    tempo de execução.
+    tempo de execução. Desde 01/09/2026 o mesmo vale para
+    `canal_tem_participacao_ouvinte`, herdado de `fontes.json`.
+
+    **Dois campos, e a distinção é o ponto.** `canal_tem_participacao_ouvinte`
+    é fato do canal e vem de graça; `participacao_ouvinte` é fato do arquivo e
+    só se estabelece ouvindo, de modo que nasce `nao_verificado`. Confundi-los
+    daria a ilusão de medida: um canal ter quadro de ouvinte não significa que
+    este trecho específico contenha fala de ouvinte, e é o volume por estado —
+    não a contagem de canais — que precisa ser equilibrado ou descontado
+    (`docs/pendencias.md`, seção 1.1).
     """
     spec = {
         "url": f"https://www.youtube.com/watch?v={video['id']}",
@@ -111,6 +120,8 @@ def montar_spec(video: dict, canal: dict, estado: str) -> dict:
         "tipo_fonte": canal["tipo_fonte"],
         "canal": canal["canal"],
         "channel_id": canal["channel_id"],
+        "canal_tem_participacao_ouvinte": canal.get("participacao_ouvinte", "nao_verificado"),
+        "participacao_ouvinte": "nao_verificado",
         "titulo": video["titulo"],
         "duracao_total_s": video["duracao_s"],
     }

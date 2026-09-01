@@ -42,15 +42,16 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 | 12 | TikTok, Instagram e Spotify — decidido não incorporar, em nenhuma forma |
 | 13 | Tamanho-alvo dos pares mínimos: 37 por condição, 80 de referência |
 | 14 | Formato de publicação dos pares mínimos: JSON canônico com 85 pares em 13 condições, gerado por `empacotar_pares.py`, com conversor tabular sob demanda |
+| — | Participação de ouvinte medível: campo no nível do canal e no do arquivo, propagado pela coleta e reportado por `balanco_participacao.py` (01/09/2026) |
+| — | Licença das transcrições: declaração de uso em pesquisa, sem CC BY, por não haver titularidade sobre a fala de terceiros (01/09/2026) |
 
 ### Ainda falta
 
 | # | O que falta | Do que depende |
 |---|---|---|
-| 9 (resto) | Três lacunas da ficha: taxa de erro de transcrição (ferramenta pronta, `medir_wer.py`; **adiada deliberadamente**), execução da anonimização (ferramenta pronta, `anonimizar_transcricao.py`), licença específica da transcrição | Trabalho humano (transcrever para o WER; revisar os nomes propostos) e decisão da equipe (licença — `docs/questoes_para_orientacao.md` 2.2) |
+| 9 (resto) | Duas lacunas da ficha, ambas de execução e nenhuma de decisão: taxa de erro de transcrição (ferramenta pronta, `medir_wer.py`; **adiada deliberadamente**) e execução da anonimização (ferramenta pronta, `anonimizar_transcricao.py`) | Trabalho humano: transcrever para o WER; revisar os nomes propostos |
 | — | Execução dos dois métodos de verificação hoje desenhados (`verificar_reincidencia.py`, `preparar_amostra_coerencia.py`) | Ambiente com áudio e `pyannote.audio` (Colab); não roda nesta máquina |
 | — | Execução da anonimização (`anonimizar_transcricao.py`, escrito em 31/08/2026) | `spaCy` com modelo de português, hoje não instalado; abrir os pacotes de resultados; e a revisão humana que a segunda fase do script exige |
-| — | Campo `participacao_ouvinte` acrescentado a `fontes.json` em 31/08/2026 (pendência 1.1), no nível do canal. Falta o equivalente no nível do arquivo, que é o que de fato permite equilibrar ou descontar o volume de fala de ouvinte por estado | Registro na coleta |
 | — | Três campos novos do esquema, discutidos em 31/08/2026: transcrição confirmada, mas **features de texto** e **features de áudio** seguem como listas abertas, e o papel da análise de sentimento (se algum) não foi decidido | Equipe completar as listas; decidir qual das três ideias de sentimento será executada (`docs/pendencias.md` D10) |
 
 ## Camada de execução, em números

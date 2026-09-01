@@ -15,7 +15,7 @@ A ordenação abaixo reflete o critério do `docs/roadmap.md`: aproxima-se prime
 | # | Pendência | Bloqueia | Seção |
 |---|---|---|---|
 | ~~1~~ | ~~Vox-pop com apenas dois canais em PB, SP e RJ~~ — resolvida em 31/08/2026 pela rodada de igualação | — | 1.2 |
-| 1 | Assimetria de tipo de fonte entre grupos: rádio de participação de ouvinte, hoje verificada só em PE, BA e CE, e ausente em SP | corpus final | 1.1 |
+| 1 | Ouvir e preencher `participacao_ouvinte` nos arquivos de canal com o formato; acompanhar o balanço na coleta futura | corpus final | 1.1 |
 | 2 | Conferência dos percentuais de Oliveira (2017) | item C1 do instrumento | 3.1 |
 | 3 | Correção do instrumento de texto (molduras e atributos) | validação por juízes | 2.1, 2.2 |
 | 4 | Ambiente com GPU para o piloto de medição | piloto | 4.1 |
@@ -47,7 +47,18 @@ A assimetria da seção 1.1, portanto, **não é falha de busca: é fato de estr
 
 Não existe valor `não`, e a razão é metodológica: a varredura de títulos é **limite inferior, não medida**. A prova está no próprio *Alô Juca* da TV Aratu, que tem o formato — registrado desde o levantamento original — e não deixou sinal algum nos quinze títulos mais recentes. Escrever `não` nos 36 canais restantes seria afirmar o que não foi estabelecido.
 
-**Encerra a pendência:** registrar, no nível do **arquivo** e não do canal, se a fala coletada é de ouvinte participando. O campo de canal é proxy grosseiro: ter um canal desses em cada estado não equilibra nada se a coleta render quarenta minutos de fala de ouvinte na Bahia e quatro em São Paulo. O que precisa ser equilibrado — ou descontado na análise — é o **volume de fala de ouvinte por estado**.
+### Instrumento implementado em 01/09/2026
+
+O campo passou a existir nos dois níveis, e a distinção entre eles é o ponto:
+
+- `canal_tem_participacao_ouvinte`, herdado de `fontes.json` pela mesma via por que `estado_alvo` e `tipo_fonte` já vinham do canal (`selecionar_videos.py`, `collect.py`). Custa nada e serve para indicar quais arquivos vale a pena ouvir.
+- `participacao_ouvinte`, fato do arquivo, que só se estabelece ouvindo e nasce `nao_verificado`.
+
+`pipeline_coleta_piloto/balanco_participacao.py` relata o volume por estado e compara os grupos, alertando quando o Nordeste tem proporção sensivelmente maior que o controle. Enquanto ninguém tiver ouvido, o relatório mostra zero — e o texto do próprio relatório diz que zero ali significa **quantidade desconhecida, não nula**.
+
+**Achado da primeira execução, e ele reduz a urgência.** Dos 52 arquivos já coletados, **apenas um** vem de canal com o formato: um trecho de 8,6 min da TV Aratu, na Bahia. O desequilíbrio, portanto, quase não existe no material que está no disco — a ameaça é **prospectiva**, e incide sobre a coleta que ainda será feita, quando as rádios de participação passarem a ser exploradas.
+
+**Encerra a pendência:** ouvir os arquivos de canal com o formato e preencher `participacao_ouvinte`; e, quando a coleta avançar, acompanhar o relatório de balanço para equilibrar ou descontar. Não há mais decisão pendente aqui — só execução.
 
 **Por que isso importa, e é a parte que não pode ser perdida.** Fala de ouvinte ao telefone é o registro menos monitorado de todo o corpus, e os marcadores regionais que o projeto investiga são mais frequentes em fala informal. Se o grupo nordestino tem esse tipo de fala e o grupo de controle não, o contraste entre as regiões fica inflado **na direção que favorece a hipótese do projeto**. É viés que não pode permanecer sem medida.
 

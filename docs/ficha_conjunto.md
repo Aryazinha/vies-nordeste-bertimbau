@@ -140,9 +140,9 @@ Adotados: YouTube e podcast por feed aberto. Excluídos: Spotify, por vedação 
 **Estatuto da transcrição — decidido em 31/08/2026.** A transcrição **pode ser publicada**, condicionada à anonimização de nomes próprios de terceiros exigida pelo protocolo (`docs/protocolo.md` §1.4.2). A decisão resolve a pergunta 2.1 de `docs/questoes_para_orientacao.md`. Duas coisas, no entanto, permanecem na camada de execução, distintas da decisão em si:
 
 1. **A anonimização foi implementada em 31/08/2026, mas não executada.** `pipeline_coleta_piloto/anonimizar_transcricao.py` opera em duas fases — propõe os nomes detectados para revisão humana e, só depois de cada item ser confirmado por uma pessoa, grava cópias mascaradas sem tocar no original. Falta rodá-la, o que exige abrir os pacotes de resultados ainda não abertos, e falta a revisão humana que a segunda fase exige. A ferramenta depende de `spaCy` com modelo de português, hoje não instalado.
-2. **A licença exata da transcrição não foi fixada.** A permissão de publicar não define automaticamente os termos de reúso: o projeto não é titular da fala de terceiros, o que torna questionável estender a ela o mesmo CC BY 4.0 aplicado a metadados e anotações (ver abaixo). Este ponto segue em aberto, mais estreito que antes.
+2. ~~A licença exata da transcrição não foi fixada.~~ **Decidida em 01/09/2026:** as transcrições não recebem CC BY, e sim uma declaração de uso em pesquisa que explicita a não reivindicação de direitos sobre a fala original (texto integral em `LICENSE-DATA.md`). O motivo é de titularidade: licença é permissão sobre obra própria, e a fala é de terceiros.
 
-**Sob que licença?** **Decidido em 31/08/2026.** CC BY 4.0 para o que é autoria do projeto — metadados, anotações, documentação, pares mínimos (ver `LICENSE-DATA.md`) — e MIT para o código (`LICENSE`). A transcrição está autorizada a ser publicada (ver acima), mas segue **fora do escopo da licença CC BY** até que a equipe decida especificamente os termos sob os quais ela é distribuída.
+**Sob que licença?** **Decidido em 31/08 e 01/09/2026, em três camadas.** CC BY 4.0 para o que é autoria do projeto — metadados, anotações, documentação, pares mínimos (`LICENSE-DATA.md`); MIT para o código (`LICENSE`); e, para as **transcrições**, uma declaração de uso em pesquisa, sem CC BY, que registra que o projeto não reivindica direitos sobre a fala original. As três camadas estão escritas por extenso em `LICENSE-DATA.md`.
 
 **Há restrições de terceiros?** Sim. Os termos de uso da plataforma de origem e os direitos sobre o conteúdo dos vídeos.
 
@@ -220,7 +220,7 @@ Registradas aqui para que a preliminaridade do documento não se perca:
 | A.1 | Vinculação institucional e financiamento | **Fechada em 31/08/2026** — sem vínculo institucional |
 | A.3 | Revisão por comitê de ética | **Fechada em 31/08/2026** — dispensada por decisão da equipe |
 | A.4 | Taxa de erro de transcrição não medida | Aberta, **adiada deliberadamente em 31/08/2026** — ferramenta completa (`amostra_wer.json` + `pipeline_coleta_piloto/medir_wer.py`), falta a transcrição manual em si; a equipe decidiu não fazê-la agora, registrando o WER como não medido até lá |
-| A.6 | Forma de distribuição, estatuto da transcrição, licença | **Estatuto decidido em 31/08/2026** (pode publicar, mediante anonimização) e **ferramenta de anonimização escrita na mesma data**; seguem abertas a **execução da anonimização**, com a revisão humana que ela exige, e a **licença específica da transcrição** |
+| A.6 | Forma de distribuição, estatuto da transcrição, licença | **Fechada quanto às decisões:** pode publicar (31/08), mediante anonimização, sob declaração de uso em pesquisa (01/09). Resta **executar a anonimização**, com a revisão humana que ela exige |
 | A.7 | Contato de manutenção, canal de erros | **Fechada em 31/08/2026** — GitHub confirmado |
 | B.5 | Formato e licença | **Licença decidida**; formato segue proposto e não confirmado |
 
