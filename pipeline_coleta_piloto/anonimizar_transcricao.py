@@ -218,10 +218,19 @@ def _tokens_do_canal(canal: str) -> set[str]:
 
 
 def nomes_do_registro(reg: dict, nlp) -> dict[str, list[str]]:
-    """Nomes de pessoa detectados, com os trechos em que aparecem."""
+    """
+    Nomes de pessoa detectados, com os trechos em que aparecem.
+
+    O contexto inclui o segmento anterior e o seguinte, e não apenas aquele em
+    que o nome caiu. A primeira revisão mostrou por quê: um quarto dos itens
+    vinha com trecho curto demais para julgar — "um, manda a Matias" não diz se
+    Matias é pessoa, bairro ou erro de transcrição —, e sem a vizinhança quem
+    revisa teria de abrir o vídeo. A janela transforma a revisão em leitura, que
+    é o que ela precisa ser para caber no tempo de alguém.
+    """
+    segmentos = [s["text"].strip() for s in reg["transcricao"]["segmentos"]]
     achados: dict[str, list[str]] = defaultdict(list)
-    for seg in reg["transcricao"]["segmentos"]:
-        texto = seg["text"].strip()
+    for i, texto in enumerate(segmentos):
         if not texto:
             continue
         for ent in nlp(texto).ents:
@@ -231,7 +240,8 @@ def nomes_do_registro(reg: dict, nlp) -> dict[str, list[str]]:
             if len(nome) < 2:
                 continue
             if len(achados[nome]) < CONTEXTOS_POR_NOME:
-                achados[nome].append(texto)
+                janela = segmentos[max(0, i - 1): i + 2]
+                achados[nome].append(" ".join(x for x in janela if x))
     return achados
 
 
