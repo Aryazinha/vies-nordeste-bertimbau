@@ -9,8 +9,9 @@
       "podcast_radio_tv_regional",
       "vlog_amador"
     ],
-    "atualizado_em": "2026-08-27",
-    "nota_vlogs": "Camada vlog_amador ampliada em 27/08/2026. Dos 101 candidatos levantados, 34 passaram na triagem automática e 13 sobreviveram à revisão humana. Ver docs/fontes_coleta.md, seção 2.4."
+    "atualizado_em": "2026-08-31",
+    "nota_vlogs": "Camada vlog_amador ampliada em 27/08/2026. Dos 101 candidatos levantados, 34 passaram na triagem automática e 13 sobreviveram à revisão humana. Ver docs/fontes_coleta.md, seção 2.4. Em 31/08/2026: 13 canais adicionais (11 antigos + 2 novos) tiveram a inspeção de conteúdo concluída — 10 aprovados, 3 rejeitados (Samiele Batista, Alan City, Kellynha Costa). Duplicata de 'Vlog com Diogo' em PE (mesmo channel_id, duas entradas) corrigida na mesma revisão.",
+    "nota_reforco_pe_ba": "Rodada de reforço de PE e BA em 31/08/2026 (pendência D1). 178 candidatos levantados por busca real com yt-dlp, 62 aprovados na triagem automática de verificar_fontes.py, e 24 sobreviveram à revisão de conteúdo: 13 aceitos e 11 marcados a_confirmar. As rejeições concentraram-se em quatro perfis já previstos — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking. Um caso de falante migrante foi identificado e rejeitado (Marcela Sevla, mudança de São Paulo para Barreiras-BA declarada no próprio acervo)."
   },
   "PB": [
     {
@@ -94,8 +95,8 @@
       "canal": "Daniel Alves",
       "channel_id": "UCEiUJdzUOkOsj8SK6nscZBg",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "João Pessoa e Cabedelo; confirmar se não é conteúdo imobiliário"
+      "situacao": "verificado",
+      "nota": "João Pessoa e Cabedelo. Verificado em 31/08/2026: canal é majoritariamente vlog; apenas 3 vídeos antigos são de conteúdo imobiliário — excluir esses 3 títulos específicos na seleção de vídeos, não o canal inteiro."
     }
   ],
   "PE": [
@@ -152,15 +153,15 @@
       "canal": "ESTRELA ALVES",
       "channel_id": "UChpNJfaiccqD5FjbPhZ0AfA",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "Comunidade Sanharó, agreste de PE"
+      "situacao": "verificado",
+      "nota": "Comunidade Sanharó, agreste de PE. Verificado em 31/08/2026: vlog genuíno, sem ressalva."
     },
     {
       "canal": "Vlog com Diogo",
       "channel_id": "UCccloBzO8YHKF0GqcunbHfQ",
       "tipo_fonte": "vlog_amador",
       "situacao": "verificado",
-      "nota": "Caruaru; feira e cotidiano do agreste"
+      "nota": "Caruaru-PE; feira e cotidiano do agreste. Reencontrado na busca de 31/08/2026: 6 dos 6 títulos recentes mencionam Caruaru explicitamente, framing consistente de vida cotidiana na cidade."
     },
     {
       "canal": "candido leal",
@@ -182,6 +183,90 @@
       "tipo_fonte": "entrevista_vox_pop",
       "situacao": "verificado",
       "nota": "Recife e Caruaru; reportagem policial com moradores"
+    },
+    {
+      "canal": "Samiele Batista",
+      "channel_id": "UCzlLN4QsByBHXWTESR0n8gw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "rejeitado",
+      "nota": "Caruaru-PE, Feira da Sulanca. Rejeitado em 31/08/2026: apesar de ancoragem geográfica forte, o canal é voltado a exibir vitrines de preço — conteúdo comercial, não fala espontânea."
+    },
+    {
+      "canal": "Tavares",
+      "channel_id": "UCWaNMrzlM_sd9iAJWT4trmg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Recife e Olinda; vlog de rotina pessoal, com registro consistente do cotidiano na cidade. Levantado na busca de 31/08/2026"
+    },
+    {
+      "canal": "Daniela Cavalcante",
+      "channel_id": "UCva52Krqb6YZWvXHhk7A34g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Recife; residência declarada no próprio acervo ('morando em Recife'). Parte dos vídeos é viagem para fora do estado, a excluir na seleção de vídeos, não o canal. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Lary lima D Td um pouco",
+      "channel_id": "UCMza9HIEz3PaeLG4IitFojQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Petrolina; rotina de trabalho e passeios pela cidade. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "SERTÃO MAMOEIRO OFICIAL",
+      "channel_id": "UCVYWd8cx3B-D2jD4WAlAxQA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Sertão pernambucano (Mirandiba, Serrita, Exu); 'repórter matuto' entrevistando moradores rurais. Amplia o vox-pop do estado, que dependia de três canais institucionais. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Carona Com Renato",
+      "channel_id": "UCzDXZmQWXBnBvfB-BC6_goA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Região metropolitana do Recife (Ibura, Jaboatão, Abreu e Lima, Igarassu); entregador de aplicativo, fala corrida ao volante. Mesmo perfil dos canais de entregador já aceitos em SP. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Mabel Lima vlog",
+      "channel_id": "UC9lILDEz_hZx_EUAoVAx2Ig",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Arcoverde; rotina doméstica. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Audenor Marinho",
+      "channel_id": "UC6ZT--7bviurZ5VPgAoVwZg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Garanhuns e Arcoverde; vlog familiar do agreste. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Valdelice Lopes",
+      "channel_id": "UCWEUc9qAWK14k2ejIzkVF2w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Garanhuns; vlog familiar, mas parte do acervo é gravada em Maceió-AL — confirmar residência"
+    },
+    {
+      "canal": "Papo de Custom.",
+      "channel_id": "UCZUgMDkev49QAFBJ07m3MDg",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Arcoverde e agreste; motovlog. Confirmar se os deslocamentos permanecem em PE e se há fala além de conteúdo sobre motos"
+    },
+    {
+      "canal": "Ane e Clécia",
+      "channel_id": "UCGLMRK_0KUxD1kneb0W7N0A",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Caruaru; mistura conteúdo pessoal com vitrine da Feira da Sulanca — confirmar a proporção de fala espontânea, dado o precedente de rejeição de Samiele Batista"
+    },
+    {
+      "canal": "May Paulino Oficial",
+      "channel_id": "UC5A_cPsBNHf7HTSFYSo7Wgw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Belo Jardim; conteúdo de dicas domésticas — confirmar se é fala espontânea ou roteiro lido, dado o precedente de rejeição de Alan City"
     }
   ],
   "CE": [
@@ -294,8 +379,8 @@
       "canal": "Evelyn Ferreira",
       "channel_id": "UCKloHJ0XbUJYAoL2JBAYDdQ",
       "tipo_fonte": "entrevista_vox_pop",
-      "situacao": "a_confirmar",
-      "nota": "Fortaleza e Canindé; séries documentais, confirmar se é portfólio jornalístico"
+      "situacao": "verificado",
+      "nota": "Fortaleza e Canindé. Verificado em 31/08/2026: conteúdo mostra jornalista entrevistando moradores, com pessoas dando entrevistas — caracteriza vox-pop genuíno, não portfólio autopromocional."
     }
   ],
   "BA": [
@@ -359,8 +444,8 @@
       "canal": "Band Bahia Oficial",
       "channel_id": "UClXz2Nus3ASfscB60dC5gxQ",
       "tipo_fonte": "podcast_radio_tv_regional",
-      "situacao": "a_confirmar",
-      "nota": "Emissora regional; conteúdo esportivo de estúdio"
+      "situacao": "verificado",
+      "nota": "Emissora regional. Verificado em 31/08/2026: tem falas espontâneas e entrevistas, não é só apresentador de estúdio."
     },
     {
       "canal": "Sabor com Dri",
@@ -380,8 +465,106 @@
       "canal": "João Yurley",
       "channel_id": "UClf8--I7S_LWx7exp4afLWw",
       "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Ilhéus. Verificado em 31/08/2026: tem falas de verdade; parte do acervo é jogo eletrônico e deve ser excluída na seleção de vídeos, não o canal inteiro."
+    },
+    {
+      "canal": "Marcinha De jesus",
+      "channel_id": "UCy68xBDnTa0OPlB6Sy1ubtQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Interior da Bahia. Verificado em 31/08/2026: base real confirmada como Vitória da Conquista, resolvendo a divergência com a menção a Itagi."
+    },
+    {
+      "canal": "NEIZINHO ANDRADE OFICIAL",
+      "channel_id": "UCV-77YQgMqWu5p0KfGIn4sQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Ilhéus; cotidiano doméstico e de trabalho, fala espontânea de registro informal. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "azulzinho Itabuna",
+      "channel_id": "UCv1KxHFXihFTvNnoHT_-i4A",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Itabuna; reportagem policial de bairro com moradores. Amplia o vox-pop do estado, que dependia de dois canais. ATENÇÃO: conteúdo de violência é o mais sujeito a restrição etária no download (docs/pendencias.md, 4.5). Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Guilherme Barreto",
+      "channel_id": "UCLFxlZDs5NKtvu6zvs93zpw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Barreiras; vlog esportivo de corrida e ciclismo, com fala espontânea. Cobre o oeste baiano, antes ausente. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Paty Miranda /Diario da Roça",
+      "channel_id": "UC0tX5_9zLfx8gGXahM2_aiA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Roça na região de Alagoinhas; cotidiano rural, plantio e vida na chácara. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Motovlog do Marcelo",
+      "channel_id": "UC-tMiPsnmQyGAwBCLWSOQaw",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Paulo Afonso; motorista de aplicativo, fala corrida. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Rosa Oliveira\\Vida na Roça",
+      "channel_id": "UC4VeAPlqjl6oE9Wgy9HJB9w",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "verificado",
+      "nota": "Piritiba e Jacobina; cotidiano rural, seca e feira livre. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Dikey",
+      "channel_id": "UCL_atMqmbs73s7mTlj9itSw",
+      "tipo_fonte": "vlog_amador",
       "situacao": "a_confirmar",
-      "nota": "Ilhéus; parte do acervo é jogo eletrônico"
+      "nota": "Feira de Santana; vlog de casal, mas há registro de mudança saindo de Rio Largo-AL — confirmar residência atual e desde quando"
+    },
+    {
+      "canal": "TONY NA TRILHA ILHÉUS-BA",
+      "channel_id": "UCOA049qbPQbrj4bfIM-3dNA",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Ilhéus e Itabuna; conteúdo de trajeto e rota, sempre dentro do sul da Bahia — confirmar se há fala espontânea além de narração de percurso"
+    },
+    {
+      "canal": "Rubens Vilas Bôas",
+      "channel_id": "UC7mLxpLdK0Rk2IxX-K4SxeQ",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Juazeiro-BA; série sobre bairros da cidade. ATENÇÃO: mesma conurbação com Petrolina-PE que já pesa sobre Jairo DroneX, num estudo que compara BA e PE"
+    },
+    {
+      "canal": "DIRIGINDO POR AÍ!",
+      "channel_id": "UCvI5L463s8uabGisu-oSe5g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Alagoinhas e Salvador; imagens de trajeto ao volante — confirmar se há fala ou apenas imagem"
+    },
+    {
+      "canal": "Thaís Oliveira",
+      "channel_id": "UCeytwPUgQgdfNUEkaWydw6g",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Salvador e Alagoinhas; mistura passeio turístico e conteúdo doméstico — confirmar residência"
+    },
+    {
+      "canal": "Pietra teles",
+      "channel_id": "UC9KurDqmrW3g7OTNZW6mmag",
+      "tipo_fonte": "vlog_amador",
+      "situacao": "a_confirmar",
+      "nota": "Jacobina; vlog estudantil de rotina escolar. A autora aparenta ser menor de idade — a ficha do conjunto não trata do caso, e a inclusão de criador menor é decisão da equipe antes de qualquer coleta"
+    },
+    {
+      "canal": "Tv Carnaíba",
+      "channel_id": "UCROjHxHjR0_dVd_uVDi79aA",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "a_confirmar",
+      "nota": "Sertão baiano (Juazeiro, Sento-Sé, Uauá, Canudos); confirmar se há entrevista com moradores ou apenas narração sobre imagens"
     }
   ],
   "SP": [
@@ -480,15 +663,15 @@
       "canal": "Alan City",
       "channel_id": "UCOu8tmZzHxFdpui4q6n73DQ",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "História urbana da capital; verificar se é narração roteirizada"
+      "situacao": "rejeitado",
+      "nota": "História urbana da capital paulista. Rejeitado em 31/08/2026: narração é roteiro lido, não fala espontânea."
     },
     {
       "canal": "Kellynha Costa",
       "channel_id": "UCDMuhTKfP5PxCgXFC0Sb7jg",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "Campinas e Limeira; acervo majoritariamente de 2019"
+      "situacao": "rejeitado",
+      "nota": "Campinas e Limeira. Rejeitado em 31/08/2026: canal inativo, último vídeo há 6 anos — acervo desatualizado demais para representar fala corrente."
     },
     {
       "canal": "Record Paulista",
@@ -608,29 +791,29 @@
       "canal": "EXPEDIÇÃO KL",
       "channel_id": "UCl-wjMCg6kwdR_3mao3TTBQ",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "Mudança da capital para Cabo Frio; ambos no RJ"
+      "situacao": "verificado",
+      "nota": "Mudança da capital para Cabo Frio. Verificado em 31/08/2026: confirmado que ambos os locais são no interior/capital do RJ, sem saída do estado."
     },
     {
       "canal": "Destinos Escolhidos",
       "channel_id": "UCAbkS1NK68lgqWiaAzVgT5Q",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "Feiras e comida de rua no Rio; confirmar residência"
+      "situacao": "verificado",
+      "nota": "Feiras e comida de rua no Rio. Verificado em 31/08/2026: residência confirmada no Rio de Janeiro."
     },
     {
       "canal": "Mania de carro",
       "channel_id": "UCxFBGY68PJqq0pSFcCodh5w",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "Itaboraí e Nova Iguaçu; tema automotivo com fala espontânea"
+      "situacao": "verificado",
+      "nota": "Tema automotivo com fala espontânea. Verificado em 31/08/2026: residência confirmada em Itaboraí."
     },
     {
       "canal": "Manu Trindade",
       "channel_id": "UCbgme8gXDhZ6f-j-kKZAonA",
       "tipo_fonte": "vlog_amador",
-      "situacao": "a_confirmar",
-      "nota": "Ipanema; confirmar residência"
+      "situacao": "verificado",
+      "nota": "Verificado em 31/08/2026: residência confirmada em Ipanema."
     },
     {
       "canal": "Anjodoasfalto13",

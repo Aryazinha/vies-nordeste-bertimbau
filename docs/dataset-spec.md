@@ -2,7 +2,7 @@
 
 **Função deste documento.** Consolidar em definição única o que hoje está distribuído entre `CLAUDE.md`, os documentos de `docs/`, o código de `pipeline_coleta_piloto/` e os relatórios de `experimentos/resultados/`. Não introduz decisão nova: onde o material é omisso, o ponto é marcado como `PENDENTE` e permanece omisso.
 
-**Produzido em:** 28/08/2026, por leitura do material existente, sem alteração de arquivo algum. **Revisado em 29/08/2026**, quando o campo `duracao_coletada_s` foi acrescentado ao esquema e preenchido retroativamente, encerrando o primeiro item do registro de pendentes. Os pacotes `piloto_resultados (1).zip` e `(2).zip` não foram abertos em nenhuma das duas ocasiões, por conterem transcrição não anonimizada.
+**Produzido em:** 28/08/2026, por leitura do material existente, sem alteração de arquivo algum. **Revisado em 29/08/2026**, quando o campo `duracao_coletada_s` foi acrescentado ao esquema e preenchido retroativamente, encerrando o primeiro item do registro de pendentes. **Revisado outra vez em 31/08/2026**, rodada em que nove pendências de decisão foram fechadas ou avançadas de uma vez — ver o resumo logo após esta seção. Os pacotes `piloto_resultados (1).zip` e `(2).zip` não foram abertos em nenhuma das três ocasiões, por conterem transcrição não anonimizada.
 
 **Convenção de procedência.** Toda afirmação não trivial indica entre parênteses o arquivo e a seção de origem. Valores marcados como *apurados* foram obtidos por leitura direta de `pipeline_coleta_piloto/dataset_raw/metadados.json` e de `pipeline_coleta_piloto/fontes.json`, e não constavam somados em documento algum.
 
@@ -20,21 +20,57 @@ Esta seção existe para desfazer uma confusão de leitura que o restante do doc
 | **Executar** | Coleta, transcrição, diarização e curadoria | **11% da meta vigente** | Sem objeto: não há conteúdo a executar enquanto a família de marcadores não estiver decidida |
 | **Validar** | WER e DER contra referência humana; Filtros 1 e 2 | **Não iniciada.** Zero das 2 h de transcrição manual de referência | **Não iniciada.** Nenhum item submetido ao Filtro 1, nenhum juiz consultado (`docs/achados_para_o_artigo.md` §3.3) |
 
+## Resumo de 31/08/2026 — o que ficou resolvido, o que falta
+
+Nove decisões foram tomadas ou avançadas numa única rodada, em resposta direta a perguntas da equipe sobre cada pendência do registro abaixo. Consolidado aqui para leitura rápida; o detalhe de cada uma está no registro completo, ao final do documento.
+
+### Resolvido
+
+| # | O que ficou definido |
+|---|---|
+| 1 | Semântica de `duracao_s` corrigida pelo campo `duracao_coletada_s` |
+| 2 | Publica-se o registro **final**, com `diarizacao` mantida — necessária para separar repórter de entrevistado, não acessória |
+| 3 | O corpus é entregável autônomo, não instrumento do Filtro 2 |
+| 4 | Composição entre camadas revisada e **implementada**: vox-pop e podcast priorizados sobre vlog em `meta_corpus_autonomo.py` |
+| 5 | Teto de 5% por falante mantido — julgado crucial, não removível sem esvaziar a alegação de representatividade |
+| 6 | Checagem contra falante migrante mantida como limitação declarada; não automatizável com confiança (testado e descartado: marcadores lexicais e contextos de palatalização, ambos insuficientes) |
+| 7 | Meta de volume recalculada em cobertura de falantes, não mais em horas |
+| 8 | Licença decidida: CC BY 4.0 para dados e documentação (`LICENSE-DATA.md`), MIT para código (`LICENSE`); transcrições fora do escopo |
+| 9 (parcial) | Ficha do conjunto: vinculação institucional, comitê de ética e contato de manutenção resolvidos (nenhum dos dois primeiros se aplica; GitHub confirmado como o terceiro). Estatuto da transcrição decidido: pode publicar, mediante anonimização |
+| 10 | Inspeção de conteúdo dos 13 canais `a_confirmar`: 10 aprovados, 3 rejeitados (Samiele Batista, Alan City, Kellynha Costa); duplicata de "Vlog com Diogo" em PE corrigida |
+| 11 | Reforço de PE e BA executado: 178 candidatos buscados, 13 canais aceitos e 11 a confirmar. Vlogs de PE vão de 4 a 10 e os da BA de 7 a 12, contra 11 em SP e 13 no RJ — a assimetria que motivava a pendência deixa de existir |
+| 12 | TikTok, Instagram e Spotify — decidido não incorporar, em nenhuma forma |
+| 13 | Tamanho-alvo dos pares mínimos: 37 por condição, 80 de referência |
+
+### Ainda falta
+
+| # | O que falta | Do que depende |
+|---|---|---|
+| 9 (resto) | Três lacunas da ficha: taxa de erro de transcrição (ferramenta pronta, `medir_wer.py`; **adiada deliberadamente**), execução da anonimização (ferramenta pronta, `anonimizar_transcricao.py`), licença específica da transcrição | Trabalho humano (transcrever para o WER; revisar os nomes propostos) e decisão da equipe (licença — `docs/questoes_para_orientacao.md` 2.2) |
+| 14 | Formato de publicação dos pares mínimos | Decisão da equipe |
+| — | Execução dos dois métodos de verificação hoje desenhados (`verificar_reincidencia.py`, `preparar_amostra_coerencia.py`) | Ambiente com áudio e `pyannote.audio` (Colab); não roda nesta máquina |
+| — | Execução da anonimização (`anonimizar_transcricao.py`, escrito em 31/08/2026) | `spaCy` com modelo de português, hoje não instalado; abrir os pacotes de resultados; e a revisão humana que a segunda fase do script exige |
+| — | Três campos novos do esquema, discutidos em 31/08/2026: transcrição confirmada, mas **features de texto** e **features de áudio** seguem como listas abertas, e o papel da análise de sentimento (se algum) não foi decidido | Equipe completar as listas; decidir qual das três ideias de sentimento será executada (`docs/pendencias.md` D10) |
+
 ## Camada de execução, em números
 
-Apurado sobre `dataset_raw/metadados.json` e `fontes.json`, contra a meta vigente de 8,3 h de áudio bruto por estado e 50 h no conjunto (§1.5).
+**Atualizado em 31/08/2026 — a meta em horas abaixo está superada.** A tabela original comparava contra 8,3 h/estado e 50 h no total, meta herdada da função instrumental que o corpus não tem mais (item #3). A meta vigente é `experimentos/resultados/tabelas/meta_corpus_autonomo.md`, em cobertura de falantes, e implica cerca de **5,1 h no total** — menos do que já está coletado.
 
-| UF | Coletado | Sobre a meta | Canais empregados / disponíveis |
+| UF | Coletado | Sobre a meta antiga (histórica) | Canais empregados / disponíveis |
 |---|---|---|---|
 | PB | 1,15 h | 13,8% | 6 / 12 |
 | RJ | 1,01 h | 12,1% | 6 / 17 |
-| BA | 1,00 h | 12,1% | 6 / 12 |
-| SP | 0,85 h | 10,2% | 6 / 19 |
+| BA | 1,00 h | 12,1% | 6 / 19 |
+| SP | 0,85 h | 10,2% | 6 / 17 |
 | CE | 0,79 h | 9,5% | 6 / 16 |
-| PE | 0,73 h | 8,8% | 5 / 12 |
-| **Total** | **5,52 h** | **11,0%** | **35 / 88** |
+| PE | 0,73 h | 8,8% | 5 / 19 |
+| **Total** | **5,52 h** | **11,0%** | **35 / 100** |
 
-Restam cerca de 44 h a coletar, transcrever e diarizar. A camada de validação está integralmente por fazer: o WER estratificado por variedade — que é a única medida capaz de sustentar a afirmação de que a transcrição automática não penaliza a fala nordestina, hoje apoiada apenas em confiança do modelo (`docs/achados_para_o_artigo.md` §2.1) — exige 2 h de transcrição manual de referência, das quais nenhuma foi produzida.
+(Coluna de canais disponíveis atualizada em 31/08/2026, após as rejeições da inspeção de conteúdo e a rodada de reforço de PE e BA.)
+
+**O que isso não significa: que o corpus está pronto.** A meta em horas é folgada porque vox-pop e podcast, priorizados desde a decisão do item #4, rendem falantes rapidamente — dos 52 arquivos já coletados, 41 já são dessas duas camadas (21 vox-pop, 20 podcast, 11 vlog), composição próxima da recomendada. Mas **quantidade de horas não é o gargalo desde a mudança do item #7** — é a **verificação de que os falantes são pessoas distintas** (item #5, D-6.4), que ainda não rodou. Sem ela, não há como declarar que o piso de 20 falantes por estado está de fato atingido, só que o volume de áudio provavelmente basta.
+
+A camada de validação segue integralmente por fazer: o WER estratificado por variedade — a única medida capaz de sustentar a afirmação de que a transcrição automática não penaliza a fala nordestina, hoje apoiada apenas em confiança do modelo (`docs/achados_para_o_artigo.md` §2.1) — exige 2 h de transcrição manual de referência, das quais nenhuma foi produzida. O mecanismo já existe (`amostra_wer.json` + `jiwer` + `pipeline_coleta_piloto/medir_wer.py`); falta o trabalho humano de transcrever, e a equipe decidiu em 31/08/2026 adiar esse trabalho deliberadamente.
 
 ## A circularidade que a tabela não mostra
 
@@ -159,7 +195,7 @@ Quatro classes de canal satisfazem os critérios geográficos e não servem ao p
 
 A gravidade é assimétrica e direcional: sendo o vetor migratório dominante no Brasil o Nordeste para o Sudeste, que é o eixo desta pesquisa, um falante nordestino radicado em São Paulo incorporado ao grupo de controle **atenua sistematicamente o contraste que a pesquisa mede**, deslocando o resultado na direção da hipótese nula. O erro produz aparência de ausência de viés.
 
-**Tratamento das quatro.** As três primeiras são detectadas por incidência de sinal nos títulos recentes em `verificar_fontes.py`; quando a incidência atinge um terço dos títulos examinados, o veredito é rebaixado de aceito para **revisar**, e não para rejeitado — deliberadamente, porque o sinal também produz falso positivo, como no canal de Belford Roxo cujos títulos dizem "viajando de carro em Belford Roxo, indo trabalhar", que descreve deslocamento diário e é fonte legítima (§2.4.4). A quarta não tem sinal automático confiável, e sua defesa efetiva é a checagem de coerência dialetal na curadoria manual das transcrições, que opera sobre a fala e não sobre metadados — **e não está implementada** (`docs/pendencias.md` §6.2).
+**Tratamento das quatro.** As três primeiras são detectadas por incidência de sinal nos títulos recentes em `verificar_fontes.py`; quando a incidência atinge um terço dos títulos examinados, o veredito é rebaixado de aceito para **revisar**, e não para rejeitado — deliberadamente, porque o sinal também produz falso positivo, como no canal de Belford Roxo cujos títulos dizem "viajando de carro em Belford Roxo, indo trabalhar", que descreve deslocamento diário e é fonte legítima (§2.4.4). A quarta não tem sinal automático confiável, e sua defesa efetiva é a checagem de coerência dialetal na curadoria manual das transcrições, que opera sobre a fala e não sobre metadados — **e não está implementada** — investigado em 31/08/2026: densidade de marcadores lexicais e de contextos de palatalização foram descartadas por sinal insuficiente, e o encaminhamento adotado é um protocolo de amostragem para curadoria manual, `pipeline_coleta_piloto/preparar_amostra_coerencia.py`, que prepara o material mas não decide sozinho; não executado (`docs/pendencias.md` D-6.2).
 
 Nenhum canal entra em `fontes.json` sem revisão humana. A triagem automática é redutora de esforço e registro auditável da evidência, não decisão final (§2.4.4). A precisão medida da etapa automatizada é de cerca de 41%: 390 candidatos levantados, 114 aprovados automaticamente, 47 confirmados em revisão humana (§4).
 
@@ -190,7 +226,7 @@ Três fatores adicionais, onerosos mas não determinantes: alta incidência de e
 | Por falante, sobre a fala de um estado | 5% | `docs/fontes_coleta.md` §2.4.5 |
 | Por canal, sobre a cota de uma camada | 35% | `selecionar_videos.py`, `TETO_POR_CANAL` |
 
-> `PENDENTE:` o teto por falante não tem verificação implementada. Nada impede que a mesma pessoa apareça em canais distintos — um convidado que circula por vários podcasts regionais, por exemplo —, o que violaria o teto silenciosamente. A detecção exigiria comparação de vozes na etapa de diarização (`docs/pendencias.md` §6.4).
+> **Mantido em 31/08/2026, julgado crucial** — sem ele nada impede que uma pessoa domine a amostra de um estado, e o corpus deixaria de representar a variedade para representar um idioleto. `PENDENTE`: a verificação segue não implementada, mas o método já está desenhado — `pipeline_coleta_piloto/verificar_reincidencia.py` compara embeddings de voz entre arquivos e sinaliza candidatos para revisão humana. Requer o ambiente de processamento (Colab); não foi executado (`docs/pendencias.md` D-6.4).
 
 ### 1.4.6 Regra de recorte temporal
 
@@ -263,27 +299,53 @@ A regra de publicar identificador em vez de áudio é o que torna o campo `trech
 
 ## 1.7 Estado de execução
 
-**Fontes.** 88 canais em `pipeline_coleta_piloto/fontes.json`, apurados: 77 com situação `verificado` e 11 com `a_confirmar`. Cada entrada traz `canal`, `channel_id`, `tipo_fonte`, `situacao` e `nota`.
+**Fontes.** 114 entradas em `pipeline_coleta_piloto/fontes.json`, apuradas: 100 com situação `verificado`, 3 com `rejeitado` e 11 com `a_confirmar` — estas últimas todas oriundas da rodada de reforço de PE e BA descrita adiante. A tabela conta apenas os `verificado`.
 
 | UF | vox-pop | podcast/rádio/TV | vlog | Total |
 |---|---|---|---|---|
 | PB | 2 | 3 | 7 | 12 |
-| PE | 3 | 5 | 4 | 12 |
+| PE | 4 | 5 | 10 | 19 |
 | CE | 4 | 4 | 8 | 16 |
-| BA | 2 | 4 | 6 | 12 |
-| SP | 2 | 4 | 13 | 19 |
+| BA | 3 | 4 | 12 | 19 |
+| SP | 2 | 4 | 11 | 17 |
 | RJ | 2 | 2 | 13 | 17 |
-| **Total** | **15** | **22** | **51** | **88** |
+| **Total** | **17** | **22** | **61** | **100** |
 
-(`docs/fontes_coleta.md` §4; contagens conferidas contra `fontes.json`)
+(`docs/fontes_coleta.md` §4; contagens conferidas contra `fontes.json`, 31/08/2026)
+
+**Rodada de reforço de PE e BA, 31/08/2026 — pendência D1 encerrada.** Executada pela metodologia do próprio projeto: busca real por `yt-dlp` sobre vinte consultas ancoradas em municípios dos dois estados, triagem automática por `verificar_fontes.py` (regra de atribuição pelos títulos recentes do canal) e revisão de conteúdo canal a canal. De 178 candidatos distintos, 62 passaram na triagem automática e **24 sobreviveram à revisão: 13 aceitos e 11 marcados `a_confirmar`**, taxa de aproveitamento coerente com o histórico do projeto.
+
+As rejeições concentraram-se nos quatro perfis que o projeto já havia previsto — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking —, o que é evidência de que os critérios documentados discriminam de fato. Registre-se um caso de particular interesse metodológico: o canal *Marcela Sevla*, ancorado em Barreiras-BA por todos os critérios geográficos, foi **rejeitado por falante migrante**, com a mudança de São Paulo para a Bahia declarada no próprio acervo. É a ameaça da Parte 3 do protocolo materializada, e detectada pela leitura de conteúdo, não pelos metadados.
+
+**Efeito sobre a simetria entre os grupos.** A camada de vlog de Pernambuco passou de 4 para 10 canais verificados, e a da Bahia de 7 para 12, contra 11 em São Paulo e 13 no Rio de Janeiro. O desequilíbrio que motivou a pendência D1 deixa de existir nesses dois estados. **O piso do grupo nordestino deslocou-se para a Paraíba, com 7**, e é sobre ela que a questão de simetria passa a incidir, caso a equipe queira tratá-la.
+
+**Inspeção de conteúdo dos 13 canais `a_confirmar`, concluída em 31/08/2026.** Cada canal tinha uma dúvida específica registrada; a equipe ouviu o conteúdo e decidiu:
+
+| UF | Canal | Decisão | Motivo |
+|---|---|---|---|
+| PB | Daniel Alves | Aprovado | Majoritariamente vlog; 3 vídeos antigos de imobiliária excluídos individualmente, não o canal |
+| PE | ESTRELA ALVES | Aprovado | Vlog genuíno, sem ressalva |
+| PE | Samiele Batista | **Rejeitado** | Conteúdo é vitrine de preço de feira, não fala espontânea |
+| CE | Evelyn Ferreira | Aprovado | Jornalista entrevistando moradores — vox-pop genuíno |
+| BA | Band Bahia Oficial | Aprovado | Tem falas espontâneas e entrevistas, não é só apresentador |
+| BA | João Yurley | Aprovado | Tem falas de verdade; trechos de jogo eletrônico excluídos individualmente |
+| BA | Marcinha De jesus | Aprovado | Base real confirmada: Vitória da Conquista |
+| SP | Alan City | **Rejeitado** | Narração é roteiro lido, não fala espontânea |
+| SP | Kellynha Costa | **Rejeitado** | Canal inativo, último vídeo há 6 anos |
+| RJ | EXPEDIÇÃO KL | Aprovado | Ambos os locais (capital e Cabo Frio) são no RJ |
+| RJ | Destinos Escolhidos | Aprovado | Residência confirmada no Rio |
+| RJ | Mania de carro | Aprovado | Residência confirmada em Itaboraí |
+| RJ | Manu Trindade | Aprovado | Residência confirmada em Ipanema |
+
+Corrigida também, na mesma revisão, uma duplicata em PE: o canal "Vlog com Diogo" (mesmo `channel_id`) aparecia duas vezes em `fontes.json`, o que inflava a contagem de vlog do estado em uma unidade — reduzida a uma entrada.
 
 **Material coletado**, apurado sobre `metadados.json`: 52 trechos, 5,52 h de áudio efetivamente coletado, distribuídas em PB 1,15 h, RJ 1,01 h, BA 1,00 h, SP 0,85 h, CE 0,79 h, PE 0,73 h. A esteira está validada de ponta a ponta, dividida entre coleta local e processamento em GPU (`docs/roadmap.md`, passo 4.3).
 
 O diretório `dataset_raw/registros_finais/` está **vazio**, e os diretórios `transcricoes/` e `diarizacao/` também. Os produtos de transcrição e diarização do lote executado encontram-se nos pacotes `piloto_resultados (1).zip` e `(2).zip`, na raiz do projeto, mantidos fora do versionamento por conterem transcrição não anonimizada. Não foram abertos na produção deste documento.
 
-> `PENDENTE:` os 11 canais marcados `a_confirmar` exigem inspeção de conteúdo antes da coleta (`docs/fontes_coleta.md` §4).
+> `RESOLVIDO em 31/08/2026:` os 13 canais que estavam `a_confirmar` tiveram a inspeção de conteúdo concluída — 10 aprovados, 3 rejeitados. Ver a tabela de decisões acima.
 
-> `PENDENTE:` a simetria de composição entre os grupos não está decidida. O grupo de controle dispõe de treze vozes por estado na camada de vlog, contra quatro a oito nos estados nordestinos, sendo Pernambuco o mais frágil. Para o experimento importa a simetria entre grupos, não o máximo disponível em cada um. Duas condutas admissíveis, e a escolha cabe à equipe: limitar todos os estados ao patamar do mais fraco, ou reforçar PE e BA antes de coletar (`docs/fontes_coleta.md` §4; `docs/pendencias.md` D1).
+> `RESOLVIDO em 31/08/2026:` a simetria de composição foi tratada pela via do reforço, e não pela do nivelamento por baixo. Na camada de vlog, Pernambuco passou de 4 para 10 canais verificados e a Bahia de 7 para 12, contra 11 em São Paulo e 13 no Rio de Janeiro (ver a rodada de reforço acima; `docs/pendencias.md` D1). **Resta uma questão derivada, e menor:** o piso do grupo nordestino é agora a Paraíba, com 7 — se a equipe quiser simetria estrita, é ela que precisa de reforço, e não mais PE ou BA.
 
 ---
 
@@ -397,19 +459,22 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | # | Pendente | Parte | Onde se resolve |
 |---|---|---|---|
 | 1 | ~~Semântica de `duracao_s`~~ — **encerrado em 29/08/2026** pelo campo `duracao_coletada_s` (§1.3) | 1.3 | — |
-| 2 | Qual registro constitui o artefato publicado — o de coleta, o final, ou ambos | 1.2 | Decisão da equipe |
+| 2 | ~~Qual registro é publicado~~ — **decidido em 31/08/2026**: o registro final, com diarização mantida (ver `docs/pendencias.md` D10 e a nota abaixo) | 1.2 | — |
 | 3 | ~~Função do corpus~~ — **decidido em 29/08/2026**: entregável autônomo (§1.1) | 1.1 | — |
-| 4 | Composição entre camadas sob revisão não decidida | 1.4.2 | `docs/pendencias.md` D2 |
-| 5 | Teto de 5% por falante sem verificação implementada | 1.4.5 | `docs/pendencias.md` §6.4 |
-| 6 | Checagem de coerência dialetal contra falante migrante não implementada | 1.4.3 | `docs/pendencias.md` §6.2 |
+| 4 | ~~Composição entre camadas~~ — **decidido e implementado em 31/08/2026**: vox-pop e podcast priorizados sobre vlog (§1.4.2 revisado) | 1.4.2 | — |
+| 5 | Teto de 5% por falante — **mantido em 31/08/2026** (ver nota abaixo); verificação de identidade entre arquivos segue não implementada | 1.4.5 | `docs/pendencias.md` D-6.4 |
+| 6 | Checagem contra falante migrante — **mantida em 31/08/2026** como limitação declarada (ver nota abaixo); não implementável automaticamente | 1.4.3 | `docs/pendencias.md` D-6.2 |
 | 7 | Meta de volume do corpus — **recalculada em 29/08/2026** sob o novo critério (§1.5); o que resta é a verificação de falantes distintos | 1.5 | `docs/pendencias.md` §6.4 |
-| 8 | Licença dos artefatos do projeto não definida, para nenhum dos dois conjuntos | 1.6, 2.2.3 | Decisão da equipe |
-| 9 | Ficha de conjunto de dados — **rascunhada em 29/08/2026** em `docs/ficha_conjunto.md`, preliminar, com seis lacunas declaradas | 1.6, 2.2.4 | Revisão da equipe |
-| 10 | Onze canais marcados `a_confirmar` | 1.7 | Inspeção de conteúdo |
-| 11 | Simetria de composição entre grupos não decidida | 1.7 | `docs/pendencias.md` D1 |
-| 12 | Subcorpus de TikTok não reavaliado desde a exclusão | 1.4.4 | `docs/pendencias.md` D4 |
+| 8 | ~~Licença dos artefatos~~ — **decidida em 31/08/2026**: CC BY 4.0 para dados/docs (`LICENSE-DATA.md`), MIT para código (`LICENSE`); transcrições seguem fora do escopo | 1.6, 2.2.3 | — |
+| 9 | Ficha de conjunto de dados — **avançada em 31/08/2026, em duas rodadas**: vinculação institucional, comitê de ética e canal de manutenção resolvidos; estatuto da transcrição decidido (pode publicar, mediante anonimização); restam WER (ferramenta pronta), anonimização (execução) e licença específica da transcrição (decisão) | 1.6, 2.2.4 | `docs/questoes_para_orientacao.md` 2.2 |
+| 10 | ~~Treze canais marcados `a_confirmar`~~ — **resolvido em 31/08/2026**: inspeção concluída, 10 aprovados e 3 rejeitados | 1.7 | — |
+| 11 | ~~Simetria de composição~~ — **resolvida em 31/08/2026**: rodada de reforço com 178 candidatos, 13 aceitos e 11 a confirmar; vlogs de PE 4→10 e BA 7→12, contra SP 11 e RJ 13 (§1.7; `docs/pendencias.md` D1). Questão derivada: o piso nordestino passa a ser a PB, com 7 | 1.7 | — |
+| 12 | ~~Subcorpus de TikTok, Instagram e Spotify~~ — **decidido em 31/08/2026**: não serão incorporados (ver `docs/pendencias.md` D4) | 1.4.4 | — |
 | 13 | ~~Tamanho-alvo dos pares mínimos~~ — **decidido em 29/08/2026**: 37 por condição e 80 de referência, para excluir efeitos acima de 0,08 (§2.2.1) | 2.2.1 | — |
 | 14 | Formato de publicação dos pares mínimos inexistente | 2.2.2 | Decisão da equipe; deixa de depender do passo 5 |
+| 15 | Lista de *features* de texto aberta — TF-IDF confirmado, resto não especificado | novo, 31/08/2026 | Equipe completar a lista |
+| 16 | Lista de *features* de áudio aberta — marcadores regionais confirmados, resto não especificado | novo, 31/08/2026 | Equipe completar a lista |
+| 17 | Papel da análise de sentimento não decidido — três ideias distintas, cada uma implicando um lugar diferente no esquema | novo, 31/08/2026 | `docs/pendencias.md` D10; decisão de qual ideia executar |
 
 ### Nota de 29/08/2026 — o tamanho-alvo passa a ser derivável
 

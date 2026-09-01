@@ -45,21 +45,21 @@ Este bloco determina o que fazer com todo o resto. Enquanto não for respondido,
 
 Estas travam a publicação do dataset e **não devem ser respondidas pela equipe técnica**. Se a orientação também não for a instância adequada, a pergunta é a quem encaminhar.
 
-## 2.1 Podemos publicar as transcrições dos vídeos, ou apenas os identificadores?
+## 2.1 Podemos publicar as transcrições dos vídeos, ou apenas os identificadores? — RESOLVIDA em 31/08/2026, pela equipe
 
-**Contexto.** O protocolo do projeto fixou publicar identificadores de vídeo e código, nunca o áudio bruto. Nunca decidiu sobre a **transcrição**, que não é nem uma coisa nem outra. Corpora de fala publicam transcrições rotineiramente, mas uma transcrição é obra derivada do vídeo, e o conteúdo é de terceiros.
+**Decisão:** sim, pode publicar, condicionado à anonimização dos nomes próprios de terceiros já exigida pelo protocolo (`docs/protocolo.md` §1.4.2). A pergunta original registrava que essa decisão não deveria ser tomada pela equipe técnica sozinha; foi, ainda assim, e fica registrado aqui por transparência. Dois pontos permanecem abertos, mais estreitos que a pergunta original: a anonimização em si não está implementada, e a licença específica sob a qual a transcrição será distribuída não foi fixada (ver 2.2).
 
-**Do que depende a resposta.** O formato de distribuição do corpus, e se ele tem valor de pesquisa suficiente publicado apenas como identificadores mais anotações derivadas.
+**Contexto original.** O protocolo do projeto fixou publicar identificadores de vídeo e código, nunca o áudio bruto. Nunca decidiu sobre a **transcrição**, que não é nem uma coisa nem outra. Corpora de fala publicam transcrições rotineiramente, mas uma transcrição é obra derivada do vídeo, e o conteúdo é de terceiros.
 
 ## 2.2 Sob que licença podemos publicar, e o que exatamente ela cobre?
 
-**Contexto.** A orientação técnica é licença em duas camadas — CC BY 4.0 para o que é autoria do projeto e MIT para o código —, deixando as transcrições fora do escopo, porque licenciar exige titularidade e o conteúdo falado é de terceiros. Não sabemos se essa cautela é necessária ou excessiva frente à prática da área.
+**Contexto.** A orientação técnica é licença em duas camadas — CC BY 4.0 para o que é autoria do projeto e MIT para o código —, decidida em 31/08/2026 (`LICENSE`, `LICENSE-DATA.md`). A transcrição está agora autorizada a ser publicada (ver 2.1), mas segue fora do escopo do CC BY: licenciar exigiria titularidade que o projeto não tem sobre a fala de terceiros. Não sabemos se essa cautela é necessária ou excessiva frente à prática da área, nem que licença (se alguma) se aplicaria à transcrição especificamente.
 
-## 2.3 O projeto precisa de aprovação de comitê de ética em pesquisa?
+## 2.3 O projeto precisa de aprovação de comitê de ética em pesquisa? — RESOLVIDA em 31/08/2026, pela equipe
 
-**Contexto.** Os falantes não consentiram para fins de pesquisa: falaram publicamente, para outra finalidade. Não se coleta dado sensível nem geolocalização precisa, e os nomes próprios de terceiros serão mascarados. Ainda assim, trata-se de fala humana identificável associada a rótulo de procedência regional.
+**Decisão:** não é necessária, por determinação da equipe (`docs/ficha_conjunto.md`, A.3). A ausência de consentimento dos falantes permanece registrada como limitação do método, independentemente da dispensa.
 
-**Do que depende a resposta.** Se sim, precisa ser iniciado antes de qualquer publicação do conjunto, e o prazo entra no cronograma.
+**Contexto original.** Os falantes não consentiram para fins de pesquisa: falaram publicamente, para outra finalidade. Não se coleta dado sensível nem geolocalização precisa, e os nomes próprios de terceiros serão mascarados. Ainda assim, trata-se de fala humana identificável associada a rótulo de procedência regional.
 
 ## 2.4 A ficha do conjunto precisa de aprovação institucional antes de publicada?
 
@@ -129,9 +129,9 @@ Pendências que dependem de acesso físico ou de contato com autores.
 
 **Contexto.** Na camada de vlogs, o grupo de controle tem treze vozes por estado, contra quatro em Pernambuco e seis na Bahia. Uma análise sobre subamostra balanceada ficaria limitada pelo estado mais fraco — quatro falantes por estado. Reforçar exige nova rodada de busca, com rendimento observado de cerca de um canal aproveitável a cada oito candidatos.
 
-## 5.3 Qual é a vinculação institucional e o financiamento a declarar?
+## 5.3 Qual é a vinculação institucional e o financiamento a declarar? — RESOLVIDA em 31/08/2026, pela equipe
 
-**Contexto.** A ficha do conjunto exige essa informação, e hoje está em branco. Também é preciso definir um contato de manutenção e um canal para comunicação de erros no conjunto publicado.
+**Decisão:** sem vínculo institucional a declarar (`docs/ficha_conjunto.md`, A.1). O contato de manutenção e o canal de erros também foram confirmados (A.7): repositório em `github.com/Aryazinha/vies-nordeste-bertimbau`, com *issues* do GitHub.
 
 ## 5.4 O protocolo metodológico deve ser versionado no repositório público?
 
@@ -145,7 +145,7 @@ Se houver tempo para poucas perguntas, esta é a ordem de retorno:
 
 1. **1.1 e 1.2** — enquadramento e veículo, porque determinam o significado de tudo o mais.
 2. **1.4** — o BERTimbau Large, porque precede o fechamento do enquadramento e é barato.
-3. **2.1 e 2.3** — transcrição e ética, porque travam a publicação e têm prazo próprio.
+3. **2.2** — a licença específica da transcrição, porque trava a publicação e tem prazo próprio (2.1 e 2.3 já foram decididas pela equipe, ver acima).
 4. **3.1** — o delineamento de calibração, porque é a peça sobre a qual os resultados repousam.
 
 O restante pode ser resolvido por escrito depois.

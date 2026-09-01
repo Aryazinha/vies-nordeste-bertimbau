@@ -45,6 +45,29 @@ Duas premissas de contagem, declaradas porque alteram o resultado:
 2. **Em podcast, o apresentador repete-se entre episódios.** O primeiro episódio
    de um programa rende os locutores medidos; os seguintes rendem um a menos.
 
+## Revisão de 31/08/2026 — prioridade por vozes diferentes, não por camada fixa
+
+A primeira versão deste script somava **todos** os canais de vlog e de podcast
+disponíveis, e completava o que faltasse com vox-pop. Isso não priorizava nada:
+tratava vlog e podcast como recursos "grátis" e só otimizava o resíduo.
+
+A equipe decidiu, em 31/08/2026, **priorizar as fontes de maior rendimento em
+vozes diferentes por arquivo coletado** — vox-pop e podcast, cujo rendimento
+marginal é positivo (cada arquivo adicional do mesmo canal tende a trazer
+entrevistados ou convidados novos), contra vlog, cujo rendimento marginal é
+**zero** (um canal de vlog é uma pessoa, por mais vídeos que forneça).
+
+**Consequência operacional:** um mesmo canal de vox-pop ou podcast pode
+contribuir com mais de um arquivo, para explorar esse rendimento marginal.
+Isso exige um teto por canal — sem ele, o corpus poderia depender demais de um
+único programa —, e o teto reaproveitado é o mesmo já em uso em
+`selecionar_videos.py` (`TETO_POR_CANAL = 0.35`), aqui aplicado ao piso de
+falantes por estado em vez de à cota de horas por camada.
+
+Vlog deixa de ser somado por padrão e passa a **suplemento**: só entra no
+plano quando vox-pop e podcast, mesmo com múltiplos arquivos por canal, não
+bastam para atingir o piso.
+
 Uso:
     python meta_corpus_autonomo.py
 """
@@ -59,6 +82,14 @@ SAIDA = Path(__file__).resolve().parent / "resultados"
 FONTES = Path(__file__).resolve().parent.parent / "pipeline_coleta_piloto" / "fontes.json"
 
 TETO_POR_FALANTE = 0.05          # docs/fontes_coleta.md, 2.4.5
+
+# Teto por canal, reaproveitado de `selecionar_videos.py` (TETO_POR_CANAL),
+# onde limita a fração de uma cota de horas que um único canal pode suprir.
+# Aqui a mesma proporção é aplicada ao piso de falantes: nenhum canal, por
+# múltiplos arquivos que forneça, deve responder por mais dessa fração dos
+# falantes mínimos de um estado. Evita que o plano dependa demais de um único
+# programa de rádio ou de vox-pop.
+TETO_POR_CANAL = 0.35
 
 # Densidade de contextos de palatalização, MEDIDA sobre as 4,3 h de fala
 # atribuída do piloto por `densidade_palatalizacao.py`. Não é suposição.
@@ -99,12 +130,86 @@ def piso_de_falantes(teto: float) -> int:
 
 
 def falantes_disponiveis(canais: list[dict]) -> dict:
-    """Falantes que o conjunto de canais de um estado pode render, por camada."""
+    """
+    Canais disponíveis, por camada — apenas contagem, sem plano de coleta.
+
+    Conta somente os `verificado`. Até 31/08/2026 a função contava toda entrada
+    de `fontes.json`, inclusive as marcadas `rejeitado` e `a_confirmar`, o que
+    inflava a disponibilidade sem produzir erro visível: `selecionar_videos.py`
+    exclui esses canais do planejamento, de modo que a meta previa um corpus que
+    a coleta não conseguiria montar. É o padrão de falha silenciosa registrado
+    na seção 5-A de `docs/pendencias.md`.
+    """
     por_camada: dict[str, int] = {}
     for camada in LOCUTORES_POR_ARQUIVO:
-        n = sum(1 for c in canais if c["tipo_fonte"] == camada)
+        n = sum(1 for c in canais
+                if c["tipo_fonte"] == camada and c.get("situacao") == "verificado")
         por_camada[camada] = n
     return por_camada
+
+
+def render_de_um_canal(camada: str, teto_por_canal: float) -> tuple[int, float]:
+    """
+    Arquivos e falantes que **um** canal de `camada` rende, até o teto por canal.
+
+    Para vlog, sempre 1 arquivo e 1 falante — o rendimento marginal é zero, e
+    pedir mais vídeos do mesmo canal não traria pessoa nova. Para vox-pop e
+    podcast, soma-se arquivo a arquivo enquanto o próximo ainda render alguma
+    coisa e o total não ultrapassar o teto.
+    """
+    if camada == "vlog_amador":
+        return 1, float(FALANTES_PRIMEIRO_ARQUIVO[camada])
+
+    arquivos = 1
+    total = float(FALANTES_PRIMEIRO_ARQUIVO[camada])
+    marginal = FALANTES_NOVOS_POR_ARQUIVO[camada]
+    while marginal > 0 and total + marginal <= teto_por_canal:
+        total += marginal
+        arquivos += 1
+    return arquivos, total
+
+
+def planejar_estado(canais: list[dict], piso: float, teto_por_canal_abs: float):
+    """
+    Plano de coleta de um estado, priorizando vox-pop e podcast sobre vlog.
+
+    Percorre os canais de vox-pop e depois os de podcast, cada um rendendo até
+    `render_de_um_canal`, somando falantes até atingir o piso. Só recorre a
+    vlog — um canal, um falante, sem escala — se as duas camadas de maior
+    rendimento não bastarem.
+    """
+    disp = falantes_disponiveis(canais)
+    plano = {"vox_pop": {"canais": 0, "arquivos": 0, "falantes": 0.0},
+             "podcast": {"canais": 0, "arquivos": 0, "falantes": 0.0},
+             "vlog": {"canais": 0, "arquivos": 0, "falantes": 0.0}}
+    acumulado = 0.0
+
+    for chave, camada in (("vox_pop", "entrevista_vox_pop"),
+                          ("podcast", "podcast_radio_tv_regional")):
+        n_canais = disp[camada]
+        for _ in range(n_canais):
+            if acumulado >= piso:
+                break
+            arquivos, falantes = render_de_um_canal(camada, teto_por_canal_abs)
+            plano[chave]["canais"] += 1
+            plano[chave]["arquivos"] += arquivos
+            plano[chave]["falantes"] += falantes
+            acumulado += falantes
+
+    if acumulado < piso:
+        for _ in range(disp["vlog_amador"]):
+            if acumulado >= piso:
+                break
+            arquivos, falantes = render_de_um_canal("vlog_amador", teto_por_canal_abs)
+            plano["vlog"]["canais"] += 1
+            plano["vlog"]["arquivos"] += arquivos
+            plano["vlog"]["falantes"] += falantes
+            acumulado += falantes
+
+    plano["disp"] = disp
+    plano["falantes_totais"] = acumulado
+    plano["falta"] = max(0.0, piso - acumulado)
+    return plano
 
 
 def main() -> None:
@@ -124,31 +229,43 @@ def main() -> None:
     add(f"seção 2.4.5, exige por aritmética **{piso} falantes distintos por estado**.")
     add("Não é escolha: é o que satisfazer o teto significa.")
     add("")
-    add("## Quantos arquivos por estado, e de que camada")
+    teto_por_canal_abs = TETO_POR_CANAL * piso  # ~7 falantes, com piso=20
+    add("## Plano por estado, priorizando vox-pop e podcast")
     add("")
-    add("Cada canal de vlog rende um falante, quantos vídeos forneça. Vox-pop e")
-    add("podcast rendem falantes novos a cada arquivo, descontado o locutor que se")
-    add("repete — repórter ou apresentador.")
+    add("Vox-pop e podcast entram primeiro, cada canal explorado por vários")
+    add(f"arquivos até o teto por canal ({teto_por_canal_abs:.0f} falantes, ")
+    add(f"{TETO_POR_CANAL:.0%} do piso — mesma proporção de `TETO_POR_CANAL` em")
+    add("`selecionar_videos.py`). Vlog só entra se essas duas camadas, mesmo")
+    add("exploradas ao máximo, não atingirem o piso.")
     add("")
-    add("| UF | Canais vox-pop | Canais podcast | Canais vlog | Falantes só de vlog | Arquivos de vox-pop para completar 20 |")
-    add("|---|---|---|---|---|---|")
+    add("| UF | Canais vox-pop usados | Arquivos vox-pop | Canais podcast usados | Arquivos podcast | Canais vlog | Falantes cobertos | Falta |")
+    add("|---|---|---|---|---|---|---|---|")
 
     linhas_uf = []
     for uf in ESTADOS:
         canais = fontes[uf]
-        disp = falantes_disponiveis(canais)
-        de_vlog = disp["vlog_amador"]                      # 1 falante por canal
-        # cada canal de podcast contribui ao menos o apresentador e convidados
-        de_podcast = disp["podcast_radio_tv_regional"] * FALANTES_PRIMEIRO_ARQUIVO[
-            "podcast_radio_tv_regional"]
-        faltam = max(0.0, piso - de_vlog - de_podcast)
-        arquivos_voxpop = math.ceil(
-            faltam / FALANTES_NOVOS_POR_ARQUIVO["entrevista_vox_pop"]) if faltam else 0
-        linhas_uf.append((uf, disp, de_vlog, de_podcast, faltam, arquivos_voxpop))
-        add(f"| {uf} | {disp['entrevista_vox_pop']} | "
-            f"{disp['podcast_radio_tv_regional']} | {disp['vlog_amador']} | "
-            f"{de_vlog} | {arquivos_voxpop} |")
+        plano = planejar_estado(canais, piso, teto_por_canal_abs)
+        linhas_uf.append((uf, plano))
+        add(f"| {uf} | {plano['vox_pop']['canais']}/{plano['disp']['entrevista_vox_pop']} | "
+            f"{plano['vox_pop']['arquivos']} | "
+            f"{plano['podcast']['canais']}/{plano['disp']['podcast_radio_tv_regional']} | "
+            f"{plano['podcast']['arquivos']} | "
+            f"{plano['vlog']['canais']}/{plano['disp']['vlog_amador']} | "
+            f"{plano['falantes_totais']:.1f} | "
+            f"{('%.1f' % plano['falta']) if plano['falta'] else '—'} |")
     add("")
+
+    algum_deficit = any(p["falta"] > 0 for _, p in linhas_uf)
+    if algum_deficit:
+        add("**Estados que não atingem o piso mesmo priorizando vox-pop e podcast:**")
+        for uf, plano in linhas_uf:
+            if plano["falta"] > 0:
+                add(f"- **{uf}** — faltam {plano['falta']:.1f} falantes; "
+                    f"vox-pop e podcast esgotados "
+                    f"({plano['vox_pop']['canais']} + {plano['podcast']['canais']} canais), "
+                    f"vlog usado por inteiro ({plano['vlog']['canais']} canais disponíveis). "
+                    "Exige mais canais de vox-pop ou podcast (busca ativa), não apenas mais vlog.")
+        add("")
 
     minutos_por_falante = OCORRENCIAS_PARA_TAXA / CONTEXTOS_POR_MINUTO
     add("## O segundo piso: quanta fala por falante")
@@ -174,9 +291,9 @@ def main() -> None:
     add("| UF | Arquivos estimados | Horas brutas |")
     add("|---|---|---|")
     total_h = 0.0
-    for uf, disp, de_vlog, de_podcast, faltam, arq_vox in linhas_uf:
-        # um arquivo por canal de vlog, um por canal de podcast, mais os de vox-pop
-        arquivos = disp["vlog_amador"] + disp["podcast_radio_tv_regional"] + arq_vox
+    for uf, plano in linhas_uf:
+        arquivos = (plano["vox_pop"]["arquivos"] + plano["podcast"]["arquivos"]
+                    + plano["vlog"]["arquivos"])
         horas = arquivos * DURACAO_MEDIA_S / 3600
         total_h += horas
         add(f"| {uf} | {arquivos} | {horas:.1f} h |")

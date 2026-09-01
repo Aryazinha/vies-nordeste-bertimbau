@@ -4,7 +4,7 @@
 
 **Como usar.** Consultar no início de cada retomada, antes de planejar trabalho novo. Todo item traz o motivo pelo qual importa e o que o encerraria, de modo que possa ser retomado sem o contexto da conversa em que surgiu. Itens resolvidos são marcados como tal, com a data, e não removidos — a lista serve também de histórico do que já foi enfrentado.
 
-**Última revisão:** 27/08/2026
+**Última revisão:** 31/08/2026
 
 ---
 
@@ -14,11 +14,12 @@ A ordenação abaixo reflete o critério do `docs/roadmap.md`: aproxima-se prime
 
 | # | Pendência | Bloqueia | Seção |
 |---|---|---|---|
-| 1 | Assimetria de tipo de fonte entre grupos (rádio de participação) | corpus final | 1.1 |
+| 1 | Vox-pop com apenas dois canais em PB, SP e RJ, sem folga alguma no plano de coleta | corpus final | 1.2 |
+| 1b | Assimetria de tipo de fonte entre grupos (rádio de participação) | corpus final | 1.1 |
 | 2 | Conferência dos percentuais de Oliveira (2017) | item C1 do instrumento | 3.1 |
 | 3 | Correção do instrumento de texto (molduras e atributos) | validação por juízes | 2.1, 2.2 |
 | 4 | Ambiente com GPU para o piloto de medição | piloto | 4.1 |
-| 5 | Decisão de simetria entre grupos | coleta final | 5.1 |
+| 5 | ~~Decisão de simetria entre grupos~~ — resolvida em 31/08/2026 pela rodada de reforço de PE e BA (D1) | — | D1 |
 
 ---
 
@@ -32,27 +33,55 @@ O problema é que só PE e BA dispõem dela. Não se trata de diferença de quan
 
 **Encerra a pendência:** localizar programas equivalentes em PB, CE, SP e RJ; ou, não sendo possível, retirar os dois existentes e uniformizar por baixo.
 
-### 1.2 Camada de vox-pop com apenas dois canais em quatro estados
+### 1.2 Camada de vox-pop com apenas dois canais — AVANÇADA, e agora é a pendência de fonte mais consequente
 
-PB, BA, SP e RJ têm dois canais nessa camada, que responde por 4,1 h das 8,3 h previstas por estado — metade do corpus. A concentração cria dependência: mudança de linha editorial ou remoção de acervo em um canal compromete metade da amostra do estado.
+O registro original apontava PB, BA, SP e RJ com dois canais nessa camada. **Situação em 31/08/2026:** PE e CE alcançaram a meta de quatro; a Bahia subiu para três, com *azulzinho Itabuna*; **PB, SP e RJ seguem com dois**.
 
-**Encerra a pendência:** elevar a quatro canais por estado nessa camada.
+**Por que isto pesa mais do que pesava.** Desde a decisão do item #4 da especificação, que passou a priorizar vox-pop e podcast sobre vlog, o plano de coleta emprega **todos** os canais de vox-pop de **todos** os estados — a tabela de `meta_corpus_autonomo.md` mostra 2/2, 4/4, 4/4, 3/3, 2/2 e 2/2. Não há folga alguma nessa camada. Perder um canal em PB, SP ou RJ significa perder metade do vox-pop do estado, e o piso de 20 falantes deixa de ser alcançável por essa via.
 
-### 1.3 Interior da Bahia descoberto, e o canal existente fica em zona de fronteira
+O risco não é hipotético: a seção 4.5 registra que vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência — que é precisamente o conteúdo do telejornalismo policial de onde vem boa parte do vox-pop.
 
-Apenas 3 dos 10 canais baianos têm marca de interior, no maior dos estados-alvo. Agrava-se pelo fato de o vlog de interior disponível, `Jairo DroneX`, ser de **Juazeiro-BA**, conurbada com Petrolina-PE. Coletar variedade baiana em conurbação com Pernambuco, num estudo que compara precisamente BA e PE, é escolher o pior ponto possível da malha.
+**Encerra a pendência:** elevar a quatro canais por estado nessa camada, prioritariamente em PB, SP e RJ.
 
-**Encerra a pendência:** cobrir Feira de Santana, Vitória da Conquista, Itabuna ou Barreiras, distantes da divisa.
+### 1.3 ~~Interior da Bahia descoberto~~ — RESOLVIDA em 31/08/2026
 
-### 1.4 Onze canais em situação `a_confirmar`
+O registro original apontava que apenas 3 dos 10 canais baianos tinham marca de interior, agravado pelo fato de o único vlog de interior, `Jairo DroneX`, ser de **Juazeiro-BA**, conurbada com Petrolina-PE — o pior ponto possível da malha num estudo que compara justamente BA e PE. A condição de encerramento era cobrir Feira de Santana, Vitória da Conquista, Itabuna ou Barreiras, distantes da divisa.
 
-Aceitos com ressalva, pendentes de inspeção de conteúdo. `selecionar_videos.py` os exclui do planejamento, de modo que hoje não contribuem em nada. Distribuição: RJ 4, BA 2, SP 2, PB 1, PE 1, CE 1.
+**Três das quatro foram cobertas**, entre a inspeção de conteúdo e a rodada de reforço: Vitória da Conquista (*Marcinha De jesus*), Itabuna (*azulzinho Itabuna*, vox-pop) e Barreiras (*Guilherme Barreto*). Somam-se Alagoinhas (*Paty Miranda*), Paulo Afonso (*Motovlog do Marcelo*), Piritiba e Jacobina (*Rosa Oliveira*) e Ilhéus (*NEIZINHO ANDRADE*). Dos 19 canais baianos verificados, **13 têm marca de interior**, contra 3 de 10 no registro original, e nenhum deles depende da conurbação de Juazeiro.
 
-**Encerra a pendência:** abrir cada um e verificar três coisas — se há fala humana em volume razoável, se o falante reside no estado, e se não é conteúdo comercial ou institucional disfarçado de vlog.
+Feira de Santana segue descoberta — os candidatos testados para ela nas duas rodadas foram todos rejeitados por falta de ancoragem geográfica recorrente. Não bloqueia: a condição de encerramento era disjuntiva.
 
-### 1.5 Vlogs de Pernambuco são os mais escassos
+### 1.4 Treze canais em situação `a_confirmar` — RESOLVIDA em 31/08/2026
 
-Três canais verificados, contra oito no Ceará e onze em São Paulo. Coincide, sem relação causal, com o fato de Pernambuco ser também o único estado-alvo sem marcador morfossintático próprio no instrumento de texto (seção 2.4). Se as duas fragilidades persistirem, convém declarar PE como caso de cobertura reduzida em vez de forçar paridade artificial.
+Eram 11, mais 2 acrescentados na busca de D1 (Samiele Batista, Marcinha De jesus). `selecionar_videos.py` os excluía do planejamento até a inspeção. A equipe ouviu o conteúdo de cada um contra as três perguntas padrão — há fala humana em volume razoável, o falante reside no estado, e não é conteúdo comercial ou institucional disfarçado de vlog — mais a dúvida específica registrada por canal.
+
+**Resultado: 10 aprovados, 3 rejeitados.**
+
+| Canal | UF | Decisão | Motivo |
+|---|---|---|---|
+| Daniel Alves | PB | Aprovado | Majoritariamente vlog; 3 vídeos antigos de imobiliária excluídos individualmente |
+| ESTRELA ALVES | PE | Aprovado | Vlog genuíno, sem ressalva |
+| Samiele Batista | PE | **Rejeitado** | Conteúdo é vitrine de preço de feira, não fala espontânea |
+| Evelyn Ferreira | CE | Aprovado | Jornalista entrevistando moradores — vox-pop genuíno, não portfólio |
+| Band Bahia Oficial | BA | Aprovado | Tem falas espontâneas e entrevistas, não é só apresentador de estúdio |
+| João Yurley | BA | Aprovado | Tem falas de verdade; trechos de jogo eletrônico excluídos individualmente |
+| Marcinha De jesus | BA | Aprovado | Base real confirmada: Vitória da Conquista |
+| Alan City | SP | **Rejeitado** | Narração é roteiro lido, não fala espontânea |
+| Kellynha Costa | SP | **Rejeitado** | Canal inativo, último vídeo há 6 anos |
+| EXPEDIÇÃO KL | RJ | Aprovado | Capital e Cabo Frio, ambos no RJ |
+| Destinos Escolhidos | RJ | Aprovado | Residência confirmada no Rio |
+| Mania de carro | RJ | Aprovado | Residência confirmada em Itaboraí |
+| Manu Trindade | RJ | Aprovado | Residência confirmada em Ipanema |
+
+Corrigida na mesma revisão uma duplicata encontrada em `fontes.json`: o canal "Vlog com Diogo" (PE) tinha duas entradas com o mesmo `channel_id`, inflando em uma unidade a contagem de vlog do estado.
+
+**Pendência encerrada.** `pipeline_coleta_piloto/fontes.json` já reflete todas as decisões; nenhum canal permanece `a_confirmar`.
+
+### 1.5 ~~Vlogs de Pernambuco são os mais escassos~~ — RESOLVIDA em 31/08/2026
+
+**Encerrada pela rodada de reforço descrita em D1:** Pernambuco passou de 4 para 10 vlogs verificados, contra 8 no Ceará, 11 em São Paulo e 13 no Rio de Janeiro. O registro original segue abaixo, por ser a origem da pendência D1.
+
+Eram quatro canais verificados, contra oito no Ceará e treze em São Paulo. Coincide, sem relação causal, com o fato de Pernambuco ser também o único estado-alvo sem marcador morfossintático próprio no instrumento de texto (seção 2.4). Se as duas fragilidades persistirem, convém declarar PE como caso de cobertura reduzida em vez de forçar paridade artificial.
 
 ### 1.6 Rota de coleta por RSS não implementada
 
@@ -186,6 +215,20 @@ A transferência passa pelo Google Drive. Para o piloto são algumas centenas de
 
 O cálculo de WER e DER exige transcrição manual de referência: 20 minutos por estado, estratificados entre camadas, cerca de 2 h ao todo. Não iniciada.
 
+**Atualização de 31/08/2026.** A ferramenta que fecha a conta passou a existir: `pipeline_coleta_piloto/medir_wer.py` lê o `amostra_wer.json` preenchido, calcula o WER **por estado** — nunca só o agregado, porque é a diferença entre variedades que constitui a ameaça — e informa quantos trechos ainda estão sem referência, em vez de tratá-los como acerto. Registre-se também que o dimensionamento de 20 minutos por estado é recomendação de bom senso em `experimentos/meta_volume_corpus.py`, e não cálculo de poder como os que o projeto usa para os pares mínimos.
+
+**Decisão da equipe, 31/08/2026: o trabalho de transcrição manual fica adiado deliberadamente**, para execução posterior. Até lá, o WER permanece declarado como não medido na ficha do conjunto, e o corpus não deve ser usado para comparar desempenho de reconhecimento de fala entre variedades.
+
+### 4.10 Anonimização das transcrições: ferramenta escrita, execução pendente
+
+A seção 1.4.2 do protocolo exige mascarar nomes próprios de terceiros — não o do autor do vídeo — antes de qualquer publicação. Com a decisão de 31/08/2026 que autorizou publicar as transcrições, a anonimização deixou de ser cláusula de protocolo e passou a ser pré-condição técnica de entrega.
+
+`pipeline_coleta_piloto/anonimizar_transcricao.py`, escrito na mesma data, opera em duas fases: a primeira detecta nomes de pessoa e monta uma planilha de revisão, com contexto de cada ocorrência e uma sugestão de mascarar ou manter; a segunda **recusa-se a executar** enquanto houver item não confirmado por uma pessoa, e grava cópias mascaradas sem tocar no material original. A máscara alcança tanto o texto do segmento quanto a lista de palavras com marcação temporal, e uma verificação final falha ruidosamente se algum nome sobreviver.
+
+A automação é deliberadamente parcial, pelas mesmas razões que motivaram a curadoria manual em 6.2 e 6.4: os reconhecedores de entidade disponíveis para português são treinados em texto jornalístico formal e degradam em fala espontânea transcrita por ASR, perdendo sobretudo apelido e forma de tratamento — que é justamente o que a fala de rua usa.
+
+**Encerra a pendência:** instalar `spaCy` com modelo de português; rodar a fase de proposta sobre os pacotes de resultados, ainda não abertos; revisar item a item; e rodar a fase de aplicação. Falta também curar, por canal, o nome real do autor a preservar — hoje `fontes.json` guarda apenas o nome do canal, e o script deriva dele um palpite explicitamente marcado como tal.
+
 ---
 
 ## 4-A. Achados do piloto de 27/08/2026
@@ -223,15 +266,61 @@ O cálculo do passo 4.2 tomou a negação pós-verbal como marcador mais raro, e
 Referências a estes itens devem ser escritas como `docs/pendencias.md`, D4 — e as referências ao roadmap, como passo 5.4.
 
 
-### D1 Simetria entre os grupos
+### D1 Simetria entre os grupos — AVANÇADA em 31/08/2026, revisão de conteúdo FECHADA em 31/08/2026
 
-O grupo de controle tem 9 a 11 vlogs verificados por estado; Pernambuco tem 3. Como um canal de vlog corresponde na prática a um falante, a composição dos grupos difere. Duas condutas: limitar todos os estados ao patamar do mais fraco, ou reforçar PE e BA antes de coletar. `selecionar_videos.py --max-canais N` já implementa a primeira.
+O grupo de controle tem 9 a 11 vlogs verificados por estado; Pernambuco tinha 3. Como um canal de vlog corresponde na prática a um falante, a composição dos grupos difere. **Decisão de 31/08/2026:** reforçar PE e BA em vez de limitar por baixo.
 
-**Recomendação registrada:** decidir depois do piloto, com o rendimento real medido, em vez de agora por estimativa.
+**Busca real executada na mesma data**, por `yt-dlp`, mesma regra de atribuição do projeto (§1, geografia recorrente nos títulos recentes, não na consulta). Seis candidatos inspecionados, títulos recentes conferidos um a um:
 
-### D2 Composição entre camadas
+| Canal | UF | Situação | Evidência |
+|---|---|---|---|
+| Vlog com Diogo | PE | **Aceito** | 6 de 6 títulos recentes mencionam Caruaru; conteúdo de vida cotidiana |
+| Samiele Batista | PE | **Rejeitado em 31/08/2026** | Ancoragem forte em Caruaru confirmada, mas conteúdo é vitrine de preço de feira, não fala espontânea |
+| Marcinha De jesus | BA | **Aceito em 31/08/2026** | Base real confirmada por revisão humana: Vitória da Conquista |
+| Taise Walber | BA | Rejeitado | Nenhum dos 6 títulos recentes menciona Feira de Santana; achado original era vídeo avulso |
+| Esterfany Silva | BA | Rejeitado | Mesmo padrão — sem menção recorrente a Feira de Santana |
+| Rebeca Luiza | PE | Rejeitado | Ancoragem em Caruaru não confirmada; um título recente aponta para Catende |
 
-As proporções da seção 1.4.3 de `docs/protocolo.md` — 60% a 70% para a camada âncora, 30% a 40% para a espontânea — foram fixadas antes de se conhecer o rendimento de cada fonte. O levantamento sugere deslocar volume do vlog, de baixa diversidade por hora, para rádio de participação. Alterar exige revisão formal do protocolo.
+Os três primeiros foram acrescentados a `pipeline_coleta_piloto/fontes.json`. É busca **parcial**, não a metodologia de três rodadas empregada no levantamento original (390 candidatos) — rendeu 2 aceitos e 1 rejeitado em 6 testados, taxa compatível com o histórico do projeto (~1 aproveitável a cada 8).
+
+**Achado que muda o peso desta pendência.** A revisão de D2 (abaixo), que prioriza vox-pop e podcast sobre vlog, faz PE e BA atingirem o piso de 20 falantes **sem depender de vlog algum** (26,6 e 22,4 falantes projetados, respectivamente — ver `experimentos/resultados/tabelas/meta_corpus_autonomo.md`). A fragilidade de vlog em PE deixa de ser bloqueio para o piso mínimo; permanece relevante apenas para diversidade de fonte e margem acima do piso.
+
+### Segunda rodada, 31/08/2026 — a pendência D1 é encerrada
+
+A pedido da equipe, a busca foi retomada e executada em escala, pela metodologia do próprio projeto: vinte consultas ancoradas em municípios de PE e BA, triagem automática por `verificar_fontes.py` e revisão de conteúdo canal a canal.
+
+| Etapa | PE | BA | Total |
+|---|---|---|---|
+| Candidatos distintos levantados | 84 | 94 | 178 |
+| Aprovados na triagem automática | 31 | 31 | 62 |
+| Aceitos após revisão de conteúdo | 7 | 6 | 13 |
+| Marcados `a_confirmar` | 4 | 7 | 11 |
+
+**Efeito sobre a assimetria.** A camada de vlog de Pernambuco passou de 4 para 10 canais verificados, e a da Bahia de 7 para 12 — contra 11 em São Paulo e 13 no Rio de Janeiro. O desequilíbrio que originou esta pendência deixa de existir. Dois canais aceitos são de vox-pop, camada que era a mais frágil dos dois estados: *SERTÃO MAMOEIRO OFICIAL*, com entrevistas de moradores rurais no sertão pernambucano, e *azulzinho Itabuna*, reportagem policial de bairro.
+
+**As rejeições confirmam os critérios documentados.** Concentraram-se nos quatro perfis que o projeto já previa — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking —, e não em casos idiossincráticos. Dois achados merecem registro:
+
+- **Um falante migrante foi identificado e rejeitado.** O canal *Marcela Sevla* satisfaz todos os critérios geográficos de Barreiras-BA, e declara no próprio acervo a mudança de São Paulo para a Bahia. É a ameaça da Parte 3 do protocolo materializada, detectada pela leitura do conteúdo e não pelos metadados — o que reforça a conclusão da seção 6.2: contra falante migrante, o que funciona é curadoria, não automação.
+- **Um caso que a ficha do conjunto não cobre.** O canal *Pietra teles*, de Jacobina, é vlog estudantil cuja autora aparenta ser menor de idade. Ficou marcado `a_confirmar`, e a decisão sobre incluir criador menor cabe à equipe antes de qualquer coleta. A ficha trata da ausência de consentimento em geral, mas não deste caso em particular.
+
+**Questão derivada, e menor.** Com PE e BA reforçados, o piso do grupo nordestino passa a ser a **Paraíba, com 7 vlogs**. Se a equipe quiser simetria estrita com o controle, é a PB que precisa de reforço — não mais PE ou BA.
+
+**Pendência encerrada.** Resta apenas, como trabalho opcional, a inspeção de conteúdo dos 11 canais `a_confirmar` produzidos por esta rodada, que ampliaria a margem acima do piso sem ser necessária para atingi-lo.
+
+### D2
+
+
+### D2 Composição entre camadas — IMPLEMENTADA em 31/08/2026
+
+As proporções da seção 1.4.3 de `docs/protocolo.md` — 60% a 70% para a camada âncora, 30% a 40% para a espontânea — haviam sido fixadas antes de se conhecer o rendimento de cada fonte, e eram medidas em **horas**, herdadas da função instrumental que o corpus não tem mais (ver item #3 do registro de `docs/dataset-spec.md`).
+
+**Decisão de 31/08/2026:** priorizar vox-pop e podcast sobre vlog, por rendimento marginal de falantes por arquivo — vlog rende exatamente 1 pessoa por canal, não importa quantos vídeos; vox-pop e podcast rendem gente nova a cada episódio adicional do mesmo canal (3,2 e 2,0 falantes novos por arquivo, respectivamente, contra 0 do vlog).
+
+**Implementado em `experimentos/meta_corpus_autonomo.py`.** Um canal de vox-pop ou podcast agora pode contribuir com mais de um arquivo, até um teto por canal — reaproveitado de `TETO_POR_CANAL = 0.35` já usado em `selecionar_videos.py`, aqui aplicado ao piso de 20 falantes (≈ 7 falantes por canal). Vlog deixa de ser somado por padrão e só entra se vox-pop e podcast, mesmo explorados ao máximo, não bastarem.
+
+**Resultado, com as fontes hoje verificadas:** todos os seis estados atingem o piso de 20 falantes usando **apenas** vox-pop e podcast — nenhum canal de vlog é necessário. O plano de coleta cai de 8,3 h/estado para cerca de 0,7 a 1,0 h/estado (relatório completo em `experimentos/resultados/tabelas/meta_corpus_autonomo.md`).
+
+**Encerrada.**
 
 ### D3 CLAUDE.md fora do versionamento — PARCIALMENTE RESOLVIDA em 31/08/2026
 
@@ -244,9 +333,11 @@ As partes públicas do arquivo — protocolo metodológico e operacional (§1.4)
 
 **Encerra a pendência:** redirecionar as referências restantes em código e READMEs, e decidir se o log de revisões também deve ser versionado.
 
-### D4 Subcorpus de TikTok
+### D4 Subcorpus de TikTok, Instagram e Spotify — DECIDIDO em 31/08/2026
 
-Excluído do corpus principal por dissociação entre origem do vídeo e origem da voz (seção 2.3.1 de `docs/fontes_coleta.md`). Admite-se reabertura, sob quatro critérios cumulativos, caso a diversidade de falantes não se complete pelas fontes adotadas. Não reavaliado desde então.
+**Decisão: nenhuma das três plataformas será incorporada**, nem como subcorpus secundário. TikTok e Instagram permanecem excluídos pela dissociação entre origem do vídeo e origem da voz (seção 2.3.1 de `docs/fontes_coleta.md`) — risco que a checagem de reincidência de falante (D-6.4) e a checagem de falante migrante (D-6.2) já não dão conta de cobrir, e que a reabertura condicionada nunca chegou a ser justificada pela diversidade de falantes, que hoje está resolvida por vox-pop e podcast (ver D2). Spotify segue fora por vedação de download nos termos de uso (`docs/dataset-spec.md` §1.4.4).
+
+**Encerrada.**
 
 ### D7 O conjunto de pares mínimos não tem especificação de entrega
 
@@ -288,6 +379,56 @@ A providência 3 abaixo — descartar o artefato de segmentação — foi execut
 A partição dos atributos entre favoráveis e desfavoráveis, e entre alto e baixo prestígio ocupacional, foi feita pelo projeto por circulação corrente e está declarada em código, em `analise_valencia.py`, para ser auditável e contestável. Atributos ambíguos — *simples*, *normal*, *séria*, *fria*, *vendedor*, *motorista* — foram excluídos em vez de arbitrados.
 
 Não foi submetida a juízes. Como a medida de viés é inteiramente definida por essa partição, ela deve integrar o Filtro 1 quando este for aplicado, sob pena de o escore de viés depender de julgamento não validado de uma única fonte.
+
+### D10 Proposta de linha de análise por sentimento, discutida com a orientação em 31/08/2026
+
+**Aberta em 31/08/2026.** Três ideias trazidas de conversa com a orientação, ainda não integradas ao roadmap nem confrontadas com o desenho vigente. Registradas aqui como surgiram, em linguagem próxima do original, para não se perderem antes de decididas:
+
+1. **Validar o Whisper por divergência de sentimento.** Sobre amostra aleatória com transcrição manual, comparar a transcrição manual e a do Whisper por análise de sentimento, perguntando se a diferença é significativa — em vez de, ou além de, computar WER diretamente.
+2. **Aplicar análise de sentimento aos pares mínimos.** Selecionar frases, inserir marcadores regionais, e verificar por análise de sentimento se há divergência entre as duas condições — uma métrica nova sobre o mesmo desenho de pares que hoje usa PLL.
+3. **Regressão de sentimento sobre o corpus real coletado.** "Pegar os pares dos vídeos", extrair sentimento do conteúdo dos vídeos coletados (não dos pares sintéticos), e regredir sobre Tema, Tempo, Região e outras covariáveis, com sentimento como variável a prever.
+
+**Tensões identificadas, a resolver antes de qualquer execução:**
+
+- **As três ideias pertencem a objetos diferentes do projeto**, e cada uma herda um estatuto distinto: (1) é validação de ferramenta (o mesmo objeto da pendência de WER, seção 2.1 dos achados); (2) é metodologicamente paralela ao desenho de *matched-guise* já em uso — troca a métrica (PLL por sentimento) mantendo pares sintéticos; (3) muda o objeto de medição para o **corpus real coletado**, o que deixa de ser uma pergunta sobre viés do BERTimbau e passa a ser sobre o conteúdo do corpus em si.
+- **A ideia 3 colide com a ficha do conjunto.** `docs/ficha_conjunto.md`, seção de usos desaconselhados, item 1, adverte contra inferir características de falantes a partir do rótulo regional — e regredir sentimento sobre Região no corpus real é, estruturalmente, esse mesmo movimento, ainda que a intenção declarada seja outra. A moldura da análise (testar viés de um classificador de sentimento, ou caracterizar o corpus) precisa ser explicitada antes de rodar.
+- **Um classificador de sentimento em português introduz o mesmo risco que a tokenização introduziu no BERTimbau**: pode carregar viés próprio, não medido, que se confundiria com o efeito procurado. A ideia 1, se usar divergência de sentimento como proxy de WER, herda esse risco em vez de evitá-lo — WER direto (já planejado, 2h de transcrição manual dimensionadas) é medida mais direta e sem esse confundidor.
+- **Nenhuma das três está posicionada no roadmap.** Se aprovadas, precisam de numeração própria (candidata: passo 5.7, ou frente separada do passo 5) e de dimensionamento pelo mesmo padrão do resto do projeto — critério de decisão explícito antes de qualquer coleta ou medição nova.
+
+**Encerra a pendência:** decisão da equipe sobre cada uma das três, com a moldura de interpretação da ideia 3 explicitada por escrito antes de proceder.
+
+**Atualização de 31/08/2026.** A equipe decidiu que o esquema de campos do dataset final somará os campos já existentes (`docs/dataset-spec.md` §1.3) a três campos novos, discutidos com a orientação: **descrição ou transcrição do texto**, **features textuais** (TF-IDF citado como exemplo) e **features de áudio**. Dois pontos permanecem abertos antes de o esquema poder ser escrito em `dataset-spec.md`:
+
+- **"Descrição" e "transcrição" não são a mesma coisa**, e a escolha entre elas reabre ou fecha a pendência #2 daquele documento. Transcrição literal exige a decisão jurídica sobre obra derivada e a anonimização ainda não implementada (Bloco 2 de `docs/questoes_para_orientacao.md`); uma descrição gerada — resumo, não verbatim — teria posição legal muito mais leve e poderia dispensar parte daquela consulta.
+- **"Features de áudio" não tem conteúdo especificado.** Nenhum candidato foi indicado (MFCC, estatísticas de F0, *embeddings* de um modelo de fala, ou outro), e a escolha importa em particular para este projeto, cujo marcador de áudio é fonético — a palatalização de /t,d/ diante de /i/.
+
+**Segunda atualização, 31/08/2026.** As duas perguntas acima foram respondidas em parte:
+
+- **Confirmado: transcrição, não descrição.** O campo será a transcrição literal do texto. **Isto é decisão de esquema, não autorização de publicação** — continua valendo a advertência: publicar a transcrição depende da decisão jurídica sobre obra derivada (pergunta 2.1 de `docs/questoes_para_orientacao.md`) e do mascaramento de nomes próprios, que segue **não implementado**. Enquanto essas duas condições não forem satisfeitas, a transcrição integra o esquema do dado interno, mas não pode ser publicada como está.
+- **Features de áudio:** confirmadas como **marcadores regionais** — não features acústicas genéricas (MFCC, F0), e sim indicadores derivados dos próprios marcadores dialetais do projeto (por exemplo, densidade de contextos de palatalização, já medida em `experimentos/resultados/tabelas/densidade_palatalizacao.md`). Lista declarada como **aberta**, a ser estendida.
+- **Features de texto:** confirmado TF-IDF como primeiro item. Lista igualmente **aberta**, a ser estendida.
+
+**Por que o esquema formal em `docs/dataset-spec.md` ainda não foi atualizado.** As duas listas de *features* são declaradas incompletas pela própria equipe ("entre outros que posteriormente vou falar pra atualizar"). O esquema daquele documento é escrito com tipo, vocabulário controlado e obrigatoriedade fechados para cada campo — entrar com uma lista aberta ali quebraria o padrão de precisão que os demais campos seguem, e obrigaria a reescrever a entrada a cada extensão. A atualização formal fica para quando as listas estiverem fechadas, ou para quando a equipe decidir registrá-las como "vocabulário aberto" deliberadamente, o que também é uma opção válida — a decidir.
+
+**Terceira atualização, 31/08/2026 — onde a análise de sentimento entra.** A pergunta não tem resposta única: o lugar da análise de sentimento depende de qual das três ideias originais (início desta pendência) está em jogo. As três não são posições alternativas de um mesmo componente — são três papéis estruturalmente diferentes:
+
+| Ideia | Onde entra | É campo do esquema? |
+|---|---|---|
+| 1 — validar o Whisper | Computada uma vez, sobre a amostra de verificação manual (as 2h de transcrição de referência já dimensionadas). É medição de controle de qualidade | **Não.** Não persiste no dado; é resultado de uma checagem pontual |
+| 2 — métrica sobre os pares mínimos | Aplicada aos enunciados sintéticos em `experimentos/`, como métrica alternativa ao PLL — mesmo papel que `metricas.py` já ocupa | **Não.** É medição de experimento, não dado do corpus; não pertence a `dataset-spec.md`, e sim a um novo script de medição |
+| 3 — regressão sobre o corpus real | Precisaria de um escore de sentimento **por vídeo ou trecho**, calculado a partir da transcrição. É o único dos três casos em que a análise de sentimento se tornaria dado persistido | **Sim, seria.** Entraria como item dentro de **features textuais**, ao lado do TF-IDF — é o mesmo tipo de objeto: um escore derivado do texto transcrito |
+
+Só a ideia 3 faz da análise de sentimento um campo do dataset. Nas ideias 1 e 2 ela é ferramenta de análise, não dado armazenado — a diferença entre "está no banco de dados" e "roda sobre o banco de dados", que já foi discutida nesta mesma conversa a propósito da natureza do corpus.
+
+**Segue pendente:** qual das três ideias a equipe pretende de fato executar. Enquanto isso não for decidido, não é possível saber se "análise de sentimento" deve ou não entrar como um dos itens declarados em aberto de *features textuais*.
+
+**Quarta atualização, 31/08/2026 — três decisões de método, respondendo perguntas da equipe.**
+
+**Sobre manter `diarizacao` no registro publicado (decisão: manter).** A pergunta era se o rótulo de locutor por trecho é necessário. É, e por um motivo que não é acessório: em vox-pop, o repórter frequentemente não é do estado, e é a diarização que separa a fala dele da do entrevistado — sem ela, o corpus incorporaria fala de fora da variedade sob o rótulo do estado errado, contaminando exatamente a variável que o projeto mede. É também o que sustenta a contagem de 211 falantes de que D1 e D2 dependem. Removê-la desfaria o próprio teto de 5% (item #5): sem separar quem fala, não há como saber quantos falantes distintos existem. Registro final escolhido como artefato a publicar (item #2 do registro de `docs/dataset-spec.md`), com `diarizacao` mantida.
+
+**Sobre o teto de 5% por falante (decisão: manter).** A pergunta era se é crucial. É: sem ele, nada impede que 80% da fala de um estado venha de uma só pessoa loquaz, e nesse caso o corpus não representaria "a variedade de Pernambuco" — representaria o idioleto de um indivíduo. É a condição mínima para a alegação de representatividade que sustenta o corpus como entregável autônomo (item #3 de `docs/dataset-spec.md`). Continua sem verificação de identidade entre arquivos implementada (D-6.4), que é o que falta para *confirmar* que o teto é respeitado, não o teto em si.
+
+**Sobre o falante migrante (decisão: manter como limitação declarada, não como algo a remover).** A pergunta era se impacta negativamente e como validar. Impacta, e na direção mais perigosa possível: como o fluxo migratório dominante no Brasil é Nordeste → Sudeste, um nordestino incorporado por engano ao grupo de controle **atenua** o contraste medido, empurrando o resultado para "não há diferença" — que é justamente o achado central do projeto (item 1.15 de `docs/achados_para_o_artigo.md`, sinalização implícita nula). Não é risco simétrico: ele empurra na direção que o projeto já encontrou. Não há como "validar" e descartar o risco por completo — a defesa é a checagem de coerência dialetal na curadoria manual das transcrições (D-6.2), que opera ouvindo a fala e não lendo metadados, e **não está implementada**. Continua registrada como limitação a declarar no artigo, por ser incontornável em corpus de fala pública coletado de plataforma — não é um item que se "retira".
 
 ### D5 Rumo do projeto — remetido ao roadmap
 
@@ -340,6 +481,10 @@ A lista de municípios e bairros é deliberadamente incompleta e foi ampliada um
 
 Os dois casos identificados denunciaram-se pelo nome do canal, o que é acidente favorável. Não há sinal textual confiável para o caso geral. A defesa efetiva é a checagem de coerência dialetal na curadoria das transcrições, que opera sobre a fala e não sobre metadados — **e não está implementada**.
 
+**Investigado em 31/08/2026: as duas vias automáticas óbvias não funcionam, e por motivos já documentados no projeto.** Densidade de marcadores lexicais regionais é sinal fraco demais — o item 2.4 de `docs/achados_para_o_artigo.md` mediu zero ocorrências desses itens em 30 mil palavras de fala nordestina genuína, então um detector assim marcaria quase todo falante verdadeiro como suspeito. Densidade de contextos de palatalização mede apenas contexto ortográfico, não realização fonética, e os mesmos contextos existem em qualquer fala do português — não separa quem palataliza de quem não palataliza sem análise acústica do áudio, que o projeto não tem.
+
+**Encaminhamento adotado: protocolo de curadoria manual, operacionalizado em vez de deixado como frase.** `pipeline_coleta_piloto/preparar_amostra_coerencia.py` amostra locutores por estado (10 de 20, dimensionado para poder de detecção adequado a um primeiro descarte) e recorta o segmento mais longo de cada um, gerando uma planilha para veredito humano — coerente, suspeito ou inconclusivo. Não decide nada sozinho; prepara o material para quem vai ouvir. Requer ambiente com áudio; não foi executado.
+
 ### 6.3 Precisão da triagem automática
 
 Cerca de 41% dos canais aprovados automaticamente sobrevivem à revisão humana. Os três sinais de risco acrescentados após a primeira rodada — itinerante, narração sintética, canal sem fala — melhoram a taxa, mas a revisão humana permanece indispensável, inclusive porque o filtro produz falso positivo em sentido inverso, como no canal de Belford Roxo cujos títulos descrevem deslocamento diário com a palavra "viajando".
@@ -351,6 +496,9 @@ Cerca de 41% dos canais aprovados automaticamente sobrevivem à revisão humana.
 Detalhamento em `experimentos/resultados/tabelas/meta_corpus_autonomo.md`, seção final.
 
 Nada impede que a mesma pessoa apareça em canais distintos — convidado que circula por vários podcasts regionais, por exemplo. Isso violaria silenciosamente o teto de 5% por falante estabelecido em `docs/fontes_coleta.md`, seção 2.4.5. A detecção exigiria comparação de vozes na etapa de diarização.
+
+**Método proposto e implementado em 31/08/2026, execução pendente.** `pipeline_coleta_piloto/verificar_reincidencia.py` compara *embeddings* de locutor (via `pyannote/embedding`, mesma dependência já usada na diarização) entre todos os arquivos de um estado, sinalizando pares acima de um limiar de similaridade para revisão humana — não decide sozinho, só reduz o volume a conferir. Requer ambiente com `pyannote.audio` e o áudio bruto, isto é, o ambiente de processamento (Colab), não esta máquina; não foi executado.
+
 
 ### 6.5 Consulta de frequência sensível a diacrítico
 

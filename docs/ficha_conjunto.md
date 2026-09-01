@@ -23,7 +23,7 @@ A ficha trata os dois em separado, porque suas respostas divergem em quase todas
 
 **Que lacuna preenche?** A dialetologia brasileira dispõe de atlas linguísticos com metodologia de amostragem transparente, mas de assimetria temporal considerável — o Atlas Prévio dos Falares Baianos é de 1963 e o da Paraíba de 1984, contra 2010 do cearense. Marcadores extraídos das fontes mais antigas exigem confirmação em fala contemporânea, e não havia corpus disponível para isso nos estados-alvo.
 
-**Quem criou e com que financiamento?** Projeto de pesquisa acadêmica individual, sem financiamento externo declarado. `PENDENTE:` vinculação institucional a declarar.
+**Quem criou e com que financiamento?** Projeto de pesquisa acadêmica individual, sem financiamento externo. **Confirmado em 31/08/2026: sem vínculo institucional a declarar.**
 
 **Mudança de função registrada.** Até 29/08/2026 o corpus era **instrumento**: servia ao segundo filtro de validação do instrumento de texto, confirmando que um marcador ocorre em fala real antes de integrar o experimento. Nessa data a equipe decidiu tratá-lo como **entregável autônomo**, pela razão registrada em `docs/dataset-spec.md` §1.1 — quatro famílias de marcadores dialetais implícitos foram testadas sem que nenhuma produzisse resposta no modelo, e um instrumento de validação sem nada a validar não sustenta a coleta.
 
@@ -101,7 +101,7 @@ Adotados: YouTube e podcast por feed aberto. Excluídos: Spotify, por vedação 
 
 **Período de coleta.** 27 e 28 de agosto de 2026.
 
-**Houve revisão ética por comitê?** `PENDENTE:` não realizada. A situar antes de qualquer publicação, dado que os falantes não consentiram.
+**Houve revisão ética por comitê?** **Decidido em 31/08/2026: não é necessária**, por determinação da equipe. A ausência de consentimento dos falantes permanece registrada como limitação do método (Parte 3 de `docs/protocolo.md`), independentemente da dispensa de comitê.
 
 ## A.4 Pré-processamento e rotulação
 
@@ -112,6 +112,8 @@ Adotados: YouTube e podcast por feed aberto. Excluídos: Spotify, por vedação 
 **O áudio bruto foi preservado?** Sim, localmente. Não é redistribuído.
 
 **Qualidade da transcrição foi validada?** **Não.** A confiança média do modelo é de 0,944 para fala nordestina contra 0,939 para sudestina, o que não indica penalização de uma variedade — mas **confiança mede certeza do modelo, não acerto**. O cálculo de taxa de erro exige transcrição humana de referência, dimensionada em 20 minutos por estado, e **nenhuma foi produzida**. Enquanto isso não existir, o conjunto não deve ser usado para comparar desempenho de reconhecimento de fala entre variedades.
+
+> **Sobre a lacuna de taxa de erro (31/08/2026).** O mecanismo de medição já existe: o notebook de processamento gera `amostra_wer.json`, com 20 minutos de trechos por estado e o campo `referencia_manual` em branco, pronto para comparação com `jiwer` assim que preenchido (`notebooks/README.md`, `pipeline_coleta_piloto/medir_wer.py`). **O que falta é trabalho humano — transcrever manualmente esses trechos —, não ferramenta.** **Adiado deliberadamente pela equipe em 31/08/2026:** o trabalho será feito depois; até lá, o WER permanece não medido, e o conjunto não deve ser usado para comparar desempenho de reconhecimento de fala entre variedades.
 
 ## A.5 Usos
 
@@ -133,24 +135,24 @@ Adotados: YouTube e podcast por feed aberto. Excluídos: Spotify, por vedação 
 
 ## A.6 Distribuição
 
-**Como será distribuído?** `PENDENTE, e é a decisão mais consequente em aberto.` A regra fixada no protocolo é publicar **identificadores de vídeo e código de coleta**, nunca o áudio bruto, o que preserva a reprodutibilidade sem redistribuir conteúdo de terceiros.
+**Como será distribuído?** A regra fixada no protocolo é publicar **identificadores de vídeo e código de coleta**, nunca o áudio bruto, o que preserva a reprodutibilidade sem redistribuir conteúdo de terceiros.
 
-O que o protocolo **não** decidiu é o estatuto da **transcrição**, que não é áudio nem identificador. Duas condições precedem qualquer publicação dela:
+**Estatuto da transcrição — decidido em 31/08/2026.** A transcrição **pode ser publicada**, condicionada à anonimização de nomes próprios de terceiros exigida pelo protocolo (`docs/protocolo.md` §1.4.2). A decisão resolve a pergunta 2.1 de `docs/questoes_para_orientacao.md`. Duas coisas, no entanto, permanecem na camada de execução, distintas da decisão em si:
 
-1. A anonimização de nomes próprios exigida pelo protocolo, **não implementada**.
-2. Uma decisão informada sobre transcrição como obra derivada do vídeo. A prática da área é publicar transcrições de corpora de fala; a questão não foi examinada por quem tenha competência para respondê-la, e **não deve ser decidida pela equipe técnica sozinha**.
+1. **A anonimização foi implementada em 31/08/2026, mas não executada.** `pipeline_coleta_piloto/anonimizar_transcricao.py` opera em duas fases — propõe os nomes detectados para revisão humana e, só depois de cada item ser confirmado por uma pessoa, grava cópias mascaradas sem tocar no original. Falta rodá-la, o que exige abrir os pacotes de resultados ainda não abertos, e falta a revisão humana que a segunda fase exige. A ferramenta depende de `spaCy` com modelo de português, hoje não instalado.
+2. **A licença exata da transcrição não foi fixada.** A permissão de publicar não define automaticamente os termos de reúso: o projeto não é titular da fala de terceiros, o que torna questionável estender a ela o mesmo CC BY 4.0 aplicado a metadados e anotações (ver abaixo). Este ponto segue em aberto, mais estreito que antes.
 
-**Sob que licença?** `PENDENTE.` A orientação registrada é licença em duas camadas: CC BY 4.0 para o que é autoria do projeto — metadados, anotações, documentação — e MIT para o código. As transcrições ficam **fora do escopo da licença** até a decisão acima, porque licenciar exige titularidade, e o conteúdo falado é de terceiros.
+**Sob que licença?** **Decidido em 31/08/2026.** CC BY 4.0 para o que é autoria do projeto — metadados, anotações, documentação, pares mínimos (ver `LICENSE-DATA.md`) — e MIT para o código (`LICENSE`). A transcrição está autorizada a ser publicada (ver acima), mas segue **fora do escopo da licença CC BY** até que a equipe decida especificamente os termos sob os quais ela é distribuída.
 
 **Há restrições de terceiros?** Sim. Os termos de uso da plataforma de origem e os direitos sobre o conteúdo dos vídeos.
 
 ## A.7 Manutenção
 
-**Quem mantém?** A equipe do projeto. `PENDENTE:` contato a declarar na publicação.
+**Quem mantém?** A equipe do projeto. **Confirmado em 31/08/2026:** repositório em `github.com/Aryazinha/vies-nordeste-bertimbau`, como canal principal.
 
 **O conjunto será atualizado?** Sim, enquanto a coleta prosseguir. A meta vigente está em `experimentos/resultados/tabelas/meta_corpus_autonomo.md`: ao menos vinte falantes distintos por estado, derivados do teto de 5% por falante já fixado.
 
-**Como erros serão comunicados?** `PENDENTE:` canal a definir. O repositório registra defeitos identificados em `docs/pendencias.md`, com uma seção dedicada ao padrão de falha silenciosa.
+**Como erros serão comunicados?** **Confirmado em 31/08/2026:** *issues* do repositório no GitHub, que é o canal já usado publicamente pelo projeto. O repositório registra internamente defeitos identificados em `docs/pendencias.md`, com uma seção dedicada ao padrão de falha silenciosa; *issues* externas são a via de entrada de relatos de terceiros.
 
 **Instâncias serão removidas?** Sim, quando um vídeo se tornar indisponível ou quando a curadoria identificar falante migrante, áudio sintético ou incoerência dialetal.
 
@@ -198,7 +200,7 @@ Dois filtros independentes e cumulativos, especificados em `docs/pares_minimos_v
 
 **Formato:** `PENDENTE, com proposta.` Formato canônico único, com estrutura por par — identificador, os dois lados, marcador, estado-alvo, extensão em subtokens de cada atributo e anotações de juízes —, acompanhado de script de conversão para o formato tabular dos precedentes, em vez de dois artefatos publicados a manter em sincronia.
 
-**Licença:** `PENDENTE.` Diferentemente das transcrições, os pares mínimos são texto de autoria do projeto e admitem licenciamento permissivo sem a ressalva de titularidade.
+**Licença:** **Decidido em 31/08/2026: CC BY 4.0** (`LICENSE-DATA.md`). Diferentemente das transcrições, os pares mínimos são texto de autoria do projeto e não carregam a ressalva de titularidade.
 
 ---
 
@@ -206,13 +208,13 @@ Dois filtros independentes e cumulativos, especificados em `docs/pares_minimos_v
 
 Registradas aqui para que a preliminaridade do documento não se perca:
 
-| Seção | Lacuna |
-|---|---|
-| A.1 | Vinculação institucional e financiamento |
-| A.3 | Revisão por comitê de ética não realizada |
-| A.4 | Taxa de erro de transcrição não medida contra referência humana |
-| A.6 | Forma de distribuição, estatuto da transcrição e licença |
-| A.7 | Contato de manutenção e canal de comunicação de erros |
-| B.5 | Formato e licença |
+| Seção | Lacuna | Situação em 31/08/2026 |
+|---|---|---|
+| A.1 | Vinculação institucional e financiamento | **Fechada em 31/08/2026** — sem vínculo institucional |
+| A.3 | Revisão por comitê de ética | **Fechada em 31/08/2026** — dispensada por decisão da equipe |
+| A.4 | Taxa de erro de transcrição não medida | Aberta, **adiada deliberadamente em 31/08/2026** — ferramenta completa (`amostra_wer.json` + `pipeline_coleta_piloto/medir_wer.py`), falta a transcrição manual em si; a equipe decidiu não fazê-la agora, registrando o WER como não medido até lá |
+| A.6 | Forma de distribuição, estatuto da transcrição, licença | **Estatuto decidido em 31/08/2026** (pode publicar, mediante anonimização) e **ferramenta de anonimização escrita na mesma data**; seguem abertas a **execução da anonimização**, com a revisão humana que ela exige, e a **licença específica da transcrição** |
+| A.7 | Contato de manutenção, canal de erros | **Fechada em 31/08/2026** — GitHub confirmado |
+| B.5 | Formato e licença | **Licença decidida**; formato segue proposto e não confirmado |
 
-As decisões de A.6 envolvem questão que a equipe técnica não deve responder sozinha, e estão encaminhadas para consulta externa.
+A.1 exigia resposta direta da equipe — obtida. A.3 e o estatuto da transcrição em A.6 envolviam questão que a equipe técnica não devia responder sozinha; ambas foram decididas pela equipe em 31/08/2026, encerrando o encaminhamento para consulta externa que este documento registrava.

@@ -9,20 +9,22 @@ O teto de 5% por falante, fixado em `docs/fontes_coleta.md`
 seção 2.4.5, exige por aritmética **20 falantes distintos por estado**.
 Não é escolha: é o que satisfazer o teto significa.
 
-## Quantos arquivos por estado, e de que camada
+## Plano por estado, priorizando vox-pop e podcast
 
-Cada canal de vlog rende um falante, quantos vídeos forneça. Vox-pop e
-podcast rendem falantes novos a cada arquivo, descontado o locutor que se
-repete — repórter ou apresentador.
+Vox-pop e podcast entram primeiro, cada canal explorado por vários
+arquivos até o teto por canal (7 falantes, 
+35% do piso — mesma proporção de `TETO_POR_CANAL` em
+`selecionar_videos.py`). Vlog só entra se essas duas camadas, mesmo
+exploradas ao máximo, não atingirem o piso.
 
-| UF | Canais vox-pop | Canais podcast | Canais vlog | Falantes só de vlog | Arquivos de vox-pop para completar 20 |
-|---|---|---|---|---|---|
-| PB | 2 | 3 | 7 | 7 | 2 |
-| PE | 3 | 5 | 4 | 4 | 1 |
-| CE | 4 | 4 | 8 | 8 | 0 |
-| BA | 2 | 4 | 6 | 6 | 1 |
-| SP | 2 | 4 | 13 | 13 | 0 |
-| RJ | 2 | 2 | 13 | 13 | 1 |
+| UF | Canais vox-pop usados | Arquivos vox-pop | Canais podcast usados | Arquivos podcast | Canais vlog | Falantes cobertos | Falta |
+|---|---|---|---|---|---|---|---|
+| PB | 2/2 | 2 | 2/3 | 6 | 0/7 | 22.4 | — |
+| PE | 4/4 | 4 | 1/5 | 3 | 0/10 | 23.8 | — |
+| CE | 4/4 | 4 | 1/4 | 3 | 0/8 | 23.8 | — |
+| BA | 3/3 | 3 | 2/4 | 6 | 0/12 | 26.6 | — |
+| SP | 2/2 | 2 | 2/4 | 6 | 0/11 | 22.4 | — |
+| RJ | 2/2 | 2 | 2/2 | 6 | 0/13 | 22.4 | — |
 
 ## O segundo piso: quanta fala por falante
 
@@ -45,13 +47,13 @@ Com duração média de 6.4 min por arquivo coletado:
 
 | UF | Arquivos estimados | Horas brutas |
 |---|---|---|
-| PB | 12 | 1.3 h |
-| PE | 10 | 1.1 h |
-| CE | 12 | 1.3 h |
-| BA | 11 | 1.2 h |
-| SP | 17 | 1.8 h |
-| RJ | 16 | 1.7 h |
-| **Total** | — | **8.3 h** |
+| PB | 8 | 0.8 h |
+| PE | 7 | 0.7 h |
+| CE | 7 | 0.7 h |
+| BA | 9 | 1.0 h |
+| SP | 8 | 0.8 h |
+| RJ | 8 | 0.8 h |
+| **Total** | — | **5.0 h** |
 
 Compare-se com as 50 h da meta anterior e com as 38 h de seu recálculo.
 A diferença não é de precisão, e sim de critério: aquelas mediam volume de
