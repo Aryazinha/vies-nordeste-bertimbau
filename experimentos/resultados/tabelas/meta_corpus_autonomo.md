@@ -19,12 +19,12 @@ exploradas ao máximo, não atingirem o piso.
 
 | UF | Canais vox-pop usados | Arquivos vox-pop | Canais podcast usados | Arquivos podcast | Canais vlog | Falantes cobertos | Falta |
 |---|---|---|---|---|---|---|---|
-| PB | 2/2 | 2 | 2/3 | 6 | 0/7 | 22.4 | — |
+| PB | 3/3 | 3 | 2/4 | 6 | 0/7 | 26.6 | — |
 | PE | 4/4 | 4 | 1/5 | 3 | 0/10 | 23.8 | — |
 | CE | 4/4 | 4 | 1/4 | 3 | 0/8 | 23.8 | — |
 | BA | 3/3 | 3 | 2/4 | 6 | 0/12 | 26.6 | — |
 | SP | 2/2 | 2 | 2/4 | 6 | 0/11 | 22.4 | — |
-| RJ | 2/2 | 2 | 2/2 | 6 | 0/13 | 22.4 | — |
+| RJ | 5/5 | 5 | 0/2 | 0 | 0/13 | 21.0 | — |
 
 ## O segundo piso: quanta fala por falante
 
@@ -47,13 +47,13 @@ Com duração média de 6.4 min por arquivo coletado:
 
 | UF | Arquivos estimados | Horas brutas |
 |---|---|---|
-| PB | 8 | 0.8 h |
+| PB | 9 | 1.0 h |
 | PE | 7 | 0.7 h |
 | CE | 7 | 0.7 h |
 | BA | 9 | 1.0 h |
 | SP | 8 | 0.8 h |
-| RJ | 8 | 0.8 h |
-| **Total** | — | **5.0 h** |
+| RJ | 5 | 0.5 h |
+| **Total** | — | **4.8 h** |
 
 Compare-se com as 50 h da meta anterior e com as 38 h de seu recálculo.
 A diferença não é de precisão, e sim de critério: aquelas mediam volume de

@@ -41,7 +41,21 @@ O registro original apontava PB, BA, SP e RJ com dois canais nessa camada. **Sit
 
 O risco não é hipotético: a seção 4.5 registra que vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência — que é precisamente o conteúdo do telejornalismo policial de onde vem boa parte do vox-pop.
 
-**Encerra a pendência:** elevar a quatro canais por estado nessa camada, prioritariamente em PB, SP e RJ.
+### Rodada de reforço de vox-pop, 31/08/2026 — parcialmente bem-sucedida
+
+Executada pela mesma metodologia das rodadas anteriores, com consultas desenhadas para a camada: entrevista de rua, reportagem de bairro com morador e memória oral. De 164 candidatos, 36 passaram na triagem automática e **11 sobreviveram à revisão — 4 aceitos e 7 `a_confirmar`**.
+
+| UF | Antes | Depois | A confirmar | Situação |
+|---|---|---|---|---|
+| RJ | 2 | **5** | +4 | Meta atingida |
+| PB | 2 | **3** | +2 | Perto; os dois a confirmar bastariam |
+| SP | 2 | **2** | +1 | **Sem avanço** |
+
+**São Paulo é um resultado negativo, e a razão é estrutural.** A busca devolveu quase exclusivamente rede nacional — *Jornal da Record*, *g1*, *SBT News*, *Band Jornalismo*, *Hoje em Dia*, *Cidade Alerta*, *Balanço Geral*. Todas foram rejeitadas: um canal nacional não satisfaz a regra de atribuição por estado, porque seu conteúdo vem do país inteiro, e a fala que ele carrega não é atribuível a São Paulo. O paradoxo é que São Paulo concentra a mídia nacional justamente por ser São Paulo, e isso **soterra** o jornalismo de bairro paulista nos resultados de busca. O único candidato genuinamente local e ancorado no estado, *Ponte Jornalismo*, ficou `a_confirmar`.
+
+Uma consequência a considerar: se São Paulo permanecer com dois canais nessa camada enquanto os demais estados chegam a quatro ou cinco, a assimetria se inverte — o grupo de controle é que passa a ser o frágil. Para o experimento importa a simetria, e não o máximo por estado.
+
+**Encerra a pendência:** elevar a quatro canais por estado nessa camada. Falta São Paulo, que exige estratégia diferente da busca por palavra-chave — provavelmente partir de emissoras regionais paulistas conhecidas e de projetos de jornalismo comunitário, e não de consulta genérica; falta a Bahia, em 3; e falta confirmar os dois candidatos da Paraíba.
 
 ### 1.3 ~~Interior da Bahia descoberto~~ — RESOLVIDA em 31/08/2026
 
@@ -472,6 +486,16 @@ Nenhum emitiu erro. Todos foram descobertos por conferência posterior, e três 
 O sétimo caso merece nota: não era defeito de programa, e sim de **coerência entre a estatística e a unidade de replicação**. Pertence à mesma classe porque produz número plausível em vez de erro, e porque só apareceu na conferência de uma tabela contra a anterior.
 
 ## 6. Melhorias identificadas
+
+### 6.0 O casador de municípios confunde sobrenome com cidade
+
+Constatado em 31/08/2026, na rodada de vox-pop: o canal *Memória IBGE* foi aprovado na triagem automática com a evidência "Santos", que não vinha da cidade de Santos — vinha do sobrenome de um entrevistado, *Geraldo dos Santos*. O canal é de história oral do IBGE, com depoentes de MS, RN e PA, e nada tem de paulista.
+
+O mecanismo de `AMBIGUOS` em `verificar_fontes.py` trata a ambiguidade **entre estados** (Penha existe em SP e no RJ), mas não a colisão entre topônimo e palavra comum ou sobrenome. São vulneráveis pelo menos *Santos*, *Franca*, *Lapa*, *Areia* e *Campo Grande*.
+
+Não produziu erro no conjunto, porque a revisão humana pegou. Mas é falha silenciosa no sentido da seção 5-A: a triagem entrega um veredito ACEITO com evidência que parece sólida.
+
+**Encerra a pendência:** exigir, para esse subconjunto de nomes, um segundo marcador no mesmo acervo — a sigla do estado ou outro município — do mesmo modo como já se faz com os ambíguos entre estados.
 
 ### 6.1 Gazeteiro parcial em `verificar_fontes.py`
 

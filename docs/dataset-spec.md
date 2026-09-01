@@ -299,17 +299,17 @@ A regra de publicar identificador em vez de áudio é o que torna o campo `trech
 
 ## 1.7 Estado de execução
 
-**Fontes.** 114 entradas em `pipeline_coleta_piloto/fontes.json`, apuradas: 100 com situação `verificado`, 3 com `rejeitado` e 11 com `a_confirmar` — estas últimas todas oriundas da rodada de reforço de PE e BA descrita adiante. A tabela conta apenas os `verificado`.
+**Fontes.** 126 entradas em `pipeline_coleta_piloto/fontes.json`, apuradas: 105 com situação `verificado`, 3 com `rejeitado` e 18 com `a_confirmar` — estas últimas oriundas das duas rodadas de reforço de 31/08/2026, descritas adiante. A tabela conta apenas os `verificado`.
 
 | UF | vox-pop | podcast/rádio/TV | vlog | Total |
 |---|---|---|---|---|
-| PB | 2 | 3 | 7 | 12 |
+| PB | 3 | 4 | 7 | 14 |
 | PE | 4 | 5 | 10 | 19 |
 | CE | 4 | 4 | 8 | 16 |
 | BA | 3 | 4 | 12 | 19 |
 | SP | 2 | 4 | 11 | 17 |
-| RJ | 2 | 2 | 13 | 17 |
-| **Total** | **17** | **22** | **61** | **100** |
+| RJ | 5 | 2 | 13 | 20 |
+| **Total** | **21** | **23** | **61** | **105** |
 
 (`docs/fontes_coleta.md` §4; contagens conferidas contra `fontes.json`, 31/08/2026)
 
@@ -318,6 +318,10 @@ A regra de publicar identificador em vez de áudio é o que torna o campo `trech
 As rejeições concentraram-se nos quatro perfis que o projeto já havia previsto — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking —, o que é evidência de que os critérios documentados discriminam de fato. Registre-se um caso de particular interesse metodológico: o canal *Marcela Sevla*, ancorado em Barreiras-BA por todos os critérios geográficos, foi **rejeitado por falante migrante**, com a mudança de São Paulo para a Bahia declarada no próprio acervo. É a ameaça da Parte 3 do protocolo materializada, e detectada pela leitura de conteúdo, não pelos metadados.
 
 **Efeito sobre a simetria entre os grupos.** A camada de vlog de Pernambuco passou de 4 para 10 canais verificados, e a da Bahia de 7 para 12, contra 11 em São Paulo e 13 no Rio de Janeiro. O desequilíbrio que motivou a pendência D1 deixa de existir nesses dois estados. **O piso do grupo nordestino deslocou-se para a Paraíba, com 7**, e é sobre ela que a questão de simetria passa a incidir, caso a equipe queira tratá-la.
+
+**Segunda rodada de 31/08/2026 — camada de vox-pop em PB, SP e RJ (pendência 1.2).** De 164 candidatos, 36 passaram na triagem automática e 11 sobreviveram à revisão: 4 aceitos e 7 `a_confirmar`. O Rio de Janeiro alcançou a meta de quatro canais nessa camada, chegando a cinco; a Paraíba subiu a três, com dois candidatos capazes de fechá-la; **São Paulo não avançou**, e a razão é estrutural: a busca devolveu quase só rede nacional — *Jornal da Record*, *g1*, *SBT News*, *Band Jornalismo* —, que não satisfaz a regra de atribuição por estado, porque o conteúdo de um canal nacional vem do país inteiro. São Paulo concentra a mídia nacional por ser São Paulo, e isso soterra o jornalismo de bairro paulista nos resultados. Registre-se a consequência: se São Paulo permanecer em dois canais enquanto os demais chegam a quatro ou cinco, **a assimetria se inverte** e passa a ser o grupo de controle o mais frágil.
+
+Um defeito de método foi encontrado nessa rodada e registrado em `docs/pendencias.md`, 6.0: a triagem automática aprovou o canal *Memória IBGE* com a evidência "Santos", que não era a cidade e sim o sobrenome de um entrevistado. O casador de municípios trata a ambiguidade entre estados, mas não a colisão entre topônimo e sobrenome ou palavra comum.
 
 **Inspeção de conteúdo dos 13 canais `a_confirmar`, concluída em 31/08/2026.** Cada canal tinha uma dúvida específica registrada; a equipe ouviu o conteúdo e decidiu:
 

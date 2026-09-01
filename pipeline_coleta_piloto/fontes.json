@@ -11,7 +11,8 @@
     ],
     "atualizado_em": "2026-08-31",
     "nota_vlogs": "Camada vlog_amador ampliada em 27/08/2026. Dos 101 candidatos levantados, 34 passaram na triagem automática e 13 sobreviveram à revisão humana. Ver docs/fontes_coleta.md, seção 2.4. Em 31/08/2026: 13 canais adicionais (11 antigos + 2 novos) tiveram a inspeção de conteúdo concluída — 10 aprovados, 3 rejeitados (Samiele Batista, Alan City, Kellynha Costa). Duplicata de 'Vlog com Diogo' em PE (mesmo channel_id, duas entradas) corrigida na mesma revisão.",
-    "nota_reforco_pe_ba": "Rodada de reforço de PE e BA em 31/08/2026 (pendência D1). 178 candidatos levantados por busca real com yt-dlp, 62 aprovados na triagem automática de verificar_fontes.py, e 24 sobreviveram à revisão de conteúdo: 13 aceitos e 11 marcados a_confirmar. As rejeições concentraram-se em quatro perfis já previstos — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking. Um caso de falante migrante foi identificado e rejeitado (Marcela Sevla, mudança de São Paulo para Barreiras-BA declarada no próprio acervo)."
+    "nota_reforco_pe_ba": "Rodada de reforço de PE e BA em 31/08/2026 (pendência D1). 178 candidatos levantados por busca real com yt-dlp, 62 aprovados na triagem automática de verificar_fontes.py, e 24 sobreviveram à revisão de conteúdo: 13 aceitos e 11 marcados a_confirmar. As rejeições concentraram-se em quatro perfis já previstos — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking. Um caso de falante migrante foi identificado e rejeitado (Marcela Sevla, mudança de São Paulo para Barreiras-BA declarada no próprio acervo).",
+    "nota_voxpop_pb_sp_rj": "Rodada de reforço da camada de vox-pop em PB, SP e RJ, em 31/08/2026 (pendência 1.2). 164 candidatos levantados, 36 aprovados na triagem automática, 11 sobreviveram à revisão: 4 aceitos e 7 a_confirmar. São Paulo é o caso negativo — a busca devolveu quase só rede nacional (Jornal da Record, g1, SBT News, Band Jornalismo), que não satisfaz a regra de atribuição por estado, e o único candidato paulista genuinamente local ficou a_confirmar."
   },
   "PB": [
     {
@@ -97,6 +98,34 @@
       "tipo_fonte": "vlog_amador",
       "situacao": "verificado",
       "nota": "João Pessoa e Cabedelo. Verificado em 31/08/2026: canal é majoritariamente vlog; apenas 3 vídeos antigos são de conteúdo imobiliário — excluir esses 3 títulos específicos na seleção de vídeos, não o canal inteiro."
+    },
+    {
+      "canal": "MRTV - Blog do Márcio Rangel - Canal 02",
+      "channel_id": "UCYj4cM8nda6S6x33wkRLpug",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Campina Grande e interior da PB; jornalismo local de blog, com reação de rua registrada em pauta ('torcida de Campina reage'). Levantado na busca de vox-pop de 31/08/2026"
+    },
+    {
+      "canal": "ParaibaOnline",
+      "channel_id": "UC3zTlgeUFEb-9Jqtufa9ieg",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "situacao": "verificado",
+      "nota": "Campina Grande; portal de notícias com entrevistas. Classificado como rádio/TV e não como vox-pop porque os entrevistados são majoritariamente institucionais — vereador, padre, hospital —, e não moradores na rua. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "Bigu Travel",
+      "channel_id": "UCwAj_oxrX3vhBayPiD9rwkA",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "João Pessoa e interior da PB; formato de exploração de bairro ('É realmente seguro morar aqui?', 'Como é a vida em Gurjão-PB'), que costuma trazer entrevista com morador. Confirmar se há fala de terceiros ou apenas narração do autor; há um vídeo em Caruaru-PE no acervo"
+    },
+    {
+      "canal": "Jornalismo Ita",
+      "channel_id": "UCq8kchKVrS_t_Mnw37qSDaw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "Campina Grande; telejornal ITN da Rede Ita, ativo e diário. Confirmar se o noticiário traz reportagem de rua com moradores ou apenas estúdio e entrevista institucional"
     }
   ],
   "PE": [
@@ -700,6 +729,13 @@
       "tipo_fonte": "vlog_amador",
       "situacao": "verificado",
       "nota": "Motorista de aplicativo; capital e Jundiaí"
+    },
+    {
+      "canal": "Ponte Jornalismo",
+      "channel_id": "UCp8jWwuTVvz0S_FLOLG3ZUw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "São Paulo, Osasco, Barueri e Itu; jornalismo investigativo sobre violência de Estado, com depoimento de familiares de vítimas. É o único candidato paulista da rodada de 31/08/2026 genuinamente ancorado no estado. Confirmar a proporção de fala de pessoa comum ante a narração de repórter"
     }
   ],
   "RJ": [
@@ -821,6 +857,55 @@
       "tipo_fonte": "vlog_amador",
       "situacao": "verificado",
       "nota": "Motovlog; capital e Baixada"
+    },
+    {
+      "canal": "Ja é Notícia RJ",
+      "channel_id": "UCusC54rCbZT6vfxTUY_Fiig",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Rio de Janeiro, cobertura de bairro (Tijuca, Recreio, Barra, Curicica, Freguesia, Botafogo); pautas de problema local que 'revoltam moradores'. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "TV Cultura Rio",
+      "channel_id": "UCn-1qj46fTWWg7HN-Pk4Fzw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Rio e Niterói; telejornalismo regional com moradores em pauta (Muzema, Região Oceânica). Levantado em 31/08/2026"
+    },
+    {
+      "canal": "SBT Rio",
+      "channel_id": "UCsRfBAspa72ExrsN347W2xg",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "verificado",
+      "nota": "Emissora regional do RJ, ativa e diária; reportagem de rua na capital, Angra dos Reis e Vila da Penha. Levantado em 31/08/2026"
+    },
+    {
+      "canal": "BANDRiodeJaneiro",
+      "channel_id": "UCos1HbcWQGATYq5aIldpZBg",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "Baixada Fluminense e sul do estado, com moradores em pauta. ATENÇÃO: pode ser a mesma redação de 'TV Band Rio', já em fontes.json — confirmar se são acervos distintos antes de tratar como fonte independente"
+    },
+    {
+      "canal": "Homem-bala, o repórter do dedinho",
+      "channel_id": "UCEoPbNRZ5bmBiyAiIuWPRUw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "Comunidades do Rio (Jacarepaguá, Cidade de Deus, Senador Camará); reportagem policial. Confirmar se há fala de morador ou apenas operação e narração. Conteúdo de violência é o mais sujeito a restrição etária no download (docs/pendencias.md, 4.5)"
+    },
+    {
+      "canal": "CANAL DO MARINHO",
+      "channel_id": "UCORGhvTzdHgmc8phtJnvK3w",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "Magé e capital; acervo de repórter de rua (CNT, RedeTV!). O material recente aparenta ser de cerca de 2013 — confirmar se o canal segue ativo, dado o precedente de rejeição de Kellynha Costa por inatividade"
+    },
+    {
+      "canal": "Noticias Belford roxo",
+      "channel_id": "UCbR46_ruD6d8xk-cxaWDbUw",
+      "tipo_fonte": "entrevista_vox_pop",
+      "situacao": "a_confirmar",
+      "nota": "Belford Roxo e Baixada Fluminense; moradores em pauta. Mesmo problema de data do CANAL DO MARINHO: o acervo aparenta ser de 2013–2014 — confirmar atividade"
     }
   ]
 }
