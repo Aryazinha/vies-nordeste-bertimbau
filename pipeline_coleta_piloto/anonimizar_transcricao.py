@@ -100,6 +100,34 @@ GENERICOS_DE_CANAL = {
 # Suficiente para julgar se é pessoa, sem despejar a transcrição inteira.
 CONTEXTOS_POR_NOME = 3
 
+# Falsos positivos observados na primeira varredura real, em 01/09/2026: o
+# reconhecedor marcou como pessoa 21 ocorrências de palavra que pessoa não é.
+# Mascará-las não seria apenas esforço desperdiçado de revisão — seria
+# **corromper o corpus**, porque `Deus`, `rapaz` e `oxe` são material
+# linguístico do próprio objeto de estudo, e não dado pessoal a proteger.
+NAO_SAO_PESSOAS = {
+    # interjeição e vocativo, frequentes na fala nordestina que o projeto estuda
+    "rapaz", "oxe", "eita", "vixe", "menino", "mainha", "painho", "visse",
+    "bora", "certo", "pronto", "valeu", "olha", "opa",
+    # religioso, que o reconhecedor toma por antropônimo
+    "deus", "jesus", "cristo", "senhor", "nossa senhora", "maria santíssima",
+    # plataformas e marcas
+    "instagram", "youtube", "whatsapp", "facebook", "tiktok", "google",
+    "uber", "ifood", "pix", "globo", "sbt", "record", "band",
+    # topônimos e gentílicos que o modelo às vezes classifica como pessoa
+    "brasil", "nordeste", "sudeste", "sertão", "agreste",
+}
+
+# Nome de figura pública em papel público não é o que a seção 1.4.2 do
+# protocolo manda proteger — a regra visa terceiro identificável na fala
+# cotidiana, não o presidente citado num telejornal. Mascarar essas menções
+# destruiria o sentido do trecho sem proteger ninguém. A sugestão é `manter`,
+# e a decisão continua sendo de quem revisa.
+CARGOS_PUBLICOS = ("deputado", "deputada", "vereador", "vereadora", "prefeito",
+                   "prefeita", "governador", "governadora", "senador", "senadora",
+                   "ministro", "ministra", "presidente", "delegado", "delegada",
+                   "secretário", "secretária", "juiz", "juíza", "desembargador")
+
 ARQUIVO_PROPOSTA = "anonimizacao_proposta.json"
 
 
@@ -167,8 +195,16 @@ def propor(registros: list[tuple[str, dict]], autores: dict[str, list[str]],
         permitidos = _tokens_do_canal(canal) | {
             n.lower() for n in autores.get(canal, [])}
         for nome, contextos in nomes_do_registro(reg, nlp).items():
+            nl = nome.lower().strip()
             partes = {p.lower() for p in re.findall(r"\w+", nome)}
-            sugestao = "manter" if partes & permitidos else "mascarar"
+            if nl in NAO_SAO_PESSOAS:
+                sugestao, motivo = "manter", "não é nome de pessoa — mascarar corromperia o corpus"
+            elif any(nl.startswith(c + " ") for c in CARGOS_PUBLICOS):
+                sugestao, motivo = "manter", "figura pública em papel público; a regra visa terceiro na fala cotidiana"
+            elif partes & permitidos:
+                sugestao, motivo = "manter", "coincide com o nome do canal — provável autor"
+            else:
+                sugestao, motivo = "mascarar", "não coincide com o nome do canal"
             itens.append({
                 "arquivo": nome_arquivo,
                 "id": reg.get("id"),
@@ -176,9 +212,7 @@ def propor(registros: list[tuple[str, dict]], autores: dict[str, list[str]],
                 "estado_alvo": reg.get("estado_alvo"),
                 "nome_detectado": nome,
                 "sugestao": sugestao,
-                "motivo_sugestao": ("coincide com o nome do canal — provável autor"
-                                    if sugestao == "manter"
-                                    else "não coincide com o nome do canal"),
+                "motivo_sugestao": motivo,
                 "contextos": contextos,
                 "decisao": sugestao,      # a revisar: "mascarar" | "manter"
                 "confirmado": False,      # a pessoa que revisou marca true
