@@ -173,6 +173,18 @@ FORMULAS_DE_EQUIPE = (
 # barato e mais confiável disponível sem ouvir o áudio.
 MIN_ARQUIVOS_PARA_EQUIPE = 2
 
+# Distância máxima, em caracteres, entre a fórmula jornalística e a menção do
+# nome para que uma explique a outra. Sem esta restrição a heurística disparava
+# sobre a janela inteira e produzia erro grosseiro: em 01/09/2026 classificou
+# "Meu Deus" como equipe do canal porque "nossa produção" aparecia na mesma
+# frase, sem relação alguma com a interjeição.
+DISTANCIA_MAXIMA_FORMULA = 45
+
+# Palavras que antecedem o nome e que o reconhecedor engloba na entidade.
+# "Meu Deus" precisa cair na lista de não-pessoas tanto quanto "Deus".
+PREFIXOS_A_IGNORAR = ("meu", "minha", "nosso", "nossa", "o", "a", "os", "as",
+                      "seu", "sua", "dona", "seu ", "dom", "dr", "dra")
+
 # Camadas em que o padrão de nomeação é jornalístico. Num vlog, nome repetido é
 # tão provavelmente um parente quanto um colega de trabalho, e a heurística de
 # recorrência não vale.
@@ -245,6 +257,28 @@ def nomes_do_registro(reg: dict, nlp) -> dict[str, list[str]]:
     return achados
 
 
+def _formula_perto_do_nome(nome: str, contextos: list[str]) -> str | None:
+    """
+    Fórmula jornalística a até `DISTANCIA_MAXIMA_FORMULA` caracteres da menção.
+
+    A proximidade é o que distingue "nosso repórter Diego Azevedo", em que a
+    fórmula qualifica o nome, de "Meu Deus. Mas a nossa produção...", em que as
+    duas coisas apenas dividem a frase.
+    """
+    alvo = nome.lower()
+    for ctx in contextos:
+        baixo = ctx.lower()
+        inicio = baixo.find(alvo)
+        if inicio < 0:
+            continue
+        janela = baixo[max(0, inicio - DISTANCIA_MAXIMA_FORMULA):
+                       inicio + len(alvo) + DISTANCIA_MAXIMA_FORMULA]
+        for f in FORMULAS_DE_EQUIPE:
+            if f in janela:
+                return f
+    return None
+
+
 def classificar(nome: str, contextos: list[str], canal: str, tipo_fonte: str,
                 permitidos: set[str], n_arquivos_do_nome: int) -> tuple[str, str]:
     """
@@ -255,7 +289,14 @@ def classificar(nome: str, contextos: list[str], canal: str, tipo_fonte: str,
     """
     nl = nome.lower().strip()
 
-    if nl in NAO_SAO_PESSOAS:
+    # "Meu Deus" e "Deus" são a mesma coisa para efeito de máscara.
+    nucleo = nl
+    for pref in PREFIXOS_A_IGNORAR:
+        if nucleo.startswith(pref + " "):
+            nucleo = nucleo[len(pref) + 1:].strip()
+            break
+
+    if nl in NAO_SAO_PESSOAS or nucleo in NAO_SAO_PESSOAS:
         return "nao_pessoa", "não é nome de pessoa — mascarar corromperia o corpus"
 
     if any(nl.startswith(c + " ") for c in CARGOS_PUBLICOS):
@@ -270,11 +311,10 @@ def classificar(nome: str, contextos: list[str], canal: str, tipo_fonte: str,
             return ("autor_ou_equipe",
                     f"reaparece em {n_arquivos_do_nome} arquivos do mesmo canal — "
                     "padrão de quem trabalha ali, não de entrevistado")
-        blob = " ".join(contextos).lower()
-        achadas = [f for f in FORMULAS_DE_EQUIPE if f in blob]
-        if achadas:
+        achada = _formula_perto_do_nome(nome, contextos)
+        if achada:
             return ("autor_ou_equipe",
-                    f"contexto de passagem de palavra jornalística ({achadas[0]!r})")
+                    f"fórmula jornalística junto ao nome ({achada!r})")
 
     return "terceiro", "terceiro nomeado — é o caso que a regra do protocolo protege"
 
