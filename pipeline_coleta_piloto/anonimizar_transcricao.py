@@ -123,6 +123,51 @@ NAO_SAO_PESSOAS = {
 # cotidiana, não o presidente citado num telejornal. Mascarar essas menções
 # destruiria o sentido do trecho sem proteger ninguém. A sugestão é `manter`,
 # e a decisão continua sendo de quem revisa.
+# Qualificadores que **precedem** o nome no texto e o marcam como figura
+# pública. Ficam fora da entidade que o reconhecedor devolve — ele captura
+# "Felca", não "O influenciador Felca" —, e por isso precisam ser procurados no
+# contexto, e não no nome. Foi assim que Felca escapou na primeira versão.
+#
+# Duas famílias, e a distinção entre elas é o que a regra do protocolo protege:
+#
+# - **cargo e autoridade**: quem exerce função pública, citado no exercício dela;
+# - **notoriedade**: quem é conhecido do público e é citado pelo trabalho que o
+#   tornou conhecido.
+#
+# Deliberadamente **fora** da lista: empresário, comerciante, morador, motorista,
+# professor, estudante, aposentado, vítima, suspeito. Ser descrito por ocupação
+# não faz de ninguém figura pública — é o caso mais comum de pessoa comum
+# nomeada num telejornal, e é exatamente quem a regra protege.
+QUALIFICADORES_PUBLICOS = (
+    # cargo e autoridade
+    "deputado", "deputada", "senador", "senadora", "vereador", "vereadora",
+    "prefeito", "prefeita", "governador", "governadora", "presidente",
+    "ministro", "ministra", "juiz", "juíza", "desembargador", "delegado",
+    "delegada", "procurador", "promotor", "secretário", "secretária",
+    # notoriedade
+    "influenciador", "influenciadora", "influencer", "youtuber", "cantor",
+    "cantora", "ator", "atriz", "artista", "jogador", "jogadora", "escritor",
+    "escritora", "humorista", "músico", "compositor", "técnico do",
+)
+
+# Contexto que **desqualifica** a exceção de figura pública. Ser conhecido do
+# público não retira a proteção sobre o que é matéria criminal ou de saúde: a
+# regra do protocolo protege a esfera privada, e é justamente onde a menção
+# fere que ela mais precisa valer.
+#
+# Encontrado em 01/09/2026, ao conferir a lista: "o influenciador Ítalo Santos
+# e o companheiro Israel foram presos" tinha sido classificado como figura
+# pública, e portanto preservado. O qualificador estava lá, mas o que a frase
+# noticia é prisão — publicar o nome seria o oposto do que a regra pretende.
+CONTEXTO_QUE_REMOVE_EXCECAO = (
+    "preso", "presa", "presos", "detido", "detida", "acusado", "acusada",
+    "suspeito", "suspeita", "investigado", "investigada", "condenado",
+    "condenada", "réu", "ré", "indiciado", "homicídio", "assassinato",
+    "estupro", "abuso", "tráfico", "crime", "delegacia", "presídio",
+    "cadeia", "prisão", "denunciado", "denunciada", "vítima", "morreu",
+    "internado", "internada", "diagnóstico", "doença",
+)
+
 CARGOS_PUBLICOS = ("deputado", "deputada", "vereador", "vereadora", "prefeito",
                    "prefeita", "governador", "governadora", "senador", "senadora",
                    "ministro", "ministra", "presidente", "delegado", "delegada",
@@ -257,6 +302,29 @@ def nomes_do_registro(reg: dict, nlp) -> dict[str, list[str]]:
     return achados
 
 
+def _qualificador_publico(nome: str, contextos: list[str]) -> str | None:
+    """Qualificador de figura pública imediatamente antes da menção do nome."""
+    alvo = nome.lower()
+    for ctx in contextos:
+        baixo = ctx.lower()
+        inicio = baixo.find(alvo)
+        if inicio < 0:
+            continue
+        antes = baixo[max(0, inicio - 30):inicio]
+        for q in QUALIFICADORES_PUBLICOS:
+            pos = antes.find(q)
+            if pos < 0:
+                continue
+            # "jogador do Caxias" nomeia o clube, não o jogador: quando o
+            # qualificador é seguido de "do"/"da" logo antes do nome, o que vem
+            # depois é a instituição a que a pessoa pertence.
+            entre = antes[pos + len(q):].strip()
+            if entre in ("do", "da", "dos", "das"):
+                continue
+            return q
+    return None
+
+
 def _formula_perto_do_nome(nome: str, contextos: list[str]) -> str | None:
     """
     Fórmula jornalística a até `DISTANCIA_MAXIMA_FORMULA` caracteres da menção.
@@ -301,6 +369,17 @@ def classificar(nome: str, contextos: list[str], canal: str, tipo_fonte: str,
 
     if any(nl.startswith(c + " ") for c in CARGOS_PUBLICOS):
         return "figura_publica", "citado por cargo público em papel público"
+
+    qual = _qualificador_publico(nome, contextos)
+    if qual:
+        blob = " ".join(contextos).lower()
+        grave = [g for g in CONTEXTO_QUE_REMOVE_EXCECAO
+                 if re.search(rf"\b{re.escape(g)}\b", blob)]
+        if grave:
+            return ("terceiro",
+                    f"qualificado como figura pública ({qual!r}), mas a menção é "
+                    f"matéria sensível ({grave[0]!r}) — a exceção não se aplica")
+        return "figura_publica", f"qualificado como figura pública no texto ({qual!r})"
 
     partes = {p.lower() for p in re.findall(r"\w+", nome)}
     if partes & permitidos:
