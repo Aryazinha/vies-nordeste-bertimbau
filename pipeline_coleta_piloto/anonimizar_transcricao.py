@@ -78,7 +78,7 @@ import argparse
 import json
 import re
 import zipfile
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 # Conectivos que compõem nome próprio ("Maria da Silva") mas que, isolados,
@@ -127,6 +127,56 @@ CARGOS_PUBLICOS = ("deputado", "deputada", "vereador", "vereadora", "prefeito",
                    "prefeita", "governador", "governadora", "senador", "senadora",
                    "ministro", "ministra", "presidente", "delegado", "delegada",
                    "secretário", "secretária", "juiz", "juíza", "desembargador")
+
+# --------------------------------------------------------------------------
+# Política das quatro categorias, aprovada pela equipe em 01/09/2026
+# --------------------------------------------------------------------------
+# A regra do protocolo — mascarar nome de terceiro, não o do autor do vídeo —
+# foi escrita pensando em vlog, onde alguém cita um amigo. A primeira varredura
+# real mostrou que 80% dos nomes vêm de telejornal e vox-pop, onde o padrão de
+# nomeação é outro: repórter se identifica, político é citado, entrevistado é
+# nomeado no ar. Daí quatro categorias, e não uma:
+#
+#   autor_ou_equipe  -> manter   (repórter e apresentador são o análogo do autor)
+#   figura_publica   -> manter   (cargo público em papel público)
+#   nao_pessoa       -> manter   (mascarar corromperia o corpus)
+#   terceiro         -> mascarar (entrevistado nomeado, citado em vlog — o caso da regra)
+#
+# Nenhuma classificação decide sozinha: todas viram sugestão, e a fase de
+# aplicação segue recusando-se a gravar enquanto houver item não confirmado.
+DECISAO_POR_CATEGORIA = {
+    "autor_ou_equipe": "manter",
+    "figura_publica": "manter",
+    "nao_pessoa": "manter",
+    "terceiro": "mascarar",
+}
+
+# Fórmulas com que jornalista se identifica ou é passado a palavra. Aparecem no
+# contexto da menção, não no nome, e por isso são checadas sobre o trecho.
+FORMULAS_DE_EQUIPE = (
+    "com você", "com vocês", "traz o", "traz a", "direto de", "direto do",
+    "nossa reportagem", "a reportagem de", "repórter", "reportagem do",
+    "apresenta", "aqui é o", "aqui é a", "eu sou o", "eu sou a",
+    "está no ar", "no comando", "ao vivo com", "passo a palavra",
+    "informações com", "quem traz", "acompanha", "boa noite a todos",
+    # Posse + função: "nosso cinegrafista Diego Azevedo" identifica equipe do
+    # próprio canal tão claramente quanto a passagem de palavra, e foi o padrão
+    # que mais escapou na primeira classificação.
+    "nosso repórter", "nossa repórter", "nosso cinegrafista", "nossa equipe",
+    "nosso comentarista", "nossa comentarista", "nosso colunista",
+    "nossa colunista", "nosso produtor", "nossa produção", "nosso apresentador",
+    "nossa apresentadora", "nosso correspondente", "nosso analista",
+)
+
+# Um nome que reaparece em arquivos distintos do MESMO canal é, quase sempre,
+# quem trabalha ali — o entrevistado aparece uma vez e some. É o sinal mais
+# barato e mais confiável disponível sem ouvir o áudio.
+MIN_ARQUIVOS_PARA_EQUIPE = 2
+
+# Camadas em que o padrão de nomeação é jornalístico. Num vlog, nome repetido é
+# tão provavelmente um parente quanto um colega de trabalho, e a heurística de
+# recorrência não vale.
+CAMADAS_JORNALISTICAS = ("entrevista_vox_pop", "podcast_radio_tv_regional")
 
 ARQUIVO_PROPOSTA = "anonimizacao_proposta.json"
 
@@ -185,45 +235,100 @@ def nomes_do_registro(reg: dict, nlp) -> dict[str, list[str]]:
     return achados
 
 
+def classificar(nome: str, contextos: list[str], canal: str, tipo_fonte: str,
+                permitidos: set[str], n_arquivos_do_nome: int) -> tuple[str, str]:
+    """
+    Aplica a política das quatro categorias. Devolve (categoria, motivo).
+
+    A ordem importa: `nao_pessoa` vem primeiro porque mascarar ali corromperia
+    o corpus, e `terceiro` fica por último como padrão — na dúvida, protege-se.
+    """
+    nl = nome.lower().strip()
+
+    if nl in NAO_SAO_PESSOAS:
+        return "nao_pessoa", "não é nome de pessoa — mascarar corromperia o corpus"
+
+    if any(nl.startswith(c + " ") for c in CARGOS_PUBLICOS):
+        return "figura_publica", "citado por cargo público em papel público"
+
+    partes = {p.lower() for p in re.findall(r"\w+", nome)}
+    if partes & permitidos:
+        return "autor_ou_equipe", "coincide com o nome do canal — provável autor"
+
+    if tipo_fonte in CAMADAS_JORNALISTICAS:
+        if n_arquivos_do_nome >= MIN_ARQUIVOS_PARA_EQUIPE:
+            return ("autor_ou_equipe",
+                    f"reaparece em {n_arquivos_do_nome} arquivos do mesmo canal — "
+                    "padrão de quem trabalha ali, não de entrevistado")
+        blob = " ".join(contextos).lower()
+        achadas = [f for f in FORMULAS_DE_EQUIPE if f in blob]
+        if achadas:
+            return ("autor_ou_equipe",
+                    f"contexto de passagem de palavra jornalística ({achadas[0]!r})")
+
+    return "terceiro", "terceiro nomeado — é o caso que a regra do protocolo protege"
+
+
 def propor(registros: list[tuple[str, dict]], autores: dict[str, list[str]],
            saida: Path) -> None:
-    """Fase 1 — monta a planilha de revisão humana."""
+    """
+    Fase 1 — monta a planilha de revisão humana.
+
+    Roda em dois passes porque a recorrência de um nome entre arquivos do mesmo
+    canal só é conhecida depois de varrer todos: é justamente esse sinal que
+    separa o repórter, que reaparece, do entrevistado, que aparece uma vez.
+    """
     nlp = _get_ner()
-    itens = []
+
+    # Passe 1 — detecção
+    achados = []
     for nome_arquivo, reg in registros:
-        canal = reg.get("canal", "")
-        permitidos = _tokens_do_canal(canal) | {
-            n.lower() for n in autores.get(canal, [])}
         for nome, contextos in nomes_do_registro(reg, nlp).items():
-            nl = nome.lower().strip()
-            partes = {p.lower() for p in re.findall(r"\w+", nome)}
-            if nl in NAO_SAO_PESSOAS:
-                sugestao, motivo = "manter", "não é nome de pessoa — mascarar corromperia o corpus"
-            elif any(nl.startswith(c + " ") for c in CARGOS_PUBLICOS):
-                sugestao, motivo = "manter", "figura pública em papel público; a regra visa terceiro na fala cotidiana"
-            elif partes & permitidos:
-                sugestao, motivo = "manter", "coincide com o nome do canal — provável autor"
-            else:
-                sugestao, motivo = "mascarar", "não coincide com o nome do canal"
-            itens.append({
-                "arquivo": nome_arquivo,
-                "id": reg.get("id"),
-                "canal": canal,
-                "estado_alvo": reg.get("estado_alvo"),
-                "nome_detectado": nome,
-                "sugestao": sugestao,
-                "motivo_sugestao": motivo,
-                "contextos": contextos,
-                "decisao": sugestao,      # a revisar: "mascarar" | "manter"
-                "confirmado": False,      # a pessoa que revisou marca true
-            })
+            achados.append((nome_arquivo, reg, nome, contextos))
+
+    # Quantos arquivos distintos do mesmo canal mencionam cada nome
+    por_canal_nome: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for nome_arquivo, reg, nome, _ in achados:
+        por_canal_nome[(reg.get("canal", ""), nome)].add(nome_arquivo)
+
+    # Passe 2 — classificação
+    itens = []
+    for nome_arquivo, reg, nome, contextos in achados:
+        canal = reg.get("canal", "")
+        permitidos = _tokens_do_canal(canal) | {n.lower() for n in autores.get(canal, [])}
+        n_arq = len(por_canal_nome[(canal, nome)])
+        categoria, motivo = classificar(nome, contextos, canal,
+                                        reg.get("tipo_fonte", ""), permitidos, n_arq)
+        sugestao = DECISAO_POR_CATEGORIA[categoria]
+        itens.append({
+            "arquivo": nome_arquivo,
+            "id": reg.get("id"),
+            "canal": canal,
+            "estado_alvo": reg.get("estado_alvo"),
+            "tipo_fonte": reg.get("tipo_fonte"),
+            "nome_detectado": nome,
+            "categoria": categoria,
+            "arquivos_do_canal_com_este_nome": n_arq,
+            "sugestao": sugestao,
+            "motivo_sugestao": motivo,
+            "contextos": contextos,
+            "decisao": sugestao,      # a revisar: "mascarar" | "manter"
+            "confirmado": False,      # a pessoa que revisou marca true
+        })
 
     saida.write_text(json.dumps(itens, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    por_cat = Counter(i["categoria"] for i in itens)
     n_mascarar = sum(1 for i in itens if i["sugestao"] == "mascarar")
-    print(f"{len(itens)} nome(s) detectado(s) em {len(registros)} arquivo(s): "
-          f"{n_mascarar} sugerido(s) para máscara, {len(itens) - n_mascarar} para manter.")
+    print(f"{len(itens)} nome(s) detectado(s) em {len(registros)} arquivo(s).")
+    print()
+    print("Por categoria:")
+    for cat, n in por_cat.most_common():
+        print(f"  {n:4d}  {cat}  ->  {DECISAO_POR_CATEGORIA[cat]}")
+    print()
+    print(f"{n_mascarar} para mascarar, {len(itens) - n_mascarar} para manter.")
     print(f"Planilha em {saida}.")
-    print("Revise cada item — ajuste 'decisao' e marque 'confirmado': true.")
+    print("Revise — ajuste 'decisao' e marque 'confirmado': true.")
     print("A fase de aplicação recusa-se a rodar enquanto houver item não confirmado.")
 
 
