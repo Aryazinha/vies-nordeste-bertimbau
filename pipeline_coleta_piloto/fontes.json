@@ -13,7 +13,8 @@
     "nota_vlogs": "Camada vlog_amador ampliada em 27/08/2026. Dos 101 candidatos levantados, 34 passaram na triagem automática e 13 sobreviveram à revisão humana. Ver docs/fontes_coleta.md, seção 2.4. Em 31/08/2026: 13 canais adicionais (11 antigos + 2 novos) tiveram a inspeção de conteúdo concluída — 10 aprovados, 3 rejeitados (Samiele Batista, Alan City, Kellynha Costa). Duplicata de 'Vlog com Diogo' em PE (mesmo channel_id, duas entradas) corrigida na mesma revisão.",
     "nota_reforco_pe_ba": "Rodada de reforço de PE e BA em 31/08/2026 (pendência D1). 178 candidatos levantados por busca real com yt-dlp, 62 aprovados na triagem automática de verificar_fontes.py, e 24 sobreviveram à revisão de conteúdo: 13 aceitos e 11 marcados a_confirmar. As rejeições concentraram-se em quatro perfis já previstos — canal de viagem, imagem sem fala, vitrine de preço e narração de ranking. Um caso de falante migrante foi identificado e rejeitado (Marcela Sevla, mudança de São Paulo para Barreiras-BA declarada no próprio acervo).",
     "nota_voxpop_pb_sp_rj": "Rodada de reforço da camada de vox-pop em PB, SP e RJ, em 31/08/2026 (pendência 1.2). 164 candidatos levantados, 36 aprovados na triagem automática, 11 sobreviveram à revisão: 4 aceitos e 7 a_confirmar. São Paulo é o caso negativo — a busca devolveu quase só rede nacional (Jornal da Record, g1, SBT News, Band Jornalismo), que não satisfaz a regra de atribuição por estado, e o único candidato paulista genuinamente local ficou a_confirmar.",
-    "nota_igualacao": "Rodada de igualação entre estados, 31/08/2026: 75 consultas, 581 candidatos distintos, 188 aprovados na triagem automática e 42 sobreviventes à revisão de conteúdo. Em São Paulo a estratégia mudou — em vez de consulta genérica, que devolvia rede nacional, partiu-se de emissora regional nomeada e de jornalismo comunitário de periferia, e foi o que destravou a camada de vox-pop do estado."
+    "nota_igualacao": "Rodada de igualação entre estados, 31/08/2026: 75 consultas, 581 candidatos distintos, 188 aprovados na triagem automática e 42 sobreviventes à revisão de conteúdo. Em São Paulo a estratégia mudou — em vez de consulta genérica, que devolvia rede nacional, partiu-se de emissora regional nomeada e de jornalismo comunitário de periferia, e foi o que destravou a camada de vox-pop do estado.",
+    "campo_participacao_ouvinte": "Acrescentado em 31/08/2026 (pendência 1.1). Marca, nos canais de podcast/rádio/TV, se o programa dá voz a quem liga ou escreve — o registro menos monitorado do corpus. Valores: 'sim' quando confirmado, 'nao_verificado' quando a checagem não encontrou sinal. Não existe valor 'não': a varredura de títulos é limite inferior e não medida, como prova o próprio 'Alô Juca' da TV Aratu, que tem o formato e não deixou sinal nos 15 títulos mais recentes. O campo de canal é proxy; o que precisa ser equilibrado é o volume de fala de ouvinte por estado, registrado no nível do arquivo na coleta."
   },
   "PB": [
     {
@@ -35,14 +36,16 @@
       "channel_id": "UCOJfaGzIcQIPBaiRyCjLtyQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "CBN Cotidiano"
+      "nota": "CBN Cotidiano",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Sistema 83 Podcast",
       "channel_id": "UCelNb6fi8eQQcB-74NokR0A",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Entrevistas longas"
+      "nota": "Entrevistas longas",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "COISAS DA PARAÍBA OFICIAL",
@@ -77,7 +80,8 @@
       "channel_id": "UCJ4uxK_mo6gNoqk9cyvgWkw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Emissora estadual; sabatinas e agenda política, registro formal"
+      "nota": "Emissora estadual; sabatinas e agenda política, registro formal",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Canal Reality do Casal",
@@ -112,7 +116,8 @@
       "channel_id": "UC3zTlgeUFEb-9Jqtufa9ieg",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Campina Grande; portal de notícias com entrevistas. Classificado como rádio/TV e não como vox-pop porque os entrevistados são majoritariamente institucionais — vereador, padre, hospital —, e não moradores na rua. Levantado em 31/08/2026"
+      "nota": "Campina Grande; portal de notícias com entrevistas. Classificado como rádio/TV e não como vox-pop porque os entrevistados são majoritariamente institucionais — vereador, padre, hospital —, e não moradores na rua. Levantado em 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Bigu Travel",
@@ -182,14 +187,16 @@
       "channel_id": "UC71nwKIxQkSws0cq-kcG4YQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Campina Grande; rádio com entrevistas e pauta local. Levantado na rodada de igualação de 31/08/2026"
+      "nota": "Campina Grande; rádio com entrevistas e pauta local. Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Sistema Diário de Comunicação",
       "channel_id": "UCgCEjNY7eylrIVli90U9lOg",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "João Pessoa, Sousa e Cajazeiras; entrevistas de portal regional. Levantado na rodada de igualação de 31/08/2026"
+      "nota": "João Pessoa, Sousa e Cajazeiras; entrevistas de portal regional. Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "VLOG DA PAULINHA PB",
@@ -240,35 +247,41 @@
       "channel_id": "UCe1XGNDeEwAx5xaLGcNPEbQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Sistema Jornal do Commercio, Recife"
+      "nota": "Sistema Jornal do Commercio, Recife",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "TV Jornal Interior",
       "channel_id": "UCQD_Fq8NZXbHz9LI8Fa1Q9A",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Cobertura de interior"
+      "nota": "Cobertura de interior",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Radio Jornal",
       "channel_id": "UCJmUR7pEaYgWquW6YwEXw6A",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Super Manhã, com participação de ouvintes"
+      "nota": "Super Manhã, com participação de ouvintes",
+      "participacao_ouvinte": "sim",
+      "nota_participacao": "Programa Super Manhã, com participação de ouvintes (registro do levantamento original)"
     },
     {
       "canal": "Recife Podcast",
       "channel_id": "UCR15jJ_w5J7yLU52Nlz9u0g",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": ""
+      "nota": "",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "CANAPÉ PODCAST",
       "channel_id": "UCcjRt_xpaI-eAMZRjBXVB3Q",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Convidados locais"
+      "nota": "Convidados locais",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "ESTRELA ALVES",
@@ -408,7 +421,8 @@
       "channel_id": "UCA5MZJHuE7fj6SFoTxbHEDQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Caruaru; rádio local diária, com quadro em bares da cidade. Levantado na rodada de igualação de 31/08/2026"
+      "nota": "Caruaru; rádio local diária, com quadro em bares da cidade. Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Allan Fonseca",
@@ -459,28 +473,32 @@
       "channel_id": "UCEjtlZD61V7Aj-zVCi3QaUQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Programa Barra"
+      "nota": "Programa Barra",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "O POVO",
       "channel_id": "UCj-RTZE-V3Q6jleatRR9k2A",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Entrevistas ao vivo"
+      "nota": "Entrevistas ao vivo",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Fortaleza Ordinária",
       "channel_id": "UCykKsnCll1OJgbgWq-jY82A",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Convidados cearenses"
+      "nota": "Convidados cearenses",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Câmara de Fortaleza",
       "channel_id": "UCaa7wRZqVT8rrv69BZB079g",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Podcast Nossa Voz"
+      "nota": "Podcast Nossa Voz",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "RAÍZES DO REI",
@@ -620,14 +638,17 @@
       "channel_id": "UCGl_FjHY_TQJBQLiiDO3UyA",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Fortaleza; programa de rádio que pede opinião do ouvinte — formato que a pendência 1.1 aponta como o de maior valor e que só existia em PE e BA. Levantado na rodada de igualação de 31/08/2026"
+      "nota": "Fortaleza; programa de rádio que pede opinião do ouvinte — formato que a pendência 1.1 aponta como o de maior valor e que só existia em PE e BA. Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "sim",
+      "nota_participacao": "Programa de rádio que pede opinião ao ouvinte, verificado em título recente (31/08/2026)"
     },
     {
       "canal": "TV Ceará",
       "channel_id": "UCWiwMQn0k84wn0952b5kcKw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Fortaleza; emissora estadual. Levantado na rodada de igualação de 31/08/2026"
+      "nota": "Fortaleza; emissora estadual. Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     }
   ],
   "BA": [
@@ -650,21 +671,25 @@
       "channel_id": "UCX_Nxpcz-9EXhRIlaoo2c-w",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Alô Juca, com participação de ouvintes; fonte de maior valor identificada"
+      "nota": "Alô Juca, com participação de ouvintes; fonte de maior valor identificada",
+      "participacao_ouvinte": "sim",
+      "nota_participacao": "Programa Alô Juca, com participação de ouvintes (registro do levantamento original)"
     },
     {
       "canal": "Portal Metro1 - Rádio Metropole",
       "channel_id": "UCKbuLR06szTjZRNSPB0Aeuw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Jornal da Bahia no Ar"
+      "nota": "Jornal da Bahia no Ar",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Bahia Notícias",
       "channel_id": "UCelevrrg2g7NdlrJMPrunhw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Voz Própria Podcast"
+      "nota": "Voz Própria Podcast",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Vida no Interior da Bahia",
@@ -692,7 +717,8 @@
       "channel_id": "UClXz2Nus3ASfscB60dC5gxQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Emissora regional. Verificado em 31/08/2026: tem falas espontâneas e entrevistas, não é só apresentador de estúdio."
+      "nota": "Emissora regional. Verificado em 31/08/2026: tem falas espontâneas e entrevistas, não é só apresentador de estúdio.",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Sabor com Dri",
@@ -811,7 +837,8 @@
       "channel_id": "UCROjHxHjR0_dVd_uVDi79aA",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "a_confirmar",
-      "nota": "Sertão baiano (Juazeiro, Sento-Sé, Uauá, Canudos); confirmar se há entrevista com moradores ou apenas narração sobre imagens"
+      "nota": "Sertão baiano (Juazeiro, Sento-Sé, Uauá, Canudos); confirmar se há entrevista com moradores ou apenas narração sobre imagens",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Blog do Anderson",
@@ -832,14 +859,17 @@
       "channel_id": "UConMvWHEGp_FqboAQFzKSjQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Feira de Santana; podcast e noticiário local. Cobre a cidade que a pendência 1.3 apontava como a única das quatro ainda descoberta. Levantado na rodada de igualação de 31/08/2026"
+      "nota": "Feira de Santana; podcast e noticiário local. Cobre a cidade que a pendência 1.3 apontava como a única das quatro ainda descoberta. Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Rádio Salvador FM",
       "channel_id": "UCFrYnMVzIUXxJPCyv-WcZuw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Salvador; rádio com pauta de bairro (Cabula) e sabatinas. Levantado na rodada de igualação de 31/08/2026"
+      "nota": "Salvador; rádio com pauta de bairro (Cabula) e sabatinas. Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "sim",
+      "nota_participacao": "Quadro com ouvintes no ar, verificado em título recente (31/08/2026)"
     },
     {
       "canal": "Jussara vlogs.",
@@ -890,14 +920,16 @@
       "channel_id": "UCNl_i-ggJbZNyOLlhE7yyhw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Jornalismo local"
+      "nota": "Jornalismo local",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "TV Câmara São Paulo",
       "channel_id": "UCP8XlGjPSGj8JkuZ8hgDAJw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Séries sobre periferias"
+      "nota": "Séries sobre periferias",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Fernando Alves",
@@ -988,14 +1020,16 @@
       "channel_id": "UCdd1PhFKkX96UUr8KmK1DhA",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Emissora regional; Bauru, Sorocaba, Marília"
+      "nota": "Emissora regional; Bauru, Sorocaba, Marília",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "TH+ SBT Interior",
       "channel_id": "UCfgLINec5p8KFyWVnogp1BA",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Emissora do interior paulista; Presidente Prudente e Araçatuba"
+      "nota": "Emissora do interior paulista; Presidente Prudente e Araçatuba",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "EducaPrefSP SME",
@@ -1058,7 +1092,8 @@
       "channel_id": "UCL3ayvi_H9CPqtVXNPkqFCg",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Campinas; podcast sobre bairros da cidade (DICs, Ouro Verde, BRT). Levantado na rodada de igualação de 31/08/2026"
+      "nota": "Campinas; podcast sobre bairros da cidade (DICs, Ouro Verde, BRT). Levantado na rodada de igualação de 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Marisa de Sorocaba SP 🫶",
@@ -1100,7 +1135,8 @@
       "channel_id": "UCNgMVzA8J4Ns0TwySjcj7jQ",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "a_confirmar",
-      "nota": "Piracicaba; sabatinas do Portal THMais. ATENÇÃO: pode ser a mesma redação de 'TH+ SBT Interior', já em fontes.json — confirmar antes de tratar como fonte independente"
+      "nota": "Piracicaba; sabatinas do Portal THMais. ATENÇÃO: pode ser a mesma redação de 'TH+ SBT Interior', já em fontes.json — confirmar antes de tratar como fonte independente",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Repórter Diário",
@@ -1130,14 +1166,16 @@
       "channel_id": "UCzQxHUiLa5prpJoyOxS0GSA",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Jornal do Rio"
+      "nota": "Jornal do Rio",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Jeitinho Carioca",
       "channel_id": "UC002CUgSIkHJG496r6PBnqw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Papo de Carioca"
+      "nota": "Papo de Carioca",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Rodrigo Santos",
@@ -1284,35 +1322,40 @@
       "channel_id": "UCvaF1EGevRAOHZN8HICJbMA",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "a_confirmar",
-      "nota": "Baixada Fluminense (Nova Iguaçu, Queimados, Seropédica); programas locais 'Baixada News' e 'Baixada Esportiva'. O acervo recente aparenta ser de 2023–2024 — confirmar atividade"
+      "nota": "Baixada Fluminense (Nova Iguaçu, Queimados, Seropédica); programas locais 'Baixada News' e 'Baixada Esportiva'. O acervo recente aparenta ser de 2023–2024 — confirmar atividade",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "TV METROPOLITANA RIO",
       "channel_id": "UCKBF1-_f_oUDQFaOpjF0Jng",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "a_confirmar",
-      "nota": "Duque de Caxias; cobertura local, mas parte do acervo é lançamento de campanha política — confirmar a natureza do canal"
+      "nota": "Duque de Caxias; cobertura local, mas parte do acervo é lançamento de campanha política — confirmar a natureza do canal",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Rádio Roquette-Pinto",
       "channel_id": "UC9Rogd4Dz00edprokEQG-ZA",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Emissora pública do estado do RJ; programas com entrevista. Levantado na segunda rodada de igualação, 31/08/2026"
+      "nota": "Emissora pública do estado do RJ; programas com entrevista. Levantado na segunda rodada de igualação, 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Café Underground",
       "channel_id": "UCB6eGcv7gZ6ATFipcdaSHAg",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Nova Iguaçu e Seropédica; talkshow e reportagem local da Baixada Fluminense. Levantado na segunda rodada de igualação, 31/08/2026"
+      "nota": "Nova Iguaçu e Seropédica; talkshow e reportagem local da Baixada Fluminense. Levantado na segunda rodada de igualação, 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "SEANI - Sociedade dos Eng. e Arq. de Nova Iguaçu",
       "channel_id": "UCCJ10qeciGWstAHQpR_8N4g",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "verificado",
-      "nota": "Nova Iguaçu; podcast sobre a Baixada Fluminense. Ressalva: os convidados são profissionais de nível superior, de registro mais monitorado que o das demais fontes. Levantado na segunda rodada de igualação, 31/08/2026"
+      "nota": "Nova Iguaçu; podcast sobre a Baixada Fluminense. Ressalva: os convidados são profissionais de nível superior, de registro mais monitorado que o das demais fontes. Levantado na segunda rodada de igualação, 31/08/2026",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Toninho Bondade",
@@ -1326,14 +1369,16 @@
       "channel_id": "UCPHvx0NxJubMU8QqZ6X_Efw",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "a_confirmar",
-      "nota": "Podcast de futebol carioca. ATENÇÃO: a evidência geográfica da triagem foi 'Botafogo' e 'Flamengo', que aqui são nomes de clube e não de bairro — é a mesma colisão de topônimo registrada em pendencias.md 6.0. Confirmar a ancoragem por outra via"
+      "nota": "Podcast de futebol carioca. ATENÇÃO: a evidência geográfica da triagem foi 'Botafogo' e 'Flamengo', que aqui são nomes de clube e não de bairro — é a mesma colisão de topônimo registrada em pendencias.md 6.0. Confirmar a ancoragem por outra via",
+      "participacao_ouvinte": "nao_verificado"
     },
     {
       "canal": "Jaime França (Jaime DJ)",
       "channel_id": "UCPEQ4oM4O5eUtizssQlfSVg",
       "tipo_fonte": "podcast_radio_tv_regional",
       "situacao": "a_confirmar",
-      "nota": "Cascadura; grava o programa 'Rio é um Charme' da Rádio Roquette Pinto. Confirmar se é fonte independente ou mesmo acervo da emissora já aceita"
+      "nota": "Cascadura; grava o programa 'Rio é um Charme' da Rádio Roquette Pinto. Confirmar se é fonte independente ou mesmo acervo da emissora já aceita",
+      "participacao_ouvinte": "nao_verificado"
     }
   ]
 }

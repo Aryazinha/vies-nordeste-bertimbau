@@ -33,7 +33,23 @@ O problema é que só PE e BA dispõem dela. Não se trata de diferença de quan
 
 **Atualização de 31/08/2026 — a assimetria diminuiu, mas não acabou.** A rodada de igualação acrescentou ao Ceará o canal *Di Calheiros*, programa de rádio de Fortaleza que pede opinião ao ouvinte ("Qual a sua opinião sobre relacionamentos que começam nas redes sociais?"), formato até então restrito a PE e BA. Acrescentou também rádios locais em PB (*98 FM Digital*), PE (*Rádio Cidade 99.7*), BA (*Rádio Salvador FM*) e RJ (*Rádio Roquette-Pinto*), mas **não se verificou** se essas têm quadro de participação do ouvinte — a inspeção olhou ancoragem geográfica e presença de fala, não o formato. **São Paulo continua sem nenhum canal desse tipo identificado.**
 
-**Encerra a pendência:** verificar, nas rádios já aceitas de PB, PE, BA e RJ, se há quadro de participação de ouvinte; localizar um equivalente em São Paulo; ou, não sendo possível, retirar os existentes e uniformizar por baixo.
+### Verificação executada em 31/08/2026, e o resultado muda o entendimento da pendência
+
+**O que foi feito.** Varredura dos 15 títulos mais recentes dos 40 canais de podcast/rádio/TV já aceitos, procurando sinal de programa que dá voz a quem liga ou escreve. E busca dirigida por rádio de participação em São Paulo e no Rio, com seis consultas por estado.
+
+**Resultado da varredura:** quatro canais confirmados — *Radio Jornal* (PE), *TV Aratu* (BA), *Di Calheiros* (CE) e *Rádio Salvador FM* (BA). Nenhum em PB, SP ou RJ.
+
+**Resultado da busca dirigida: negativo, e por um motivo estrutural que vale registrar.** Os programas de participação de ouvinte que aparecem em São Paulo e no Rio pertencem a **redes nacionais** — Jovem Pan, Band FM, BandNews FM. São reais e são de participação, mas os ouvintes que ligam são do país inteiro, de modo que a fala não é atribuível ao estado e a regra de atribuição do projeto os rejeita. O que existe de rádio comunitária genuinamente local nas duas capitais — o caso da Heliópolis 87,5 FM, em São Paulo — quase não publica no YouTube.
+
+A assimetria da seção 1.1, portanto, **não é falha de busca: é fato de estrutura de mídia**. No Nordeste, a rádio regional com participação de ouvinte é publicada no YouTube pela própria emissora regional. No Sudeste, o formato equivalente pertence à rede nacional, que por definição não representa um estado. Buscar mais não resolve.
+
+**Consequência para o desenho.** Como a simetria não é obtenível por busca, ela tem de ser obtida por medida e controle. Foi acrescentado a `fontes.json` o campo `participacao_ouvinte`, com valores `sim` e `nao_verificado`.
+
+Não existe valor `não`, e a razão é metodológica: a varredura de títulos é **limite inferior, não medida**. A prova está no próprio *Alô Juca* da TV Aratu, que tem o formato — registrado desde o levantamento original — e não deixou sinal algum nos quinze títulos mais recentes. Escrever `não` nos 36 canais restantes seria afirmar o que não foi estabelecido.
+
+**Encerra a pendência:** registrar, no nível do **arquivo** e não do canal, se a fala coletada é de ouvinte participando. O campo de canal é proxy grosseiro: ter um canal desses em cada estado não equilibra nada se a coleta render quarenta minutos de fala de ouvinte na Bahia e quatro em São Paulo. O que precisa ser equilibrado — ou descontado na análise — é o **volume de fala de ouvinte por estado**.
+
+**Por que isso importa, e é a parte que não pode ser perdida.** Fala de ouvinte ao telefone é o registro menos monitorado de todo o corpus, e os marcadores regionais que o projeto investiga são mais frequentes em fala informal. Se o grupo nordestino tem esse tipo de fala e o grupo de controle não, o contraste entre as regiões fica inflado **na direção que favorece a hipótese do projeto**. É viés que não pode permanecer sem medida.
 
 ### 1.2 Camada de vox-pop com apenas dois canais — AVANÇADA, e agora é a pendência de fonte mais consequente
 

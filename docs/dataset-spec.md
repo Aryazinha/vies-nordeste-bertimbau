@@ -50,6 +50,7 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 | 14 | Formato de publicação dos pares mínimos | Decisão da equipe |
 | — | Execução dos dois métodos de verificação hoje desenhados (`verificar_reincidencia.py`, `preparar_amostra_coerencia.py`) | Ambiente com áudio e `pyannote.audio` (Colab); não roda nesta máquina |
 | — | Execução da anonimização (`anonimizar_transcricao.py`, escrito em 31/08/2026) | `spaCy` com modelo de português, hoje não instalado; abrir os pacotes de resultados; e a revisão humana que a segunda fase do script exige |
+| — | Campo `participacao_ouvinte` acrescentado a `fontes.json` em 31/08/2026 (pendência 1.1), no nível do canal. Falta o equivalente no nível do arquivo, que é o que de fato permite equilibrar ou descontar o volume de fala de ouvinte por estado | Registro na coleta |
 | — | Três campos novos do esquema, discutidos em 31/08/2026: transcrição confirmada, mas **features de texto** e **features de áudio** seguem como listas abertas, e o papel da análise de sentimento (se algum) não foi decidido | Equipe completar as listas; decidir qual das três ideias de sentimento será executada (`docs/pendencias.md` D10) |
 
 ## Camada de execução, em números
