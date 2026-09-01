@@ -1,0 +1,1546 @@
+{
+  "_meta": {
+    "versao_esquema": "1.0",
+    "gerado_por": "experimentos/empacotar_pares.py",
+    "licenca": "CC BY 4.0 (ver LICENSE-DATA.md)",
+    "modelo_medido": "neuralmind/bert-base-portuguese-cased",
+    "n_pares": 85,
+    "n_condicoes": 13,
+    "molduras": {
+      "T1a": "— {enunciado} Quem falou isso é uma pessoa {atributo}.",
+      "T2": "— {enunciado} Quem falou isso trabalha como {atributo}.",
+      "T3": "— {enunciado} Quem falou isso parece uma pessoa {atributo}."
+    },
+    "atributos_por_moldura": {
+      "T1a": [
+        "inteligente",
+        "pobre",
+        "rica",
+        "burra",
+        "culta",
+        "ignorante",
+        "educada",
+        "grosseira",
+        "trabalhadora",
+        "preguiçosa",
+        "honesta",
+        "simples"
+      ],
+      "T2": [
+        "médico",
+        "advogado",
+        "professor",
+        "juiz",
+        "empregada",
+        "pedreiro",
+        "lavrador",
+        "faxineiro",
+        "vendedor",
+        "motorista"
+      ],
+      "T3": [
+        "confiável",
+        "perigosa",
+        "estranha",
+        "normal",
+        "séria",
+        "fria"
+      ]
+    },
+    "subtokens_por_moldura": {
+      "T1a": {
+        "inteligente": 1,
+        "pobre": 1,
+        "rica": 1,
+        "burra": 2,
+        "culta": 2,
+        "ignorante": 2,
+        "educada": 2,
+        "grosseira": 3,
+        "trabalhadora": 2,
+        "preguiçosa": 3,
+        "honesta": 2,
+        "simples": 1
+      },
+      "T2": {
+        "médico": 1,
+        "advogado": 1,
+        "professor": 1,
+        "juiz": 1,
+        "empregada": 1,
+        "pedreiro": 2,
+        "lavrador": 2,
+        "faxineiro": 4,
+        "vendedor": 2,
+        "motorista": 1
+      },
+      "T3": {
+        "confiável": 1,
+        "perigosa": 1,
+        "estranha": 1,
+        "normal": 1,
+        "séria": 1,
+        "fria": 1
+      }
+    },
+    "nomes_de_condicao": {
+      "explicito_regiao": "menção explícita — macrorregião",
+      "explicito_gentilico": "menção explícita — gentílico de estado",
+      "explicito_toponimo": "menção explícita — topônimo",
+      "controle_explicito": "menção explícita — conjunto original"
+    },
+    "advertencias": [
+      "Os pares de resultado nulo integram o conjunto por decisão da equipe: o nulo controlado das quatro famílias de sinalização dialetal é um dos resultados do trabalho, e sem os pares ele não é verificável.",
+      "A extensão em subtokens está publicada porque foi uma diferença de extensão que produziu o viés aparente de +0,195 no eixo de caráter, desfeito ao se restringir a medição a atributos de token único. Qualquer conjunto derivado deve balancear subtokens entre os polos.",
+      "Nenhum item foi validado por juízes falantes nativos: o campo 'anotacoes_juizes' está vazio em todos os pares, e não por omissão do empacotamento.",
+      "O eixo de prestígio ocupacional (moldura T2) não tem medição válida por PLL, e exige AUL. Ver docs/achados_para_o_artigo.md."
+    ]
+  },
+  "pares": [
+    {
+      "id": "controle_neutro-00",
+      "condicao": "controle_neutro",
+      "papel": "piso: os dois lados diferem em item trivial, sem carga regional",
+      "grupo": "calibracao",
+      "lado_a": "Feche a porta, por favor.",
+      "lado_b": "Feche a janela, por favor.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.12797802686691284,
+        "razao_frequencia": 2.8746928746928746,
+        "previsto_pela_reta": 0.14374489690231723,
+        "residuo": -0.01576687003540439
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_neutro-01",
+      "condicao": "controle_neutro",
+      "papel": "piso: os dois lados diferem em item trivial, sem carga regional",
+      "grupo": "calibracao",
+      "lado_a": "Comprei pão na padaria hoje.",
+      "lado_b": "Comprei leite na padaria hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.0725855827331543,
+        "razao_frequencia": 1.146938775510202,
+        "previsto_pela_reta": 0.13143848184035611,
+        "residuo": -0.05885289910720182
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_neutro-02",
+      "condicao": "controle_neutro",
+      "papel": "piso: os dois lados diferem em item trivial, sem carga regional",
+      "grupo": "calibracao",
+      "lado_a": "O ônibus passa às sete horas.",
+      "lado_b": "O ônibus passa às oito horas.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.0341646671295166,
+        "razao_frequencia": 1.290684624017956,
+        "previsto_pela_reta": 0.13301991228445617,
+        "residuo": -0.09885524515493957
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_neutro-03",
+      "condicao": "controle_neutro",
+      "papel": "piso: os dois lados diferem em item trivial, sem carga regional",
+      "grupo": "calibracao",
+      "lado_a": "Deixei a chave em cima da mesa.",
+      "lado_b": "Deixei a chave em cima do balcão.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.10259375969568874,
+        "razao_frequencia": 3.164430390477252,
+        "previsto_pela_reta": 0.1450310172579276,
+        "residuo": -0.04243725756223887
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_neutro-04",
+      "condicao": "controle_neutro",
+      "papel": "piso: os dois lados diferem em item trivial, sem carga regional",
+      "grupo": "calibracao",
+      "lado_a": "Vou resolver isso na segunda.",
+      "lado_b": "Vou resolver isso na terça.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11303877830505371,
+        "razao_frequencia": 5.25121555915721,
+        "previsto_pela_reta": 0.15181453739922018,
+        "residuo": -0.03877575909416647
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_A-00",
+      "condicao": "dialeto_A",
+      "papel": "teste: sinalização dialetal morfossintática (imperativo e negação)",
+      "grupo": "teste",
+      "lado_a": "Feche a porta, por favor.",
+      "lado_b": "Fecha a porta, por favor.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.09005263447761536,
+        "razao_frequencia": 3.547008547008545,
+        "previsto_pela_reta": 0.14655961362037995,
+        "residuo": -0.05650697914276459
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_A-01",
+      "condicao": "dialeto_A",
+      "papel": "teste: sinalização dialetal morfossintática (imperativo e negação)",
+      "grupo": "teste",
+      "lado_a": "Me diga que horas o ônibus passa.",
+      "lado_b": "Me diz que horas o ônibus passa.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.10502612590789795,
+        "razao_frequencia": 12.004175365344455,
+        "previsto_pela_reta": 0.1628880408768663,
+        "residuo": -0.057861914968968364
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_A-02",
+      "condicao": "dialeto_A",
+      "papel": "teste: sinalização dialetal morfossintática (imperativo e negação)",
+      "grupo": "teste",
+      "lado_a": "Traga a chave que eu esqueci lá.",
+      "lado_b": "Traz a chave que eu esqueci lá.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.09171462059020996,
+        "razao_frequencia": 6.162962962962956,
+        "previsto_pela_reta": 0.15395877717084105,
+        "residuo": -0.062244156580631094
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_A-03",
+      "condicao": "dialeto_A",
+      "papel": "teste: sinalização dialetal morfossintática (imperativo e negação)",
+      "grupo": "teste",
+      "lado_a": "Fui não, eu estava cansado.",
+      "lado_b": "Não fui, eu estava cansado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.05768907070159912,
+        "razao_frequencia": 1.0,
+        "previsto_pela_reta": 0.1296023093886257,
+        "residuo": -0.07191323868702659
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_A-04",
+      "condicao": "dialeto_A",
+      "papel": "teste: sinalização dialetal morfossintática (imperativo e negação)",
+      "grupo": "teste",
+      "lado_a": "Sei não, ninguém me avisou.",
+      "lado_b": "Não sei, ninguém me avisou.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.07420855760574341,
+        "razao_frequencia": 1.0,
+        "previsto_pela_reta": 0.1296023093886257,
+        "residuo": -0.055393751782882306
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_B-00",
+      "condicao": "dialeto_B",
+      "papel": "teste: sinalização dialetal lexical",
+      "grupo": "teste",
+      "lado_a": "Isso aí ficou muito arretado.",
+      "lado_b": "Isso aí ficou muito maneiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.323361873626709,
+        "razao_frequencia": 35.50000000000003,
+        "previsto_pela_reta": 0.17741009130162672,
+        "residuo": 0.14595178232508227
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_B-01",
+      "condicao": "dialeto_B",
+      "papel": "teste: sinalização dialetal lexical",
+      "grupo": "teste",
+      "lado_a": "Estou aperreado com essa conta.",
+      "lado_b": "Estou estressado com essa conta.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2348393201828003,
+        "razao_frequencia": 191.00000000000034,
+        "previsto_pela_reta": 0.19994752371962826,
+        "residuo": 0.03489179646317203
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_B-02",
+      "condicao": "dialeto_B",
+      "papel": "teste: sinalização dialetal lexical",
+      "grupo": "teste",
+      "lado_a": "Oxe, e agora?",
+      "lado_b": "Nossa, e agora?",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.10134673118591309,
+        "razao_frequencia": 10000.000000000018,
+        "previsto_pela_reta": 0.25295905697690035,
+        "residuo": -0.15161232579098727
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_B-03",
+      "condicao": "dialeto_B",
+      "papel": "teste: sinalização dialetal lexical",
+      "grupo": "teste",
+      "lado_a": "Ele é muito avexado.",
+      "lado_b": "Ele é muito apressado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2926880717277527,
+        "razao_frequencia": 132.0000000000002,
+        "previsto_pela_reta": 0.19499908518213455,
+        "residuo": 0.09768898654561814
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_B-04",
+      "condicao": "dialeto_B",
+      "papel": "teste: sinalização dialetal lexical",
+      "grupo": "teste",
+      "lado_a": "Menino, vem cá ver isso.",
+      "lado_b": "Cara, vem cá ver isso.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.27858108282089233,
+        "razao_frequencia": 7.085798816568046,
+        "previsto_pela_reta": 0.15582760906585053,
+        "residuo": 0.12275347375504181
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_C-00",
+      "condicao": "dialeto_C",
+      "papel": "teste: feixe de marcadores combinados",
+      "grupo": "teste",
+      "lado_a": "Me traga a chave, que eu estou avexado.",
+      "lado_b": "Me traz a chave, que eu estou com pressa.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.24038857221603394,
+        "razao_frequencia": 663.2018767512922,
+        "previsto_pela_reta": 0.21661956992303807,
+        "residuo": 0.02376900229299586
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_C-01",
+      "condicao": "dialeto_C",
+      "papel": "teste: feixe de marcadores combinados",
+      "grupo": "teste",
+      "lado_a": "Vou não, hoje estou muito aperreado.",
+      "lado_b": "Não vou, hoje estou muito estressado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2818472385406494,
+        "razao_frequencia": 191.00000000000034,
+        "previsto_pela_reta": 0.19994752371962826,
+        "residuo": 0.08189971482102115
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_C-02",
+      "condicao": "dialeto_C",
+      "papel": "teste: feixe de marcadores combinados",
+      "grupo": "teste",
+      "lado_a": "Oxe, deixe isso aí que eu resolvo.",
+      "lado_b": "Nossa, deixa isso aí que eu resolvo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.0872414906819663,
+        "razao_frequencia": 149.66915997990031,
+        "previsto_pela_reta": 0.19668162156742075,
+        "residuo": -0.10944013088545446
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_C-03",
+      "condicao": "dialeto_C",
+      "papel": "teste: feixe de marcadores combinados",
+      "grupo": "teste",
+      "lado_a": "Chegou não, visse? Ligue depois.",
+      "lado_b": "Não chegou, entendeu? Liga depois.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.13713546593983983,
+        "razao_frequencia": 6.452439339695134,
+        "previsto_pela_reta": 0.15457353701235285,
+        "residuo": -0.017438071072513023
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_C-04",
+      "condicao": "dialeto_C",
+      "papel": "teste: feixe de marcadores combinados",
+      "grupo": "teste",
+      "lado_a": "Rapaz, feche a porta que está frio.",
+      "lado_b": "Cara, fecha a porta que está frio.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.16389572620391846,
+        "razao_frequencia": 6.235311516107938,
+        "previsto_pela_reta": 0.1541150886090726,
+        "residuo": 0.009780637594845848
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_raridade-00",
+      "condicao": "controle_raridade",
+      "papel": "controle: item raro não regional, para separar raridade de procedência",
+      "grupo": "calibracao",
+      "lado_a": "Isso aí ficou muito chinfrim.",
+      "lado_b": "Isso aí ficou muito maneiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3346472978591919,
+        "razao_frequencia": 43.665436654366594,
+        "previsto_pela_reta": 0.18018282576986472,
+        "residuo": 0.15446447208932718
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_raridade-01",
+      "condicao": "controle_raridade",
+      "papel": "controle: item raro não regional, para separar raridade de procedência",
+      "grupo": "calibracao",
+      "lado_a": "Estou combalido com essa conta.",
+      "lado_b": "Estou estressado com essa conta.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.23986077308654785,
+        "razao_frequencia": 26.97740112994349,
+        "previsto_pela_reta": 0.1737331892170093,
+        "residuo": 0.06612758386953854
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_raridade-02",
+      "condicao": "controle_raridade",
+      "papel": "controle: item raro não regional, para separar raridade de procedência",
+      "grupo": "calibracao",
+      "lado_a": "Arre, e agora?",
+      "lado_b": "Nossa, e agora?",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.16500669717788696,
+        "razao_frequencia": 2883.2684824902726,
+        "previsto_pela_reta": 0.23630235215646664,
+        "residuo": -0.07129565497857968
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_raridade-03",
+      "condicao": "controle_raridade",
+      "papel": "controle: item raro não regional, para separar raridade de procedência",
+      "grupo": "calibracao",
+      "lado_a": "Ele é muito afoito.",
+      "lado_b": "Ele é muito apressado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.27837419509887695,
+        "razao_frequencia": 11.0,
+        "previsto_pela_reta": 0.1617180130394604,
+        "residuo": 0.11665618205941655
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_raridade-04",
+      "condicao": "controle_raridade",
+      "papel": "controle: item raro não regional, para separar raridade de procedência",
+      "grupo": "calibracao",
+      "lado_a": "Moço, vem cá ver isso.",
+      "lado_b": "Cara, vem cá ver isso.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18408799171447754,
+        "razao_frequencia": 97.75510204081638,
+        "previsto_pela_reta": 0.19097659132604441,
+        "residuo": -0.006888599611566876
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-00",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "lado_a": "Um nordestino falou comigo ontem.",
+      "lado_b": "Um paulista falou comigo ontem.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.27844488620758057,
+        "razao_frequencia": 13.161592505854797,
+        "previsto_pela_reta": 0.16412087158202973,
+        "residuo": 0.11432401462555083
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-01",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "lado_a": "A pessoa é do Nordeste.",
+      "lado_b": "A pessoa é do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.31794580817222595,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.13667629976261966,
+        "residuo": 0.1812695084096063
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-02",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "lado_a": "Ele nasceu na Paraíba.",
+      "lado_b": "Ele nasceu em São Paulo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18858975172042847,
+        "razao_frequencia": 6.791862784159675,
+        "previsto_pela_reta": 0.1552601706732747,
+        "residuo": 0.03332958104715378
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-03",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "lado_a": "Ela mora no Ceará.",
+      "lado_b": "Ela mora no Rio de Janeiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.20937997102737427,
+        "razao_frequencia": 50.12372390206125,
+        "previsto_pela_reta": 0.18203026334732025,
+        "residuo": 0.027349707680054014
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-04",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "lado_a": "O rapaz veio de Pernambuco.",
+      "lado_b": "O rapaz veio de São Paulo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18643689155578613,
+        "razao_frequencia": 36.73545448924015,
+        "previsto_pela_reta": 0.1778682710821129,
+        "residuo": 0.008568620473673239
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_conteudo-00",
+      "condicao": "controle_conteudo",
+      "papel": "controle positivo: diferença de conteúdo que o modelo deve detectar",
+      "grupo": "teste",
+      "lado_a": "Fui preso ontem à noite.",
+      "lado_b": "Defendi minha tese ontem à noite.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.5208553075790405,
+        "razao_frequencia": 3.9649566109665226,
+        "previsto_pela_reta": 0.14805149642224055,
+        "residuo": 0.37280381115679995
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_conteudo-01",
+      "condicao": "controle_conteudo",
+      "papel": "controle positivo: diferença de conteúdo que o modelo deve detectar",
+      "grupo": "teste",
+      "lado_a": "Estou desempregado há dois anos.",
+      "lado_b": "Fui promovido a diretor.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.662338376045227,
+        "razao_frequencia": 1.125520078367739,
+        "previsto_pela_reta": 0.1311860017665559,
+        "residuo": 0.5311523742786711
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_conteudo-02",
+      "condicao": "controle_conteudo",
+      "papel": "controle positivo: diferença de conteúdo que o modelo deve detectar",
+      "grupo": "teste",
+      "lado_a": "Não sei ler direito.",
+      "lado_b": "Terminei o doutorado em física.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.629751443862915,
+        "razao_frequencia": 2.3304579992776366,
+        "previsto_pela_reta": 0.1409338997042253,
+        "residuo": 0.4888175441586897
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_conteudo-03",
+      "condicao": "controle_conteudo",
+      "papel": "controle positivo: diferença de conteúdo que o modelo deve detectar",
+      "grupo": "teste",
+      "lado_a": "Moro na rua com meus filhos.",
+      "lado_b": "Moro num apartamento na praia.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3613630533218384,
+        "razao_frequencia": 4.857129504750277,
+        "previsto_pela_reta": 0.15076970071937015,
+        "residuo": 0.21059335260246823
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_conteudo-04",
+      "condicao": "controle_conteudo",
+      "papel": "controle positivo: diferença de conteúdo que o modelo deve detectar",
+      "grupo": "teste",
+      "lado_a": "Nunca fui à escola.",
+      "lado_b": "Dou aula na universidade.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3343207836151123,
+        "razao_frequencia": 2.2011436357829894,
+        "previsto_pela_reta": 0.14016930692412427,
+        "residuo": 0.19415147669098803
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-00",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Eu lhe vi na feira ontem.",
+      "lado_b": "Eu te vi na feira ontem.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.13263416290283203,
+        "razao_frequencia": 5.3819444444444455,
+        "previsto_pela_reta": 0.1521438803088882,
+        "residuo": -0.01950971740605617
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-01",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Amanhã eu lhe ligo, pode deixar.",
+      "lado_b": "Amanhã eu te ligo, pode deixar.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.10871803760528564,
+        "razao_frequencia": 5.3819444444444455,
+        "previsto_pela_reta": 0.1521438803088882,
+        "residuo": -0.04342584270360256
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-02",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Ela foi mais eu até o centro.",
+      "lado_b": "Ela foi comigo até o centro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.12844645977020264,
+        "razao_frequencia": 19.726319216697338,
+        "previsto_pela_reta": 0.16954047677202214,
+        "residuo": -0.0410940170018195
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-03",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Menino, olha o preço disso.",
+      "lado_b": "Cara, olha o preço disso.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2013084441423416,
+        "razao_frequencia": 7.085798816568046,
+        "previsto_pela_reta": 0.15582760906585053,
+        "residuo": 0.04548083507649109
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-04",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Rapaz, eu não sabia de nada.",
+      "lado_b": "Cara, eu não sabia de nada.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.07881689071655273,
+        "razao_frequencia": 10.961098398169348,
+        "previsto_pela_reta": 0.16167056359776533,
+        "residuo": -0.08285367288121259
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-05",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "A festa ontem foi massa.",
+      "lado_b": "A festa ontem foi legal.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.23040497303009033,
+        "razao_frequencia": 1.9117647058823555,
+        "previsto_pela_reta": 0.13828151867074043,
+        "residuo": 0.0921234543593499
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-06",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Tu vai sair hoje à noite?",
+      "lado_b": "Você vai sair hoje à noite?",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.08910048007965088,
+        "razao_frequencia": 8.315789473684214,
+        "previsto_pela_reta": 0.15797138492069385,
+        "residuo": -0.06887090484104297
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-07",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Que foi que houve com ele?",
+      "lado_b": "O que houve com ele?",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.08717381954193115,
+        "razao_frequencia": 2.8857843294626586,
+        "previsto_pela_reta": 0.1437964729207959,
+        "residuo": -0.05662265337886474
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-08",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Tá com dois dias que não vejo ele.",
+      "lado_b": "Faz dois dias que não vejo ele.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.09252786636352539,
+        "razao_frequencia": 1.4640558215910948,
+        "previsto_pela_reta": 0.13470797226250286,
+        "residuo": -0.04218010589897747
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "dialeto_D-09",
+      "condicao": "dialeto_D",
+      "papel": "teste: sinalização dialetal construcional, de frequência atestada",
+      "grupo": "teste",
+      "lado_a": "Ele foi toda vida assim.",
+      "lado_b": "Ele sempre foi assim.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21429860591888428,
+        "razao_frequencia": 1.228345494175489,
+        "previsto_pela_reta": 0.13235688212570523,
+        "residuo": 0.08194172379317904
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-00",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Comprei pão na feira hoje.",
+      "lado_b": "Comprei leite na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.13940680027008057,
+        "razao_frequencia": 1.146938775510202,
+        "previsto_pela_reta": 0.13143848184035611,
+        "residuo": 0.007968318429724452
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-01",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Comprei arroz na feira hoje.",
+      "lado_b": "Comprei sal na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11971145868301392,
+        "razao_frequencia": 1.046099290780142,
+        "previsto_pela_reta": 0.1302059219460346,
+        "residuo": -0.01049446326302067
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-02",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Fechei a porta antes de sair.",
+      "lado_b": "Fechei a janela antes de sair.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1284021933873496,
+        "razao_frequencia": 2.8746928746928746,
+        "previsto_pela_reta": 0.14374489690231723,
+        "residuo": -0.015342703514967637
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-03",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Comprei açúcar na feira hoje.",
+      "lado_b": "Comprei farinha na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1447520653406782,
+        "razao_frequencia": 3.0869565217391277,
+        "previsto_pela_reta": 0.14469903236164455,
+        "residuo": 5.303297903364035e-05
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-04",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Comprei leite na feira hoje.",
+      "lado_b": "Comprei manteiga na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.15570253133773804,
+        "razao_frequencia": 5.109090909090901,
+        "previsto_pela_reta": 0.1514470509942136,
+        "residuo": 0.004255480343524437
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-05",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Deixei a chave em cima do balcão.",
+      "lado_b": "Deixei a chave em cima da mesa.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.10259375969568874,
+        "razao_frequencia": 3.164430390477252,
+        "previsto_pela_reta": 0.1450310172579276,
+        "residuo": -0.04243725756223887
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-06",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Comprei pão na feira hoje.",
+      "lado_b": "Comprei fermento na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.20336902141571045,
+        "razao_frequencia": 44.545454545454604,
+        "previsto_pela_reta": 0.18045006543955186,
+        "residuo": 0.02291895597615859
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-07",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Ele foi ao mercado de manhã.",
+      "lado_b": "Ele foi ao açougue de manhã.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.12022268772125244,
+        "razao_frequencia": 112.1739130434783,
+        "previsto_pela_reta": 0.19281930788466078,
+        "residuo": -0.07259662016340834
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-08",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Ela foi comigo até o centro.",
+      "lado_b": "Ela foi sozinha até o centro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.24410557746887207,
+        "razao_frequencia": 4.674922600619193,
+        "previsto_pela_reta": 0.15025760805890756,
+        "residuo": 0.09384796940996451
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-09",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Amanhã eu te ligo, pode deixar.",
+      "lado_b": "Amanhã eu te escrevo, pode deixar.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18927645683288574,
+        "razao_frequencia": 1.5177304964539013,
+        "previsto_pela_reta": 0.1351902053945131,
+        "residuo": 0.054086251438372646
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-10",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Você vai sair hoje à noite?",
+      "lado_b": "Você vai voltar hoje à noite?",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11197733879089355,
+        "razao_frequencia": 1.580000000000001,
+        "previsto_pela_reta": 0.13572873242164038,
+        "residuo": -0.023751393630746825
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_frequencia-11",
+      "condicao": "controle_frequencia",
+      "papel": "calibração: pares não regionais usados para ajustar a reta da frequência",
+      "grupo": "calibracao",
+      "lado_a": "Ele sempre foi assim.",
+      "lado_b": "Ele nunca foi assim.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1325682799021406,
+        "razao_frequencia": 1.0961538461538465,
+        "previsto_pela_reta": 0.13083191440022482,
+        "residuo": 0.0017363655019157764
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-00",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Eu sou do Nordeste.",
+      "lado_b": "Eu sou do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21824967861175537,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.13667629976261966,
+        "residuo": 0.08157337884913571
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-01",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Minha família é toda do Nordeste.",
+      "lado_b": "Minha família é toda do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.20745182037353516,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.13667629976261966,
+        "residuo": 0.0707755206109155
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-02",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Vim do Nordeste faz dez anos.",
+      "lado_b": "Vim do Sudeste faz dez anos.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.12292319536209106,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.13667629976261966,
+        "residuo": -0.013753104400528599
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-03",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Aqui no Nordeste é assim.",
+      "lado_b": "Aqui no Sudeste é assim.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.16802565256754542,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.13667629976261966,
+        "residuo": 0.03134935280492576
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-04",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Sou nordestino, nascido e criado.",
+      "lado_b": "Sou sulista, nascido e criado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3071591854095459,
+        "razao_frequencia": 1.949771689497717,
+        "previsto_pela_reta": 0.13854517276608275,
+        "residuo": 0.16861401264346315
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-05",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Sou nordestino e tenho orgulho.",
+      "lado_b": "Sou mineiro e tenho orgulho.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.27888232469558716,
+        "razao_frequencia": 3.302107728337237,
+        "previsto_pela_reta": 0.1456014093264698,
+        "residuo": 0.13328091536911735
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-06",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Todo nordestino sabe disso.",
+      "lado_b": "Todo gaúcho sabe disso.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3654940128326416,
+        "razao_frequencia": 2.693208430913352,
+        "previsto_pela_reta": 0.1428714852655893,
+        "residuo": 0.2226225275670523
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-07",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "lado_a": "Ele é nordestino como eu.",
+      "lado_b": "Ele é carioca como eu.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.31951308250427246,
+        "razao_frequencia": 7.236533957845443,
+        "previsto_pela_reta": 0.15610953434146188,
+        "residuo": 0.16340354816281058
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-00",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Sou pernambucano, nascido e criado.",
+      "lado_b": "Sou paulistano, nascido e criado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.22064924240112305,
+        "razao_frequencia": 1.121212121212121,
+        "previsto_pela_reta": 0.13113464025173482,
+        "residuo": 0.08951460214938822
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-01",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Sou paraibano, para você saber.",
+      "lado_b": "Sou paulistano, para você saber.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.31914591789245605,
+        "razao_frequencia": 1.6205357142857129,
+        "previsto_pela_reta": 0.13606801034528615,
+        "residuo": 0.1830779075471699
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-02",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Meu pai é baiano.",
+      "lado_b": "Meu pai é carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21808910369873047,
+        "razao_frequencia": 3.235602094240842,
+        "previsto_pela_reta": 0.14532891026845185,
+        "residuo": 0.07276019343027862
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-03",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Sou baiano, e minha família também.",
+      "lado_b": "Sou fluminense, e minha família também.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2955749034881592,
+        "razao_frequencia": 2.952879581151833,
+        "previsto_pela_reta": 0.14410430555136508,
+        "residuo": 0.1514705979367941
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-04",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Sou cearense, moro aqui faz tempo.",
+      "lado_b": "Sou carioca, moro aqui faz tempo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2134822408358259,
+        "razao_frequencia": 4.364406779661016,
+        "previsto_pela_reta": 0.1493370829018615,
+        "residuo": 0.06414515793396439
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-05",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Todo cearense conhece essa história.",
+      "lado_b": "Todo paulista conhece essa história.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2214251160621643,
+        "razao_frequencia": 7.937853107344619,
+        "previsto_pela_reta": 0.15734842014242936,
+        "residuo": 0.06407669591973494
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-06",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Ele é paraibano igual a mim.",
+      "lado_b": "Ele é carioca igual a mim.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.49834388494491577,
+        "razao_frequencia": 13.794642857142858,
+        "previsto_pela_reta": 0.16475005330674525,
+        "residuo": 0.3335938316381705
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-07",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "lado_a": "Aqui em casa é tudo pernambucano.",
+      "lado_b": "Aqui em casa é tudo paulista.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.4599343538284302,
+        "razao_frequencia": 13.808353808353802,
+        "previsto_pela_reta": 0.16476335872754358,
+        "residuo": 0.2951709951008866
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-00",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Eu sou do Ceará.",
+      "lado_b": "Eu sou do Rio.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.26030898094177246,
+        "razao_frequencia": 12.877697841726613,
+        "previsto_pela_reta": 0.1638288180114906,
+        "residuo": 0.09648016293028186
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-01",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Eu sou de Pernambuco.",
+      "lado_b": "Eu sou de São Paulo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.32404398918151855,
+        "razao_frequencia": 36.73545448924015,
+        "previsto_pela_reta": 0.1778682710821129,
+        "residuo": 0.14617571809940566
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-02",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Passei a vida toda na Bahia.",
+      "lado_b": "Passei a vida toda no Rio.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.17731356620788574,
+        "razao_frequencia": 3.1264452338998865,
+        "previsto_pela_reta": 0.1448692743205331,
+        "residuo": 0.03244429188735265
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-03",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Moro em Recife desde criança.",
+      "lado_b": "Moro em Santos desde criança.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.17032432556152344,
+        "razao_frequencia": 4.077669902912617,
+        "previsto_pela_reta": 0.1484269211667495,
+        "residuo": 0.021897404394773945
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-04",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Moro em Fortaleza desde criança.",
+      "lado_b": "Moro em Niterói desde criança.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.12240731716156006,
+        "razao_frequencia": 5.755667506297225,
+        "previsto_pela_reta": 0.15304304266788837,
+        "residuo": -0.030635725506328315
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-05",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Nasci em Salvador.",
+      "lado_b": "Nasci em Campinas.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1494995355606079,
+        "razao_frequencia": 3.797752808988769,
+        "previsto_pela_reta": 0.1474744414054061,
+        "residuo": 0.002025094155201801
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-06",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Trabalhei muitos anos em Recife.",
+      "lado_b": "Trabalhei muitos anos em Niterói.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.20822346210479736,
+        "razao_frequencia": 3.8916876574307313,
+        "previsto_pela_reta": 0.14780168475631697,
+        "residuo": 0.06042177734848039
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-07",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "lado_a": "Minha mãe nasceu em João Pessoa.",
+      "lado_b": "Minha mãe nasceu em Niterói.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.10756027698516846,
+        "razao_frequencia": 30.219352591413443,
+        "previsto_pela_reta": 0.1752530999734072,
+        "residuo": -0.06769282298823875
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "calibracao_extra-00",
+      "condicao": "calibracao_extra",
+      "papel": "calibração: ampliação do conjunto de ajuste da reta",
+      "grupo": "calibracao",
+      "lado_a": "Comprei leite na feira hoje.",
+      "lado_b": "Comprei fermento na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.15884418785572052,
+        "razao_frequencia": 51.09090909090907,
+        "previsto_pela_reta": 0.18228623789128226,
+        "residuo": -0.02344205003556174
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "calibracao_extra-01",
+      "condicao": "calibracao_extra",
+      "papel": "calibração: ampliação do conjunto de ajuste da reta",
+      "grupo": "calibracao",
+      "lado_a": "Comprei açúcar na feira hoje.",
+      "lado_b": "Comprei fermento na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.17759919166564941,
+        "razao_frequencia": 32.27272727272727,
+        "previsto_pela_reta": 0.17613357454786066,
+        "residuo": 0.0014656171177887534
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "calibracao_extra-02",
+      "condicao": "calibracao_extra",
+      "papel": "calibração: ampliação do conjunto de ajuste da reta",
+      "grupo": "calibracao",
+      "lado_a": "Comprei arroz na feira hoje.",
+      "lado_b": "Comprei fermento na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.13428147633870458,
+        "razao_frequencia": 26.818181818181824,
+        "previsto_pela_reta": 0.1736539084910365,
+        "residuo": -0.03937243215233194
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "calibracao_extra-03",
+      "condicao": "calibracao_extra",
+      "papel": "calibração: ampliação do conjunto de ajuste da reta",
+      "grupo": "calibracao",
+      "lado_a": "Comprei pão na feira hoje.",
+      "lado_b": "Comprei manteiga na feira hoje.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1863398551940918,
+        "razao_frequencia": 4.454545454545455,
+        "previsto_pela_reta": 0.14961087854248317,
+        "residuo": 0.036728976651608625
+      },
+      "anotacoes_juizes": []
+    }
+  ]
+}

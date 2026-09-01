@@ -198,7 +198,14 @@ Dois filtros independentes e cumulativos, especificados em `docs/pares_minimos_v
 
 ## B.5 Distribuição
 
-**Formato:** `PENDENTE, com proposta.` Formato canônico único, com estrutura por par — identificador, os dois lados, marcador, estado-alvo, extensão em subtokens de cada atributo e anotações de juízes —, acompanhado de script de conversão para o formato tabular dos precedentes, em vez de dois artefatos publicados a manter em sincronia.
+**Formato:** **Decidido e implementado em 01/09/2026.** Formato canônico único em JSON, `experimentos/resultados/dados/pares_minimos.json`, com um registro por par: identificador, os dois lados, condição e seu papel no desenho, medição associada e anotações de juízes. O cabeçalho do arquivo traz as molduras, os atributos e a **extensão em subtokens de cada atributo por moldura**. Gerado por `experimentos/empacotar_pares.py`; o formato tabular dos precedentes sai de `experimentos/converter_pares.py` sob demanda, e não é publicado, para não haver dois artefatos a manter em sincronia.
+
+Duas decisões de conteúdo, tomadas pela equipe na mesma data:
+
+- **Os pares de resultado nulo integram o conjunto.** O nulo controlado das quatro famílias de sinalização dialetal é um dos resultados do trabalho, e sem os pares ele não é verificável por terceiros.
+- **JSON e não CSV como canônico**, porque um par tem estrutura aninhada — lista de atributos com extensão em subtokens, anotações de vários juízes — que não cabe numa linha de planilha.
+
+O conjunto reúne **85 pares em 13 condições**. O campo `anotacoes_juizes` está vazio em todos, e não por omissão do empacotamento: o Filtro 1 nunca foi aplicado. O campo `estado_alvo` é nulo, porque as condições agrupam por família de marcador e não por unidade da federação.
 
 **Licença:** **Decidido em 31/08/2026: CC BY 4.0** (`LICENSE-DATA.md`). Diferentemente das transcrições, os pares mínimos são texto de autoria do projeto e não carregam a ressalva de titularidade.
 

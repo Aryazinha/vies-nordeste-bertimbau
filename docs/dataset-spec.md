@@ -41,13 +41,13 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 | 11 | Reforço de PE e BA executado: 178 candidatos buscados, 13 canais aceitos e 11 a confirmar. Vlogs de PE vão de 4 a 10 e os da BA de 7 a 12, contra 11 em SP e 13 no RJ — a assimetria que motivava a pendência deixa de existir |
 | 12 | TikTok, Instagram e Spotify — decidido não incorporar, em nenhuma forma |
 | 13 | Tamanho-alvo dos pares mínimos: 37 por condição, 80 de referência |
+| 14 | Formato de publicação dos pares mínimos: JSON canônico com 85 pares em 13 condições, gerado por `empacotar_pares.py`, com conversor tabular sob demanda |
 
 ### Ainda falta
 
 | # | O que falta | Do que depende |
 |---|---|---|
 | 9 (resto) | Três lacunas da ficha: taxa de erro de transcrição (ferramenta pronta, `medir_wer.py`; **adiada deliberadamente**), execução da anonimização (ferramenta pronta, `anonimizar_transcricao.py`), licença específica da transcrição | Trabalho humano (transcrever para o WER; revisar os nomes propostos) e decisão da equipe (licença — `docs/questoes_para_orientacao.md` 2.2) |
-| 14 | Formato de publicação dos pares mínimos | Decisão da equipe |
 | — | Execução dos dois métodos de verificação hoje desenhados (`verificar_reincidencia.py`, `preparar_amostra_coerencia.py`) | Ambiente com áudio e `pyannote.audio` (Colab); não roda nesta máquina |
 | — | Execução da anonimização (`anonimizar_transcricao.py`, escrito em 31/08/2026) | `spaCy` com modelo de português, hoje não instalado; abrir os pacotes de resultados; e a revisão humana que a segunda fase do script exige |
 | — | Campo `participacao_ouvinte` acrescentado a `fontes.json` em 31/08/2026 (pendência 1.1), no nível do canal. Falta o equivalente no nível do arquivo, que é o que de fato permite equilibrar ou descontar o volume de fala de ouvinte por estado | Registro na coleta |
@@ -405,9 +405,28 @@ Derivação reproduzível em `experimentos/meta_pares_minimos.py`, com relatóri
 
 **Restrição de conteúdo, que precede o tamanho.** Qualquer conjunto futuro deve balancear a extensão em subtokens entre os polos do eixo medido, sob pena de reproduzir o artefato de que a decisão acima toma a medida.
 
-### 2.2.2 Formato de publicação — `PENDENTE`
+### 2.2.2 Formato de publicação — **RESOLVIDO em 01/09/2026**
 
-Não há esquema de registro definido: nem campos, nem tipos, nem codificação, nem unidade de linha. O CrowS-Pairs distribui pares com identificador, os dois lados, tipo de viés e anotações de juízes; nada equivalente foi especificado neste projeto.
+O registro anterior apontava que não havia esquema definido: nem campos, nem tipos, nem codificação, nem unidade de linha, enquanto o CrowS-Pairs distribui pares com identificador, os dois lados, tipo de viés e anotações de juízes. O conjunto existia apenas como listas embutidas em três módulos de código, de modo que quem baixasse o repositório recebia scripts e não dados.
+
+**Esquema adotado.** Arquivo canônico único em JSON — `experimentos/resultados/dados/pares_minimos.json` —, com um registro por par:
+
+| Campo | Conteúdo |
+|---|---|
+| `id` | `{condicao}-{indice}`, estável |
+| `condicao` | família de marcador (`dialeto_A`, `explicito_gentilico`, `controle_raridade`…) |
+| `papel` | função da condição no desenho, em texto — o que impede que `controle_raridade` seja lido como mais um teste |
+| `grupo` | `calibracao`, `teste` ou `outro` |
+| `lado_a`, `lado_b` | as duas variantes do par |
+| `estado_alvo` | nulo: as condições agrupam por família de marcador, não por unidade da federação |
+| `medicao` | número de medições, mediana do d-PLL, razão de frequência, valor previsto pela reta e resíduo |
+| `anotacoes_juizes` | lista, hoje vazia em todos os pares — o Filtro 1 nunca foi aplicado |
+
+O cabeçalho `_meta` carrega as molduras, os atributos por moldura, a **extensão em subtokens de cada atributo** e quatro advertências de uso, entre elas a de que o eixo de prestígio ocupacional não tem medição válida por PLL.
+
+**Por que os subtokens estão publicados.** Foi uma diferença de extensão entre os polos que produziu o viés aparente de +0,195 no eixo de caráter, desfeito no passo 5.5. O arquivo torna a assimetria inspecionável: na moldura T1a, *inteligente*, *rica* e *pobre* têm um subtoken, contra três de *grosseira* e *preguiçosa*. Publicar o conjunto sem isso convidaria o próximo trabalho a repetir o erro sem meio de perceber.
+
+**Sobre a duplicação com o código.** A fonte da verdade continua sendo o código; `empacotar_pares.py` deriva o arquivo dela. Para que os dois não divirjam em silêncio, o modo `--verificar` refaz a derivação e falha se o arquivo em disco não corresponder ao que o código define. O formato tabular dos precedentes sai de `converter_pares.py` sob demanda e **não é publicado**, justamente para não haver dois artefatos a manter em sincronia.
 
 ### 2.2.3 Licença — `PENDENTE`
 
@@ -484,7 +503,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | 11 | ~~Simetria de composição~~ — **resolvida em 31/08/2026**: rodada de reforço com 178 candidatos, 13 aceitos e 11 a confirmar; vlogs de PE 4→10 e BA 7→12, contra SP 11 e RJ 13 (§1.7; `docs/pendencias.md` D1). Questão derivada: o piso nordestino passa a ser a PB, com 7 | 1.7 | — |
 | 12 | ~~Subcorpus de TikTok, Instagram e Spotify~~ — **decidido em 31/08/2026**: não serão incorporados (ver `docs/pendencias.md` D4) | 1.4.4 | — |
 | 13 | ~~Tamanho-alvo dos pares mínimos~~ — **decidido em 29/08/2026**: 37 por condição e 80 de referência, para excluir efeitos acima de 0,08 (§2.2.1) | 2.2.1 | — |
-| 14 | Formato de publicação dos pares mínimos inexistente | 2.2.2 | Decisão da equipe; deixa de depender do passo 5 |
+| 14 | ~~Formato de publicação dos pares mínimos inexistente~~ — **resolvido em 01/09/2026**: JSON canônico (§2.2.2), com os pares de resultado nulo incluídos por decisão da equipe | 2.2.2 | — |
 | 15 | Lista de *features* de texto aberta — TF-IDF confirmado, resto não especificado | novo, 31/08/2026 | Equipe completar a lista |
 | 16 | Lista de *features* de áudio aberta — marcadores regionais confirmados, resto não especificado | novo, 31/08/2026 | Equipe completar a lista |
 | 17 | Papel da análise de sentimento não decidido — três ideias distintas, cada uma implicando um lugar diferente no esquema | novo, 31/08/2026 | `docs/pendencias.md` D10; decisão de qual ideia executar |
