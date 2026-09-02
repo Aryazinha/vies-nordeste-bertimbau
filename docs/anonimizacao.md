@@ -18,7 +18,7 @@ A seção 1.4.2 de `docs/protocolo.md` exige que nomes próprios **de terceiros*
 
 Duas decisões de 31/08 e 01/09/2026 transformaram essa cláusula em pré-condição de entrega: a equipe autorizou publicar as transcrições, condicionadas à anonimização (`docs/ficha_conjunto.md`, A.6), e a licença fixada para elas — declaração de uso em pesquisa, sem CC BY (`LICENSE-DATA.md`) — registra expressamente que nada pode ser publicado antes de a anonimização ocorrer.
 
-Com a execução desta etapa, **essa condição está satisfeita**. A publicação das transcrições deixa de estar bloqueada por anonimização.
+Com a execução desta etapa, **a máscara está aplicada**, mas a condição ainda não está inteiramente satisfeita: falta a conferência humana dos 47 nomes mantidos, descrita na ressalva de procedência acima. Até que ela ocorra, as transcrições permanecem não publicáveis.
 
 ---
 
@@ -63,20 +63,23 @@ python anonimizar_transcricao.py --fase aplicar \
 
 As fases `amostra` e `aceitar-bloco` implementam o encaminhamento proposto na versão anterior deste documento. A justificativa é a assimetria do erro: no bloco sugerido para mascarar, o pior caso é mascarar um nome a mais, de modo que a conferência devida é a de que **não há erro sistemático na varredura**, e não a de cada item.
 
-O que as fases garantem, e é a razão de existirem em código: fica gravado **no próprio arquivo de proposta** como cada item foi confirmado — `individual`, `amostragem:sorteado` ou `amostragem` —, junto com a semente do sorteio, o tamanho da amostra e a data. O histórico não afirma mais do que ocorreu.
+O que as fases garantem, e é a razão de existirem em código: fica gravado **no próprio arquivo de proposta** como cada item foi confirmado — `amostragem:sorteado` ou `amostragem` para o bloco, `assistida:lista` ou `assistida:item` para o que passou pela revisão —, junto com a semente do sorteio, o tamanho da amostra e a data. O histórico não afirma mais do que ocorreu.
+
+O rótulo `individual`, que o script grava quando uma pessoa confirma um item olhando o trecho, **não aparece em nenhum item desta coleta**, e a razão está na ressalva de procedência no alto deste documento.
 
 ---
 
 ## 3. O que a revisão encontrou
 
-A revisão não confirmou a proposta do script: **81 dos 307 itens tiveram a classificação corrigida por juízo humano**, ou seja, mais de um quarto. A correção foi quase toda numa direção — nomes que não eram nomes.
+A revisão não confirmou a proposta do script: **81 dos 307 itens tiveram a classificação corrigida**, ou seja, mais de um quarto. A correção foi proposta pelo assistente e aprovada pela equipe em lista, nos termos da ressalva de procedência. A correção foi quase toda numa direção — nomes que não eram nomes.
 
 | Medida | Valor |
 |---|---|
 | Itens (par arquivo + nome) | 307 |
 | Corrigidos na revisão | 81 |
-| Confirmados item a item | 163 |
-| Confirmados por amostragem | 144 |
+| Revistos um a um pelo assistente, aprovados em lista pela equipe | 134 |
+| Decididos pela equipe com o trecho à vista | 4 |
+| Aceitos por amostragem de 25 | 169 |
 | Decisão final: mascarar | 176 |
 | Decisão final: manter | 131 |
 | Arquivos com ao menos um nome mascarado | 36 de 52 |
@@ -93,7 +96,7 @@ A revisão não confirmou a proposta do script: **81 dos 307 itens tiveram a cla
 
 ### O achado principal: o reconhecedor confunde palavra comum com nome
 
-Das 84 entradas classificadas ao final como `nao_pessoa`, 62 vieram da revisão. Duas amostras sucessivas do bloco de mascaramento reprovaram — a primeira com 5 falsos positivos em 20, a segunda com 4 em 20 —, o que motivou a passagem item a item que produziu essas correções.
+Das 84 entradas classificadas ao final como `nao_pessoa`, 62 vieram da revisão, e nenhuma delas constava da proposta do script. Duas amostras sucessivas do bloco de mascaramento reprovaram — a primeira com 5 falsos positivos em 20, a segunda com 4 em 20 —, o que motivou a passagem item a item que produziu essas correções.
 
 O grupo que mais importava recuperar é o de **palavra comum capitalizada em início de frase**: `Mané`, `Poxa`, `Calma`, `Parabéns`, `Paizão`, `Irmã`, `Alguém`, `Achei`, `amei`, `Adeus`, `Boas`, `Revoltante`, `Banhei`, `tchau tchau`. São vocativo, interjeição e verbo — material linguístico do próprio objeto de estudo. Mascará-los teria corrompido o corpus exatamente onde ele é mais informativo.
 
