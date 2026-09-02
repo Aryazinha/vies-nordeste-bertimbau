@@ -70,6 +70,8 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 
 (Coluna de canais disponíveis atualizada em 31/08/2026, após as rejeições da inspeção de conteúdo e a rodada de reforço de PE e BA.)
 
+> **Plano de conclusão, criado em 02/09/2026:** `docs/plano_corpus/`, em três etapas independentes — verificar falantes distintos, completar a coleta se faltar, validar. A ordenação não é arbitrária: verificar vem antes de coletar, porque coletar sem saber quantas pessoas distintas já existem no material é trabalhar no escuro nos dois sentidos.
+
 **O que isso não significa: que o corpus está pronto.** A meta em horas é folgada porque vox-pop e podcast, priorizados desde a decisão do item #4, rendem falantes rapidamente — dos 52 arquivos já coletados, 41 já são dessas duas camadas (21 vox-pop, 20 podcast, 11 vlog), composição próxima da recomendada. Mas **quantidade de horas não é o gargalo desde a mudança do item #7** — é a **verificação de que os falantes são pessoas distintas** (item #5, D-6.4), que ainda não rodou. Sem ela, não há como declarar que o piso de 20 falantes por estado está de fato atingido, só que o volume de áudio provavelmente basta.
 
 A camada de validação segue integralmente por fazer: o WER estratificado por variedade — a única medida capaz de sustentar a afirmação de que a transcrição automática não penaliza a fala nordestina, hoje apoiada apenas em confiança do modelo (`docs/achados_para_o_artigo.md` §2.1) — exige 2 h de transcrição manual de referência, das quais nenhuma foi produzida. O mecanismo já existe (`amostra_wer.json` + `jiwer` + `pipeline_coleta_piloto/medir_wer.py`); falta o trabalho humano de transcrever, e a equipe decidiu em 31/08/2026 adiar esse trabalho deliberadamente.
