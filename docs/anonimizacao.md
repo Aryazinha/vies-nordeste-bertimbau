@@ -16,7 +16,9 @@
 >
 > **A ressalva que esse critério não elimina:** o critério é da equipe, mas *quem é equipe* é classificação do assistente, e não foi conferida trecho a trecho. Se alguém classificado como repórter for na verdade um entrevistado, o nome vai publicado. É a porta que continua aberta nesse bloco, e está declarada aqui para que não se perca.
 >
-> **O que falta.** Restam **14 figuras públicas** a conferir, mantidas por cargo ou notoriedade e não por trabalharem no canal. A pergunta ali é outra: a pessoa está sendo citada no papel público dela, ou como pessoa comum? A folha está em `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md`. **Enquanto essa conferência não ocorrer, as transcrições não devem ser publicadas.**
+> **`Lincoln` mascarado, 02/09/2026.** Advogado convidado a comentar lei eleitoral no Sistema 83 Podcast, que o script classificara como figura pública porque a palavra "vereador" aparece no contexto — mas ela nomeia o assunto de que ele trata, não o cargo dele. É o mesmo caso dos dois médicos convidados ao programa de saúde da Folha de Pernambuco, `Cleiton Ramos` e `Rafael Valfrido`, que já estavam mascarados. A incoerência foi encontrada porque a equipe perguntou se quem aceita dar entrevista precisa ser mascarado — e a resposta, que vale para convidado e entrevistado, não valia para este item.
+>
+> **O que falta.** Restam **13 figuras públicas** a conferir, mantidas por cargo ou notoriedade e não por trabalharem no canal. A pergunta ali é outra: a pessoa está sendo citada no papel público dela, ou como pessoa comum? A folha está em `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md`. **Enquanto essa conferência não ocorrer, as transcrições não devem ser publicadas.**
 
 ---
 
