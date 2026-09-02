@@ -619,13 +619,21 @@ def ler_folha(caminho: Path) -> dict[tuple[str, str], str]:
 
 
 def aplicar_folha(proposta: list[dict], caminho_proposta: Path,
-                  caminho_folha: Path, simular: bool = False) -> None:
+                  caminho_folha: Path, simular: bool = False,
+                  somente_alteracoes: bool = False) -> None:
     """Grava na planilha as decisões da folha, e diz o que mudou.
 
     Com `simular`, lê e relata sem gravar nada. Existe porque conferir se a
     folha está bem formada não pode custar um carimbo falso de procedência:
     a marca `humana:folha` afirma que uma pessoa leu o trecho, e uma execução
     de teste não é uma pessoa lendo o trecho.
+
+    Com `somente_alteracoes`, apenas os itens cuja decisão mudou recebem a
+    marca. Serve à revisão feita em partes, que é como ela acontece de fato:
+    quem revisa aponta os nomes que quer mudar e ainda não olhou o resto. Sem
+    essa opção, uma folha entregue pela metade carimbaria como conferido tudo
+    o que ela contém, inclusive o que ninguém leu — o erro que a marca existe
+    para impedir.
     """
     if not caminho_folha.exists():
         raise SystemExit(f"{caminho_folha} não existe.")
@@ -640,11 +648,14 @@ def aplicar_folha(proposta: list[dict], caminho_proposta: Path,
             continue
         orfaos.discard(chave)
         nova = decisoes[chave]
-        if item["decisao"] == nova:
-            iguais += 1
-        else:
+        alterou = item["decisao"] != nova
+        if alterou:
             mudou.append((chave, item["decisao"], nova))
+        else:
+            iguais += 1
         if simular:
+            continue
+        if somente_alteracoes and not alterou:
             continue
         item["decisao"] = nova
         item["modo_confirmacao"] = "humana:folha"
@@ -658,7 +669,11 @@ def aplicar_folha(proposta: list[dict], caminho_proposta: Path,
             json.dumps(proposta, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"{len(decisoes)} decisão(ões) lida(s) da folha.")
-    print(f"{iguais} item(ns) confirmado(s) sem mudança.")
+    if somente_alteracoes:
+        print(f"{iguais} item(ns) sem mudança, deixado(s) com a procedência "
+              f"que já tinham — a opção --somente-alteracoes não os declara conferidos.")
+    else:
+        print(f"{iguais} item(ns) confirmado(s) sem mudança.")
     if mudou:
         print(f"{len(mudou)} item(ns) alterado(s):")
         for (canal, nome), antes, depois in mudou:
@@ -757,6 +772,9 @@ def main() -> None:
                     help="Folha de revisão humana preenchida")
     ap.add_argument("--simular", action="store_true",
                     help="Lê a folha e relata, sem gravar nada")
+    ap.add_argument("--somente-alteracoes", action="store_true",
+                    help="Só marca como conferido o que mudou; use quando a "
+                         "folha foi revisada em partes")
     args = ap.parse_args()
 
     caminho_proposta = Path(args.proposta)
@@ -769,7 +787,8 @@ def main() -> None:
         proposta = json.loads(caminho_proposta.read_text(encoding="utf-8"))
         if args.fase == "aplicar-folha":
             aplicar_folha(proposta, caminho_proposta, Path(args.folha),
-                          simular=args.simular)
+                          simular=args.simular,
+                          somente_alteracoes=args.somente_alteracoes)
         elif args.fase == "amostra":
             semente = args.semente
             if semente is None:

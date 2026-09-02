@@ -10,6 +10,10 @@
 >
 > **Como a conferência é feita.** A folha `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md` traz os nomes agrupados por pessoa, em dois blocos — Bloco A, onde a decisão se apoiou em sinal fraco, e Bloco B, onde o próprio texto declara quem a pessoa é. Quem revisa troca a palavra na linha `DECISAO:` de cada pessoa. A fase `aplicar-folha` do script lê a folha, grava as decisões e marca esses itens como `humana:folha`, o único rótulo que afirma leitura do trecho por uma pessoa; `--simular` lê e relata sem gravar, para que conferir o formato da folha não custe um carimbo falso de procedência. Se alguma decisão mudar, a fase `aplicar` precisa ser rodada de novo.
 >
+> **Andamento em 02/09/2026.** A equipe percorreu o Bloco A e mandou mascarar treze nomes de equipe de canal: Caroline Silva, Carol e Marinho (Record Rio), Gabriel Barbosa e Gabriel (TV Arapuan), Nathan Gomes (Cidade Alerta Ceará), João Paulo Biagi, Biagi e Biagio (O POVO), Fernanda (Jornal da Gazeta), Paulo de Tarso e Rinaldo Cavalcante (TVTribunaPE) e Ramonzinho Araújo (TH+ SBT Tambaú). O total mascarado passou de 176 a 189, e restam 29 pessoas na folha.
+>
+> A decisão firmou um critério mais estrito que o meu: **nome de repórter citado só de viva-voz na passagem de bola não basta para caracterizar equipe do canal.** `Biagio` foi acrescentado por dedução, não por escolha explícita — é a grafia alternativa que a transcrição deu a `Biagi`, no mesmo arquivo, e mantê-la anularia a decisão sobre o mesmo homem.
+>
 > **O que falta, e por que só isso falta.** A conferência humana devida é a dos **47 nomes de pessoa que a revisão decidiu manter** — 33 de equipe de canal e 14 de figura pública. É onde um erro publica o nome de alguém real. Os 176 mascarados não precisam da mesma conferência: errar naqueles custa corpus, não privacidade. A folha está em `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md`, com o trecho de cada menção e uma caixa de decisão. **Enquanto essa conferência não ocorrer, as transcrições não devem ser publicadas.**
 
 ---
