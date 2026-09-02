@@ -8,6 +8,8 @@
 >
 > Por isso o campo `modo_confirmacao` na planilha **não** diz `individual` em item algum. Diz `assistida:lista`, `assistida:item` ou `amostragem`, e cada item traz em `procedencia_revisao` a descrição do que de fato ocorreu.
 >
+> **Como a conferência é feita.** A folha `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md` traz os nomes agrupados por pessoa, em dois blocos — Bloco A, onde a decisão se apoiou em sinal fraco, e Bloco B, onde o próprio texto declara quem a pessoa é. Quem revisa troca a palavra na linha `DECISAO:` de cada pessoa. A fase `aplicar-folha` do script lê a folha, grava as decisões e marca esses itens como `humana:folha`, o único rótulo que afirma leitura do trecho por uma pessoa; `--simular` lê e relata sem gravar, para que conferir o formato da folha não custe um carimbo falso de procedência. Se alguma decisão mudar, a fase `aplicar` precisa ser rodada de novo.
+>
 > **O que falta, e por que só isso falta.** A conferência humana devida é a dos **47 nomes de pessoa que a revisão decidiu manter** — 33 de equipe de canal e 14 de figura pública. É onde um erro publica o nome de alguém real. Os 176 mascarados não precisam da mesma conferência: errar naqueles custa corpus, não privacidade. A folha está em `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md`, com o trecho de cada menção e uma caixa de decisão. **Enquanto essa conferência não ocorrer, as transcrições não devem ser publicadas.**
 
 ---

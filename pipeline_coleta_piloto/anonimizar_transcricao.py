@@ -583,6 +583,95 @@ def aceitar_bloco(proposta: list[dict], caminho_proposta: Path,
     print(f"{pendentes} item(ns) ainda sem confirmação.")
 
 
+# --------------------------------------------------------------------------
+# Leitura da folha de revisão humana
+#
+# A folha é markdown de propósito: quem revisa abre num editor de texto, lê os
+# trechos e troca uma palavra. Não há formulário, planilha nem ferramenta a
+# instalar — o custo de revisar não deve ser o custo de aprender a revisar.
+#
+# Cada seção `### <nome>` sob um `## Canal: <canal>` termina numa linha
+# `DECISAO: manter` ou `DECISAO: mascarar`, e a decisão vale para todas as
+# menções daquela pessoa naquele canal, que é o que a regra de variantes exige.
+# --------------------------------------------------------------------------
+
+def ler_folha(caminho: Path) -> dict[tuple[str, str], str]:
+    """Extrai {(canal, nome): decisão} da folha de revisão preenchida."""
+    canal = nome = None
+    decisoes: dict[tuple[str, str], str] = {}
+    for linha in caminho.read_text(encoding="utf-8").splitlines():
+        if linha.startswith("## Canal: "):
+            canal = linha[len("## Canal: "):].strip()
+        elif linha.startswith("### "):
+            nome = linha[4:].strip()
+        elif linha.strip().strip("`").startswith("DECISAO:"):
+            # Só conta a linha que *começa* com o marcador: o cabeçalho da folha
+            # explica como preencher e cita "DECISAO:" no meio de uma frase.
+            valor = linha.split("DECISAO:")[1].strip().strip("`").strip().lower()
+            if valor not in ("manter", "mascarar"):
+                raise SystemExit(
+                    f"decisão não reconhecida para {nome!r}: {valor!r}. "
+                    "Use exatamente 'manter' ou 'mascarar'.")
+            if canal is None or nome is None:
+                raise SystemExit("DECISAO encontrada antes de um canal e de um nome.")
+            decisoes[(canal, nome)] = valor
+    return decisoes
+
+
+def aplicar_folha(proposta: list[dict], caminho_proposta: Path,
+                  caminho_folha: Path, simular: bool = False) -> None:
+    """Grava na planilha as decisões da folha, e diz o que mudou.
+
+    Com `simular`, lê e relata sem gravar nada. Existe porque conferir se a
+    folha está bem formada não pode custar um carimbo falso de procedência:
+    a marca `humana:folha` afirma que uma pessoa leu o trecho, e uma execução
+    de teste não é uma pessoa lendo o trecho.
+    """
+    if not caminho_folha.exists():
+        raise SystemExit(f"{caminho_folha} não existe.")
+    decisoes = ler_folha(caminho_folha)
+    if not decisoes:
+        raise SystemExit(f"nenhuma linha 'DECISAO:' encontrada em {caminho_folha}.")
+
+    mudou, iguais, orfaos = [], 0, set(decisoes)
+    for item in proposta:
+        chave = (item["canal"], item["nome_detectado"])
+        if chave not in decisoes:
+            continue
+        orfaos.discard(chave)
+        nova = decisoes[chave]
+        if item["decisao"] == nova:
+            iguais += 1
+        else:
+            mudou.append((chave, item["decisao"], nova))
+        if simular:
+            continue
+        item["decisao"] = nova
+        item["modo_confirmacao"] = "humana:folha"
+        item["procedencia_revisao"] = (
+            "conferido por uma pessoa na folha de revisão, com o trecho à vista")
+
+    if simular:
+        print("MODO DE SIMULAÇÃO: nada foi gravado.")
+    else:
+        caminho_proposta.write_text(
+            json.dumps(proposta, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    print(f"{len(decisoes)} decisão(ões) lida(s) da folha.")
+    print(f"{iguais} item(ns) confirmado(s) sem mudança.")
+    if mudou:
+        print(f"{len(mudou)} item(ns) alterado(s):")
+        for (canal, nome), antes, depois in mudou:
+            print(f"  {nome}  ({canal}):  {antes} -> {depois}")
+        print()
+        print("Rode a fase 'aplicar' de novo para regravar as transcrições.")
+    else:
+        print("Nada mudou; as transcrições já gravadas continuam válidas.")
+    if orfaos:
+        print(f"AVISO: {len(orfaos)} entrada(s) da folha sem correspondência "
+              f"na planilha: {sorted(orfaos)[:5]}")
+
+
 def _mascarar_texto(texto: str, mapa: dict[str, str]) -> str:
     """Substitui cada nome e cada parte dele pelo marcador correspondente."""
     for nome, marcador in mapa.items():
@@ -646,7 +735,8 @@ def aplicar(registros: list[tuple[str, dict]], proposta: list[dict],
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--fase", required=True,
-                    choices=["propor", "amostra", "aceitar-bloco", "aplicar"])
+                    choices=["propor", "amostra", "aceitar-bloco",
+                             "aplicar-folha", "aplicar"])
     ap.add_argument("--entrada", default=None,
                     help="Zip de resultados ou diretório de registros finais")
     ap.add_argument("--proposta", default=ARQUIVO_PROPOSTA,
@@ -663,17 +753,24 @@ def main() -> None:
                     help="Tamanho da amostra da fase 'amostra' (padrão: 20)")
     ap.add_argument("--semente", type=int, default=None,
                     help="Semente do sorteio; sem ela, usa a data de hoje")
+    ap.add_argument("--folha", default="dataset_raw/revisao_humana_nomes_mantidos.md",
+                    help="Folha de revisão humana preenchida")
+    ap.add_argument("--simular", action="store_true",
+                    help="Lê a folha e relata, sem gravar nada")
     args = ap.parse_args()
 
     caminho_proposta = Path(args.proposta)
 
     # As fases de revisão operam apenas sobre a planilha; só as fases que leem
     # ou gravam transcrição precisam do material bruto.
-    if args.fase in ("amostra", "aceitar-bloco"):
+    if args.fase in ("amostra", "aceitar-bloco", "aplicar-folha"):
         if not caminho_proposta.exists():
             raise SystemExit(f"{caminho_proposta} não existe. Rode a fase 'propor' primeiro.")
         proposta = json.loads(caminho_proposta.read_text(encoding="utf-8"))
-        if args.fase == "amostra":
+        if args.fase == "aplicar-folha":
+            aplicar_folha(proposta, caminho_proposta, Path(args.folha),
+                          simular=args.simular)
+        elif args.fase == "amostra":
             semente = args.semente
             if semente is None:
                 semente = int(datetime.date.today().strftime("%Y%m%d"))
