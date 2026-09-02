@@ -51,7 +51,7 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 |---|---|---|
 | 9 (resto) | Uma lacuna da ficha, de execução e não de decisão: taxa de erro de transcrição (ferramenta pronta, `medir_wer.py`; **adiada deliberadamente**). A anonimização, que era a outra, foi **executada em 02/09/2026** — ver `docs/anonimizacao.md` | Trabalho humano: transcrever para o WER |
 | — | Execução dos dois métodos de verificação hoje desenhados (`verificar_reincidencia.py`, `preparar_amostra_coerencia.py`) | Ambiente com áudio e `pyannote.audio` (Colab); não roda nesta máquina |
-| — | ~~Execução da anonimização~~ **Concluída em 02/09/2026**: 307 itens revistos, 176 nomes mascarados em 52 arquivos, saída conferida sem vazamento (`docs/anonimizacao.md`) | — |
+| — | ~~Execução da anonimização~~ **Concluída em 02/09/2026**: 307 itens decididos, 177 nomes mascarados em 52 arquivos, conferência humana dos nomes mantidos feita, saída verificada sem vazamento (`docs/anonimizacao.md`) | — |
 | — | Três campos novos do esquema, discutidos em 31/08/2026: transcrição confirmada, mas **features de texto** e **features de áudio** seguem como listas abertas, e o papel da análise de sentimento (se algum) não foi decidido | Equipe completar as listas; decidir qual das três ideias de sentimento será executada (`docs/pendencias.md` D10) |
 
 ## Camada de execução, em números

@@ -2,23 +2,21 @@
 
 **Função deste documento.** Registrar a execução da anonimização: o que foi decidido, sob que critério, e o que o resultado permite ou não afirmar. Substitui a versão de 01/09/2026, que descrevia a etapa como interrompida.
 
-**Situação em 02/09/2026:** **executada, com uma conferência humana pendente.** Os 307 itens foram revistos, a fase de aplicação foi executada e a saída foi conferida sem vazamento. As transcrições anonimizadas estão em `pipeline_coleta_piloto/dataset_raw/registros_anonimizados/`, fora do versionamento.
+**Situação em 02/09/2026:** **concluída.** Os 307 itens foram decididos, a conferência humana dos nomes de pessoa mantidos foi feita, a fase de aplicação foi executada e a saída foi verificada. As transcrições anonimizadas estão em `pipeline_coleta_piloto/dataset_raw/registros_anonimizados/`, fora do versionamento.
 
-> **Ressalva de procedência, e ela é a mais importante deste documento.** A revisão dos itens foi conduzida **pelo assistente**, não por uma pessoa. O assistente leu os contextos e propôs cada decisão; a equipe aprovou os itens por nome e motivo, em listas agrupadas, e decidiu item a item apenas quatro casos, aqueles que lhe foram levados com o trecho. A segunda fase do script existe justamente para exigir juízo humano, e o que ocorreu foi juízo assistido com aprovação humana em bloco.
+> **Como a revisão foi conduzida, e a distinção importa.** A leitura dos contextos e a proposta de cada decisão foram do **assistente**. A equipe decidiu por três vias, e cada item registra qual:
 >
-> Por isso o campo `modo_confirmacao` na planilha **não** diz `individual` em item algum. Diz `assistida:lista`, `assistida:item` ou `amostragem`, e cada item traz em `procedencia_revisao` a descrição do que de fato ocorreu.
+> | Marca | O que significa | Itens |
+> |---|---|---|
+> | `humana:folha` | A equipe leu o trecho e decidiu o item | 14 |
+> | `humana:criterio` | A equipe fixou a regra e viu a lista de nomes afetados | 33 |
+> | `assistida:item` | Levado à equipe com o trecho, decidido um a um | 3 |
+> | `assistida:lista` | Proposto pelo assistente, aprovado por nome em lista | 88 |
+> | `amostragem` / `amostragem:sorteado` | Bloco de mascaramento aceito por amostra de 25 | 169 |
 >
-> **Como a conferência é feita.** A folha `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md` traz os nomes agrupados por pessoa, em dois blocos — Bloco A, onde a decisão se apoiou em sinal fraco, e Bloco B, onde o próprio texto declara quem a pessoa é. Quem revisa troca a palavra na linha `DECISAO:` de cada pessoa. A fase `aplicar-folha` do script lê a folha, grava as decisões e marca esses itens como `humana:folha`, o único rótulo que afirma leitura do trecho por uma pessoa; `--simular` lê e relata sem gravar, para que conferir o formato da folha não custe um carimbo falso de procedência. Se alguma decisão mudar, a fase `aplicar` precisa ser rodada de novo.
+> **Nenhum item carrega a marca `individual`**, que o script grava quando uma pessoa confirma cada item olhando o trecho. Os 88 itens ainda em `assistida:lista` são **todos da categoria `nao_pessoa`** — interjeições, topônimos, marcas, erros de transcrição —, onde um engano custa corpus e não privacidade. Todo nome de pessoa que vai ao texto publicado passou por decisão da equipe.
 >
-> **Decisão de critério da equipe, 02/09/2026, e ela reverteu uma decisão anterior do mesmo dia.** Primeiro a equipe mandou mascarar treze nomes de equipe de canal; em seguida, ao ver que todos eram repórter ou apresentador, fixou o critério oposto e definitivo: **equipe de canal não se mascara** — repórter, apresentador, cinegrafista, correspondente e dono de canal ficam com o nome no texto, por estarem no papel profissional deles. Os treze foram revertidos, e o total mascarado voltou a 176.
->
-> Duas exceções sobreviveram à reversão, porque não são equipe de canal e a equipe as decidira uma a uma com o trecho à vista: `Sebastião` (Jeitinho Carioca), treinador citado por um entrevistado que o script classificara como equipe por proximidade fortuita da fórmula "com você", e `Tino` (Record Rio), que aparece no mesmo cumprimento que `Gabi`, mascarada como terceiro.
->
-> **A ressalva que esse critério não elimina:** o critério é da equipe, mas *quem é equipe* é classificação do assistente, e não foi conferida trecho a trecho. Se alguém classificado como repórter for na verdade um entrevistado, o nome vai publicado. É a porta que continua aberta nesse bloco, e está declarada aqui para que não se perca.
->
-> **`Lincoln` mascarado, 02/09/2026.** Advogado convidado a comentar lei eleitoral no Sistema 83 Podcast, que o script classificara como figura pública porque a palavra "vereador" aparece no contexto — mas ela nomeia o assunto de que ele trata, não o cargo dele. É o mesmo caso dos dois médicos convidados ao programa de saúde da Folha de Pernambuco, `Cleiton Ramos` e `Rafael Valfrido`, que já estavam mascarados. A incoerência foi encontrada porque a equipe perguntou se quem aceita dar entrevista precisa ser mascarado — e a resposta, que vale para convidado e entrevistado, não valia para este item.
->
-> **O que falta.** Restam **13 figuras públicas** a conferir, mantidas por cargo ou notoriedade e não por trabalharem no canal. A pergunta ali é outra: a pessoa está sendo citada no papel público dela, ou como pessoa comum? A folha está em `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md`. **Enquanto essa conferência não ocorrer, as transcrições não devem ser publicadas.**
+> **A ressalva que sobrevive.** O critério sobre equipe de canal é da equipe, mas *quem é equipe* é classificação do assistente, e não foi conferida trecho a trecho. Se alguém classificado como repórter for na verdade um entrevistado, o nome vai publicado.
 
 ---
 
@@ -28,7 +26,7 @@ A seção 1.4.2 de `docs/protocolo.md` exige que nomes próprios **de terceiros*
 
 Duas decisões de 31/08 e 01/09/2026 transformaram essa cláusula em pré-condição de entrega: a equipe autorizou publicar as transcrições, condicionadas à anonimização (`docs/ficha_conjunto.md`, A.6), e a licença fixada para elas — declaração de uso em pesquisa, sem CC BY (`LICENSE-DATA.md`) — registra expressamente que nada pode ser publicado antes de a anonimização ocorrer.
 
-Com a execução desta etapa, **a máscara está aplicada**, mas a condição ainda não está inteiramente satisfeita: falta a conferência humana dos 47 nomes mantidos, descrita na ressalva de procedência acima. Até que ela ocorra, as transcrições permanecem não publicáveis.
+Com a conclusão desta etapa, **essa condição está satisfeita**. A publicação das transcrições deixa de estar bloqueada por anonimização.
 
 ---
 
@@ -90,10 +88,10 @@ A revisão não confirmou a proposta do script: **81 dos 307 itens tiveram a cla
 | Revistos um a um pelo assistente, aprovados em lista pela equipe | 134 |
 | Decididos pela equipe com o trecho à vista | 4 |
 | Aceitos por amostragem de 25 | 169 |
-| Decisão final: mascarar | 176 |
-| Decisão final: manter | 131 |
+| Decisão final: mascarar | 177 |
+| Decisão final: manter | 130 |
 | Arquivos com ao menos um nome mascarado | 36 de 52 |
-| Nomes mascarados na aplicação | 176 |
+| Nomes mascarados na aplicação | 177 |
 
 **Categoria antes e depois da revisão:**
 
