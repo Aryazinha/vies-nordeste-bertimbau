@@ -118,18 +118,18 @@ Os demais falsos positivos: topônimos (`Belforroxo`, `Solânia`, `Valentino`, `
 
 | Item | Decisão | Razão |
 |---|---|---|
-| `Sebastião` (Jeitinho Carioca) | mascarar | Classificado como equipe por proximidade fortuita da fórmula "com você"; é treinador citado por entrevistado |
-| `Tino` (Record Rio) | mascarar | Aparecia no mesmo cumprimento que `Gabi`, que seria mascarado; a assimetria não se justificava |
-| `Everton Rocha` (O POVO) | mascarar | Senador, mas citado em vazamento de foto pessoal — a regra da seção 5 protege a esfera privada mesmo de quem é público |
-| `Cartola` (EducaPrefSP) | manter | Figura pública histórica, citada como patrono de escola de samba, em papel público |
+| Um treinador (Jeitinho Carioca) | mascarar | Classificado como equipe por proximidade fortuita da fórmula "com você"; é citado por um entrevistado, não é da casa |
+| Duas pessoas de um cumprimento (Record Rio) | mascarar | Uma seria mantida e a outra mascarada, no mesmo cumprimento; a assimetria não se justificava |
+| Um senador (O POVO) | mascarar | Citado em matéria sobre vazamento de foto pessoal dele — a regra da seção 5 protege a esfera privada mesmo de quem é público |
+| `Cartola` (EducaPrefSP) | manter | Figura pública histórica, citada como patrono de escola de samba, em papel público. Mantido no conjunto, e por isso nomeável aqui |
 | 14 repórteres e apresentadores | manter | Citados só pelo primeiro nome em passagem de bola entre estúdio e reportagem; são o análogo do autor do vídeo |
 | Figuras públicas caídas no bloco | mascarar | Políticos, escritores, músicos e atletas cujo nome não é material dialetal: o corpus perde pouco, e a decisão erra para o lado seguro |
 
 ### O conflito entre variantes do mesmo nome, e como foi resolvido
 
-A máscara alcança também cada parte do nome. Isso fez com que `Inácio`, `Raquel` e `Barleta`, mascarados isoladamente, apagassem `Inácio Falcão`, `Raquel Lira` e `Barleta`, que haviam sido mantidos como figura pública. Nada vazou — o efeito foi o inverso.
+A máscara alcança também cada parte do nome. Isso fez com que três primeiros nomes, mascarados isoladamente, apagassem os nomes completos correspondentes, que haviam sido mantidos como figura pública. Nada vazou — o efeito foi o inverso.
 
-A resolução foi uniformizar as quatro entradas para `mascarar`, **de modo que a planilha descreva o que foi de fato gravado**. A alternativa, preservar os três nomes, exigiria retirar as variantes curtas do bloco e reabriria nomes já fechados.
+A resolução foi uniformizar as quatro entradas para `mascarar`, **de modo que a planilha descreva o que foi de fato gravado**. A alternativa, preservar os nomes completos, exigiria retirar as variantes curtas do bloco e reabriria nomes já fechados.
 
 Fica a advertência para coletas futuras: quando variantes do mesmo referente recebem decisões diferentes, é a decisão de mascarar que prevalece na prática, e a planilha precisa ser corrigida para não afirmar uma preservação que não ocorreu.
 
@@ -157,7 +157,7 @@ Aprovada pela equipe em 01/09/2026, depois de a primeira varredura mostrar que *
 
 Contexto de **matéria sensível** — preso, acusado, investigado, presídio, diagnóstico e afins — rebaixa `figura_publica` para `terceiro`. A regra é deliberadamente grosseira e erra para o lado seguro.
 
-**A execução confirmou que ela funciona.** O caso de teste foi `Ítalo Santos`, influenciador de milhões de seguidores, que a regra de figura pública manteria: as quatro variantes do nome foram rebaixadas e mascaradas, porque a menção é a uma prisão. O mesmo ocorreu com as cinco variantes de `Tauã Nascimento da Silva`, morto em confronto policial, e com as quatro variantes do nome de um porteiro que divulga a própria chave Pix num telejornal, cujo CPF aparece no mesmo trecho.
+**A execução confirmou que ela funciona.** O caso de teste foi um influenciador de milhões de seguidores, que a regra de figura pública manteria: as quatro variantes do nome foram rebaixadas e mascaradas, porque a menção é a uma prisão. O mesmo ocorreu com as cinco variantes do nome de um homem morto em confronto policial, e com as quatro variantes do nome de um porteiro que divulga a própria chave Pix num telejornal, cujo CPF aparece no mesmo trecho.
 
 ---
 
@@ -199,11 +199,21 @@ Por isso ficaram **fora** da lista, decididos apenas na planilha desta coleta: `
 
 ---
 
+## 6-A. Regra de escrita destes documentos
+
+**Nenhum documento versionado do projeto nomeia pessoa cujo nome foi mascarado.** A máscara retira o nome da transcrição; citá-lo na documentação o devolveria, e pior, acompanhado da descrição do que foi dito sobre a pessoa. Casos concretos se descrevem pelo papel — "um influenciador preso", "um senador em matéria de foto pessoal", "um treinador citado por um entrevistado" —, o que preserva inteiramente o valor do exemplo.
+
+A verificação está automatizada em `pipeline_coleta_piloto/verificar_nomes_versionados.py`, que varre os arquivos versionados contra a lista de nomes mascarados e sai com erro se achar algum. A regra vale para `docs/`, para os comentários do código e para as mensagens de commit, e foi escrita depois de a primeira versão deste documento reintroduzir dezessete nomes mascarados, entre eles os de uma prisão, de uma morte em confronto policial e de um vazamento de foto pessoal. Nada disso chegou a ser enviado ao repositório remoto.
+
+Nomes **mantidos** no conjunto podem ser citados, por já irem ao texto publicado.
+
+---
+
 ## 7. Limitações do resultado
 
 - **A revisão não é exaustiva no bloco de mascaramento.** Cento e sessenta e nove itens foram aceitos por amostragem de 25, e o registro em cada item declara isso. A garantia obtida é a de ausência de erro sistemático, não a de acerto item a item.
 - **A anonimização depende do reconhecedor.** Nome que o `pt_core_news_lg` não detectou não entrou na planilha e não foi mascarado. A verificação final confirma que tudo que foi detectado e marcado para mascarar saiu; não afirma que tudo que deveria ser detectado foi.
-- **Dois itens ficaram mascarados por dúvida, e não por juízo firme:** `Henrique`, do O POVO, e `Cris`/`Cristina`, da TV Câmara São Paulo, em que o contexto não permite distinguir bancada de convidado. A decisão seguiu a regra de bolso.
+- **Três itens ficaram mascarados por dúvida, e não por juízo firme:** um nome no O POVO e duas variantes de um nome na TV Câmara São Paulo, em que o contexto não permite distinguir bancada de convidado. A decisão seguiu a regra de bolso.
 - **A proporção observada é de cerca de seis nomes por arquivo** (307 em 52). Coleta adicional produzirá revisão adicional na mesma proporção. Duas atenuantes: a revisão é uma vez por arquivo, e cada falso positivo incorporado à lista permanente fica resolvido para sempre.
 
 ---

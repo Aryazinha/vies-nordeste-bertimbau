@@ -64,7 +64,7 @@ destruiria. Para uniformizar tudo em `[NOME]`, use `--placeholder-unico`.
 A máscara é aplicada tanto ao texto do segmento quanto à lista de palavras com
 marcação temporal — se só o primeiro fosse tratado, o nome continuaria legível
 no segundo. Como cada palavra é uma entrada própria, um nome composto produz
-marcadores repetidos em sequência no nível da palavra ("Maria da Silva" vira
+marcadores repetidos em sequência no nível da palavra ("Fulano de Tal" vira
 `[NOME_1] [NOME_1]`, sem o conectivo). É consequência do alinhamento por
 palavra, não defeito: cada entrada preserva o seu próprio par de tempos.
 
@@ -83,7 +83,7 @@ import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
-# Conectivos que compõem nome próprio ("Maria da Silva") mas que, isolados,
+# Conectivos que compõem nome próprio ("Fulano de Tal") mas que, isolados,
 # não devem ser mascarados no nível da palavra — mascará-los apagaria
 # preposições do corpus inteiro.
 CONECTIVOS = {"da", "de", "do", "das", "dos", "e"}
@@ -181,8 +181,9 @@ QUALIFICADORES_PUBLICOS = (
 # regra do protocolo protege a esfera privada, e é justamente onde a menção
 # fere que ela mais precisa valer.
 #
-# Encontrado em 01/09/2026, ao conferir a lista: "o influenciador Ítalo Santos
-# e o companheiro Israel foram presos" tinha sido classificado como figura
+# Encontrado em 01/09/2026, ao conferir a lista: uma menção da forma
+# "o influenciador NOME e o companheiro NOME foram presos" tinha sido
+# classificado como figura
 # pública, e portanto preservado. O qualificador estava lá, mas o que a frase
 # noticia é prisão — publicar o nome seria o oposto do que a regra pretende.
 CONTEXTO_QUE_REMOVE_EXCECAO = (
@@ -306,8 +307,8 @@ def nomes_do_registro(reg: dict, nlp) -> dict[str, list[str]]:
 
     O contexto inclui o segmento anterior e o seguinte, e não apenas aquele em
     que o nome caiu. A primeira revisão mostrou por quê: um quarto dos itens
-    vinha com trecho curto demais para julgar — "um, manda a Matias" não diz se
-    Matias é pessoa, bairro ou erro de transcrição —, e sem a vizinhança quem
+    vinha com trecho curto demais para julgar — "um, manda a NOME" não diz se
+    NOME é pessoa, bairro ou erro de transcrição —, e sem a vizinhança quem
     revisa teria de abrir o vídeo. A janela transforma a revisão em leitura, que
     é o que ela precisa ser para caber no tempo de alguém.
     """
