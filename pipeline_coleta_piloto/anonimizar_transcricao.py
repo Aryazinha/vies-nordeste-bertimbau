@@ -75,6 +75,8 @@ Instalação da dependência:
 from __future__ import annotations
 
 import argparse
+import datetime
+import random
 import json
 import re
 import zipfile
@@ -116,6 +118,30 @@ NAO_SAO_PESSOAS = {
     "uber", "ifood", "pix", "globo", "sbt", "record", "band",
     # topônimos e gentílicos que o modelo às vezes classifica como pessoa
     "brasil", "nordeste", "sudeste", "sertão", "agreste",
+    # --- acrescentados na revisão de 02/09/2026 -------------------------
+    # Falsos positivos conferidos item a item na primeira revisão humana.
+    # Entram aqui apenas os que **nunca** serão nome de pessoa em nenhum
+    # corpus futuro. O critério é esse, e não o de terem aparecido nesta
+    # coleta: incluir um item que também é antropônimo plausível faria o
+    # script preservar em silêncio, para sempre, o nome de alguém real.
+    # Por isso ficam **fora** desta lista, decididos apenas na planilha
+    # desta coleta: "Mané" como apelido de pessoa, "Marta", "Valentino",
+    # "Solânia", "Cartola", "Babalô", e os clubes "Caxias" e "Leão", todos
+    # também usáveis como nome ou apelido.
+    #
+    # verbo, interjeição e palavra comum que o reconhecedor capitalizou
+    "amei", "achei", "banhei", "poxa", "calma", "parabéns", "adeus",
+    "alguém", "boas", "revoltante", "irmã", "paizão", "amanhece",
+    # marca, plataforma e instituição
+    "senai", "psol", "zoom", "lala", "tropicália",
+    # objeto e alimento
+    "coador", "cebola", "ventilador",
+    # doença
+    "alzheimer", "crossfield-yacobi",
+    # topônimo estrangeiro ou grafado de forma atípica pela transcrição
+    "aquiterme", "cumarão", "belforroxo",
+    # erro de transcrição e grito de narração esportiva
+    "spaaaal", "tricolou", "peliche", "unibizerra", "paraibans", "fascista",
 }
 
 # Nome de figura pública em papel público não é o que a seção 1.4.2 do
@@ -461,6 +487,102 @@ def propor(registros: list[tuple[str, dict]], autores: dict[str, list[str]],
     print("A fase de aplicação recusa-se a rodar enquanto houver item não confirmado.")
 
 
+# --------------------------------------------------------------------------
+# Revisão por amostragem do bloco `mascarar`
+#
+# A assimetria do erro é o que autoriza este atalho. Deixar de mascarar quem
+# precisava publica dado pessoal de quem não consentiu; mascarar quem não
+# precisava custa um nome próprio no corpus. O bloco sugerido para mascarar
+# erra, portanto, para o lado seguro, e a conferência que ele exige é a de
+# que **não há erro sistemático** na varredura — não a de cada item.
+#
+# O que a fase registra, e é a razão de ela existir em código e não no olho:
+# fica gravado no próprio arquivo que aquele bloco foi aceito por amostragem,
+# com a semente do sorteio, o tamanho da amostra e a data. O histórico não
+# afirma mais do que ocorreu.
+# --------------------------------------------------------------------------
+
+ARQUIVO_AMOSTRA = "anonimizacao_amostra.json"
+
+
+def amostrar(proposta: list[dict], caminho_amostra: Path,
+             n: int, semente: int) -> None:
+    """Sorteia itens do bloco `mascarar` ainda não confirmado, para conferência."""
+    bloco = [(k, i) for k, i in enumerate(proposta)
+             if i.get("decisao") == "mascarar" and not i.get("confirmado")]
+    if not bloco:
+        raise SystemExit("nenhum item de 'mascarar' pendente: nada a amostrar.")
+
+    n = min(n, len(bloco))
+    sorteio = random.Random(semente).sample(bloco, n)
+
+    registro = {
+        "criada_em": datetime.date.today().isoformat(),
+        "semente": semente,
+        "tamanho_do_bloco": len(bloco),
+        "tamanho_da_amostra": n,
+        "indices_sorteados": sorted(k for k, _ in sorteio),
+        "aprovada": None,   # a pessoa que revisou grava true ou false
+    }
+    caminho_amostra.write_text(
+        json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    for ordem, (k, item) in enumerate(sorteio, 1):
+        print(f"[{ordem}/{n}]  item {k}  {item['nome_detectado']}"
+              f"  |  {item['canal']}  |  {item['categoria']}")
+        print(f"        motivo: {item['motivo_sugestao']}")
+        for ctx in item["contextos"][:2]:
+            print(f"        ctx: {' '.join(ctx.split())[:220]}")
+        print()
+
+    print(f"Amostra de {n} item(ns) sorteada de um bloco de {len(bloco)}, "
+          f"com semente {semente}.")
+    print(f"Registro em {caminho_amostra}.")
+    print("Conferida a amostra, grave 'aprovada': true nesse arquivo e rode "
+          "--fase aceitar-bloco.")
+
+
+def aceitar_bloco(proposta: list[dict], caminho_proposta: Path,
+                  caminho_amostra: Path) -> None:
+    """Confirma o bloco `mascarar` inteiro, declarando a aceitação por amostragem."""
+    if not caminho_amostra.exists():
+        raise SystemExit(f"{caminho_amostra} não existe. Rode --fase amostra primeiro.")
+    registro = json.loads(caminho_amostra.read_text(encoding="utf-8"))
+    if registro.get("aprovada") is not True:
+        raise SystemExit(
+            f"a amostra em {caminho_amostra} não está aprovada "
+            f"('aprovada': {registro.get('aprovada')!r}). "
+            "Confira os itens sorteados e grave 'aprovada': true.")
+
+    sorteados = set(registro.get("indices_sorteados", []))
+    procedencia = {
+        "modo_confirmacao": "amostragem",
+        "amostra_semente": registro["semente"],
+        "amostra_tamanho": registro["tamanho_da_amostra"],
+        "amostra_bloco": registro["tamanho_do_bloco"],
+        "data_revisao": registro["criada_em"],
+    }
+
+    n = 0
+    for k, item in enumerate(proposta):
+        if item.get("decisao") != "mascarar" or item.get("confirmado"):
+            continue
+        item["confirmado"] = True
+        item.update(procedencia)
+        if k in sorteados:
+            item["modo_confirmacao"] = "amostragem:sorteado"
+        n += 1
+
+    caminho_proposta.write_text(
+        json.dumps(proposta, ensure_ascii=False, indent=2), encoding="utf-8")
+    pendentes = sum(1 for i in proposta if not i.get("confirmado"))
+    print(f"{n} item(ns) do bloco 'mascarar' confirmado(s) por amostragem "
+          f"de {registro['tamanho_da_amostra']}.")
+    print(f"Cada item registra como foi confirmado; {len(sorteados)} constam "
+          f"como sorteados e conferidos um a um.")
+    print(f"{pendentes} item(ns) ainda sem confirmação.")
+
+
 def _mascarar_texto(texto: str, mapa: dict[str, str]) -> str:
     """Substitui cada nome e cada parte dele pelo marcador correspondente."""
     for nome, marcador in mapa.items():
@@ -523,8 +645,9 @@ def aplicar(registros: list[tuple[str, dict]], proposta: list[dict],
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--fase", required=True, choices=["propor", "aplicar"])
-    ap.add_argument("--entrada", required=True,
+    ap.add_argument("--fase", required=True,
+                    choices=["propor", "amostra", "aceitar-bloco", "aplicar"])
+    ap.add_argument("--entrada", default=None,
                     help="Zip de resultados ou diretório de registros finais")
     ap.add_argument("--proposta", default=ARQUIVO_PROPOSTA,
                     help=f"Planilha de revisão (padrão: {ARQUIVO_PROPOSTA})")
@@ -534,20 +657,44 @@ def main() -> None:
                     help="JSON com nomes de autor por canal, a preservar")
     ap.add_argument("--placeholder-unico", action="store_true",
                     help="Usa [NOME] para todos, em vez de [NOME_1], [NOME_2]...")
+    ap.add_argument("--amostra", default=ARQUIVO_AMOSTRA,
+                    help=f"Registro da amostragem (padrão: {ARQUIVO_AMOSTRA})")
+    ap.add_argument("--n", type=int, default=20,
+                    help="Tamanho da amostra da fase 'amostra' (padrão: 20)")
+    ap.add_argument("--semente", type=int, default=None,
+                    help="Semente do sorteio; sem ela, usa a data de hoje")
     args = ap.parse_args()
 
+    caminho_proposta = Path(args.proposta)
+
+    # As fases de revisão operam apenas sobre a planilha; só as fases que leem
+    # ou gravam transcrição precisam do material bruto.
+    if args.fase in ("amostra", "aceitar-bloco"):
+        if not caminho_proposta.exists():
+            raise SystemExit(f"{caminho_proposta} não existe. Rode a fase 'propor' primeiro.")
+        proposta = json.loads(caminho_proposta.read_text(encoding="utf-8"))
+        if args.fase == "amostra":
+            semente = args.semente
+            if semente is None:
+                semente = int(datetime.date.today().strftime("%Y%m%d"))
+            amostrar(proposta, Path(args.amostra), args.n, semente)
+        else:
+            aceitar_bloco(proposta, caminho_proposta, Path(args.amostra))
+        return
+
+    if not args.entrada:
+        raise SystemExit(f"a fase '{args.fase}' exige --entrada")
     registros = carregar_registros(Path(args.entrada))
     if not registros:
         raise SystemExit(f"nenhum registro encontrado em {args.entrada}")
 
     if args.fase == "propor":
         autores = json.loads(Path(args.autores).read_text(encoding="utf-8")) if args.autores else {}
-        propor(registros, autores, Path(args.proposta))
+        propor(registros, autores, caminho_proposta)
     else:
-        caminho = Path(args.proposta)
-        if not caminho.exists():
-            raise SystemExit(f"{caminho} não existe. Rode a fase 'propor' primeiro.")
-        aplicar(registros, json.loads(caminho.read_text(encoding="utf-8")),
+        if not caminho_proposta.exists():
+            raise SystemExit(f"{caminho_proposta} não existe. Rode a fase 'propor' primeiro.")
+        aplicar(registros, json.loads(caminho_proposta.read_text(encoding="utf-8")),
                 Path(args.destino), args.placeholder_unico)
 
 

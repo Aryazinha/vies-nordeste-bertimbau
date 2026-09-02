@@ -49,9 +49,9 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 
 | # | O que falta | Do que depende |
 |---|---|---|
-| 9 (resto) | Duas lacunas da ficha, ambas de execução e nenhuma de decisão: taxa de erro de transcrição (ferramenta pronta, `medir_wer.py`; **adiada deliberadamente**) e execução da anonimização (ferramenta pronta, `anonimizar_transcricao.py`) | Trabalho humano: transcrever para o WER; revisar os nomes propostos |
+| 9 (resto) | Uma lacuna da ficha, de execução e não de decisão: taxa de erro de transcrição (ferramenta pronta, `medir_wer.py`; **adiada deliberadamente**). A anonimização, que era a outra, foi **executada em 02/09/2026** — ver `docs/anonimizacao.md` | Trabalho humano: transcrever para o WER |
 | — | Execução dos dois métodos de verificação hoje desenhados (`verificar_reincidencia.py`, `preparar_amostra_coerencia.py`) | Ambiente com áudio e `pyannote.audio` (Colab); não roda nesta máquina |
-| — | Execução da anonimização (`anonimizar_transcricao.py`, escrito em 31/08/2026) | `spaCy` com modelo de português, hoje não instalado; abrir os pacotes de resultados; e a revisão humana que a segunda fase do script exige |
+| — | ~~Execução da anonimização~~ **Concluída em 02/09/2026**: 307 itens revistos, 176 nomes mascarados em 52 arquivos, saída conferida sem vazamento (`docs/anonimizacao.md`) | — |
 | — | Três campos novos do esquema, discutidos em 31/08/2026: transcrição confirmada, mas **features de texto** e **features de áudio** seguem como listas abertas, e o papel da análise de sentimento (se algum) não foi decidido | Equipe completar as listas; decidir qual das três ideias de sentimento será executada (`docs/pendencias.md` D10) |
 
 ## Camada de execução, em números
@@ -499,7 +499,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | 6 | Checagem contra falante migrante — **mantida em 31/08/2026** como limitação declarada (ver nota abaixo); não implementável automaticamente | 1.4.3 | `docs/pendencias.md` D-6.2 |
 | 7 | Meta de volume do corpus — **recalculada em 29/08/2026** sob o novo critério (§1.5); o que resta é a verificação de falantes distintos | 1.5 | `docs/pendencias.md` §6.4 |
 | 8 | ~~Licença dos artefatos~~ — **decidida em 31/08/2026**: CC BY 4.0 para dados/docs (`LICENSE-DATA.md`), MIT para código (`LICENSE`); transcrições seguem fora do escopo | 1.6, 2.2.3 | — |
-| 9 | Ficha de conjunto de dados — **avançada em 31/08/2026, em duas rodadas**: vinculação institucional, comitê de ética e canal de manutenção resolvidos; estatuto da transcrição decidido (pode publicar, mediante anonimização); restam WER (ferramenta pronta), anonimização (execução) e licença específica da transcrição (decisão) | 1.6, 2.2.4 | `docs/questoes_para_orientacao.md` 2.2 |
+| 9 | Ficha de conjunto de dados — **avançada em 31/08/2026 e 02/09/2026**: vinculação institucional, comitê de ética e canal de manutenção resolvidos; estatuto da transcrição decidido (pode publicar, mediante anonimização); licença específica da transcrição decidida em 01/09; **anonimização executada em 02/09** (`docs/anonimizacao.md`). Resta o WER, com ferramenta pronta e transcrição manual deliberadamente adiada | 1.6, 2.2.4 | `docs/questoes_para_orientacao.md` 2.2 |
 | 10 | ~~Treze canais marcados `a_confirmar`~~ — **resolvido em 31/08/2026**: inspeção concluída, 10 aprovados e 3 rejeitados | 1.7 | — |
 | 11 | ~~Simetria de composição~~ — **resolvida em 31/08/2026**: rodada de reforço com 178 candidatos, 13 aceitos e 11 a confirmar; vlogs de PE 4→10 e BA 7→12, contra SP 11 e RJ 13 (§1.7; `docs/pendencias.md` D1). Questão derivada: o piso nordestino passa a ser a PB, com 7 | 1.7 | — |
 | 12 | ~~Subcorpus de TikTok, Instagram e Spotify~~ — **decidido em 31/08/2026**: não serão incorporados (ver `docs/pendencias.md` D4) | 1.4.4 | — |

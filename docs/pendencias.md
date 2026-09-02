@@ -268,7 +268,7 @@ O cálculo de WER e DER exige transcrição manual de referência: 20 minutos po
 
 **Decisão da equipe, 31/08/2026: o trabalho de transcrição manual fica adiado deliberadamente**, para execução posterior. Até lá, o WER permanece declarado como não medido na ficha do conjunto, e o corpus não deve ser usado para comparar desempenho de reconhecimento de fala entre variedades.
 
-### 4.10 Anonimização das transcrições: ferramenta escrita, execução pendente
+### 4.10 Anonimização das transcrições — RESOLVIDA em 02/09/2026
 
 A seção 1.4.2 do protocolo exige mascarar nomes próprios de terceiros — não o do autor do vídeo — antes de qualquer publicação. Com a decisão de 31/08/2026 que autorizou publicar as transcrições, a anonimização deixou de ser cláusula de protocolo e passou a ser pré-condição técnica de entrega.
 
@@ -276,7 +276,16 @@ A seção 1.4.2 do protocolo exige mascarar nomes próprios de terceiros — nã
 
 A automação é deliberadamente parcial, pelas mesmas razões que motivaram a curadoria manual em 6.2 e 6.4: os reconhecedores de entidade disponíveis para português são treinados em texto jornalístico formal e degradam em fala espontânea transcrita por ASR, perdendo sobretudo apelido e forma de tratamento — que é justamente o que a fala de rua usa.
 
-**Encerra a pendência:** instalar `spaCy` com modelo de português; rodar a fase de proposta sobre os pacotes de resultados, ainda não abertos; revisar item a item; e rodar a fase de aplicação. Falta também curar, por canal, o nome real do autor a preservar — hoje `fontes.json` guarda apenas o nome do canal, e o script deriva dele um palpite explicitamente marcado como tal.
+**Atualização de 01/09/2026.** A ferramenta foi executada em fase de proposta e a classificação foi construída; a revisão humana não começou, e a etapa foi interrompida por decisão da equipe, para ser retomada em sessão dedicada. **O estado completo, com a política de decisão, os números e os erros conhecidos, está em `docs/anonimizacao.md`** — é por ali que a retomada deve começar.
+
+**Resolvida em 02/09/2026.** Os 307 itens foram revistos e a fase de aplicação foi executada: 52 arquivos anonimizados, 176 nomes mascarados, e a conferência posterior da saída não encontrou nome que devesse sair e tenha sobrevivido, nem nome que devesse permanecer e tenha desaparecido. **O registro completo está em `docs/anonimizacao.md`.**
+
+Dois resultados da revisão merecem registro por valerem para além desta coleta:
+
+1. **A varredura automática erra sobretudo por excesso, e o excesso custa corpus.** Oitenta e um dos 307 itens tiveram a classificação corrigida, e 62 dessas correções foram falsos positivos de pessoa — palavra comum capitalizada em início de frase (`Mané`, `Poxa`, `Calma`, `Parabéns`), topônimo, marca, doença, título de obra e erro de transcrição. São exatamente o material linguístico que o projeto estuda. Na direção contrária houve **um** erro: o autor de um canal classificado como terceiro.
+2. **A conferência por amostragem foi implementada e usada**, nas fases `amostra` e `aceitar-bloco` do script, que gravam no próprio arquivo como cada item foi confirmado. Duas amostras sucessivas reprovaram e obrigaram à passagem item a item; a terceira, depois das correções, passou.
+
+**Fica aberto, e não bloqueia:** curar, por canal, o nome real do autor a preservar — hoje `fontes.json` guarda apenas o nome do canal, e o script deriva dele um palpite explicitamente marcado como tal. Na execução de 02/09/2026 essa lacuna produziu um erro real, corrigido a mão.
 
 ---
 
