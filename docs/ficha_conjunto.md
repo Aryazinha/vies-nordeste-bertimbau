@@ -64,7 +64,7 @@ A ficha trata os dois em separado, porque suas respostas divergem em quase todas
 
 **Contém dados confidenciais, sensíveis ou ofensivos?** Não intencionalmente. Registra-se apenas o que já está publicamente disponível. Contudo:
 
-- As transcrições **estão anonimizadas desde 02/09/2026**: 176 nomes próprios de terceiros foram substituídos por marcador estável por arquivo (`[NOME_1]`, `[NOME_2]`), preservados os nomes de autor, de equipe do canal e de figura pública em papel público. O procedimento, os critérios e as limitações estão em `docs/anonimizacao.md`. A garantia é sobre o que o reconhecedor de entidades detectou: nome não detectado não foi mascarado.
+- As transcrições **estão anonimizadas desde 02/09/2026**, com uma conferência humana ainda pendente sobre os 47 nomes de pessoa mantidos (`docs/anonimizacao.md`, ressalva de procedência): 176 nomes próprios de terceiros foram substituídos por marcador estável por arquivo (`[NOME_1]`, `[NOME_2]`), preservados os nomes de autor, de equipe do canal e de figura pública em papel público. O procedimento, os critérios e as limitações estão em `docs/anonimizacao.md`. A garantia é sobre o que o reconhecedor de entidades detectou: nome não detectado não foi mascarado.
 - Parte do material provém de telejornalismo policial, e pode conter relatos de violência e crime.
 - Os falantes **não consentiram** para fins de pesquisa. Falaram em contexto público, para outra finalidade.
 

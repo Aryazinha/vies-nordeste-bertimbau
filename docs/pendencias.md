@@ -268,7 +268,7 @@ O cálculo de WER e DER exige transcrição manual de referência: 20 minutos po
 
 **Decisão da equipe, 31/08/2026: o trabalho de transcrição manual fica adiado deliberadamente**, para execução posterior. Até lá, o WER permanece declarado como não medido na ficha do conjunto, e o corpus não deve ser usado para comparar desempenho de reconhecimento de fala entre variedades.
 
-### 4.10 Anonimização das transcrições — RESOLVIDA em 02/09/2026
+### 4.10 Anonimização das transcrições — EXECUTADA em 02/09/2026, com conferência humana pendente
 
 A seção 1.4.2 do protocolo exige mascarar nomes próprios de terceiros — não o do autor do vídeo — antes de qualquer publicação. Com a decisão de 31/08/2026 que autorizou publicar as transcrições, a anonimização deixou de ser cláusula de protocolo e passou a ser pré-condição técnica de entrega.
 
@@ -284,6 +284,8 @@ Dois resultados da revisão merecem registro por valerem para além desta coleta
 
 1. **A varredura automática erra sobretudo por excesso, e o excesso custa corpus.** Oitenta e um dos 307 itens tiveram a classificação corrigida, e 62 dessas correções foram falsos positivos de pessoa — palavra comum capitalizada em início de frase (`Mané`, `Poxa`, `Calma`, `Parabéns`), topônimo, marca, doença, título de obra e erro de transcrição. São exatamente o material linguístico que o projeto estuda. Na direção contrária houve **um** erro: o autor de um canal classificado como terceiro.
 2. **A conferência por amostragem foi implementada e usada**, nas fases `amostra` e `aceitar-bloco` do script, que gravam no próprio arquivo como cada item foi confirmado. Duas amostras sucessivas reprovaram e obrigaram à passagem item a item; a terceira, depois das correções, passou.
+
+**Fica aberto, e bloqueia a publicação:** a revisão dos itens foi feita **pelo assistente**, não por uma pessoa, e a equipe aprovou por listas agrupadas em vez de item a item. A conferência humana devida é a dos **47 nomes de pessoa que foram mantidos**, onde um erro publica o nome de alguém real; a folha, com o trecho de cada menção, está em `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md`. Os 176 mascarados dispensam a mesma conferência, porque errar neles custa corpus e não privacidade. **Encerra este item:** percorrer as 47 entradas da folha e aplicar as inversões que resultarem.
 
 **Fica aberto, e não bloqueia:** curar, por canal, o nome real do autor a preservar — hoje `fontes.json` guarda apenas o nome do canal, e o script deriva dele um palpite explicitamente marcado como tal. Na execução de 02/09/2026 essa lacuna produziu um erro real, corrigido a mão.
 

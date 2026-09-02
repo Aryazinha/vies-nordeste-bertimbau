@@ -2,7 +2,13 @@
 
 **Função deste documento.** Registrar a execução da anonimização: o que foi decidido, sob que critério, e o que o resultado permite ou não afirmar. Substitui a versão de 01/09/2026, que descrevia a etapa como interrompida.
 
-**Situação em 02/09/2026:** **concluída.** Os 307 itens foram revistos, a fase de aplicação foi executada e a saída foi conferida. As transcrições anonimizadas estão em `pipeline_coleta_piloto/dataset_raw/registros_anonimizados/`, fora do versionamento.
+**Situação em 02/09/2026:** **executada, com uma conferência humana pendente.** Os 307 itens foram revistos, a fase de aplicação foi executada e a saída foi conferida sem vazamento. As transcrições anonimizadas estão em `pipeline_coleta_piloto/dataset_raw/registros_anonimizados/`, fora do versionamento.
+
+> **Ressalva de procedência, e ela é a mais importante deste documento.** A revisão dos itens foi conduzida **pelo assistente**, não por uma pessoa. O assistente leu os contextos e propôs cada decisão; a equipe aprovou os itens por nome e motivo, em listas agrupadas, e decidiu item a item apenas quatro casos, aqueles que lhe foram levados com o trecho. A segunda fase do script existe justamente para exigir juízo humano, e o que ocorreu foi juízo assistido com aprovação humana em bloco.
+>
+> Por isso o campo `modo_confirmacao` na planilha **não** diz `individual` em item algum. Diz `assistida:lista`, `assistida:item` ou `amostragem`, e cada item traz em `procedencia_revisao` a descrição do que de fato ocorreu.
+>
+> **O que falta, e por que só isso falta.** A conferência humana devida é a dos **47 nomes de pessoa que a revisão decidiu manter** — 33 de equipe de canal e 14 de figura pública. É onde um erro publica o nome de alguém real. Os 176 mascarados não precisam da mesma conferência: errar naqueles custa corpus, não privacidade. A folha está em `pipeline_coleta_piloto/dataset_raw/revisao_humana_nomes_mantidos.md`, com o trecho de cada menção e uma caixa de decisão. **Enquanto essa conferência não ocorrer, as transcrições não devem ser publicadas.**
 
 ---
 
