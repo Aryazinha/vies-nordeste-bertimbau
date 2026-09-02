@@ -292,6 +292,23 @@ Dois resultados da revisão merecem registro por valerem para além desta coleta
 
 **Uma ressalva que a conclusão não elimina, e precisa ir para a limitação do conjunto:** o critério sobre equipe de canal é da equipe, mas *quem é equipe* foi classificação do assistente, não conferida trecho a trecho. Se alguém classificado como repórter for na verdade um entrevistado, o nome vai publicado.
 
+**Custo da anonimização em coleta futura, medido em 02/09/2026.** A etapa é **por arquivo e não se transfere**: cada arquivo novo traz nomes novos, e nenhum trabalho já feito os cobre. A proporção observada é de **cerca de seis nomes por arquivo** (307 em 52), de modo que trinta arquivos novos implicariam cerca de cento e oitenta itens.
+
+O que **melhora** com o tempo é a taxa de falso positivo, e ela foi medida. Dos 63 falsos positivos que a revisão de 02/09/2026 teve de corrigir a mão, **33 (52%) a lista `NAO_SAO_PESSOAS` já resolveria sozinha** numa execução seguinte, porque foram incorporados a ela. Os 30 restantes voltariam a exigir juízo, e por dois motivos distintos:
+
+- **Não são listáveis de antemão:** títulos de obra, nomes de instituição, topônimos e erros de transcrição são novos a cada coleta.
+- **Foram deliberadamente deixados de fora**, por serem também antropônimo plausível — incluí-los faria o script preservar em silêncio o nome de alguém real (ver seção 6 de `docs/anonimizacao.md`).
+
+**Automatizar a distinção "é palavra comum ou é nome" foi testado e reprovado.** Duas regras foram avaliadas contra os dados de 02/09/2026: (a) *o token aparece em minúscula em outro ponto do corpus* pegou apenas 13% dos falsos positivos; (b) *a forma minúscula é palavra conhecida do léxico do spaCy e não é analisada como nome próprio* pegou 35%, **mas preservaria por engano 14 nomes de pessoa real**, entre eles os de duas pessoas em matéria sensível. A segunda erra na direção que expõe gente e por isso não pode decidir. Serve, quando muito, para **ordenar a fila de revisão**, pondo à frente os itens com maior chance de serem falso positivo — o que reduz o tempo sem transferir a decisão à máquina.
+
+**O que reduz custo de verdade, em ordem de efeito:**
+
+1. **Alimentar `NAO_SAO_PESSOAS` a cada rodada.** É exato, permanente e cumulativo: hoje tem 70 entradas e resolve metade dos falsos positivos observados.
+2. **Codificar os dois critérios fixados em 02/09/2026** — equipe de canal não se mascara; convidado não é figura pública. O segundo corrigiria um defeito real de precisão: o script toma qualquer qualificador próximo do nome como sendo o papel *daquela* pessoa, e foi assim que um advogado convidado a comentar eleições virou "figura pública" porque a palavra "vereador" aparecia no trecho.
+3. **Ordenar a revisão pelo sinal de triagem** descrito acima, sem deixá-lo decidir.
+
+**A parte irredutível.** Nomes de pessoa novos exigem juízo humano a cada coleta, e o volume cresce linearmente com os arquivos. A sessão de 02/09/2026 foi longa porque construiu as fases de amostragem, descobriu os critérios e encontrou os modos de falha; esse custo é de uma vez só. A revisão em si, com os critérios já fixados e a lista já alimentada, deve ficar na ordem de uma hora para cada trinta arquivos novos.
+
 **Aberto, e encontrado em 02/09/2026: o título do vídeo desfaz parte da máscara.** Os planos de coleta (`plano_piloto.json`, `plano_resto.json`, `plano_fatia.json`) guardam o título público de cada vídeo, e alguns títulos nomeiam pessoas cujo nome foi mascarado na transcrição. Dois casos mostram o alcance do problema:
 
 - Um vídeo cujo título anuncia a doença rara e grave de uma pessoa nomeada. O nome está mascarado na transcrição pela regra de matéria sensível, e o título o devolve junto com a informação de saúde.
