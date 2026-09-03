@@ -600,6 +600,14 @@ Nada impede que a mesma pessoa apareça em canais distintos — convidado que ci
 
 **Método proposto e implementado em 31/08/2026, execução pendente.** `pipeline_coleta_piloto/verificar_reincidencia.py` compara *embeddings* de locutor (via `pyannote/embedding`, mesma dependência já usada na diarização) entre todos os arquivos de um estado, sinalizando pares acima de um limiar de similaridade para revisão humana — não decide sozinho, só reduz o volume a conferir. Requer ambiente com `pyannote.audio` e o áudio bruto, isto é, o ambiente de processamento (Colab), não esta máquina; não foi executado.
 
+**Ferramenta preparada para execução em 02/09/2026, sob a etapa 1 de `docs/plano_corpus/`.** Três defeitos foram corrigidos antes de a primeira execução ocorrer, dois deles capazes de falhar em silêncio:
+
+1. O script lia de `registros_finais/`, que está vazia, e teria comparado zero arquivos relatando zero pares. Ganhou o parâmetro `--registros`, e interrompe com mensagem explícita quando a pasta não tem registro algum.
+2. O embedding era extraído do turno mais longo do rótulo, embora a admissão do rótulo se desse pela **soma** dos turnos. Dos 154 rótulos que alcançam 8 s de fala, 16 só os alcançam somando, e neles o embedding sairia de menos áudio do que o critério exige. O script passa a concatenar os turnos escolhidos. O viés era direcionado: fala fragmentada é a do entrevistado de rua, não a do repórter.
+3. A saída trazia apenas os pares já acima do limiar, o que impediria calibrá-lo sem repetir a passagem de GPU — que é justamente o que a etapa 1 prevê fazer. Passa a registrar os pares a partir de 0,50, marcados quanto ao limiar, com os tempos dos trechos e os canais de cada lado.
+
+O notebook `notebooks/verificar_falantes_colab.ipynb` executa a comparação e instrumenta a conferência humana, tocando os dois trechos de cada par. **Execução e conferência seguem pendentes**, e são o que encerra esta seção.
+
 
 ### 6.5 Consulta de frequência sensível a diacrítico
 

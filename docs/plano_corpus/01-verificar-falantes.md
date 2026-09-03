@@ -2,7 +2,7 @@
 
 **Objetivo.** Apurar quantas **pessoas diferentes** estão nos 52 arquivos já coletados, por estado, e compará-lo ao piso de 20 por estado. É o que decide se a coleta está concluída ou quanto falta.
 
-**Estado:** não iniciada. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
+**Estado:** preparada em 02/09/2026 — ferramenta corrigida e notebook pronto —, aguardando execução no Colab. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
 
 **Leia antes:** [`README.md`](README.md) desta pasta, para saber por que esta etapa vem antes de coletar mais.
 
@@ -28,26 +28,27 @@ O teto de 5% por falante, fixado em `docs/fontes_coleta.md` (2.4.5), exige por a
 
 - `LIMIAR_SIMILARIDADE = 0.75` — ponto de partida conservador, **não validado**. Deve ser calibrado contra uma amostra conferida à mão antes de se confiar na lista.
 - `DURACAO_MINIMA_S = 8.0` — abaixo disso a voz não dá sinal confiável. Rótulos com menos fala ficam **fora da comparação**, e devem aparecer no relatório como "sem embedding", nunca como "diferente de todos".
+- `DURACAO_ALVO_S = 30.0` — acrescentado em 02/09/2026. O mínimo acima é critério de admissão, não de qualidade: um rótulo com cem segundos de fala não tem por que ser resumido em oito. A mediana de áudio por rótulo passou de 8,6 s para 33,6 s, sem alteração alguma na contagem de rótulos admitidos.
+- `LIMIAR_REGISTRO = 0.50` — acrescentado em 02/09/2026. Piso abaixo do qual um par nem sequer é gravado. Não é limiar de decisão: pares entre 0,50 e o limiar são gravados marcados como abaixo dele, para que a calibração descrita na seção 6 possa ser feita sobre a mesma execução, sem nova passagem de GPU.
 
 ---
 
-## 3. Advertência que trava a execução se ignorada
+## 3. A pasta vazia — resolvido em 02/09/2026
 
-O script lê os registros de `FINAL_DIR`, isto é, `pipeline_coleta_piloto/dataset_raw/registros_finais/` — **e essa pasta está vazia**.
-
-Os registros com diarização existem em dois lugares:
+O script lia os registros de `FINAL_DIR`, isto é, `pipeline_coleta_piloto/dataset_raw/registros_finais/`, **que está vazia**. Os registros com diarização existem em dois outros lugares:
 
 - `pipeline_coleta_piloto/dataset_raw/registros_anonimizados/` — 52 arquivos, já anonimizados
 - `piloto_resultados (2).zip`, na raiz do projeto — 52 arquivos, **não anonimizados**
 
-**Recomendação:** usar os **anonimizados**. Têm o mesmo campo `diarizacao` e o mesmo `arquivo`, e manipular material já anonimizado é preferível sempre que o resultado não dependa dos nomes — e aqui não depende: a comparação é de voz, não de texto.
+**Adotada a segunda das duas saídas previstas:** o script ganhou o parâmetro `--registros`. Copiar os arquivos para `registros_finais/` resolveria a rodada corrente e reapresentaria o problema a cada nova rodada da etapa 2; o parâmetro o resolve de uma vez. Se a pasta indicada não contiver nenhum JSON, o script agora interrompe com mensagem que nomeia a pasta correta, em vez de comparar zero arquivos e relatar zero pares — que era a falha silenciosa possível.
 
-Duas saídas, à escolha de quem executar:
+Usam-se os **anonimizados**: têm o mesmo campo `diarizacao` e o mesmo `arquivo`, e manipular material já anonimizado é preferível sempre que o resultado não dependa dos nomes — e aqui não depende, porque a comparação é de voz, não de texto.
 
-1. Copiar os anonimizados para `registros_finais/` antes de rodar; ou
-2. Acrescentar ao script um parâmetro `--registros`, que hoje não existe — ele só aceita `--estado` e `--audio-dir`.
+### 3.1 Segunda correção, encontrada na preparação
 
-A segunda é preferível se a etapa 2 for necessária, porque o problema voltaria a cada nova rodada.
+O script acumulava turnos até somar `DURACAO_MINIMA_S`, mas calculava o embedding **apenas sobre o turno mais longo** daquele rótulo. Conferido contra os 52 registros: dos 154 rótulos que alcançam 8 s de fala, **16 só os alcançam somando turnos**, e nesses o turno isolado mais longo é menor que o mínimo declarado. O embedding sairia de menos áudio do que o próprio critério exige, sem que nada no relatório o indicasse — e rótulo de fala fragmentada é justamente o do entrevistado de rua, não o do repórter, de modo que o erro recairia sobre o grupo que mais importa contar.
+
+O script passa a concatenar os turnos escolhidos numa única forma de onda antes de extrair o embedding.
 
 ---
 
@@ -74,12 +75,18 @@ A segunda é preferível se a etapa 2 for necessária, porque o problema voltari
 
 ## 5. Execução
 
+O caminho recomendado é o notebook `notebooks/verificar_falantes_colab.ipynb`, criado em 02/09/2026 para esta etapa. Ele executa as seções 4 a 7 deste documento, e a sua seção 7 instrumenta a conferência humana, tocando os dois trechos de cada par candidato — sem isso, o revisor teria de localizar os tempos à mão em 607 MB de áudio.
+
+Pela linha de comando, o equivalente é:
+
 ```bash
-python verificar_reincidencia.py --estado PB
-# repetir para PE, CE, BA, SP, RJ
+python verificar_reincidencia.py --estado todos \
+    --registros dataset_raw/registros_anonimizados
 ```
 
-Saída: `dataset_raw/diarizacao/reincidencia_{estado}.json`, com os pares candidatos ordenados por similaridade decrescente, cada um trazendo os dois arquivos, os dois rótulos e o valor da similaridade.
+`--estado` aceita agora `todos`, o que carrega o modelo uma única vez para os seis estados. A comparação continua interna a cada estado: um falante do Recife e outro de São Paulo não disputam o mesmo teto.
+
+Saída: `dataset_raw/diarizacao/reincidencia_{estado}.json`, mais um `reincidencia_resumo.json` agregado. Cada relatório traz o resumo do estado, a lista de rótulos com o áudio efetivamente usado, **a lista dos rótulos sem embedding** — exigida pela seção 7 — e os pares ordenados por similaridade decrescente, cada um com os dois arquivos, os dois rótulos, os canais, os tempos dos trechos comparados e um campo `veredito_humano` a preencher.
 
 ---
 
@@ -100,6 +107,8 @@ Feita a conferência, o número de falantes distintos por estado é:
 ```
 rótulos com fala ≥ 8s  −  fusões confirmadas
 ```
+
+**Com uma ressalva de aritmética**, incorporada à seção 8 do notebook: a subtração só vale enquanto cada fusão confirmada envolver rótulos ainda não fundidos. Se os rótulos A e B são a mesma pessoa, e B e C também, os três pares que a conferência pode confirmar descrevem **uma** pessoa, e subtrair três apagaria duas pessoas que existem. O notebook agrupa os rótulos em componentes conexos, o que dá a contagem correta qualquer que seja o número de pares confirmados sobre a mesma voz — e o caso é esperado, não hipotético: é exatamente o do apresentador que reaparece em vários episódios do canal.
 
 Comparar ao piso de 20. O teto de partida está no `README.md` desta pasta: PB 30, RJ 30, PE 28, CE 23, BA 22, SP 21.
 
