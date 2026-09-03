@@ -90,6 +90,33 @@ Saída: `dataset_raw/diarizacao/reincidencia_{estado}.json`, mais um `reincidenc
 
 ---
 
+## 5.1 Comparação executada — 02/09/2026
+
+Executada no Colab, sobre os 52 registros anonimizados, com limiar de 0,75 e piso de registro de 0,50.
+
+| UF | Arquivos | Rótulos com embedding | Sem embedding | Pares acima de 0,75 | Margem sobre o piso |
+|---|---|---|---|---|---|
+| PB | 10 | 30 | 2 | 5 | +10 |
+| PE | 9 | 28 | 1 | 1 | +8 |
+| CE | 10 | 23 | 4 | 1 | +3 |
+| BA | 7 | 22 | 3 | 0 | +2 |
+| SP | 7 | 21 | 2 | 0 | +1 |
+| RJ | 9 | 30 | 5 | 0 | +10 |
+| **Total** | **52** | **154** | **17** | **7** | — |
+
+A contagem de rótulos reproduz exatamente a tabela do `README.md` desta pasta, o que confirma que a comparação leu todo o corpus.
+
+**Leitura preliminar, e ela é condicional.** Sete pares candidatos em 154 rótulos. Ainda que todos os sete se confirmem na conferência, e ainda que nenhum deles seja transitivo, nenhum estado cai abaixo do piso: o pior caso é PB com 25 e CE com 22. **Isso não encerra a etapa**, por dois motivos que a conferência precisa resolver:
+
+1. **O limiar de 0,75 não está calibrado**, e o erro que importa aqui é o falso negativo. Um limiar alto demais deixa fusões reais fora da lista, e o efeito seria subestimar a reincidência exatamente onde não há folga para absorvê-la.
+2. **A margem é muito desigual entre estados.** SP suporta **uma** fusão antes de cair abaixo de 20, BA duas e CE três; PB, PE e RJ não mudam de conclusão. A escuta deve, portanto, descer bem abaixo do limiar em SP, BA e CE, e pode parar cedo nos outros três — a mesma varredura não serve para os seis.
+
+O padrão esperado — repórter reaparecendo no mesmo canal — não se manifestou em SP, BA e RJ, que ficaram com zero candidatos acima do limiar. Isso é, por si só, indício de que o limiar está alto: são justamente os estados com menos arquivos por canal, onde a reincidência deveria aparecer.
+
+**Os 17 rótulos sem embedding** ficam fora da conferência e continuam desconhecidos, nem verificados nem descartados. Sua distribuição é desigual — RJ tem 5 e CE 4, contra 1 em PE —, e o número limita o que se pode afirmar sobre a contagem final de cada estado.
+
+---
+
 ## 6. Conferência humana, que é a parte que decide
 
 Para cada par candidato, ouvir os dois trechos e responder: **é a mesma pessoa?**
