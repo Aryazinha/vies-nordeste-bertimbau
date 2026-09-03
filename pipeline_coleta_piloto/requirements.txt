@@ -4,3 +4,7 @@ yt-dlp>=2026.08.19
 faster-whisper>=1.0.0
 pyannote.audio>=3.1.0
 torch>=2.0.0
+# Leitura de áudio de `verificar_reincidencia.py`. Declarada porque as versões de
+# `torchaudio` a partir da série 2.9 removeram `load` e `info`, e a etapa 1 quebrou
+# no Colab em 02/09/2026 por depender delas.
+soundfile>=0.12.1

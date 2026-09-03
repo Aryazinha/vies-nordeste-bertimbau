@@ -146,6 +146,49 @@ def _selecionar_turnos(turnos: list[tuple[float, float]], minimo: float,
     return sorted(escolhidos), acumulado
 
 
+def taxa_de_amostragem(caminho_audio: Path) -> int:
+    """Taxa de amostragem do arquivo, sem carregar o áudio."""
+    try:
+        import soundfile as sf
+        return int(sf.info(str(caminho_audio)).samplerate)
+    except ImportError:
+        import torchaudio
+        return int(torchaudio.info(str(caminho_audio)).sample_rate)
+
+
+def ler_audio(caminho_audio: Path, inicio: float = 0.0, duracao: float | None = None):
+    """
+    Lê um trecho do arquivo e devolve `(tensor [canais, amostras], taxa)`.
+
+    A leitura passa por `soundfile`, e não por `torchaudio`, porque as versões
+    de `torchaudio` a partir da série 2.9 removeram `torchaudio.info` e
+    `torchaudio.load` — o que quebrou esta etapa no Colab em 02/09/2026, com
+    `AttributeError: module 'torchaudio' has no attribute 'info'`, depois de o
+    modelo já ter sido baixado. `soundfile` já é dependência do `pyannote.audio`
+    e lê WAV com deslocamento nativo, sem carregar o arquivo inteiro. O
+    `torchaudio` fica como alternativa, para ambientes antigos onde `soundfile`
+    não esteja instalado.
+    """
+    try:
+        import soundfile as sf
+    except ImportError:
+        sf = None
+
+    if sf is not None:
+        taxa = int(sf.info(str(caminho_audio)).samplerate)
+        quadros = int(duracao * taxa) if duracao is not None else -1
+        dados, taxa = sf.read(str(caminho_audio), start=int(inicio * taxa),
+                              frames=quadros, dtype="float32", always_2d=True)
+        return torch.from_numpy(dados.T.copy()), int(taxa)
+
+    import torchaudio
+    taxa = int(torchaudio.info(str(caminho_audio)).sample_rate)
+    quadros = int(duracao * taxa) if duracao is not None else -1
+    onda, taxa = torchaudio.load(str(caminho_audio), frame_offset=int(inicio * taxa),
+                                 num_frames=quadros)
+    return onda, int(taxa)
+
+
 def _forma_de_onda(caminho_audio: Path, trechos: list[tuple[float, float]]):
     """
     Concatena os trechos indicados do arquivo numa única forma de onda mono.
@@ -157,16 +200,12 @@ def _forma_de_onda(caminho_audio: Path, trechos: list[tuple[float, float]]):
     embedding sairia, nesses casos, de menos áudio do que o próprio critério
     exige, sem que nada no relatório o indicasse.
     """
-    import torchaudio
-
-    taxa = torchaudio.info(str(caminho_audio)).sample_rate
+    taxa = taxa_de_amostragem(caminho_audio)
     pedacos = []
     for inicio, fim in trechos:
-        deslocamento = int(inicio * taxa)
-        quadros = int((fim - inicio) * taxa)
-        if quadros <= 0:
+        if fim - inicio <= 0:
             continue
-        onda, _ = torchaudio.load(str(caminho_audio), frame_offset=deslocamento, num_frames=quadros)
+        onda, taxa = ler_audio(caminho_audio, inicio, fim - inicio)
         pedacos.append(onda)
     if not pedacos:
         return None, taxa
