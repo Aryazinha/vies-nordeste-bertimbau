@@ -72,6 +72,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from collections import defaultdict
 from pathlib import Path
 
@@ -230,7 +231,11 @@ def main() -> None:
         )
     vereditos = carregar_vereditos(Path(args.vereditos) if args.vereditos else None)
     fala = fala_por_rotulo(registros_dir)
-    piso_pessoas = round(1 / args.teto)
+    # Arredondamento para cima, e não para o mais próximo: a 3%, 33 pessoas
+    # somam no máximo 99% da fala, e o piso é 34. A 5% os dois coincidem em 20,
+    # o que escondia o erro. O desconto mínimo absorve 1/0,05 não ser exato em
+    # ponto flutuante.
+    piso_pessoas = math.ceil(1 / args.teto - 1e-9)
 
     print(f"Teto de {args.teto:.0%} por pessoa; segundo piso de {args.minutos_por_falante} min por falante.")
     print("Fusões aplicadas a partir dos vereditos." if vereditos

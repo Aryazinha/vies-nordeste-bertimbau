@@ -620,6 +620,8 @@ O notebook `notebooks/verificar_falantes_colab.ipynb` executa a comparação e i
 
 **Pendência nova, aberta na mesma data: o valor de 5% não tem fundamento documentado.** O projeto justifica a existência de um teto — sem ele, uma pessoa loquaz responderia pela maior parte da fala de um estado, e o corpus representaria um idioleto (decisão de 31/08/2026, abaixo) —, mas não o seu valor. A origem citada em `docs/dataset-spec.md` §1.4.5, na etapa 1 do plano do corpus e em `meta_corpus_autonomo.md` é `docs/fontes_coleta.md` §2.4.5, que não contém o teto: trata do rendimento da camada de vlogs. A frase que o enuncia, noutra seção do mesmo documento, entrou na revisão v1.7 remetendo a esse item. **Por que importa:** o piso de pessoas é o inverso do teto — 20 a 5%, 10 a 10%, 34 a 3% —, e o déficit da etapa 2 muda com ele. **O que encerraria:** fundamentar o valor em literatura de construção de corpus de fala, ou declará-lo como convenção do projeto, com a sensibilidade do déficit ao valor reportada ao lado; e, em qualquer caso, corrigir a remissão a §2.4.5.
 
+**Sensibilidade do déficit ao valor, medida na mesma data** (`verificar_teto_falante.py --teto`, sem as fusões): a 10%, o piso cai a 10 pessoas úteis e **nenhum estado tem déficit**; a 5%, faltam 26 pessoas; a 3%, o piso sobe a 34 e faltam 109. O valor decide, portanto, entre coleta concluída, coleta moderada e coleta mais de quatro vezes maior que esta — e precisa ser fechado **antes** da etapa 2, e não depois dela, pela decisão registrada em `CLAUDE.md` de fechar a camada de definição do dataset antes de qualquer execução de coleta.
+
 
 ### 6.5 Consulta de frequência sensível a diacrítico
 

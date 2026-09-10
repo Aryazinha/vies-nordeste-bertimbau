@@ -28,6 +28,18 @@
 
 **Duas observações para o planejamento.** Primeira: quase metade do déficit — 14 das 26 pessoas — está no grupo de controle, SP e RJ, o que é compatível com a restrição de simetria da seção 3, e não a agrava. Segunda: "pessoa nova" significa falante com turno de fala real, de ao menos um minuto; o transeunte de uma frase no vox-pop não conta, por mais numeroso que seja.
 
+### Precondição: fechar o valor do teto antes de coletar
+
+O déficit acima vale para o teto de 5%, cujo valor **não tem fundamento documentado** no projeto (`docs/pendencias.md`, D-6.4). E é o valor que decide o tamanho desta etapa:
+
+| Teto | Piso de pessoas úteis | Pessoas novas necessárias |
+|---|---|---|
+| 10% | 10 | 0 — coleta concluída |
+| 5% | 20 | 26 |
+| 3% | 34 | 109 |
+
+Medido por `pipeline_coleta_piloto/verificar_teto_falante.py --teto`, sem as fusões. Pela decisão registrada em `CLAUDE.md` de fechar a camada de definição do dataset antes de qualquer execução de coleta, **esta etapa não deve começar** sem que o valor seja fundamentado em literatura ou declarado, com esta tabela ao lado, como convenção do projeto.
+
 ---
 
 ## 1. A regra que governa esta etapa
