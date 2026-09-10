@@ -153,6 +153,16 @@ Ordem sugerida: começar pelos de similaridade mais alta, que devem ser fusões 
 
 Atenção ao padrão esperado: o repórter ou apresentador do canal é quem mais reaparece. Pares dentro do **mesmo canal** são os candidatos mais prováveis; entre canais diferentes, muito menos.
 
+### 6.1 Regra para o par duvidoso
+
+**Na dúvida, registra-se como mesma pessoa, com a nota `incerto`** — `marcar(uf, i, True, "incerto")`.
+
+A regra é conservadora nas duas verificações que a contagem sustenta, e na mesma direção. Para o **piso de 20 por estado**, fundir reduz a contagem, de modo que um estado que permaneça acima do piso com as fusões duvidosas permanece acima dele qualquer que seja a verdade. Para o **teto de 5% por falante**, fundir soma a fala dos dois rótulos numa só pessoa, o que torna a verificação do teto mais exigente, e não menos. Registrar como pessoas distintas, ao contrário, poderia deixar passar em silêncio precisamente a violação que esta etapa existe para detectar.
+
+O custo da regra é o erro oposto — apagar da contagem uma pessoa que existe —, e ele é aceitável aqui porque é visível: a nota `incerto` permite reportar quantas fusões foram duvidosas e recalcular a contagem sem elas, apresentando o intervalo em vez de um número único.
+
+No corpus de 02/09/2026 a regra não altera a conclusão sobre o piso: os oito pares estão em PB, PE e CE, e mesmo a fusão de todos deixa os três estados acima de 20.
+
 ---
 
 ## 7. Apuração e critério de conclusão
