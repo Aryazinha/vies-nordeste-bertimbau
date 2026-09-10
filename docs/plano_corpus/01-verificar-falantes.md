@@ -2,7 +2,7 @@
 
 **Objetivo.** Apurar quantas **pessoas diferentes** estão nos 52 arquivos já coletados, por estado, e compará-lo ao piso de 20 por estado. É o que decide se a coleta está concluída ou quanto falta.
 
-**Estado:** preparada em 02/09/2026 — ferramenta corrigida e notebook pronto —, aguardando execução no Colab. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
+**Estado:** comparação e conferência humana concluídas em 10/09/2026. **O piso de 20 falantes distintos está atingido em todos os estados.** O teto de 5% por falante, de que o piso deriva, **não** é satisfeito pelo material tal como coletado — ver a seção 7.1, que registra a medição e a decisão pendente. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
 
 **Leia antes:** [`README.md`](README.md) desta pasta, para saber por que esta etapa vem antes de coletar mais.
 
@@ -183,6 +183,51 @@ Comparar ao piso de 20. O teto de partida está no `README.md` desta pasta: PB 3
 | Algum estado < 20 | Ir para a etapa 2, com o déficit por estado apurado |
 
 **Registrar também os rótulos excluídos por terem menos de 8 segundos de fala.** Eles não são falantes verificados nem descartados: são desconhecidos, e o número deles limita o que se pode afirmar.
+
+### 7.1 Resultado — 10/09/2026
+
+**Conferência humana.** Oito pares conferidos — todos os registrados acima do piso de 0,50 —, com seis fusões efetivas, apuradas por componentes conexos.
+
+| UF | Rótulos comparáveis | Fusões | Falantes distintos | Piso | Situação | Sem embedding |
+|---|---|---|---|---|---|---|
+| PB | 30 | 4 | 26 | 20 | atingido | 2 |
+| PE | 28 | 1 | 27 | 20 | atingido | 1 |
+| CE | 23 | 1 | 22 | 20 | atingido | 4 |
+| BA | 22 | 0 | 22 | 20 | atingido | 3 |
+| SP | 21 | 0 | 21 | 20 | atingido | 2 |
+| RJ | 30 | 0 | 30 | 20 | atingido | 5 |
+| **Total** | **154** | **6** | **148** | **120** | — | **17** |
+
+**Pendente de registro.** O limiar calibrado e a composição dos vereditos — quantos pares confirmados, quantos rejeitados, quantos com a nota `incerto` — dependem de `vereditos_reincidencia.json`, que permanece no Drive e deve ser trazido a `pipeline_coleta_piloto/dataset_raw/diarizacao/`.
+
+Pelo critério da seção 7, a coleta estaria concluída. **Esse critério, contudo, é incompleto**, e a incompletude só se tornou visível com a contagem em mãos.
+
+#### O teto que o piso não garante
+
+O piso de 20 deriva do teto de 5% por aritmética: com menos de 20 pessoas, alguma responde necessariamente por mais de 5% da fala do estado. **A recíproca não vale.** Vinte pessoas satisfazem o teto somente se a fala se distribuir entre elas de modo suficientemente uniforme — e nos formatos que compõem o corpus ela não se distribui, porque apresentador e repórter falam muito mais que o entrevistado.
+
+Medição por `pipeline_coleta_piloto/verificar_teto_falante.py`, **sem aplicar as fusões**. Cada rótulo conta como uma pessoa, inclusive os de menos de 8 s, o que torna os números **limite inferior da violação**: fundir rótulos da mesma pessoa só aumenta a participação dela.
+
+| UF | Pessoas | Acima do teto | Maior participação | Fala bruta | Com o teto aplicado | Conservado | Fatia máxima por pessoa | Pessoas com ≥ 0,7 min após o recorte |
+|---|---|---|---|---|---|---|---|---|
+| PB | 32 | 7 | 12,8% | 57,8 min | 34,2 min | 59% | 1,71 min | 21 |
+| PE | 29 | 5 | 15,0% | 35,6 min | 22,6 min | 64% | 1,13 min | 18 |
+| CE | 27 | 9 | 14,6% | 44,7 min | 13,2 min | 30% | 0,66 min | 0 |
+| BA | 25 | 6 | 20,5% | 47,3 min | 11,9 min | 25% | 0,60 min | 0 |
+| SP | 23 | 5 | 17,0% | 47,7 min | 6,6 min | 14% | 0,33 min | 0 |
+| RJ | 35 | 5 | 19,6% | 43,8 min | 19,2 min | 44% | 0,96 min | 14 |
+| **Total** | **171** | **37** | — | **4,61 h** | **1,80 h** | **39%** | — | — |
+
+"Com o teto aplicado" é o maior volume que o estado conserva quando cada pessoa é recortada a 5% desse mesmo volume. A última coluna combina o teto com o segundo piso de `experimentos/resultados/tabelas/meta_corpus_autonomo.md` — 0,7 minuto de fala por falante, o necessário para dez contextos de palatalização — e conta as pessoas que ainda o alcançam depois do recorte. É uma construção desta seção, e não um critério previamente fixado; mas é o número que precisaria chegar a 20 para que o corpus recortado sirva ao marcador de áudio para o qual o segundo piso foi definido.
+
+**Leitura.**
+
+1. **A violação é geral, e não marginal.** Todos os estados têm entre 5 e 9 pessoas acima do teto, e elas concentram de 46,6% a 71,5% da fala. É consequência estrutural do formato — telejornal, rádio, podcast —, e não acidente de algum arquivo.
+2. **Com o teto aplicado por recorte, apenas PB conserva 20 pessoas com fala suficiente**, e por margem de uma. PE e RJ ficam perto; CE, BA e SP ficam em zero, porque a fatia máxima por pessoa cai abaixo de 0,7 minuto. O zero de CE é, contudo, sensível ao parâmetro: sua fatia é de 0,66 minuto, e um segundo piso ligeiramente menor o mudaria por inteiro.
+3. **As fusões agravarão o quadro**, sobretudo em PB, cuja margem é de uma pessoa e que concentra quatro das seis fusões. A medição com `--vereditos` é necessária antes de qualquer número deste bloco ir a outro documento como definitivo.
+4. **O recorte é uma interpretação operacional do teto, e não a única.** A regra fixa o limite, mas não diz se ele se cumpre descartando fala excedente ou coletando mais pessoas. As duas vias apontam, porém, para a mesma falta: pessoas distintas com fala equilibrada, e não horas.
+
+**Decisão pendente, da equipe.** Ou o critério da seção 7 é mantido — piso de falantes distintos —, e a coleta está concluída; ou o teto passa a condição de conclusão, e a etapa 2 muda de alvo, deixando de ser "alcançar 20 pessoas" para ser "alcançar 20 pessoas que conservem o segundo piso depois do recorte". A segunda leitura é a mais coerente com `meta_corpus_autonomo.md`, que trata o teto como "a única regra de que a meta inteira deriva".
 
 ---
 

@@ -612,6 +612,12 @@ O notebook `notebooks/verificar_falantes_colab.ipynb` executa a comparação e i
 
 **Ressalva que a comparação não resolve.** A ausência de pares em BA, SP e RJ não se deve ao limiar, mas pode dever-se ao outro modo de falha do método: a mesma voz, em condições de gravação distintas, cair abaixo de 0,50. RJ é o caso mais exposto, com três canais de mais de um arquivo e nenhum par. Encerraria a ressalva ouvir, em cada canal com mais de um arquivo nesses estados, o rótulo de maior fala de um arquivo contra o do outro — cinco comparações no total, independentes do limiar.
 
+**Conferência humana concluída em 10/09/2026, e o piso está atingido.** Oito pares conferidos, seis fusões — quatro em PB, uma em PE, uma em CE. Falantes distintos: PB 26, PE 27, CE 22, BA 22, SP 21, RJ 30, todos acima do piso de 20. A pergunta desta seção — quantas pessoas distintas há — está respondida, ressalvada a checagem dos canais repetidos descrita acima.
+
+**Pendência nova, aberta na mesma data: o teto de 5% por falante, de que o piso deriva, não é satisfeito pelo material tal como coletado.** Ter 20 pessoas é condição necessária para o teto, e não suficiente: ele depende também de como a fala se distribui entre elas, e em telejornal e podcast apresentador e repórter falam muito mais que o entrevistado. Medido sem as fusões — que só agravariam o quadro —, entre 5 e 9 rótulos por estado excedem 5% da fala do estado, o maior chegando a 20,5% em BA, e esses rótulos concentram de 46,6% a 71,5% da fala. Aplicar o teto por recorte reduz as 4,6 h de fala a 1,8 h, e SP a 6,6 minutos, com no máximo 0,3 minuto por pessoa — abaixo do segundo piso de 0,7 minuto de fala por falante fixado em `experimentos/resultados/tabelas/meta_corpus_autonomo.md`. Medição reproduzível por `pipeline_coleta_piloto/verificar_teto_falante.py`; detalhamento em `docs/plano_corpus/01-verificar-falantes.md`, seção 7.1.
+
+**Decisão pendente, da equipe.** O critério de conclusão da etapa 1 conta apenas falantes distintos, e por ele a coleta estaria concluída. Se o teto for condição de conclusão — e `meta_corpus_autonomo.md` o trata como "a única regra de que a meta inteira deriva" —, a coleta não está concluída, e a etapa 2 muda de alvo: deixa de ser alcançar 20 pessoas e passa a ser reunir pessoas suficientes, com fala suficiente, para que o corpus recortado pelo teto conserve ao menos o segundo piso por falante.
+
 
 ### 6.5 Consulta de frequência sensível a diacrítico
 
