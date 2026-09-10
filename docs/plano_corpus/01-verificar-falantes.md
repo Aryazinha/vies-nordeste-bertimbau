@@ -2,7 +2,7 @@
 
 **Objetivo.** Apurar quantas **pessoas diferentes** estão nos 52 arquivos já coletados, por estado, e compará-lo ao piso de 20 por estado. É o que decide se a coleta está concluída ou quanto falta.
 
-**Estado:** comparação e conferência humana concluídas em 10/09/2026. **O piso de 20 falantes distintos está atingido em todos os estados.** O teto de 5% por falante, de que o piso deriva, **não** é satisfeito pelo material tal como coletado — ver a seção 7.1, que registra a medição e a decisão pendente. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
+**Estado:** comparação e conferência humana concluídas em 10/09/2026. **O piso de 20 falantes distintos está atingido em todos os estados.** O teto de 5% por falante, de que o piso deriva, **não** é satisfeito pelo material tal como coletado — ver a seção 7.1, que registra a medição e a decisão, tomada na mesma data, de tratar o teto como condição de conclusão. Por esse critério a coleta não está concluída, e a etapa 2 é necessária. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
 
 **Leia antes:** [`README.md`](README.md) desta pasta, para saber por que esta etapa vem antes de coletar mais.
 
@@ -227,7 +227,9 @@ Medição por `pipeline_coleta_piloto/verificar_teto_falante.py`, **sem aplicar 
 3. **As fusões agravarão o quadro**, sobretudo em PB, cuja margem é de uma pessoa e que concentra quatro das seis fusões. A medição com `--vereditos` é necessária antes de qualquer número deste bloco ir a outro documento como definitivo.
 4. **O recorte é uma interpretação operacional do teto, e não a única.** A regra fixa o limite, mas não diz se ele se cumpre descartando fala excedente ou coletando mais pessoas. As duas vias apontam, porém, para a mesma falta: pessoas distintas com fala equilibrada, e não horas.
 
-**Decisão pendente, da equipe.** Ou o critério da seção 7 é mantido — piso de falantes distintos —, e a coleta está concluída; ou o teto passa a condição de conclusão, e a etapa 2 muda de alvo, deixando de ser "alcançar 20 pessoas" para ser "alcançar 20 pessoas que conservem o segundo piso depois do recorte". A segunda leitura é a mais coerente com `meta_corpus_autonomo.md`, que trata o teto como "a única regra de que a meta inteira deriva".
+**Decisão tomada em 10/09/2026: o teto é condição de conclusão.** Das duas leituras possíveis — manter o critério da seção 7, que conta apenas falantes distintos, ou exigir o teto —, adotou-se a segunda, que é a coerente com `meta_corpus_autonomo.md`, onde o teto figura como "a única regra de que a meta inteira deriva". O critério da seção 7 fica substituído, para esta e para as próximas rodadas, por: **20 pessoas por estado que conservem o segundo piso de fala depois do recorte pelo teto.** A etapa 2 torna-se necessária, com o déficit registrado em [`02-completar-coleta.md`](02-completar-coleta.md).
+
+**Ressalva sobre o valor do teto, registrada na mesma data.** A decisão adota o teto de 5% tal como fixado, mas **o valor não tem justificativa escrita no projeto**. A razão para haver um teto está documentada — sem ele, uma pessoa loquaz poderia responder pela maior parte da fala de um estado, e o corpus representaria um idioleto, e não uma variedade (`docs/pendencias.md`, decisão de 31/08/2026) —, mas nada fundamenta 5% contra 3% ou 10%. A origem citada em toda a documentação, `docs/fontes_coleta.md` §2.4.5, não contém o teto: trata do rendimento da camada de vlogs. A frase que o enuncia, introduzida na revisão v1.7, remete a um item que não o estabelece. E o valor não é detalhe: o piso de pessoas é o seu inverso — 20 a 5%, 10 a 10%, 34 a 3% —, de modo que ele determina diretamente quanto falta coletar.
 
 ---
 

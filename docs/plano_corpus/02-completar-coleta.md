@@ -1,25 +1,32 @@
-# Etapa 2 — Completar a coleta, se faltar
+# Etapa 2 — Completar a coleta
 
-**Condicional.** Só se executa se a etapa 1 apurar menos de 20 falantes distintos em algum estado.
+**Necessária, por decisão de 10/09/2026.** Previa-se condicional — só se a etapa 1 apurasse menos de 20 falantes distintos em algum estado —, e por esse critério não seria: todos os estados o superam. O que a tornou necessária foi a mudança do critério, depois de a etapa 1 mostrar que o piso de falantes não garante o teto de 5% de que deriva ([`01-verificar-falantes.md`](01-verificar-falantes.md), seção 7.1).
 
-**Estado:** não iniciada, e ainda não se sabe se será necessária. **Onde roda:** máquina local, nunca no Colab.
+**Estado:** não iniciada. **Onde roda:** máquina local, nunca no Colab.
 
-**Leia antes:** [`01-verificar-falantes.md`](01-verificar-falantes.md), que produz o insumo desta etapa.
+**Leia antes:** [`01-verificar-falantes.md`](01-verificar-falantes.md), que produz o insumo desta etapa — em especial a seção 7.1.
 
 ---
 
-## Déficit apurado na etapa 1
+## Déficit apurado na etapa 1 — 10/09/2026
 
-*A preencher pela sessão que executar a etapa 1.*
+**O critério mudou, e o déficit se mede nele.** Não basta alcançar 20 pessoas distintas: exigem-se 20 pessoas que conservem ao menos 0,7 minuto de fala depois de aplicado o teto de 5% por recorte. A consequência prática orienta toda esta etapa: **o que falta é pessoa, e não hora.** Acrescentar fala a quem já fala muito não ajuda, porque o excedente é recortado.
 
-| UF | Falantes distintos | Piso | Déficit |
-|---|---|---|---|
-| PB | — | 20 | — |
-| PE | — | 20 | — |
-| CE | — | 20 | — |
-| BA | — | 20 | — |
-| SP | — | 20 | — |
-| RJ | — | 20 | — |
+| UF | Falantes distintos | Pessoas úteis após o recorte | Piso | Pessoas novas necessárias |
+|---|---|---|---|---|
+| PB | 26 | 21 | 20 | 0 |
+| PE | 27 | 18 | 20 | 2 |
+| CE | 22 | 0 | 20 | 5 |
+| BA | 22 | 0 | 20 | 5 |
+| SP | 21 | 0 | 20 | 8 |
+| RJ | 30 | 14 | 20 | 6 |
+| **Total** | **148** | — | — | **26** |
+
+"Falantes distintos" vem da conferência humana, já com as fusões. As duas últimas colunas vêm de `pipeline_coleta_piloto/verificar_teto_falante.py` e **ainda não as incluem**, porque o arquivo de vereditos permanecia no Drive; são, portanto, otimistas. PB é o mais exposto: sua margem é de uma pessoa, e ele concentra quatro das seis fusões.
+
+"Pessoas novas necessárias" é o menor número de falantes novos, cada um com ao menos um minuto de fala, que eleva a 20 as pessoas úteis. Um estado com zero pessoas úteis não precisa de vinte novas porque cada pessoa acrescentada eleva o volume admissível e, com ele, a fatia de todas as outras, de modo que falantes já presentes passam a alcançar o segundo piso. Pela mesma razão o resultado é idêntico supondo de um a três minutos por pessoa nova: o que excede a fatia é recortado.
+
+**Duas observações para o planejamento.** Primeira: quase metade do déficit — 14 das 26 pessoas — está no grupo de controle, SP e RJ, o que é compatível com a restrição de simetria da seção 3, e não a agrava. Segunda: "pessoa nova" significa falante com turno de fala real, de ao menos um minuto; o transeunte de uma frase no vox-pop não conta, por mais numeroso que seja.
 
 ---
 
@@ -83,7 +90,9 @@ O material novo precisa passar pelo mesmo caminho do anterior, na ordem:
 2. **Anonimização** dos registros novos (`docs/anonimizacao.md`) — a política das quatro categorias e as listas de exclusão já estão no script, de modo que a revisão dos arquivos novos parte de uma base bem melhor que a primeira
 3. **Etapa 1 outra vez**, agora sobre o corpus ampliado — e é ela que diz se o déficit foi coberto
 
-O ciclo pode repetir-se. Só termina quando os seis estados atingem o piso.
+4. **Verificação do teto** com `pipeline_coleta_piloto/verificar_teto_falante.py --vereditos`, que diz se o critério adotado em 10/09/2026 foi atingido. A etapa 1 sozinha não basta: ela conta pessoas distintas, e o critério exige 20 pessoas que conservem o segundo piso de fala depois do recorte pelo teto.
+
+O ciclo pode repetir-se. Só termina quando os seis estados atingem esse critério.
 
 ---
 

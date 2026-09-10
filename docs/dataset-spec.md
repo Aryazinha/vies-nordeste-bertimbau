@@ -232,7 +232,11 @@ Três fatores adicionais, onerosos mas não determinantes: alta incidência de e
 | Por falante, sobre a fala de um estado | 5% | `docs/fontes_coleta.md` §2.4.5 |
 | Por canal, sobre a cota de uma camada | 35% | `selecionar_videos.py`, `TETO_POR_CANAL` |
 
-> **Mantido em 31/08/2026, julgado crucial** — sem ele nada impede que uma pessoa domine a amostra de um estado, e o corpus deixaria de representar a variedade para representar um idioleto. `PENDENTE`: a verificação segue não implementada, mas o método já está desenhado — `pipeline_coleta_piloto/verificar_reincidencia.py` compara embeddings de voz entre arquivos e sinaliza candidatos para revisão humana. Requer o ambiente de processamento (Colab); não foi executado (`docs/pendencias.md` D-6.4).
+> **Mantido em 31/08/2026, julgado crucial** — sem ele nada impede que uma pessoa domine a amostra de um estado, e o corpus deixaria de representar a variedade para representar um idioleto.
+>
+> **Verificado em 10/09/2026, e violado.** A identidade entre arquivos foi verificada (`pipeline_coleta_piloto/verificar_reincidencia.py`, seis fusões confirmadas em conferência humana), e o piso de 20 falantes distintos está atingido em todos os estados; mas o teto em si não é satisfeito pelo material tal como coletado, porque a fala se concentra em apresentadores e repórteres (`pipeline_coleta_piloto/verificar_teto_falante.py`). **Decidido na mesma data que o teto é condição de conclusão do corpus:** exigem-se 20 pessoas por estado que conservem o segundo piso de fala depois do recorte pelo teto. Déficit em `docs/plano_corpus/02-completar-coleta.md`.
+>
+> `PENDENTE`: **o valor de 5% não tem fundamento documentado.** A coluna "Origem" acima remete a `docs/fontes_coleta.md` §2.4.5, que não contém o teto; o que está justificado é a existência de um teto, e não o seu valor (`docs/pendencias.md` D-6.4).
 
 ### 1.4.6 Regra de recorte temporal
 
@@ -499,7 +503,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | 2 | ~~Qual registro é publicado~~ — **decidido em 31/08/2026**: o registro final, com diarização mantida (ver `docs/pendencias.md` D10 e a nota abaixo) | 1.2 | — |
 | 3 | ~~Função do corpus~~ — **decidido em 29/08/2026**: entregável autônomo (§1.1) | 1.1 | — |
 | 4 | ~~Composição entre camadas~~ — **decidido e implementado em 31/08/2026**: vox-pop e podcast priorizados sobre vlog (§1.4.2 revisado) | 1.4.2 | — |
-| 5 | Teto de 5% por falante — **mantido em 31/08/2026** (ver nota abaixo); verificação de identidade entre arquivos segue não implementada | 1.4.5 | `docs/pendencias.md` D-6.4 |
+| 5 | Teto de 5% por falante — **mantido em 31/08/2026** (ver nota abaixo); **verificado em 10/09/2026**: piso de falantes distintos atingido, teto violado, e decidido que o teto é condição de conclusão. Resta a coleta da etapa 2 e a fundamentação do valor de 5% | 1.4.5 | `docs/pendencias.md` D-6.4; `docs/plano_corpus/02-completar-coleta.md` |
 | 6 | Checagem contra falante migrante — **mantida em 31/08/2026** como limitação declarada (ver nota abaixo); não implementável automaticamente | 1.4.3 | `docs/pendencias.md` D-6.2 |
 | 7 | Meta de volume do corpus — **recalculada em 29/08/2026** sob o novo critério (§1.5); o que resta é a verificação de falantes distintos | 1.5 | `docs/pendencias.md` §6.4 |
 | 8 | ~~Licença dos artefatos~~ — **decidida em 31/08/2026**: CC BY 4.0 para dados/docs (`LICENSE-DATA.md`), MIT para código (`LICENSE`); transcrições seguem fora do escopo | 1.6, 2.2.3 | — |
