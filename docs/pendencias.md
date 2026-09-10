@@ -606,7 +606,11 @@ Nada impede que a mesma pessoa apareça em canais distintos — convidado que ci
 2. O embedding era extraído do turno mais longo do rótulo, embora a admissão do rótulo se desse pela **soma** dos turnos. Dos 154 rótulos que alcançam 8 s de fala, 16 só os alcançam somando, e neles o embedding sairia de menos áudio do que o critério exige. O script passa a concatenar os turnos escolhidos. O viés era direcionado: fala fragmentada é a do entrevistado de rua, não a do repórter.
 3. A saída trazia apenas os pares já acima do limiar, o que impediria calibrá-lo sem repetir a passagem de GPU — que é justamente o que a etapa 1 prevê fazer. Passa a registrar os pares a partir de 0,50, marcados quanto ao limiar, com os tempos dos trechos e os canais de cada lado.
 
-O notebook `notebooks/verificar_falantes_colab.ipynb` executa a comparação e instrumenta a conferência humana, tocando os dois trechos de cada par. **Execução e conferência seguem pendentes**, e são o que encerra esta seção.
+O notebook `notebooks/verificar_falantes_colab.ipynb` executa a comparação e instrumenta a conferência humana, tocando os dois trechos de cada par.
+
+**Comparação executada em 02/09/2026; conferência pendente.** Oito pares acima de 0,50 em todo o corpus — seis em PB, um em PE, um em CE, nenhum em BA, SP e RJ —, com distribuição bimodal: nenhum par entre 0,55 e 0,75, o que torna a escolha do limiar indiferente para o resultado. Detalhamento em `docs/plano_corpus/01-verificar-falantes.md`, seções 5.1 e 5.2.
+
+**Ressalva que a comparação não resolve.** A ausência de pares em BA, SP e RJ não se deve ao limiar, mas pode dever-se ao outro modo de falha do método: a mesma voz, em condições de gravação distintas, cair abaixo de 0,50. RJ é o caso mais exposto, com três canais de mais de um arquivo e nenhum par. Encerraria a ressalva ouvir, em cada canal com mais de um arquivo nesses estados, o rótulo de maior fala de um arquivo contra o do outro — cinco comparações no total, independentes do limiar.
 
 
 ### 6.5 Consulta de frequência sensível a diacrítico

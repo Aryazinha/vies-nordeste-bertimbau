@@ -111,7 +111,35 @@ A contagem de rótulos reproduz exatamente a tabela do `README.md` desta pasta, 
 1. **O limiar de 0,75 não está calibrado**, e o erro que importa aqui é o falso negativo. Um limiar alto demais deixa fusões reais fora da lista, e o efeito seria subestimar a reincidência exatamente onde não há folga para absorvê-la.
 2. **A margem é muito desigual entre estados.** SP suporta **uma** fusão antes de cair abaixo de 20, BA duas e CE três; PB, PE e RJ não mudam de conclusão. A escuta deve, portanto, descer bem abaixo do limiar em SP, BA e CE, e pode parar cedo nos outros três — a mesma varredura não serve para os seis.
 
-O padrão esperado — repórter reaparecendo no mesmo canal — não se manifestou em SP, BA e RJ, que ficaram com zero candidatos acima do limiar. Isso é, por si só, indício de que o limiar está alto: são justamente os estados com menos arquivos por canal, onde a reincidência deveria aparecer.
+### 5.2 Distribuição por faixa de similaridade, e correção da leitura acima
+
+Pares por faixa, em contagem cumulativa — a coluna ">0,70" inclui os pares de ">0,75":
+
+| UF | Margem | >0,90 | >0,85 | >0,80 | >0,75 | >0,70 | >0,65 | >0,60 | >0,55 | >0,50 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| PB | +10 | 2 | 3 | 4 | 5 | 5 | 5 | 5 | 5 | 6 |
+| PE | +8 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| CE | +3 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| BA | +2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| SP | +1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| RJ | +10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+**A distribuição é bimodal, e isso responde à preocupação com o limiar.** Os pares estão acima de 0,80 ou abaixo de 0,50; entre 0,55 e 0,75 não há um único par em estado algum. Nessa faixa vazia, qualquer limiar escolhido produz a mesma lista, de modo que a calibração deixa de ser decisiva para o resultado. A conferência humana reduz-se a **oito pares no total**, todos os pares registrados.
+
+**Correção de uma leitura desta mesma data.** Na seção 5.1 afirmou-se, numa primeira redação, que a ausência de candidatos em SP, BA e RJ indicaria limiar alto demais, por serem "os estados com menos arquivos por canal, onde a reincidência deveria aparecer". O raciocínio estava invertido: menos arquivos por canal significa **menos** oportunidade de o mesmo apresentador reaparecer, e não mais. A contagem por canal o confirma:
+
+| UF | Arquivos | Canais | Canais com dois ou mais arquivos |
+|---|---|---|---|
+| PB | 10 | 6 | 3 |
+| PE | 9 | 5 | 4 |
+| CE | 10 | 6 | 3 |
+| BA | 7 | 6 | 1 |
+| SP | 7 | 6 | 1 |
+| RJ | 9 | 6 | 3 |
+
+BA e SP têm, cada um, um único canal com mais de um arquivo, e zero candidato é o esperado. E a hipótese de limiar alto fica refutada pela tabela de faixas: mesmo a 0,50, nenhum par aparece nesses estados.
+
+**O que a tabela não descarta.** Ela afasta o limiar como causa da ausência, mas não o outro modo de falha do método: uma mesma voz, em condições de gravação muito diferentes, pode ficar abaixo de 0,50 e escapar por inteiro. O caso mais exposto é RJ, que tem três canais com mais de um arquivo e nenhum par. A verificação correspondente seria ouvir, nesses três canais, o rótulo de maior fala de cada arquivo contra o do outro arquivo do mesmo canal — seis escutas, que independem do limiar.
 
 **Os 17 rótulos sem embedding** ficam fora da conferência e continuam desconhecidos, nem verificados nem descartados. Sua distribuição é desigual — RJ tem 5 e CE 4, contra 1 em PE —, e o número limita o que se pode afirmar sobre a contagem final de cada estado.
 
