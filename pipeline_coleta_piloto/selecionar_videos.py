@@ -137,6 +137,46 @@ def metas_por_deficit(deficit: dict[str, int], margem: float = MARGEM_PADRAO) ->
     return metas
 
 
+def ajustar_ao_deficit(specs: list[dict], deficit: dict[str, int],
+                       margem: float = MARGEM_PADRAO) -> list[dict]:
+    """
+    Reduz o plano ao menor conjunto que cobre o déficit com a margem pedida.
+
+    A fase de cobertura mínima de `planejar_camada` garante um vídeo por canal
+    disponível, o que é a política certa para diversidade, mas produz um plano
+    muito maior que o déficit quando há muitos canais livres — na etapa 2 de
+    12/09/2026, 43 trechos para um déficit de 27 pessoas.
+
+    A redução toma **um arquivo por canal**, alternando vox-pop e podcast, até
+    que o rendimento esperado alcance `deficit * margem`. Um arquivo por canal é
+    o que maximiza pessoas por arquivo coletado: o segundo arquivo de um canal
+    traz de novo o apresentador, que é justamente a recorrência que gerou o
+    déficit.
+    """
+    escolhidos = []
+    for estado, faltam in deficit.items():
+        alvo = faltam * margem
+        fila: dict[str, list[dict]] = {c: [] for c in REPARTICAO}
+        for camada in fila:
+            vistos = set()
+            for spec in specs:
+                if (spec["estado_alvo"] == estado and spec["tipo_fonte"] == camada
+                        and spec["canal"] not in vistos):
+                    vistos.add(spec["canal"])
+                    fila[camada].append(spec)
+        esperado = 0.0
+        while esperado < alvo and any(fila.values()):
+            for camada in ("entrevista_vox_pop", "podcast_radio_tv_regional"):
+                if fila[camada] and esperado < alvo:
+                    escolhidos.append(fila[camada].pop(0))
+                    esperado += RENDIMENTO_PESSOAS[camada]
+        if esperado < alvo:
+            logger_msg = (f"  [aviso] {estado}: canais novos esgotados em "
+                          f"{esperado:.0f} pessoas esperadas, abaixo do alvo de {alvo:.0f}")
+            print(logger_msg)
+    return escolhidos
+
+
 def listar_videos(channel_id: str, n: int = N_VIDEOS_LISTADOS) -> list[dict]:
     """Lista os vídeos mais recentes de um canal, com id e duração."""
     cmd = [
@@ -345,6 +385,8 @@ def main() -> None:
     ap.add_argument("--registros", default=None,
                     help="pasta dos registros já coletados, para --excluir-usados "
                          "(padrão: dataset_raw/registros_anonimizados)")
+    ap.add_argument("--sem-ajuste", action="store_true",
+                    help="não reduz o plano ao déficit; mantém um vídeo por canal disponível")
     ap.add_argument("--saida", default="plano_coleta.json")
     args = ap.parse_args()
 
@@ -379,6 +421,13 @@ def main() -> None:
     plano = planejar(args.estados, metas, args.max_canais, args.semente,
                      args.min_por_canal, metas_por_estado=metas_por_estado,
                      excluir_canais=excluir)
+
+    if args.deficit and not args.sem_ajuste:
+        antes = len(plano["specs"])
+        plano["specs"] = ajustar_ao_deficit(plano["specs"], deficit, args.margem)
+        plano["_meta"]["ajustado_ao_deficit"] = {"deficit": deficit, "margem": args.margem,
+                                                 "trechos_antes": antes}
+        print(f"Plano ajustado ao déficit: {antes} -> {len(plano['specs'])} trechos.")
 
     Path(args.saida).write_text(json.dumps(plano, ensure_ascii=False, indent=2),
                                 encoding="utf-8")

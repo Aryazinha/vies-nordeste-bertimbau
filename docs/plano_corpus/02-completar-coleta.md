@@ -98,6 +98,19 @@ python coletar_local.py plano_etapa2.json
 
 Aplica-se ainda uma margem de 1,5× sobre o déficit (`--margem`), porque o piso de 20 é mínimo e não alvo: coletar o número exato deixaria o corpus sem folga para arquivo perdido no download, falante abaixo do segundo piso ou trecho descartado por qualidade.
 
+### Plano gerado — 12/09/2026
+
+| | Trechos | Horas | Canais | Pessoas esperadas |
+|---|---|---|---|---|
+| `plano_etapa2.json` — **a executar** | 25 | 1,86 | 25 | ~45 |
+| `plano_etapa2_completo.json` — variante ampla | 43 | 3,91 | 39 | ~76 |
+
+Distribuição do plano a executar: PE 3 trechos, CE 5, BA 5, SP 7, RJ 5. Nenhum dos 25 canais figura no corpus atual.
+
+**Por que houve duas variantes, e por que a menor foi escolhida.** A fase de cobertura mínima de `planejar_camada` garante um vídeo por canal disponível — política correta para diversidade, que aqui produziu 43 trechos para um déficit de 27 pessoas. O custo do excedente não é a coleta, que é automática, mas a **revisão humana de anonimização**, que foi o trabalho mais pesado da rodada anterior. Decidiu-se, em 12/09/2026, pelo plano ajustado ao déficit com a margem de 1,5×.
+
+O ajuste está no código, e não em recorte manual: `ajustar_ao_deficit` toma **um arquivo por canal**, alternando vox-pop e podcast, até o rendimento esperado alcançar o alvo. Um arquivo por canal é o que maximiza pessoas por arquivo coletado — o segundo arquivo de um canal traz de novo o apresentador, que é a recorrência de onde o déficit veio. `--sem-ajuste` reproduz a variante ampla.
+
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 
 **Perda de coleta não é ruído.** Vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência, que é parcela expressiva do vox-pop policial. Perda desigual entre estados é viés de amostragem. Conferir se as falhas se concentram em algum estado ou camada, e registrar (`docs/pendencias.md`, 4.5).
