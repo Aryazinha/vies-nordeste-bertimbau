@@ -38,7 +38,9 @@ O déficit acima vale para o teto de 5%, cujo valor **não tem fundamento docume
 | 5% | 20 | 27 |
 | 3% | 34 | 111 |
 
-Medido por `pipeline_coleta_piloto/verificar_teto_falante.py --teto --vereditos`, com as fusões aplicadas. Pela decisão registrada em `CLAUDE.md` de fechar a camada de definição do dataset antes de qualquer execução de coleta, **esta etapa não deve começar** sem que o valor seja fundamentado em literatura ou declarado, com esta tabela ao lado, como convenção do projeto.
+Medido por `pipeline_coleta_piloto/verificar_teto_falante.py --teto --vereditos`, com as fusões aplicadas.
+
+**Precondição satisfeita em 12/09/2026:** o teto permanece em **5%**, declarado como convenção do projeto, com esta tabela a acompanhá-lo sempre que o valor for citado (`docs/dataset-spec.md` §1.4.5). **A etapa 2 está liberada para execução, com déficit de 27 pessoas.**
 
 ---
 

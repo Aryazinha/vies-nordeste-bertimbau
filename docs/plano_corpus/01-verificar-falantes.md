@@ -257,6 +257,8 @@ As fusões produziram o efeito antecipado: **PB perdeu uma pessoa útil e ficou 
 
 **Ressalva sobre o valor do teto, registrada na mesma data.** A decisão adota o teto de 5% tal como fixado, mas **o valor não tem justificativa escrita no projeto**. A razão para haver um teto está documentada — sem ele, uma pessoa loquaz poderia responder pela maior parte da fala de um estado, e o corpus representaria um idioleto, e não uma variedade (`docs/pendencias.md`, decisão de 31/08/2026) —, mas nada fundamenta 5% contra 3% ou 10%. A origem citada em toda a documentação, `docs/fontes_coleta.md` §2.4.5, não contém o teto: trata do rendimento da camada de vlogs. A frase que o enuncia, introduzida na revisão v1.7, remete a um item que não o estabelece. E o valor não é detalhe: o piso de pessoas é o seu inverso — 20 a 5%, 10 a 10%, 34 a 3% —, de modo que ele determina diretamente quanto falta coletar.
 
+**Resolvida em 12/09/2026: o teto permanece em 5%, declarado como convenção do projeto.** Não se encontrou fundamentação em literatura, e a decisão não a inventa: adota o valor e assume a sua natureza, obrigando-se a apresentá-lo no artigo como escolha do projeto, ao lado da sensibilidade que dele decorre — 0 pessoas a 10%, 27 a 5%, 111 a 3%. É o que impede que o parâmetro pareça ajustado depois de vistos os resultados. A origem de registro do teto passa a ser `docs/dataset-spec.md` §1.4.5.
+
 ---
 
 ## 8. Ao terminar
@@ -267,3 +269,16 @@ As fusões produziram o efeito antecipado: **PB perdeu uma pessoa útil e ficou 
 4. Se houver déficit, anotá-lo por estado em [`02-completar-coleta.md`](02-completar-coleta.md), que é o insumo daquela etapa.
 
 Uma etapa concluída cujo resultado só existe no histórico da conversa está perdida.
+
+### 8.1 Onde ficam os vereditos, e por que versionados
+
+Os treze vereditos da conferência estão em **`pipeline_coleta_piloto/vereditos_reincidencia.json`**, versionado no repositório desde 12/09/2026, ao lado de `fontes.json` e pela mesma razão: é curadoria humana, e não dado derivado.
+
+A cópia de trabalho continua em `dataset_raw/diarizacao/`, que o git ignora por conter áudio e transcrição — mas o arquivo de vereditos não tem nem uma coisa nem outra: traz identificadores públicos de vídeo, rótulos de locutor e o julgamento. Mantê-lo apenas ali significaria que o único registro de horas de escuta humana dependeria do Drive de uma pessoa, e o projeto já perdeu material por existir em um lugar só.
+
+Reexecuções devem apontar para a cópia versionada:
+
+```bash
+python verificar_teto_falante.py --registros dataset_raw/registros_anonimizados \
+    --vereditos vereditos_reincidencia.json
+```

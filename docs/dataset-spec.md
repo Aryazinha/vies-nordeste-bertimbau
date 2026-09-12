@@ -236,7 +236,9 @@ Três fatores adicionais, onerosos mas não determinantes: alta incidência de e
 >
 > **Verificado em 10/09/2026, e violado.** A identidade entre arquivos foi verificada (`pipeline_coleta_piloto/verificar_reincidencia.py`, seis fusões confirmadas em conferência humana), e o piso de 20 falantes distintos está atingido em todos os estados; mas o teto em si não é satisfeito pelo material tal como coletado, porque a fala se concentra em apresentadores e repórteres (`pipeline_coleta_piloto/verificar_teto_falante.py`). **Decidido na mesma data que o teto é condição de conclusão do corpus:** exigem-se 20 pessoas por estado que conservem o segundo piso de fala depois do recorte pelo teto. Déficit em `docs/plano_corpus/02-completar-coleta.md`.
 >
-> `PENDENTE`: **o valor de 5% não tem fundamento documentado.** A coluna "Origem" acima remete a `docs/fontes_coleta.md` §2.4.5, que não contém o teto; o que está justificado é a existência de um teto, e não o seu valor (`docs/pendencias.md` D-6.4).
+> **Valor decidido em 12/09/2026: 5% é convenção declarada do projeto.** A investigação da origem, feita ao apurar a etapa 1, mostrou que o valor nunca teve fundamento escrito — o que a documentação justifica é a existência de um teto, não a sua magnitude —, e que a remissão a `docs/fontes_coleta.md` §2.4.5 era falsa: aquele item trata do rendimento da camada de vlogs. **Esta seção passa a ser a origem de registro do teto.**
+>
+> O valor foi mantido e a sua natureza, explicitada: não decorre de norma de construção de corpus de fala, e deve ser apresentado como escolha do projeto, acompanhada da sensibilidade que a acompanha — a 10% nenhum estado teria déficit, a 5% faltam 27 pessoas, a 3% faltam 111 (`verificar_teto_falante.py --teto`). Declará-lo assim, com a tabela ao lado, é o que separa uma convenção metodológica de um parâmetro ajustado depois de ver o resultado.
 
 ### 1.4.6 Regra de recorte temporal
 
