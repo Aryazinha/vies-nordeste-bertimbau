@@ -139,7 +139,9 @@ Pares por faixa, em contagem cumulativa — a coluna ">0,70" inclui os pares de 
 
 BA e SP têm, cada um, um único canal com mais de um arquivo, e zero candidato é o esperado. E a hipótese de limiar alto fica refutada pela tabela de faixas: mesmo a 0,50, nenhum par aparece nesses estados.
 
-**O que a tabela não descarta.** Ela afasta o limiar como causa da ausência, mas não o outro modo de falha do método: uma mesma voz, em condições de gravação muito diferentes, pode ficar abaixo de 0,50 e escapar por inteiro. O caso mais exposto é RJ, que tem três canais com mais de um arquivo e nenhum par. A verificação correspondente seria ouvir, nesses três canais, o rótulo de maior fala de cada arquivo contra o do outro arquivo do mesmo canal — seis escutas, que independem do limiar.
+**O que a tabela não descarta.** Ela afasta o limiar como causa da ausência, mas não o outro modo de falha do método: uma mesma voz, em condições de gravação muito diferentes, pode ficar abaixo de 0,50 e escapar por inteiro. O caso mais exposto é RJ, que tem três canais com mais de um arquivo e nenhum par. A verificação correspondente é ouvir, em cada canal com mais de um arquivo, o rótulo de maior fala de cada arquivo contra o do outro — comparação que independe do limiar, e por isso alcança o que ele não alcança. Implementada na seção 7.2 do notebook, em 12/09/2026.
+
+Ela **não se restringe a BA, SP e RJ**: o rótulo de maior fala de um arquivo nem sempre é o que a comparação automática pareou, e por isso há pares de mesmo canal não conferidos também nos demais estados. São dezenove ao todo — PB 5, CE 5, PE 4, RJ 3, BA 1, SP 1 —, e **os de PB decidem mais que os outros**: o estado está exatamente no piso, de modo que uma única fusão confirmada ali o retira da condição de único estado sem déficit. Nos estados que já têm déficit, cada fusão confirmada apenas o aumenta em uma pessoa.
 
 **Os 17 rótulos sem embedding** ficam fora da conferência e continuam desconhecidos, nem verificados nem descartados. Sua distribuição é desigual — RJ tem 5 e CE 4, contra 1 em PE —, e o número limita o que se pode afirmar sobre a contagem final de cada estado.
 
