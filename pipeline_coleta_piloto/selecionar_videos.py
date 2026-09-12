@@ -36,6 +36,7 @@ import argparse
 import json
 import math
 import random
+import unicodedata
 import subprocess
 from collections import defaultdict
 from pathlib import Path
@@ -100,23 +101,60 @@ MARGEM_PADRAO = 1.5
 N_VIDEOS_LISTADOS = 40      # profundidade da listagem por canal
 
 
+def normalizar_canal(nome: str) -> str:
+    """
+    Forma canônica do nome de um canal, para comparação.
+
+    Sem isso, "TV Câmara São Paulo" em `fontes.json` e "TV CÂMARA SÃO PAULO"
+    nos registros coletados são canais diferentes. Em 12/09/2026 essa diferença
+    de caixa deixou passar para o plano da etapa 2 um vídeo que já estava no
+    corpus — e a falha é silenciosa: o plano parece atender ao déficit, e um
+    dos arquivos não traz pessoa nenhuma.
+    """
+    sem_acento = unicodedata.normalize("NFKD", nome)
+    sem_acento = "".join(c for c in sem_acento if not unicodedata.combining(c))
+    return " ".join(sem_acento.casefold().split())
+
+
 def canais_ja_usados(registros_dir: Path) -> set[str]:
     """
-    Nomes de canal que já figuram no corpus coletado.
+    Nomes de canal, em forma canônica, que já figuram no corpus coletado.
 
     Existe porque recoletar de um canal já usado acrescenta horas e não
     acrescenta pessoas: o déficit vem justamente da recorrência do apresentador
     entre episódios do mesmo canal (`docs/plano_corpus/02-completar-coleta.md`,
     seção 1). Excluí-los é o que faz a etapa 2 atacar o déficit que tem.
+
+    Lê os registros diarizados e também `metadados.json`, porque entre a coleta
+    e o processamento existe uma janela em que o áudio já está no disco e o
+    registro ainda não — e é nessa janela que uma segunda rodada de coleta
+    recolheria o mesmo canal.
     """
-    if not registros_dir.is_dir():
-        return set()
     usados = set()
-    for caminho in registros_dir.glob("*.json"):
-        reg = json.loads(caminho.read_text(encoding="utf-8"))
-        if reg.get("canal"):
-            usados.add(reg["canal"])
+    if registros_dir.is_dir():
+        for caminho in registros_dir.glob("*.json"):
+            reg = json.loads(caminho.read_text(encoding="utf-8"))
+            if reg.get("canal"):
+                usados.add(normalizar_canal(reg["canal"]))
+    metadados = registros_dir.parent / "metadados.json"
+    if metadados.exists():
+        for reg in json.loads(metadados.read_text(encoding="utf-8")):
+            if reg.get("canal"):
+                usados.add(normalizar_canal(reg["canal"]))
     return usados
+
+
+def videos_ja_coletados(base_dir: Path) -> set[str]:
+    """
+    Identificadores de vídeo já presentes no corpus, por `metadados.json`.
+
+    Segunda barreira, independente do nome do canal: ainda que a exclusão por
+    canal falhe, o mesmo vídeo não entra duas vezes.
+    """
+    metadados = base_dir / "metadados.json"
+    if not metadados.exists():
+        return set()
+    return {reg["id"] for reg in json.loads(metadados.read_text(encoding="utf-8")) if reg.get("id")}
 
 
 def metas_por_deficit(deficit: dict[str, int], margem: float = MARGEM_PADRAO) -> dict[str, dict]:
@@ -313,9 +351,11 @@ def planejar_camada(canais: list[dict], estado: str, camada: str,
 def planejar(estados: list[str], metas: dict, max_canais: int | None,
              semente: int, min_por_canal: int = 1, verbose: bool = True,
              metas_por_estado: dict[str, dict] | None = None,
-             excluir_canais: set[str] | None = None) -> dict:
+             excluir_canais: set[str] | None = None,
+             excluir_videos: set[str] | None = None) -> dict:
     fontes = json.loads(FONTES.read_text(encoding="utf-8"))
     excluir_canais = excluir_canais or set()
+    excluir_videos = excluir_videos or set()
     plano: dict = {
         "_meta": {
             "gerado_por": "selecionar_videos.py",
@@ -339,7 +379,7 @@ def planejar(estados: list[str], metas: dict, max_canais: int | None,
         for canal in fontes.get(estado, []):
             if canal["situacao"] in ("a_confirmar", "rejeitado"):
                 continue                   # não entra em coleta antes de inspeção
-            if canal["canal"] in excluir_canais:
+            if normalizar_canal(canal["canal"]) in excluir_canais:
                 continue                   # já no corpus: renderia horas, não pessoas
             por_camada[canal["tipo_fonte"]].append(canal)
 
@@ -355,9 +395,12 @@ def planejar(estados: list[str], metas: dict, max_canais: int | None,
                 continue
             if verbose:
                 print(f"  {camada} (meta {metas_estado[camada]:.2f} h)")
-            plano["specs"].extend(
-                planejar_camada(canais, estado, camada, metas_estado[camada], semente,
-                                min_por_canal, verbose))
+            selecionados = planejar_camada(canais, estado, camada, metas_estado[camada],
+                                           semente, min_por_canal, verbose)
+            repetidos = [s for s in selecionados if s["video_id"] in excluir_videos]
+            if repetidos and verbose:
+                print(f"    [aviso] {len(repetidos)} vídeo(s) já no corpus, descartado(s)")
+            plano["specs"].extend(s for s in selecionados if s["video_id"] not in excluir_videos)
 
     return plano
 
@@ -412,15 +455,17 @@ def main() -> None:
         print(f"Alvo em pessoas, com margem de {args.margem}x: "
               + ", ".join(f"{uf}={n}" for uf, n in sorted(deficit.items())))
 
-    excluir = set()
+    excluir, excluir_videos = set(), set()
     if args.excluir_usados:
         registros = Path(args.registros) if args.registros else RAIZ / "dataset_raw" / "registros_anonimizados"
         excluir = canais_ja_usados(registros)
-        print(f"{len(excluir)} canal(is) já no corpus serão excluídos do plano.")
+        excluir_videos = videos_ja_coletados(registros.parent)
+        print(f"{len(excluir)} canal(is) e {len(excluir_videos)} vídeo(s) já no corpus "
+              "serão excluídos do plano.")
 
     plano = planejar(args.estados, metas, args.max_canais, args.semente,
                      args.min_por_canal, metas_por_estado=metas_por_estado,
-                     excluir_canais=excluir)
+                     excluir_canais=excluir, excluir_videos=excluir_videos)
 
     if args.deficit and not args.sem_ajuste:
         antes = len(plano["specs"])

@@ -111,6 +111,19 @@ Distribuição do plano a executar: PE 3 trechos, CE 5, BA 5, SP 7, RJ 5. Nenhum
 
 O ajuste está no código, e não em recorte manual: `ajustar_ao_deficit` toma **um arquivo por canal**, alternando vox-pop e podcast, até o rendimento esperado alcançar o alvo. Um arquivo por canal é o que maximiza pessoas por arquivo coletado — o segundo arquivo de um canal traz de novo o apresentador, que é a recorrência de onde o déficit veio. `--sem-ajuste` reproduz a variante ampla.
 
+### Coleta executada — 12/09/2026
+
+**25 de 25 trechos coletados, nenhuma falha de download.** O corpus passa de 52 para **77 arquivos**, com 1,84 h novas, distribuídas em PE 3, CE 5, BA 5, SP 7 e RJ 5, vindas de **25 canais distintos, todos novos**. Não houve perda concentrada em estado ou camada — a verificação exigida na seção 4, cujo motivo é que perda desigual entre grupos é viés de amostragem, e não ruído.
+
+**Uma falha silenciosa ocorreu e foi corrigida.** O plano incluiu um vídeo que já estava no corpus: o canal figura como "TV Câmara São Paulo" em `fontes.json` e como "TV CÂMARA SÃO PAULO" nos registros da primeira rodada, e a exclusão de canais já usados comparava os nomes literalmente. O sintoma foi indireto — a fusão dos metadados somou 52 e 25 e resultou 76, não 77 —, e o efeito seria SP receber seis arquivos úteis em vez de sete, sem que nada no plano o indicasse.
+
+Duas barreiras foram acrescentadas a `selecionar_videos.py`, e a segunda existe porque a primeira pode falhar de outro modo:
+
+1. `normalizar_canal` compara nomes sem acento e sem caixa, e `canais_ja_usados` passa a ler também `metadados.json` — que é onde o canal aparece na janela entre a coleta e o processamento, quando o registro diarizado ainda não existe.
+2. `videos_ja_coletados` exclui por identificador de vídeo, independentemente do nome do canal.
+
+O arquivo faltante de SP foi reposto por `plano_etapa2_complemento.json`, de canal novo, o que restabelece os sete previstos.
+
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 
 **Perda de coleta não é ruído.** Vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência, que é parcela expressiva do vox-pop policial. Perda desigual entre estados é viés de amostragem. Conferir se as falhas se concentram em algum estado ou camada, e registrar (`docs/pendencias.md`, 4.5).

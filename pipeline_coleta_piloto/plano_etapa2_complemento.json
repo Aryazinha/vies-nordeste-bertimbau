@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "gerado_por": "complemento da etapa 2",
+    "motivo": "um video do plano ja estava no corpus: colisao de caixa no nome do canal (TV Camara Sao Paulo)"
+  },
+  "specs": [
+    {
+      "url": "https://www.youtube.com/watch?v=mYnNcPBVGfE",
+      "video_id": "mYnNcPBVGfE",
+      "estado_alvo": "SP",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "Marcelo Silva Campinas",
+      "channel_id": "UCL3ayvi_H9CPqtVXNPkqFCg",
+      "canal_tem_participacao_ouvinte": "nao_verificado",
+      "participacao_ouvinte": "nao_verificado",
+      "titulo": "A REALIDADE DOS DICs: SEGURAN�A, ESPORTE E TRANSFORMA��O | Podcast Marcelo Silva #02 (Ivan Silva)",
+      "duracao_total_s": 539.0,
+      "duracao_coletada_s": 539
+    }
+  ]
+}
