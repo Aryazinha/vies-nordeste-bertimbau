@@ -86,9 +86,17 @@ A coleta roda **na máquina local**, e não no Colab. O motivo está registrado 
 
 ```bash
 cd pipeline_coleta_piloto
-python selecionar_videos.py --saida plano_complemento.json   # ajustar os filtros ao déficit
-python coletar_local.py plano_complemento.json
+python selecionar_videos.py --deficit PE=3 CE=5 BA=5 SP=8 RJ=6 \
+    --excluir-usados --saida plano_etapa2.json
+python coletar_local.py plano_etapa2.json
 ```
+
+**Os dois parâmetros foram acrescentados em 12/09/2026, e cada um corrige uma falha que o plano desta etapa previa em prosa mas o código não impedia:**
+
+- `--excluir-usados` retira do plano os 35 canais que já estão no corpus. Sem ele, o seletor voltaria aos mesmos canais, e o resultado seria horas a mais da mesma pessoa — exatamente o erro descrito na seção 1.
+- `--deficit` substitui a meta em horas por uma meta em **pessoas**, convertida em arquivos pelo rendimento medido sobre os 52 arquivos já coletados: 2,0 pessoas com ao menos 0,7 min de fala por arquivo de vox-pop, 1,5 por arquivo de podcast, 1,0 por canal de vlog. O vlog fica fora da conversão: rende uma pessoa por **canal**, não por arquivo.
+
+Aplica-se ainda uma margem de 1,5× sobre o déficit (`--margem`), porque o piso de 20 é mínimo e não alvo: coletar o número exato deixaria o corpus sem folga para arquivo perdido no download, falante abaixo do segundo piso ou trecho descartado por qualidade.
 
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 

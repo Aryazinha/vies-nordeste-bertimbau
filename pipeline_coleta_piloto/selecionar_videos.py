@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import subprocess
 from collections import defaultdict
@@ -64,7 +65,76 @@ TRECHO_S = 600              # duração do recorte
 ABERTURA_S = 120            # descarta o início, onde ficam vinheta e escalada
 
 TETO_POR_CANAL = 0.35       # fração máxima da cota de uma camada por canal
+
+# --------------------------------------------------------------------------
+# Alvo em pessoas (etapa 2 de `docs/plano_corpus/`)
+# --------------------------------------------------------------------------
+# Desde 12/09/2026 o critério de conclusão do corpus não é volume, e sim
+# pessoas que conservem 0,7 min de fala depois do recorte pelo teto de 5%
+# (`docs/plano_corpus/01-verificar-falantes.md`, seção 7.1). As metas em horas
+# acima continuam servindo à coleta por volume; o que segue converte um déficit
+# de pessoas em cota de arquivos.
+#
+# Rendimento medido sobre os 52 arquivos já coletados, em pessoas com pelo
+# menos 0,7 min de fala por arquivo — medianas, não suposições:
+RENDIMENTO_PESSOAS = {
+    "entrevista_vox_pop": 2.0,
+    "podcast_radio_tv_regional": 1.5,
+    "vlog_amador": 1.0,          # um canal de vlog é, na prática, uma pessoa
+}
+
+# Duração mediana efetivamente coletada por arquivo, em segundos, no mesmo
+# corpus. Serve só para converter arquivos em cota de horas, que é a unidade
+# em que `planejar_camada` opera.
+DURACAO_TIPICA_S = 4 * 60
+
+# Repartição do déficit entre as duas camadas que rendem pessoas novas. Vlog
+# fica fora: acrescenta uma pessoa por canal, não por arquivo, e a etapa 2
+# precisa de pessoas por arquivo coletado.
+REPARTICAO = {"entrevista_vox_pop": 2 / 3, "podcast_radio_tv_regional": 1 / 3}
+
+# Margem sobre o déficit. O piso de 20 é mínimo, e não alvo: coletar o exato
+# deixa o corpus no limite, sem folga para arquivo perdido no download, para
+# falante abaixo do segundo piso ou para exclusão por qualidade.
+MARGEM_PADRAO = 1.5
 N_VIDEOS_LISTADOS = 40      # profundidade da listagem por canal
+
+
+def canais_ja_usados(registros_dir: Path) -> set[str]:
+    """
+    Nomes de canal que já figuram no corpus coletado.
+
+    Existe porque recoletar de um canal já usado acrescenta horas e não
+    acrescenta pessoas: o déficit vem justamente da recorrência do apresentador
+    entre episódios do mesmo canal (`docs/plano_corpus/02-completar-coleta.md`,
+    seção 1). Excluí-los é o que faz a etapa 2 atacar o déficit que tem.
+    """
+    if not registros_dir.is_dir():
+        return set()
+    usados = set()
+    for caminho in registros_dir.glob("*.json"):
+        reg = json.loads(caminho.read_text(encoding="utf-8"))
+        if reg.get("canal"):
+            usados.add(reg["canal"])
+    return usados
+
+
+def metas_por_deficit(deficit: dict[str, int], margem: float = MARGEM_PADRAO) -> dict[str, dict]:
+    """
+    Converte um déficit de pessoas, por estado, em cota de horas por camada.
+
+    A conversão passa por arquivos, e não direto por horas, porque o que rende
+    pessoa é o arquivo novo de canal novo — a hora a mais no mesmo arquivo
+    rende fala da mesma pessoa. Estados sem déficit recebem cota zero.
+    """
+    metas = {}
+    for estado, pessoas in deficit.items():
+        alvo = pessoas * margem
+        metas[estado] = {camada: 0.0 for camada in TIPOS_FONTE_VALIDOS}
+        for camada, fracao in REPARTICAO.items():
+            arquivos = math.ceil(alvo * fracao / RENDIMENTO_PESSOAS[camada]) if alvo else 0
+            metas[estado][camada] = arquivos * DURACAO_TIPICA_S / 3600
+    return metas
 
 
 def listar_videos(channel_id: str, n: int = N_VIDEOS_LISTADOS) -> list[dict]:
@@ -201,8 +271,11 @@ def planejar_camada(canais: list[dict], estado: str, camada: str,
 
 
 def planejar(estados: list[str], metas: dict, max_canais: int | None,
-             semente: int, min_por_canal: int = 1, verbose: bool = True) -> dict:
+             semente: int, min_por_canal: int = 1, verbose: bool = True,
+             metas_por_estado: dict[str, dict] | None = None,
+             excluir_canais: set[str] | None = None) -> dict:
     fontes = json.loads(FONTES.read_text(encoding="utf-8"))
+    excluir_canais = excluir_canais or set()
     plano: dict = {
         "_meta": {
             "gerado_por": "selecionar_videos.py",
@@ -210,6 +283,8 @@ def planejar(estados: list[str], metas: dict, max_canais: int | None,
             "metas_horas": metas,
             "max_canais_por_camada": max_canais,
             "min_videos_por_canal": min_por_canal,
+            "metas_horas_por_estado": metas_por_estado,
+            "canais_excluidos_por_ja_usados": sorted(excluir_canais),
             "regra": "estado_alvo e tipo_fonte derivam do canal em fontes.json, "
                      "nunca de digitação manual",
         },
@@ -220,23 +295,28 @@ def planejar(estados: list[str], metas: dict, max_canais: int | None,
         if verbose:
             print(f"\n=== {estado} ===")
         por_camada = defaultdict(list)
+        metas_estado = (metas_por_estado or {}).get(estado, metas)
         for canal in fontes.get(estado, []):
-            if canal["situacao"] == "a_confirmar":
+            if canal["situacao"] in ("a_confirmar", "rejeitado"):
                 continue                   # não entra em coleta antes de inspeção
+            if canal["canal"] in excluir_canais:
+                continue                   # já no corpus: renderia horas, não pessoas
             por_camada[canal["tipo_fonte"]].append(canal)
 
         for camada in TIPOS_FONTE_VALIDOS:
             canais = por_camada.get(camada, [])
             if max_canais:
                 canais = canais[:max_canais]
+            if not metas_estado.get(camada):
+                continue                   # camada sem cota neste estado
             if not canais:
                 if verbose:
                     print(f"  {camada}: nenhum canal disponível")
                 continue
             if verbose:
-                print(f"  {camada} (meta {metas[camada]} h)")
+                print(f"  {camada} (meta {metas_estado[camada]:.2f} h)")
             plano["specs"].extend(
-                planejar_camada(canais, estado, camada, metas[camada], semente,
+                planejar_camada(canais, estado, camada, metas_estado[camada], semente,
                                 min_por_canal, verbose))
 
     return plano
@@ -255,6 +335,16 @@ def main() -> None:
                     help="vídeos garantidos por canal, mesmo que a cota seja excedida")
     ap.add_argument("--semente", type=int, default=20260827,
                     help="semente de sorteio, para tornar a seleção reprodutível")
+    ap.add_argument("--deficit", nargs="+", metavar="UF=N", default=None,
+                    help="déficit de pessoas por estado, ex.: PE=3 CE=5 BA=5 SP=8 RJ=6. "
+                         "Converte-se em cota de arquivos pelo rendimento medido de cada camada.")
+    ap.add_argument("--margem", type=float, default=MARGEM_PADRAO,
+                    help=f"margem sobre o déficit (padrão: {MARGEM_PADRAO})")
+    ap.add_argument("--excluir-usados", action="store_true",
+                    help="exclui canais que já estão no corpus; recoletá-los renderia horas, não pessoas")
+    ap.add_argument("--registros", default=None,
+                    help="pasta dos registros já coletados, para --excluir-usados "
+                         "(padrão: dataset_raw/registros_anonimizados)")
     ap.add_argument("--saida", default="plano_coleta.json")
     args = ap.parse_args()
 
@@ -263,8 +353,32 @@ def main() -> None:
             raise SystemExit(f"estado fora do escopo: {e}")
 
     metas = META_HORAS_PILOTO if args.piloto else META_HORAS
+
+    metas_por_estado = None
+    if args.deficit:
+        deficit = {}
+        for item in args.deficit:
+            uf, _, n = item.partition("=")
+            if uf.upper() not in ESTADOS_VALIDOS or not n.isdigit():
+                raise SystemExit(f"déficit malformado: {item!r}; use UF=N, ex.: SP=8")
+            deficit[uf.upper()] = int(n)
+        metas_por_estado = metas_por_deficit(deficit, args.margem)
+        estados = [e for e in args.estados if deficit.get(e)]
+        if not estados:
+            raise SystemExit("nenhum dos estados pedidos tem déficit")
+        args.estados = estados
+        print(f"Alvo em pessoas, com margem de {args.margem}x: "
+              + ", ".join(f"{uf}={n}" for uf, n in sorted(deficit.items())))
+
+    excluir = set()
+    if args.excluir_usados:
+        registros = Path(args.registros) if args.registros else RAIZ / "dataset_raw" / "registros_anonimizados"
+        excluir = canais_ja_usados(registros)
+        print(f"{len(excluir)} canal(is) já no corpus serão excluídos do plano.")
+
     plano = planejar(args.estados, metas, args.max_canais, args.semente,
-                     args.min_por_canal)
+                     args.min_por_canal, metas_por_estado=metas_por_estado,
+                     excluir_canais=excluir)
 
     Path(args.saida).write_text(json.dumps(plano, ensure_ascii=False, indent=2),
                                 encoding="utf-8")
