@@ -221,3 +221,45 @@ Nomes **mantidos** no conjunto podem ser citados, por já irem ao texto publicad
 ## 8. Estado do versionamento
 
 O trabalho desta etapa está na branch local **`contexto-para-revisao`**, não integrada à `main`. A planilha `dataset_raw/anonimizacao_proposta.json` e o registro de amostragem `dataset_raw/anonimizacao_amostra.json` permanecem **fora do versionamento** — `dataset_raw/` é ignorado pelo git —, por conterem nomes reais em contexto. Não devem ser commitados.
+
+---
+
+## 8. Segunda rodada — os 25 arquivos da etapa 2, em 12/09/2026
+
+**Concluída.** Os 25 registros coletados na etapa 2 do plano do corpus foram anonimizados e somados aos 52 anteriores, com o que `dataset_raw/registros_anonimizados/` passa a ter **77 arquivos** e 266 nomes mascarados ao todo.
+
+A fase de proposta detectou **153 nomes** nos 25 arquivos: 133 sugeridos para mascarar e 20 para manter. A revisão inverteu decisões nas duas direções, e é por isso que ela não é dispensável.
+
+### 8.1 O que a revisão dos 20 "manter" encontrou
+
+Três dos vinte estavam errados, e um deles era grave:
+
+| Nome | O que o programa supôs | O que o trecho mostra |
+|---|---|---|
+| Thaísinha | figura pública, por "atriz" no texto | *"a Thaísinha, minha sobrinha"* — pessoa privada, em fala sobre uma tatuagem em memória |
+| Eresvaldo | equipe do canal, por "traz a" | técnico de time amador: *"sob o comando dele, Eresvaldo, traz a seguinte formação"* |
+| Vandeilson | equipe do canal, pelo mesmo motivo | goleiro do mesmo time, *"no gol, camisa 91"* |
+
+Os três passaram a mascarados. Os outros dezessete confirmaram-se: apresentadores nomeados por fórmula jornalística, nomes coincidentes com o do canal, figuras públicas e palavras que não são nome de pessoa.
+
+### 8.2 O que a amostragem do bloco `mascarar` revelou, e por que ela foi abandonada
+
+A amostra de 25 itens, sorteada do bloco de 133 com semente 12, trouxe **seis falsos positivos** — `Estudiodigital.com.br`, `Vascão do Giral`, `Marquês de Sapucaí`, `Senhor Jesus Cristo`, `Minha Casa` e `Linda`, esta última vinda de *"Linda bola pra fazer"*. Cerca de um quarto da amostra.
+
+**Aceitar o bloco por amostragem, como se fez na primeira rodada, teria corrompido as transcrições em silêncio.** A taxa é maior que a de 02/09/2026 porque os arquivos novos trazem duas fontes que o primeiro lote quase não tinha: narração esportiva, em que adjetivo e verbo entram capitalizados no meio da locução, e anúncio de rádio local, em que nome de empresa tem forma de nome de pessoa.
+
+Em lugar da amostragem, revisaram-se os 133 e fixaram-se três critérios, aprovados pela equipe com a lista de nomes afetados à vista:
+
+| Critério | Itens | Exemplos |
+|---|---|---|
+| Não é nome de pessoa | 22 | `Amarradinho`, `mestinon`, `Down`, `Vasco do Giral`, `Arno Construção`, `Minha Casa`, `Linda`, `Bateu` |
+| Figura pública | 19 | `Whindersson Nunes`, `Anitta`, `Gilberto Gil`, `Elton John`, `Paulo Freire`, candidatos em campanha |
+| Atleta profissional em transmissão | 6 | `Muriel`, `Matheus Nogueira`, `Vitor Andrade` |
+
+Os **86 restantes foram mascarados**: entrevistados, vítimas, vizinhos, jogadores de time amador identificados por número de camisa e pessoas citadas em anúncios locais. A regra de desempate foi manter mascarado o duvidoso.
+
+### 8.3 Ressalva que se mantém, e uma que se acrescenta
+
+A ressalva de 02/09/2026 continua: *quem é equipe do canal* é classificação assistida, e a inversão de Eresvaldo e Vandeilson mostra que ela erra — os dois haviam sido classificados como equipe por uma fórmula jornalística que, na verdade, era a locução de uma escalação.
+
+Acrescenta-se outra: **os 86 itens do bloco foram confirmados por critério, e não item a item**. O que os protege é serem, por construção, o resíduo depois de retiradas as três categorias acima — mas um falso positivo que não caia em nenhuma delas continua possível, e o efeito seria uma palavra comum substituída por `[NOME]` no corpus publicado.

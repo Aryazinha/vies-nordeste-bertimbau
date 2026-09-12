@@ -124,6 +124,25 @@ Duas barreiras foram acrescentadas a `selecionar_videos.py`, e a segunda existe 
 
 O arquivo faltante de SP foi reposto por `plano_etapa2_complemento.json`, de canal novo, o que restabelece os sete previstos.
 
+### Processamento e anonimização — 12/09/2026
+
+Transcrição e diarização dos 25 arquivos executadas no Colab, com o notebook ajustado para processar apenas o que ainda não tinha registro — a esteira passou a ser incremental, e reprocessar os 52 antigos custaria GPU sem produzir nada.
+
+Anonimização concluída no mesmo dia (`docs/anonimizacao.md`, seção 8): 153 nomes detectados, 89 mascarados, 64 mantidos. O corpus anonimizado passa a ter **77 arquivos**.
+
+**Situação do teto, com o corpus ampliado e as fusões conhecidas:**
+
+| UF | Pessoas | Acima do teto | Com o teto aplicado | Fatia por pessoa | Pessoas úteis | Faltam |
+|---|---|---|---|---|---|---|
+| PB | 28 | 9 | 29,3 min | 1,46 min | 20 | 0 |
+| PE | 34 | 8 | 35,4 min | 1,77 min | 22 | 0 |
+| CE | 43 | 4 | 63,6 min | 3,18 min | 27 | 0 |
+| BA | 35 | 6 | 37,4 min | 1,87 min | 22 | 0 |
+| SP | 44 | 7 | 47,0 min | 2,35 min | 21 | 0 |
+| RJ | 46 | 5 | 35,8 min | 1,79 min | 20 | 0 |
+
+**Nenhum estado tem déficit — mas o número ainda não é final.** As fusões aplicadas são as da conferência de 10/09, que só cobria os 52 arquivos antigos; as vozes dos 25 novos ainda não foram comparadas com nada. **PB e RJ estão exatamente no piso**, de modo que uma única fusão em qualquer um deles o derruba. Fechar exige repetir a etapa 1 sobre os 77, que é o passo seguinte previsto na seção 5.
+
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 
 **Perda de coleta não é ruído.** Vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência, que é parcela expressiva do vox-pop policial. Perda desigual entre estados é viés de amostragem. Conferir se as falhas se concentram em algum estado ou camada, e registrar (`docs/pendencias.md`, 4.5).
