@@ -143,6 +143,10 @@ BA e SP têm, cada um, um único canal com mais de um arquivo, e zero candidato 
 
 Ela **não se restringe a BA, SP e RJ**: o rótulo de maior fala de um arquivo nem sempre é o que a comparação automática pareou, e por isso há pares de mesmo canal não conferidos também nos demais estados. São dezenove ao todo — PB 5, CE 5, PE 4, RJ 3, BA 1, SP 1 —, e **os de PB decidem mais que os outros**: o estado está exatamente no piso, de modo que uma única fusão confirmada ali o retira da condição de único estado sem déficit. Nos estados que já têm déficit, cada fusão confirmada apenas o aumenta em uma pessoa.
 
+**Executada em PB, em 12/09/2026, sem alteração alguma: os cinco pares foram julgados pessoas distintas.** O padrão que motivava a checagem — o apresentador reaparecendo entre episódios do mesmo canal — já havia sido integralmente capturado pela comparação automática naquele estado, cujas quatro fusões continuam as mesmas. **PB permanece exatamente no piso, com 20 pessoas úteis, e o déficit total permanece em 27.**
+
+O resultado é, em si, informativo sobre o método: no estado em que a comparação automática mais encontrou pares, a escuta independente do limiar não encontrou nenhum que ela tivesse perdido. Restam catorze pares — PE 4, CE 5, RJ 3, BA 1, SP 1 —, que não podem alterar a conclusão de estado algum, apenas aumentar em uma pessoa o déficit já existente.
+
 **Os 17 rótulos sem embedding** ficam fora da conferência e continuam desconhecidos, nem verificados nem descartados. Sua distribuição é desigual — RJ tem 5 e CE 4, contra 1 em PE —, e o número limita o que se pode afirmar sobre a contagem final de cada estado.
 
 ---
