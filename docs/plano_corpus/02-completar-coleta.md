@@ -14,15 +14,15 @@
 
 | UF | Falantes distintos | Pessoas úteis após o recorte | Piso | Pessoas novas necessárias |
 |---|---|---|---|---|
-| PB | 26 | 21 | 20 | 0 |
-| PE | 27 | 18 | 20 | 2 |
+| PB | 26 | 20 | 20 | 0 |
+| PE | 27 | 17 | 20 | 3 |
 | CE | 22 | 0 | 20 | 5 |
 | BA | 22 | 0 | 20 | 5 |
 | SP | 21 | 0 | 20 | 8 |
 | RJ | 30 | 14 | 20 | 6 |
-| **Total** | **148** | — | — | **26** |
+| **Total** | **148** | — | — | **27** |
 
-"Falantes distintos" vem da conferência humana, já com as fusões. As duas últimas colunas vêm de `pipeline_coleta_piloto/verificar_teto_falante.py` e **ainda não as incluem**, porque o arquivo de vereditos permanecia no Drive; são, portanto, otimistas. PB é o mais exposto: sua margem é de uma pessoa, e ele concentra quatro das seis fusões.
+Números de 12/09/2026, de `pipeline_coleta_piloto/verificar_teto_falante.py --vereditos`, **com as seis fusões da conferência aplicadas**. Elas confirmaram o efeito previsto: PB perdeu uma pessoa útil e ficou **exatamente no piso**, sem margem alguma, e PE passou de duas pessoas novas a três.
 
 "Pessoas novas necessárias" é o menor número de falantes novos, cada um com ao menos um minuto de fala, que eleva a 20 as pessoas úteis. Um estado com zero pessoas úteis não precisa de vinte novas porque cada pessoa acrescentada eleva o volume admissível e, com ele, a fatia de todas as outras, de modo que falantes já presentes passam a alcançar o segundo piso. Pela mesma razão o resultado é idêntico supondo de um a três minutos por pessoa nova: o que excede a fatia é recortado.
 
@@ -35,10 +35,10 @@ O déficit acima vale para o teto de 5%, cujo valor **não tem fundamento docume
 | Teto | Piso de pessoas úteis | Pessoas novas necessárias |
 |---|---|---|
 | 10% | 10 | 0 — coleta concluída |
-| 5% | 20 | 26 |
-| 3% | 34 | 109 |
+| 5% | 20 | 27 |
+| 3% | 34 | 111 |
 
-Medido por `pipeline_coleta_piloto/verificar_teto_falante.py --teto`, sem as fusões. Pela decisão registrada em `CLAUDE.md` de fechar a camada de definição do dataset antes de qualquer execução de coleta, **esta etapa não deve começar** sem que o valor seja fundamentado em literatura ou declarado, com esta tabela ao lado, como convenção do projeto.
+Medido por `pipeline_coleta_piloto/verificar_teto_falante.py --teto --vereditos`, com as fusões aplicadas. Pela decisão registrada em `CLAUDE.md` de fechar a camada de definição do dataset antes de qualquer execução de coleta, **esta etapa não deve começar** sem que o valor seja fundamentado em literatura ou declarado, com esta tabela ao lado, como convenção do projeto.
 
 ---
 

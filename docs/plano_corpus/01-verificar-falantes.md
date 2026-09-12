@@ -198,7 +198,9 @@ Comparar ao piso de 20. O teto de partida está no `README.md` desta pasta: PB 3
 | RJ | 30 | 0 | 30 | 20 | atingido | 5 |
 | **Total** | **154** | **6** | **148** | **120** | — | **17** |
 
-**Pendente de registro.** O limiar calibrado e a composição dos vereditos — quantos pares confirmados, quantos rejeitados, quantos com a nota `incerto` — dependem de `vereditos_reincidencia.json`, que permanece no Drive e deve ser trazido a `pipeline_coleta_piloto/dataset_raw/diarizacao/`.
+**Composição dos vereditos — 12/09/2026.** Dos oito pares, **sete foram confirmados como mesma pessoa e um foi rejeitado**; nenhum recebeu a nota `incerto`. Os sete confirmados são todos do **mesmo canal**, com similaridade de 0,7713 a 0,9259; o rejeitado tem 0,5081 e é de canais distintos. As cinco confirmações de PB produziram quatro fusões, porque uma delas incidia sobre voz já fundida — o caso transitivo que a apuração por componentes conexos prevê.
+
+**O limiar não pôde ser calibrado por baixo, e a razão está na própria distribuição.** A fronteira empírica se encontra entre 0,5081, rejeitado, e 0,7713, confirmado, e nesse intervalo não existe um único par no corpus, como já mostrava a tabela de faixas da seção 5.2. O valor de 0,75 é, portanto, **compatível** com a conferência, e não validado por ela: qualquer limiar entre 0,52 e 0,77 teria produzido a mesma lista e as mesmas seis fusões. O que a conferência estabelece é mais estreito, e mais útil para as próximas rodadas: **acima de 0,77, sete de sete pares eram a mesma pessoa, e todos os sete eram do mesmo canal** — o sinal de canal acompanhou integralmente o sinal de voz.
 
 Pelo critério da seção 7, a coleta estaria concluída. **Esse critério, contudo, é incompleto**, e a incompletude só se tornou visível com a contagem em mãos.
 
@@ -224,8 +226,26 @@ Medição por `pipeline_coleta_piloto/verificar_teto_falante.py`, **sem aplicar 
 
 1. **A violação é geral, e não marginal.** Todos os estados têm entre 5 e 9 pessoas acima do teto, e elas concentram de 46,6% a 71,5% da fala. É consequência estrutural do formato — telejornal, rádio, podcast —, e não acidente de algum arquivo.
 2. **Com o teto aplicado por recorte, apenas PB conserva 20 pessoas com fala suficiente**, e por margem de uma. PE e RJ ficam perto; CE, BA e SP ficam em zero, porque a fatia máxima por pessoa cai abaixo de 0,7 minuto. O zero de CE é, contudo, sensível ao parâmetro: sua fatia é de 0,66 minuto, e um segundo piso ligeiramente menor o mudaria por inteiro.
-3. **As fusões agravarão o quadro**, sobretudo em PB, cuja margem é de uma pessoa e que concentra quatro das seis fusões. A medição com `--vereditos` é necessária antes de qualquer número deste bloco ir a outro documento como definitivo.
+3. **As fusões agravam o quadro**, como se previa — ver a tabela final logo abaixo, que as aplica e substitui os números deste bloco.
 4. **O recorte é uma interpretação operacional do teto, e não a única.** A regra fixa o limite, mas não diz se ele se cumpre descartando fala excedente ou coletando mais pessoas. As duas vias apontam, porém, para a mesma falta: pessoas distintas com fala equilibrada, e não horas.
+
+#### Números finais, com as seis fusões aplicadas — 12/09/2026
+
+`verificar_teto_falante.py --registros dataset_raw/registros_anonimizados --vereditos dataset_raw/diarizacao/vereditos_reincidencia.json`. **É esta a tabela a citar**; a anterior, sem fusões, fica como limite inferior.
+
+| UF | Pessoas | Fusões | Acima do teto | Com o teto aplicado | Fatia máxima por pessoa | Pessoas úteis | Faltam |
+|---|---|---|---|---|---|---|---|
+| PB | 28 | 4 | 9 | 29,3 min | 1,46 min | 20 | 0 |
+| PE | 28 | 1 | 6 | 19,8 min | 0,99 min | 17 | 3 |
+| CE | 26 | 1 | 10 | 11,1 min | 0,56 min | 0 | 5 |
+| BA | 25 | 0 | 6 | 11,9 min | 0,60 min | 0 | 5 |
+| SP | 23 | 0 | 5 | 6,6 min | 0,33 min | 0 | 8 |
+| RJ | 35 | 0 | 5 | 19,2 min | 0,96 min | 14 | 6 |
+| **Total** | **165** | **6** | **41** | **97,9 min** | — | — | **27** |
+
+As fusões produziram o efeito antecipado: **PB perdeu uma pessoa útil e ficou exatamente no piso, com 20 e margem nula**, e PE passou de duas pessoas novas a três. O déficit total sobe de 26 para 27, e a fala admissível sob o teto cai de 1,80 h para 1,63 h.
+
+**Sensibilidade ao valor do teto**, na mesma medição: a 10% o piso cai a 10 pessoas e nenhum estado tem déficit; a 5%, faltam 27; a 3%, o piso sobe a 34 e faltam 111. A escolha do valor decide, sozinha, entre corpus concluído e coleta quatro vezes maior que a prevista — razão pela qual a ressalva sobre a origem do número, registrada adiante, precisa ser resolvida antes da etapa 2, e não depois.
 
 **Decisão tomada em 10/09/2026: o teto é condição de conclusão.** Das duas leituras possíveis — manter o critério da seção 7, que conta apenas falantes distintos, ou exigir o teto —, adotou-se a segunda, que é a coerente com `meta_corpus_autonomo.md`, onde o teto figura como "a única regra de que a meta inteira deriva". O critério da seção 7 fica substituído, para esta e para as próximas rodadas, por: **20 pessoas por estado que conservem o segundo piso de fala depois do recorte pelo teto.** A etapa 2 torna-se necessária, com o déficit registrado em [`02-completar-coleta.md`](02-completar-coleta.md).
 
