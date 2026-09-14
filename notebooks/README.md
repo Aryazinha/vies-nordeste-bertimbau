@@ -88,7 +88,9 @@ O WER propriamente dito exige preencher `referencia_manual` em `amostra_wer.json
 
 `medir_calibracao_colab.ipynb` mede no BERTimbau os 61 pares de calibração aprovados em 14/09/2026 e refaz as análises dos passos 5.4 e 5.5 sobre o grupo de referência de 86 pares (`docs/pendencias.md` 2.8).
 
-**Link direto, enquanto o trabalho estiver na branch:** https://colab.research.google.com/github/Aryazinha/vies-nordeste-bertimbau/blob/pares-minimos-calibracao/notebooks/medir_calibracao_colab.ipynb
+**Link direto:** https://colab.research.google.com/github/Aryazinha/vies-nordeste-bertimbau/blob/main/notebooks/medir_calibracao_colab.ipynb
+
+**Executado em 14/09/2026**, em Tesla T4, com as 1.708 medições integradas à `main`. Reexecutá-lo sobre a `main` não mede de novo: `teste_explicito.py` encontra a condição já presente e apenas reanalisa. O notebook permanece como modelo para medir condições futuras.
 
 **Configuração.** T4 GPU recomendada, não obrigatória. Nenhum token é necessário: o modelo é público.
 
