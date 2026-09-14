@@ -168,7 +168,7 @@ Adaptação para variação regional do português brasileiro do desenho de pare
 
 ## B.2 Composição prevista
 
-**Meta fixada em 29/08/2026 e revista em 14/09/2026:** 40 pares por condição de teste — eram 37 — e 80 pares no grupo de referência não regional, já superados com 86 pares distintos medidos, perfazendo entre 246 e 286 pares. Derivação em `experimentos/resultados/tabelas/meta_pares_minimos.md`.
+**Meta fixada em 29/08/2026 e revista em 14/09/2026:** 40 pares por condição de teste — eram 37 — e 80 pares no grupo de referência não regional, já superados com 86 pares distintos medidos, perfazendo entre 246 e 286 pares. **Nas condições de menção explícita, a meta vigente desde 14/09/2026 é de 20 frases por condição**, cada uma com gêmeo de moldura na mesma frase e rótulo de outra região, dimensionada pela pergunta de especificidade; a de 40 permanece como referência para a análise de direção, que com essa escolha exclui vieses a partir de cerca de 0,10. Derivação em `experimentos/resultados/tabelas/meta_pares_minimos.md`.
 
 **O critério não é arbitrado.** O tamanho responde à pergunta "quantos pares para que a ausência de efeito seja informativa", e o insumo — excluir efeitos de viés acima de 0,08 — é decisão registrada com três razões declaradas.
 
