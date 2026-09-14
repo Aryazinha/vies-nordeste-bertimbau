@@ -174,7 +174,7 @@ Doze itens constituem piloto. O CrowS-Pairs tem 1.508 pares. A meta do conjunto 
 
 Achado do passo 1: a divergência entre condições é de 0,0144 bits no bloco lexical contra 0,0023 no morfossintático, tendo 0,0963 como referência de conteúdo distinto. Se o efeito final vier do léxico, um revisor poderá alegar que se mediu frequência lexical, e não dialeto. Três encaminhamentos possíveis: aceitar e reposicionar o artigo; ampliar o volume de itens e testar se a morfossintaxe produz efeito agregado; ou avaliar o BERTimbau Large antes de decidir. **Decisão em aberto.**
 
-### 2.8 Grupo de referência: dependência entre pares, duplicata e chave de medição posicional — ABERTA em 14/09/2026
+### 2.8 Grupo de referência: dependência entre pares, duplicata e chave de medição posicional — ABERTA e ENCERRADA em 14/09/2026
 
 Revisão dos 54 pares propostos por `experimentos/propor_calibracao.py` (`experimentos/resultados/dados/calibracao_proposta.json`), antes de qualquer incorporação. Três constatações.
 
@@ -210,6 +210,8 @@ Registre-se ainda que a checagem de carga regional dos itens no corpus de áudio
 
 **Meta recalculada.** Com `DP_RUIDO` = 0,1217 e 86 pares de referência em `meta_pares_minimos.py`, o teto de detecção sob correção de Holm cai de 0,078 para **0,044** — objetivo da ampliação, atingido. O mesmo critério de excluir efeitos acima de 0,08 passa a exigir **40 pares por condição, e não 37**, porque o desvio-padrão do ruído subiu levemente e o efeito-alvo passou de d = 0,68 a d = 0,66. A meta de 37 registrada em `docs/dataset-spec.md` (§2.2.1 e registro de pendentes), `docs/ficha_conjunto.md`, `docs/questoes_para_orientacao.md` e `docs/resumo_para_orientacao.md` deve ser atualizada, e o volume total implicado passa a 4 × 40 + 86 = 246 ou 5 × 40 + 86 = 286 pares.
 
+**Encerra a pendência:** ~~aplicar a exclusão pelo mecanismo descrito em (d), junto com a incorporação dos pares novos; reformular o gerador para que cada frase compareça em um único par, com molduras em número maior e distintas das já presentes; e, caso se admita reúso, declarar a estatística de conglomerado correspondente e recalcular o teto de detecção~~ — **encerrada em 14/09/2026**: exclusão aplicada por marcação na reanálise, gerador reformulado sem reúso de frase, e teto recalculado em 0,044. Permanece, como risco residual, a chave de medição posicional de (d), mitigada pela regra de não reordenar nem apagar entradas, declarada no código.
+
 ### 2.9 A reta da frequência não se sustenta com o grupo de referência ampliado — ABERTA em 14/09/2026
 
 **Constatação.** Com os 86 pares distintos, a inclinação da reta de |Δ PLL| contra log₁₀ da razão de frequência cai de 0,0308 (R² = 0,159, p = 0,044, 26 pares) para 0,0073 (R² = 0,008, p = 0,41). Nos 61 pares novos, isoladamente, a inclinação é nula: −0,0037, R² = 0,002, p = 0,74, e a mediana de |Δ| não varia entre as faixas de razão, de 1× a mais de 100×.
@@ -228,7 +230,28 @@ Registre-se ainda que a checagem de carga regional dos itens no corpus de áudio
 
 **Impacto medido da exclusão, e por que ela não é aplicada agora.** A reanálise sem o par duplicado, executada fora do repositório sobre `explicito_pares.json`, altera pouco o passo 5.4 e não muda nenhuma conclusão: a reta passa de 0,1296 + 0,0308·log₁₀(razão), R² = 0,159, a 0,1323 + 0,0298·log₁₀(razão), R² = 0,151; o gentílico de estado passa de p ajustado 0,0012 a 0,0004, a macrorregião de 0,0038 a 0,0045, e o controle positivo de 0,0009 a 0,0004. Nenhuma condição cruza o limiar de 0,05. A exclusão, contudo, alcança três análises — a reta do passo 5.1 (`teste_construcional.py`, `CALIBRACAO`), a do passo 5.4 (`teste_explicito.py`) e o grupo de referência do passo 5.5 (`analise_valencia.py`, `REFERENCIA`), de que sai o desvio-padrão de 0,1182 empregado em `meta_pares_minimos.py` — e cerca de dez documentos que citam seus valores, entre eles `CLAUDE.md`, `docs/achados_para_o_artigo.md` e `docs/resumo_para_orientacao.md`. Como a incorporação dos 55 pares medidos reabre as mesmas análises e altera os mesmos valores, **a exclusão será aplicada na mesma rodada**, para que os números publicados mudem uma única vez. Até lá, os valores vigentes são os que incluem o par duplicado.
 
-**Encerra a pendência:** aplicar a exclusão pelo mecanismo descrito em (d), junto com a incorporação dos pares novos; reformular o gerador para que cada frase compareça em um único par, com molduras em número maior e distintas das já presentes; e, caso se admita reúso, declarar a estatística de conglomerado correspondente e recalcular o teto de detecção.
+### 2.10 Controle de moldura para a menção explícita — PROPOSTA em 14/09/2026, aguardando aprovação
+
+Desenho da decisão (2) de 2.9. Nada foi gerado nem medido.
+
+**Pergunta.** A resposta do modelo à menção explícita (1.17) é específica do rótulo nordestino, ou é o que qualquer troca de rótulo regional produz num enunciado de autoidentificação? O PLL é calculado sobre o atributo mascarado, com o enunciado como contexto; um enunciado que descreve a pessoa (*Sou baiano*) tem razão para deslocar a probabilidade de atributos de pessoa mais que um enunciado sobre objeto (*Quebrei o prato*), e o grupo de referência não contém enunciados do primeiro tipo.
+
+**Escopo.** Os 29 pares de menção explícita: `explicito_regiao`, `explicito_gentilico`, `explicito_toponimo` e `controle_explicito`. As famílias implícitas ficam fora desta rodada, por serem nulas e a objeção incidir sobre o resultado positivo.
+
+**Construção.** Para cada par de teste, um par-controle com **a mesma frase e o mesmo lado de comparação**, trocado apenas o rótulo nordestino por rótulo equivalente de outra região que não o Sudeste, na mesma categoria — macrorregião por macrorregião, gentílico de estado por gentílico de estado, estado por estado, capital por capital. Exemplo: *Sou baiano, e minha família também* / *Sou fluminense, e minha família também* recebe o controle *Sou gaúcho, e minha família também* / *Sou fluminense, e minha família também*.
+
+**Região do rótulo-controle: Sul, por sondagem.** Os rótulos do Sul pareiam com os nordestinos em frequência e segmentação — *gaúcho* (11,5 por milhão, 1 subtoken), *paranaense* (6,3; 1), *catarinense* (6,8; 1) contra *baiano* (9,6; 1) e *cearense* (7,1; 2); *sulista* (2,2; 2) contra *nordestino* (4,3; 2); *Paraná*, *Curitiba* e *Florianópolis*, todos de 1 subtoken, contra *Ceará*, *Recife* e *Fortaleza*. Os do Norte são raros e fragmentados (*nortista*, 0,32; *amazonense*, 3 subtokens) e compartilham estigma regional com o Nordeste, o que confundiria a pergunta. **Duas exceções:** nos pares em que o lado de comparação já é do Sul (*Sou nordestino, nascido e criado* / *Sou sulista…*; *Todo nordestino sabe disso* / *Todo gaúcho…*), o rótulo-controle vem do Centro-Oeste (*goiano*).
+
+**Análise.** Pareada por frase: para cada frase k, D_k = |Δ|teste − |Δ|controle. Teste unilateral de D médio > 0 por permutação de sinais no nível da frase, por condição, com correção de Holm sobre as quatro condições. O reagrupamento pessoa/lugar permanece exploratório: os pares de teste são os mesmos que sugeriram a hipótese.
+
+**Predições, registradas antes da medição.**
+
+- Se a resposta for específica do Nordeste: D > 0 em `explicito_gentilico` e `explicito_regiao`, as duas condições que sobreviveram à correção; D próximo de zero em `explicito_toponimo`.
+- Se D for próximo de zero nas duas: o modelo responde a rótulo regional em enunciado de autoidentificação, e não ao Nordeste em particular. O item 1.17 teria de ser reformulado nessa direção, o que continua sendo resultado, mas outro.
+
+**Custo.** 29 pares novos, 812 medições; cerca de quatro minutos na máquina local, pela conferência de 14/09/2026, ou o notebook de medição.
+
+**Consequência para as condições de teste.** Se aprovado, o desenho pareado passa a ser o padrão: cada par de teste novo nasce com seu controle na mesma frase. O pareamento remove a variância de moldura, o que tende a reduzir o número de pares necessário por condição; a meta de 40 será recalculada sobre o desvio-padrão de D depois desta medição.
 
 ---
 
