@@ -29,6 +29,21 @@
         "proposta": "commit 9e07414",
         "aprovados": 9,
         "rejeitados": 1
+      },
+      {
+        "rodada": 3,
+        "data": "2026-09-14",
+        "proposta": "commit 4a2ecc4",
+        "aprovados": 1,
+        "rejeitados": 0
+      },
+      {
+        "rodada": 4,
+        "data": "2026-09-14",
+        "proposta": "reforço da faixa acima de 100×, não versionada",
+        "aprovados": 0,
+        "rejeitados": 1,
+        "nota": "zoologico-3 rejeitado antes de ir à equipe; demais pares da rodada descartados e regerados"
       }
     ]
   },
@@ -44,7 +59,8 @@
     "carregador": "também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante",
     "pote": "no Nordeste designa também o recipiente de barro para água, o que pode conferir carga regional",
     "terror": "valência negativa forte e sentido corrente fora do gênero cinematográfico ('foi um terror'); o outro lado do par não tem tom equivalente",
-    "drama": "sentido corrente fora do gênero cinematográfico ('fazer drama'), o que infla a razão de frequência"
+    "drama": "sentido corrente fora do gênero cinematográfico ('fazer drama'), o que infla a razão de frequência",
+    "leão": "também designa signo e, por metonímia, a Receita Federal ('o Leão'); a contagem de frequência soma os sentidos. Veto proposto pelo assistente, sob o critério já adotado pela equipe para 'violeta' e 'globo'"
   },
   "pares": [
     {
@@ -706,6 +722,28 @@
       "decisao": "aprovado",
       "motivo": null,
       "rodada": 2
+    },
+    {
+      "id": "presente-4",
+      "moldura": "presente",
+      "item_a": "relógio",
+      "item_b": "anel",
+      "lado_a": "Dei um relógio de presente para ela.",
+      "lado_b": "Dei um anel de presente para ela.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 3
+    },
+    {
+      "id": "zoologico-3",
+      "moldura": "zoologico",
+      "item_a": "leão",
+      "item_b": "bisão",
+      "lado_a": "Vimos um leão no zoológico.",
+      "lado_b": "Vimos um bisão no zoológico.",
+      "decisao": "rejeitado",
+      "motivo": "leão: também designa signo e, por metonímia, a Receita Federal ('o Leão'); a contagem de frequência soma os sentidos. Veto proposto pelo assistente, sob o critério já adotado pela equipe para 'violeta' e 'globo'",
+      "rodada": 4
     }
   ]
 }

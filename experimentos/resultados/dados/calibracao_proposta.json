@@ -7,16 +7,16 @@
       "max_diferenca_subtokens": 1
     },
     "revisao_aplicada": "calibracao_revisao.json",
-    "n_propostos": 55,
-    "n_aprovados": 54,
-    "n_pendentes": 1,
+    "n_propostos": 61,
+    "n_aprovados": 55,
+    "n_pendentes": 6,
     "dispersao_por_faixa": {
       "1–1.5": 11,
       "1.5–3": 11,
       "3–8": 10,
       "8–25": 10,
       "25–100": 10,
-      "> 100": 3
+      "> 100": 9
     },
     "medido_no_modelo": false
   },
@@ -1064,6 +1064,120 @@
       "freq_a": 2.4e-05,
       "freq_b": 2.09e-05,
       "id": "presente-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "gaveta",
+      "lado_a": "Ele guardou o cartão na gaveta.",
+      "lado_b": "Ele guardou o barbante na gaveta.",
+      "itens_a": [
+        "cartão"
+      ],
+      "itens_b": [
+        "barbante"
+      ],
+      "razao_frequencia": 104.678,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.37e-05,
+      "freq_b": 5.13e-07,
+      "id": "gaveta-1",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "sala",
+      "lado_a": "Compramos uma mesa para a sala.",
+      "lado_b": "Compramos uma luminária para a sala.",
+      "itens_a": [
+        "mesa"
+      ],
+      "itens_b": [
+        "luminária"
+      ],
+      "razao_frequencia": 141.317,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 7.08e-05,
+      "freq_b": 5.01e-07,
+      "id": "sala-1",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "gaveta",
+      "lado_a": "Ele guardou o remédio na gaveta.",
+      "lado_b": "Ele guardou o dedal na gaveta.",
+      "itens_a": [
+        "remédio"
+      ],
+      "itens_b": [
+        "dedal"
+      ],
+      "razao_frequencia": 120.0,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.86e-05,
+      "freq_b": 1.55e-07,
+      "id": "gaveta-2",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "sala",
+      "lado_a": "Compramos uma cadeira para a sala.",
+      "lado_b": "Compramos uma cristaleira para a sala.",
+      "itens_a": [
+        "cadeira"
+      ],
+      "itens_b": [
+        "cristaleira"
+      ],
+      "razao_frequencia": 630.739,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.16e-05,
+      "freq_b": 5.01e-08,
+      "id": "sala-2",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "filme",
+      "lado_a": "Assistimos a um filme de faroeste ontem.",
+      "lado_b": "Assistimos a um filme de guerra ontem.",
+      "itens_a": [
+        "faroeste"
+      ],
+      "itens_b": [
+        "guerra"
+      ],
+      "razao_frequencia": 194.839,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.55e-06,
+      "freq_b": 0.000302,
+      "id": "filme-5",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "gaveta",
+      "lado_a": "Ele guardou o documento na gaveta.",
+      "lado_b": "Ele guardou o novelo na gaveta.",
+      "itens_a": [
+        "documento"
+      ],
+      "itens_b": [
+        "novelo"
+      ],
+      "razao_frequencia": 158.609,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.79e-05,
+      "freq_b": 3.02e-07,
+      "id": "gaveta-3",
       "revisao": "pendente"
     }
   ]

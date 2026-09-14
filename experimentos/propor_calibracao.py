@@ -19,6 +19,25 @@ O grupo tem 26 entradas, mas 25 pares distintos: `controle_frequencia-05` é
 `controle_neutro-03` com os lados invertidos, e está marcado como excluído da
 calibração (`docs/pendencias.md` 2.8).
 
+## Por que 61: reforço da faixa superior
+
+Fechados os 55, a faixa de razão acima de 100× tinha três pares, contra dez ou
+onze nas demais — três dos rejeitados na revisão estavam nela. A inclinação da
+reta depende dos pontos nos extremos, e a equipe decidiu reforçar a faixa. Entre
+substituir pares já aprovados das faixas cheias e acrescentar pares, optou-se
+por acrescentar seis, que igualam a faixa às demais sem desfazer a revisão, ao
+custo de cerca de 11% a mais de medição. Os seis vêm de `--razao-minima 100`,
+que restringe os pares **novos** àquela faixa.
+
+A faixa é a mais difícil de preencher sob a regra de subtokens: item raro tende
+a fragmentar-se, e o par com item comum de um subtoken só é admissível se o raro
+tiver no máximo dois. Os itens do reforço foram escolhidos por sondagem prévia de
+frequência e segmentação, e não por tentativa: as molduras `gaveta` e `sala` e o
+item *guerra* em `filme` combinam item comum de um subtoken (*livro*, *cartão*,
+*mesa*, *guerra*) com item raro de dois (*novelo*, *barbante*, *luminária*,
+*faroeste*). Uma moldura `quarto` foi testada e descartada: seus itens raros
+fragmentam-se em três ou quatro subtokens e não formam par admissível.
+
 ## Revisão de 14/09/2026: uma frase, um par
 
 A primeira versão deste script formava **todas** as combinações de itens dentro
@@ -145,7 +164,9 @@ MOLDURAS = {
                      "clarinete", "trompete", "harpa", "oboé"]),
     "filme":       ("Assistimos a um filme de {item} ontem.",
                     ["ação", "terror", "comédia", "suspense", "aventura", "faroeste",
-                     "animação", "drama", "mistério"]),
+                     "animação", "drama", "mistério",
+                     # reforço da faixa acima de 100×
+                     "guerra"]),
     "louca":       ("Quebrei o {item} enquanto lavava a louça.",
                     ["prato", "copo", "pote", "bule", "jarro", "pires", "cálice",
                      "açucareiro"]),
@@ -166,6 +187,13 @@ MOLDURAS = {
     "viagem":      ("Levamos a {item} na viagem.",
                     ["mala", "câmera", "barraca", "mochila", "bicicleta", "prancha",
                      "garrafa", "toalha"]),
+    # Molduras acrescentadas para o reforço da faixa acima de 100×.
+    "gaveta":      ("Ele guardou o {item} na gaveta.",
+                    ["livro", "cartão", "documento", "remédio", "carimbo", "barbante",
+                     "novelo", "dedal"]),
+    "sala":        ("Compramos uma {item} para a sala.",
+                    ["televisão", "mesa", "cadeira", "poltrona", "luminária", "estante",
+                     "banqueta", "cristaleira"]),
 }
 
 # Faixas de razão de frequência a cobrir. A reta precisa de pontos espalhados:
@@ -328,8 +356,11 @@ def verificar(escolhidos: list[dict], frases_canonicas: set[str], max_moldura: i
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--n", type=int, default=55,
-                    help="pares a propor (padrão: 55, que leva o grupo de 25 pares distintos a 80)")
+    ap.add_argument("--n", type=int, default=61,
+                    help="pares a propor (padrão: 61 — os 55 que levam o grupo de 25 pares "
+                         "distintos a 80, mais seis de reforço da faixa acima de 100×)")
+    ap.add_argument("--razao-minima", type=float, default=None,
+                    help="restringe os pares novos a razão de frequência igual ou superior")
     ap.add_argument("--max-diferenca-subtokens", type=int, default=MAX_DIFERENCA_SUBTOKENS)
     ap.add_argument("--max-por-moldura", type=int, default=MAX_POR_MOLDURA)
     ap.add_argument("--saida", default=str(SAIDA_PADRAO))
@@ -348,6 +379,8 @@ def main() -> None:
             travados.append(par)
 
     cands = candidatos(tok, frases_canonicas, set(rev["itens_vetados"]))
+    if args.razao_minima is not None:
+        cands = [c for c in cands if c["razao_frequencia"] >= args.razao_minima]
     escolhidos = selecionar(cands, args.n, args.max_diferenca_subtokens,
                             args.max_por_moldura, travados)
     atribuir_ids(escolhidos, rev)
