@@ -143,21 +143,110 @@ CALIBRACAO_EXTRA: list[tuple[str, str]] = [
     ("Comprei pão na feira hoje.", "Comprei manteiga na feira hoje."),
 ]
 
+# --------------------------------------------------------------------------
+# Ampliação da calibração para 80 pares distintos — revisão de 14/09/2026.
+#
+# Com 25 pares distintos, a incerteza do grupo de referência impedia excluir
+# efeitos abaixo de 0,078 sob correção de multiplicidade
+# (`resultados/tabelas/meta_pares_minimos.md`). Os 55 primeiros levam o grupo a
+# 80; os seis últimos reforçam a faixa de razão acima de 100×, que a revisão
+# humana deixara com três pares.
+#
+# Gerados por `propor_calibracao.py` sob a regra de uma frase por par — nenhuma
+# frase se repete entre pares nem coincide com as das condições anteriores — e
+# aprovados um a um em `resultados/dados/calibracao_revisao.json`, onde estão
+# também os rejeitados e os motivos. O comentário de cada linha é o identificador
+# daquela revisão. **Não reordenar nem apagar linhas**: a medição associa-se ao
+# par pela posição na lista (`docs/pendencias.md` 2.8, item d).
+# --------------------------------------------------------------------------
+CALIBRACAO_V2: list[tuple[str, str]] = [
+    ("Na aula de hoje usamos um microscópio.", "Na aula de hoje usamos um telescópio."),  # aula-1
+    ("Ele mora perto de uma floricultura.", "Ele mora perto de uma marcenaria."),  # bairro-1
+    ("Troquei a descarga do banheiro.", "Troquei a fechadura do banheiro."),  # banheiro-1
+    ("Choveu muito na semana passada.", "Choveu muito na madrugada passada."),  # chuva-1
+    ("Meu pai consertou o carro no fim de semana.", "Meu pai consertou o aquecedor no fim de semana."),  # conserto-1
+    ("A menina desenhou um cavalo no caderno.", "A menina desenhou um castelo no caderno."),  # desenho-1
+    ("Esqueci o envelope no escritório.", "Esqueci o estojo no escritório."),  # escritorio-1
+    ("O gato dormiu em cima do sofá.", "O gato dormiu em cima do computador."),  # gato-1
+    ("Quebrei o prato enquanto lavava a louça.", "Quebrei o bule enquanto lavava a louça."),  # louca-1
+    ("Ela deixou a xícara em cima da mesa.", "Ela deixou a lanterna em cima da mesa."),  # mesa-1
+    ("Ele pendurou o relógio na parede da sala.", "Ele pendurou o diploma na parede da sala."),  # parede-1
+    ("Pintamos a estante de azul.", "Pintamos a penteadeira de azul."),  # pintura-1
+    ("Ela regou a orquídea da varanda.", "Ela regou a azaleia da varanda."),  # varanda-1
+    ("O vizinho comprou um sofá novo.", "O vizinho comprou um patinete novo."),  # vizinho-1
+    ("Levamos a mala na viagem.", "Levamos a garrafa na viagem."),  # viagem-1
+    ("Vimos um hipopótamo no zoológico.", "Vimos um tamanduá no zoológico."),  # zoologico-1
+    ("Na aula de hoje usamos um cronômetro.", "Na aula de hoje usamos um metrônomo."),  # aula-2
+    ("Ele mora perto de uma escola.", "Ele mora perto de uma biblioteca."),  # bairro-2
+    ("Troquei a torneira do banheiro.", "Troquei a saboneteira do banheiro."),  # banheiro-2
+    ("Meu pai consertou o portão no fim de semana.", "Meu pai consertou o telhado no fim de semana."),  # conserto-2
+    ("A menina desenhou um unicórnio no caderno.", "A menina desenhou um flamingo no caderno."),  # desenho-2
+    ("Esqueci o celular no escritório.", "Esqueci o casaco no escritório."),  # escritorio-2
+    ("Quebrei o copo enquanto lavava a louça.", "Quebrei o jarro enquanto lavava a louça."),  # louca-2
+    ("O vizinho comprou um carro novo.", "O vizinho comprou um aspirador novo."),  # vizinho-2
+    ("Assistimos a um filme de aventura ontem.", "Assistimos a um filme de animação ontem."),  # filme-2
+    ("O gato dormiu em cima do tapete.", "O gato dormiu em cima do travesseiro."),  # gato-2
+    ("Ele tocou trompete na festa da escola.", "Ele tocou oboé na festa da escola."),  # instrumento-2
+    ("Ela deixou a tesoura em cima da mesa.", "Ela deixou a agenda em cima da mesa."),  # mesa-2
+    ("Perdi o cartão no caminho de casa.", "Perdi o isqueiro no caminho de casa."),  # perda-2
+    ("Ele pendurou o espelho na parede da sala.", "Ele pendurou o calendário na parede da sala."),  # parede-2
+    ("Pintamos a prateleira de azul.", "Pintamos a escrivaninha de azul."),  # pintura-2
+    ("Levamos a mochila na viagem.", "Levamos a prancha na viagem."),  # viagem-2
+    ("Dei um perfume de presente para ela.", "Dei um broche de presente para ela."),  # presente-2
+    ("Vimos um elefante no zoológico.", "Vimos um suricato no zoológico."),  # zoologico-2
+    ("Ele mora perto de uma padaria.", "Ele mora perto de uma lavanderia."),  # bairro-3
+    ("Meu pai consertou o chuveiro no fim de semana.", "Meu pai consertou o interfone no fim de semana."),  # conserto-3
+    ("Troquei a pia do banheiro.", "Troquei a toalha do banheiro."),  # banheiro-3
+    ("A menina desenhou um dinossauro no caderno.", "A menina desenhou um pinguim no caderno."),  # desenho-3
+    ("Assistimos a um filme de suspense ontem.", "Assistimos a um filme de mistério ontem."),  # filme-3
+    ("O gato dormiu em cima do edredom.", "O gato dormiu em cima do baú."),  # gato-3
+    ("Ela regou a planta da varanda.", "Ela regou a roseira da varanda."),  # varanda-3
+    ("Ele tocou violão na festa da escola.", "Ele tocou piano na festa da escola."),  # instrumento-3
+    ("Ela deixou a caneta em cima da mesa.", "Ela deixou a calculadora em cima da mesa."),  # mesa-3
+    ("Ele pendurou o quadro na parede da sala.", "Ele pendurou o pôster na parede da sala."),  # parede-3
+    ("O vizinho comprou um triciclo novo.", "O vizinho comprou um barco novo."),  # vizinho-3
+    ("Dei um livro de presente para ela.", "Dei um pingente de presente para ela."),  # presente-3
+    ("Na aula de hoje usamos um computador.", "Na aula de hoje usamos um mapa."),  # aula-4
+    ("Perdi o boné no caminho de casa.", "Perdi o crachá no caminho de casa."),  # perda-3
+    ("Ele tocou flauta na festa da escola.", "Ele tocou violino na festa da escola."),  # instrumento-4
+    ("Quebrei o pires enquanto lavava a louça.", "Quebrei o cálice enquanto lavava a louça."),  # louca-4
+    ("Esqueci o caderno no escritório.", "Esqueci o crachá no escritório."),  # escritorio-4
+    ("Ela regou a samambaia da varanda.", "Ela regou a begônia da varanda."),  # varanda-4
+    ("Pintamos a parede de azul.", "Pintamos a cadeira de azul."),  # pintura-3
+    ("Perdi o bilhete no caminho de casa.", "Perdi o ingresso no caminho de casa."),  # perda-4
+    ("Dei um relógio de presente para ela.", "Dei um anel de presente para ela."),  # presente-4
+    ("Ele guardou o cartão na gaveta.", "Ele guardou o barbante na gaveta."),  # gaveta-1
+    ("Compramos uma mesa para a sala.", "Compramos uma luminária para a sala."),  # sala-1
+    ("Ele guardou o remédio na gaveta.", "Ele guardou o dedal na gaveta."),  # gaveta-2
+    ("Compramos uma cadeira para a sala.", "Compramos uma cristaleira para a sala."),  # sala-2
+    ("Assistimos a um filme de faroeste ontem.", "Assistimos a um filme de guerra ontem."),  # filme-5
+    ("Ele guardou o documento na gaveta.", "Ele guardou o novelo na gaveta."),  # gaveta-3
+]
+
 CONDICOES_NOVAS = {
     "explicito_regiao": EXPLICITO_REGIAO,
     "explicito_gentilico": EXPLICITO_GENTILICO,
     "explicito_toponimo": EXPLICITO_TOPONIMO,
     "calibracao_extra": CALIBRACAO_EXTRA,
+    "calibracao_v2": CALIBRACAO_V2,
 }
 
 CALIBRACAO = ("controle_neutro", "controle_raridade", "controle_frequencia",
-              "calibracao_extra")
+              "calibracao_extra", "calibracao_v2")
+
+# Pares que permanecem no conjunto, com a medição que tiverem, mas não entram no
+# grupo de referência. Exclusão por marcação, e não por remoção da lista, porque
+# remover deslocaria a posição dos pares seguintes e, com ela, a medição que lhes
+# corresponde (`docs/pendencias.md` 2.8).
+EXCLUIDOS_DA_CALIBRACAO = {
+    ("controle_frequencia", 5): "duplicata de controle_neutro-03, com os lados invertidos",
+}
 TESTE = ("dialeto_A", "dialeto_B", "dialeto_C", "dialeto_D",
          "controle_explicito", "explicito_regiao", "explicito_gentilico",
          "explicito_toponimo", "controle_conteudo")
 
 ORDEM = ("controle_neutro", "controle_frequencia", "calibracao_extra",
-         "controle_raridade", "dialeto_A", "dialeto_D", "dialeto_C", "dialeto_B",
+         "calibracao_v2", "controle_raridade", "dialeto_A", "dialeto_D", "dialeto_C", "dialeto_B",
          "explicito_toponimo", "explicito_gentilico", "controle_explicito",
          "explicito_regiao", "controle_conteudo")
 
@@ -207,7 +296,8 @@ def main() -> None:
         [p["mediana"] for p in pares if p["condicao"] == "controle_neutro"])
 
     # ---- reta da frequência ------------------------------------------------
-    calib = [p for p in pares if p["condicao"] in CALIBRACAO and p["razao"]]
+    calib = [p for p in pares if p["condicao"] in CALIBRACAO and p["razao"]
+             and (p["condicao"], p["par"]) not in EXCLUIDOS_DA_CALIBRACAO]
     xs = [math.log10(p["razao"]) for p in calib]
     ys = [p["mediana"] for p in calib]
     a, b, r2, p_incl = ajustar_reta(xs, ys)

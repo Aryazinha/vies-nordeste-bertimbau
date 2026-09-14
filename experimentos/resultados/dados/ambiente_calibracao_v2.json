@@ -1,0 +1,23 @@
+{
+  "data": "2026-09-14",
+  "branch": "pares-minimos-calibracao",
+  "commit": "ba73675",
+  "condicao_medida": "calibracao_v2",
+  "pares": 61,
+  "medicoes": 1708,
+  "dispositivo": "Tesla T4",
+  "versoes": {
+    "transformers": "5.16.1",
+    "tokenizers": "0.23.1",
+    "huggingface-hub": "1.26.1",
+    "wordfreq": "3.1.1",
+    "torch": "2.11.0+cu128"
+  },
+  "conferencia_reprodutibilidade": {
+    "condicao": "controle_neutro",
+    "medicoes_comparadas": 140,
+    "maior_diferenca": 1.9073486328125e-05,
+    "tolerancia": 0.001,
+    "ambiente_original": "torch 2.13.0+cpu (requirements-lock.txt)"
+  }
+}

@@ -11,6 +11,14 @@ Números gerados por `experimentos/teste_explicito.py` e
 `tabelas/valencia_tabelas.md`. Este documento os interpreta e não é sobrescrito pela
 reexecução dos scripts.
 
+> **Valores superados em 14/09/2026.** Os passos 5.4 e 5.5 foram reanalisados com grupo
+> de referência de 86 pares não regionais distintos, em lugar dos 26 aqui empregados. As
+> conclusões deste relatório se mantêm; os números vigentes estão nas tabelas regeradas,
+> e a leitura da reta da frequência foi revista — com o grupo ampliado, a razão de
+> frequência não prevê a diferença de escore (`docs/achados_para_o_artigo.md` 1.14;
+> `docs/pendencias.md` 2.9). Este documento permanece como registro da execução de
+> 29/08/2026.
+
 ---
 
 ## O que este passo testava

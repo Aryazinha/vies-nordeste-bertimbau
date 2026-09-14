@@ -35,9 +35,9 @@ O confundidor de frequência descrito por Kaneko e Bollegala (2022) encontra-se,
 
 ### Consequência demonstrada, acrescentada em 29/08/2026
 
-O item deixa de ser advertência metodológica e passa a ter **caso documentado**. No passo 5.5, uma medição de viés de valência produziu efeito aparentemente significativo — a condição de menção explícita à macrorregião apresentava viés de +0,1952, com sete de oito pares positivos e p ajustado de 0,0486. Restrita a análise aos atributos de **token único**, o efeito caiu para +0,0309, com três de oito pares positivos e p de 0,56.
+O item deixa de ser advertência metodológica e passa a ter **caso documentado**. No passo 5.5, uma medição de viés de valência produziu efeito aparentemente significativo — a condição de menção explícita à macrorregião apresentava viés de +0,1952, com sete de oito pares positivos e p ajustado de 0,0486 contra o grupo de referência de 26 pares — e de **0,0018** contra o grupo ampliado a 86 pares, em 14/09/2026. Restrita a análise aos atributos de **token único**, o efeito caiu para +0,0309, com três de oito pares positivos e p ajustado de 1,0000.
 
-**A restrição aumentou o poder do teste em vez de reduzi-lo:** o controle positivo passou de +0,2352, que não sobrevivia à correção, para +0,4758 com p ajustado de 0,0013. Com menos atributos e mais poder, o efeito da condição regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído.
+**A restrição aumentou o poder do teste em vez de reduzi-lo:** o controle positivo passou de +0,2352 para +0,4758, e seu p ajustado caiu de 0,0052 para 0,0004 com o grupo de 86 pares (de 0,0556, que não sobrevivia à correção, para 0,0013 com o de 26). Com menos atributos e mais poder, o efeito da condição regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído. A ampliação do grupo de referência torna o caso mais agudo, e não mais brando: o artefato passa a exibir significância forte na versão completa e continua a desaparecer por inteiro na restrita.
 
 O mecanismo é identificável no próprio repertório: entre os atributos multi-token, os desfavoráveis fragmentam-se mais que os favoráveis — *burra* (2), *grosseira* (3), *ignorante* (2), *preguiçosa* (3), média de 2,5 tokens, contra *culta*, *educada*, *honesta* e *trabalhadora*, todos de 2.
 
@@ -190,57 +190,57 @@ Em teste com condições de controle que estabelecem piso e teto de sensibilidad
 
 **Qualificação obrigatória:** cinco pares por condição, um modelo (BERTimbau Base), uma métrica (PLL sobre alvo mascarado), sem teste de significância. A afirmação deve ser formulada como ausência de efeito detectável nessas condições, e não como impossibilidade.
 
-## 1.14 O efeito do bloco lexical é atribuível à raridade das palavras
+## 1.14 O efeito do bloco lexical é reproduzido por palavras raras não regionais
 
 **Seção do artigo:** Resultados, e Ameaças à Validade.
 
-Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso, com correspondência item a item.
+Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso. A reprodução impede a leitura dialetal do bloco lexical, e **esta é a parte do item que se sustenta**. Com o grupo de referência de 86 pares, as duas condições seguem indistinguíveis: resíduo de +0,074 no bloco lexical e de +0,070 no controle de raridade, e o bloco lexical não sobrevive à correção de Holm (p ajustado 0,084).
 
-**Procedência:** mesma execução.
+### Revisão de 14/09/2026: a frequência não é o mecanismo
 
-### Revisão de 28/08/2026, obrigatória
-
-A redação original deste item prosseguia afirmando que "nesta métrica, a diferença de escore entre dois contextos é **dominada** pela frequência das palavras que os distinguem", e lia a menção explícita à região como indistinguível do controle de raridade. Com conjunto de calibração três vezes maior — 22 pares não regionais, com razões de frequência de 1,0× a 2.883× —, a forma forte não se sustenta e **não deve ser escrita**.
-
-O que a calibração mostra é que a razão de frequência responde por R² = 0,180 da variação entre pares, com p = 0,0493 para a inclinação. O efeito é real, positivo e modesto. Entre pares de razão de frequência praticamente idêntica, |Δ| varia por um fator de sete.
+As redações anteriores atribuíam a reprodução à frequência lexical — primeiro como efeito dominante, depois, com 22 pares, como efeito "real, positivo e modesto" (R² = 0,180). **Nenhuma das duas formas deve ser escrita.** Com o grupo de referência ampliado a 86 pares distintos, a inclinação de |Δ PLL| contra log₁₀ da razão de frequência é de 0,0073, com R² = 0,008 e p = 0,41; nos 61 pares acrescentados, isoladamente, é nula (p = 0,74), e a mediana de |Δ| não varia entre razões de 1× e mais de 600×. A inclinação anterior dependia de poucos pares: sem os cinco do controle de raridade, já não era significativa entre os 25 pares antigos (p = 0,13).
 
 **Formulação sustentada:**
 
-- a frequência lexical tem efeito positivo e mensurável sobre a diferença de escore;
-- um controle de raridade não regional reproduz o efeito do bloco lexical, o que continua a impedir a leitura dialetal daquele bloco — esta é a parte central do item, e permanece intacta;
-- **a maior parte da variação entre pares é idiossincrática**, determinada por quais palavras foram trocadas e não pela frequência delas.
+- um controle de palavras raras não regionais reproduz o efeito do bloco lexical, o que impede a leitura dialetal daquele bloco;
+- a razão de frequência entre os itens trocados **não prevê** a diferença de escore no grupo de referência ampliado;
+- a variação entre pares é dominada por fatores que a razão de frequência não captura, entre os quais a moldura do enunciado: nos pares acrescentados, a mediana de |Δ| por moldura vai de 0,086 a 0,262.
 
-**A consequência metodológica muda de forma junto com o diagnóstico, e ganha alcance.** O que inviabiliza a comparação ingênua entre guises não é apenas o desbalanceamento de frequência, corrigível por pareamento: é que o **ruído no nível do par é da ordem do efeito procurado** — desvio-padrão de 0,0618 nos resíduos de calibração, contra mediana de 0,1360. Segue-se que *matched-guise probing* com métrica de verossimilhança exige muitos pares, calibração explícita da resposta à frequência e estatística por conglomerado no nível do par. Delineamentos que comparem duas condições por uma diferença de médias sobre medições individuais tratam como replicação o que é a mesma frase medida várias vezes.
+**Hipótese não testada, a declarar como tal:** os cinco itens do controle de raridade combinam raridade com registro marcado, arcaizante ou coloquial, e o efeito que reproduz o do bloco lexical pode ser de marcação de registro, e não de frequência. A hipótese é posterior aos dados.
 
-**Procedência da revisão:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/relatorios/construcional.md`, seção 5.
+**A consequência metodológica permanece, com outra justificativa.** O ruído no nível do par segue da ordem do efeito procurado — desvio-padrão de 0,0629 nos resíduos de calibração, contra mediana de 0,1539 —, de modo que *matched-guise probing* com métrica de verossimilhança exige muitos pares, grupo de referência amplo e estatística por conglomerado no nível do par. O que muda é o papel da reta: com inclinação praticamente nula, o resíduo equivale à diferença em relação à média do grupo de referência, e a calibração vale como **verificação** de que a frequência não confunde a comparação, e não como correção dela.
+
+**Procedência:** `experimentos/teste_sensibilidade.py` para a reprodução; `experimentos/teste_explicito.py` para a revisão, com diagnóstico em `docs/pendencias.md` 2.9. As redações de 27 e 28/08/2026 estão no histórico do repositório.
 
 ## 1.15 Nenhuma das quatro famílias de sinalização dialetal implícita produz resposta detectável
 
 **Seção do artigo:** Resultados.
 
-Quatro famílias foram testadas contra a mesma calibração, e nenhuma apresenta resíduo acima do que a frequência lexical prevê:
+Quatro famílias foram testadas contra o mesmo grupo de referência, e nenhuma apresenta resíduo que sobreviva à correção de multiplicidade:
 
 | Família | Pares | Resíduo médio | Pares acima da reta | p | p Holm |
 |---|---|---|---|---|---|
-| morfossintática — imperativo e negação | 5 | −0,0608 | 0/5 | 0,9900 | 1,0000 |
-| lexical — itens regionais | 5 | +0,0447 | 4/5 | 0,1266 | 0,5064 |
-| feixe combinado | 5 | −0,0063 | 3/5 | 0,5671 | 1,0000 |
-| **construcional** | **10** | **−0,0141** | **3/10** | **0,7129** | **1,0000** |
+| morfossintática — imperativo e negação | 5 | −0,0763 | 0/5 | 0,9997 | 1,0000 |
+| lexical — itens regionais | 5 | +0,0739 | 4/5 | 0,0140 | 0,0840 |
+| feixe combinado | 5 | +0,0126 | 3/5 | 0,3145 | 0,9435 |
+| **construcional** | **10** | **−0,0249** | **3/10** | **0,8885** | **1,0000** |
 
-A família construcional foi acrescentada em 28/08/2026 para testar a única pista que a explicação por raridade não cobria, e é a mais informativa por dois motivos. Primeiro, seus itens são de frequência atestada — *lhe* de segunda pessoa, *tu* sem flexão, comitativo com *mais*, vocativos *menino* e *rapaz*, avaliativo *massa* —, de modo que a raridade não é explicação disponível. Segundo, a pista original não replicou: o vocativo *menino* contra *cara* apresenta resíduo de +0,0443, mas o vocativo *rapaz* contra o mesmo *cara* apresenta −0,0846, o maior resíduo negativo da condição. Mesma construção, mesmo termo de comparação, sinais opostos.
+Valores com o grupo de referência de 86 pares não regionais distintos, de 14/09/2026. A família lexical é a mais próxima do limiar, e seu resíduo é indistinguível do controle de palavras raras não regionais, de +0,0699 — ver 1.14.
+
+A família construcional foi acrescentada em 28/08/2026 para testar a única pista que a explicação por raridade não cobria, e é a mais informativa por dois motivos. Primeiro, seus itens são de frequência atestada — *lhe* de segunda pessoa, *tu* sem flexão, comitativo com *mais*, vocativos *menino* e *rapaz*, avaliativo *massa* —, de modo que a raridade não é explicação disponível. Segundo, a pista original não replicou: o vocativo *menino* contra *cara* apresenta resíduo de +0,0386, mas o vocativo *rapaz* contra o mesmo *cara* apresenta −0,0853, o maior resíduo negativo da condição. Mesma construção, mesmo termo de comparação, sinais opostos.
 
 **O caso mais limpo é a negação pós-verbal.** Os pares *fui não* / *não fui* e *sei não* / *não sei* empregam exatamente as mesmas palavras em ordem diferente, com razão de frequência 1,0 por construção. O confundidor não é atenuado, é eliminado. Ambos apresentam resíduo negativo.
 
 **Duas condições de interpretabilidade estão satisfeitas**, e sem elas o nulo não seria legível:
 
-1. *A medição detecta o que existe.* O controle de conteúdo proposicional apresenta resíduo de +0,3597, com p = 0,0003 após correção de Holm, apesar de razão de frequência baixa (2,3×). É o controle positivo do próprio método de resíduo.
-2. *O confundidor de frequência está descontado*, e não apenas declarado, pela reta ajustada sobre 22 pares não regionais.
+1. *A medição detecta o que existe.* O controle de conteúdo proposicional apresenta resíduo de +0,3422, com p = 0,0004 após correção de Holm, apesar de razão de frequência baixa (2,3×). É o controle positivo do próprio método de resíduo.
+2. *O confundidor de frequência está verificado*, e não apenas declarado: sobre 86 pares não regionais, a razão de frequência não prevê a diferença de escore (1.14, revisão de 14/09/2026).
 
 **Formulação correta:** o BERTimbau Base não exibe, sob pseudo-verossimilhança, resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas. **Formulação incorreta:** o BERTimbau não distingue as variedades, ou não apresenta viés regional.
 
 **Qualificação obrigatória:** um modelo, uma métrica, e cinco pares em três das quatro famílias. A afirmação é sobre ausência de efeito detectável nestas condições.
 
-**Procedência:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/relatorios/construcional.md`.
+**Procedência:** `experimentos/teste_construcional.py`, relatório em `experimentos/resultados/relatorios/construcional.md`; valores vigentes em `experimentos/resultados/tabelas/explicito_tabelas.md`, com o grupo de referência de 86 pares.
 
 ## 1.16 A unidade de replicação em *matched-guise probing* é o par, não a medição
 
@@ -258,19 +258,21 @@ Adotou-se, por isso, estatística por conglomerado — reamostragem de pares par
 
 **Seção do artigo:** Resultados. É o primeiro resultado positivo do projeto, e forma par com 1.15.
 
-Duas condições de menção explícita produzem resíduo acima da reta da frequência e **sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
+Duas condições de menção explícita produzem resíduo acima do grupo de referência não regional e **sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
 
 | Condição | Pares | Razão med. | Resíduo médio | Acima da reta | p Holm |
 |---|---|---|---|---|---|
-| gentílico de estado — *pernambucano*, *baiano*, *cearense* | 8 | 3,8× | +0,1567 | 8/8 | **0,0012** |
-| macrorregião — *Nordeste*, *nordestino* | 8 | 1,8× | +0,1072 | 7/8 | **0,0038** |
-| topônimo — *Ceará*, *Recife*, *Salvador* | 8 | 4,9× | +0,0326 | 6/8 | 0,4177 |
+| gentílico de estado — *pernambucano*, *baiano*, *cearense* | 8 | 3,8× | +0,1447 | 8/8 | **0,0004** |
+| macrorregião — *Nordeste*, *nordestino* | 8 | 1,8× | +0,0892 | 7/8 | **0,0045** |
+| topônimo — *Ceará*, *Recife*, *Salvador* | 8 | 4,9× | +0,0269 | 5/8 | 0,5370 |
 
-**Não é efeito de raridade,** e a comparação com 1.14 é o que o estabelece: as duas condições significativas têm as razões de frequência **mais baixas** de todo o conjunto, e o par mais bem pareado — *pernambucano* contra *paulistano*, a 1,1× — apresenta resíduo de +0,0895, uma vez e meia o desvio-padrão do ruído de calibração.
+Valores com o grupo de referência de 86 pares distintos, de 14/09/2026. Com 26 pares, os valores ajustados eram 0,0012 e 0,0038, e a conclusão não se alterou.
 
-**O contraste com 1.15 é a contribuição.** Mesmo modelo, mesma métrica, mesma reta de calibração, mesma estatística por conglomerado: quatro famílias de sinalização implícita entre −0,061 e +0,050, nenhuma significativa; menção explícita a +0,107 e +0,157, ambas sobreviventes à correção.
+**Não é efeito de raridade,** e a revisão de 1.14 o reforça: no grupo de referência ampliado, a razão de frequência não prevê a diferença de escore, e as duas condições significativas têm as razões de frequência **mais baixas** de todo o conjunto. O par mais bem pareado — *pernambucano* contra *paulistano*, a 1,1× — apresenta resíduo de +0,0638, cerca de um desvio-padrão do ruído de calibração.
 
-**Formulação sustentada:** o BERTimbau Base responde à menção explícita da região acima do que a frequência lexical prevê, e não responde à sinalização dialetal implícita. **Formulação vedada:** que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, em valor absoluto, e nada diz sobre direção. Ver 3.7.
+**O contraste com 1.15 é a contribuição.** Mesmo modelo, mesma métrica, mesmo grupo de referência, mesma estatística por conglomerado: quatro famílias de sinalização implícita entre −0,076 e +0,074, nenhuma sobrevivente à correção; menção explícita a +0,089 e +0,145, ambas sobreviventes.
+
+**Formulação sustentada:** o BERTimbau Base responde à menção explícita da região acima do grupo de referência de pares não regionais, e não responde à sinalização dialetal implícita. **Formulação vedada:** que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, em valor absoluto, e nada diz sobre direção. Ver 3.7.
 
 **Procedência:** `experimentos/teste_explicito.py`, relatório em `experimentos/resultados/relatorios/explicito.md`.
 
@@ -280,9 +282,9 @@ Duas condições de menção explícita produzem resíduo acima da reta da frequ
 
 **Seção do artigo:** Resultados, e **apenas com a declaração de estatuto abaixo**.
 
-A predição registrada antes da medição era ordinal por granularidade do rótulo, e não se confirmou: o gentílico de estado supera a macrorregião. A inspeção por par mostra que o corte é outro — entre enunciados que nomeiam uma **pessoa** e os que nomeiam um **lugar** —, e que ele atravessa a condição de macrorregião, cujos quatro pares com *Nordeste* rendem +0,043 contra +0,172 dos quatro com *nordestino*.
+A predição registrada antes da medição era ordinal por granularidade do rótulo, e não se confirmou: o gentílico de estado supera a macrorregião. A inspeção por par mostra que o corte é outro — entre enunciados que nomeiam uma **pessoa** e os que nomeiam um **lugar** —, e que ele atravessa a condição de macrorregião, cujos quatro pares com *Nordeste* rendem +0,021 contra +0,158 dos quatro com *nordestino*.
 
-Reagrupados os 24 pares explícitos por essa distinção: rótulo de pessoa, 12 pares, +0,1618, **doze de doze acima da reta**; rótulo de lugar, 12 pares, +0,0359, nove de doze. Diferença entre os agrupamentos, p = 0,0003.
+Reagrupados os 24 pares explícitos por essa distinção: rótulo de pessoa, 12 pares, +0,1490, **doze de doze acima da reta**; rótulo de lugar, 12 pares, +0,0249, oito de doze. Diferença entre os agrupamentos, p = 0,0004. Valores com o grupo de referência de 86 pares, de 14/09/2026; com 26 pares eram +0,1618, +0,0359 e p = 0,0003.
 
 **Declaração de estatuto, obrigatória em qualquer menção:** a hipótese foi formulada **depois** de ver os dados. O valor-p não tem o estatuto dos de 1.17 e vale como magnitude de efeito a testar em conjunto novo. O que permanece confirmatório é 1.17: as duas condições que contêm rótulos de pessoa sobrevivem a Holm, e a que contém apenas topônimos não sobrevive.
 
@@ -312,16 +314,18 @@ O item 1.17 estabelece que o modelo responde à menção explícita da região. 
 
 | Condição | Viés (7+7 atributos) | Viés (3+3, token único) |
 |---|---|---|
-| menção explícita — macrorregião | +0,1952 (p Holm 0,0486) | +0,0309 (p 0,56) |
+| menção explícita — macrorregião | +0,1952 (p Holm 0,0018) | +0,0309 (p Holm 1,0000) |
 | menção explícita — gentílico de estado | +0,0337 | +0,0368 |
 | menção explícita — topônimo | +0,0663 | −0,0089 |
-| **controle de conteúdo — positivo** | +0,2352 (p Holm 0,0556) | **+0,4758 (p Holm 0,0013)** |
+| **controle de conteúdo — positivo** | +0,2352 (p Holm 0,0052) | **+0,4758 (p Holm 0,0004)** |
+
+Valores com o grupo de referência de 86 pares distintos, de 14/09/2026. Com 26 pares, a macrorregião tinha p ajustado de 0,0486 na versão completa, e o controle positivo não sobrevivia à correção nela (0,0556). **O p de 0,0018 da macrorregião na versão completa não é resultado:** é o artefato de 1.1 com mais poder, e desaparece na versão restrita.
 
 **Três condições de interpretabilidade estão satisfeitas**, e sem elas o nulo não seria legível:
 
-1. *O grupo de referência é adequado.* São 26 pares não regionais, com viés médio de +0,0300, e não os cinco do controle neutro empregados na primeira versão da análise — erro de desenho corrigido, cujo sintoma foi o controle positivo não sobreviver à correção apesar das maiores magnitudes brutas.
+1. *O grupo de referência é adequado.* São 86 pares não regionais distintos, com viés médio de +0,0072 no eixo de caráter — 26 pares, com média de +0,0300, até 14/09/2026 —, e não os cinco do controle neutro empregados na primeira versão da análise, erro de desenho corrigido cujo sintoma foi o controle positivo não sobreviver à correção apesar das maiores magnitudes brutas.
 2. *A verificação de sanidade passa.* O controle neutro, testado contra o grupo do qual faz parte, resulta não significativo em todos os eixos.
-3. *O teste tem poder, e o tem mais na versão restrita.* O controle positivo sobrevive à correção de Holm a 0,0013.
+3. *O teste tem poder, e o tem mais na versão restrita.* O controle positivo sobrevive à correção de Holm nas duas versões, a 0,0052 e a 0,0004.
 
 **Formulação sustentada:** nas condições testadas, a resposta do BERTimbau Base à menção explícita da região não se organiza por valência dos atributos de caráter. O único efeito candidato mostrou-se atribuível à assimetria de tokenização (ver 1.1).
 
@@ -430,7 +434,7 @@ A impossibilidade não é acidente deste conjunto de itens: é o item 1.1 operan
 
 **Requalificado em 28/08/2026.** Deixa de ser "não foi medido" e passa a ser "mediu-se a condição de possibilidade, e ela não se verificou para a morfossintaxe".
 
-**Continua vedado** afirmar que o BERTimbau enviesa, ou que não enviesa, contra fala nordestina. O que se estabeleceu é que os marcadores morfossintáticos do instrumento não produzem resposta detectável, e que o efeito dos marcadores lexicais é atribuível à raridade. Não havendo resposta ao guise, não há viés a medir por esse caminho — o que é afirmação sobre o método, e não sobre a existência do preconceito.
+**Continua vedado** afirmar que o BERTimbau enviesa, ou que não enviesa, contra fala nordestina. O que se estabeleceu é que os marcadores morfossintáticos do instrumento não produzem resposta detectável, e que o efeito dos marcadores lexicais é reproduzido por palavras raras não regionais (1.14). Não havendo resposta ao guise, não há viés a medir por esse caminho — o que é afirmação sobre o método, e não sobre a existência do preconceito.
 
 **Formulação correta:** não foi possível detectar, com este desenho, resposta do modelo à sinalização dialetal. **Formulação incorreta:** o BERTimbau não apresenta viés regional.
 
@@ -446,7 +450,7 @@ A vedação, portanto, muda de fundamento — e deixa de ser sobre ausência de 
 
 **Formulação correta, em três partes que não devem ser separadas:**
 1. O BERTimbau Base **não** exibe resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas (1.15).
-2. O BERTimbau Base **exibe** resposta à menção explícita da região, acima do que a frequência lexical prevê, concentrada em rótulos de pessoa (1.17).
+2. O BERTimbau Base **exibe** resposta à menção explícita da região, acima do grupo de referência não regional, concentrada em rótulos de pessoa (1.17).
 3. **Não se sabe** se essa resposta é depreciativa: a medida é de magnitude, e a de direção não tem poder estatístico (3.7).
 
 **Formulação incorreta, e a mais tentadora:** que o modelo apresente, ou deixe de apresentar, viés regional. Distinguir não é depreciar.
@@ -491,13 +495,13 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 
 **Deixa de ser inteiramente vedado em 28/08/2026.** Os testes de `experimentos/teste_construcional.py` são os primeiros do projeto: permutação de rótulos de par, intervalo por reamostragem de conglomerado, correção de Holm sobre a família de seis condições, e teste t para a inclinação da reta de frequência.
 
-**Pode ser afirmado**, com os valores tais como o relatório os traz, para as condições ali medidas — o que abrange os itens 1.13, 1.14, 1.15, 1.16, 1.17 e 1.18. O passo 5.4, de 29/08/2026, estendeu a mesma maquinaria ao conjunto de menção explícita, com a calibração passando a 26 pares.
+**Pode ser afirmado**, com os valores tais como o relatório os traz, para as condições ali medidas — o que abrange os itens 1.13, 1.14, 1.15, 1.16, 1.17 e 1.18. O passo 5.4, de 29/08/2026, estendeu a mesma maquinaria ao conjunto de menção explícita, com a calibração passando a 26 pares. Em 14/09/2026 o grupo de referência foi ampliado a 86 pares distintos e todos os valores foram regerados; os vigentes são os de `experimentos/resultados/tabelas/explicito_tabelas.md` e `valencia_tabelas.md`.
 
-**Não abrange a análise de direção.** Os valores-p de `analise_valencia.py` são reportados no relatório, mas o próprio controle positivo não sobrevive à correção, o que significa que a análise não tem poder e que nenhum de seus valores — significativo ou não — sustenta afirmação. Ver 3.7.
+**A análise de direção é abrangida, com a ressalva de 1.1.** A redação anterior deste parágrafo a excluía por falta de poder. O controle positivo passou a sobreviver à correção no eixo de caráter restrito a token único em 29/08/2026, e também no completo com o grupo de 86 pares. Um valor significativo na versão completa do eixo de caráter não sustenta afirmação sem a verificação por token único, que é o que desfaz o da macrorregião. O eixo ocupacional segue fora. Ver 1.19 e 3.7.
 
 **Continua vedado** para todo o restante. Nenhum teste foi executado sobre as medidas do corpus de áudio — rendimento por camada, confiança de transcrição, taxa de ocorrência de marcadores —, e as comparações entre Nordeste e Sudeste registradas na seção 2 permanecem descritivas.
 
-**Qualificação obrigatória, a declarar junto de cada valor-p:** os pares que definem a reta de calibração — 22 no passo 5.1, 26 no 5.4 — têm resíduo de média zero por construção, o que estreita a distribuição nula da permutação e torna o teste ligeiramente anticonservador. Um conjunto de validação separado do de ajuste seria preferível, e não foi constituído.
+**Qualificação obrigatória, a declarar junto de cada valor-p:** os pares que definem a reta de calibração — 22 no passo 5.1, 26 no 5.4, 86 desde 14/09/2026 — têm resíduo de média zero por construção, o que estreita a distribuição nula da permutação e torna o teste ligeiramente anticonservador. Um conjunto de validação separado do de ajuste seria preferível, e não foi constituído.
 
 ## 3.6 Que a composição do brWaC explique o viés observado
 

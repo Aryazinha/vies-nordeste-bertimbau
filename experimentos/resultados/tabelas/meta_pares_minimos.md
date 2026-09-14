@@ -16,8 +16,8 @@ direito", e é essa distinção que a seção de Resultados precisa sustentar.
 ## A decisão, e por que este número
 
 **Excluir efeitos de viés acima de 0.08** em unidade bruta,
-equivalente a d = 0.68 desvios-padrão do ruído entre pares
-(0.1182). Decidido pela equipe em 29/08/2026. Três razões:
+equivalente a d = 0.66 desvios-padrão do ruído entre pares
+(0.1217). Decidido pela equipe em 29/08/2026. Três razões:
 
 **1. É cerca de metade do artefato que o projeto desmontou.** O falso viés
 de tokenização media 0.1952 antes do controle
@@ -38,15 +38,15 @@ economiza pouco ao custo de só poder excluir viés grande.
 
 | Excluir acima de | d | α = 0,05, ref. 50 | α = 0,05, ref. 80 | Holm, ref. 50 | Holm, ref. 80 |
 |---|---|---|---|---|---|
-| 0.059 | 0.50 | 50 | 36 | inviável | 108 |
-| 0.071 | 0.60 | 27 | 22 | 87 | 53 |
-| **0.080** | 0.68 | 19 | 17 | 50 | 37 |
-| 0.095 | 0.80 | 12 | 11 | 28 | 23 |
-| 0.118 | 1.00 | 8 | 7 | 15 | 14 |
+| 0.059 | 0.48 | 56 | 40 | inviável | 125 |
+| 0.071 | 0.58 | 29 | 24 | 103 | 58 |
+| **0.080** | 0.66 | 21 | 18 | 57 | 40 |
+| 0.095 | 0.78 | 13 | 12 | 31 | 25 |
+| 0.118 | 0.97 | 8 | 8 | 17 | 15 |
 
-**Meta adotada: 37 pares por
+**Meta adotada: 40 pares por
 condição e 80 pares no grupo de referência não regional.**
-Hoje há 8 e 26, respectivamente.
+Hoje há 8 e 86, respectivamente.
 
 ## A restrição que a conta revelou, e não constava de plano anterior
 
@@ -55,21 +55,21 @@ seja o número de pares de teste: sua própria incerteza não desaparece.
 
 | Pares de referência | Menor efeito detectável, α = 0,05 | Sob correção de Holm |
 |---|---|---|
-| 26 (atual) | 0.058 | 0.078 |
-| 50 | 0.042 | 0.057 |
-| 80 | 0.033 | 0.045 |
-| 120 | 0.027 | 0.036 |
+| 86 (atual) | 0.033 | 0.044 |
+| 50 | 0.043 | 0.058 |
+| 80 | 0.034 | 0.046 |
+| 120 | 0.028 | 0.038 |
 
-Com os 26 pares de referência atuais, **nenhum efeito abaixo
-de 0.078 é detectável**
+Com os 86 pares de referência atuais, **nenhum efeito abaixo
+de 0.044 é detectável**
 sob correção de multiplicidade, por mais pares de teste que se acrescentem.
 O grupo de referência precisa crescer junto com as condições de teste, e
 isso não constava de nenhum plano anterior do projeto.
 
 ## Volume total implicado
 
-- Com 4 condições de teste: 4 × 37 + 80 = **228 pares** no conjunto.
-- Com 5 condições de teste: 5 × 37 + 80 = **265 pares** no conjunto.
+- Com 4 condições de teste: 4 × 40 + 80 = **240 pares** no conjunto.
+- Com 5 condições de teste: 5 × 40 + 80 = **280 pares** no conjunto.
 
 Para calibrar, o CrowS-Pairs distribui 1.508 pares. O conjunto proposto
 fica em cerca de um sexto disso, com delineamento consideravelmente mais
@@ -90,7 +90,7 @@ AUL (`docs/achados_para_o_artigo.md`, itens 1.1 e 1.20).
 efetivamente empregado é de permutação. A aproximação é adequada para
 dimensionamento e tende a ser levemente conservadora.
 
-**O desvio-padrão do ruído vem de 26 pares** e é ele próprio
+**O desvio-padrão do ruído vem de 86 pares** e é ele próprio
 uma estimativa. Um grupo de referência maior a tornará mais precisa, e a
 meta deve ser reconferida quando isso ocorrer.
 

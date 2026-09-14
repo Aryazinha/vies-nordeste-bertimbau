@@ -7,8 +7,8 @@
   "n": 28,
   "mediana": 0.15884418785572052,
   "razao": 51.09090909090907,
-  "previsto": 0.18228623789128226,
-  "residuo": -0.02344205003556174
+  "previsto": 0.16897776247531618,
+  "residuo": -0.010133574619595659
  },
  {
   "condicao": "calibracao_extra",
@@ -18,8 +18,8 @@
   "n": 28,
   "mediana": 0.17759919166564941,
   "razao": 32.27272727272727,
-  "previsto": 0.17613357454786066,
-  "residuo": 0.0014656171177887534
+  "previsto": 0.16751880701559493,
+  "residuo": 0.01008038465005448
  },
  {
   "condicao": "calibracao_extra",
@@ -29,8 +29,8 @@
   "n": 28,
   "mediana": 0.13428147633870458,
   "razao": 26.818181818181824,
-  "previsto": 0.1736539084910365,
-  "residuo": -0.03937243215233194
+  "previsto": 0.1669308141204925,
+  "residuo": -0.03264933778178791
  },
  {
   "condicao": "calibracao_extra",
@@ -40,8 +40,679 @@
   "n": 28,
   "mediana": 0.1863398551940918,
   "razao": 4.454545454545455,
-  "previsto": 0.14961087854248317,
-  "residuo": 0.036728976651608625
+  "previsto": 0.16122959046274302,
+  "residuo": 0.02511026473134878
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 0,
+  "a": "Na aula de hoje usamos um microscópio.",
+  "b": "Na aula de hoje usamos um telescópio.",
+  "n": 28,
+  "mediana": 0.19989323616027832,
+  "razao": 1.3749999999999998,
+  "previsto": 0.1574964172637251,
+  "residuo": 0.04239681889655322
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 1,
+  "a": "Ele mora perto de uma floricultura.",
+  "b": "Ele mora perto de uma marcenaria.",
+  "n": 28,
+  "mediana": 0.22075891494750977,
+  "razao": 1.5178571428571428,
+  "previsto": 0.15781034123832385,
+  "residuo": 0.06294857370918591
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 2,
+  "a": "Troquei a descarga do banheiro.",
+  "b": "Troquei a fechadura do banheiro.",
+  "n": 28,
+  "mediana": 0.1358320713043213,
+  "razao": 3.397350993377486,
+  "previsto": 0.1603691484001134,
+  "residuo": -0.024537077095792115
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 3,
+  "a": "Choveu muito na semana passada.",
+  "b": "Choveu muito na madrugada passada.",
+  "n": 28,
+  "mediana": 0.13019543886184692,
+  "razao": 13.17880794701987,
+  "previsto": 0.16467443611649113,
+  "residuo": -0.034478997254644206
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 4,
+  "a": "Meu pai consertou o carro no fim de semana.",
+  "b": "Meu pai consertou o aquecedor no fim de semana.",
+  "n": 28,
+  "mediana": 0.11309891939163208,
+  "razao": 85.29411764705881,
+  "previsto": 0.17060540512444192,
+  "residuo": -0.05750648573280984
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 5,
+  "a": "A menina desenhou um cavalo no caderno.",
+  "b": "A menina desenhou um castelo no caderno.",
+  "n": 28,
+  "mediana": 0.18452906608581543,
+  "razao": 1.071186440677967,
+  "previsto": 0.15670343801337022,
+  "residuo": 0.027825628072445208
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 6,
+  "a": "Esqueci o envelope no escritório.",
+  "b": "Esqueci o estojo no escritório.",
+  "n": 28,
+  "mediana": 0.15311062335968018,
+  "razao": 1.6623931623931625,
+  "previsto": 0.15809921638377541,
+  "residuo": -0.004988593024095239
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 7,
+  "a": "O gato dormiu em cima do sofá.",
+  "b": "O gato dormiu em cima do computador.",
+  "n": 28,
+  "mediana": 0.1214141845703125,
+  "razao": 3.161572052401747,
+  "previsto": 0.16014071702145646,
+  "residuo": -0.038726532451143963
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 8,
+  "a": "Quebrei o prato enquanto lavava a louça.",
+  "b": "Quebrei o bule enquanto lavava a louça.",
+  "n": 28,
+  "mediana": 0.07832014560699463,
+  "razao": 25.700000000000006,
+  "previsto": 0.1667955556447923,
+  "residuo": -0.08847541003779766
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 9,
+  "a": "Ela deixou a xícara em cima da mesa.",
+  "b": "Ela deixou a lanterna em cima da mesa.",
+  "n": 28,
+  "mediana": 0.09806537628173828,
+  "razao": 1.0226928895612695,
+  "previsto": 0.15655630636144974,
+  "residuo": -0.058490930079711456
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 10,
+  "a": "Ele pendurou o relógio na parede da sala.",
+  "b": "Ele pendurou o diploma na parede da sala.",
+  "n": 28,
+  "mediana": 0.18523406982421875,
+  "razao": 1.655172413793105,
+  "previsto": 0.1580853915632617,
+  "residuo": 0.027148678260957043
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 11,
+  "a": "Pintamos a estante de azul.",
+  "b": "Pintamos a penteadeira de azul.",
+  "n": 28,
+  "mediana": 0.17594599723815918,
+  "razao": 8.306636155606402,
+  "previsto": 0.16320858487342646,
+  "residuo": 0.01273741236473272
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 12,
+  "a": "Ela regou a orquídea da varanda.",
+  "b": "Ela regou a azaleia da varanda.",
+  "n": 28,
+  "mediana": 0.2188401222229004,
+  "razao": 25.673534072900146,
+  "previsto": 0.1667922834148458,
+  "residuo": 0.05204783880805458
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 13,
+  "a": "O vizinho comprou um sofá novo.",
+  "b": "O vizinho comprou um patinete novo.",
+  "n": 28,
+  "mediana": 0.09727144241333008,
+  "razao": 100.00000000000006,
+  "previsto": 0.1711105778648012,
+  "residuo": -0.07383913545147111
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 14,
+  "a": "Levamos a mala na viagem.",
+  "b": "Levamos a garrafa na viagem.",
+  "n": 28,
+  "mediana": 0.108274151881536,
+  "razao": 1.096385542168674,
+  "previsto": 0.1567772840515328,
+  "residuo": -0.0485031321699968
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 15,
+  "a": "Vimos um hipopótamo no zoológico.",
+  "b": "Vimos um tamanduá no zoológico.",
+  "n": 28,
+  "mediana": 0.149458646774292,
+  "razao": 1.5492341356673964,
+  "previsto": 0.15787532365755663,
+  "residuo": -0.00841667688326464
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 16,
+  "a": "Na aula de hoje usamos um cronômetro.",
+  "b": "Na aula de hoje usamos um metrônomo.",
+  "n": 28,
+  "mediana": 0.26163262128829956,
+  "razao": 4.460674157303365,
+  "previsto": 0.16123395695493958,
+  "residuo": 0.10039866433335998
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 17,
+  "a": "Ele mora perto de uma escola.",
+  "b": "Ele mora perto de uma biblioteca.",
+  "n": 28,
+  "mediana": 0.16448473930358887,
+  "razao": 8.316582914572873,
+  "previsto": 0.16321238556497172,
+  "residuo": 0.0012723537386171435
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 18,
+  "a": "Troquei a torneira do banheiro.",
+  "b": "Troquei a saboneteira do banheiro.",
+  "n": 28,
+  "mediana": 0.09711462259292603,
+  "razao": 40.728831725616274,
+  "previsto": 0.16825788131818284,
+  "residuo": -0.07114325872525681
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 19,
+  "a": "Meu pai consertou o portão no fim de semana.",
+  "b": "Meu pai consertou o telhado no fim de semana.",
+  "n": 28,
+  "mediana": 0.09793925285339355,
+  "razao": 1.5497382198952903,
+  "previsto": 0.15787635685070628,
+  "residuo": -0.059937103997312724
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 20,
+  "a": "A menina desenhou um unicórnio no caderno.",
+  "b": "A menina desenhou um flamingo no caderno.",
+  "n": 28,
+  "mediana": 0.11526910463968898,
+  "razao": 3.232044198895028,
+  "previsto": 0.16021073097938648,
+  "residuo": -0.044941626339697505
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 21,
+  "a": "Esqueci o celular no escritório.",
+  "b": "Esqueci o casaco no escritório.",
+  "n": 28,
+  "mediana": 0.3436466455459595,
+  "razao": 8.350427350427353,
+  "previsto": 0.16322528368103228,
+  "residuo": 0.1804213618649272
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 22,
+  "a": "Quebrei o copo enquanto lavava a louça.",
+  "b": "Quebrei o jarro enquanto lavava a louça.",
+  "n": 28,
+  "mediana": 0.08572494983673096,
+  "razao": 38.841807909604526,
+  "previsto": 0.16810721989149988,
+  "residuo": -0.08238227005476892
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 23,
+  "a": "O vizinho comprou um carro novo.",
+  "b": "O vizinho comprou um aspirador novo.",
+  "n": 28,
+  "mediana": 0.12094402313232422,
+  "razao": 123.40425531914897,
+  "previsto": 0.17177845396524047,
+  "residuo": -0.05083443083291625
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 24,
+  "a": "Assistimos a um filme de aventura ontem.",
+  "b": "Assistimos a um filme de animação ontem.",
+  "n": 28,
+  "mediana": 0.1605573296546936,
+  "razao": 1.0972762645914387,
+  "previsto": 0.15677986315545742,
+  "residuo": 0.0037774664992361873
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 25,
+  "a": "O gato dormiu em cima do tapete.",
+  "b": "O gato dormiu em cima do travesseiro.",
+  "n": 28,
+  "mediana": 0.09610582888126373,
+  "razao": 2.0897155361050306,
+  "previsto": 0.15882576495762724,
+  "residuo": -0.0627199360763635
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 26,
+  "a": "Ele tocou trompete na festa da escola.",
+  "b": "Ele tocou oboé na festa da escola.",
+  "n": 28,
+  "mediana": 0.10728377103805542,
+  "razao": 3.169533169533171,
+  "previsto": 0.16014870415265428,
+  "residuo": -0.05286493311459886
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 27,
+  "a": "Ela deixou a tesoura em cima da mesa.",
+  "b": "Ela deixou a agenda em cima da mesa.",
+  "n": 28,
+  "mediana": 0.332258939743042,
+  "razao": 8.508997429305904,
+  "previsto": 0.1632850267327684,
+  "residuo": 0.1689739130102736
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 28,
+  "a": "Perdi o cartão no caminho de casa.",
+  "b": "Perdi o isqueiro no caminho de casa.",
+  "n": 28,
+  "mediana": 0.16264641284942627,
+  "razao": 26.323529411764703,
+  "previsto": 0.16687168883627446,
+  "residuo": -0.004225275986848187
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 29,
+  "a": "Ele pendurou o espelho na parede da sala.",
+  "b": "Ele pendurou o calendário na parede da sala.",
+  "n": 28,
+  "mediana": 0.17543932795524597,
+  "razao": 1.0233463035019454,
+  "previsto": 0.15655833484069853,
+  "residuo": 0.01888099311454744
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 30,
+  "a": "Pintamos a prateleira de azul.",
+  "b": "Pintamos a escrivaninha de azul.",
+  "n": 28,
+  "mediana": 0.1492537260055542,
+  "razao": 2.8831725616291535,
+  "previsto": 0.15984796901652454,
+  "residuo": -0.010594243010970339
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 31,
+  "a": "Levamos a mochila na viagem.",
+  "b": "Levamos a prancha na viagem.",
+  "n": 28,
+  "mediana": 0.1424182653427124,
+  "razao": 3.802816901408452,
+  "previsto": 0.16072721807169246,
+  "residuo": -0.01830895272898006
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 32,
+  "a": "Dei um perfume de presente para ela.",
+  "b": "Dei um broche de presente para ela.",
+  "n": 28,
+  "mediana": 0.15462899208068848,
+  "razao": 14.099999999999989,
+  "previsto": 0.16488901454984817,
+  "residuo": -0.01026002246915969
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 33,
+  "a": "Vimos um elefante no zoológico.",
+  "b": "Vimos um suricato no zoológico.",
+  "n": 28,
+  "mediana": 0.16959631443023682,
+  "razao": 42.650602409638616,
+  "previsto": 0.16840430645868043,
+  "residuo": 0.0011920079715563858
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 34,
+  "a": "Ele mora perto de uma padaria.",
+  "b": "Ele mora perto de uma lavanderia.",
+  "n": 28,
+  "mediana": 0.1168203353881836,
+  "razao": 1.584022038567494,
+  "previsto": 0.15794584917782187,
+  "residuo": -0.041125513789638274
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 35,
+  "a": "Meu pai consertou o chuveiro no fim de semana.",
+  "b": "Meu pai consertou o interfone no fim de semana.",
+  "n": 28,
+  "mediana": 0.17766308784484863,
+  "razao": 14.120443740095089,
+  "previsto": 0.16489361597853636,
+  "residuo": 0.012769471866312276
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 36,
+  "a": "Troquei a pia do banheiro.",
+  "b": "Troquei a toalha do banheiro.",
+  "n": 28,
+  "mediana": 0.131311297416687,
+  "razao": 1.0230263157894743,
+  "previsto": 0.15655734162243662,
+  "residuo": -0.025246044205749607
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 37,
+  "a": "A menina desenhou um dinossauro no caderno.",
+  "b": "A menina desenhou um pinguim no caderno.",
+  "n": 28,
+  "mediana": 0.28571856021881104,
+  "razao": 1.6617100371747207,
+  "previsto": 0.15809791104892526,
+  "residuo": 0.12762064916988577
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 38,
+  "a": "Assistimos a um filme de suspense ontem.",
+  "b": "Assistimos a um filme de mistério ontem.",
+  "n": 28,
+  "mediana": 0.14287972450256348,
+  "razao": 3.549432739059971,
+  "previsto": 0.16050822652105368,
+  "residuo": -0.0176285020184902
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 39,
+  "a": "O gato dormiu em cima do edredom.",
+  "b": "O gato dormiu em cima do baú.",
+  "n": 28,
+  "mediana": 0.07963991165161133,
+  "razao": 8.910256410256409,
+  "previsto": 0.16343136845410888,
+  "residuo": -0.08379145680249755
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 40,
+  "a": "Ela regou a planta da varanda.",
+  "b": "Ela regou a roseira da varanda.",
+  "n": 28,
+  "mediana": 0.13890282313029,
+  "razao": 57.4850299401198,
+  "previsto": 0.1693522576028863,
+  "residuo": -0.030449434472596293
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 41,
+  "a": "Ele tocou violão na festa da escola.",
+  "b": "Ele tocou piano na festa da escola.",
+  "n": 28,
+  "mediana": 0.14520865678787231,
+  "razao": 1.0,
+  "previsto": 0.15648504170737482,
+  "residuo": -0.011276384919502502
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 42,
+  "a": "Ela deixou a caneta em cima da mesa.",
+  "b": "Ela deixou a calculadora em cima da mesa.",
+  "n": 28,
+  "mediana": 0.10050201416015625,
+  "razao": 5.8823529411764675,
+  "previsto": 0.1621125902700591,
+  "residuo": -0.06161057610990284
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 43,
+  "a": "Ele pendurou o quadro na parede da sala.",
+  "b": "Ele pendurou o pôster na parede da sala.",
+  "n": 28,
+  "mediana": 0.21656358242034912,
+  "razao": 12.605263157894758,
+  "previsto": 0.16453312263350003,
+  "residuo": 0.05203045978684909
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 44,
+  "a": "O vizinho comprou um triciclo novo.",
+  "b": "O vizinho comprou um barco novo.",
+  "n": 28,
+  "mediana": 0.1923905611038208,
+  "razao": 26.291618828932258,
+  "previsto": 0.16686783653629378,
+  "residuo": 0.025522724567527022
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 45,
+  "a": "Dei um livro de presente para ela.",
+  "b": "Dei um pingente de presente para ela.",
+  "n": 28,
+  "mediana": 0.16729214787483215,
+  "razao": 244.9999999999999,
+  "previsto": 0.17395645918385994,
+  "residuo": -0.006664311309027782
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 46,
+  "a": "Na aula de hoje usamos um computador.",
+  "b": "Na aula de hoje usamos um mapa.",
+  "n": 28,
+  "mediana": 0.32188260555267334,
+  "razao": 1.4113060428849924,
+  "previsto": 0.15757918685057035,
+  "residuo": 0.164303418702103
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 47,
+  "a": "Perdi o boné no caminho de casa.",
+  "b": "Perdi o crachá no caminho de casa.",
+  "n": 28,
+  "mediana": 0.10669982433319092,
+  "razao": 3.4621212121212146,
+  "previsto": 0.16042912663462422,
+  "residuo": -0.0537293023014333
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 48,
+  "a": "Ele tocou flauta na festa da escola.",
+  "b": "Ele tocou violino na festa da escola.",
+  "n": 28,
+  "mediana": 0.16976892948150635,
+  "razao": 1.699367088607595,
+  "previsto": 0.15816907861500282,
+  "residuo": 0.01159985086650353
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 49,
+  "a": "Quebrei o pires enquanto lavava a louça.",
+  "b": "Quebrei o cálice enquanto lavava a louça.",
+  "n": 28,
+  "mediana": 0.2316913604736328,
+  "razao": 4.370860927152325,
+  "previsto": 0.16116935953131736,
+  "residuo": 0.07052200094231545
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 50,
+  "a": "Esqueci o caderno no escritório.",
+  "b": "Esqueci o crachá no escritório.",
+  "n": 28,
+  "mediana": 0.12307572364807129,
+  "razao": 8.484848484848486,
+  "previsto": 0.1632760005759208,
+  "residuo": -0.0402002769278495
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 51,
+  "a": "Ela regou a samambaia da varanda.",
+  "b": "Ela regou a begônia da varanda.",
+  "n": 28,
+  "mediana": 0.18801870942115784,
+  "razao": 27.419354838709694,
+  "previsto": 0.16700122072802967,
+  "residuo": 0.021017488693128167
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 52,
+  "a": "Pintamos a parede de azul.",
+  "b": "Pintamos a cadeira de azul.",
+  "n": 28,
+  "mediana": 0.09590446949005127,
+  "razao": 1.481012658227847,
+  "previsto": 0.15773229843950798,
+  "residuo": -0.06182782894945671
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 53,
+  "a": "Perdi o bilhete no caminho de casa.",
+  "b": "Perdi o ingresso no caminho de casa.",
+  "n": 28,
+  "mediana": 0.32440221309661865,
+  "razao": 1.542857142857144,
+  "previsto": 0.15786222398788435,
+  "residuo": 0.1665399891087343
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 54,
+  "a": "Dei um relógio de presente para ela.",
+  "b": "Dei um anel de presente para ela.",
+  "n": 28,
+  "mediana": 0.17528486251831055,
+  "razao": 1.1483253588516755,
+  "previsto": 0.15692428279733986,
+  "residuo": 0.018360579720970688
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 55,
+  "a": "Ele guardou o cartão na gaveta.",
+  "b": "Ele guardou o barbante na gaveta.",
+  "n": 28,
+  "mediana": 0.16303491592407227,
+  "razao": 104.67836257309939,
+  "previsto": 0.17125578691981674,
+  "residuo": -0.008220870995744478
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 56,
+  "a": "Compramos uma mesa para a sala.",
+  "b": "Compramos uma luminária para a sala.",
+  "n": 28,
+  "mediana": 0.11775133013725281,
+  "razao": 141.31736526946116,
+  "previsto": 0.1722089229554783,
+  "residuo": -0.054457592818225486
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 57,
+  "a": "Ele guardou o remédio na gaveta.",
+  "b": "Ele guardou o dedal na gaveta.",
+  "n": 28,
+  "mediana": 0.1728237271308899,
+  "razao": 119.99999999999986,
+  "previsto": 0.171689611953331,
+  "residuo": 0.0011341151775589031
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 58,
+  "a": "Compramos uma cadeira para a sala.",
+  "b": "Compramos uma cristaleira para a sala.",
+  "n": 28,
+  "mediana": 0.19441312551498413,
+  "razao": 630.738522954093,
+  "previsto": 0.17695969070863035,
+  "residuo": 0.01745343480635378
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 59,
+  "a": "Assistimos a um filme de faroeste ontem.",
+  "b": "Assistimos a um filme de guerra ontem.",
+  "n": 28,
+  "mediana": 0.2259998321533203,
+  "razao": 194.83870967741925,
+  "previsto": 0.17322890574807195,
+  "residuo": 0.05277092640524836
+ },
+ {
+  "condicao": "calibracao_v2",
+  "par": 60,
+  "a": "Ele guardou o documento na gaveta.",
+  "b": "Ele guardou o novelo na gaveta.",
+  "n": 28,
+  "mediana": 0.21641838550567627,
+  "razao": 158.60927152317896,
+  "previsto": 0.17257553424009642,
+  "residuo": 0.04384285126557985
  },
  {
   "condicao": "controle_conteudo",
@@ -51,8 +722,8 @@
   "n": 28,
   "mediana": 0.5208553075790405,
   "razao": 3.9649566109665226,
-  "previsto": 0.14805149642224055,
-  "residuo": 0.37280381115679995
+  "previsto": 0.16085982066856888,
+  "residuo": 0.3599954869104717
  },
  {
   "condicao": "controle_conteudo",
@@ -62,8 +733,8 @@
   "n": 28,
   "mediana": 0.662338376045227,
   "razao": 1.125520078367739,
-  "previsto": 0.1311860017665559,
-  "residuo": 0.5311523742786711
+  "previsto": 0.1568605760918086,
+  "residuo": 0.5054777999534185
  },
  {
   "condicao": "controle_conteudo",
@@ -73,8 +744,8 @@
   "n": 28,
   "mediana": 0.629751443862915,
   "razao": 2.3304579992776366,
-  "previsto": 0.1409338997042253,
-  "residuo": 0.4888175441586897
+  "previsto": 0.15917205457245293,
+  "residuo": 0.4705793892904621
  },
  {
   "condicao": "controle_conteudo",
@@ -84,8 +755,8 @@
   "n": 28,
   "mediana": 0.3613630533218384,
   "razao": 4.857129504750277,
-  "previsto": 0.15076970071937015,
-  "residuo": 0.21059335260246823
+  "previsto": 0.16150437714412758,
+  "residuo": 0.1998586761777108
  },
  {
   "condicao": "controle_conteudo",
@@ -95,8 +766,8 @@
   "n": 28,
   "mediana": 0.3343207836151123,
   "razao": 2.2011436357829894,
-  "previsto": 0.14016930692412427,
-  "residuo": 0.19415147669098803
+  "previsto": 0.15899074986768885,
+  "residuo": 0.17533003374742345
  },
  {
   "condicao": "controle_explicito",
@@ -106,8 +777,8 @@
   "n": 28,
   "mediana": 0.27844488620758057,
   "razao": 13.161592505854797,
-  "previsto": 0.16412087158202973,
-  "residuo": 0.11432401462555083
+  "previsto": 0.1646702847416195,
+  "residuo": 0.11377460146596108
  },
  {
   "condicao": "controle_explicito",
@@ -117,8 +788,8 @@
   "n": 28,
   "mediana": 0.31794580817222595,
   "razao": 1.6958333333333342,
-  "previsto": 0.13667629976261966,
-  "residuo": 0.1812695084096063
+  "previsto": 0.1581624676125625,
+  "residuo": 0.15978334055966345
  },
  {
   "condicao": "controle_explicito",
@@ -128,8 +799,8 @@
   "n": 28,
   "mediana": 0.18858975172042847,
   "razao": 6.791862784159675,
-  "previsto": 0.1552601706732747,
-  "residuo": 0.03332958104715378
+  "previsto": 0.16256918360115044,
+  "residuo": 0.026020568119278026
  },
  {
   "condicao": "controle_explicito",
@@ -139,8 +810,8 @@
   "n": 28,
   "mediana": 0.20937997102737427,
   "razao": 50.12372390206125,
-  "previsto": 0.18203026334732025,
-  "residuo": 0.027349707680054014
+  "previsto": 0.16891706429671968,
+  "residuo": 0.040462906730654585
  },
  {
   "condicao": "controle_explicito",
@@ -150,8 +821,8 @@
   "n": 28,
   "mediana": 0.18643689155578613,
   "razao": 36.73545448924015,
-  "previsto": 0.1778682710821129,
-  "residuo": 0.008568620473673239
+  "previsto": 0.1679301483873462,
+  "residuo": 0.01850674316843992
  },
  {
   "condicao": "controle_frequencia",
@@ -161,8 +832,8 @@
   "n": 28,
   "mediana": 0.13940680027008057,
   "razao": 1.146938775510202,
-  "previsto": 0.13143848184035611,
-  "residuo": 0.007968318429724452
+  "previsto": 0.15692044564123478,
+  "residuo": -0.017513645371154213
  },
  {
   "condicao": "controle_frequencia",
@@ -172,8 +843,8 @@
   "n": 28,
   "mediana": 0.11971145868301392,
   "razao": 1.046099290780142,
-  "previsto": 0.1302059219460346,
-  "residuo": -0.01049446326302067
+  "previsto": 0.1566281738417097,
+  "residuo": -0.036916715158695795
  },
  {
   "condicao": "controle_frequencia",
@@ -183,8 +854,8 @@
   "n": 28,
   "mediana": 0.1284021933873496,
   "razao": 2.8746928746928746,
-  "previsto": 0.14374489690231723,
-  "residuo": -0.015342703514967637
+  "previsto": 0.15983861464254068,
+  "residuo": -0.03143642125519108
  },
  {
   "condicao": "controle_frequencia",
@@ -194,8 +865,8 @@
   "n": 28,
   "mediana": 0.1447520653406782,
   "razao": 3.0869565217391277,
-  "previsto": 0.14469903236164455,
-  "residuo": 5.303297903364035e-05
+  "previsto": 0.1600648648142143,
+  "residuo": -0.015312799473536115
  },
  {
   "condicao": "controle_frequencia",
@@ -205,8 +876,8 @@
   "n": 28,
   "mediana": 0.15570253133773804,
   "razao": 5.109090909090901,
-  "previsto": 0.1514470509942136,
-  "residuo": 0.004255480343524437
+  "previsto": 0.16166499439660298,
+  "residuo": -0.005962463058864942
  },
  {
   "condicao": "controle_frequencia",
@@ -216,8 +887,8 @@
   "n": 28,
   "mediana": 0.10259375969568874,
   "razao": 3.164430390477252,
-  "previsto": 0.1450310172579276,
-  "residuo": -0.04243725756223887
+  "previsto": 0.16014358701140638,
+  "residuo": -0.057549827315717644
  },
  {
   "condicao": "controle_frequencia",
@@ -227,8 +898,8 @@
   "n": 28,
   "mediana": 0.20336902141571045,
   "razao": 44.545454545454604,
-  "previsto": 0.18045006543955186,
-  "residuo": 0.02291895597615859
+  "previsto": 0.16854235854145622,
+  "residuo": 0.03482666287425423
  },
  {
   "condicao": "controle_frequencia",
@@ -238,8 +909,8 @@
   "n": 28,
   "mediana": 0.12022268772125244,
   "razao": 112.1739130434783,
-  "previsto": 0.19281930788466078,
-  "residuo": -0.07259662016340834
+  "previsto": 0.17147542553872697,
+  "residuo": -0.051252737817474525
  },
  {
   "condicao": "controle_frequencia",
@@ -249,8 +920,8 @@
   "n": 28,
   "mediana": 0.24410557746887207,
   "razao": 4.674922600619193,
-  "previsto": 0.15025760805890756,
-  "residuo": 0.09384796940996451
+  "previsto": 0.1613829467421759,
+  "residuo": 0.08272263072669617
  },
  {
   "condicao": "controle_frequencia",
@@ -260,8 +931,8 @@
   "n": 28,
   "mediana": 0.18927645683288574,
   "razao": 1.5177304964539013,
-  "previsto": 0.1351902053945131,
-  "residuo": 0.054086251438372646
+  "previsto": 0.1578100762381298,
+  "residuo": 0.031466380594755955
  },
  {
   "condicao": "controle_frequencia",
@@ -271,8 +942,8 @@
   "n": 28,
   "mediana": 0.11197733879089355,
   "razao": 1.580000000000001,
-  "previsto": 0.13572873242164038,
-  "residuo": -0.023751393630746825
+  "previsto": 0.15793777491146527,
+  "residuo": -0.04596043612057171
  },
  {
   "condicao": "controle_frequencia",
@@ -282,8 +953,8 @@
   "n": 28,
   "mediana": 0.1325682799021406,
   "razao": 1.0961538461538465,
-  "previsto": 0.13083191440022482,
-  "residuo": 0.0017363655019157764
+  "previsto": 0.15677661282785407,
+  "residuo": -0.024208332925713477
  },
  {
   "condicao": "controle_neutro",
@@ -293,8 +964,8 @@
   "n": 28,
   "mediana": 0.12797802686691284,
   "razao": 2.8746928746928746,
-  "previsto": 0.14374489690231723,
-  "residuo": -0.01576687003540439
+  "previsto": 0.15983861464254068,
+  "residuo": -0.031860587775627836
  },
  {
   "condicao": "controle_neutro",
@@ -304,8 +975,8 @@
   "n": 28,
   "mediana": 0.0725855827331543,
   "razao": 1.146938775510202,
-  "previsto": 0.13143848184035611,
-  "residuo": -0.05885289910720182
+  "previsto": 0.15692044564123478,
+  "residuo": -0.08433486290808048
  },
  {
   "condicao": "controle_neutro",
@@ -315,8 +986,8 @@
   "n": 28,
   "mediana": 0.0341646671295166,
   "razao": 1.290684624017956,
-  "previsto": 0.13301991228445617,
-  "residuo": -0.09885524515493957
+  "previsto": 0.1572954436627105,
+  "residuo": -0.1231307765331939
  },
  {
   "condicao": "controle_neutro",
@@ -326,8 +997,8 @@
   "n": 28,
   "mediana": 0.10259375969568874,
   "razao": 3.164430390477252,
-  "previsto": 0.1450310172579276,
-  "residuo": -0.04243725756223887
+  "previsto": 0.16014358701140638,
+  "residuo": -0.057549827315717644
  },
  {
   "condicao": "controle_neutro",
@@ -337,8 +1008,8 @@
   "n": 28,
   "mediana": 0.11303877830505371,
   "razao": 5.25121555915721,
-  "previsto": 0.15181453739922018,
-  "residuo": -0.03877575909416647
+  "previsto": 0.16175213491885032,
+  "residuo": -0.04871335661379661
  },
  {
   "condicao": "controle_raridade",
@@ -348,8 +1019,8 @@
   "n": 28,
   "mediana": 0.3346472978591919,
   "razao": 43.665436654366594,
-  "previsto": 0.18018282576986472,
-  "residuo": 0.15446447208932718
+  "previsto": 0.16847898911046644,
+  "residuo": 0.16616830874872546
  },
  {
   "condicao": "controle_raridade",
@@ -359,8 +1030,8 @@
   "n": 28,
   "mediana": 0.23986077308654785,
   "razao": 26.97740112994349,
-  "previsto": 0.1737331892170093,
-  "residuo": 0.06612758386953854
+  "previsto": 0.16694961362918534,
+  "residuo": 0.07291115945736251
  },
  {
   "condicao": "controle_raridade",
@@ -370,8 +1041,8 @@
   "n": 28,
   "mediana": 0.16500669717788696,
   "razao": 2883.2684824902726,
-  "previsto": 0.23630235215646664,
-  "residuo": -0.07129565497857968
+  "previsto": 0.18178637891040483,
+  "residuo": -0.01677968173251787
  },
  {
   "condicao": "controle_raridade",
@@ -381,8 +1052,8 @@
   "n": 28,
   "mediana": 0.27837419509887695,
   "razao": 11.0,
-  "previsto": 0.1617180130394604,
-  "residuo": 0.11665618205941655
+  "previsto": 0.1641005048928053,
+  "residuo": 0.11427369020607164
  },
  {
   "condicao": "controle_raridade",
@@ -392,8 +1063,8 @@
   "n": 28,
   "mediana": 0.18408799171447754,
   "razao": 97.75510204081638,
-  "previsto": 0.19097659132604441,
-  "residuo": -0.006888599611566876
+  "previsto": 0.17103846982802867,
+  "residuo": 0.013049521886448867
  },
  {
   "condicao": "dialeto_A",
@@ -403,8 +1074,8 @@
   "n": 28,
   "mediana": 0.09005263447761536,
   "razao": 3.547008547008545,
-  "previsto": 0.14655961362037995,
-  "residuo": -0.05650697914276459
+  "previsto": 0.16050605670692356,
+  "residuo": -0.0704534222293082
  },
  {
   "condicao": "dialeto_A",
@@ -414,8 +1085,8 @@
   "n": 28,
   "mediana": 0.10502612590789795,
   "razao": 12.004175365344455,
-  "previsto": 0.1628880408768663,
-  "residuo": -0.057861914968968364
+  "previsto": 0.1643779487258462,
+  "residuo": -0.05935182281794826
  },
  {
   "condicao": "dialeto_A",
@@ -425,8 +1096,8 @@
   "n": 28,
   "mediana": 0.09171462059020996,
   "razao": 6.162962962962956,
-  "previsto": 0.15395877717084105,
-  "residuo": -0.062244156580631094
+  "previsto": 0.16226058957452436,
+  "residuo": -0.0705459689843144
  },
  {
   "condicao": "dialeto_A",
@@ -436,8 +1107,8 @@
   "n": 28,
   "mediana": 0.05768907070159912,
   "razao": 1.0,
-  "previsto": 0.1296023093886257,
-  "residuo": -0.07191323868702659
+  "previsto": 0.15648504170737482,
+  "residuo": -0.0987959710057757
  },
  {
   "condicao": "dialeto_A",
@@ -447,8 +1118,8 @@
   "n": 28,
   "mediana": 0.07420855760574341,
   "razao": 1.0,
-  "previsto": 0.1296023093886257,
-  "residuo": -0.055393751782882306
+  "previsto": 0.15648504170737482,
+  "residuo": -0.08227648410163141
  },
  {
   "condicao": "dialeto_B",
@@ -458,8 +1129,8 @@
   "n": 28,
   "mediana": 0.323361873626709,
   "razao": 35.50000000000003,
-  "previsto": 0.17741009130162672,
-  "residuo": 0.14595178232508227
+  "previsto": 0.16782150212231223,
+  "residuo": 0.15554037150439676
  },
  {
   "condicao": "dialeto_B",
@@ -469,8 +1140,8 @@
   "n": 28,
   "mediana": 0.2348393201828003,
   "razao": 191.00000000000034,
-  "previsto": 0.19994752371962826,
-  "residuo": 0.03489179646317203
+  "previsto": 0.17316570970186365,
+  "residuo": 0.06167361048093664
  },
  {
   "condicao": "dialeto_B",
@@ -480,8 +1151,8 @@
   "n": 28,
   "mediana": 0.10134673118591309,
   "razao": 10000.000000000018,
-  "previsto": 0.25295905697690035,
-  "residuo": -0.15161232579098727
+  "previsto": 0.18573611402222756,
+  "residuo": -0.08438938283631447
  },
  {
   "condicao": "dialeto_B",
@@ -491,8 +1162,8 @@
   "n": 28,
   "mediana": 0.2926880717277527,
   "razao": 132.0000000000002,
-  "previsto": 0.19499908518213455,
-  "residuo": 0.09768898654561814
+  "previsto": 0.17199230706004828,
+  "residuo": 0.1206957646677044
  },
  {
   "condicao": "dialeto_B",
@@ -502,8 +1173,8 @@
   "n": 28,
   "mediana": 0.27858108282089233,
   "razao": 7.085798816568046,
-  "previsto": 0.15582760906585053,
-  "residuo": 0.12275347375504181
+  "previsto": 0.1627037379062855,
+  "residuo": 0.11587734491460683
  },
  {
   "condicao": "dialeto_C",
@@ -513,8 +1184,8 @@
   "n": 28,
   "mediana": 0.24038857221603394,
   "razao": 663.2018767512922,
-  "previsto": 0.21661956992303807,
-  "residuo": 0.02376900229299586
+  "previsto": 0.17711908265200182,
+  "residuo": 0.06326948956403211
  },
  {
   "condicao": "dialeto_C",
@@ -524,8 +1195,8 @@
   "n": 28,
   "mediana": 0.2818472385406494,
   "razao": 191.00000000000034,
-  "previsto": 0.19994752371962826,
-  "residuo": 0.08189971482102115
+  "previsto": 0.17316570970186365,
+  "residuo": 0.10868152883878576
  },
  {
   "condicao": "dialeto_C",
@@ -535,8 +1206,8 @@
   "n": 28,
   "mediana": 0.0872414906819663,
   "razao": 149.66915997990031,
-  "previsto": 0.19668162156742075,
-  "residuo": -0.10944013088545446
+  "previsto": 0.1723912799126939,
+  "residuo": -0.08514978923072761
  },
  {
   "condicao": "dialeto_C",
@@ -546,8 +1217,8 @@
   "n": 28,
   "mediana": 0.13713546593983983,
   "razao": 6.452439339695134,
-  "previsto": 0.15457353701235285,
-  "residuo": -0.017438071072513023
+  "previsto": 0.16240636501795894,
+  "residuo": -0.025270899078119108
  },
  {
   "condicao": "dialeto_C",
@@ -557,8 +1228,8 @@
   "n": 28,
   "mediana": 0.16389572620391846,
   "razao": 6.235311516107938,
-  "previsto": 0.1541150886090726,
-  "residuo": 0.009780637594845848
+  "previsto": 0.16229765505551944,
+  "residuo": 0.0015980711483990218
  },
  {
   "condicao": "dialeto_D",
@@ -568,8 +1239,8 @@
   "n": 28,
   "mediana": 0.13263416290283203,
   "razao": 5.3819444444444455,
-  "previsto": 0.1521438803088882,
-  "residuo": -0.01950971740605617
+  "previsto": 0.16183023063274865,
+  "residuo": -0.02919606772991662
  },
  {
   "condicao": "dialeto_D",
@@ -579,8 +1250,8 @@
   "n": 28,
   "mediana": 0.10871803760528564,
   "razao": 5.3819444444444455,
-  "previsto": 0.1521438803088882,
-  "residuo": -0.04342584270360256
+  "previsto": 0.16183023063274865,
+  "residuo": -0.053112193027463006
  },
  {
   "condicao": "dialeto_D",
@@ -590,8 +1261,8 @@
   "n": 28,
   "mediana": 0.12844645977020264,
   "razao": 19.726319216697338,
-  "previsto": 0.16954047677202214,
-  "residuo": -0.0410940170018195
+  "previsto": 0.1659554131713957,
+  "residuo": -0.03750895340119306
  },
  {
   "condicao": "dialeto_D",
@@ -601,8 +1272,8 @@
   "n": 28,
   "mediana": 0.2013084441423416,
   "razao": 7.085798816568046,
-  "previsto": 0.15582760906585053,
-  "residuo": 0.04548083507649109
+  "previsto": 0.1627037379062855,
+  "residuo": 0.03860470623605611
  },
  {
   "condicao": "dialeto_D",
@@ -612,8 +1283,8 @@
   "n": 28,
   "mediana": 0.07881689071655273,
   "razao": 10.961098398169348,
-  "previsto": 0.16167056359776533,
-  "residuo": -0.08285367288121259
+  "previsto": 0.16408925340411532,
+  "residuo": -0.08527236268756258
  },
  {
   "condicao": "dialeto_D",
@@ -623,8 +1294,8 @@
   "n": 28,
   "mediana": 0.23040497303009033,
   "razao": 1.9117647058823555,
-  "previsto": 0.13828151867074043,
-  "residuo": 0.0921234543593499
+  "previsto": 0.15854310649353662,
+  "residuo": 0.07186186653655371
  },
  {
   "condicao": "dialeto_D",
@@ -634,8 +1305,8 @@
   "n": 28,
   "mediana": 0.08910048007965088,
   "razao": 8.315789473684214,
-  "previsto": 0.15797138492069385,
-  "residuo": -0.06887090484104297
+  "previsto": 0.16321208255530426,
+  "residuo": -0.07411160247565338
  },
  {
   "condicao": "dialeto_D",
@@ -645,8 +1316,8 @@
   "n": 28,
   "mediana": 0.08717381954193115,
   "razao": 2.8857843294626586,
-  "previsto": 0.1437964729207959,
-  "residuo": -0.05662265337886474
+  "previsto": 0.15985084464921423,
+  "residuo": -0.07267702510728308
  },
  {
   "condicao": "dialeto_D",
@@ -656,8 +1327,8 @@
   "n": 28,
   "mediana": 0.09252786636352539,
   "razao": 1.4640558215910948,
-  "previsto": 0.13470797226250286,
-  "residuo": -0.04218010589897747
+  "previsto": 0.1576957263019258,
+  "residuo": -0.06516785993840041
  },
  {
   "condicao": "dialeto_D",
@@ -667,8 +1338,8 @@
   "n": 28,
   "mediana": 0.21429860591888428,
   "razao": 1.228345494175489,
-  "previsto": 0.13235688212570523,
-  "residuo": 0.08194172379317904
+  "previsto": 0.1571382220797835,
+  "residuo": 0.05716038383910077
  },
  {
   "condicao": "explicito_gentilico",
@@ -678,8 +1349,8 @@
   "n": 28,
   "mediana": 0.22064924240112305,
   "razao": 1.121212121212121,
-  "previsto": 0.13113464025173482,
-  "residuo": 0.08951460214938822
+  "previsto": 0.1568483969494949,
+  "residuo": 0.06380084545162815
  },
  {
   "condicao": "explicito_gentilico",
@@ -689,8 +1360,8 @@
   "n": 28,
   "mediana": 0.31914591789245605,
   "razao": 1.6205357142857129,
-  "previsto": 0.13606801034528615,
-  "residuo": 0.1830779075471699
+  "previsto": 0.15801822647389233,
+  "residuo": 0.16112769141856373
  },
  {
   "condicao": "explicito_gentilico",
@@ -700,8 +1371,8 @@
   "n": 28,
   "mediana": 0.21808910369873047,
   "razao": 3.235602094240842,
-  "previsto": 0.14532891026845185,
-  "residuo": 0.07276019343027862
+  "previsto": 0.16021422514157188,
+  "residuo": 0.05787487855715859
  },
  {
   "condicao": "explicito_gentilico",
@@ -711,8 +1382,8 @@
   "n": 28,
   "mediana": 0.2955749034881592,
   "razao": 2.952879581151833,
-  "previsto": 0.14410430555136508,
-  "residuo": 0.1514705979367941
+  "previsto": 0.159923839720126,
+  "residuo": 0.13565106376803318
  },
  {
   "condicao": "explicito_gentilico",
@@ -722,8 +1393,8 @@
   "n": 28,
   "mediana": 0.2134822408358259,
   "razao": 4.364406779661016,
-  "previsto": 0.1493370829018615,
-  "residuo": 0.06414515793396439
+  "previsto": 0.16116466644164246,
+  "residuo": 0.05231757439418344
  },
  {
   "condicao": "explicito_gentilico",
@@ -733,8 +1404,8 @@
   "n": 28,
   "mediana": 0.2214251160621643,
   "razao": 7.937853107344619,
-  "previsto": 0.15734842014242936,
-  "residuo": 0.06407669591973494
+  "previsto": 0.16306436150935513,
+  "residuo": 0.058360754552809174
  },
  {
   "condicao": "explicito_gentilico",
@@ -744,8 +1415,8 @@
   "n": 28,
   "mediana": 0.49834388494491577,
   "razao": 13.794642857142858,
-  "previsto": 0.16475005330674525,
-  "residuo": 0.3335938316381705
+  "previsto": 0.16481947998621416,
+  "residuo": 0.3335244049587016
  },
  {
   "condicao": "explicito_gentilico",
@@ -755,8 +1426,8 @@
   "n": 28,
   "mediana": 0.4599343538284302,
   "razao": 13.808353808353802,
-  "previsto": 0.16476335872754358,
-  "residuo": 0.2951709951008866
+  "previsto": 0.16482263504528927,
+  "residuo": 0.2951117187831409
  },
  {
   "condicao": "explicito_regiao",
@@ -766,8 +1437,8 @@
   "n": 28,
   "mediana": 0.21824967861175537,
   "razao": 1.6958333333333342,
-  "previsto": 0.13667629976261966,
-  "residuo": 0.08157337884913571
+  "previsto": 0.1581624676125625,
+  "residuo": 0.06008721099919287
  },
  {
   "condicao": "explicito_regiao",
@@ -777,8 +1448,8 @@
   "n": 28,
   "mediana": 0.20745182037353516,
   "razao": 1.6958333333333342,
-  "previsto": 0.13667629976261966,
-  "residuo": 0.0707755206109155
+  "previsto": 0.1581624676125625,
+  "residuo": 0.049289352760972654
  },
  {
   "condicao": "explicito_regiao",
@@ -788,8 +1459,8 @@
   "n": 28,
   "mediana": 0.12292319536209106,
   "razao": 1.6958333333333342,
-  "previsto": 0.13667629976261966,
-  "residuo": -0.013753104400528599
+  "previsto": 0.1581624676125625,
+  "residuo": -0.03523927225047144
  },
  {
   "condicao": "explicito_regiao",
@@ -799,8 +1470,8 @@
   "n": 28,
   "mediana": 0.16802565256754542,
   "razao": 1.6958333333333342,
-  "previsto": 0.13667629976261966,
-  "residuo": 0.03134935280492576
+  "previsto": 0.1581624676125625,
+  "residuo": 0.009863184954982923
  },
  {
   "condicao": "explicito_regiao",
@@ -810,8 +1481,8 @@
   "n": 28,
   "mediana": 0.3071591854095459,
   "razao": 1.949771689497717,
-  "previsto": 0.13854517276608275,
-  "residuo": 0.16861401264346315
+  "previsto": 0.15860562569220021,
+  "residuo": 0.14855355971734568
  },
  {
   "condicao": "explicito_regiao",
@@ -821,8 +1492,8 @@
   "n": 28,
   "mediana": 0.27888232469558716,
   "razao": 3.302107728337237,
-  "previsto": 0.1456014093264698,
-  "residuo": 0.13328091536911735
+  "previsto": 0.16027884170943418,
+  "residuo": 0.11860348298615297
  },
  {
   "condicao": "explicito_regiao",
@@ -832,8 +1503,8 @@
   "n": 28,
   "mediana": 0.3654940128326416,
   "razao": 2.693208430913352,
-  "previsto": 0.1428714852655893,
-  "residuo": 0.2226225275670523
+  "previsto": 0.15963150617505875,
+  "residuo": 0.20586250665758285
  },
  {
   "condicao": "explicito_regiao",
@@ -843,8 +1514,8 @@
   "n": 28,
   "mediana": 0.31951308250427246,
   "razao": 7.236533957845443,
-  "previsto": 0.15610953434146188,
-  "residuo": 0.16340354816281058
+  "previsto": 0.1627705896739068,
+  "residuo": 0.15674249283036565
  },
  {
   "condicao": "explicito_toponimo",
@@ -854,8 +1525,8 @@
   "n": 28,
   "mediana": 0.26030898094177246,
   "razao": 12.877697841726613,
-  "previsto": 0.1638288180114906,
-  "residuo": 0.09648016293028186
+  "previsto": 0.16460103129356196,
+  "residuo": 0.0957079496482105
  },
  {
   "condicao": "explicito_toponimo",
@@ -865,8 +1536,8 @@
   "n": 28,
   "mediana": 0.32404398918151855,
   "razao": 36.73545448924015,
-  "previsto": 0.1778682710821129,
-  "residuo": 0.14617571809940566
+  "previsto": 0.1679301483873462,
+  "residuo": 0.15611384079417234
  },
  {
   "condicao": "explicito_toponimo",
@@ -876,8 +1547,8 @@
   "n": 28,
   "mediana": 0.17731356620788574,
   "razao": 3.1264452338998865,
-  "previsto": 0.1448692743205331,
-  "residuo": 0.03244429188735265
+  "previsto": 0.16010523358161316,
+  "residuo": 0.017208332626272582
  },
  {
   "condicao": "explicito_toponimo",
@@ -887,8 +1558,8 @@
   "n": 28,
   "mediana": 0.17032432556152344,
   "razao": 4.077669902912617,
-  "previsto": 0.1484269211667495,
-  "residuo": 0.021897404394773945
+  "previsto": 0.16094884357623399,
+  "residuo": 0.009375481985289452
  },
  {
   "condicao": "explicito_toponimo",
@@ -898,8 +1569,8 @@
   "n": 28,
   "mediana": 0.12240731716156006,
   "razao": 5.755667506297225,
-  "previsto": 0.15304304266788837,
-  "residuo": -0.030635725506328315
+  "previsto": 0.16204344526186398,
+  "residuo": -0.039636128100303925
  },
  {
   "condicao": "explicito_toponimo",
@@ -909,8 +1580,8 @@
   "n": 28,
   "mediana": 0.1494995355606079,
   "razao": 3.797752808988769,
-  "previsto": 0.1474744414054061,
-  "residuo": 0.002025094155201801
+  "previsto": 0.16072298601333454,
+  "residuo": -0.01122345045272663
  },
  {
   "condicao": "explicito_toponimo",
@@ -920,8 +1591,8 @@
   "n": 28,
   "mediana": 0.20822346210479736,
   "razao": 3.8916876574307313,
-  "previsto": 0.14780168475631697,
-  "residuo": 0.06042177734848039
+  "previsto": 0.16080058386760027,
+  "residuo": 0.0474228782371971
  },
  {
   "condicao": "explicito_toponimo",
@@ -931,7 +1602,7 @@
   "n": 28,
   "mediana": 0.10756027698516846,
   "razao": 30.219352591413443,
-  "previsto": 0.1752530999734072,
-  "residuo": -0.06769282298823875
+  "previsto": 0.16731002374307635,
+  "residuo": -0.059749746757907896
  }
 ]

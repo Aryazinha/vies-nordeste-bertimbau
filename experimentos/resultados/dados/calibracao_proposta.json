@@ -1,0 +1,1184 @@
+{
+  "_meta": {
+    "gerado_por": "propor_calibracao.py",
+    "regras": {
+      "uma_frase_por_par": true,
+      "max_por_moldura": 3,
+      "max_diferenca_subtokens": 1
+    },
+    "revisao_aplicada": "calibracao_revisao.json",
+    "n_propostos": 61,
+    "n_aprovados": 61,
+    "n_pendentes": 0,
+    "dispersao_por_faixa": {
+      "1–1.5": 11,
+      "1.5–3": 11,
+      "3–8": 10,
+      "8–25": 10,
+      "25–100": 10,
+      "> 100": 9
+    },
+    "medido_no_modelo": false
+  },
+  "pares": [
+    {
+      "moldura": "aula",
+      "lado_a": "Na aula de hoje usamos um microscópio.",
+      "lado_b": "Na aula de hoje usamos um telescópio.",
+      "itens_a": [
+        "microscópio"
+      ],
+      "itens_b": [
+        "telescópio"
+      ],
+      "razao_frequencia": 1.375,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 2e-06,
+      "freq_b": 2.75e-06,
+      "id": "aula-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "bairro",
+      "lado_a": "Ele mora perto de uma floricultura.",
+      "lado_b": "Ele mora perto de uma marcenaria.",
+      "itens_a": [
+        "floricultura"
+      ],
+      "itens_b": [
+        "marcenaria"
+      ],
+      "razao_frequencia": 1.518,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.12e-06,
+      "freq_b": 1.7e-06,
+      "id": "bairro-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "banheiro",
+      "lado_a": "Troquei a descarga do banheiro.",
+      "lado_b": "Troquei a fechadura do banheiro.",
+      "itens_a": [
+        "descarga"
+      ],
+      "itens_b": [
+        "fechadura"
+      ],
+      "razao_frequencia": 3.397,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.13e-06,
+      "freq_b": 1.51e-06,
+      "id": "banheiro-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "chuva",
+      "lado_a": "Choveu muito na semana passada.",
+      "lado_b": "Choveu muito na madrugada passada.",
+      "itens_a": [
+        "semana"
+      ],
+      "itens_b": [
+        "madrugada"
+      ],
+      "razao_frequencia": 13.179,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 0.000398,
+      "freq_b": 3.02e-05,
+      "id": "chuva-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "conserto",
+      "lado_a": "Meu pai consertou o carro no fim de semana.",
+      "lado_b": "Meu pai consertou o aquecedor no fim de semana.",
+      "itens_a": [
+        "carro"
+      ],
+      "itens_b": [
+        "aquecedor"
+      ],
+      "razao_frequencia": 85.294,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 0.000174,
+      "freq_b": 2.04e-06,
+      "id": "conserto-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "desenho",
+      "lado_a": "A menina desenhou um cavalo no caderno.",
+      "lado_b": "A menina desenhou um castelo no caderno.",
+      "itens_a": [
+        "cavalo"
+      ],
+      "itens_b": [
+        "castelo"
+      ],
+      "razao_frequencia": 1.071,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.95e-05,
+      "freq_b": 3.16e-05,
+      "id": "desenho-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "escritorio",
+      "lado_a": "Esqueci o envelope no escritório.",
+      "lado_b": "Esqueci o estojo no escritório.",
+      "itens_a": [
+        "envelope"
+      ],
+      "itens_b": [
+        "estojo"
+      ],
+      "razao_frequencia": 1.662,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.89e-06,
+      "freq_b": 2.34e-06,
+      "id": "escritorio-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "gato",
+      "lado_a": "O gato dormiu em cima do sofá.",
+      "lado_b": "O gato dormiu em cima do computador.",
+      "itens_a": [
+        "sofá"
+      ],
+      "itens_b": [
+        "computador"
+      ],
+      "razao_frequencia": 3.162,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.29e-05,
+      "freq_b": 7.24e-05,
+      "id": "gato-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "louca",
+      "lado_a": "Quebrei o prato enquanto lavava a louça.",
+      "lado_b": "Quebrei o bule enquanto lavava a louça.",
+      "itens_a": [
+        "prato"
+      ],
+      "itens_b": [
+        "bule"
+      ],
+      "razao_frequencia": 25.7,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.57e-05,
+      "freq_b": 1e-06,
+      "id": "louca-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "mesa",
+      "lado_a": "Ela deixou a xícara em cima da mesa.",
+      "lado_b": "Ela deixou a lanterna em cima da mesa.",
+      "itens_a": [
+        "xícara"
+      ],
+      "itens_b": [
+        "lanterna"
+      ],
+      "razao_frequencia": 1.023,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 6.61e-06,
+      "freq_b": 6.76e-06,
+      "id": "mesa-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "parede",
+      "lado_a": "Ele pendurou o relógio na parede da sala.",
+      "lado_b": "Ele pendurou o diploma na parede da sala.",
+      "itens_a": [
+        "relógio"
+      ],
+      "itens_b": [
+        "diploma"
+      ],
+      "razao_frequencia": 1.655,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.4e-05,
+      "freq_b": 1.45e-05,
+      "id": "parede-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "pintura",
+      "lado_a": "Pintamos a estante de azul.",
+      "lado_b": "Pintamos a penteadeira de azul.",
+      "itens_a": [
+        "estante"
+      ],
+      "itens_b": [
+        "penteadeira"
+      ],
+      "razao_frequencia": 8.307,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.63e-06,
+      "freq_b": 4.37e-07,
+      "id": "pintura-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "varanda",
+      "lado_a": "Ela regou a orquídea da varanda.",
+      "lado_b": "Ela regou a azaleia da varanda.",
+      "itens_a": [
+        "orquídea"
+      ],
+      "itens_b": [
+        "azaleia"
+      ],
+      "razao_frequencia": 25.674,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.62e-06,
+      "freq_b": 6.31e-08,
+      "id": "varanda-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "vizinho",
+      "lado_a": "O vizinho comprou um sofá novo.",
+      "lado_b": "O vizinho comprou um patinete novo.",
+      "itens_a": [
+        "sofá"
+      ],
+      "itens_b": [
+        "patinete"
+      ],
+      "razao_frequencia": 100.0,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.29e-05,
+      "freq_b": 2.29e-07,
+      "id": "vizinho-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "viagem",
+      "lado_a": "Levamos a mala na viagem.",
+      "lado_b": "Levamos a garrafa na viagem.",
+      "itens_a": [
+        "mala"
+      ],
+      "itens_b": [
+        "garrafa"
+      ],
+      "razao_frequencia": 1.096,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.82e-05,
+      "freq_b": 1.66e-05,
+      "id": "viagem-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "zoologico",
+      "lado_a": "Vimos um hipopótamo no zoológico.",
+      "lado_b": "Vimos um tamanduá no zoológico.",
+      "itens_a": [
+        "hipopótamo"
+      ],
+      "itens_b": [
+        "tamanduá"
+      ],
+      "razao_frequencia": 1.549,
+      "subtokens_a": 4,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 7.08e-07,
+      "freq_b": 4.57e-07,
+      "id": "zoologico-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "aula",
+      "lado_a": "Na aula de hoje usamos um cronômetro.",
+      "lado_b": "Na aula de hoje usamos um metrônomo.",
+      "itens_a": [
+        "cronômetro"
+      ],
+      "itens_b": [
+        "metrônomo"
+      ],
+      "razao_frequencia": 4.461,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 7.94e-07,
+      "freq_b": 1.78e-07,
+      "id": "aula-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "bairro",
+      "lado_a": "Ele mora perto de uma escola.",
+      "lado_b": "Ele mora perto de uma biblioteca.",
+      "itens_a": [
+        "escola"
+      ],
+      "itens_b": [
+        "biblioteca"
+      ],
+      "razao_frequencia": 8.317,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 0.000331,
+      "freq_b": 3.98e-05,
+      "id": "bairro-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "banheiro",
+      "lado_a": "Troquei a torneira do banheiro.",
+      "lado_b": "Troquei a saboneteira do banheiro.",
+      "itens_a": [
+        "torneira"
+      ],
+      "itens_b": [
+        "saboneteira"
+      ],
+      "razao_frequencia": 40.729,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.8e-06,
+      "freq_b": 9.33e-08,
+      "id": "banheiro-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "conserto",
+      "lado_a": "Meu pai consertou o portão no fim de semana.",
+      "lado_b": "Meu pai consertou o telhado no fim de semana.",
+      "itens_a": [
+        "portão"
+      ],
+      "itens_b": [
+        "telhado"
+      ],
+      "razao_frequencia": 1.55,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.48e-05,
+      "freq_b": 9.55e-06,
+      "id": "conserto-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "desenho",
+      "lado_a": "A menina desenhou um unicórnio no caderno.",
+      "lado_b": "A menina desenhou um flamingo no caderno.",
+      "itens_a": [
+        "unicórnio"
+      ],
+      "itens_b": [
+        "flamingo"
+      ],
+      "razao_frequencia": 3.232,
+      "subtokens_a": 4,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.34e-06,
+      "freq_b": 7.24e-07,
+      "id": "desenho-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "escritorio",
+      "lado_a": "Esqueci o celular no escritório.",
+      "lado_b": "Esqueci o casaco no escritório.",
+      "itens_a": [
+        "celular"
+      ],
+      "itens_b": [
+        "casaco"
+      ],
+      "razao_frequencia": 8.35,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 9.77e-05,
+      "freq_b": 1.17e-05,
+      "id": "escritorio-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "louca",
+      "lado_a": "Quebrei o copo enquanto lavava a louça.",
+      "lado_b": "Quebrei o jarro enquanto lavava a louça.",
+      "itens_a": [
+        "copo"
+      ],
+      "itens_b": [
+        "jarro"
+      ],
+      "razao_frequencia": 38.842,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.75e-05,
+      "freq_b": 7.08e-07,
+      "id": "louca-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "vizinho",
+      "lado_a": "O vizinho comprou um carro novo.",
+      "lado_b": "O vizinho comprou um aspirador novo.",
+      "itens_a": [
+        "carro"
+      ],
+      "itens_b": [
+        "aspirador"
+      ],
+      "razao_frequencia": 123.404,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 0.000174,
+      "freq_b": 1.41e-06,
+      "id": "vizinho-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "filme",
+      "lado_a": "Assistimos a um filme de aventura ontem.",
+      "lado_b": "Assistimos a um filme de animação ontem.",
+      "itens_a": [
+        "aventura"
+      ],
+      "itens_b": [
+        "animação"
+      ],
+      "razao_frequencia": 1.097,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.82e-05,
+      "freq_b": 2.57e-05,
+      "id": "filme-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "gato",
+      "lado_a": "O gato dormiu em cima do tapete.",
+      "lado_b": "O gato dormiu em cima do travesseiro.",
+      "itens_a": [
+        "tapete"
+      ],
+      "itens_b": [
+        "travesseiro"
+      ],
+      "razao_frequencia": 2.09,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 9.55e-06,
+      "freq_b": 4.57e-06,
+      "id": "gato-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "instrumento",
+      "lado_a": "Ele tocou trompete na festa da escola.",
+      "lado_b": "Ele tocou oboé na festa da escola.",
+      "itens_a": [
+        "trompete"
+      ],
+      "itens_b": [
+        "oboé"
+      ],
+      "razao_frequencia": 3.17,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.29e-06,
+      "freq_b": 4.07e-07,
+      "id": "instrumento-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "mesa",
+      "lado_a": "Ela deixou a tesoura em cima da mesa.",
+      "lado_b": "Ela deixou a agenda em cima da mesa.",
+      "itens_a": [
+        "tesoura"
+      ],
+      "itens_b": [
+        "agenda"
+      ],
+      "razao_frequencia": 8.509,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.89e-06,
+      "freq_b": 3.31e-05,
+      "id": "mesa-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "perda",
+      "lado_a": "Perdi o cartão no caminho de casa.",
+      "lado_b": "Perdi o isqueiro no caminho de casa.",
+      "itens_a": [
+        "cartão"
+      ],
+      "itens_b": [
+        "isqueiro"
+      ],
+      "razao_frequencia": 26.324,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.37e-05,
+      "freq_b": 2.04e-06,
+      "id": "perda-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "parede",
+      "lado_a": "Ele pendurou o espelho na parede da sala.",
+      "lado_b": "Ele pendurou o calendário na parede da sala.",
+      "itens_a": [
+        "espelho"
+      ],
+      "itens_b": [
+        "calendário"
+      ],
+      "razao_frequencia": 1.023,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.57e-05,
+      "freq_b": 2.63e-05,
+      "id": "parede-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "pintura",
+      "lado_a": "Pintamos a prateleira de azul.",
+      "lado_b": "Pintamos a escrivaninha de azul.",
+      "itens_a": [
+        "prateleira"
+      ],
+      "itens_b": [
+        "escrivaninha"
+      ],
+      "razao_frequencia": 2.883,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.69e-06,
+      "freq_b": 9.33e-07,
+      "id": "pintura-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "viagem",
+      "lado_a": "Levamos a mochila na viagem.",
+      "lado_b": "Levamos a prancha na viagem.",
+      "itens_a": [
+        "mochila"
+      ],
+      "itens_b": [
+        "prancha"
+      ],
+      "razao_frequencia": 3.803,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.35e-05,
+      "freq_b": 3.55e-06,
+      "id": "viagem-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "presente",
+      "lado_a": "Dei um perfume de presente para ela.",
+      "lado_b": "Dei um broche de presente para ela.",
+      "itens_a": [
+        "perfume"
+      ],
+      "itens_b": [
+        "broche"
+      ],
+      "razao_frequencia": 14.1,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.41e-05,
+      "freq_b": 1e-06,
+      "id": "presente-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "zoologico",
+      "lado_a": "Vimos um elefante no zoológico.",
+      "lado_b": "Vimos um suricato no zoológico.",
+      "itens_a": [
+        "elefante"
+      ],
+      "itens_b": [
+        "suricato"
+      ],
+      "razao_frequencia": 42.651,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 7.08e-06,
+      "freq_b": 1.66e-07,
+      "id": "zoologico-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "bairro",
+      "lado_a": "Ele mora perto de uma padaria.",
+      "lado_b": "Ele mora perto de uma lavanderia.",
+      "itens_a": [
+        "padaria"
+      ],
+      "itens_b": [
+        "lavanderia"
+      ],
+      "razao_frequencia": 1.584,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.75e-06,
+      "freq_b": 3.63e-06,
+      "id": "bairro-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "conserto",
+      "lado_a": "Meu pai consertou o chuveiro no fim de semana.",
+      "lado_b": "Meu pai consertou o interfone no fim de semana.",
+      "itens_a": [
+        "chuveiro"
+      ],
+      "itens_b": [
+        "interfone"
+      ],
+      "razao_frequencia": 14.12,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 8.91e-06,
+      "freq_b": 6.31e-07,
+      "id": "conserto-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "banheiro",
+      "lado_a": "Troquei a pia do banheiro.",
+      "lado_b": "Troquei a toalha do banheiro.",
+      "itens_a": [
+        "pia"
+      ],
+      "itens_b": [
+        "toalha"
+      ],
+      "razao_frequencia": 1.023,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 9.12e-06,
+      "freq_b": 9.33e-06,
+      "id": "banheiro-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "desenho",
+      "lado_a": "A menina desenhou um dinossauro no caderno.",
+      "lado_b": "A menina desenhou um pinguim no caderno.",
+      "itens_a": [
+        "dinossauro"
+      ],
+      "itens_b": [
+        "pinguim"
+      ],
+      "razao_frequencia": 1.662,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.47e-06,
+      "freq_b": 2.69e-06,
+      "id": "desenho-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "filme",
+      "lado_a": "Assistimos a um filme de suspense ontem.",
+      "lado_b": "Assistimos a um filme de mistério ontem.",
+      "itens_a": [
+        "suspense"
+      ],
+      "itens_b": [
+        "mistério"
+      ],
+      "razao_frequencia": 3.549,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 6.17e-06,
+      "freq_b": 2.19e-05,
+      "id": "filme-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "gato",
+      "lado_a": "O gato dormiu em cima do edredom.",
+      "lado_b": "O gato dormiu em cima do baú.",
+      "itens_a": [
+        "edredom"
+      ],
+      "itens_b": [
+        "baú"
+      ],
+      "razao_frequencia": 8.91,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.68e-07,
+      "freq_b": 4.17e-06,
+      "id": "gato-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "varanda",
+      "lado_a": "Ela regou a planta da varanda.",
+      "lado_b": "Ela regou a roseira da varanda.",
+      "itens_a": [
+        "planta"
+      ],
+      "itens_b": [
+        "roseira"
+      ],
+      "razao_frequencia": 57.485,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.88e-05,
+      "freq_b": 5.01e-07,
+      "id": "varanda-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "instrumento",
+      "lado_a": "Ele tocou violão na festa da escola.",
+      "lado_b": "Ele tocou piano na festa da escola.",
+      "itens_a": [
+        "violão"
+      ],
+      "itens_b": [
+        "piano"
+      ],
+      "razao_frequencia": 1.0,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.51e-05,
+      "freq_b": 1.51e-05,
+      "id": "instrumento-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "mesa",
+      "lado_a": "Ela deixou a caneta em cima da mesa.",
+      "lado_b": "Ela deixou a calculadora em cima da mesa.",
+      "itens_a": [
+        "caneta"
+      ],
+      "itens_b": [
+        "calculadora"
+      ],
+      "razao_frequencia": 5.882,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.2e-05,
+      "freq_b": 2.04e-06,
+      "id": "mesa-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "parede",
+      "lado_a": "Ele pendurou o quadro na parede da sala.",
+      "lado_b": "Ele pendurou o pôster na parede da sala.",
+      "itens_a": [
+        "quadro"
+      ],
+      "itens_b": [
+        "pôster"
+      ],
+      "razao_frequencia": 12.605,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.79e-05,
+      "freq_b": 3.8e-06,
+      "id": "parede-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "vizinho",
+      "lado_a": "O vizinho comprou um triciclo novo.",
+      "lado_b": "O vizinho comprou um barco novo.",
+      "itens_a": [
+        "triciclo"
+      ],
+      "itens_b": [
+        "barco"
+      ],
+      "razao_frequencia": 26.292,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 8.71e-07,
+      "freq_b": 2.29e-05,
+      "id": "vizinho-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "presente",
+      "lado_a": "Dei um livro de presente para ela.",
+      "lado_b": "Dei um pingente de presente para ela.",
+      "itens_a": [
+        "livro"
+      ],
+      "itens_b": [
+        "pingente"
+      ],
+      "razao_frequencia": 245.0,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 0.000245,
+      "freq_b": 1e-06,
+      "id": "presente-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "aula",
+      "lado_a": "Na aula de hoje usamos um computador.",
+      "lado_b": "Na aula de hoje usamos um mapa.",
+      "itens_a": [
+        "computador"
+      ],
+      "itens_b": [
+        "mapa"
+      ],
+      "razao_frequencia": 1.411,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 7.24e-05,
+      "freq_b": 5.13e-05,
+      "id": "aula-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "perda",
+      "lado_a": "Perdi o boné no caminho de casa.",
+      "lado_b": "Perdi o crachá no caminho de casa.",
+      "itens_a": [
+        "boné"
+      ],
+      "itens_b": [
+        "crachá"
+      ],
+      "razao_frequencia": 3.462,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.57e-06,
+      "freq_b": 1.32e-06,
+      "id": "perda-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "instrumento",
+      "lado_a": "Ele tocou flauta na festa da escola.",
+      "lado_b": "Ele tocou violino na festa da escola.",
+      "itens_a": [
+        "flauta"
+      ],
+      "itens_b": [
+        "violino"
+      ],
+      "razao_frequencia": 1.699,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.16e-06,
+      "freq_b": 5.37e-06,
+      "id": "instrumento-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "louca",
+      "lado_a": "Quebrei o pires enquanto lavava a louça.",
+      "lado_b": "Quebrei o cálice enquanto lavava a louça.",
+      "itens_a": [
+        "pires"
+      ],
+      "itens_b": [
+        "cálice"
+      ],
+      "razao_frequencia": 4.371,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.32e-05,
+      "freq_b": 3.02e-06,
+      "id": "louca-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "escritorio",
+      "lado_a": "Esqueci o caderno no escritório.",
+      "lado_b": "Esqueci o crachá no escritório.",
+      "itens_a": [
+        "caderno"
+      ],
+      "itens_b": [
+        "crachá"
+      ],
+      "razao_frequencia": 8.485,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.12e-05,
+      "freq_b": 1.32e-06,
+      "id": "escritorio-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "varanda",
+      "lado_a": "Ela regou a samambaia da varanda.",
+      "lado_b": "Ela regou a begônia da varanda.",
+      "itens_a": [
+        "samambaia"
+      ],
+      "itens_b": [
+        "begônia"
+      ],
+      "razao_frequencia": 27.419,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.02e-06,
+      "freq_b": 3.72e-08,
+      "id": "varanda-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "pintura",
+      "lado_a": "Pintamos a parede de azul.",
+      "lado_b": "Pintamos a cadeira de azul.",
+      "itens_a": [
+        "parede"
+      ],
+      "itens_b": [
+        "cadeira"
+      ],
+      "razao_frequencia": 1.481,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 4.68e-05,
+      "freq_b": 3.16e-05,
+      "id": "pintura-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "perda",
+      "lado_a": "Perdi o bilhete no caminho de casa.",
+      "lado_b": "Perdi o ingresso no caminho de casa.",
+      "itens_a": [
+        "bilhete"
+      ],
+      "itens_b": [
+        "ingresso"
+      ],
+      "razao_frequencia": 1.543,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.05e-05,
+      "freq_b": 1.62e-05,
+      "id": "perda-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "presente",
+      "lado_a": "Dei um relógio de presente para ela.",
+      "lado_b": "Dei um anel de presente para ela.",
+      "itens_a": [
+        "relógio"
+      ],
+      "itens_b": [
+        "anel"
+      ],
+      "razao_frequencia": 1.148,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.4e-05,
+      "freq_b": 2.09e-05,
+      "id": "presente-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "gaveta",
+      "lado_a": "Ele guardou o cartão na gaveta.",
+      "lado_b": "Ele guardou o barbante na gaveta.",
+      "itens_a": [
+        "cartão"
+      ],
+      "itens_b": [
+        "barbante"
+      ],
+      "razao_frequencia": 104.678,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.37e-05,
+      "freq_b": 5.13e-07,
+      "id": "gaveta-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "sala",
+      "lado_a": "Compramos uma mesa para a sala.",
+      "lado_b": "Compramos uma luminária para a sala.",
+      "itens_a": [
+        "mesa"
+      ],
+      "itens_b": [
+        "luminária"
+      ],
+      "razao_frequencia": 141.317,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 7.08e-05,
+      "freq_b": 5.01e-07,
+      "id": "sala-1",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "gaveta",
+      "lado_a": "Ele guardou o remédio na gaveta.",
+      "lado_b": "Ele guardou o dedal na gaveta.",
+      "itens_a": [
+        "remédio"
+      ],
+      "itens_b": [
+        "dedal"
+      ],
+      "razao_frequencia": 120.0,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.86e-05,
+      "freq_b": 1.55e-07,
+      "id": "gaveta-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "sala",
+      "lado_a": "Compramos uma cadeira para a sala.",
+      "lado_b": "Compramos uma cristaleira para a sala.",
+      "itens_a": [
+        "cadeira"
+      ],
+      "itens_b": [
+        "cristaleira"
+      ],
+      "razao_frequencia": 630.739,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.16e-05,
+      "freq_b": 5.01e-08,
+      "id": "sala-2",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "filme",
+      "lado_a": "Assistimos a um filme de faroeste ontem.",
+      "lado_b": "Assistimos a um filme de guerra ontem.",
+      "itens_a": [
+        "faroeste"
+      ],
+      "itens_b": [
+        "guerra"
+      ],
+      "razao_frequencia": 194.839,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.55e-06,
+      "freq_b": 0.000302,
+      "id": "filme-5",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "gaveta",
+      "lado_a": "Ele guardou o documento na gaveta.",
+      "lado_b": "Ele guardou o novelo na gaveta.",
+      "itens_a": [
+        "documento"
+      ],
+      "itens_b": [
+        "novelo"
+      ],
+      "razao_frequencia": 158.609,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.79e-05,
+      "freq_b": 3.02e-07,
+      "id": "gaveta-3",
+      "revisao": "aprovado"
+    }
+  ]
+}

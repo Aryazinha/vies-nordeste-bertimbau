@@ -53,8 +53,10 @@ SAIDA = Path(__file__).resolve().parent / "resultados"
 # Insumos medidos
 # --------------------------------------------------------------------------
 # Desvio-padrão dos escores de viés no grupo de referência não regional, eixo de
-# caráter, apurado por `analise_valencia.py` sobre 26 pares.
-DP_RUIDO = 0.1182
+# caráter, apurado por `analise_valencia.py`. Era 0,1182 sobre 26 pares; passou a
+# 0,1217 sobre 86 pares distintos em 14/09/2026, com a calibração ampliada e a
+# exclusão da duplicata (`docs/pendencias.md` 2.8).
+DP_RUIDO = 0.1217
 # Escore de viés do controle positivo — o par de conteúdo proposicional distinto.
 CONTROLE_POSITIVO = 0.2352
 # O artefato de tokenização que o passo 5.5 desmontou, antes do controle.
@@ -69,7 +71,7 @@ PODER = 0.80
 ALFA = 0.05
 N_CONDICOES = 9                  # família corrigida por Holm no delineamento atual
 
-REFERENCIA_ATUAL = 26
+REFERENCIA_ATUAL = 86            # 26 até 14/09/2026
 PARES_ATUAIS_POR_CONDICAO = 8
 
 

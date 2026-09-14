@@ -40,7 +40,7 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 | 10 | Inspeção de conteúdo dos 13 canais `a_confirmar`: 10 aprovados, 3 rejeitados (Samiele Batista, Alan City, Kellynha Costa); duplicata de "Vlog com Diogo" em PE corrigida |
 | 11 | Reforço de PE e BA executado: 178 candidatos buscados, 13 canais aceitos e 11 a confirmar. Vlogs de PE vão de 4 a 10 e os da BA de 7 a 12, contra 11 em SP e 13 no RJ — a assimetria que motivava a pendência deixa de existir |
 | 12 | TikTok, Instagram e Spotify — decidido não incorporar, em nenhuma forma |
-| 13 | Tamanho-alvo dos pares mínimos: 37 por condição, 80 de referência |
+| 13 | Tamanho-alvo dos pares mínimos: 40 por condição (37 até 14/09/2026), 80 de referência — atingido, com 86 |
 | 14 | Formato de publicação dos pares mínimos: JSON canônico com 85 pares em 13 condições, gerado por `empacotar_pares.py`, com conversor tabular sob demanda |
 | — | Participação de ouvinte medível: campo no nível do canal e no do arquivo, propagado pela coleta e reportado por `balanco_participacao.py` (01/09/2026) |
 | — | Licença das transcrições: declaração de uso em pesquisa, sem CC BY, por não haver titularidade sobre a fala de terceiros (01/09/2026) |
@@ -389,7 +389,7 @@ Esta parte **não é uma especificação**. Registra o que existe, o que falta, 
 
 O conjunto de pares mínimos é, pelo princípio de ordenação do projeto, a contribuição publicável: a lacuna identificada na literatura é a inexistência de adaptação consolidada de CrowS-Pairs ou StereoSet para o português brasileiro, e os precedentes diretos são artigos de conjunto de dados (`docs/roadmap.md`, "Princípio de ordenação").
 
-Ocorre que **o conteúdo perdeu sustentação empírica em 28/08/2026**. Quatro famílias de sinalização dialetal implícita foram testadas contra a mesma calibração, e nenhuma produz resposta acima do que a frequência lexical prevê (`docs/achados_para_o_artigo.md` §1.15):
+Ocorre que **o conteúdo perdeu sustentação empírica em 28/08/2026**. Quatro famílias de sinalização dialetal implícita foram testadas contra a mesma calibração, e nenhuma produz resposta detectável (`docs/achados_para_o_artigo.md` §1.15). Valores da execução de 28/08/2026; os vigentes, com o grupo de referência de 86 pares, estão naquele item e não alteram a conclusão:
 
 | Família | Pares | Resíduo médio | p Holm |
 |---|---|---|---|
@@ -406,9 +406,11 @@ O nulo é legível, e não indício de aparelho quebrado: o controle de conteúd
 
 Reproduzidas de `docs/pendencias.md` D7. As quatro são exigidas em submissão a veículo que aceite artigo de recurso.
 
-### 2.2.1 Tamanho-alvo — DECIDIDO em 29/08/2026
+### 2.2.1 Tamanho-alvo — DECIDIDO em 29/08/2026, REVISTO em 14/09/2026
 
-**Meta: 37 pares por condição de teste e 80 pares no grupo de referência não regional**, o que perfaz entre 228 e 265 pares conforme o conjunto tenha quatro ou cinco condições. Hoje há oito e vinte e seis, respectivamente.
+**Meta: 40 pares por condição de teste e 80 pares no grupo de referência não regional**, o que perfaz entre 246 e 286 pares conforme o conjunto tenha quatro ou cinco condições, contados os 86 de referência já medidos. Hoje há oito e oitenta e seis, respectivamente.
+
+**Revisão de 14/09/2026.** A meta original era de 37 pares por condição. Com o grupo de referência ampliado a 86 pares distintos, o desvio-padrão do ruído passou de 0,1182 a 0,1217, e o mesmo critério — excluir efeitos acima de 0,08 — passou a exigir 40. O critério não mudou; mudou a estimativa do ruído, como a ressalva de `meta_pares_minimos.md` previa (`docs/pendencias.md` 2.8).
 
 Derivação reproduzível em `experimentos/meta_pares_minimos.py`, com relatório em `experimentos/resultados/tabelas/meta_pares_minimos.md`. O raciocínio, em resumo:
 
@@ -420,7 +422,7 @@ Derivação reproduzível em `experimentos/meta_pares_minimos.py`, com relatóri
 2. **Guarda margem de quase três vezes para o controle positivo**, que produz 0,235. Uma alegação de poder vale o quanto for a distância entre o que se pretende excluir e o que o instrumento comprovadamente detecta.
 3. **É alcançável.** Descer a 0,059 exigiria 108 pares por condição; subir a 0,095 pouparia catorze, ao custo de só poder excluir viés grande.
 
-**Uma restrição que a conta revelou, e que não constava de plano anterior.** O grupo de referência impõe **teto** ao que é detectável, por mais pares de teste que se acrescentem, porque sua própria incerteza não desaparece. Com os 26 pares de referência atuais, nenhum efeito abaixo de 0,078 é detectável sob correção de multiplicidade. **O grupo de referência precisa crescer junto com as condições de teste** — daí a meta de 80, e não apenas a de 37 por condição.
+**Uma restrição que a conta revelou, e que não constava de plano anterior.** O grupo de referência impõe **teto** ao que é detectável, por mais pares de teste que se acrescentem, porque sua própria incerteza não desaparece. Com os 26 pares de referência de 29/08/2026, nenhum efeito abaixo de 0,078 era detectável sob correção de multiplicidade; com os 86 medidos em 14/09/2026, o teto caiu a 0,044. **O grupo de referência precisa crescer junto com as condições de teste** — daí a meta de 80, e não apenas a de 37 por condição.
 
 **Restrição de conteúdo, que precede o tamanho.** Qualquer conjunto futuro deve balancear a extensão em subtokens entre os polos do eixo medido, sob pena de reproduzir o artefato de que a decisão acima toma a medida.
 
@@ -489,7 +491,7 @@ Também independem da decisão do passo 5, e devem ser preservados em qualquer r
 Acrescentem-se duas exigências metodológicas estabelecidas por medição própria em 28/08/2026, que qualquer versão futura do conjunto deve satisfazer:
 
 - **A unidade de replicação é o par, não a medição.** As medições de um mesmo par compartilham o enunciado e não são independentes; tratá-las como replicações infla o tamanho amostral por uma ordem de grandeza (`docs/achados_para_o_artigo.md` §1.16).
-- **A comparação entre guises exige calibração explícita da resposta à frequência.** O ruído no nível do par é da ordem do efeito procurado — desvio-padrão de 0,0618 contra mediana de 0,1360 —, de modo que o pareamento de frequência, sozinho, não basta (`docs/achados_para_o_artigo.md` §1.14, revisão).
+- **A comparação entre guises exige grupo de referência amplo.** O ruído no nível do par é da ordem do efeito procurado — desvio-padrão de 0,0629 contra mediana de 0,1539, com 86 pares —, de modo que o pareamento de frequência, sozinho, não basta. A calibração da resposta à frequência permanece como verificação: com o grupo ampliado, a razão de frequência não prevê a diferença de escore, e a variação dominante vem da moldura do enunciado (`docs/achados_para_o_artigo.md` §1.14, revisão de 14/09/2026).
 
 ## 2.5 Conteúdo existente
 
@@ -521,7 +523,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 | 10 | ~~Treze canais marcados `a_confirmar`~~ — **resolvido em 31/08/2026**: inspeção concluída, 10 aprovados e 3 rejeitados | 1.7 | — |
 | 11 | ~~Simetria de composição~~ — **resolvida em 31/08/2026**: rodada de reforço com 178 candidatos, 13 aceitos e 11 a confirmar; vlogs de PE 4→10 e BA 7→12, contra SP 11 e RJ 13 (§1.7; `docs/pendencias.md` D1). Questão derivada: o piso nordestino passa a ser a PB, com 7 | 1.7 | — |
 | 12 | ~~Subcorpus de TikTok, Instagram e Spotify~~ — **decidido em 31/08/2026**: não serão incorporados (ver `docs/pendencias.md` D4) | 1.4.4 | — |
-| 13 | ~~Tamanho-alvo dos pares mínimos~~ — **decidido em 29/08/2026**: 37 por condição e 80 de referência, para excluir efeitos acima de 0,08 (§2.2.1) | 2.2.1 | — |
+| 13 | ~~Tamanho-alvo dos pares mínimos~~ — **decidido em 29/08/2026**: 37 por condição e 80 de referência, para excluir efeitos acima de 0,08 (§2.2.1); **revisto em 14/09/2026** para 40 por condição, com 86 de referência já medidos | 2.2.1 | — |
 | 14 | ~~Formato de publicação dos pares mínimos inexistente~~ — **resolvido em 01/09/2026**: JSON canônico (§2.2.2), com os pares de resultado nulo incluídos por decisão da equipe | 2.2.2 | — |
 | 15 | Lista de *features* de texto aberta — TF-IDF confirmado, resto não especificado | novo, 31/08/2026 | Equipe completar a lista |
 | 16 | Lista de *features* de áudio aberta — marcadores regionais confirmados, resto não especificado | novo, 31/08/2026 | Equipe completar a lista |
@@ -531,7 +533,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 
 O item 13 registrava que, ao contrário do corpus de áudio, o conjunto de pares mínimos não tinha meta **nem critério que a produzisse**. Duas coisas mudaram com o passo 5.4:
 
-**Sabe-se o que o conjunto contém.** A menção explícita à região produz resposta acima da reta da frequência, concentrada em rótulos de pessoa, e sobrevive à correção de multiplicidade (`docs/achados_para_o_artigo.md` §1.17). A sinalização implícita, em quatro famílias, não produz. O conteúdo do conjunto deixa de ser indeterminado.
+**Sabe-se o que o conjunto contém.** A menção explícita à região produz resposta acima do grupo de referência não regional, concentrada em rótulos de pessoa, e sobrevive à correção de multiplicidade (`docs/achados_para_o_artigo.md` §1.17). A sinalização implícita, em quatro famílias, não produz. O conteúdo do conjunto deixa de ser indeterminado.
 
 **Existe um critério estatístico disponível, e é o mesmo do corpus de áudio.** A meta do corpus foi derivada do volume necessário para que a ausência de uma variante rara fosse informativa (§1.5). O análogo aqui é o número de pares necessário para que a **análise de direção** — se a resposta é depreciativa, e não apenas diferente — atinja poder suficiente. O passo 5.5 do roadmap produzirá a estimativa de tamanho de efeito que essa conta exige.
 
