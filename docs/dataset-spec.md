@@ -494,6 +494,7 @@ Acrescentem-se duas exigências metodológicas estabelecidas por medição próp
 
 - **A unidade de replicação é o par, não a medição.** As medições de um mesmo par compartilham o enunciado e não são independentes; tratá-las como replicações infla o tamanho amostral por uma ordem de grandeza (`docs/achados_para_o_artigo.md` §1.16).
 - **A comparação entre guises exige grupo de referência amplo.** O ruído no nível do par é da ordem do efeito procurado — desvio-padrão de 0,0629 contra mediana de 0,1539, com 86 pares —, de modo que o pareamento de frequência, sozinho, não basta. A calibração da resposta à frequência permanece como verificação: com o grupo ampliado, a razão de frequência não prevê a diferença de escore, e a variação dominante vem da moldura do enunciado (`docs/achados_para_o_artigo.md` §1.14, revisão de 14/09/2026).
+- **Todo par de menção explícita nasce com gêmeo de moldura** — regra adotada em 14/09/2026. O gêmeo repete a frase e o lado de comparação e troca apenas o rótulo nordestino por rótulo de outra região; a comparação dentro da dupla elimina a moldura, que no conjunto atual explicava a resposta atribuída ao Nordeste (`docs/achados_para_o_artigo.md` §1.17). A inclusão também de gêmeo intrarregional depende do resultado do controle correspondente, e as condições de sinalização implícita estão fora da regra, em aberto (`docs/pendencias.md` 2.11).
 
 ## 2.5 Conteúdo existente
 

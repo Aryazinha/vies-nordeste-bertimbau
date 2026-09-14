@@ -52,7 +52,10 @@ from pathlib import Path
 
 from teste_sensibilidade import ATRIBUTOS, CONDICOES, MOLDURAS
 from teste_explicito import (CONDICOES_5_1, CONDICOES_NOVAS, NOMES, CALIBRACAO, TESTE,
-                             EXCLUIDOS_DA_CALIBRACAO, TESTE_DO_CONTROLE)
+                             EXCLUIDOS_DA_CALIBRACAO, TESTE_DO_CONTROLE, TESTE_DO_INTRA)
+
+# Controles pareados de qualquer tipo, com a condição de teste que acompanham.
+PAREADOS = {**TESTE_DO_CONTROLE, **TESTE_DO_INTRA}
 
 DADOS = Path(__file__).resolve().parent / "resultados" / "dados"
 SAIDA = DADOS / "pares_minimos.json"
@@ -75,6 +78,10 @@ PAPEL = {
     "moldura_explicito_gentilico": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
     "moldura_explicito_toponimo": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
     "moldura_controle_explicito": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+    "intra_explicito_regiao": "controle pareado: mesma frase do teste de macrorregião, rótulo da região do lado de comparação",
+    "intra_explicito_gentilico": "controle pareado: mesma frase do teste de gentílico, gentílico da região do lado de comparação",
+    "intra_explicito_toponimo": "controle pareado: mesma frase do teste de topônimo, topônimo da região do lado de comparação",
+    "intra_controle_explicito": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sudeste",
     "controle_raridade": "controle: item raro não regional, para separar raridade de procedência",
     "controle_explicito": "controle: menção explícita não regional",
     "controle_conteudo": "controle positivo: diferença de conteúdo que o modelo deve detectar",
@@ -127,11 +134,11 @@ def construir() -> dict:
                 "papel": PAPEL.get(condicao, ""),
                 "grupo": ("calibracao" if condicao in CALIBRACAO
                           else "teste" if condicao in TESTE
-                          else "controle_pareado" if condicao in TESTE_DO_CONTROLE
+                          else "controle_pareado" if condicao in PAREADOS
                           else "outro"),
                 # Para controle pareado: o par de teste com a mesma frase.
-                "par_de_teste": (f"{TESTE_DO_CONTROLE[condicao]}-{i:02d}"
-                                 if condicao in TESTE_DO_CONTROLE else None),
+                "par_de_teste": (f"{PAREADOS[condicao]}-{i:02d}"
+                                 if condicao in PAREADOS else None),
                 # Par mantido no conjunto, mas fora do ajuste da reta e do grupo
                 # de referência. Nulo nos demais.
                 "excluido_da_calibracao": EXCLUIDOS_DA_CALIBRACAO.get((condicao, i)),

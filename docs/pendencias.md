@@ -272,7 +272,44 @@ Desenho da decisão (2) de 2.9, aprovado pela equipe em 14/09/2026. Predições 
 
 **Registre-se, sem estatuto confirmatório,** que o conjunto explícito original tem os cinco pares com D positivo (p exato 0,031), condição que não podia sobreviver à correção por construção, e que é a única cujos enunciados não são de autoidentificação.
 
-**Decisões pendentes da equipe.** (a) ~~Como reformular 1.17 e 1.17-A e as passagens que deles dependem~~ — **decidida em 14/09/2026**: 1.17 passa a afirmar resposta a rótulo regional em enunciado sobre a pessoa, sem especificidade detectável para o Nordeste, com vedação expressa às duas leituras extremas; 1.17-A é rebaixado a exemplo de método, com a leitura substantiva vedada. Atualizados na mesma rodada 1.18, 2.8, 3.1 e 3.7 dos achados, `CLAUDE.md` (log v2.2), `README.md`, `docs/resumo_para_orientacao.md`, `docs/questoes_para_orientacao.md`, `docs/dataset-spec.md` e o bloco de revisão de `docs/roadmap.md`; o relatório `explicito.md` recebeu aviso. (b) Se o crescimento das condições de teste deve seguir o desenho pareado, agora que a pergunta de especificidade se mostrou a que decide a interpretação. (c) Se cabe um segundo controle, com troca de rótulo **dentro do Sudeste** (*Sou mineiro* / *Sou carioca*), para separar resposta a qualquer gentílico de resposta a região distinta do Sudeste.
+**Decisões pendentes da equipe.** (a) ~~Como reformular 1.17 e 1.17-A e as passagens que deles dependem~~ — **decidida em 14/09/2026**: 1.17 passa a afirmar resposta a rótulo regional em enunciado sobre a pessoa, sem especificidade detectável para o Nordeste, com vedação expressa às duas leituras extremas; 1.17-A é rebaixado a exemplo de método, com a leitura substantiva vedada. Atualizados na mesma rodada 1.18, 2.8, 3.1 e 3.7 dos achados, `CLAUDE.md` (log v2.2), `README.md`, `docs/resumo_para_orientacao.md`, `docs/questoes_para_orientacao.md`, `docs/dataset-spec.md` e o bloco de revisão de `docs/roadmap.md`; o relatório `explicito.md` recebeu aviso.
+
+### 2.11 Controle intrarregional e meta do desenho pareado — ABERTA em 14/09/2026
+
+Decisões (b) e (c) de 2.10, aprovadas pela equipe em 14/09/2026. Branch `controle-intrarregional-e-meta`. **Esta seção é versionada antes da medição do controle intrarregional**, com o código dos pares e da análise.
+
+#### Parte (c) — controle intrarregional
+
+**Pergunta.** O controle de moldura mostrou que o rótulo nordestino não produz mais resposta que um rótulo do Sul na mesma frase. Resta saber se o modelo responde a **diferença de região** entre os dois lados do par, ou a **qualquer troca de rótulo geográfico** num enunciado sobre a pessoa. Os gêmeos de 2.10 sempre contrastam regiões distintas e não separam as duas leituras.
+
+**Construção.** Para cada um dos 29 pares de menção explícita, um segundo gêmeo com a mesma frase e o mesmo lado de comparação, trocado o rótulo nordestino por rótulo **da mesma região do lado de comparação**: *Sou baiano, e minha família também* / *Sou fluminense…* recebe *Sou mineiro, e minha família também* / *Sou fluminense…*. Pares em `teste_explicito.CONTROLE_INTRARREGIONAL`, com o índice como pareamento e conferência automática.
+
+**Desvios de construção, declarados.**
+
+- Nos pares de macrorregião de lugar (`explicito_regiao` 0 a 3 e `controle_explicito` 1), não existe macrorregião dentro do Sudeste: o gêmeo usa *Minas*, estado, contra *Sudeste*, macrorregião que o contém, com mudança de preposição (*do* → *de*, *no* → *em*).
+- Nos dois pares cujo lado de comparação é do Sul (`explicito_regiao` 4 e 6, *sulista* e *gaúcho*), o gêmeo intrarregional é do Sul (*catarinense*, *paranaense*).
+- Mudanças de artigo ou preposição em `explicito_toponimo` 2 e `controle_explicito` 2; nomes de duas palavras (*Minas Gerais*, *Espírito Santo*, *Belo Horizonte*). Frequência não pareada, por não prever a diferença de escore (1.14).
+
+**Medida primária, registrada.** Para cada frase k: E_k = |Δ| do gêmeo inter-regional de 2.10 − |Δ| do gêmeo intrarregional. Teste unilateral de média de E > 0 por permutação exata de sinais no nível da frase, por condição, com correção de Holm sobre as quatro condições.
+
+**Predições, registradas antes da medição.**
+
+- Se o modelo responde a diferença de região: E > 0 em `explicito_gentilico` e `explicito_regiao` — a troca dentro da mesma região produz menos resposta que a troca entre regiões.
+- Se o modelo responde a qualquer troca de rótulo geográfico em enunciado sobre a pessoa: E próximo de zero nas duas.
+
+**Medidas secundárias, registradas como secundárias.** D₂ = |Δ| do par de teste − |Δ| do gêmeo intrarregional, com o mesmo teste e correção; e |Δ| dos gêmeos intrarregionais contra o grupo de referência, descritivo.
+
+**Limites declarados.** Oito frases por condição; `controle_explicito`, com cinco, não pode sobreviver à correção. Os desvios de construção concentram-se em `explicito_regiao`, uma das duas condições das predições.
+
+**Análise:** `experimentos/analise_intrarregional.py`; tabela em `experimentos/resultados/tabelas/intrarregional_tabelas.md`.
+
+#### Parte (b) — desenho pareado no crescimento das condições
+
+**Regra adotada.** Todo par de menção explícita acrescentado ao conjunto nasce com seus gêmeos de moldura — inter-regional e, se (c) se mostrar informativo, intrarregional —, na mesma frase e com o mesmo lado de comparação. Registrada em `docs/dataset-spec.md` §2.4.
+
+**A meta muda de estatística.** A de 40 pares por condição foi dimensionada para a análise de direção, sobre escore de viés com duas amostras independentes. A pergunta que decide a interpretação da menção explícita é agora a de especificidade, sobre D pareado. `experimentos/meta_pareada.py` calcula, a partir da dispersão de D nos 29 gêmeos já medidos, quantas frases por condição exclui cada efeito específico. **O efeito-alvo é decisão da equipe**, como foi o 0,08 da meta anterior, e a tabela é produzida para subsidiá-la.
+
+**As condições implícitas ficam fora da regra, e em aberto.** Um gêmeo de moldura para sinalização dialetal implícita exigiria marcador equivalente de outra variedade (do Sul, por exemplo), o que é desenho de instrumento, e não troca de rótulo. Decisão pendente da equipe. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
 ---
 

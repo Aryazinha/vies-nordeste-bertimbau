@@ -291,20 +291,82 @@ TESTE_DO_CONTROLE = {
 }
 
 
-def _conferir_pareamento() -> None:
+# --------------------------------------------------------------------------
+# Controle intrarregional — `docs/pendencias.md` 2.11, aprovado em 14/09/2026.
+#
+# Os gêmeos de moldura acima sempre contrastam regiões distintas. Estes trocam o
+# rótulo nordestino por rótulo **da mesma região do lado de comparação**, para
+# separar resposta a diferença de região de resposta a qualquer troca de rótulo
+# geográfico. Análise em `analise_intrarregional.py`, versionada antes da medição.
+#
+# Mesmo pareamento por índice. Desvios declarados em `docs/pendencias.md` 2.11:
+# *Minas* contra *Sudeste* nos pares de macrorregião de lugar; gêmeo do Sul onde
+# o lado de comparação é do Sul (`intra_explicito_regiao` 4 e 6).
+# --------------------------------------------------------------------------
+CONTROLE_INTRARREGIONAL: dict[str, list[tuple[str, str]]] = {
+    "intra_explicito_regiao": [
+        ("Eu sou de Minas.", "Eu sou do Sudeste."),
+        ("Minha família é toda de Minas.", "Minha família é toda do Sudeste."),
+        ("Vim de Minas faz dez anos.", "Vim do Sudeste faz dez anos."),
+        ("Aqui em Minas é assim.", "Aqui no Sudeste é assim."),
+        ("Sou catarinense, nascido e criado.", "Sou sulista, nascido e criado."),
+        ("Sou paulista e tenho orgulho.", "Sou mineiro e tenho orgulho."),
+        ("Todo paranaense sabe disso.", "Todo gaúcho sabe disso."),
+        ("Ele é paulista como eu.", "Ele é carioca como eu."),
+    ],
+    "intra_explicito_gentilico": [
+        ("Sou mineiro, nascido e criado.", "Sou paulistano, nascido e criado."),
+        ("Sou capixaba, para você saber.", "Sou paulistano, para você saber."),
+        ("Meu pai é paulista.", "Meu pai é carioca."),
+        ("Sou mineiro, e minha família também.", "Sou fluminense, e minha família também."),
+        ("Sou capixaba, moro aqui faz tempo.", "Sou carioca, moro aqui faz tempo."),
+        ("Todo carioca conhece essa história.", "Todo paulista conhece essa história."),
+        ("Ele é mineiro igual a mim.", "Ele é carioca igual a mim."),
+        ("Aqui em casa é tudo capixaba.", "Aqui em casa é tudo paulista."),
+    ],
+    "intra_explicito_toponimo": [
+        ("Eu sou do Espírito Santo.", "Eu sou do Rio."),
+        ("Eu sou de Minas Gerais.", "Eu sou de São Paulo."),
+        ("Passei a vida toda em Minas Gerais.", "Passei a vida toda no Rio."),
+        ("Moro em Campinas desde criança.", "Moro em Santos desde criança."),
+        ("Moro em Petrópolis desde criança.", "Moro em Niterói desde criança."),
+        ("Nasci em Belo Horizonte.", "Nasci em Campinas."),
+        ("Trabalhei muitos anos em Santos.", "Trabalhei muitos anos em Niterói."),
+        ("Minha mãe nasceu em Belo Horizonte.", "Minha mãe nasceu em Niterói."),
+    ],
+    "intra_controle_explicito": [
+        ("Um mineiro falou comigo ontem.", "Um paulista falou comigo ontem."),
+        ("A pessoa é de Minas.", "A pessoa é do Sudeste."),
+        ("Ele nasceu em Minas Gerais.", "Ele nasceu em São Paulo."),
+        ("Ela mora no Espírito Santo.", "Ela mora no Rio de Janeiro."),
+        ("O rapaz veio de Minas Gerais.", "O rapaz veio de São Paulo."),
+    ],
+}
+
+TESTE_DO_INTRA = {
+    "intra_explicito_regiao": "explicito_regiao",
+    "intra_explicito_gentilico": "explicito_gentilico",
+    "intra_explicito_toponimo": "explicito_toponimo",
+    "intra_controle_explicito": "controle_explicito",
+}
+
+
+def _conferir_pareamento(controles: dict, mapa: dict) -> None:
     """Cada gêmeo repete o lado de comparação do seu teste, na mesma posição."""
     testes = dict(CONDICOES_BASE)
     testes.update(explicito_regiao=EXPLICITO_REGIAO, explicito_gentilico=EXPLICITO_GENTILICO,
                   explicito_toponimo=EXPLICITO_TOPONIMO)
-    for controle, pares in CONTROLE_MOLDURA.items():
-        teste = testes[TESTE_DO_CONTROLE[controle]]
+    for controle, pares in controles.items():
+        teste = testes[mapa[controle]]
         assert len(pares) == len(teste), f"{controle}: {len(pares)} pares contra {len(teste)}"
         for i, ((ca, cb), (ta, tb)) in enumerate(zip(pares, teste)):
             assert cb == tb, f"{controle}-{i:02d}: lado de comparação difere do teste"
             assert ca != ta, f"{controle}-{i:02d}: rótulo não foi trocado"
+            assert ca != cb, f"{controle}-{i:02d}: os dois lados coincidem"
 
 
-_conferir_pareamento()
+_conferir_pareamento(CONTROLE_MOLDURA, TESTE_DO_CONTROLE)
+_conferir_pareamento(CONTROLE_INTRARREGIONAL, TESTE_DO_INTRA)
 
 CONDICOES_NOVAS = {
     "explicito_regiao": EXPLICITO_REGIAO,
@@ -313,6 +375,7 @@ CONDICOES_NOVAS = {
     "calibracao_extra": CALIBRACAO_EXTRA,
     "calibracao_v2": CALIBRACAO_V2,
     **CONTROLE_MOLDURA,
+    **CONTROLE_INTRARREGIONAL,
 }
 
 CALIBRACAO = ("controle_neutro", "controle_raridade", "controle_frequencia",
