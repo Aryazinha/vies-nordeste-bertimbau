@@ -81,3 +81,19 @@ O notebook **não calcula WER**, que exige transcrição humana de referência e
 O que calcula é a confiança média por palavra, agregada por estado — indicador fraco, que mede a certeza do modelo e não o seu acerto. Presta-se a uma única pergunta: existe diferença sistemática entre variedades que justifique o custo da transcrição manual? Diferença observada nesse indicador é resultado a investigar, jamais a reportar como WER.
 
 O WER propriamente dito exige preencher `referencia_manual` em `amostra_wer.json` e comparar com `jiwer`. A ameaça correspondente está na Parte 3 do `CLAUDE.md`: erro de transcrição maior para fala nordestina seria viés de ferramenta apresentando-se como resultado sobre o modelo — e, medido corretamente, constitui resultado publicável por si só.
+
+---
+
+# Medição da calibração ampliada
+
+`medir_calibracao_colab.ipynb` mede no BERTimbau os 61 pares de calibração aprovados em 14/09/2026 e refaz as análises dos passos 5.4 e 5.5 sobre o grupo de referência de 86 pares (`docs/pendencias.md` 2.8).
+
+**Link direto, enquanto o trabalho estiver na branch:** https://colab.research.google.com/github/Aryazinha/vies-nordeste-bertimbau/blob/pares-minimos-calibracao/notebooks/medir_calibracao_colab.ipynb
+
+**Configuração.** T4 GPU recomendada, não obrigatória. Nenhum token é necessário: o modelo é público.
+
+**A conferência que precede a medição.** As medições guardadas em `explicito_bruto.json` foram feitas em processador, com `torch 2.13.0+cpu`; o Colab mede em GPU, com outra versão. A seção 4 do notebook remede os pares do controle neutro e compara com os valores guardados, e a seção 5 recusa-se a medir se a diferença exceder 10⁻³. Se exceder, o notebook indica como passar a medição para o processador. Sem essa conferência, a reta seria ajustada sobre medições de dois ambientes, e a diferença entre eles se apresentaria como resultado.
+
+**Resultado.** `medicao_calibracao_v2.zip`, com os arquivos alterados e seus caminhos relativos à raiz do repositório, gravado também no Drive em `MyDrive/medicao_calibracao_v2/`. Inclui `ambiente_calibracao_v2.json`, que registra versões, dispositivo e resultado da conferência.
+
+**O que continua local.** O notebook não altera o repositório remoto. Regerar `pares_minimos.json`, atualizar as constantes de `meta_pares_minimos.py` e corrigir os valores citados nos documentos são etapas posteriores, na máquina local.
