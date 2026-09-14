@@ -52,7 +52,7 @@ from pathlib import Path
 
 from teste_sensibilidade import ATRIBUTOS, CONDICOES, MOLDURAS
 from teste_explicito import (CONDICOES_5_1, CONDICOES_NOVAS, NOMES, CALIBRACAO, TESTE,
-                             EXCLUIDOS_DA_CALIBRACAO)
+                             EXCLUIDOS_DA_CALIBRACAO, TESTE_DO_CONTROLE)
 
 DADOS = Path(__file__).resolve().parent / "resultados" / "dados"
 SAIDA = DADOS / "pares_minimos.json"
@@ -60,7 +60,9 @@ BRUTO = DADOS / "explicito_bruto.json"
 PARES_MEDIDOS = DADOS / "explicito_pares.json"
 
 # 1.1, 14/09/2026: campo `excluido_da_calibracao` e condição `calibracao_v2`.
-VERSAO_ESQUEMA = "1.1"
+# 1.2, 14/09/2026: grupo `controle_pareado` e campo `par_de_teste`, para os
+# controles de moldura.
+VERSAO_ESQUEMA = "1.2"
 
 # Papel de cada condição no desenho. Sem isto, quem receber o conjunto não tem
 # como saber que `controle_raridade` existe para separar raridade de região.
@@ -69,6 +71,10 @@ PAPEL = {
     "controle_frequencia": "calibração: pares não regionais usados para ajustar a reta da frequência",
     "calibracao_extra": "calibração: ampliação do conjunto de ajuste da reta",
     "calibracao_v2": "calibração: ampliação a 80 pares distintos, uma frase por par, revisada item a item",
+    "moldura_explicito_regiao": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+    "moldura_explicito_gentilico": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+    "moldura_explicito_toponimo": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+    "moldura_controle_explicito": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
     "controle_raridade": "controle: item raro não regional, para separar raridade de procedência",
     "controle_explicito": "controle: menção explícita não regional",
     "controle_conteudo": "controle positivo: diferença de conteúdo que o modelo deve detectar",
@@ -120,7 +126,12 @@ def construir() -> dict:
                 "condicao": condicao,
                 "papel": PAPEL.get(condicao, ""),
                 "grupo": ("calibracao" if condicao in CALIBRACAO
-                          else "teste" if condicao in TESTE else "outro"),
+                          else "teste" if condicao in TESTE
+                          else "controle_pareado" if condicao in TESTE_DO_CONTROLE
+                          else "outro"),
+                # Para controle pareado: o par de teste com a mesma frase.
+                "par_de_teste": (f"{TESTE_DO_CONTROLE[condicao]}-{i:02d}"
+                                 if condicao in TESTE_DO_CONTROLE else None),
                 # Par mantido no conjunto, mas fora do ajuste da reta e do grupo
                 # de referência. Nulo nos demais.
                 "excluido_da_calibracao": EXCLUIDOS_DA_CALIBRACAO.get((condicao, i)),

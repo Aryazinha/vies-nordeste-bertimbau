@@ -437,7 +437,9 @@ O registro anterior apontava que não havia esquema definido: nem campos, nem ti
 | `id` | `{condicao}-{indice}`, estável |
 | `condicao` | família de marcador (`dialeto_A`, `explicito_gentilico`, `controle_raridade`…) |
 | `papel` | função da condição no desenho, em texto — o que impede que `controle_raridade` seja lido como mais um teste |
-| `grupo` | `calibracao`, `teste` ou `outro` |
+| `grupo` | `calibracao`, `teste`, `controle_pareado` ou `outro` |
+| `par_de_teste` | para `controle_pareado`: identificador do par de teste com a mesma frase, cujo rótulo nordestino o controle substitui (esquema 1.2, 14/09/2026); nulo nos demais |
+| `excluido_da_calibracao` | motivo, quando o par permanece no conjunto fora do grupo de referência (esquema 1.1); nulo nos demais |
 | `lado_a`, `lado_b` | as duas variantes do par |
 | `estado_alvo` | nulo: as condições agrupam por família de marcador, não por unidade da federação |
 | `medicao` | número de medições, mediana do d-PLL, razão de frequência, valor previsto pela reta e resíduo |
