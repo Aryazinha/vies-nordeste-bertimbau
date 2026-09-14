@@ -174,7 +174,7 @@ Doze itens constituem piloto. O CrowS-Pairs tem 1.508 pares. A meta do conjunto 
 
 Achado do passo 1: a divergência entre condições é de 0,0144 bits no bloco lexical contra 0,0023 no morfossintático, tendo 0,0963 como referência de conteúdo distinto. Se o efeito final vier do léxico, um revisor poderá alegar que se mediu frequência lexical, e não dialeto. Três encaminhamentos possíveis: aceitar e reposicionar o artigo; ampliar o volume de itens e testar se a morfossintaxe produz efeito agregado; ou avaliar o BERTimbau Large antes de decidir. **Decisão em aberto.**
 
-### 2.8 Grupo de referência: dependência entre pares e duplicata — ABERTA em 14/09/2026
+### 2.8 Grupo de referência: dependência entre pares, duplicata e chave de medição posicional — ABERTA em 14/09/2026
 
 Revisão dos 54 pares propostos por `experimentos/propor_calibracao.py` (`experimentos/resultados/dados/calibracao_proposta.json`), antes de qualquer incorporação. Três constatações.
 
@@ -186,7 +186,9 @@ Revisão dos 54 pares propostos por `experimentos/propor_calibracao.py` (`experi
 
 Registre-se ainda que a checagem de carga regional dos itens no corpus de áudio foi executada e **não é informativa**: a maioria dos itens tem zero ocorrências nos dois grupos, em cerca de 63 mil palavras. A dúvida sobre *sombrinha*, cujo emprego como designação genérica de guarda-chuva pode ter distribuição regional, permanece sem fonte.
 
-**Encerra a pendência:** decidir o tratamento da duplicata; reformular o gerador para que cada frase compareça em um único par, com molduras em número maior e distintas das já presentes; e, caso se admita reúso, declarar a estatística de conglomerado correspondente e recalcular o teto de detecção.
+**(d) Remover par do código desalinha as medições em silêncio.** `empacotar_pares.py` associa cada medição ao par pela chave `(condicao, índice na lista)`, e o identificador publicado deriva do mesmo índice. Apagar `controle_frequencia-05` de `CONTROLE_FREQUENCIA` deslocaria os seis pares seguintes, que passariam a receber a medição do vizinho e a trocar de identificador, e `--verificar` não o detectaria, porque compara o arquivo com o código e não o código com a medição. Remover `controle_neutro-03` tem custo adicional: o piso é a mediana daquela condição. A exclusão deve ser feita por marcação, sem apagar a entrada da lista, ou acompanhada de chave de medição que não dependa de posição.
+
+**Encerra a pendência:** decidir o tratamento da duplicata, pelo mecanismo descrito em (d); reformular o gerador para que cada frase compareça em um único par, com molduras em número maior e distintas das já presentes; e, caso se admita reúso, declarar a estatística de conglomerado correspondente e recalcular o teto de detecção.
 
 ---
 
