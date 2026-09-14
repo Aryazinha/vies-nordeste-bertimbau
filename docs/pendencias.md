@@ -309,7 +309,33 @@ Decisões (b) e (c) de 2.10, aprovadas pela equipe em 14/09/2026. Branch `contro
 
 **A meta muda de estatística.** A de 40 pares por condição foi dimensionada para a análise de direção, sobre escore de viés com duas amostras independentes. A pergunta que decide a interpretação da menção explícita é agora a de especificidade, sobre D pareado. `experimentos/meta_pareada.py` calcula, a partir da dispersão de D nos 29 gêmeos já medidos, quantas frases por condição exclui cada efeito específico. **O efeito-alvo é decisão da equipe**, como foi o 0,08 da meta anterior, e a tabela é produzida para subsidiá-la.
 
-**As condições implícitas ficam fora da regra, e em aberto.** Um gêmeo de moldura para sinalização dialetal implícita exigiria marcador equivalente de outra variedade (do Sul, por exemplo), o que é desenho de instrumento, e não troca de rótulo. Decisão pendente da equipe. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
+**As condições implícitas ficam fora da regra, e em aberto.** Um gêmeo de moldura para sinalização dialetal implícita exigiria marcador equivalente de outra variedade (do Sul, por exemplo), o que é desenho de instrumento, e não troca de rótulo. Decisão pendente da equipe.
+
+#### Resultado da parte (c), 14/09/2026
+
+Medição local: 812 medições em 29 gêmeos intrarregionais; as 4.900 anteriores intactas. Tabela em `experimentos/resultados/tabelas/intrarregional_tabelas.md`.
+
+| Condição de teste | Frases | E médio | IC 95% | E > 0 | p exato | p Holm |
+|---|---|---|---|---|---|---|
+| macrorregião | 8 | −0,0251 | −0,1301 a +0,0790 | 4/8 | 0,6562 | 1,0000 |
+| gentílico de estado | 8 | +0,0534 | −0,0200 a +0,1247 | 5/8 | 0,1094 | 0,4375 |
+| topônimo | 8 | −0,0288 | −0,1598 a +0,0628 | 5/8 | 0,5742 | 1,0000 |
+| conjunto explícito original | 5 | −0,0652 | −0,1917 a +0,0353 | 2/5 | 0,7812 | 1,0000 |
+
+**A predição de resposta a diferença de região não se confirmou**, e o desfecho não é o nulo limpo que a predição alternativa descreve: é **inconclusivo**, porque os desvios de construção declarados antes da medição dominam a variação.
+
+- *Os gêmeos de macrorregião de lugar produzem as maiores respostas da condição.* *Eu sou de Minas* e *Minha família é toda de Minas*, contra *…do Sudeste*, rendem |Δ| de 0,367 e 0,398 — estado contra a macrorregião que o contém, com mudança de preposição. Nesses quatro pares E é fortemente negativo (média −0,169); nos quatro pares de rótulo de pessoa da mesma condição, construídos sem desvio, E é positivo nos quatro (média +0,119). A separação é posterior aos dados, e com quatro pares o menor p exato possível é 0,0625: não tem estatuto de resultado.
+- *Conteúdo lexical do rótulo produz resposta própria.* *Eu sou do Espírito Santo* contra *Eu sou do Rio* rende |Δ| de 0,614, o maior valor de todas as medições de menção explícita. É plausível que o conteúdo religioso do nome desloque atributos de caráter; não foi testado.
+- *Os gêmeos intrarregionais também ficam acima do grupo de referência*, nas quatro condições (p descritivo de 0,002 a 0,047). Qualquer troca de rótulo geográfico em enunciado sobre a pessoa, inclusive dentro de uma mesma região, produz |Δ| acima de pares não regionais.
+- *Secundária registrada:* D₂ = |Δ| teste − |Δ| intrarregional não é significativa em condição alguma (gentílico, +0,069, p Holm 0,375).
+
+**Consequência para 1.17.** A formulação vigente não muda: resposta a rótulo regional em enunciado sobre a pessoa, sem especificidade detectável para o Nordeste. A qualificação de que não se separou resposta a qualquer gentílico de resposta a região distinta permanece verdadeira, agora com a tentativa registrada e inconclusiva. Acrescenta-se evidência de método: a resposta é sensível ao conteúdo lexical particular do rótulo, a ponto de a construção do controle decidir o resultado.
+
+#### Resultado da parte (b), 14/09/2026
+
+Tabela em `experimentos/resultados/tabelas/meta_pareada.md`. Desvio-padrão de D nos 29 gêmeos inter-regionais: 0,106 combinado, heterogêneo entre condições (0,044 a 0,171, o maior no gentílico). Com as oito frases atuais e correção de Holm, o menor efeito específico detectável é de 0,140 pelo desvio combinado. Frases necessárias por condição, com Holm e desvio combinado: 20 para excluir 0,08; 14 para 0,10; 46 para 0,05. Pelo desvio do gentílico, 46, 31 e 113.
+
+**Decisões pendentes da equipe.** (1) O efeito específico a excluir, que fixa o número de frases por condição de menção explícita. (2) Se o gêmeo intrarregional integra a regra do desenho pareado, dado que sua construção se mostrou frágil nos rótulos de lugar e de macrorregião. (3) As condições implícitas, já registradas acima. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
 ---
 
