@@ -1,0 +1,952 @@
+{
+  "_meta": {
+    "gerado_por": "propor_calibracao.py",
+    "max_diferenca_subtokens": 1,
+    "n_propostos": 54,
+    "revisao": "pendente"
+  },
+  "pares": [
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei macarrão na feira hoje.",
+      "lado_b": "Comprei canela na feira hoje.",
+      "itens_a": [
+        "macarrão"
+      ],
+      "itens_b": [
+        "canela"
+      ],
+      "razao_frequencia": 1.0,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 6.31e-06,
+      "freq_b": 6.31e-06
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu o casaco dentro do carro.",
+      "lado_b": "Ela esqueceu a carteira dentro do carro.",
+      "itens_a": [
+        "o",
+        "casaco"
+      ],
+      "itens_b": [
+        "a",
+        "carteira"
+      ],
+      "razao_frequencia": 1.551,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.17e-05,
+      "freq_b": 2.51e-05
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a janela antes de sair.",
+      "lado_b": "Fechei a cortina antes de sair.",
+      "itens_a": [
+        "janela"
+      ],
+      "itens_b": [
+        "cortina"
+      ],
+      "razao_frequencia": 5.749,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.07e-05,
+      "freq_b": 7.08e-06
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei a panela no armário da cozinha.",
+      "lado_b": "Guardei o coador no armário da cozinha.",
+      "itens_a": [
+        "a",
+        "panela"
+      ],
+      "itens_b": [
+        "o",
+        "coador"
+      ],
+      "razao_frequencia": 8.303,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.02e-05,
+      "freq_b": 1.66e-07
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou o compasso para a escola.",
+      "lado_b": "O menino levou o transferidor para a escola.",
+      "itens_a": [
+        "compasso"
+      ],
+      "itens_b": [
+        "transferidor"
+      ],
+      "razao_frequencia": 31.696,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 2e-06,
+      "freq_b": 6.31e-08
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu a chave dentro do carro.",
+      "lado_b": "Ela esqueceu a sombrinha dentro do carro.",
+      "itens_a": [
+        "chave"
+      ],
+      "itens_b": [
+        "sombrinha"
+      ],
+      "razao_frequencia": 117.342,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 7.24e-05,
+      "freq_b": 6.17e-07
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às cinco horas.",
+      "lado_b": "O ônibus passa às quatro horas.",
+      "itens_a": [
+        "cinco"
+      ],
+      "itens_b": [
+        "quatro"
+      ],
+      "razao_frequencia": 1.073,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 0.000245,
+      "freq_b": 0.000263
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a cortina antes de sair.",
+      "lado_b": "Fechei a torneira antes de sair.",
+      "itens_a": [
+        "cortina"
+      ],
+      "itens_b": [
+        "torneira"
+      ],
+      "razao_frequencia": 1.863,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 7.08e-06,
+      "freq_b": 3.8e-06
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei a peneira no armário da cozinha.",
+      "lado_b": "Guardei o coador no armário da cozinha.",
+      "itens_a": [
+        "a",
+        "peneira"
+      ],
+      "itens_b": [
+        "o",
+        "coador"
+      ],
+      "razao_frequencia": 3.131,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.45e-06,
+      "freq_b": 1.66e-07
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às sete horas.",
+      "lado_b": "O ônibus passa às onze horas.",
+      "itens_a": [
+        "sete"
+      ],
+      "itens_b": [
+        "onze"
+      ],
+      "razao_frequencia": 8.156,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 0.000115,
+      "freq_b": 1.41e-05
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou o estojo para a escola.",
+      "lado_b": "O menino levou o transferidor para a escola.",
+      "itens_a": [
+        "estojo"
+      ],
+      "itens_b": [
+        "transferidor"
+      ],
+      "razao_frequencia": 37.084,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.34e-06,
+      "freq_b": 6.31e-08
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a janela antes de sair.",
+      "lado_b": "Fechei a persiana antes de sair.",
+      "itens_a": [
+        "janela"
+      ],
+      "itens_b": [
+        "persiana"
+      ],
+      "razao_frequencia": 185.845,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.07e-05,
+      "freq_b": 2.19e-07
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei sal na feira hoje.",
+      "lado_b": "Comprei queijo na feira hoje.",
+      "itens_a": [
+        "sal"
+      ],
+      "itens_b": [
+        "queijo"
+      ],
+      "razao_frequencia": 1.021,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.82e-05,
+      "freq_b": 2.88e-05
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei o arroz no armário da cozinha.",
+      "lado_b": "Guardei a farinha no armário da cozinha.",
+      "itens_a": [
+        "o",
+        "arroz"
+      ],
+      "itens_b": [
+        "a",
+        "farinha"
+      ],
+      "razao_frequencia": 1.512,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.95e-05,
+      "freq_b": 1.15e-05
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às nove horas.",
+      "lado_b": "O ônibus passa às cinco horas.",
+      "itens_a": [
+        "nove"
+      ],
+      "itens_b": [
+        "cinco"
+      ],
+      "razao_frequencia": 3.793,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 6.46e-05,
+      "freq_b": 0.000245
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou a mochila para a escola.",
+      "lado_b": "O menino levou o transferidor para a escola.",
+      "itens_a": [
+        "a",
+        "mochila"
+      ],
+      "itens_b": [
+        "o",
+        "transferidor"
+      ],
+      "razao_frequencia": 15.494,
+      "subtokens_a": 4,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.35e-05,
+      "freq_b": 6.31e-08
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei sal na feira hoje.",
+      "lado_b": "Comprei fermento na feira hoje.",
+      "itens_a": [
+        "sal"
+      ],
+      "itens_b": [
+        "fermento"
+      ],
+      "razao_frequencia": 25.636,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.82e-05,
+      "freq_b": 1.1e-06
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a porta antes de sair.",
+      "lado_b": "Fechei a persiana antes de sair.",
+      "itens_a": [
+        "porta"
+      ],
+      "itens_b": [
+        "persiana"
+      ],
+      "razao_frequencia": 534.247,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 0.000117,
+      "freq_b": 2.19e-07
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu a chave dentro do carro.",
+      "lado_b": "Ela esqueceu o celular dentro do carro.",
+      "itens_a": [
+        "a",
+        "chave"
+      ],
+      "itens_b": [
+        "o",
+        "celular"
+      ],
+      "razao_frequencia": 1.097,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 7.23e-05,
+      "freq_b": 9.74e-05
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei o arroz no armário da cozinha.",
+      "lado_b": "Guardei a panela no armário da cozinha.",
+      "itens_a": [
+        "o",
+        "arroz"
+      ],
+      "itens_b": [
+        "a",
+        "panela"
+      ],
+      "razao_frequencia": 1.605,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.95e-05,
+      "freq_b": 1.02e-05
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às nove horas.",
+      "lado_b": "O ônibus passa às quatro horas.",
+      "itens_a": [
+        "nove"
+      ],
+      "itens_b": [
+        "quatro"
+      ],
+      "razao_frequencia": 4.071,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 6.46e-05,
+      "freq_b": 0.000263
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei leite na feira hoje.",
+      "lado_b": "Comprei canela na feira hoje.",
+      "itens_a": [
+        "leite"
+      ],
+      "itens_b": [
+        "canela"
+      ],
+      "razao_frequencia": 8.906,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.62e-05,
+      "freq_b": 6.31e-06
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu a carteira dentro do carro.",
+      "lado_b": "Ela esqueceu a sombrinha dentro do carro.",
+      "itens_a": [
+        "carteira"
+      ],
+      "itens_b": [
+        "sombrinha"
+      ],
+      "razao_frequencia": 40.681,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.51e-05,
+      "freq_b": 6.17e-07
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou o lanche para a escola.",
+      "lado_b": "O menino levou o transferidor para a escola.",
+      "itens_a": [
+        "lanche"
+      ],
+      "itens_b": [
+        "transferidor"
+      ],
+      "razao_frequencia": 138.035,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 8.71e-06,
+      "freq_b": 6.31e-08
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu o guarda-chuva dentro do carro.",
+      "lado_b": "Ela esqueceu o celular dentro do carro.",
+      "itens_a": [
+        "guarda",
+        "chuva"
+      ],
+      "itens_b": [
+        "celular"
+      ],
+      "razao_frequencia": 1.364,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.54e-05,
+      "freq_b": 9.77e-05
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei o açúcar no armário da cozinha.",
+      "lado_b": "Guardei a farinha no armário da cozinha.",
+      "itens_a": [
+        "o",
+        "açúcar"
+      ],
+      "itens_b": [
+        "a",
+        "farinha"
+      ],
+      "razao_frequencia": 1.659,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 3.54e-05,
+      "freq_b": 1.15e-05
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às nove horas.",
+      "lado_b": "O ônibus passa às onze horas.",
+      "itens_a": [
+        "nove"
+      ],
+      "itens_b": [
+        "onze"
+      ],
+      "razao_frequencia": 4.582,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 6.46e-05,
+      "freq_b": 1.41e-05
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei pão na feira hoje.",
+      "lado_b": "Comprei vinagre na feira hoje.",
+      "itens_a": [
+        "pão"
+      ],
+      "itens_b": [
+        "vinagre"
+      ],
+      "razao_frequencia": 9.125,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.9e-05,
+      "freq_b": 5.37e-06
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a gaveta antes de sair.",
+      "lado_b": "Fechei a persiana antes de sair.",
+      "itens_a": [
+        "gaveta"
+      ],
+      "itens_b": [
+        "persiana"
+      ],
+      "razao_frequencia": 25.114,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.5e-06,
+      "freq_b": 2.19e-07
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou o caderno para a escola.",
+      "lado_b": "O menino levou o transferidor para a escola.",
+      "itens_a": [
+        "caderno"
+      ],
+      "itens_b": [
+        "transferidor"
+      ],
+      "razao_frequencia": 177.496,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.12e-05,
+      "freq_b": 6.31e-08
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu a bolsa dentro do carro.",
+      "lado_b": "Ela esqueceu o celular dentro do carro.",
+      "itens_a": [
+        "a",
+        "bolsa"
+      ],
+      "itens_b": [
+        "o",
+        "celular"
+      ],
+      "razao_frequencia": 1.412,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 4.36e-05,
+      "freq_b": 9.74e-05
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei o pão no armário da cozinha.",
+      "lado_b": "Guardei o arroz no armário da cozinha.",
+      "itens_a": [
+        "pão"
+      ],
+      "itens_b": [
+        "arroz"
+      ],
+      "razao_frequencia": 1.661,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 4.9e-05,
+      "freq_b": 2.95e-05
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às oito horas.",
+      "lado_b": "O ônibus passa às onze horas.",
+      "itens_a": [
+        "oito"
+      ],
+      "itens_b": [
+        "onze"
+      ],
+      "razao_frequencia": 6.319,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 8.91e-05,
+      "freq_b": 1.41e-05
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei farinha na feira hoje.",
+      "lado_b": "Comprei café na feira hoje.",
+      "itens_a": [
+        "farinha"
+      ],
+      "itens_b": [
+        "café"
+      ],
+      "razao_frequencia": 9.13,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.15e-05,
+      "freq_b": 0.000105
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a porta antes de sair.",
+      "lado_b": "Fechei a torneira antes de sair.",
+      "itens_a": [
+        "porta"
+      ],
+      "itens_b": [
+        "torneira"
+      ],
+      "razao_frequencia": 30.789,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 0.000117,
+      "freq_b": 3.8e-06
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei o arroz no armário da cozinha.",
+      "lado_b": "Guardei o coador no armário da cozinha.",
+      "itens_a": [
+        "arroz"
+      ],
+      "itens_b": [
+        "coador"
+      ],
+      "razao_frequencia": 177.711,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 2.95e-05,
+      "freq_b": 1.66e-07
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou a régua para a escola.",
+      "lado_b": "O menino levou o estojo para a escola.",
+      "itens_a": [
+        "a",
+        "régua"
+      ],
+      "itens_b": [
+        "o",
+        "estojo"
+      ],
+      "razao_frequencia": 1.136,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.69e-06,
+      "freq_b": 2.34e-06
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às sete horas.",
+      "lado_b": "O ônibus passa às nove horas.",
+      "itens_a": [
+        "sete"
+      ],
+      "itens_b": [
+        "nove"
+      ],
+      "razao_frequencia": 1.78,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 0.000115,
+      "freq_b": 6.46e-05
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou o lanche para a escola.",
+      "lado_b": "O menino levou o estojo para a escola.",
+      "itens_a": [
+        "lanche"
+      ],
+      "itens_b": [
+        "estojo"
+      ],
+      "razao_frequencia": 3.722,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 8.71e-06,
+      "freq_b": 2.34e-06
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei manteiga na feira hoje.",
+      "lado_b": "Comprei café na feira hoje.",
+      "itens_a": [
+        "manteiga"
+      ],
+      "itens_b": [
+        "café"
+      ],
+      "razao_frequencia": 9.545,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.1e-05,
+      "freq_b": 0.000105
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a cortina antes de sair.",
+      "lado_b": "Fechei a persiana antes de sair.",
+      "itens_a": [
+        "cortina"
+      ],
+      "itens_b": [
+        "persiana"
+      ],
+      "razao_frequencia": 32.329,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 7.08e-06,
+      "freq_b": 2.19e-07
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei o açúcar no armário da cozinha.",
+      "lado_b": "Guardei o coador no armário da cozinha.",
+      "itens_a": [
+        "açúcar"
+      ],
+      "itens_b": [
+        "coador"
+      ],
+      "razao_frequencia": 213.855,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.55e-05,
+      "freq_b": 1.66e-07
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu o cachecol dentro do carro.",
+      "lado_b": "Ela esqueceu a sombrinha dentro do carro.",
+      "itens_a": [
+        "o",
+        "cachecol"
+      ],
+      "itens_b": [
+        "a",
+        "sombrinha"
+      ],
+      "razao_frequencia": 1.477,
+      "subtokens_a": 4,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.51e-06,
+      "freq_b": 6.17e-07
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às sete horas.",
+      "lado_b": "O ônibus passa às cinco horas.",
+      "itens_a": [
+        "sete"
+      ],
+      "itens_b": [
+        "cinco"
+      ],
+      "razao_frequencia": 2.13,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 0.000115,
+      "freq_b": 0.000245
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou o lanche para a escola.",
+      "lado_b": "O menino levou o compasso para a escola.",
+      "itens_a": [
+        "lanche"
+      ],
+      "itens_b": [
+        "compasso"
+      ],
+      "razao_frequencia": 4.355,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 8.71e-06,
+      "freq_b": 2e-06
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei fermento na feira hoje.",
+      "lado_b": "Comprei manteiga na feira hoje.",
+      "itens_a": [
+        "fermento"
+      ],
+      "itens_b": [
+        "manteiga"
+      ],
+      "razao_frequencia": 10.0,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.1e-06,
+      "freq_b": 1.1e-05
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu o guarda-chuva dentro do carro.",
+      "lado_b": "Ela esqueceu o cachecol dentro do carro.",
+      "itens_a": [
+        "guarda",
+        "chuva"
+      ],
+      "itens_b": [
+        "cachecol"
+      ],
+      "razao_frequencia": 47.449,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.54e-05,
+      "freq_b": 1.51e-06
+    },
+    {
+      "moldura": "guardar",
+      "lado_a": "Guardei o pão no armário da cozinha.",
+      "lado_b": "Guardei o coador no armário da cozinha.",
+      "itens_a": [
+        "pão"
+      ],
+      "itens_b": [
+        "coador"
+      ],
+      "razao_frequencia": 295.181,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.9e-05,
+      "freq_b": 1.66e-07
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a gaveta antes de sair.",
+      "lado_b": "Fechei a cortina antes de sair.",
+      "itens_a": [
+        "gaveta"
+      ],
+      "itens_b": [
+        "cortina"
+      ],
+      "razao_frequencia": 1.287,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.5e-06,
+      "freq_b": 7.08e-06
+    },
+    {
+      "moldura": "horario",
+      "lado_a": "O ônibus passa às sete horas.",
+      "lado_b": "O ônibus passa às quatro horas.",
+      "itens_a": [
+        "sete"
+      ],
+      "itens_b": [
+        "quatro"
+      ],
+      "razao_frequencia": 2.287,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 0.000115,
+      "freq_b": 0.000263
+    },
+    {
+      "moldura": "levar",
+      "lado_a": "O menino levou o caderno para a escola.",
+      "lado_b": "O menino levou o estojo para a escola.",
+      "itens_a": [
+        "caderno"
+      ],
+      "itens_b": [
+        "estojo"
+      ],
+      "razao_frequencia": 4.786,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.12e-05,
+      "freq_b": 2.34e-06
+    },
+    {
+      "moldura": "compra",
+      "lado_a": "Comprei farinha na feira hoje.",
+      "lado_b": "Comprei fermento na feira hoje.",
+      "itens_a": [
+        "farinha"
+      ],
+      "itens_b": [
+        "fermento"
+      ],
+      "razao_frequencia": 10.455,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.15e-05,
+      "freq_b": 1.1e-06
+    },
+    {
+      "moldura": "esquecer",
+      "lado_a": "Ela esqueceu a bolsa dentro do carro.",
+      "lado_b": "Ela esqueceu a sombrinha dentro do carro.",
+      "itens_a": [
+        "bolsa"
+      ],
+      "itens_b": [
+        "sombrinha"
+      ],
+      "razao_frequencia": 70.827,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.37e-05,
+      "freq_b": 6.17e-07
+    },
+    {
+      "moldura": "fechar",
+      "lado_a": "Fechei a gaveta antes de sair.",
+      "lado_b": "Fechei a torneira antes de sair.",
+      "itens_a": [
+        "gaveta"
+      ],
+      "itens_b": [
+        "torneira"
+      ],
+      "razao_frequencia": 1.447,
+      "subtokens_a": 3,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 5.5e-06,
+      "freq_b": 3.8e-06
+    }
+  ]
+}
