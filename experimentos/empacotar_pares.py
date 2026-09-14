@@ -51,14 +51,16 @@ from collections import defaultdict
 from pathlib import Path
 
 from teste_sensibilidade import ATRIBUTOS, CONDICOES, MOLDURAS
-from teste_explicito import CONDICOES_5_1, CONDICOES_NOVAS, NOMES, CALIBRACAO, TESTE
+from teste_explicito import (CONDICOES_5_1, CONDICOES_NOVAS, NOMES, CALIBRACAO, TESTE,
+                             EXCLUIDOS_DA_CALIBRACAO)
 
 DADOS = Path(__file__).resolve().parent / "resultados" / "dados"
 SAIDA = DADOS / "pares_minimos.json"
 BRUTO = DADOS / "explicito_bruto.json"
 PARES_MEDIDOS = DADOS / "explicito_pares.json"
 
-VERSAO_ESQUEMA = "1.0"
+# 1.1, 14/09/2026: campo `excluido_da_calibracao` e condição `calibracao_v2`.
+VERSAO_ESQUEMA = "1.1"
 
 # Papel de cada condição no desenho. Sem isto, quem receber o conjunto não tem
 # como saber que `controle_raridade` existe para separar raridade de região.
@@ -66,6 +68,7 @@ PAPEL = {
     "controle_neutro": "piso: os dois lados diferem em item trivial, sem carga regional",
     "controle_frequencia": "calibração: pares não regionais usados para ajustar a reta da frequência",
     "calibracao_extra": "calibração: ampliação do conjunto de ajuste da reta",
+    "calibracao_v2": "calibração: ampliação a 80 pares distintos, uma frase por par, revisada item a item",
     "controle_raridade": "controle: item raro não regional, para separar raridade de procedência",
     "controle_explicito": "controle: menção explícita não regional",
     "controle_conteudo": "controle positivo: diferença de conteúdo que o modelo deve detectar",
@@ -118,6 +121,9 @@ def construir() -> dict:
                 "papel": PAPEL.get(condicao, ""),
                 "grupo": ("calibracao" if condicao in CALIBRACAO
                           else "teste" if condicao in TESTE else "outro"),
+                # Par mantido no conjunto, mas fora do ajuste da reta e do grupo
+                # de referência. Nulo nos demais.
+                "excluido_da_calibracao": EXCLUIDOS_DA_CALIBRACAO.get((condicao, i)),
                 "lado_a": lado_a,
                 "lado_b": lado_b,
                 # O par não é atribuído a um estado: as condições agrupam por
@@ -163,6 +169,11 @@ def construir() -> dict:
                 "do empacotamento.",
                 "O eixo de prestígio ocupacional (moldura T2) não tem medição válida "
                 "por PLL, e exige AUL. Ver docs/achados_para_o_artigo.md.",
+                "Pares com 'excluido_da_calibracao' preenchido permanecem no conjunto "
+                "mas não entram no ajuste da reta nem no grupo de referência; o campo "
+                "traz o motivo. A ausência de carga regional nos pares de calibração "
+                "é juízo da equipe, registrado em calibracao_revisao.json, e não foi "
+                "validada por juízes.",
             ],
         },
         "pares": registros,

@@ -54,7 +54,7 @@ from teste_construcional import (
     ic_bootstrap,
     p_permutacao,
 )
-from teste_explicito import CONDICOES_NOVAS as CONDICOES_5_4
+from teste_explicito import CONDICOES_NOVAS as CONDICOES_5_4, EXCLUIDOS_DA_CALIBRACAO
 from teste_sensibilidade import CONDICOES as CONDICOES_BASE
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
@@ -124,6 +124,7 @@ CONDICOES = {
     "controle_neutro": "controle neutro",
     "controle_frequencia": "controle de frequência",
     "calibracao_extra": "calibração extra",
+    "calibracao_v2": "calibração ampliada",
     "controle_raridade": "controle de raridade",
     "controle_conteudo": "controle de conteúdo",
 }
@@ -149,12 +150,15 @@ CONDICOES = {
 # `controle_neutro` permanece como linha da tabela, agora testado contra o grupo
 # do qual faz parte. Deve resultar não significativo, e é a verificação de
 # sanidade do procedimento.
+#
+# Em 14/09/2026 o grupo passou a incluir `calibracao_v2` e a excluir os pares
+# marcados em `teste_explicito.EXCLUIDOS_DA_CALIBRACAO`, pela mesma regra da reta.
 # --------------------------------------------------------------------------
 REFERENCIA = ("controle_neutro", "controle_frequencia", "calibracao_extra",
-              "controle_raridade")
+              "calibracao_v2", "controle_raridade")
 
 ORDEM = ("controle_neutro", "controle_frequencia", "calibracao_extra",
-         "controle_raridade", "dialeto_A", "dialeto_B", "dialeto_C", "dialeto_D",
+         "calibracao_v2", "controle_raridade", "dialeto_A", "dialeto_B", "dialeto_C", "dialeto_D",
          "explicito_toponimo", "controle_explicito", "explicito_regiao",
          "explicito_gentilico", "controle_conteudo")
 
@@ -216,7 +220,8 @@ def main() -> None:
         for (cond, par), v in vies.items():
             por_cond[cond].append(v)
 
-        base = [v for (cond, _), v in vies.items() if cond in REFERENCIA]
+        base = [v for (cond, par), v in vies.items()
+                if cond in REFERENCIA and (cond, par) not in EXCLUIDOS_DA_CALIBRACAO]
         brutos_p = {}
         linhas = []
         for cond in ORDEM:
