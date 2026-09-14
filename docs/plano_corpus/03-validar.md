@@ -2,7 +2,54 @@
 
 **Objetivo.** Produzir as três medidas que sustentam as afirmações que o artigo fará sobre o corpus. Sem elas, o conjunto existe mas não é defensável.
 
-**Estado:** não iniciada. **Pré-requisito:** a composição do corpus precisa estar **estável** — etapa 1 concluída e, se necessária, etapa 2 também. As amostras desta etapa são extraídas do corpus final; extraí-las antes obrigaria a refazê-las.
+**Estado:** não iniciada. **Pré-requisito: satisfeito em 14/09/2026** — o corpus está estável, com 83 arquivos, 7,96 h e 216 falantes distintos, e as etapas 1 e 2 estão encerradas. As amostras desta etapa são extraídas do corpus final; extraí-las antes obrigaria a refazê-las.
+
+---
+
+## Situação em 14/09/2026, por frente
+
+A equipe optou, nessa data, por trabalhar primeiro no conjunto de pares mínimos, que corre em paralelo e não depende do áudio. Esta seção registra o que fica pendente aqui, para que a etapa possa ser retomada sem o histórico da conversa em que foi levantada.
+
+| Frente | O que existe | O que falta | Trabalho humano |
+|---|---|---|---|
+| 3.1 WER estratificado | ferramenta pronta; amostra desatualizada | regerar a amostra sobre os 83 arquivos e transcrever à mão | 8 a 16 h |
+| 3.2 Coerência dialetal | script pronto, corpus disponível | gerar a amostra e ouvir 10 locutores por estado | cerca de 1 h |
+| 3.3 Participação de ouvinte | relatório rodado em 14/09/2026 | ouvir 2 arquivos e preencher o campo | cerca de 15 min |
+
+### 3.1 — a amostra precisa ser regerada
+
+`amostra_wer.json` foi sorteado quando o corpus tinha 52 arquivos. O corpus tem 83, e os 31 acrescentados não podem ficar fora do sorteio: a amostra existe para medir o erro de transcrição **do corpus**, e uma amostra que ignora 37% dele mede outra coisa.
+
+A seção 6.4 do notebook `notebooks/piloto_colab.ipynb` foi corrigida em 14/09/2026 justamente para isto — ela lia apenas o lote processado na sessão, e passou a ler o corpus inteiro do Drive. Regerar é rodar aquela seção; o custo é de minutos, e não exige GPU.
+
+**Só depois vem o trabalho longo**, que é humano e indivisível por arquivo: ouvir e digitar. É também o item de maior valor isolado da etapa — WER estratificado por variedade é resultado publicável, e não controle de qualidade.
+
+### 3.2 — pronta para executar, e agora roda na máquina local
+
+`preparar_amostra_coerencia.py` exige o áudio, que no piloto só existia no ambiente de processamento. **Isso mudou:** o áudio dos 83 arquivos está na máquina local, de modo que a amostra pode ser gerada sem Colab, um estado por vez:
+
+```bash
+python preparar_amostra_coerencia.py --estado PE --n 10
+```
+
+O dimensionamento da seção 3.2 supunha 20 locutores por estado; hoje há entre 31 e 45, o que **melhora** o poder da amostra de 10, não o piora.
+
+### 3.3 — duas escutas, e é a frente mais barata
+
+O relatório rodou em 14/09/2026 sobre os 83 arquivos, com este resultado:
+
+| UF | Arquivos | Fala de ouvinte medida | Arquivos de canal com o formato |
+|---|---|---|---|
+| PB | 13 | desconhecida | 0 |
+| PE | 12 | desconhecida | 1 |
+| CE | 15 | desconhecida | 0 |
+| BA | 12 | desconhecida | 1 |
+| SP | 14 | desconhecida | 0 |
+| RJ | 17 | desconhecida | 0 |
+
+**Os zeros de volume significam desconhecido, e não nulo** — nenhum arquivo foi verificado por escuta, e o campo `participacao_ouvinte` nasce `nao_verificado`. São **dois arquivos** a ouvir, um em PE e um na BA, e com isso a frente fica medida em vez de suposta.
+
+A assimetria permanece estrutural e conhecida: não há canais do formato em SP e RJ que satisfaçam a regra de atribuição, porque nas duas capitais os programas de participação pertencem a redes nacionais. Por isso a conduta é medir e descontar, não buscar equivalentes.
 
 ---
 
