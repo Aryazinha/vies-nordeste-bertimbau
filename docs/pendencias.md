@@ -230,9 +230,9 @@ Registre-se ainda que a checagem de carga regional dos itens no corpus de áudio
 
 **Impacto medido da exclusão, e por que ela não é aplicada agora.** A reanálise sem o par duplicado, executada fora do repositório sobre `explicito_pares.json`, altera pouco o passo 5.4 e não muda nenhuma conclusão: a reta passa de 0,1296 + 0,0308·log₁₀(razão), R² = 0,159, a 0,1323 + 0,0298·log₁₀(razão), R² = 0,151; o gentílico de estado passa de p ajustado 0,0012 a 0,0004, a macrorregião de 0,0038 a 0,0045, e o controle positivo de 0,0009 a 0,0004. Nenhuma condição cruza o limiar de 0,05. A exclusão, contudo, alcança três análises — a reta do passo 5.1 (`teste_construcional.py`, `CALIBRACAO`), a do passo 5.4 (`teste_explicito.py`) e o grupo de referência do passo 5.5 (`analise_valencia.py`, `REFERENCIA`), de que sai o desvio-padrão de 0,1182 empregado em `meta_pares_minimos.py` — e cerca de dez documentos que citam seus valores, entre eles `CLAUDE.md`, `docs/achados_para_o_artigo.md` e `docs/resumo_para_orientacao.md`. Como a incorporação dos 55 pares medidos reabre as mesmas análises e altera os mesmos valores, **a exclusão será aplicada na mesma rodada**, para que os números publicados mudem uma única vez. Até lá, os valores vigentes são os que incluem o par duplicado.
 
-### 2.10 Controle de moldura para a menção explícita — PROPOSTA em 14/09/2026, aguardando aprovação
+### 2.10 Controle de moldura para a menção explícita — APROVADA e EXECUTADA em 14/09/2026; reformulação de 1.17 pendente
 
-Desenho da decisão (2) de 2.9. Nada foi gerado nem medido.
+Desenho da decisão (2) de 2.9, aprovado pela equipe em 14/09/2026. Predições versionadas em `e852c5a` e análise em `f7b1cdc`, ambas antes da medição; resultado ao final desta seção.
 
 **Pergunta.** A resposta do modelo à menção explícita (1.17) é específica do rótulo nordestino, ou é o que qualquer troca de rótulo regional produz num enunciado de autoidentificação? O PLL é calculado sobre o atributo mascarado, com o enunciado como contexto; um enunciado que descreve a pessoa (*Sou baiano*) tem razão para deslocar a probabilidade de atributos de pessoa mais que um enunciado sobre objeto (*Quebrei o prato*), e o grupo de referência não contém enunciados do primeiro tipo.
 
@@ -252,6 +252,27 @@ Desenho da decisão (2) de 2.9. Nada foi gerado nem medido.
 **Custo.** 29 pares novos, 812 medições; cerca de quatro minutos na máquina local, pela conferência de 14/09/2026, ou o notebook de medição.
 
 **Consequência para as condições de teste.** Se aprovado, o desenho pareado passa a ser o padrão: cada par de teste novo nasce com seu controle na mesma frase. O pareamento remove a variância de moldura, o que tende a reduzir o número de pares necessário por condição; a meta de 40 será recalculada sobre o desvio-padrão de D depois desta medição.
+
+**Resultado, 14/09/2026.** Medição local em processador: 812 medições em 29 pares-gêmeos, as 4.088 anteriores intactas. Tabela em `experimentos/resultados/tabelas/moldura_tabelas.md`.
+
+| Condição de teste | Frases | D médio | IC 95% | D > 0 | p exato | p Holm |
+|---|---|---|---|---|---|---|
+| macrorregião | 8 | +0,0279 | −0,0138 a +0,0692 | 6/8 | 0,1211 | 0,3633 |
+| gentílico de estado | 8 | +0,0158 | −0,0994 a +0,1219 | 5/8 | 0,3984 | 0,7969 |
+| topônimo | 8 | −0,0010 | −0,0490 a +0,0494 | 4/8 | 0,5117 | 0,7969 |
+| conjunto explícito original | 5 | +0,0398 | +0,0117 a +0,0775 | 5/5 | 0,0312 | 0,1250 |
+
+**A predição de especificidade não se confirmou.** Nas duas condições que sustentam 1.17, o rótulo nordestino não produz resposta detectavelmente maior que o rótulo do Sul, ou do Centro-Oeste, na mesma frase. Vale, pelo registro prévio, o desfecho alternativo: o modelo responde a **rótulo regional em enunciado de autoidentificação**, e não se detecta resposta específica ao Nordeste.
+
+**Três elementos que o qualificam.**
+
+1. *A premissa da objeção se confirma por via independente.* Os gêmeos, que não mencionam o Nordeste, já produzem |Δ| acima do grupo de referência: mediana de 0,2492 nos de gentílico, p = 0,0005, e de 0,2036 nos de macrorregião, p = 0,019, contra 0,1539 do grupo. Análise secundária, não registrada.
+2. *O nulo tem poder limitado.* Oito frases por condição; os intervalos admitem efeito específico de até +0,07 na macrorregião e +0,12 no gentílico, e a dispersão de D no gentílico é grande, de −0,29 a +0,21. O que se estabelece é ausência de especificidade **detectável**, e não sua ausência.
+3. *O reagrupamento pessoa/lugar não sobrevive ao controle.* Sobre D, rótulo de pessoa rende +0,0145 e de lugar +0,0139. A diferença entre pessoa e lugar de 1.17-A é compatível com efeito de moldura — frases que descrevem a pessoa deslocam atributos de pessoa, qualquer que seja a região — e não sustenta a leitura de que *nordestino* carrega representação social que *Recife* não carrega.
+
+**Registre-se, sem estatuto confirmatório,** que o conjunto explícito original tem os cinco pares com D positivo (p exato 0,031), condição que não podia sobreviver à correção por construção, e que é a única cujos enunciados não são de autoidentificação.
+
+**Decisões pendentes da equipe.** (a) Como reformular 1.17 e 1.17-A e as passagens que deles dependem — a parte 2 da conclusão em três partes, em `CLAUDE.md`, `README.md`, `docs/resumo_para_orientacao.md` e 3.1 e 3.7 dos achados. (b) Se o crescimento das condições de teste deve seguir o desenho pareado, agora que a pergunta de especificidade se mostrou a que decide a interpretação. (c) Se cabe um segundo controle, com troca de rótulo **dentro do Sudeste** (*Sou mineiro* / *Sou carioca*), para separar resposta a qualquer gentílico de resposta a região distinta do Sudeste.
 
 ---
 
