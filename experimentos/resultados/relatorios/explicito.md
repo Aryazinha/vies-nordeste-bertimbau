@@ -18,6 +18,13 @@ reexecução dos scripts.
 > frequência não prevê a diferença de escore (`docs/achados_para_o_artigo.md` 1.14;
 > `docs/pendencias.md` 2.9). Este documento permanece como registro da execução de
 > 29/08/2026.
+>
+> **Interpretação revista, também em 14/09/2026, pelo controle de moldura.** Com gêmeos
+> na mesma frase e rótulo do Sul no lugar do nordestino, a resposta ao rótulo nordestino
+> não é detectavelmente maior (`experimentos/resultados/tabelas/moldura_tabelas.md`). As
+> leituras desta página de que o efeito se concentra em rótulos de pessoa nordestinos, e
+> de que o modelo responde à "categoria regional nomeada", não devem ser citadas; a
+> formulação vigente está em `docs/achados_para_o_artigo.md` 1.17 e 1.17-A.
 
 ---
 

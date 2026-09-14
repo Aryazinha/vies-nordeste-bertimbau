@@ -535,7 +535,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 
 O item 13 registrava que, ao contrário do corpus de áudio, o conjunto de pares mínimos não tinha meta **nem critério que a produzisse**. Duas coisas mudaram com o passo 5.4:
 
-**Sabe-se o que o conjunto contém.** A menção explícita à região produz resposta acima do grupo de referência não regional, concentrada em rótulos de pessoa, e sobrevive à correção de multiplicidade (`docs/achados_para_o_artigo.md` §1.17). A sinalização implícita, em quatro famílias, não produz. O conteúdo do conjunto deixa de ser indeterminado.
+**Sabe-se o que o conjunto contém.** A menção explícita à região produz resposta acima do grupo de referência não regional e sobrevive à correção de multiplicidade, mas, desde o controle de moldura de 14/09/2026, sem especificidade detectável para o Nordeste (`docs/achados_para_o_artigo.md` §1.17). A sinalização implícita, em quatro famílias, não produz. O conteúdo do conjunto deixa de ser indeterminado.
 
 **Existe um critério estatístico disponível, e é o mesmo do corpus de áudio.** A meta do corpus foi derivada do volume necessário para que a ausência de uma variante rara fosse informativa (§1.5). O análogo aqui é o número de pares necessário para que a **análise de direção** — se a resposta é depreciativa, e não apenas diferente — atinja poder suficiente. O passo 5.5 do roadmap produzirá a estimativa de tamanho de efeito que essa conta exige.
 

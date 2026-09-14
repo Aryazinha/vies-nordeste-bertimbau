@@ -162,6 +162,8 @@ Os passos 5.4 e 5.5 foram reanalisados com 86 pares não regionais distintos, em
 
 **Uma premissa, porém, caiu.** Com o grupo ampliado, a razão de frequência não prevê a diferença de escore, e o item 1.14 de `docs/achados_para_o_artigo.md` foi reescrito. A "reta da frequência" dos passos 5.1 e 5.4 passa a valer como verificação de que a frequência não confunde a comparação, e não como correção dela.
 
+**Controle de moldura, 14/09/2026 — o resultado de 5.4 muda de alcance.** Com predição e análise versionadas antes da medição, cada par de menção explícita recebeu um gêmeo com a mesma frase e rótulo do Sul no lugar do nordestino (`docs/pendencias.md` 2.10). A resposta ao rótulo nordestino não é detectavelmente maior que a ao rótulo do Sul — p ajustados de 0,36 na macrorregião e 0,80 no gentílico —, e a distinção pessoa/lugar desaparece. O "primeiro resultado positivo" de 5.4 subsiste como resposta a rótulo regional em enunciado sobre a pessoa, sem especificidade detectável para o Nordeste; o item 1.17 dos achados foi reformulado nessa direção.
+
 ### 5.6 — Eixo ocupacional por AUL (aberto)
 
 Aberto em 29/08/2026 pelo resultado do 5.5. É a última medição pendente para fechar a seção de Resultados, e a única que exige nova passagem pelo modelo: os escores de AUL não foram gravados, porque as medições dos passos 5.1 e 5.4 empregaram o atalho de PLL apenas, por economia de tempo de máquina.
@@ -211,14 +213,14 @@ Segue-se uma recomendação, e não apenas o registro de uma opção. **O artigo
 - É a única chave em que os dois blocos de resultado se sustentam mutuamente. O nulo sobre quatro famílias implícitas, isolado, é um resultado fraco e atacável como falha de instrumento; ao lado de um positivo obtido com **a mesma régua, a mesma calibração e a mesma estatística**, torna-se demonstração de que o instrumento funciona e de que a diferença está no fenômeno.
 - Incorpora integralmente as contribuições de método do segundo caminho — tokenização (1.1), molduras (1.2), armadilhas de corpus (1.7), dimensionamento (1.8), unidade de replicação (1.16), calibração da frequência (1.14) —, que passam de contribuição central a fundamentação do resultado.
 - Reposiciona a literatura de forma favorável: Hofmann et al. (2024) encontram, em modelos alinhados, preconceito encoberto preservado sob manifesto suprimido; o BERTimbau Base, não alinhado, apresenta o padrão inverso. E o contraste com Melo e Souza (2026) deixa de ser diferenciação defensiva e passa a ser complementaridade — eles mediram o eixo explícito, que é justamente o que aqui responde.
-- Reconduz à hipótese de mecanismo sobre o brWaC com evidência nova: a associação com o **rótulo** existe, e a associação com a **forma linguística** não. Um corpus sem estratificação geográfica explicaria exatamente esse padrão.
+- Reconduz à hipótese de mecanismo sobre o brWaC com evidência nova: a associação com o **rótulo** existe, e a associação com a **forma linguística** não. Um corpus sem estratificação geográfica explicaria exatamente esse padrão. *Qualificação de 14/09/2026:* a associação com o rótulo não se mostrou específica do Nordeste — rótulos do Sul, na mesma frase, produzem resposta equivalente —, o que enfraquece a leitura de mecanismo centrada na sub-representação nordestina.
 
 **Atualização de 29/08/2026 — a condição que faltava foi cumprida, e a resposta muda o título.** O passo 5.5 mediu a direção do efeito. Não há viés de valência detectável: o único candidato dissolveu-se ao se controlar o artefato de tokenização, justamente quando o poder do teste aumentou.
 
 O artigo, portanto, **não é sobre viés medido**. É sobre o que o modelo distingue e o que não distingue, com três resultados que se sustentam mutuamente:
 
 1. Não responde à sinalização dialetal implícita, em quatro famílias (1.15).
-2. Responde à menção explícita da região, acima do que a frequência prevê, concentrada em rótulos de pessoa (1.17).
+2. Responde à menção explícita de região em enunciados sobre a pessoa, sem especificidade detectável para o Nordeste (1.17, reformulado em 14/09/2026 pelo controle de moldura).
 3. Essa resposta não se organiza por valência dos atributos de caráter (1.19).
 
 **E ganha uma contribuição metodológica que não existiria sem o resultado negativo:** a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à assimetria de tokenização (1.1, consequência demonstrada, e 1.20). O projeto encontrou um viés aparente a p = 0,049 e o desfez. Isso é resultado de método com valor próprio, e é o tipo de coisa que a literatura de *bias probing* raramente reporta.
