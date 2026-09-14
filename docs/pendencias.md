@@ -174,6 +174,20 @@ Doze itens constituem piloto. O CrowS-Pairs tem 1.508 pares. A meta do conjunto 
 
 Achado do passo 1: a divergência entre condições é de 0,0144 bits no bloco lexical contra 0,0023 no morfossintático, tendo 0,0963 como referência de conteúdo distinto. Se o efeito final vier do léxico, um revisor poderá alegar que se mediu frequência lexical, e não dialeto. Três encaminhamentos possíveis: aceitar e reposicionar o artigo; ampliar o volume de itens e testar se a morfossintaxe produz efeito agregado; ou avaliar o BERTimbau Large antes de decidir. **Decisão em aberto.**
 
+### 2.8 Grupo de referência: dependência entre pares e duplicata — ABERTA em 14/09/2026
+
+Revisão dos 54 pares propostos por `experimentos/propor_calibracao.py` (`experimentos/resultados/dados/calibracao_proposta.json`), antes de qualquer incorporação. Três constatações.
+
+**(a) Duplicata no conjunto canônico.** `controle_frequencia-05` e `controle_neutro-03` são o mesmo par com os lados invertidos, e ambos entram no ajuste da reta. O grupo de referência tem 25 pares distintos, e não 26; o par duplicado recebe peso dobrado na calibração.
+
+**(b) A proposta não produz 54 unidades independentes.** O gerador forma todas as combinações de itens dentro de seis molduras, de modo que a mesma frase se repete entre pares: *Guardei o coador no armário da cozinha* e *O menino levou o transferidor para a escola* comparecem em cinco pares cada, e dez frases propostas já constam do conjunto canônico. Ligando pares que compartilham frase, os 80 pares resultantes formam apenas 20 grupos, o maior com 18 pares. Pares que compartilham um lado compartilham o termo de pseudo-verossimilhança daquele lado e não são independentes — a mesma objeção de `docs/achados_para_o_artigo.md` §1.16, deslocada da medição para o par. O teto de detecção de `experimentos/resultados/tabelas/meta_pares_minimos.md` supõe pares independentes e ficaria superestimado.
+
+**(c) Concentração de moldura.** Com a incorporação, *Comprei X na feira hoje* passaria a 18 pares, e três molduras somariam 38 dos 80. O próprio gerador declara que a reta ajustada sobre variantes de uma construção descreve aquela construção.
+
+Registre-se ainda que a checagem de carga regional dos itens no corpus de áudio foi executada e **não é informativa**: a maioria dos itens tem zero ocorrências nos dois grupos, em cerca de 63 mil palavras. A dúvida sobre *sombrinha*, cujo emprego como designação genérica de guarda-chuva pode ter distribuição regional, permanece sem fonte.
+
+**Encerra a pendência:** decidir o tratamento da duplicata; reformular o gerador para que cada frase compareça em um único par, com molduras em número maior e distintas das já presentes; e, caso se admita reúso, declarar a estatística de conglomerado correspondente e recalcular o teto de detecção.
+
 ---
 
 ## 3. Bibliografia e verificação de fontes
