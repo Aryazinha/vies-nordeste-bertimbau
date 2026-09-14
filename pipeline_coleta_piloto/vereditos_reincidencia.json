@@ -243,5 +243,53 @@
     "veredito": "pessoas_distintas",
     "mesmo_canal": false,
     "nota": ""
+  },
+  "PB|7XUGnsxxgwI|SPEAKER_01|laIn5rdHc6A|SPEAKER_01": {
+    "estado": "PB",
+    "indice": 5,
+    "similaridade": 0.6122,
+    "rotulo_a": [
+      "7XUGnsxxgwI",
+      "SPEAKER_01"
+    ],
+    "rotulo_b": [
+      "laIn5rdHc6A",
+      "SPEAKER_01"
+    ],
+    "veredito": "pessoas_distintas",
+    "mesmo_canal": false,
+    "nota": ""
+  },
+  "PB|7XUGnsxxgwI|SPEAKER_01|8gWnfJVimwI|SPEAKER_00": {
+    "estado": "PB",
+    "indice": 6,
+    "similaridade": 0.6056,
+    "rotulo_a": [
+      "7XUGnsxxgwI",
+      "SPEAKER_01"
+    ],
+    "rotulo_b": [
+      "8gWnfJVimwI",
+      "SPEAKER_00"
+    ],
+    "veredito": "pessoas_distintas",
+    "mesmo_canal": false,
+    "nota": ""
+  },
+  "PB|7XUGnsxxgwI|SPEAKER_01|zziM8oF4aGU|SPEAKER_02": {
+    "estado": "PB",
+    "indice": 8,
+    "similaridade": 0.5019,
+    "rotulo_a": [
+      "7XUGnsxxgwI",
+      "SPEAKER_01"
+    ],
+    "rotulo_b": [
+      "zziM8oF4aGU",
+      "SPEAKER_02"
+    ],
+    "veredito": "pessoas_distintas",
+    "mesmo_canal": false,
+    "nota": ""
   }
 }

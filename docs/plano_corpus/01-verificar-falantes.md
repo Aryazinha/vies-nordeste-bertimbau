@@ -301,6 +301,15 @@ Repetida depois da rodada de margem para PB e RJ, que acrescentou 6 arquivos.
 
 **Três pares novos apareceram, todos em PB, e todos foram julgados pessoas distintas.** Vieram dos três arquivos acrescentados àquele estado; nenhum era de canal já presente no corpus. As sete fusões do corpus continuam sendo as mesmas de 10 e 12/09.
 
+**A calibração do limiar estreitou-se outra vez.** Os três pares novos estão a 0,6122, 0,6056 e 0,5019, e os três foram rejeitados. Com isso, o retrato empírico ao fim das três execuções é:
+
+| | Faixa observada | Vereditos |
+|---|---|---|
+| Confirmados como mesma pessoa | 0,7713 a 0,9259 | 8 |
+| Rejeitados como pessoas distintas | 0,5019 a 0,6122 | 10 |
+
+**Entre 0,612 e 0,771 o corpus não tem um único par**, depois de 18 conferências. A separação entre as duas classes é, portanto, larga e limpa, e nenhum limiar escolhido nessa faixa mudaria qualquer decisão tomada. O valor de 0,75 fica **compatível com toda a conferência**, e segue sem validação no sentido estrito — o que validaria seria um par na faixa vazia, e o corpus não o produziu.
+
 Uma observação que a conferência suscitou e que vale para as próximas rodadas: **a mesma voz apareceu em dois pares diferentes** — comparada contra duas outras. Não é anomalia, e é a razão de a apuração agrupar por componentes conexos em vez de subtrair fusões: se os dois pares fossem confirmados, as três vozes seriam uma pessoa, e não duas fusões independentes.
 
 **Estado final do corpus:** 83 arquivos, 7,96 h, 65 canais, **216 falantes distintos**, e os seis estados acima do piso com margem — PB +3, PE +1, CE +7, BA +2, SP +1, RJ +3. **A etapa 1 está encerrada.**
