@@ -223,12 +223,96 @@ CALIBRACAO_V2: list[tuple[str, str]] = [
     ("Ele guardou o documento na gaveta.", "Ele guardou o novelo na gaveta."),  # gaveta-3
 ]
 
+# --------------------------------------------------------------------------
+# Controle de moldura — `docs/pendencias.md` 2.10, aprovado em 14/09/2026.
+#
+# Os pares de menção explícita são quase todos enunciados de autoidentificação,
+# forma ausente do grupo de referência. Cada lista abaixo dá, a cada par de teste,
+# um gêmeo com a mesma frase e o mesmo lado de comparação, trocado apenas o rótulo
+# nordestino por rótulo equivalente do Sul — ou do Centro-Oeste, onde o lado de
+# comparação já é do Sul. A análise, pareada por frase, está em
+# `analise_moldura.py` e foi versionada antes da medição, junto com as predições.
+#
+# **O índice é o pareamento**: a entrada i controla o par i da condição de teste
+# correspondente. `_conferir_pareamento` falha se isso deixar de valer.
+#
+# Desvios de construção, declarados: `moldura_explicito_regiao` 4 e 6 usam
+# *goiano*, gentílico de estado, contra *nordestino*, de macrorregião;
+# `moldura_explicito_toponimo` 2 e `moldura_controle_explicito` 2 trocam o artigo
+# (*na Bahia*, *na Paraíba* → *no Paraná*); *Santa Catarina* e *Porto Alegre* têm
+# duas palavras.
+# --------------------------------------------------------------------------
+CONTROLE_MOLDURA: dict[str, list[tuple[str, str]]] = {
+    "moldura_explicito_regiao": [
+        ("Eu sou do Sul.", "Eu sou do Sudeste."),
+        ("Minha família é toda do Sul.", "Minha família é toda do Sudeste."),
+        ("Vim do Sul faz dez anos.", "Vim do Sudeste faz dez anos."),
+        ("Aqui no Sul é assim.", "Aqui no Sudeste é assim."),
+        ("Sou goiano, nascido e criado.", "Sou sulista, nascido e criado."),
+        ("Sou sulista e tenho orgulho.", "Sou mineiro e tenho orgulho."),
+        ("Todo goiano sabe disso.", "Todo gaúcho sabe disso."),
+        ("Ele é sulista como eu.", "Ele é carioca como eu."),
+    ],
+    "moldura_explicito_gentilico": [
+        ("Sou paranaense, nascido e criado.", "Sou paulistano, nascido e criado."),
+        ("Sou catarinense, para você saber.", "Sou paulistano, para você saber."),
+        ("Meu pai é gaúcho.", "Meu pai é carioca."),
+        ("Sou paranaense, e minha família também.", "Sou fluminense, e minha família também."),
+        ("Sou catarinense, moro aqui faz tempo.", "Sou carioca, moro aqui faz tempo."),
+        ("Todo gaúcho conhece essa história.", "Todo paulista conhece essa história."),
+        ("Ele é paranaense igual a mim.", "Ele é carioca igual a mim."),
+        ("Aqui em casa é tudo catarinense.", "Aqui em casa é tudo paulista."),
+    ],
+    "moldura_explicito_toponimo": [
+        ("Eu sou do Paraná.", "Eu sou do Rio."),
+        ("Eu sou de Santa Catarina.", "Eu sou de São Paulo."),
+        ("Passei a vida toda no Paraná.", "Passei a vida toda no Rio."),
+        ("Moro em Curitiba desde criança.", "Moro em Santos desde criança."),
+        ("Moro em Florianópolis desde criança.", "Moro em Niterói desde criança."),
+        ("Nasci em Porto Alegre.", "Nasci em Campinas."),
+        ("Trabalhei muitos anos em Curitiba.", "Trabalhei muitos anos em Niterói."),
+        ("Minha mãe nasceu em Florianópolis.", "Minha mãe nasceu em Niterói."),
+    ],
+    "moldura_controle_explicito": [
+        ("Um sulista falou comigo ontem.", "Um paulista falou comigo ontem."),
+        ("A pessoa é do Sul.", "A pessoa é do Sudeste."),
+        ("Ele nasceu no Paraná.", "Ele nasceu em São Paulo."),
+        ("Ela mora no Paraná.", "Ela mora no Rio de Janeiro."),
+        ("O rapaz veio de Santa Catarina.", "O rapaz veio de São Paulo."),
+    ],
+}
+
+# Condição de teste que cada controle de moldura acompanha.
+TESTE_DO_CONTROLE = {
+    "moldura_explicito_regiao": "explicito_regiao",
+    "moldura_explicito_gentilico": "explicito_gentilico",
+    "moldura_explicito_toponimo": "explicito_toponimo",
+    "moldura_controle_explicito": "controle_explicito",
+}
+
+
+def _conferir_pareamento() -> None:
+    """Cada gêmeo repete o lado de comparação do seu teste, na mesma posição."""
+    testes = dict(CONDICOES_BASE)
+    testes.update(explicito_regiao=EXPLICITO_REGIAO, explicito_gentilico=EXPLICITO_GENTILICO,
+                  explicito_toponimo=EXPLICITO_TOPONIMO)
+    for controle, pares in CONTROLE_MOLDURA.items():
+        teste = testes[TESTE_DO_CONTROLE[controle]]
+        assert len(pares) == len(teste), f"{controle}: {len(pares)} pares contra {len(teste)}"
+        for i, ((ca, cb), (ta, tb)) in enumerate(zip(pares, teste)):
+            assert cb == tb, f"{controle}-{i:02d}: lado de comparação difere do teste"
+            assert ca != ta, f"{controle}-{i:02d}: rótulo não foi trocado"
+
+
+_conferir_pareamento()
+
 CONDICOES_NOVAS = {
     "explicito_regiao": EXPLICITO_REGIAO,
     "explicito_gentilico": EXPLICITO_GENTILICO,
     "explicito_toponimo": EXPLICITO_TOPONIMO,
     "calibracao_extra": CALIBRACAO_EXTRA,
     "calibracao_v2": CALIBRACAO_V2,
+    **CONTROLE_MOLDURA,
 }
 
 CALIBRACAO = ("controle_neutro", "controle_raridade", "controle_frequencia",

@@ -61,8 +61,12 @@ Esta versão impõe quatro regras, verificadas por asserção antes da gravaçã
    *o casaco* contra *a carteira* fazia o artigo entrar na média geométrica da
    razão de frequência e atenuá-la.
 4. **Diferença de subtokens de no máximo um** entre os itens que distinguem os
-   lados. A reta é ajustada sobre |Δ PLL| da frase inteira, e cada subtoken a
-   mais é um termo a mais nessa soma.
+   lados. Precaução, e não correção de artefato demonstrado: o PLL é calculado
+   **apenas sobre o atributo** mascarado, e o enunciado entra como contexto, de
+   modo que subtoken a mais no enunciado não acrescenta termo à soma. Altera,
+   porém, a extensão do contexto, e a regra mantém os lados comparáveis nisso.
+   (Correção de 14/09/2026: a redação anterior afirmava que a medida era da
+   frase inteira, o que não corresponde a `metricas.Medidor.escore`.)
 
 ## Revisão humana, e por que ela trava a seleção
 

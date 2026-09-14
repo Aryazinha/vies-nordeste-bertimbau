@@ -254,11 +254,11 @@ Adotou-se, por isso, estatística por conglomerado — reamostragem de pares par
 
 **Procedência:** medição própria. O ponto vale para qualquer trabalho do gênero, e a literatura consultada não o explicita.
 
-## 1.17 O modelo responde à menção explícita da região, e o efeito concentra-se em rótulos de pessoa
+## 1.17 O modelo responde à menção explícita de região em enunciados sobre a pessoa, sem especificidade detectável para o Nordeste
 
-**Seção do artigo:** Resultados. É o primeiro resultado positivo do projeto, e forma par com 1.15.
+**Seção do artigo:** Resultados. Forma par com 1.15.
 
-Duas condições de menção explícita produzem resíduo acima do grupo de referência não regional e **sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
+Duas condições de menção explícita produzem resíduo acima do grupo de referência de 86 pares não regionais e **sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
 
 | Condição | Pares | Razão med. | Resíduo médio | Acima da reta | p Holm |
 |---|---|---|---|---|---|
@@ -266,29 +266,43 @@ Duas condições de menção explícita produzem resíduo acima do grupo de refe
 | macrorregião — *Nordeste*, *nordestino* | 8 | 1,8× | +0,0892 | 7/8 | **0,0045** |
 | topônimo — *Ceará*, *Recife*, *Salvador* | 8 | 4,9× | +0,0269 | 5/8 | 0,5370 |
 
-Valores com o grupo de referência de 86 pares distintos, de 14/09/2026. Com 26 pares, os valores ajustados eram 0,0012 e 0,0038, e a conclusão não se alterou.
+### Controle de moldura, 14/09/2026, com predição registrada antes da medição
 
-**Não é efeito de raridade,** e a revisão de 1.14 o reforça: no grupo de referência ampliado, a razão de frequência não prevê a diferença de escore, e as duas condições significativas têm as razões de frequência **mais baixas** de todo o conjunto. O par mais bem pareado — *pernambucano* contra *paulistano*, a 1,1× — apresenta resíduo de +0,0638, cerca de um desvio-padrão do ruído de calibração.
+Os pares acima são quase todos enunciados de autoidentificação — *Sou baiano*, *Meu pai é carioca* —, forma ausente do grupo de referência. Cada par recebeu um gêmeo com a mesma frase e o mesmo lado de comparação, trocado apenas o rótulo nordestino por rótulo equivalente do Sul, ou do Centro-Oeste onde o lado de comparação já era do Sul. Para cada frase, D é a diferença de |Δ| entre o par de teste e o gêmeo. A predição registrada — D > 0 no gentílico e na macrorregião, se a resposta fosse específica do Nordeste — **não se confirmou**:
 
-**O contraste com 1.15 é a contribuição.** Mesmo modelo, mesma métrica, mesmo grupo de referência, mesma estatística por conglomerado: quatro famílias de sinalização implícita entre −0,076 e +0,074, nenhuma sobrevivente à correção; menção explícita a +0,089 e +0,145, ambas sobreviventes.
+| Condição | Frases | D médio | IC 95% | D > 0 | p Holm |
+|---|---|---|---|---|---|
+| macrorregião | 8 | +0,0279 | −0,0138 a +0,0692 | 6/8 | 0,3633 |
+| gentílico de estado | 8 | +0,0158 | −0,0994 a +0,1219 | 5/8 | 0,7969 |
+| topônimo | 8 | −0,0010 | −0,0490 a +0,0494 | 4/8 | 0,7969 |
 
-**Formulação sustentada:** o BERTimbau Base responde à menção explícita da região acima do grupo de referência de pares não regionais, e não responde à sinalização dialetal implícita. **Formulação vedada:** que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, em valor absoluto, e nada diz sobre direção. Ver 3.7.
+Os gêmeos, que não mencionam o Nordeste, já produzem |Δ| acima do grupo de referência: mediana de 0,2492 nos de gentílico (p = 0,0005) e de 0,2036 nos de macrorregião (p = 0,019), contra 0,1539. A resposta medida em 5.4 é, portanto, em larga medida resposta à troca de rótulo regional em enunciado que descreve a pessoa.
 
-**Procedência:** `experimentos/teste_explicito.py`, relatório em `experimentos/resultados/relatorios/explicito.md`.
+**Formulação sustentada:** o BERTimbau Base responde à menção explícita de região em enunciados que descrevem a pessoa, acima de pares não regionais; rótulos do Sul, na mesma frase, produzem resposta equivalente, e não se detecta resposta específica ao Nordeste. O modelo não responde à sinalização dialetal implícita (1.15).
 
-**Qualificação obrigatória:** oito pares por condição, um modelo, uma métrica. O contraste de gentílico não é simétrico, pela inexistência de *sudestino* — ver 1.18.
+**Formulações vedadas:**
 
-## 1.17-A Rótulo de pessoa contra rótulo de lugar — exploratório
+- que o modelo responda especificamente ao Nordeste, ou à categoria *nordestino*;
+- que o modelo **não** distinga o Nordeste de outras regiões — com oito frases por condição, os intervalos admitem efeito específico de até +0,07 na macrorregião e +0,12 no gentílico;
+- que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, e não de direção (3.7).
 
-**Seção do artigo:** Resultados, e **apenas com a declaração de estatuto abaixo**.
+**O contraste com 1.15 muda de natureza.** Deixa de ser "variedade indiciada contra categoria regional nomeada" e passa a ser "sinalização linguística, sem resposta, contra rótulo geográfico explícito, com resposta" — sem que, no segundo caso, o Nordeste se destaque de outra região.
 
-A predição registrada antes da medição era ordinal por granularidade do rótulo, e não se confirmou: o gentílico de estado supera a macrorregião. A inspeção por par mostra que o corte é outro — entre enunciados que nomeiam uma **pessoa** e os que nomeiam um **lugar** —, e que ele atravessa a condição de macrorregião, cujos quatro pares com *Nordeste* rendem +0,021 contra +0,158 dos quatro com *nordestino*.
+**Observação sem estatuto confirmatório:** no conjunto explícito original, único cujos enunciados não são de autoidentificação (*A pessoa é do Nordeste*, *Ela mora no Ceará*), os cinco pares têm D positivo (p exato 0,031, sem possibilidade de sobreviver à correção com cinco pares). É indicação a testar em conjunto novo, e não resultado.
 
-Reagrupados os 24 pares explícitos por essa distinção: rótulo de pessoa, 12 pares, +0,1490, **doze de doze acima da reta**; rótulo de lugar, 12 pares, +0,0249, oito de doze. Diferença entre os agrupamentos, p = 0,0004. Valores com o grupo de referência de 86 pares, de 14/09/2026; com 26 pares eram +0,1618, +0,0359 e p = 0,0003.
+**Qualificação obrigatória:** oito frases por condição, um modelo, uma métrica, e um único tipo de rótulo alternativo. Como o rótulo do gêmeo nunca é do Sudeste, não se separou resposta a **qualquer** gentílico de resposta a região distinta do Sudeste (`docs/pendencias.md` 2.10, decisão c). O contraste de gentílico não é simétrico, pela inexistência de *sudestino* (1.18).
 
-**Declaração de estatuto, obrigatória em qualquer menção:** a hipótese foi formulada **depois** de ver os dados. O valor-p não tem o estatuto dos de 1.17 e vale como magnitude de efeito a testar em conjunto novo. O que permanece confirmatório é 1.17: as duas condições que contêm rótulos de pessoa sobrevivem a Holm, e a que contém apenas topônimos não sobrevive.
+**Procedência:** `experimentos/teste_explicito.py` e `experimentos/analise_moldura.py`; tabelas em `experimentos/resultados/tabelas/explicito_tabelas.md` e `moldura_tabelas.md`. Predições versionadas em `e852c5a` e análise em `f7b1cdc`, antes da medição. A redação anterior deste item, que lia o efeito como concentrado em rótulos de pessoa nordestinos, está no histórico do repositório.
 
-**Leitura substantiva, se confirmado:** o modelo associa conteúdo a categorias de pessoa e trata nomes de lugar como topônimos quaisquer. *Nordestino* carrega representação social; *Recife* não.
+## 1.17-A Rótulo de pessoa contra rótulo de lugar — exploratório, e não sustentado pelo controle de moldura
+
+**Seção do artigo:** não deve ir a Resultados. Pode ir a Método, como exemplo de diferença aparente produzida pela moldura.
+
+A predição registrada antes da medição de 5.4 era ordinal por granularidade do rótulo, e não se confirmou. A inspeção posterior sugeriu um corte entre enunciados que nomeiam **pessoa** e os que nomeiam **lugar**: sobre o resíduo, rótulo de pessoa +0,1490, doze de doze acima da reta, contra +0,0249 de lugar, com p = 0,0004 para a diferença.
+
+**O controle de moldura desfaz a leitura.** Sobre D — a diferença entre o par nordestino e o gêmeo do Sul na mesma frase —, rótulo de pessoa rende +0,0145 e rótulo de lugar +0,0139. A diferença entre os agrupamentos desaparece quando a frase é mantida constante. É compatível com efeito de moldura: frases que descrevem a pessoa deslocam a probabilidade de atributos de pessoa, qualquer que seja a região nomeada.
+
+**Não deve ser escrita** a leitura substantiva antes registrada aqui — de que *nordestino* carrega representação social e *Recife* não. **Pode ser escrito**, em Método e com a declaração de que a hipótese foi posterior aos dados, que uma diferença entre categorias de rótulo aparentemente forte (p = 0,0004) se mostrou atribuível à forma dos enunciados quando controlada por pareamento.
 
 ## 1.18 O português não dispõe de gentílico corrente para o Sudeste
 
@@ -296,7 +310,7 @@ Reagrupados os 24 pares explícitos por essa distinção: rótulo de pessoa, 12 
 
 *Sudestino* apresenta frequência de 0,015 por milhão contra 4,27 de *nordestino* — razão de 285 vezes. O contraste simétrico de gentílico de macrorregião é, por isso, impossível de construir, e os controles empregados foram gentílicos de outra macrorregião (*sulista*) ou de estados do Sudeste (*mineiro*, *carioca*, *paulista*, *paulistano*, *fluminense*).
 
-O fato é dado, e não apenas obstáculo de desenho: a categoria "nordestino" existe na língua como rótulo de pessoa de um modo que "sudestino" não existe. É consistente com a leitura de que a primeira funciona como categoria social e a segunda como coordenada geográfica, e deve ser reportada como limitação **e** como evidência.
+O fato é dado, e não apenas obstáculo de desenho: a categoria "nordestino" existe na língua como rótulo de pessoa de um modo que "sudestino" não existe. Deve ser reportado como limitação. A leitura que o tomava também como evidência de que a primeira funciona como categoria social e a segunda como coordenada geográfica apoiava-se em 1.17-A, que o controle de moldura desfez em 14/09/2026, e não deve ser escrita.
 
 **Procedência:** medição própria com `wordfreq`, registrada em `experimentos/teste_explicito.py`.
 
@@ -408,7 +422,7 @@ A impossibilidade não é acidente deste conjunto de itens: é o item 1.1 operan
 
 **Encerrado em 29/08/2026.** Este item era condicional a volume, e o volume foi produzido pelo passo 5.4 do roadmap: vinte e quatro pares novos, em três níveis de granularidade do rótulo. A condição liberadora foi cumprida e o achado passa a **SUSTENTADO**, no item 1.17.
 
-**Uma parte da leitura original não sobreviveu, e o registro importa.** O item afirmava que a estrutura interna era de granularidade — região como categoria acima, nomes de estado próximos de zero. Com oito pares por nível, o corte revelou-se outro: entre **rótulo de pessoa** e **rótulo de lugar**, distinção que atravessa a condição de macrorregião e que os cinco pares originais não permitiam ver. Ver 1.17-A, e a declaração de estatuto que o acompanha.
+**Uma parte da leitura original não sobreviveu, e o registro importa.** O item afirmava que a estrutura interna era de granularidade — região como categoria acima, nomes de estado próximos de zero. Com oito pares por nível, o corte revelou-se outro: entre **rótulo de pessoa** e **rótulo de lugar**, distinção que atravessa a condição de macrorregião e que os cinco pares originais não permitiam ver. Ver 1.17-A, e a declaração de estatuto que o acompanha. Em 14/09/2026, esse segundo corte também não sobreviveu ao controle de moldura.
 
 **Conservado como histórico**, e não removido, porque a previsão registrada antes da medição é parte do que torna 1.17 confirmatório e 1.17-A exploratório.
 
@@ -450,7 +464,7 @@ A vedação, portanto, muda de fundamento — e deixa de ser sobre ausência de 
 
 **Formulação correta, em três partes que não devem ser separadas:**
 1. O BERTimbau Base **não** exibe resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas (1.15).
-2. O BERTimbau Base **exibe** resposta à menção explícita da região, acima do grupo de referência não regional, concentrada em rótulos de pessoa (1.17).
+2. O BERTimbau Base **exibe** resposta à menção explícita de região em enunciados sobre a pessoa, acima do grupo de referência não regional, sem especificidade detectável para o Nordeste (1.17).
 3. **Não se sabe** se essa resposta é depreciativa: a medida é de magnitude, e a de direção não tem poder estatístico (3.7).
 
 **Formulação incorreta, e a mais tentadora:** que o modelo apresente, ou deixe de apresentar, viés regional. Distinguir não é depreciar.
@@ -487,7 +501,7 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 - Citar qualquer valor do eixo de **prestígio ocupacional**, em qualquer direção, inclusive o −0,2706 da condição de gentílico. Aquele eixo não tem medição válida por impossibilidade instrumental — ver 1.20.
 - Citar o viés de +0,1952 da condição de macrorregião como resultado. Ele não sobrevive ao controle de tokenização, e sua história pertence a 1.1, não a Resultados.
 
-**Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita da região (1.17); e essa resposta não é depreciativa de forma detectável no eixo de caráter (1.19), permanecendo o eixo ocupacional sem medição (1.20).
+**Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita de região em enunciados sobre a pessoa, sem especificidade detectável para o Nordeste (1.17); e essa resposta não é depreciativa de forma detectável no eixo de caráter (1.19), permanecendo o eixo ocupacional sem medição (1.20).
 
 **Libera afirmação mais forte:** medição do eixo ocupacional por AUL, e validação da classificação de valência por juízes.
 

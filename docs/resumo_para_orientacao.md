@@ -1,6 +1,6 @@
 # Resumo do estado da pesquisa
 
-**Data:** 31/08/2026. **Destinatário:** orientação. **Atualização de 14/09/2026:** números da seção 2 e meta de pares revistos com o grupo de referência ampliado a 86 pares; as demais seções não foram revistas.
+**Data:** 31/08/2026. **Destinatário:** orientação. **Atualização de 14/09/2026:** números da seção 2 e meta de pares revistos com o grupo de referência ampliado a 86 pares, e seção 2.2 reformulada pelo controle de moldura; as demais seções não foram revistas.
 
 Documento de leitura rápida. As questões que dependem de decisão da orientação estão reunidas em [`questoes_para_orientacao.md`](questoes_para_orientacao.md); este arquivo apenas relata o estado. Cada número indica a fonte de onde foi extraído.
 
@@ -37,7 +37,7 @@ O caso mais informativo é a negação pós-verbal — "fui não" contra "não f
 
 O nulo é legível porque duas condições de interpretabilidade foram satisfeitas. O controle positivo, que contrasta proposições distintas, produz resíduo de +0,3422 com p ajustado de 0,0004 — a medição detecta o que existe. E o confundidor de frequência está verificado, e não apenas declarado: sobre 86 pares não regionais, a razão de frequência não prevê a diferença de escore.
 
-### 2.2 O modelo responde à menção explícita da região
+### 2.2 O modelo responde à menção explícita de região, sem especificidade detectável para o Nordeste
 
 Duas condições produzem resíduo acima do grupo de referência não regional **e sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
 
@@ -51,7 +51,11 @@ Duas condições produzem resíduo acima do grupo de referência não regional *
 
 **O efeito não é de raridade lexical.** A razão de frequência não prevê a diferença de escore no grupo de referência, e as duas condições significativas apresentam as razões de frequência mais baixas de todo o conjunto.
 
-O contraste entre 2.1 e 2.2 é obtido com o mesmo modelo, a mesma métrica, o mesmo grupo de referência e a mesma estatística. É a contribuição central que o material atualmente sustenta: **o modelo responde à categoria regional nomeada, e não à variedade linguística que a indicia.**
+**Controle de moldura, com predição registrada antes da medição.** Os pares acima são quase todos frases de apresentação pessoal, forma ausente do grupo de referência. Cada um recebeu um gêmeo com a mesma frase e rótulo do Sul no lugar do nordestino — *Meu pai é gaúcho* ao lado de *Meu pai é baiano*. A resposta ao rótulo nordestino **não é detectavelmente maior** que a ao rótulo do Sul: diferença média de +0,028 na macrorregião e +0,016 no gentílico, p ajustados de 0,36 e 0,80. Os gêmeos, sem Nordeste, já ficam acima do grupo de referência.
+
+*Fonte: `experimentos/resultados/tabelas/moldura_tabelas.md`.*
+
+O contraste entre 2.1 e 2.2 é obtido com o mesmo modelo, a mesma métrica, o mesmo grupo de referência e a mesma estatística. O que o material sustenta hoje é mais estreito do que a leitura anterior: **o modelo responde a rótulo geográfico explícito em frase sobre a pessoa, e não à variedade linguística; nesse rótulo, não se detecta que o Nordeste se destaque de outra região.** Com oito frases por condição, um efeito específico pequeno não está excluído.
 
 ### 2.3 Essa resposta não é depreciativa de forma detectável
 
@@ -128,4 +132,5 @@ Registradas em `docs/achados_para_o_artigo.md` e reproduzidas aqui por serem o p
 1. **Não afirmar que o BERTimbau não apresenta viés regional.** O que se estabeleceu é que este instrumento, neste modelo, nesta métrica e neste repertório de atributos não detecta viés. Não detectar não é demonstrar ausência.
 2. **Não citar o viés de +0,1952 como resultado.** Ele pertence à discussão sobre assimetria de tokenização, e não à seção de resultados.
 3. **Não citar valor algum do eixo ocupacional**, em direção alguma, enquanto não houver medição válida.
-4. **Declarar como posterior aos dados** o reagrupamento entre rótulo de pessoa e rótulo de lugar, sempre que ele aparecer. A hipótese registrada antes da medição era outra, e não se confirmou na forma em que fora escrita.
+4. **Não escrever como achado** o reagrupamento entre rótulo de pessoa e rótulo de lugar. Além de posterior aos dados, desapareceu no controle de moldura de 14/09/2026.
+5. **Não afirmar que o modelo responde especificamente ao Nordeste**, nem que está demonstrado que não responde. O que se estabeleceu é que, com oito frases por condição, a especificidade não é detectável.

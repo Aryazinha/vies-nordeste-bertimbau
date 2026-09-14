@@ -5,7 +5,7 @@
 
 **Como ler.** Os blocos estão em ordem de consequência, e não de assunto. O Bloco 1 determina o que os outros significam; os Blocos 2 e 3 travam a publicação; os demais são resolvíveis em qualquer ordem.
 
-**Estado do projeto, em três frases.** O modelo não responde à sinalização dialetal implícita, em quatro famílias de marcadores testadas. Responde à menção explícita da região, acima de um grupo de referência de 86 pares não regionais, e o efeito concentra-se em rótulos de pessoa e não de lugar. Essa resposta, porém, não é depreciativa de forma detectável — o único viés candidato revelou-se artefato de tokenização.
+**Estado do projeto, em três frases.** O modelo não responde à sinalização dialetal implícita, em quatro famílias de marcadores testadas. Responde à menção explícita de região em frases sobre a pessoa, acima de um grupo de referência de 86 pares não regionais, mas sem especificidade detectável para o Nordeste: rótulos do Sul, na mesma frase, produzem resposta equivalente. Essa resposta, porém, não é depreciativa de forma detectável — o único viés candidato revelou-se artefato de tokenização.
 
 ---
 
@@ -15,7 +15,7 @@ Este bloco determina o que fazer com todo o resto. Enquanto não for respondido,
 
 ## 1.1 O contraste entre sinalização implícita e explícita basta como resultado principal de um artigo?
 
-**Contexto.** Não há viés medido. O que há é um contraste obtido com a mesma régua, a mesma calibração e a mesma estatística: quatro famílias de marcadores dialetais implícitos não produzem resposta no modelo, e a menção explícita da região produz, sobrevivendo à correção para múltiplas comparações. A leitura proposta é que o modelo associa conteúdo à **categoria regional nomeada** e não à **variedade linguística que a indicia**.
+**Contexto.** Não há viés medido. O que há é um contraste obtido com a mesma régua, a mesma calibração e a mesma estatística: quatro famílias de marcadores dialetais implícitos não produzem resposta no modelo, e a menção explícita da região produz, sobrevivendo à correção para múltiplas comparações. A leitura proposta era que o modelo associa conteúdo à **categoria regional nomeada** e não à **variedade linguística que a indicia**. **Revisão de 14/09/2026:** o controle de moldura mostrou que rótulos do Sul, na mesma frase, produzem resposta equivalente à dos nordestinos; a leitura que se sustenta é mais estreita — resposta a rótulo geográfico explícito, sem especificidade detectável para o Nordeste.
 
 **Do que depende a resposta.** Se sim, o artigo é sobre representação e o dataset se dimensiona para sustentar um nulo bem-posto. Se não, é preciso ou trocar de modelo, ou reposicionar o trabalho como artigo de recurso e método.
 
@@ -88,6 +88,8 @@ Perguntas sobre se o que fizemos se sustenta em revisão por pares.
 **Contexto.** Registramos antes da medição a previsão de que o efeito decresceria com a granularidade do rótulo — macrorregião, gentílico de estado, topônimo. Não foi o que ocorreu: o corte real é entre **rótulo de pessoa** e **rótulo de lugar**, e atravessa uma das condições. O reagrupamento é forte, com doze pares em doze acima da reta, mas é posterior aos dados.
 
 **Do que depende a resposta.** Se deve ir ao texto como achado exploratório declarado, ficar de fora, ou motivar uma replicação em conjunto novo antes da submissão.
+
+**Atualização de 14/09/2026 — a questão mudou de forma.** O controle de moldura, com gêmeos na mesma frase e rótulo do Sul, fez a diferença entre pessoa e lugar desaparecer (+0,0145 contra +0,0139). O reagrupamento deixou de ser candidato a achado, e a equipe decidiu não apresentá-lo em Resultados. A questão que resta à orientação é outra: se o episódio — uma diferença a p = 0,0004 desfeita por pareamento de frase — deve ir a Método como exemplo, ao lado do artefato de tokenização.
 
 ## 3.3 A unidade de replicação em *matched-guise probing* é o par, e não a medição — isso é ponto conhecido ou contribuição?
 
