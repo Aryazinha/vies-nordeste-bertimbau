@@ -211,5 +211,37 @@
     "mesmo_canal": true,
     "origem": "canal_repetido",
     "nota": "canal repetido"
+  },
+  "PE|Z_ZLH1hratI|SPEAKER_00|b82HS4Dnevg|SPEAKER_01": {
+    "estado": "PE",
+    "indice": 1,
+    "similaridade": 0.8224,
+    "rotulo_a": [
+      "Z_ZLH1hratI",
+      "SPEAKER_00"
+    ],
+    "rotulo_b": [
+      "b82HS4Dnevg",
+      "SPEAKER_01"
+    ],
+    "veredito": "mesma_pessoa",
+    "mesmo_canal": false,
+    "nota": ""
+  },
+  "SP|AR7jFI1Q5eo|SPEAKER_01|S6tFPKKr7vM|SPEAKER_00": {
+    "estado": "SP",
+    "indice": 0,
+    "similaridade": 0.582,
+    "rotulo_a": [
+      "AR7jFI1Q5eo",
+      "SPEAKER_01"
+    ],
+    "rotulo_b": [
+      "S6tFPKKr7vM",
+      "SPEAKER_00"
+    ],
+    "veredito": "pessoas_distintas",
+    "mesmo_canal": false,
+    "nota": ""
   }
 }

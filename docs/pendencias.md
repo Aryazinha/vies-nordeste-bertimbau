@@ -590,7 +590,13 @@ Os dois casos identificados denunciaram-se pelo nome do canal, o que é acidente
 
 Cerca de 41% dos canais aprovados automaticamente sobrevivem à revisão humana. Os três sinais de risco acrescentados após a primeira rodada — itinerante, narração sintética, canal sem fala — melhoram a taxa, mas a revisão humana permanece indispensável, inclusive porque o filtro produz falso positivo em sentido inverso, como no canal de Belford Roxo cujos títulos descrevem deslocamento diário com a palavra "viajando".
 
-### 6.4 Sem verificação de reincidência de falante entre canais — PROMOVIDA A CONDIÇÃO
+### 6.4 Sem verificação de reincidência de falante entre canais — CONDIÇÃO SATISFEITA EM 14/09/2026
+
+> **Encerrada.** A verificação foi implementada, corrigida, executada duas vezes e conferida por escuta humana: 15 vereditos, 7 fusões confirmadas, 207 falantes distintos em 77 arquivos. O teto de 5% — a regra de que a pendência deriva — está satisfeito nos seis estados pelo critério adotado em 12/09/2026. Detalhamento em `docs/plano_corpus/01-verificar-falantes.md`, seções 7.1 e 7.2.
+>
+> **Duas ressalvas sobrevivem à conclusão.** Primeira: PB e RJ atingem o piso exatamente, sem margem, de modo que a exclusão de um único falante na etapa 3 reabre a coleta — encaminhamento sugerido em `docs/plano_corpus/02-completar-coleta.md`. Segunda: 22 rótulos ficaram sem embedding, por terem menos de 8 s de fala; não são falantes verificados nem descartados, e o número limita o que se pode afirmar.
+>
+> O texto abaixo é o registro histórico da pendência, preservado.
 
 **Deixa de ser melhoria desejável em 29/08/2026, e passa a condição para declarar o corpus completo.** A decisão de tratar o corpus como entregável autônomo mudou a meta de horas para cobertura de falantes, e a meta inteira deriva do teto de 5% por falante. Sem verificar que os locutores são pessoas distintas, não é possível afirmar que o teto é respeitado — e os 211 rótulos de locutor do corpus atual são limite superior, possivelmente muito acima do número real de pessoas, já que repórteres e apresentadores reaparecem entre arquivos do mesmo canal.
 

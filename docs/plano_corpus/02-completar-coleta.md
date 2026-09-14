@@ -143,6 +143,34 @@ Anonimização concluída no mesmo dia (`docs/anonimizacao.md`, seção 8): 153 
 
 **Nenhum estado tem déficit — mas o número ainda não é final.** As fusões aplicadas são as da conferência de 10/09, que só cobria os 52 arquivos antigos; as vozes dos 25 novos ainda não foram comparadas com nada. **PB e RJ estão exatamente no piso**, de modo que uma única fusão em qualquer um deles o derruba. Fechar exige repetir a etapa 1 sobre os 77, que é o passo seguinte previsto na seção 5.
 
+---
+
+## Etapa concluída — 14/09/2026
+
+A etapa 1 foi repetida sobre os 77 arquivos e a conferência humana, completada. **O critério adotado em 12/09/2026 está satisfeito nos seis estados.**
+
+| UF | Vozes | Fusões | Pessoas distintas | Pessoas úteis sob o teto | Piso | Margem |
+|---|---|---|---|---|---|---|
+| PB | 30 | 4 | 26 | 20 | 20 | **0** |
+| PE | 33 | 2 | 31 | 21 | 20 | +1 |
+| CE | 38 | 1 | 37 | 27 | 20 | +7 |
+| BA | 32 | 0 | 32 | 22 | 20 | +2 |
+| SP | 40 | 0 | 40 | 21 | 20 | +1 |
+| RJ | 41 | 0 | 41 | 20 | 20 | **0** |
+| **Total** | **214** | **7** | **207** | — | **120** | — |
+
+Corpus final: **77 arquivos, 7,36 h, 59 canais distintos** — 36 de vox-pop, 30 de podcast, rádio e TV, 11 de vlog. Contra os 52 arquivos, 5,52 h e 35 canais de antes da etapa.
+
+**O que a etapa 2 entregou, em pessoas:** de 148 para 207 falantes distintos, e — o número que o critério mede — de 63 para 131 pessoas que conservam fala suficiente depois do recorte pelo teto. SP saiu de zero pessoas úteis para 21, CE de zero para 27.
+
+### A ressalva que fica, e ela não é pequena
+
+**PB e RJ ficaram exatamente em 20, sem margem alguma.** O critério está satisfeito, mas no limite exato: a exclusão de um único falante — por qualidade de áudio, por suspeita de migração (`docs/pendencias.md`, D-6.2) ou por revisão de coerência dialetal na etapa 3 — derruba qualquer um dos dois abaixo do piso e reabre esta etapa.
+
+É exatamente o risco que `meta_corpus_autonomo.md` antecipa ao dizer que "o piso de 20 é mínimo, não alvo". PB não recebeu arquivo algum nesta rodada, porque entrou nela sem déficit; RJ recebeu cinco e chegou a 20 na conta exata.
+
+**Encaminhamento sugerido, a decidir pela equipe:** uma rodada curta para PB e RJ, de três a quatro canais novos cada, antes da etapa 3. Custa pouco — o seletor já exclui canais usados, e restam canais verificados não empregados nos dois estados — e compra margem para as exclusões que a etapa 3 previsivelmente produzirá. Executar a etapa 3 sobre um corpus sem margem significa arriscar refazer as duas etapas anteriores por causa de um descarte.
+
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 
 **Perda de coleta não é ruído.** Vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência, que é parcela expressiva do vox-pop policial. Perda desigual entre estados é viés de amostragem. Conferir se as falhas se concentram em algum estado ou camada, e registrar (`docs/pendencias.md`, 4.5).

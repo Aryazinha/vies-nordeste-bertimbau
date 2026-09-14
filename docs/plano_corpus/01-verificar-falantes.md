@@ -2,7 +2,7 @@
 
 **Objetivo.** Apurar quantas **pessoas diferentes** estão nos 52 arquivos já coletados, por estado, e compará-lo ao piso de 20 por estado. É o que decide se a coleta está concluída ou quanto falta.
 
-**Estado:** comparação e conferência humana concluídas em 10/09/2026. **O piso de 20 falantes distintos está atingido em todos os estados.** O teto de 5% por falante, de que o piso deriva, **não** é satisfeito pelo material tal como coletado — ver a seção 7.1, que registra a medição e a decisão, tomada na mesma data, de tratar o teto como condição de conclusão. Por esse critério a coleta não está concluída, e a etapa 2 é necessária. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
+**Estado:** executada duas vezes — sobre os 52 arquivos em 10/09/2026 (seção 7.1) e sobre os 77 do corpus ampliado em 14/09/2026 (seção 7.2). **Concluída.** Na primeira execução o piso de falantes estava atingido mas o teto de 5% não, o que tornou a etapa 2 necessária; na segunda, com o corpus ampliado, **os seis estados satisfazem o critério** — ressalvado que PB e RJ o fazem sem margem alguma. **Onde roda:** Google Colab, com GPU, mais uma etapa de conferência humana que não exige GPU.
 
 **Leia antes:** [`README.md`](README.md) desta pasta, para saber por que esta etapa vem antes de coletar mais.
 
@@ -258,6 +258,30 @@ As fusões produziram o efeito antecipado: **PB perdeu uma pessoa útil e ficou 
 **Ressalva sobre o valor do teto, registrada na mesma data.** A decisão adota o teto de 5% tal como fixado, mas **o valor não tem justificativa escrita no projeto**. A razão para haver um teto está documentada — sem ele, uma pessoa loquaz poderia responder pela maior parte da fala de um estado, e o corpus representaria um idioleto, e não uma variedade (`docs/pendencias.md`, decisão de 31/08/2026) —, mas nada fundamenta 5% contra 3% ou 10%. A origem citada em toda a documentação, `docs/fontes_coleta.md` §2.4.5, não contém o teto: trata do rendimento da camada de vlogs. A frase que o enuncia, introduzida na revisão v1.7, remete a um item que não o estabelece. E o valor não é detalhe: o piso de pessoas é o seu inverso — 20 a 5%, 10 a 10%, 34 a 3% —, de modo que ele determina diretamente quanto falta coletar.
 
 **Resolvida em 12/09/2026: o teto permanece em 5%, declarado como convenção do projeto.** Não se encontrou fundamentação em literatura, e a decisão não a inventa: adota o valor e assume a sua natureza, obrigando-se a apresentá-lo no artigo como escolha do projeto, ao lado da sensibilidade que dele decorre — 0 pessoas a 10%, 27 a 5%, 111 a 3%. É o que impede que o parâmetro pareça ajustado depois de vistos os resultados. A origem de registro do teto passa a ser `docs/dataset-spec.md` §1.4.5.
+
+---
+
+### 7.2 Segunda execução, sobre os 77 arquivos — 14/09/2026
+
+Repetida depois da etapa 2, com `RECALCULAR = True` para forçar nova passagem de GPU sobre o corpus ampliado.
+
+| UF | Arquivos | Rótulos com embedding | Sem embedding | Pares acima de 0,75 | Fusões | Falantes distintos |
+|---|---|---|---|---|---|---|
+| PB | 10 | 30 | 2 | 5 | 4 | 26 |
+| PE | 12 | 33 | 2 | 2 | 2 | 31 |
+| CE | 15 | 38 | 6 | 1 | 1 | 37 |
+| BA | 12 | 32 | 3 | 0 | 0 | 32 |
+| SP | 14 | 40 | 4 | 0 | 0 | 40 |
+| RJ | 14 | 41 | 5 | 0 | 0 | 41 |
+| **Total** | **77** | **214** | **22** | **8** | **7** | **207** |
+
+**Só dois pares novos surgiram**, apesar de o corpus ter crescido 48% em arquivos: um em PE, confirmado como mesma pessoa a 0,8224, e um em SP, rejeitado a 0,5820. Os demais candidatos eram os mesmos já conferidos em 10/09 — o que a função `pendentes` só identificou corretamente depois de passar a casar vereditos por rótulo, e não por índice, porque acrescentar arquivos renumera a lista de pares de todos os estados.
+
+**A raridade dos pares novos tem explicação, e ela valida o desenho da etapa 2:** os 25 arquivos vieram de 25 canais distintos, um arquivo por canal, precisamente para evitar a recorrência do apresentador. Um arquivo por canal não produz o par que a comparação procura.
+
+**Calibração do limiar, atualizada.** Com os dois vereditos novos, a fronteira empírica estreitou-se: confirmados vão de 0,7713 a 0,9259; rejeitados, de 0,5081 a 0,5820. O intervalo entre 0,582 e 0,771 segue vazio no corpus, de modo que qualquer limiar nessa faixa produz a mesma lista. O valor de 0,75 continua compatível com a conferência, e continua não validado por ela.
+
+**Resultado final pelo critério vigente** — pessoas que conservam 0,7 min de fala depois do recorte pelo teto de 5%: PB 20, PE 21, CE 27, BA 22, SP 21, RJ 20. Os seis estados atingem o piso. **PB e RJ o atingem sem margem alguma**, ressalva registrada em [`02-completar-coleta.md`](02-completar-coleta.md).
 
 ---
 

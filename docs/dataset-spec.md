@@ -58,15 +58,19 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 
 **Atualizado em 31/08/2026 — a meta em horas abaixo está superada.** A tabela original comparava contra 8,3 h/estado e 50 h no total, meta herdada da função instrumental que o corpus não tem mais (item #3). A meta vigente é `experimentos/resultados/tabelas/meta_corpus_autonomo.md`, em cobertura de falantes, e implica cerca de **5,1 h no total** — menos do que já está coletado.
 
-| UF | Coletado | Sobre a meta antiga (histórica) | Canais empregados / disponíveis |
-|---|---|---|---|
-| PB | 1,15 h | 13,8% | 6 / 12 |
-| RJ | 1,01 h | 12,1% | 6 / 17 |
-| BA | 1,00 h | 12,1% | 6 / 19 |
-| SP | 0,85 h | 10,2% | 6 / 17 |
-| CE | 0,79 h | 9,5% | 6 / 16 |
-| PE | 0,73 h | 8,8% | 5 / 19 |
-| **Total** | **5,52 h** | **11,0%** | **35 / 100** |
+**Atualizado em 14/09/2026, ao fim da etapa 2 do plano do corpus.** A tabela abaixo substitui a de 31/08, que registrava 52 arquivos e 5,52 h.
+
+| UF | Arquivos | Coletado | Falantes distintos | Pessoas úteis sob o teto | Piso |
+|---|---|---|---|---|---|
+| PB | 10 | 1,15 h | 26 | 20 | 20 |
+| PE | 12 | 1,05 h | 31 | 21 | 20 |
+| CE | 15 | 1,24 h | 37 | 27 | 20 |
+| BA | 12 | 1,32 h | 32 | 22 | 20 |
+| SP | 14 | 1,39 h | 40 | 21 | 20 |
+| RJ | 14 | 1,22 h | 41 | 20 | 20 |
+| **Total** | **77** | **7,36 h** | **207** | — | **120** |
+
+Composição por camada: 36 arquivos de vox-pop, 30 de podcast, rádio e TV, 11 de vlog, vindos de **59 canais distintos**. "Pessoas úteis sob o teto" é o critério de conclusão adotado em 12/09/2026: falantes que conservam ao menos 0,7 min de fala depois de aplicado por recorte o teto de 5% (`docs/plano_corpus/01-verificar-falantes.md`, seção 7.1). **PB e RJ atingem o piso sem margem alguma**, ressalva registrada em `docs/plano_corpus/02-completar-coleta.md`.
 
 (Coluna de canais disponíveis atualizada em 31/08/2026, após as rejeições da inspeção de conteúdo e a rodada de reforço de PE e BA.)
 
