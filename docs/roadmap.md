@@ -156,6 +156,12 @@ O mecanismo está identificado: entre os atributos multi-token, os desfavorávei
 
 **Consequência para o artigo.** O trabalho não é sobre viés medido, e sim sobre o que o modelo distingue e o que não distingue, em três resultados que se sustentam mutuamente — e ganha uma contribuição de método que não existiria sem o resultado negativo: a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à tokenização. Detalhamento na seção "Situação do artigo", ao final deste arquivo.
 
+### Revisão de 14/09/2026 — grupo de referência ampliado
+
+Os passos 5.4 e 5.5 foram reanalisados com 86 pares não regionais distintos, em lugar de 26 (`docs/pendencias.md` 2.8 e 2.9). **As conclusões dos dois passos se mantêm:** gentílico de estado e macrorregião seguem sobrevivendo à correção de Holm, a 0,0004 e 0,0045, e o viés de macrorregião no eixo de caráter segue desfeito pela restrição a token único. Os valores citados acima são os da execução de 29/08/2026 e ficam como registro; os vigentes estão em `experimentos/resultados/tabelas/`.
+
+**Uma premissa, porém, caiu.** Com o grupo ampliado, a razão de frequência não prevê a diferença de escore, e o item 1.14 de `docs/achados_para_o_artigo.md` foi reescrito. A "reta da frequência" dos passos 5.1 e 5.4 passa a valer como verificação de que a frequência não confunde a comparação, e não como correção dela.
+
 ### 5.6 — Eixo ocupacional por AUL (aberto)
 
 Aberto em 29/08/2026 pelo resultado do 5.5. É a última medição pendente para fechar a seção de Resultados, e a única que exige nova passagem pelo modelo: os escores de AUL não foram gravados, porque as medições dos passos 5.1 e 5.4 empregaram o atalho de PLL apenas, por economia de tempo de máquina.

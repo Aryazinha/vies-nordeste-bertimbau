@@ -10,6 +10,13 @@ Números gerados por `experimentos/teste_construcional.py`, com tabelas em
 `tabelas/construcional_tabelas.md`. Este documento os interpreta e não é sobrescrito
 pela reexecução do script.
 
+> **Leitura da frequência revista em 14/09/2026.** A reta aqui ajustada sobre 22 pares
+> (R² = 0,180) não se sustenta com o grupo de referência ampliado a 86 pares, em que a
+> inclinação é praticamente nula (p = 0,41). O nulo das famílias implícitas se mantém;
+> a afirmação de que a frequência tem efeito positivo e modesto não deve ser citada
+> (`docs/achados_para_o_artigo.md` 1.14; `docs/pendencias.md` 2.9). Este documento
+> permanece como registro da execução de 28/08/2026.
+
 ---
 
 ## O que este teste responde

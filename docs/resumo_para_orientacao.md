@@ -1,6 +1,6 @@
 # Resumo do estado da pesquisa
 
-**Data:** 31/08/2026. **Destinatário:** orientação.
+**Data:** 31/08/2026. **Destinatário:** orientação. **Atualização de 14/09/2026:** números da seção 2 e meta de pares revistos com o grupo de referência ampliado a 86 pares; as demais seções não foram revistas.
 
 Documento de leitura rápida. As questões que dependem de decisão da orientação estão reunidas em [`questoes_para_orientacao.md`](questoes_para_orientacao.md); este arquivo apenas relata o estado. Cada número indica a fonte de onde foi extraído.
 
@@ -22,46 +22,46 @@ Método e ameaças à validade estão em [`protocolo.md`](protocolo.md); a espec
 
 ### 2.1 O modelo não responde à sinalização dialetal implícita
 
-Quatro famílias de marcadores foram testadas, e nenhuma produz efeito acima do que a frequência lexical prevê:
+Quatro famílias de marcadores foram testadas, e nenhuma produz efeito acima do grupo de referência de pares não regionais que sobreviva à correção de multiplicidade:
 
 | Família | Pares | Resíduo médio | p ajustado |
 |---|---|---|---|
-| Morfossintática — imperativo e negação | 5 | −0,0608 | 1,0000 |
-| Lexical — itens regionais | 5 | +0,0499 | 0,4177 |
-| Feixe combinado | 5 | −0,0023 | 1,0000 |
-| Construcional | 10 | −0,0135 | 1,0000 |
+| Morfossintática — imperativo e negação | 5 | −0,0763 | 1,0000 |
+| Lexical — itens regionais | 5 | +0,0739 | 0,0840 |
+| Feixe combinado | 5 | +0,0126 | 0,9435 |
+| Construcional | 10 | −0,0249 | 1,0000 |
 
-*Fonte: `experimentos/resultados/relatorios/explicito.md`, Parte 1.*
+*Fonte: `experimentos/resultados/tabelas/explicito_tabelas.md`. A família lexical, a mais próxima do limiar, é indistinguível de um controle de palavras raras não regionais (+0,0699).*
 
 O caso mais informativo é a negação pós-verbal — "fui não" contra "não fui" —, cujos dois lados empregam **as mesmas palavras em ordem diferente**. A explicação por raridade lexical está aí excluída por construção, e o resultado é nulo.
 
-O nulo é legível porque duas condições de interpretabilidade foram satisfeitas. O controle positivo, que contrasta proposições distintas, produz resíduo de +0,3595 com p ajustado de 0,0009 — a medição detecta o que existe. E o confundidor de frequência está descontado por calibração explícita, ajustada sobre 26 pares não regionais, e não apenas declarado.
+O nulo é legível porque duas condições de interpretabilidade foram satisfeitas. O controle positivo, que contrasta proposições distintas, produz resíduo de +0,3422 com p ajustado de 0,0004 — a medição detecta o que existe. E o confundidor de frequência está verificado, e não apenas declarado: sobre 86 pares não regionais, a razão de frequência não prevê a diferença de escore.
 
 ### 2.2 O modelo responde à menção explícita da região
 
-Duas condições produzem resíduo acima da reta da frequência **e sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
+Duas condições produzem resíduo acima do grupo de referência não regional **e sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
 
 | Condição | Pares | Resíduo | Acima da reta | p ajustado |
 |---|---|---|---|---|
-| Gentílico de estado — *pernambucano*, *baiano* | 8 | +0,1567 | 8/8 | **0,0012** |
-| Macrorregião — *Nordeste*, *nordestino* | 8 | +0,1072 | 7/8 | **0,0038** |
-| Topônimo — *Ceará*, *Recife*, *Salvador* | 8 | +0,0326 | 6/8 | 0,4177 |
+| Gentílico de estado — *pernambucano*, *baiano* | 8 | +0,1447 | 8/8 | **0,0004** |
+| Macrorregião — *Nordeste*, *nordestino* | 8 | +0,0892 | 7/8 | **0,0045** |
+| Topônimo — *Ceará*, *Recife*, *Salvador* | 8 | +0,0269 | 5/8 | 0,5370 |
 
-*Fonte: `experimentos/resultados/relatorios/explicito.md`, Parte 1.*
+*Fonte: `experimentos/resultados/tabelas/explicito_tabelas.md`.*
 
-**O efeito não é de raridade lexical.** As duas condições significativas apresentam as razões de frequência mais baixas de todo o conjunto, e o par mais bem pareado — *pernambucano* contra *paulistano*, a 1,1× de razão — está entre os de maior efeito.
+**O efeito não é de raridade lexical.** A razão de frequência não prevê a diferença de escore no grupo de referência, e as duas condições significativas apresentam as razões de frequência mais baixas de todo o conjunto.
 
-O contraste entre 2.1 e 2.2 é obtido com o mesmo modelo, a mesma métrica, a mesma reta de calibração e a mesma estatística. É a contribuição central que o material atualmente sustenta: **o modelo responde à categoria regional nomeada, e não à variedade linguística que a indicia.**
+O contraste entre 2.1 e 2.2 é obtido com o mesmo modelo, a mesma métrica, o mesmo grupo de referência e a mesma estatística. É a contribuição central que o material atualmente sustenta: **o modelo responde à categoria regional nomeada, e não à variedade linguística que a indicia.**
 
 ### 2.3 Essa resposta não é depreciativa de forma detectável
 
 As medições anteriores empregam a diferença de escore em valor absoluto, o que responde se o modelo distingue, e não se ele deprecia. A medida com sinal foi executada em separado, sobre as mesmas medições.
 
-Um efeito candidato apareceu — viés de caráter de +0,1952 na condição de macrorregião, com sete de oito pares positivos e p ajustado de 0,0486 —, e **não sobreviveu ao controle do artefato de tokenização**. Restrita a análise a atributos de token único, caiu para +0,0309, com três de oito pares positivos e p de 0,56.
+Um efeito candidato apareceu — viés de caráter de +0,1952 na condição de macrorregião, com sete de oito pares positivos e p ajustado de 0,0018 —, e **não sobreviveu ao controle do artefato de tokenização**. Restrita a análise a atributos de token único, caiu para +0,0309, com três de oito pares positivos e p ajustado de 1,0000.
 
-A restrição **aumentou** o poder do teste em vez de reduzi-lo: o controle positivo passou de +0,2352, que não sobrevivia à correção, para +0,4758 com p ajustado de 0,0013. Com menos atributos e mais poder, o efeito regional evaporou enquanto o do controle cresceu, o que exclui a leitura de sinal perdido por ruído.
+A restrição **aumentou** o poder do teste em vez de reduzi-lo: o controle positivo passou de +0,2352, com p ajustado de 0,0052, para +0,4758 com 0,0004. Com menos atributos e mais poder, o efeito regional evaporou enquanto o do controle cresceu, o que exclui a leitura de sinal perdido por ruído.
 
-*Fonte: `experimentos/resultados/relatorios/explicito.md`, Parte 2.*
+*Fonte: `experimentos/resultados/tabelas/valencia_tabelas.md`, com o grupo de referência de 86 pares.*
 
 O mecanismo está identificado: entre os atributos de mais de um token, os desfavoráveis fragmentam-se mais que os favoráveis, com média de 2,5 subtokens contra 2,0.
 
@@ -70,7 +70,7 @@ O mecanismo está identificado: entre os atributos de mais de um token, os desfa
 Quatro achados independem de haver ou não viés a medir, e constituem contribuição autônoma:
 
 - **Assimetria de tokenização alinhada ao eixo de prestígio.** Das dezesseis ocupações de alto prestígio testadas, quinze são palavra inteira no vocabulário do modelo; os itens de baixo prestígio fragmentam-se sem exceção. Segue-se que estudo de viés ocupacional em português por preenchimento de máscara mede a segmentação do tokenizador. O item 2.3 acima é a demonstração da consequência em caso concreto.
-- **Calibração da resposta à frequência.** A razão de frequência entre os itens que distinguem dois enunciados responde por R² = 0,159 da variação entre pares. O efeito é real e modesto, e o ruído no nível do par é da ordem do efeito procurado — o que exige calibração explícita, e não apenas pareamento.
+- **Grupo de referência amplo, e não calibração da frequência.** Com 86 pares não regionais, a razão de frequência entre os itens trocados não prevê a diferença de escore (R² = 0,008), o que revogou a leitura anterior de efeito real e modesto. O ruído no nível do par é da ordem do efeito procurado, e o que ele exige é grupo de referência amplo e estatística por conglomerado; a variação dominante entre pares vem da moldura do enunciado.
 - **Unidade de replicação.** As medições de um mesmo par compartilham o enunciado e não são independentes. Tratá-las como replicações infla o tamanho amostral por uma ordem de grandeza.
 - **Armadilhas de atribuição em corpus construído a partir de plataforma.** Quatro classes de canal satisfazem critérios geográficos sem servir ao propósito, sendo a mais grave o falante migrante — erro que, por seguir o vetor migratório dominante, atenua sistematicamente o contraste medido e produz aparência de ausência de viés.
 
@@ -93,7 +93,7 @@ Sobre o material processado mediram-se 45.132 palavras transcritas e 13,6 contex
 **A camada de definição do conjunto de dados**, que se decidiu fechar por inteiro antes de qualquer nova coleta. Das catorze pendências registradas, cinco foram encerradas. Duas metas passaram a ser derivadas, e não arbitradas:
 
 - **Corpus:** ao menos 20 falantes distintos por estado, número que decorre por aritmética do teto de 5% por falante já fixado no protocolo.
-- **Pares mínimos:** 37 pares por condição e 80 no grupo de referência, dimensionados para excluir efeitos de viés acima de 0,08.
+- **Pares mínimos:** 40 pares por condição — 37 no cálculo original, revisto em 14/09/2026 — e 80 no grupo de referência, dimensionados para excluir efeitos de viés acima de 0,08. O grupo de referência foi atingido, com 86 pares medidos.
 
 *Fontes: `experimentos/resultados/tabelas/meta_corpus_autonomo.md` e `meta_pares_minimos.md`.*
 

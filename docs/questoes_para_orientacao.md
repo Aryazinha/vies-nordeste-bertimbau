@@ -5,7 +5,7 @@
 
 **Como ler.** Os blocos estão em ordem de consequência, e não de assunto. O Bloco 1 determina o que os outros significam; os Blocos 2 e 3 travam a publicação; os demais são resolvíveis em qualquer ordem.
 
-**Estado do projeto, em três frases.** O modelo não responde à sinalização dialetal implícita, em quatro famílias de marcadores testadas. Responde à menção explícita da região, acima do que a frequência lexical prevê, e o efeito concentra-se em rótulos de pessoa e não de lugar. Essa resposta, porém, não é depreciativa de forma detectável — o único viés candidato revelou-se artefato de tokenização.
+**Estado do projeto, em três frases.** O modelo não responde à sinalização dialetal implícita, em quatro famílias de marcadores testadas. Responde à menção explícita da região, acima de um grupo de referência de 86 pares não regionais, e o efeito concentra-se em rótulos de pessoa e não de lugar. Essa resposta, porém, não é depreciativa de forma detectável — o único viés candidato revelou-se artefato de tokenização.
 
 ---
 
@@ -37,7 +37,7 @@ Este bloco determina o que fazer com todo o resto. Enquanto não for respondido,
 
 ## 1.5 Oito pares por condição é defensável na submissão, ou precisamos escalar antes?
 
-**Contexto.** Os resultados atuais repousam sobre oito pares por condição, com estatística por conglomerado no nível do par e correção de Holm. Calculamos que excluir efeitos de viés acima de 0,08 exigiria 37 pares por condição e 80 no grupo de referência — cerca de 250 pares no total, contra os 1.508 do CrowS-Pairs.
+**Contexto.** Os resultados atuais repousam sobre oito pares por condição, com estatística por conglomerado no nível do par e correção de Holm. Calculamos que excluir efeitos de viés acima de 0,08 exigiria 40 pares por condição — 37 no cálculo original, revisto em 14/09/2026 — e 80 no grupo de referência, já superado com 86 pares medidos: entre 246 e 286 pares no total, contra os 1.508 do CrowS-Pairs.
 
 ---
 
