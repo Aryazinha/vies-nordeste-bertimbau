@@ -171,6 +171,23 @@ Corpus final: **77 arquivos, 7,36 h, 59 canais distintos** — 36 de vox-pop, 30
 
 **Encaminhamento sugerido, a decidir pela equipe:** uma rodada curta para PB e RJ, de três a quatro canais novos cada, antes da etapa 3. Custa pouco — o seletor já exclui canais usados, e restam canais verificados não empregados nos dois estados — e compra margem para as exclusões que a etapa 3 previsivelmente produzirá. Executar a etapa 3 sobre um corpus sem margem significa arriscar refazer as duas etapas anteriores por causa de um descarte.
 
+### Rodada de margem para PB e RJ — 14/09/2026
+
+Executada, por decisão da equipe, antes da etapa 3. **6 arquivos, 0,59 h, 6 canais novos**; o corpus vai a **83 arquivos**.
+
+| UF | Trechos | Composição | Pessoas esperadas |
+|---|---|---|---|
+| PB | 3 | 2 vox-pop, 1 podcast | ~5,5 |
+| RJ | 3 | 1 vox-pop, 1 podcast, 1 vlog | ~4,5 |
+
+**RJ obrigou a mudar o seletor, e a mudança tem razão de método.** O estado tinha apenas **um** canal de vox-pop e **um** de podcast ainda não empregados, contra onze de vlog. A conversão de déficit em arquivos ignorava o vlog — regra correta na rodada anterior, onde havia canais de sobra nas camadas de melhor rendimento, e errada aqui: RJ pediria três pessoas, encontraria dois canais e pararia, sem que nada indicasse que a meta era inalcançável pelo caminho preferido.
+
+O vlog passa a ser **reserva**, e não alternativa: `ORDEM_DAS_CAMADAS` consome vox-pop e podcast em rodízio e só recorre ao vlog quando ambos se esgotam. A justificativa é a mesma que o mantinha fora — um canal de vlog é uma pessoa, por mais vídeos que tenha —, mas ela corta nos dois sentidos: quando o que falta é *uma* pessoa e não há mais entrevista disponível, um canal de vlog novo entrega exatamente isso.
+
+**Uma falha de download, e ela não era viés.** O vox-pop de RJ falhou na primeira tentativa e foi coletado na retentativa, sem alteração de parâmetro — falha passageira de rede, não recusa da plataforma. A conferência importava porque a perda recaía sobre o único estado com apenas um canal disponível naquela camada, e perda concentrada em um grupo é viés de amostragem (seção 4).
+
+Digno de registro para a etapa 3: o vídeo de vox-pop de RJ é de canal carioca, mas seu assunto é Campos do Jordão, em São Paulo. A regra de atribuição do projeto deriva `estado_alvo` do canal, e não do conteúdo; o caso é candidato natural à checagem de coerência dialetal prevista naquela etapa.
+
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 
 **Perda de coleta não é ruído.** Vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência, que é parcela expressiva do vox-pop policial. Perda desigual entre estados é viés de amostragem. Conferir se as falhas se concentram em algum estado ou camada, e registrar (`docs/pendencias.md`, 4.5).

@@ -1,0 +1,180 @@
+{
+  "_meta": {
+    "gerado_por": "selecionar_videos.py",
+    "semente": 20260827,
+    "metas_horas": {
+      "entrevista_vox_pop": 4.1,
+      "podcast_radio_tv_regional": 2.1,
+      "vlog_amador": 2.1
+    },
+    "max_canais_por_camada": null,
+    "min_videos_por_canal": 1,
+    "metas_horas_por_estado": {
+      "PB": {
+        "entrevista_vox_pop": 0.13333333333333333,
+        "podcast_radio_tv_regional": 0.06666666666666667,
+        "vlog_amador": 0.3333333333333333
+      },
+      "RJ": {
+        "entrevista_vox_pop": 0.13333333333333333,
+        "podcast_radio_tv_regional": 0.06666666666666667,
+        "vlog_amador": 0.3333333333333333
+      }
+    },
+    "canais_excluidos_por_ja_usados": [
+      "acervo mucuripe",
+      "agencia mural de jornalismo das periferias",
+      "azulzinho itabuna",
+      "bahia noticias",
+      "band bahia oficial",
+      "blog do anderson",
+      "cafe underground",
+      "cbn paraiba",
+      "cidade alerta ceara",
+      "coisas da paraiba oficial",
+      "diario do nordeste",
+      "educaprefsp sme",
+      "eptv",
+      "evelyn ferreira",
+      "fernando alves",
+      "folha de pernambuco",
+      "fortaleza ordinaria",
+      "impressao digital ufba",
+      "isabela liborio | booktuber",
+      "ja e noticia rj",
+      "jeitinho carioca",
+      "jornal correio",
+      "jornal da gazeta",
+      "jornal o sao goncalo",
+      "kaio d'elaqua",
+      "marcelo silva campinas",
+      "me leva para conhecer",
+      "o povo",
+      "pelas vias do cariri simone pauluke",
+      "portal metro1 - radio metropole",
+      "radio jornal",
+      "radio roquette-pinto",
+      "raizes do rei",
+      "record interior sp",
+      "record paulista",
+      "record rio",
+      "rede camara sp",
+      "rodrigo santos",
+      "sbt rio",
+      "sertao mamoeiro oficial",
+      "sistema 83 podcast",
+      "sobral portal de noticias",
+      "th+ sbt interior",
+      "th+ sbt tambau",
+      "tma",
+      "tv arapuan",
+      "tv aratu",
+      "tv baianidade oficial",
+      "tv band paulista",
+      "tv band rio",
+      "tv camara sao paulo",
+      "tv cultura rio",
+      "tv guararapes oficial",
+      "tv jornal interior",
+      "tv jornal sbt",
+      "tvtribunape",
+      "vida no interior da bahia",
+      "vlog com diogo",
+      "vlog do paraiba",
+      "vtv news"
+    ],
+    "regra": "estado_alvo e tipo_fonte derivam do canal em fontes.json, nunca de digitação manual",
+    "ajustado_ao_deficit": {
+      "deficit": {
+        "PB": 3,
+        "RJ": 3
+      },
+      "margem": 1.5,
+      "trechos_antes": 33
+    }
+  },
+  "specs": [
+    {
+      "url": "https://www.youtube.com/watch?v=-cQi7GfRAT8",
+      "video_id": "-cQi7GfRAT8",
+      "estado_alvo": "PB",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "MRTV - Blog do Márcio Rangel - Canal 02",
+      "channel_id": "UCYj4cM8nda6S6x33wkRLpug",
+      "canal_tem_participacao_ouvinte": "nao_verificado",
+      "participacao_ouvinte": "nao_verificado",
+      "titulo": "Treze vence o Esporte de Patos por 3x1",
+      "duracao_total_s": 146.0,
+      "duracao_coletada_s": 146
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=7XUGnsxxgwI",
+      "video_id": "7XUGnsxxgwI",
+      "estado_alvo": "PB",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "TV Correio",
+      "channel_id": "UCJ4uxK_mo6gNoqk9cyvgWkw",
+      "canal_tem_participacao_ouvinte": "nao_verificado",
+      "participacao_ouvinte": "nao_verificado",
+      "titulo": "Bandidos deixam homem e criança de quatro anos feridos. ataque foi loteamento Santo Amaro",
+      "duracao_total_s": 141.0,
+      "duracao_coletada_s": 141
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=uvGq8pNOZeg",
+      "video_id": "uvGq8pNOZeg",
+      "estado_alvo": "PB",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Marcos Repórter Oficial",
+      "channel_id": "UCIt2ih4IJAtzVx4k4XKc62Q",
+      "canal_tem_participacao_ouvinte": "nao_verificado",
+      "participacao_ouvinte": "nao_verificado",
+      "titulo": "RETROSPECTIVA 2023 DA ÁREA POLICIAL NA PARAÍBA.",
+      "duracao_total_s": 357.0,
+      "duracao_coletada_s": 357
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8IF75K0SuaM",
+      "video_id": "8IF75K0SuaM",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "entrevista_vox_pop",
+      "canal": "Toninho Bondade",
+      "channel_id": "UCt6uMqcGwOtZOAnNQLlfO2A",
+      "canal_tem_participacao_ouvinte": "nao_verificado",
+      "participacao_ouvinte": "nao_verificado",
+      "titulo": "Campos do Jordão, no interior de São Paulo é a cidade mais alta do Brasil?",
+      "duracao_total_s": 100.0,
+      "duracao_coletada_s": 100
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=B6wpBtbrMyk",
+      "video_id": "B6wpBtbrMyk",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "podcast_radio_tv_regional",
+      "canal": "SEANI - Sociedade dos Eng. e Arq. de Nova Iguaçu",
+      "channel_id": "UCCJ10qeciGWstAHQpR_8N4g",
+      "canal_tem_participacao_ouvinte": "nao_verificado",
+      "participacao_ouvinte": "nao_verificado",
+      "titulo": "Podcast SEANI - Riscos e Desastres na Baixada Fluminense - Convidado Francis Bogossian",
+      "duracao_total_s": 4323.0,
+      "trecho": {
+        "inicio_s": 216,
+        "fim_s": 816
+      },
+      "duracao_coletada_s": 600
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=D6xqInhJIeU",
+      "video_id": "D6xqInhJIeU",
+      "estado_alvo": "RJ",
+      "tipo_fonte": "vlog_amador",
+      "canal": "AS AVENTURAS DE ADRIANO RJ",
+      "channel_id": "UCqm7wMBkh8dv9MIjbcVkZ9w",
+      "canal_tem_participacao_ouvinte": "nao_verificado",
+      "participacao_ouvinte": "nao_verificado",
+      "titulo": "LARGO DO PECHINCHA JACAREPAGUÁ ATÉ ESTRADA DO PAU FERRO ",
+      "duracao_total_s": 797.0,
+      "duracao_coletada_s": 797
+    }
+  ]
+}

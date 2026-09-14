@@ -89,10 +89,16 @@ RENDIMENTO_PESSOAS = {
 # em que `planejar_camada` opera.
 DURACAO_TIPICA_S = 4 * 60
 
-# Repartição do déficit entre as duas camadas que rendem pessoas novas. Vlog
-# fica fora: acrescenta uma pessoa por canal, não por arquivo, e a etapa 2
-# precisa de pessoas por arquivo coletado.
+# Repartição do déficit entre as duas camadas que rendem pessoas por arquivo.
+# Vlog fica fora dela: acrescenta uma pessoa por canal, e não por arquivo.
 REPARTICAO = {"entrevista_vox_pop": 2 / 3, "podcast_radio_tv_regional": 1 / 3}
+
+# Ordem em que as camadas são consumidas ao ajustar o plano ao déficit. Vlog
+# entra por último, como reserva: rende menos por arquivo, mas continua rendendo
+# uma pessoa por canal novo — e em 14/09/2026 o Rio de Janeiro chegou à situação
+# que torna a reserva necessária, com um único canal de vox-pop e um de podcast
+# ainda não usados, contra onze de vlog.
+ORDEM_DAS_CAMADAS = ("entrevista_vox_pop", "podcast_radio_tv_regional", "vlog_amador")
 
 # Margem sobre o déficit. O piso de 20 é mínimo, e não alvo: coletar o exato
 # deixa o corpus no limite, sem folga para arquivo perdido no download, para
@@ -172,6 +178,13 @@ def metas_por_deficit(deficit: dict[str, int], margem: float = MARGEM_PADRAO) ->
         for camada, fracao in REPARTICAO.items():
             arquivos = math.ceil(alvo * fracao / RENDIMENTO_PESSOAS[camada]) if alvo else 0
             metas[estado][camada] = arquivos * DURACAO_TIPICA_S / 3600
+        # Cota de reserva para o vlog, dimensionada pelo déficit inteiro. Ela só
+        # se materializa em coleta se `ajustar_ao_deficit` precisar recorrer a
+        # ela; sem cota alguma, a camada nem seria listada, e a reserva não
+        # existiria quando fosse necessária.
+        if alvo:
+            metas[estado]["vlog_amador"] = math.ceil(
+                alvo / RENDIMENTO_PESSOAS["vlog_amador"]) * DURACAO_TIPICA_S / 3600
     return metas
 
 
@@ -194,7 +207,7 @@ def ajustar_ao_deficit(specs: list[dict], deficit: dict[str, int],
     escolhidos = []
     for estado, faltam in deficit.items():
         alvo = faltam * margem
-        fila: dict[str, list[dict]] = {c: [] for c in REPARTICAO}
+        fila: dict[str, list[dict]] = {c: [] for c in ORDEM_DAS_CAMADAS}
         for camada in fila:
             vistos = set()
             for spec in specs:
@@ -203,11 +216,17 @@ def ajustar_ao_deficit(specs: list[dict], deficit: dict[str, int],
                     vistos.add(spec["canal"])
                     fila[camada].append(spec)
         esperado = 0.0
-        while esperado < alvo and any(fila.values()):
-            for camada in ("entrevista_vox_pop", "podcast_radio_tv_regional"):
+        # Vox-pop e podcast em rodízio; o vlog só entra quando os dois se
+        # esgotam, para que a reserva não desloque camada de melhor rendimento.
+        principais = [c for c in ORDEM_DAS_CAMADAS if c != "vlog_amador"]
+        while esperado < alvo and any(fila[c] for c in principais):
+            for camada in principais:
                 if fila[camada] and esperado < alvo:
                     escolhidos.append(fila[camada].pop(0))
                     esperado += RENDIMENTO_PESSOAS[camada]
+        while esperado < alvo and fila["vlog_amador"]:
+            escolhidos.append(fila["vlog_amador"].pop(0))
+            esperado += RENDIMENTO_PESSOAS["vlog_amador"]
         if esperado < alvo:
             logger_msg = (f"  [aviso] {estado}: canais novos esgotados em "
                           f"{esperado:.0f} pessoas esperadas, abaixo do alvo de {alvo:.0f}")
