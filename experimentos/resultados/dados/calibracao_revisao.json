@@ -1,0 +1,583 @@
+{
+  "_meta": {
+    "data": "2026-09-14",
+    "proposta_revisada": "calibracao_proposta.json no commit 67f2b04",
+    "revisado_por": "equipe, com assistência do Claude Code",
+    "criterios": [
+      "naturalidade dos dois enunciados",
+      "ausência de carga regional, de classe ou de faixa etária",
+      "ausência de segundo sentido corrente, que inflaria a razão de frequência",
+      "o item não designa ocupação nem pessoa",
+      "o item não carrega valência que puxe atributos de caráter"
+    ],
+    "observacoes": [
+      "Dúvida levantada e não acolhida: 'aquecedor' (conserto-1), por possível associação a clima frio; mantido.",
+      "Dúvida levantada e não acolhida: 'suspense' e 'mistério' (filme-3) têm tom semelhante nos dois lados, e a medição considera a diferença entre eles; mantido.",
+      "A ausência de carga regional é juízo da equipe e não substitui o Filtro 1."
+    ]
+  },
+  "itens_vetados": {
+    "globo": "também designa a emissora de televisão e ocorre em 'globo ocular' e 'globo terrestre'; a contagem de frequência ignora caixa e soma os sentidos",
+    "ação": "palavra de uso geral fora do gênero cinematográfico ('ação judicial', 'ações da empresa'), o que infla a razão de frequência",
+    "violeta": "também designa cor e é nome próprio, o que infla a razão de frequência",
+    "quinta": "também numeral ordinal",
+    "quarta": "também numeral ordinal",
+    "sexta": "também numeral ordinal",
+    "bateria": "polissêmica: bateria de veículo, de aparelho e de escola de samba",
+    "chaveiro": "também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante",
+    "carregador": "também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante",
+    "pote": "no Nordeste designa também o recipiente de barro para água, o que pode conferir carga regional"
+  },
+  "pares": [
+    {
+      "id": "aula-1",
+      "moldura": "aula",
+      "item_a": "microscópio",
+      "item_b": "telescópio",
+      "lado_a": "Na aula de hoje usamos um microscópio.",
+      "lado_b": "Na aula de hoje usamos um telescópio.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "bairro-1",
+      "moldura": "bairro",
+      "item_a": "floricultura",
+      "item_b": "marcenaria",
+      "lado_a": "Ele mora perto de uma floricultura.",
+      "lado_b": "Ele mora perto de uma marcenaria.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "banheiro-1",
+      "moldura": "banheiro",
+      "item_a": "descarga",
+      "item_b": "fechadura",
+      "lado_a": "Troquei a descarga do banheiro.",
+      "lado_b": "Troquei a fechadura do banheiro.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "chuva-1",
+      "moldura": "chuva",
+      "item_a": "semana",
+      "item_b": "madrugada",
+      "lado_a": "Choveu muito na semana passada.",
+      "lado_b": "Choveu muito na madrugada passada.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "conserto-1",
+      "moldura": "conserto",
+      "item_a": "carro",
+      "item_b": "aquecedor",
+      "lado_a": "Meu pai consertou o carro no fim de semana.",
+      "lado_b": "Meu pai consertou o aquecedor no fim de semana.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "filme-1",
+      "moldura": "filme",
+      "item_a": "ação",
+      "item_b": "faroeste",
+      "lado_a": "Assistimos a um filme de ação ontem.",
+      "lado_b": "Assistimos a um filme de faroeste ontem.",
+      "decisao": "rejeitado",
+      "motivo": "ação: palavra de uso geral fora do gênero cinematográfico ('ação judicial', 'ações da empresa'), o que infla a razão de frequência"
+    },
+    {
+      "id": "desenho-1",
+      "moldura": "desenho",
+      "item_a": "cavalo",
+      "item_b": "castelo",
+      "lado_a": "A menina desenhou um cavalo no caderno.",
+      "lado_b": "A menina desenhou um castelo no caderno.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "escritorio-1",
+      "moldura": "escritorio",
+      "item_a": "envelope",
+      "item_b": "estojo",
+      "lado_a": "Esqueci o envelope no escritório.",
+      "lado_b": "Esqueci o estojo no escritório.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "gato-1",
+      "moldura": "gato",
+      "item_a": "sofá",
+      "item_b": "computador",
+      "lado_a": "O gato dormiu em cima do sofá.",
+      "lado_b": "O gato dormiu em cima do computador.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "instrumento-1",
+      "moldura": "instrumento",
+      "item_a": "bateria",
+      "item_b": "violino",
+      "lado_a": "Ele tocou bateria na festa da escola.",
+      "lado_b": "Ele tocou violino na festa da escola.",
+      "decisao": "rejeitado",
+      "motivo": "bateria: polissêmica: bateria de veículo, de aparelho e de escola de samba"
+    },
+    {
+      "id": "louca-1",
+      "moldura": "louca",
+      "item_a": "prato",
+      "item_b": "bule",
+      "lado_a": "Quebrei o prato enquanto lavava a louça.",
+      "lado_b": "Quebrei o bule enquanto lavava a louça.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "presente-1",
+      "moldura": "presente",
+      "item_a": "livro",
+      "item_b": "chaveiro",
+      "lado_a": "Dei um livro de presente para ela.",
+      "lado_b": "Dei um chaveiro de presente para ela.",
+      "decisao": "rejeitado",
+      "motivo": "chaveiro: também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante"
+    },
+    {
+      "id": "mesa-1",
+      "moldura": "mesa",
+      "item_a": "xícara",
+      "item_b": "lanterna",
+      "lado_a": "Ela deixou a xícara em cima da mesa.",
+      "lado_b": "Ela deixou a lanterna em cima da mesa.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "parede-1",
+      "moldura": "parede",
+      "item_a": "relógio",
+      "item_b": "diploma",
+      "lado_a": "Ele pendurou o relógio na parede da sala.",
+      "lado_b": "Ele pendurou o diploma na parede da sala.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "perda-1",
+      "moldura": "perda",
+      "item_a": "boné",
+      "item_b": "chaveiro",
+      "lado_a": "Perdi o boné no caminho de casa.",
+      "lado_b": "Perdi o chaveiro no caminho de casa.",
+      "decisao": "rejeitado",
+      "motivo": "chaveiro: também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante"
+    },
+    {
+      "id": "pintura-1",
+      "moldura": "pintura",
+      "item_a": "estante",
+      "item_b": "penteadeira",
+      "lado_a": "Pintamos a estante de azul.",
+      "lado_b": "Pintamos a penteadeira de azul.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "varanda-1",
+      "moldura": "varanda",
+      "item_a": "orquídea",
+      "item_b": "azaleia",
+      "lado_a": "Ela regou a orquídea da varanda.",
+      "lado_b": "Ela regou a azaleia da varanda.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "vizinho-1",
+      "moldura": "vizinho",
+      "item_a": "sofá",
+      "item_b": "patinete",
+      "lado_a": "O vizinho comprou um sofá novo.",
+      "lado_b": "O vizinho comprou um patinete novo.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "viagem-1",
+      "moldura": "viagem",
+      "item_a": "mala",
+      "item_b": "garrafa",
+      "lado_a": "Levamos a mala na viagem.",
+      "lado_b": "Levamos a garrafa na viagem.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "zoologico-1",
+      "moldura": "zoologico",
+      "item_a": "hipopótamo",
+      "item_b": "tamanduá",
+      "lado_a": "Vimos um hipopótamo no zoológico.",
+      "lado_b": "Vimos um tamanduá no zoológico.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "aula-2",
+      "moldura": "aula",
+      "item_a": "cronômetro",
+      "item_b": "metrônomo",
+      "lado_a": "Na aula de hoje usamos um cronômetro.",
+      "lado_b": "Na aula de hoje usamos um metrônomo.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "bairro-2",
+      "moldura": "bairro",
+      "item_a": "escola",
+      "item_b": "biblioteca",
+      "lado_a": "Ele mora perto de uma escola.",
+      "lado_b": "Ele mora perto de uma biblioteca.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "banheiro-2",
+      "moldura": "banheiro",
+      "item_a": "torneira",
+      "item_b": "saboneteira",
+      "lado_a": "Troquei a torneira do banheiro.",
+      "lado_b": "Troquei a saboneteira do banheiro.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "varanda-2",
+      "moldura": "varanda",
+      "item_a": "violeta",
+      "item_b": "begônia",
+      "lado_a": "Ela regou a violeta da varanda.",
+      "lado_b": "Ela regou a begônia da varanda.",
+      "decisao": "rejeitado",
+      "motivo": "violeta: também designa cor e é nome próprio, o que infla a razão de frequência"
+    },
+    {
+      "id": "chuva-2",
+      "moldura": "chuva",
+      "item_a": "quinta",
+      "item_b": "quarta",
+      "lado_a": "Choveu muito na quinta passada.",
+      "lado_b": "Choveu muito na quarta passada.",
+      "decisao": "rejeitado",
+      "motivo": "quinta: também numeral ordinal; quarta: também numeral ordinal"
+    },
+    {
+      "id": "conserto-2",
+      "moldura": "conserto",
+      "item_a": "portão",
+      "item_b": "telhado",
+      "lado_a": "Meu pai consertou o portão no fim de semana.",
+      "lado_b": "Meu pai consertou o telhado no fim de semana.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "desenho-2",
+      "moldura": "desenho",
+      "item_a": "unicórnio",
+      "item_b": "flamingo",
+      "lado_a": "A menina desenhou um unicórnio no caderno.",
+      "lado_b": "A menina desenhou um flamingo no caderno.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "escritorio-2",
+      "moldura": "escritorio",
+      "item_a": "celular",
+      "item_b": "casaco",
+      "lado_a": "Esqueci o celular no escritório.",
+      "lado_b": "Esqueci o casaco no escritório.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "louca-2",
+      "moldura": "louca",
+      "item_a": "copo",
+      "item_b": "jarro",
+      "lado_a": "Quebrei o copo enquanto lavava a louça.",
+      "lado_b": "Quebrei o jarro enquanto lavava a louça.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "vizinho-2",
+      "moldura": "vizinho",
+      "item_a": "carro",
+      "item_b": "aspirador",
+      "lado_a": "O vizinho comprou um carro novo.",
+      "lado_b": "O vizinho comprou um aspirador novo.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "filme-2",
+      "moldura": "filme",
+      "item_a": "aventura",
+      "item_b": "animação",
+      "lado_a": "Assistimos a um filme de aventura ontem.",
+      "lado_b": "Assistimos a um filme de animação ontem.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "gato-2",
+      "moldura": "gato",
+      "item_a": "tapete",
+      "item_b": "travesseiro",
+      "lado_a": "O gato dormiu em cima do tapete.",
+      "lado_b": "O gato dormiu em cima do travesseiro.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "instrumento-2",
+      "moldura": "instrumento",
+      "item_a": "trompete",
+      "item_b": "oboé",
+      "lado_a": "Ele tocou trompete na festa da escola.",
+      "lado_b": "Ele tocou oboé na festa da escola.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "mesa-2",
+      "moldura": "mesa",
+      "item_a": "tesoura",
+      "item_b": "agenda",
+      "lado_a": "Ela deixou a tesoura em cima da mesa.",
+      "lado_b": "Ela deixou a agenda em cima da mesa.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "perda-2",
+      "moldura": "perda",
+      "item_a": "cartão",
+      "item_b": "isqueiro",
+      "lado_a": "Perdi o cartão no caminho de casa.",
+      "lado_b": "Perdi o isqueiro no caminho de casa.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "parede-2",
+      "moldura": "parede",
+      "item_a": "espelho",
+      "item_b": "calendário",
+      "lado_a": "Ele pendurou o espelho na parede da sala.",
+      "lado_b": "Ele pendurou o calendário na parede da sala.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "pintura-2",
+      "moldura": "pintura",
+      "item_a": "prateleira",
+      "item_b": "escrivaninha",
+      "lado_a": "Pintamos a prateleira de azul.",
+      "lado_b": "Pintamos a escrivaninha de azul.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "viagem-2",
+      "moldura": "viagem",
+      "item_a": "mochila",
+      "item_b": "prancha",
+      "lado_a": "Levamos a mochila na viagem.",
+      "lado_b": "Levamos a prancha na viagem.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "presente-2",
+      "moldura": "presente",
+      "item_a": "perfume",
+      "item_b": "broche",
+      "lado_a": "Dei um perfume de presente para ela.",
+      "lado_b": "Dei um broche de presente para ela.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "zoologico-2",
+      "moldura": "zoologico",
+      "item_a": "elefante",
+      "item_b": "suricato",
+      "lado_a": "Vimos um elefante no zoológico.",
+      "lado_b": "Vimos um suricato no zoológico.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "aula-3",
+      "moldura": "aula",
+      "item_a": "computador",
+      "item_b": "globo",
+      "lado_a": "Na aula de hoje usamos um computador.",
+      "lado_b": "Na aula de hoje usamos um globo.",
+      "decisao": "rejeitado",
+      "motivo": "globo: também designa a emissora de televisão e ocorre em 'globo ocular' e 'globo terrestre'; a contagem de frequência ignora caixa e soma os sentidos"
+    },
+    {
+      "id": "bairro-3",
+      "moldura": "bairro",
+      "item_a": "padaria",
+      "item_b": "lavanderia",
+      "lado_a": "Ele mora perto de uma padaria.",
+      "lado_b": "Ele mora perto de uma lavanderia.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "chuva-3",
+      "moldura": "chuva",
+      "item_a": "noite",
+      "item_b": "sexta",
+      "lado_a": "Choveu muito na noite passada.",
+      "lado_b": "Choveu muito na sexta passada.",
+      "decisao": "rejeitado",
+      "motivo": "sexta: também numeral ordinal"
+    },
+    {
+      "id": "conserto-3",
+      "moldura": "conserto",
+      "item_a": "chuveiro",
+      "item_b": "interfone",
+      "lado_a": "Meu pai consertou o chuveiro no fim de semana.",
+      "lado_b": "Meu pai consertou o interfone no fim de semana.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "escritorio-3",
+      "moldura": "escritorio",
+      "item_a": "carregador",
+      "item_b": "grampeador",
+      "lado_a": "Esqueci o carregador no escritório.",
+      "lado_b": "Esqueci o grampeador no escritório.",
+      "decisao": "rejeitado",
+      "motivo": "carregador: também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante"
+    },
+    {
+      "id": "banheiro-3",
+      "moldura": "banheiro",
+      "item_a": "pia",
+      "item_b": "toalha",
+      "lado_a": "Troquei a pia do banheiro.",
+      "lado_b": "Troquei a toalha do banheiro.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "desenho-3",
+      "moldura": "desenho",
+      "item_a": "dinossauro",
+      "item_b": "pinguim",
+      "lado_a": "A menina desenhou um dinossauro no caderno.",
+      "lado_b": "A menina desenhou um pinguim no caderno.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "filme-3",
+      "moldura": "filme",
+      "item_a": "suspense",
+      "item_b": "mistério",
+      "lado_a": "Assistimos a um filme de suspense ontem.",
+      "lado_b": "Assistimos a um filme de mistério ontem.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "gato-3",
+      "moldura": "gato",
+      "item_a": "edredom",
+      "item_b": "baú",
+      "lado_a": "O gato dormiu em cima do edredom.",
+      "lado_b": "O gato dormiu em cima do baú.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "varanda-3",
+      "moldura": "varanda",
+      "item_a": "planta",
+      "item_b": "roseira",
+      "lado_a": "Ela regou a planta da varanda.",
+      "lado_b": "Ela regou a roseira da varanda.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "instrumento-3",
+      "moldura": "instrumento",
+      "item_a": "violão",
+      "item_b": "piano",
+      "lado_a": "Ele tocou violão na festa da escola.",
+      "lado_b": "Ele tocou piano na festa da escola.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "louca-3",
+      "moldura": "louca",
+      "item_a": "pote",
+      "item_b": "cálice",
+      "lado_a": "Quebrei o pote enquanto lavava a louça.",
+      "lado_b": "Quebrei o cálice enquanto lavava a louça.",
+      "decisao": "rejeitado",
+      "motivo": "pote: no Nordeste designa também o recipiente de barro para água, o que pode conferir carga regional"
+    },
+    {
+      "id": "mesa-3",
+      "moldura": "mesa",
+      "item_a": "caneta",
+      "item_b": "calculadora",
+      "lado_a": "Ela deixou a caneta em cima da mesa.",
+      "lado_b": "Ela deixou a calculadora em cima da mesa.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "parede-3",
+      "moldura": "parede",
+      "item_a": "quadro",
+      "item_b": "pôster",
+      "lado_a": "Ele pendurou o quadro na parede da sala.",
+      "lado_b": "Ele pendurou o pôster na parede da sala.",
+      "decisao": "aprovado",
+      "motivo": null
+    },
+    {
+      "id": "vizinho-3",
+      "moldura": "vizinho",
+      "item_a": "triciclo",
+      "item_b": "barco",
+      "lado_a": "O vizinho comprou um triciclo novo.",
+      "lado_b": "O vizinho comprou um barco novo.",
+      "decisao": "aprovado",
+      "motivo": null
+    }
+  ]
+}

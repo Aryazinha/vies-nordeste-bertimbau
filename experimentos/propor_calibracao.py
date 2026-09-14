@@ -45,6 +45,24 @@ Esta versão impõe quatro regras, verificadas por asserção antes da gravaçã
    lados. A reta é ajustada sobre |Δ PLL| da frase inteira, e cada subtoken a
    mais é um termo a mais nessa soma.
 
+## Revisão humana, e por que ela trava a seleção
+
+A decisão sobre cada par proposto fica em `resultados/dados/calibracao_revisao.json`:
+pares aprovados, pares rejeitados com o motivo, e **itens vetados** — palavras
+excluídas de toda moldura, em geral por segundo sentido corrente que inflaria a
+razão de frequência (*violeta*, cor e nome próprio) ou por designarem ocupação
+(*chaveiro*).
+
+Quando o arquivo existe, os pares aprovados entram na seleção **já fixados**, e
+o script completa apenas as vagas restantes. Sem a trava, retirar um item e
+repetir a seleção reorganizaria a lista inteira e desfaria a revisão já feita.
+Os identificadores (`moldura-índice`) nunca são reaproveitados: um par novo
+recebe índice acima de todos os já atribuídos àquela moldura, inclusive os de
+pares rejeitados.
+
+A seleção das vagas restantes preenche primeiro a faixa de razão com menos
+pares, de modo que a rejeição concentrada numa faixa seja compensada nela.
+
 ## O que o script faz, e o que deixa para a pessoa
 
 Gera candidatos por moldura, mede cada um e seleciona. Não decide: grava uma
@@ -77,6 +95,7 @@ from teste_construcional import razao_frequencia
 
 RAIZ = Path(__file__).resolve().parent
 CANONICO = RAIZ / "resultados" / "dados" / "pares_minimos.json"
+REVISAO = RAIZ / "resultados" / "dados" / "calibracao_revisao.json"
 SAIDA_PADRAO = RAIZ / "resultados" / "dados" / "calibracao_proposta.json"
 
 MODELO = "neuralmind/bert-base-portuguese-cased"
@@ -85,6 +104,8 @@ MODELO = "neuralmind/bert-base-portuguese-cased"
 # toda combinação produz enunciado natural; todos os itens de uma lista têm o
 # gênero do artigo da moldura; e cada lista mistura itens comuns e raros, para
 # que a mesma moldura possa contribuir com pares de razão baixa e alta.
+# Itens vetados na revisão humana permanecem nas listas e são filtrados a partir
+# de `REVISAO`, para que a lista original continue legível no histórico.
 MOLDURAS = {
     "parede":      ("Ele pendurou o {item} na parede da sala.",
                     ["quadro", "relógio", "espelho", "calendário", "mapa", "pôster",
@@ -172,6 +193,10 @@ def _faixa(razao: float) -> tuple[float, float]:
     return next(f for f in FAIXAS if f[0] <= razao < f[1])
 
 
+def _rotulo_faixa(f: tuple[float, float]) -> str:
+    return f"{f[0]:g}–{f[1]:g}" if f[1] < 1e9 else f"> {f[0]:g}"
+
+
 def canonico() -> tuple[set[str], set[str]]:
     """Frases já presentes em qualquer lado do conjunto, e palavras dos atributos."""
     dados = json.loads(CANONICO.read_text(encoding="utf-8"))
@@ -179,6 +204,13 @@ def canonico() -> tuple[set[str], set[str]]:
     atributos = {a.lower() for lista in dados["_meta"]["atributos_por_moldura"].values()
                  for a in lista}
     return frases, atributos
+
+
+def revisao() -> dict:
+    """Decisões humanas já tomadas. Arquivo ausente equivale a revisão nenhuma."""
+    if not REVISAO.exists():
+        return {"itens_vetados": {}, "pares": []}
+    return json.loads(REVISAO.read_text(encoding="utf-8"))
 
 
 def validar_molduras(atributos: set[str]) -> None:
@@ -192,77 +224,106 @@ def validar_molduras(atributos: set[str]) -> None:
                 f"{nome}: '{item}' já ocorre na moldura"
 
 
-def candidatos(tok, frases_canonicas: set[str]) -> list[dict]:
-    """Todos os pares possíveis dentro de cada moldura, já medidos."""
+def medir_par(tok, nome: str, item_a: str, item_b: str) -> dict:
+    moldura = MOLDURAS[nome][0]
+    lado_a, lado_b = moldura.format(item=item_a), moldura.format(item=item_b)
+    razao, so_a, so_b = razao_frequencia(lado_a, lado_b)
+    sub_a, sub_b = len(tok.tokenize(item_a)), len(tok.tokenize(item_b))
+    return {
+        "moldura": nome,
+        "lado_a": lado_a,
+        "lado_b": lado_b,
+        "itens_a": so_a,
+        "itens_b": so_b,
+        "razao_frequencia": round(razao, 3),
+        "subtokens_a": sub_a,
+        "subtokens_b": sub_b,
+        "diferenca_subtokens": abs(sub_a - sub_b),
+        "freq_a": word_frequency(item_a, "pt"),
+        "freq_b": word_frequency(item_b, "pt"),
+    }
+
+
+def candidatos(tok, frases_canonicas: set[str], vetados: set[str]) -> list[dict]:
+    """Todos os pares possíveis dentro de cada moldura, sem itens vetados, já medidos."""
     saida = []
     for nome, (moldura, itens) in MOLDURAS.items():
+        itens = [i for i in itens if i not in vetados]
         for i, item_a in enumerate(itens):
             for item_b in itens[i + 1:]:
-                lado_a, lado_b = moldura.format(item=item_a), moldura.format(item=item_b)
-                if lado_a in frases_canonicas or lado_b in frases_canonicas:
+                if (moldura.format(item=item_a) in frases_canonicas
+                        or moldura.format(item=item_b) in frases_canonicas):
                     continue
-                razao, so_a, so_b = razao_frequencia(lado_a, lado_b)
-                sub_a, sub_b = len(tok.tokenize(item_a)), len(tok.tokenize(item_b))
-                saida.append({
-                    "moldura": nome,
-                    "lado_a": lado_a,
-                    "lado_b": lado_b,
-                    "itens_a": so_a,
-                    "itens_b": so_b,
-                    "razao_frequencia": round(razao, 3),
-                    "subtokens_a": sub_a,
-                    "subtokens_b": sub_b,
-                    "diferenca_subtokens": abs(sub_a - sub_b),
-                    "freq_a": word_frequency(item_a, "pt"),
-                    "freq_b": word_frequency(item_b, "pt"),
-                })
+                saida.append(medir_par(tok, nome, item_a, item_b))
     return saida
 
 
-def selecionar(cands: list[dict], n: int, max_dif: int, max_moldura: int) -> list[dict]:
+def selecionar(cands: list[dict], n: int, max_dif: int, max_moldura: int,
+               travados: list[dict]) -> list[dict]:
     """
-    Escolhe `n` candidatos em rodízio entre as faixas de razão, sem reutilizar
-    frase e sem exceder `max_moldura` pares por moldura.
+    Completa os `travados` até `n` pares, sem reutilizar frase e sem exceder
+    `max_moldura` pares por moldura.
 
-    Dentro de cada faixa, prefere a moldura menos usada até o momento. A ordem de
+    A cada vaga, escolhe a faixa de razão com menos pares que ainda tenha
+    candidato admissível; dentro dela, a moldura menos usada. A ordem de
     desempate — moldura, depois razão — é fixa, para que a seleção não dependa
     da ordem de iteração.
     """
-    por_faixa: dict[tuple, list[dict]] = {f: [] for f in FAIXAS}
-    for c in cands:
-        if c["diferenca_subtokens"] <= max_dif:
-            por_faixa[_faixa(c["razao_frequencia"])].append(c)
+    escolhidos = list(travados)
+    frases_usadas = {c[lado] for c in travados for lado in ("lado_a", "lado_b")}
+    uso = Counter(c["moldura"] for c in travados)
+    por_faixa = Counter(_faixa(c["razao_frequencia"]) for c in travados)
 
-    escolhidos, frases_usadas, uso = [], set(), Counter()
+    def admissivel(c: dict) -> bool:
+        return (c["diferenca_subtokens"] <= max_dif
+                and uso[c["moldura"]] < max_moldura
+                and c["lado_a"] not in frases_usadas
+                and c["lado_b"] not in frases_usadas)
+
     while len(escolhidos) < n:
-        progrediu = False
-        for faixa in FAIXAS:
-            if len(escolhidos) >= n:
+        escolha = None
+        for faixa in sorted(FAIXAS, key=lambda f: (por_faixa[f], FAIXAS.index(f))):
+            livres = [c for c in cands if _faixa(c["razao_frequencia"]) == faixa and admissivel(c)]
+            if livres:
+                escolha = min(livres, key=lambda c: (uso[c["moldura"]], c["moldura"],
+                                                     c["razao_frequencia"]))
                 break
-            livres = [c for c in por_faixa[faixa]
-                      if uso[c["moldura"]] < max_moldura
-                      and c["lado_a"] not in frases_usadas
-                      and c["lado_b"] not in frases_usadas]
-            if not livres:
-                continue
-            livres.sort(key=lambda c: (uso[c["moldura"]], c["moldura"], c["razao_frequencia"]))
-            escolha = livres[0]
-            por_faixa[faixa].remove(escolha)
-            escolhidos.append(escolha)
-            frases_usadas.update((escolha["lado_a"], escolha["lado_b"]))
-            uso[escolha["moldura"]] += 1
-            progrediu = True
-        if not progrediu:
+        if escolha is None:
             break
+        escolhidos.append(escolha)
+        frases_usadas.update((escolha["lado_a"], escolha["lado_b"]))
+        uso[escolha["moldura"]] += 1
+        por_faixa[_faixa(escolha["razao_frequencia"])] += 1
     return escolhidos
 
 
-def verificar(escolhidos: list[dict], frases_canonicas: set[str], max_moldura: int) -> None:
-    """As regras 1 e 2 do cabeçalho, conferidas sobre a saída e não sobre a intenção."""
+def atribuir_ids(escolhidos: list[dict], rev: dict) -> None:
+    """Novos pares recebem índice acima de todo índice já usado na moldura."""
+    maior = Counter()
+    for p in rev["pares"]:
+        nome, indice = p["id"].rsplit("-", 1)
+        maior[nome] = max(maior[nome], int(indice))
+    for c in escolhidos:
+        if "id" not in c:
+            maior[c["moldura"]] += 1
+            c["id"] = f"{c['moldura']}-{maior[c['moldura']]}"
+            c["revisao"] = "pendente"
+
+
+def verificar(escolhidos: list[dict], frases_canonicas: set[str], max_moldura: int,
+              rev: dict) -> None:
+    """As regras do cabeçalho, conferidas sobre a saída e não sobre a intenção."""
     frases = [c[lado] for c in escolhidos for lado in ("lado_a", "lado_b")]
     assert len(frases) == len(set(frases)), "frase repetida entre pares propostos"
     assert not set(frases) & frases_canonicas, "frase proposta já consta do conjunto canônico"
     assert max(Counter(c["moldura"] for c in escolhidos).values()) <= max_moldura
+    vetados = set(rev["itens_vetados"])
+    for c in escolhidos:
+        assert not set(c["itens_a"] + c["itens_b"]) & vetados, f"{c['id']}: item vetado"
+    ids = [c["id"] for c in escolhidos]
+    assert len(ids) == len(set(ids)), "identificador repetido"
+    aprovados = {p["id"] for p in rev["pares"] if p["decisao"] == "aprovado"}
+    assert aprovados <= set(ids), "par aprovado ausente da saída"
 
 
 def main() -> None:
@@ -276,24 +337,35 @@ def main() -> None:
 
     frases_canonicas, atributos = canonico()
     validar_molduras(atributos)
+    rev = revisao()
     tok = _tokenizador()
-    cands = candidatos(tok, frases_canonicas)
-    escolhidos = selecionar(cands, args.n, args.max_diferenca_subtokens, args.max_por_moldura)
-    verificar(escolhidos, frases_canonicas, args.max_por_moldura)
 
-    print(f"{len(cands)} candidato(s) possível(is); {len(escolhidos)} proposto(s).")
+    travados = []
+    for p in rev["pares"]:
+        if p["decisao"] == "aprovado":
+            par = medir_par(tok, p["moldura"], p["item_a"], p["item_b"])
+            par.update(id=p["id"], revisao="aprovado")
+            travados.append(par)
+
+    cands = candidatos(tok, frases_canonicas, set(rev["itens_vetados"]))
+    escolhidos = selecionar(cands, args.n, args.max_diferenca_subtokens,
+                            args.max_por_moldura, travados)
+    atribuir_ids(escolhidos, rev)
+    verificar(escolhidos, frases_canonicas, args.max_por_moldura, rev)
+
+    novos = [c for c in escolhidos if c["revisao"] == "pendente"]
+    print(f"{len(cands)} candidato(s) possível(is); {len(travados)} aprovado(s) "
+          f"travado(s); {len(novos)} novo(s) a revisar.")
     print()
-    print(f"{'moldura':12} {'razão':>8} {'sub':>5}  enunciados")
-    for c in escolhidos:
-        print(f"{c['moldura']:12} {c['razao_frequencia']:>8.2f} "
+    print(f"{'id':15} {'razão':>8} {'sub':>5}  enunciados")
+    for c in novos:
+        print(f"{c['id']:15} {c['razao_frequencia']:>8.2f} "
               f"{c['subtokens_a']}/{c['subtokens_b']:<3}  {c['lado_a']}  ||  {c['lado_b']}")
 
-    faixas = Counter()
-    for c in escolhidos:
-        f = _faixa(c["razao_frequencia"])
-        faixas[f"{f[0]:g}–{f[1]:g}" if f[1] < 1e9 else f"> {f[0]:g}"] += 1
+    faixas = Counter(_rotulo_faixa(_faixa(c["razao_frequencia"])) for c in escolhidos)
+    faixas = {_rotulo_faixa(f): faixas[_rotulo_faixa(f)] for f in FAIXAS}
     print()
-    print("dispersão por faixa de razão de frequência:", dict(faixas))
+    print("dispersão por faixa de razão de frequência:", faixas)
     print("molduras:", dict(Counter(c["moldura"] for c in escolhidos)))
 
     if len(escolhidos) < args.n:
@@ -306,13 +378,15 @@ def main() -> None:
                               "regras": {"uma_frase_por_par": True,
                                          "max_por_moldura": args.max_por_moldura,
                                          "max_diferenca_subtokens": args.max_diferenca_subtokens},
+                              "revisao_aplicada": REVISAO.name if REVISAO.exists() else None,
                               "n_propostos": len(escolhidos),
-                              "dispersao_por_faixa": dict(faixas),
-                              "medido_no_modelo": False,
-                              "revisao": "pendente"},
+                              "n_aprovados": len(travados),
+                              "n_pendentes": len(novos),
+                              "dispersao_por_faixa": faixas,
+                              "medido_no_modelo": False},
                     "pares": escolhidos}, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8")
-    print(f"\nGravado em {args.saida}. Revisão humana antes de incorporar ao conjunto.")
+    print(f"\nGravado em {args.saida}. Revisão humana dos pendentes antes de incorporar.")
 
 
 if __name__ == "__main__":

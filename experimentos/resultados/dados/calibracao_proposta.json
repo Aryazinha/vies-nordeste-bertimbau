@@ -6,17 +6,19 @@
       "max_por_moldura": 3,
       "max_diferenca_subtokens": 1
     },
+    "revisao_aplicada": "calibracao_revisao.json",
     "n_propostos": 55,
+    "n_aprovados": 45,
+    "n_pendentes": 10,
     "dispersao_por_faixa": {
-      "1–1.5": 10,
-      "1.5–3": 10,
+      "1–1.5": 11,
+      "1.5–3": 11,
       "3–8": 10,
       "8–25": 10,
       "25–100": 10,
-      "> 100": 5
+      "> 100": 3
     },
-    "medido_no_modelo": false,
-    "revisao": "pendente"
+    "medido_no_modelo": false
   },
   "pares": [
     {
@@ -34,7 +36,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 0,
       "freq_a": 2e-06,
-      "freq_b": 2.75e-06
+      "freq_b": 2.75e-06,
+      "id": "aula-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "bairro",
@@ -51,7 +55,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 1.12e-06,
-      "freq_b": 1.7e-06
+      "freq_b": 1.7e-06,
+      "id": "bairro-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "banheiro",
@@ -68,7 +74,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 5.13e-06,
-      "freq_b": 1.51e-06
+      "freq_b": 1.51e-06,
+      "id": "banheiro-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "chuva",
@@ -85,7 +93,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 0.000398,
-      "freq_b": 3.02e-05
+      "freq_b": 3.02e-05,
+      "id": "chuva-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "conserto",
@@ -102,24 +112,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 0.000174,
-      "freq_b": 2.04e-06
-    },
-    {
-      "moldura": "filme",
-      "lado_a": "Assistimos a um filme de ação ontem.",
-      "lado_b": "Assistimos a um filme de faroeste ontem.",
-      "itens_a": [
-        "ação"
-      ],
-      "itens_b": [
-        "faroeste"
-      ],
-      "razao_frequencia": 104.516,
-      "subtokens_a": 1,
-      "subtokens_b": 2,
-      "diferenca_subtokens": 1,
-      "freq_a": 0.000162,
-      "freq_b": 1.55e-06
+      "freq_b": 2.04e-06,
+      "id": "conserto-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "desenho",
@@ -136,7 +131,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 2.95e-05,
-      "freq_b": 3.16e-05
+      "freq_b": 3.16e-05,
+      "id": "desenho-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "escritorio",
@@ -153,7 +150,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 3.89e-06,
-      "freq_b": 2.34e-06
+      "freq_b": 2.34e-06,
+      "id": "escritorio-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "gato",
@@ -170,24 +169,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 1,
       "freq_a": 2.29e-05,
-      "freq_b": 7.24e-05
-    },
-    {
-      "moldura": "instrumento",
-      "lado_a": "Ele tocou bateria na festa da escola.",
-      "lado_b": "Ele tocou violino na festa da escola.",
-      "itens_a": [
-        "bateria"
-      ],
-      "itens_b": [
-        "violino"
-      ],
-      "razao_frequencia": 8.92,
-      "subtokens_a": 1,
-      "subtokens_b": 1,
-      "diferenca_subtokens": 0,
-      "freq_a": 4.79e-05,
-      "freq_b": 5.37e-06
+      "freq_b": 7.24e-05,
+      "id": "gato-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "louca",
@@ -204,24 +188,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 2.57e-05,
-      "freq_b": 1e-06
-    },
-    {
-      "moldura": "presente",
-      "lado_a": "Dei um livro de presente para ela.",
-      "lado_b": "Dei um chaveiro de presente para ela.",
-      "itens_a": [
-        "livro"
-      ],
-      "itens_b": [
-        "chaveiro"
-      ],
-      "razao_frequencia": 165.541,
-      "subtokens_a": 1,
-      "subtokens_b": 2,
-      "diferenca_subtokens": 1,
-      "freq_a": 0.000245,
-      "freq_b": 1.48e-06
+      "freq_b": 1e-06,
+      "id": "louca-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "mesa",
@@ -238,7 +207,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 6.61e-06,
-      "freq_b": 6.76e-06
+      "freq_b": 6.76e-06,
+      "id": "mesa-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "parede",
@@ -255,24 +226,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 2.4e-05,
-      "freq_b": 1.45e-05
-    },
-    {
-      "moldura": "perda",
-      "lado_a": "Perdi o boné no caminho de casa.",
-      "lado_b": "Perdi o chaveiro no caminho de casa.",
-      "itens_a": [
-        "boné"
-      ],
-      "itens_b": [
-        "chaveiro"
-      ],
-      "razao_frequencia": 3.088,
-      "subtokens_a": 2,
-      "subtokens_b": 2,
-      "diferenca_subtokens": 0,
-      "freq_a": 4.57e-06,
-      "freq_b": 1.48e-06
+      "freq_b": 1.45e-05,
+      "id": "parede-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "pintura",
@@ -289,7 +245,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 3.63e-06,
-      "freq_b": 4.37e-07
+      "freq_b": 4.37e-07,
+      "id": "pintura-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "varanda",
@@ -306,7 +264,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 0,
       "freq_a": 1.62e-06,
-      "freq_b": 6.31e-08
+      "freq_b": 6.31e-08,
+      "id": "varanda-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "vizinho",
@@ -323,7 +283,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 2.29e-05,
-      "freq_b": 2.29e-07
+      "freq_b": 2.29e-07,
+      "id": "vizinho-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "viagem",
@@ -340,7 +302,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 1.82e-05,
-      "freq_b": 1.66e-05
+      "freq_b": 1.66e-05,
+      "id": "viagem-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "zoologico",
@@ -357,7 +321,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 7.08e-07,
-      "freq_b": 4.57e-07
+      "freq_b": 4.57e-07,
+      "id": "zoologico-1",
+      "revisao": "aprovado"
     },
     {
       "moldura": "aula",
@@ -374,7 +340,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 7.94e-07,
-      "freq_b": 1.78e-07
+      "freq_b": 1.78e-07,
+      "id": "aula-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "bairro",
@@ -391,7 +359,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 0.000331,
-      "freq_b": 3.98e-05
+      "freq_b": 3.98e-05,
+      "id": "bairro-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "banheiro",
@@ -408,41 +378,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 3.8e-06,
-      "freq_b": 9.33e-08
-    },
-    {
-      "moldura": "varanda",
-      "lado_a": "Ela regou a violeta da varanda.",
-      "lado_b": "Ela regou a begônia da varanda.",
-      "itens_a": [
-        "violeta"
-      ],
-      "itens_b": [
-        "begônia"
-      ],
-      "razao_frequencia": 104.57,
-      "subtokens_a": 2,
-      "subtokens_b": 3,
-      "diferenca_subtokens": 1,
-      "freq_a": 3.89e-06,
-      "freq_b": 3.72e-08
-    },
-    {
-      "moldura": "chuva",
-      "lado_a": "Choveu muito na quinta passada.",
-      "lado_b": "Choveu muito na quarta passada.",
-      "itens_a": [
-        "quinta"
-      ],
-      "itens_b": [
-        "quarta"
-      ],
-      "razao_frequencia": 1.145,
-      "subtokens_a": 1,
-      "subtokens_b": 1,
-      "diferenca_subtokens": 0,
-      "freq_a": 8.91e-05,
-      "freq_b": 0.000102
+      "freq_b": 9.33e-08,
+      "id": "banheiro-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "conserto",
@@ -459,7 +397,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 1.48e-05,
-      "freq_b": 9.55e-06
+      "freq_b": 9.55e-06,
+      "id": "conserto-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "desenho",
@@ -476,7 +416,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 2.34e-06,
-      "freq_b": 7.24e-07
+      "freq_b": 7.24e-07,
+      "id": "desenho-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "escritorio",
@@ -493,7 +435,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 9.77e-05,
-      "freq_b": 1.17e-05
+      "freq_b": 1.17e-05,
+      "id": "escritorio-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "louca",
@@ -510,7 +454,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 2.75e-05,
-      "freq_b": 7.08e-07
+      "freq_b": 7.08e-07,
+      "id": "louca-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "vizinho",
@@ -527,7 +473,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 0.000174,
-      "freq_b": 1.41e-06
+      "freq_b": 1.41e-06,
+      "id": "vizinho-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "filme",
@@ -544,7 +492,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 2.82e-05,
-      "freq_b": 2.57e-05
+      "freq_b": 2.57e-05,
+      "id": "filme-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "gato",
@@ -561,7 +511,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 0,
       "freq_a": 9.55e-06,
-      "freq_b": 4.57e-06
+      "freq_b": 4.57e-06,
+      "id": "gato-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "instrumento",
@@ -578,7 +530,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 0,
       "freq_a": 1.29e-06,
-      "freq_b": 4.07e-07
+      "freq_b": 4.07e-07,
+      "id": "instrumento-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "mesa",
@@ -595,7 +549,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 1,
       "freq_a": 3.89e-06,
-      "freq_b": 3.31e-05
+      "freq_b": 3.31e-05,
+      "id": "mesa-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "perda",
@@ -612,7 +568,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 5.37e-05,
-      "freq_b": 2.04e-06
+      "freq_b": 2.04e-06,
+      "id": "perda-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "parede",
@@ -629,7 +587,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 2.57e-05,
-      "freq_b": 2.63e-05
+      "freq_b": 2.63e-05,
+      "id": "parede-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "pintura",
@@ -646,7 +606,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 0,
       "freq_a": 2.69e-06,
-      "freq_b": 9.33e-07
+      "freq_b": 9.33e-07,
+      "id": "pintura-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "viagem",
@@ -663,7 +625,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 0,
       "freq_a": 1.35e-05,
-      "freq_b": 3.55e-06
+      "freq_b": 3.55e-06,
+      "id": "viagem-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "presente",
@@ -680,7 +644,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 0,
       "freq_a": 1.41e-05,
-      "freq_b": 1e-06
+      "freq_b": 1e-06,
+      "id": "presente-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "zoologico",
@@ -697,24 +663,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 7.08e-06,
-      "freq_b": 1.66e-07
-    },
-    {
-      "moldura": "aula",
-      "lado_a": "Na aula de hoje usamos um computador.",
-      "lado_b": "Na aula de hoje usamos um globo.",
-      "itens_a": [
-        "computador"
-      ],
-      "itens_b": [
-        "globo"
-      ],
-      "razao_frequencia": 1.409,
-      "subtokens_a": 1,
-      "subtokens_b": 1,
-      "diferenca_subtokens": 0,
-      "freq_a": 7.24e-05,
-      "freq_b": 0.000102
+      "freq_b": 1.66e-07,
+      "id": "zoologico-2",
+      "revisao": "aprovado"
     },
     {
       "moldura": "bairro",
@@ -731,24 +682,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 5.75e-06,
-      "freq_b": 3.63e-06
-    },
-    {
-      "moldura": "chuva",
-      "lado_a": "Choveu muito na noite passada.",
-      "lado_b": "Choveu muito na sexta passada.",
-      "itens_a": [
-        "noite"
-      ],
-      "itens_b": [
-        "sexta"
-      ],
-      "razao_frequencia": 4.268,
-      "subtokens_a": 1,
-      "subtokens_b": 1,
-      "diferenca_subtokens": 0,
-      "freq_a": 0.000525,
-      "freq_b": 0.000123
+      "freq_b": 3.63e-06,
+      "id": "bairro-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "conserto",
@@ -765,24 +701,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 0,
       "freq_a": 8.91e-06,
-      "freq_b": 6.31e-07
-    },
-    {
-      "moldura": "escritorio",
-      "lado_a": "Esqueci o carregador no escritório.",
-      "lado_b": "Esqueci o grampeador no escritório.",
-      "itens_a": [
-        "carregador"
-      ],
-      "itens_b": [
-        "grampeador"
-      ],
-      "razao_frequencia": 37.234,
-      "subtokens_a": 2,
-      "subtokens_b": 3,
-      "diferenca_subtokens": 1,
-      "freq_a": 5.25e-06,
-      "freq_b": 1.41e-07
+      "freq_b": 6.31e-07,
+      "id": "conserto-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "banheiro",
@@ -799,7 +720,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 0,
       "freq_a": 9.12e-06,
-      "freq_b": 9.33e-06
+      "freq_b": 9.33e-06,
+      "id": "banheiro-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "desenho",
@@ -816,7 +739,9 @@
       "subtokens_b": 3,
       "diferenca_subtokens": 1,
       "freq_a": 4.47e-06,
-      "freq_b": 2.69e-06
+      "freq_b": 2.69e-06,
+      "id": "desenho-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "filme",
@@ -833,7 +758,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 1,
       "freq_a": 6.17e-06,
-      "freq_b": 2.19e-05
+      "freq_b": 2.19e-05,
+      "id": "filme-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "gato",
@@ -850,7 +777,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 4.68e-07,
-      "freq_b": 4.17e-06
+      "freq_b": 4.17e-06,
+      "id": "gato-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "varanda",
@@ -867,7 +796,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 2.88e-05,
-      "freq_b": 5.01e-07
+      "freq_b": 5.01e-07,
+      "id": "varanda-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "instrumento",
@@ -884,24 +815,9 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 0,
       "freq_a": 1.51e-05,
-      "freq_b": 1.51e-05
-    },
-    {
-      "moldura": "louca",
-      "lado_a": "Quebrei o pote enquanto lavava a louça.",
-      "lado_b": "Quebrei o cálice enquanto lavava a louça.",
-      "itens_a": [
-        "pote"
-      ],
-      "itens_b": [
-        "cálice"
-      ],
-      "razao_frequencia": 2.043,
-      "subtokens_a": 1,
-      "subtokens_b": 2,
-      "diferenca_subtokens": 1,
-      "freq_a": 6.17e-06,
-      "freq_b": 3.02e-06
+      "freq_b": 1.51e-05,
+      "id": "instrumento-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "mesa",
@@ -918,7 +834,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 0,
       "freq_a": 1.2e-05,
-      "freq_b": 2.04e-06
+      "freq_b": 2.04e-06,
+      "id": "mesa-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "parede",
@@ -935,7 +853,9 @@
       "subtokens_b": 2,
       "diferenca_subtokens": 1,
       "freq_a": 4.79e-05,
-      "freq_b": 3.8e-06
+      "freq_b": 3.8e-06,
+      "id": "parede-3",
+      "revisao": "aprovado"
     },
     {
       "moldura": "vizinho",
@@ -952,7 +872,199 @@
       "subtokens_b": 1,
       "diferenca_subtokens": 1,
       "freq_a": 8.71e-07,
-      "freq_b": 2.29e-05
+      "freq_b": 2.29e-05,
+      "id": "vizinho-3",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "presente",
+      "lado_a": "Dei um livro de presente para ela.",
+      "lado_b": "Dei um pingente de presente para ela.",
+      "itens_a": [
+        "livro"
+      ],
+      "itens_b": [
+        "pingente"
+      ],
+      "razao_frequencia": 245.0,
+      "subtokens_a": 1,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 1,
+      "freq_a": 0.000245,
+      "freq_b": 1e-06,
+      "id": "presente-3",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "aula",
+      "lado_a": "Na aula de hoje usamos um computador.",
+      "lado_b": "Na aula de hoje usamos um mapa.",
+      "itens_a": [
+        "computador"
+      ],
+      "itens_b": [
+        "mapa"
+      ],
+      "razao_frequencia": 1.411,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 7.24e-05,
+      "freq_b": 5.13e-05,
+      "id": "aula-4",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "perda",
+      "lado_a": "Perdi o boné no caminho de casa.",
+      "lado_b": "Perdi o crachá no caminho de casa.",
+      "itens_a": [
+        "boné"
+      ],
+      "itens_b": [
+        "crachá"
+      ],
+      "razao_frequencia": 3.462,
+      "subtokens_a": 2,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 1,
+      "freq_a": 4.57e-06,
+      "freq_b": 1.32e-06,
+      "id": "perda-3",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "filme",
+      "lado_a": "Assistimos a um filme de terror ontem.",
+      "lado_b": "Assistimos a um filme de drama ontem.",
+      "itens_a": [
+        "terror"
+      ],
+      "itens_b": [
+        "drama"
+      ],
+      "razao_frequencia": 1.148,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 3.8e-05,
+      "freq_b": 3.31e-05,
+      "id": "filme-4",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "instrumento",
+      "lado_a": "Ele tocou flauta na festa da escola.",
+      "lado_b": "Ele tocou violino na festa da escola.",
+      "itens_a": [
+        "flauta"
+      ],
+      "itens_b": [
+        "violino"
+      ],
+      "razao_frequencia": 1.699,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 3.16e-06,
+      "freq_b": 5.37e-06,
+      "id": "instrumento-4",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "louca",
+      "lado_a": "Quebrei o pires enquanto lavava a louça.",
+      "lado_b": "Quebrei o cálice enquanto lavava a louça.",
+      "itens_a": [
+        "pires"
+      ],
+      "itens_b": [
+        "cálice"
+      ],
+      "razao_frequencia": 4.371,
+      "subtokens_a": 2,
+      "subtokens_b": 2,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.32e-05,
+      "freq_b": 3.02e-06,
+      "id": "louca-4",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "escritorio",
+      "lado_a": "Esqueci o caderno no escritório.",
+      "lado_b": "Esqueci o crachá no escritório.",
+      "itens_a": [
+        "caderno"
+      ],
+      "itens_b": [
+        "crachá"
+      ],
+      "razao_frequencia": 8.485,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.12e-05,
+      "freq_b": 1.32e-06,
+      "id": "escritorio-4",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "varanda",
+      "lado_a": "Ela regou a samambaia da varanda.",
+      "lado_b": "Ela regou a begônia da varanda.",
+      "itens_a": [
+        "samambaia"
+      ],
+      "itens_b": [
+        "begônia"
+      ],
+      "razao_frequencia": 27.419,
+      "subtokens_a": 3,
+      "subtokens_b": 3,
+      "diferenca_subtokens": 0,
+      "freq_a": 1.02e-06,
+      "freq_b": 3.72e-08,
+      "id": "varanda-4",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "pintura",
+      "lado_a": "Pintamos a parede de azul.",
+      "lado_b": "Pintamos a cadeira de azul.",
+      "itens_a": [
+        "parede"
+      ],
+      "itens_b": [
+        "cadeira"
+      ],
+      "razao_frequencia": 1.481,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 4.68e-05,
+      "freq_b": 3.16e-05,
+      "id": "pintura-3",
+      "revisao": "pendente"
+    },
+    {
+      "moldura": "perda",
+      "lado_a": "Perdi o bilhete no caminho de casa.",
+      "lado_b": "Perdi o ingresso no caminho de casa.",
+      "itens_a": [
+        "bilhete"
+      ],
+      "itens_b": [
+        "ingresso"
+      ],
+      "razao_frequencia": 1.543,
+      "subtokens_a": 2,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 1,
+      "freq_a": 1.05e-05,
+      "freq_b": 1.62e-05,
+      "id": "perda-4",
+      "revisao": "pendente"
     }
   ]
 }
