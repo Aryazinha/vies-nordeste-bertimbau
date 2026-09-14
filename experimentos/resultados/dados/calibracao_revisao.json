@@ -14,6 +14,22 @@
       "Dúvida levantada e não acolhida: 'aquecedor' (conserto-1), por possível associação a clima frio; mantido.",
       "Dúvida levantada e não acolhida: 'suspense' e 'mistério' (filme-3) têm tom semelhante nos dois lados, e a medição considera a diferença entre eles; mantido.",
       "A ausência de carga regional é juízo da equipe e não substitui o Filtro 1."
+    ],
+    "rodadas": [
+      {
+        "rodada": 1,
+        "data": "2026-09-14",
+        "proposta": "commit 67f2b04",
+        "aprovados": 45,
+        "rejeitados": 10
+      },
+      {
+        "rodada": 2,
+        "data": "2026-09-14",
+        "proposta": "commit 9e07414",
+        "aprovados": 9,
+        "rejeitados": 1
+      }
     ]
   },
   "itens_vetados": {
@@ -26,7 +42,9 @@
     "bateria": "polissêmica: bateria de veículo, de aparelho e de escola de samba",
     "chaveiro": "também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante",
     "carregador": "também designa ocupação, e uma das molduras de medição pergunta pela ocupação do falante",
-    "pote": "no Nordeste designa também o recipiente de barro para água, o que pode conferir carga regional"
+    "pote": "no Nordeste designa também o recipiente de barro para água, o que pode conferir carga regional",
+    "terror": "valência negativa forte e sentido corrente fora do gênero cinematográfico ('foi um terror'); o outro lado do par não tem tom equivalente",
+    "drama": "sentido corrente fora do gênero cinematográfico ('fazer drama'), o que infla a razão de frequência"
   },
   "pares": [
     {
@@ -578,6 +596,116 @@
       "lado_b": "O vizinho comprou um barco novo.",
       "decisao": "aprovado",
       "motivo": null
+    },
+    {
+      "id": "presente-3",
+      "moldura": "presente",
+      "item_a": "livro",
+      "item_b": "pingente",
+      "lado_a": "Dei um livro de presente para ela.",
+      "lado_b": "Dei um pingente de presente para ela.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "aula-4",
+      "moldura": "aula",
+      "item_a": "computador",
+      "item_b": "mapa",
+      "lado_a": "Na aula de hoje usamos um computador.",
+      "lado_b": "Na aula de hoje usamos um mapa.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "perda-3",
+      "moldura": "perda",
+      "item_a": "boné",
+      "item_b": "crachá",
+      "lado_a": "Perdi o boné no caminho de casa.",
+      "lado_b": "Perdi o crachá no caminho de casa.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "filme-4",
+      "moldura": "filme",
+      "item_a": "terror",
+      "item_b": "drama",
+      "lado_a": "Assistimos a um filme de terror ontem.",
+      "lado_b": "Assistimos a um filme de drama ontem.",
+      "decisao": "rejeitado",
+      "motivo": "terror: valência negativa forte e sentido corrente fora do gênero cinematográfico ('foi um terror'); o outro lado do par não tem tom equivalente; drama: sentido corrente fora do gênero cinematográfico ('fazer drama'), o que infla a razão de frequência",
+      "rodada": 2
+    },
+    {
+      "id": "instrumento-4",
+      "moldura": "instrumento",
+      "item_a": "flauta",
+      "item_b": "violino",
+      "lado_a": "Ele tocou flauta na festa da escola.",
+      "lado_b": "Ele tocou violino na festa da escola.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "louca-4",
+      "moldura": "louca",
+      "item_a": "pires",
+      "item_b": "cálice",
+      "lado_a": "Quebrei o pires enquanto lavava a louça.",
+      "lado_b": "Quebrei o cálice enquanto lavava a louça.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "escritorio-4",
+      "moldura": "escritorio",
+      "item_a": "caderno",
+      "item_b": "crachá",
+      "lado_a": "Esqueci o caderno no escritório.",
+      "lado_b": "Esqueci o crachá no escritório.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "varanda-4",
+      "moldura": "varanda",
+      "item_a": "samambaia",
+      "item_b": "begônia",
+      "lado_a": "Ela regou a samambaia da varanda.",
+      "lado_b": "Ela regou a begônia da varanda.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "pintura-3",
+      "moldura": "pintura",
+      "item_a": "parede",
+      "item_b": "cadeira",
+      "lado_a": "Pintamos a parede de azul.",
+      "lado_b": "Pintamos a cadeira de azul.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
+    },
+    {
+      "id": "perda-4",
+      "moldura": "perda",
+      "item_a": "bilhete",
+      "item_b": "ingresso",
+      "lado_a": "Perdi o bilhete no caminho de casa.",
+      "lado_b": "Perdi o ingresso no caminho de casa.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 2
     }
   ]
 }

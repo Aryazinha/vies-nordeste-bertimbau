@@ -8,8 +8,8 @@
     },
     "revisao_aplicada": "calibracao_revisao.json",
     "n_propostos": 55,
-    "n_aprovados": 45,
-    "n_pendentes": 10,
+    "n_aprovados": 54,
+    "n_pendentes": 1,
     "dispersao_por_faixa": {
       "1–1.5": 11,
       "1.5–3": 11,
@@ -893,7 +893,7 @@
       "freq_a": 0.000245,
       "freq_b": 1e-06,
       "id": "presente-3",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "aula",
@@ -912,7 +912,7 @@
       "freq_a": 7.24e-05,
       "freq_b": 5.13e-05,
       "id": "aula-4",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "perda",
@@ -931,26 +931,7 @@
       "freq_a": 4.57e-06,
       "freq_b": 1.32e-06,
       "id": "perda-3",
-      "revisao": "pendente"
-    },
-    {
-      "moldura": "filme",
-      "lado_a": "Assistimos a um filme de terror ontem.",
-      "lado_b": "Assistimos a um filme de drama ontem.",
-      "itens_a": [
-        "terror"
-      ],
-      "itens_b": [
-        "drama"
-      ],
-      "razao_frequencia": 1.148,
-      "subtokens_a": 1,
-      "subtokens_b": 1,
-      "diferenca_subtokens": 0,
-      "freq_a": 3.8e-05,
-      "freq_b": 3.31e-05,
-      "id": "filme-4",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "instrumento",
@@ -969,7 +950,7 @@
       "freq_a": 3.16e-06,
       "freq_b": 5.37e-06,
       "id": "instrumento-4",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "louca",
@@ -988,7 +969,7 @@
       "freq_a": 1.32e-05,
       "freq_b": 3.02e-06,
       "id": "louca-4",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "escritorio",
@@ -1007,7 +988,7 @@
       "freq_a": 1.12e-05,
       "freq_b": 1.32e-06,
       "id": "escritorio-4",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "varanda",
@@ -1026,7 +1007,7 @@
       "freq_a": 1.02e-06,
       "freq_b": 3.72e-08,
       "id": "varanda-4",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "pintura",
@@ -1045,7 +1026,7 @@
       "freq_a": 4.68e-05,
       "freq_b": 3.16e-05,
       "id": "pintura-3",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "perda",
@@ -1064,6 +1045,25 @@
       "freq_a": 1.05e-05,
       "freq_b": 1.62e-05,
       "id": "perda-4",
+      "revisao": "aprovado"
+    },
+    {
+      "moldura": "presente",
+      "lado_a": "Dei um relógio de presente para ela.",
+      "lado_b": "Dei um anel de presente para ela.",
+      "itens_a": [
+        "relógio"
+      ],
+      "itens_b": [
+        "anel"
+      ],
+      "razao_frequencia": 1.148,
+      "subtokens_a": 1,
+      "subtokens_b": 1,
+      "diferenca_subtokens": 0,
+      "freq_a": 2.4e-05,
+      "freq_b": 2.09e-05,
+      "id": "presente-4",
       "revisao": "pendente"
     }
   ]
