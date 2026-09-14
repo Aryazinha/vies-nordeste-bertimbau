@@ -8,8 +8,8 @@
     },
     "revisao_aplicada": "calibracao_revisao.json",
     "n_propostos": 61,
-    "n_aprovados": 55,
-    "n_pendentes": 6,
+    "n_aprovados": 61,
+    "n_pendentes": 0,
     "dispersao_por_faixa": {
       "1–1.5": 11,
       "1.5–3": 11,
@@ -1083,7 +1083,7 @@
       "freq_a": 5.37e-05,
       "freq_b": 5.13e-07,
       "id": "gaveta-1",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "sala",
@@ -1102,7 +1102,7 @@
       "freq_a": 7.08e-05,
       "freq_b": 5.01e-07,
       "id": "sala-1",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "gaveta",
@@ -1121,7 +1121,7 @@
       "freq_a": 1.86e-05,
       "freq_b": 1.55e-07,
       "id": "gaveta-2",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "sala",
@@ -1140,7 +1140,7 @@
       "freq_a": 3.16e-05,
       "freq_b": 5.01e-08,
       "id": "sala-2",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "filme",
@@ -1159,7 +1159,7 @@
       "freq_a": 1.55e-06,
       "freq_b": 0.000302,
       "id": "filme-5",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     },
     {
       "moldura": "gaveta",
@@ -1178,7 +1178,7 @@
       "freq_a": 4.79e-05,
       "freq_b": 3.02e-07,
       "id": "gaveta-3",
-      "revisao": "pendente"
+      "revisao": "aprovado"
     }
   ]
 }

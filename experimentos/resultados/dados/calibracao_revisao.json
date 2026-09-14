@@ -44,8 +44,17 @@
         "aprovados": 0,
         "rejeitados": 1,
         "nota": "zoologico-3 rejeitado antes de ir à equipe; demais pares da rodada descartados e regerados"
+      },
+      {
+        "rodada": 5,
+        "data": "2026-09-14",
+        "proposta": "commit 9fddcf1",
+        "aprovados": 6,
+        "rejeitados": 0,
+        "nota": "o veto a 'leão', proposto pelo assistente na rodada 4, foi apresentado à equipe e não contestado"
       }
-    ]
+    ],
+    "situacao": "fechada: 61 pares aprovados"
   },
   "itens_vetados": {
     "globo": "também designa a emissora de televisão e ocorre em 'globo ocular' e 'globo terrestre'; a contagem de frequência ignora caixa e soma os sentidos",
@@ -744,6 +753,72 @@
       "decisao": "rejeitado",
       "motivo": "leão: também designa signo e, por metonímia, a Receita Federal ('o Leão'); a contagem de frequência soma os sentidos. Veto proposto pelo assistente, sob o critério já adotado pela equipe para 'violeta' e 'globo'",
       "rodada": 4
+    },
+    {
+      "id": "gaveta-1",
+      "moldura": "gaveta",
+      "item_a": "cartão",
+      "item_b": "barbante",
+      "lado_a": "Ele guardou o cartão na gaveta.",
+      "lado_b": "Ele guardou o barbante na gaveta.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 5
+    },
+    {
+      "id": "sala-1",
+      "moldura": "sala",
+      "item_a": "mesa",
+      "item_b": "luminária",
+      "lado_a": "Compramos uma mesa para a sala.",
+      "lado_b": "Compramos uma luminária para a sala.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 5
+    },
+    {
+      "id": "gaveta-2",
+      "moldura": "gaveta",
+      "item_a": "remédio",
+      "item_b": "dedal",
+      "lado_a": "Ele guardou o remédio na gaveta.",
+      "lado_b": "Ele guardou o dedal na gaveta.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 5
+    },
+    {
+      "id": "sala-2",
+      "moldura": "sala",
+      "item_a": "cadeira",
+      "item_b": "cristaleira",
+      "lado_a": "Compramos uma cadeira para a sala.",
+      "lado_b": "Compramos uma cristaleira para a sala.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 5
+    },
+    {
+      "id": "filme-5",
+      "moldura": "filme",
+      "item_a": "faroeste",
+      "item_b": "guerra",
+      "lado_a": "Assistimos a um filme de faroeste ontem.",
+      "lado_b": "Assistimos a um filme de guerra ontem.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 5
+    },
+    {
+      "id": "gaveta-3",
+      "moldura": "gaveta",
+      "item_a": "documento",
+      "item_b": "novelo",
+      "lado_a": "Ele guardou o documento na gaveta.",
+      "lado_b": "Ele guardou o novelo na gaveta.",
+      "decisao": "aprovado",
+      "motivo": null,
+      "rodada": 5
     }
   ]
 }
