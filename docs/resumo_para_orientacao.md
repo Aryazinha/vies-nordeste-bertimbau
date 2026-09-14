@@ -97,7 +97,7 @@ Sobre o material processado mediram-se 45.132 palavras transcritas e 13,6 contex
 **A camada de definição do conjunto de dados**, que se decidiu fechar por inteiro antes de qualquer nova coleta. Das catorze pendências registradas, cinco foram encerradas. Duas metas passaram a ser derivadas, e não arbitradas:
 
 - **Corpus:** ao menos 20 falantes distintos por estado, número que decorre por aritmética do teto de 5% por falante já fixado no protocolo.
-- **Pares mínimos:** 40 pares por condição — 37 no cálculo original, revisto em 14/09/2026 — e 80 no grupo de referência, dimensionados para excluir efeitos de viés acima de 0,08. O grupo de referência foi atingido, com 86 pares medidos.
+- **Pares mínimos:** 40 pares por condição — 37 no cálculo original, revisto em 14/09/2026 — e 80 no grupo de referência, dimensionados para excluir efeitos de viés acima de 0,08. O grupo de referência foi atingido, com 86 pares medidos. Nas condições de menção explícita, a meta passou a 20 frases por condição, cada uma com um gêmeo na mesma frase e rótulo de outra região, para excluir efeito específico do Nordeste acima de 0,08; a análise de direção, com esse volume, exclui vieses a partir de cerca de 0,10.
 
 *Fontes: `experimentos/resultados/tabelas/meta_corpus_autonomo.md` e `meta_pares_minimos.md`.*
 

@@ -119,7 +119,7 @@ A especificação completa está em [`docs/dataset-spec.md`](docs/dataset-spec.m
 
 ## Estado e limitações
 
-O corpus de áudio concluiu a coleta e a verificação de falantes distintos (`docs/plano_corpus/`). O conjunto de pares mínimos está **em construção**: 146 pares medidos, dos quais 86 formam o grupo de referência não regional e já superam a meta de 80; faltam pares nas condições de teste, cuja meta é de 40 por condição, e nenhum par foi validado por juízes.
+O corpus de áudio concluiu a coleta e a verificação de falantes distintos (`docs/plano_corpus/`). O conjunto de pares mínimos está **em construção**: 204 pares medidos, dos quais 86 formam o grupo de referência não regional e já superam a meta de 80, e 58 são controles pareados de moldura; faltam frases nas condições de menção explícita, cuja meta é de 20 por condição, cada uma com seu gêmeo, e nenhum par foi validado por juízes.
 
 Nenhum item passou pelo protocolo de validação, e o eixo de prestígio ocupacional não é mensurável por pseudo-verossimilhança neste modelo — exige AUL, e é a última medição pendente.
 

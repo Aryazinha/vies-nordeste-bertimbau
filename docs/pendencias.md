@@ -274,7 +274,7 @@ Desenho da decisão (2) de 2.9, aprovado pela equipe em 14/09/2026. Predições 
 
 **Decisões pendentes da equipe.** (a) ~~Como reformular 1.17 e 1.17-A e as passagens que deles dependem~~ — **decidida em 14/09/2026**: 1.17 passa a afirmar resposta a rótulo regional em enunciado sobre a pessoa, sem especificidade detectável para o Nordeste, com vedação expressa às duas leituras extremas; 1.17-A é rebaixado a exemplo de método, com a leitura substantiva vedada. Atualizados na mesma rodada 1.18, 2.8, 3.1 e 3.7 dos achados, `CLAUDE.md` (log v2.2), `README.md`, `docs/resumo_para_orientacao.md`, `docs/questoes_para_orientacao.md`, `docs/dataset-spec.md` e o bloco de revisão de `docs/roadmap.md`; o relatório `explicito.md` recebeu aviso.
 
-### 2.11 Controle intrarregional e meta do desenho pareado — ABERTA em 14/09/2026
+### 2.11 Controle intrarregional e meta do desenho pareado — ABERTA e DECIDIDA em 14/09/2026; crescimento das condições por executar
 
 Decisões (b) e (c) de 2.10, aprovadas pela equipe em 14/09/2026. Branch `controle-intrarregional-e-meta`. **Esta seção é versionada antes da medição do controle intrarregional**, com o código dos pares e da análise.
 
@@ -335,7 +335,15 @@ Medição local: 812 medições em 29 gêmeos intrarregionais; as 4.900 anterior
 
 Tabela em `experimentos/resultados/tabelas/meta_pareada.md`. Desvio-padrão de D nos 29 gêmeos inter-regionais: 0,106 combinado, heterogêneo entre condições (0,044 a 0,171, o maior no gentílico). Com as oito frases atuais e correção de Holm, o menor efeito específico detectável é de 0,140 pelo desvio combinado. Frases necessárias por condição, com Holm e desvio combinado: 20 para excluir 0,08; 14 para 0,10; 46 para 0,05. Pelo desvio do gentílico, 46, 31 e 113.
 
-**Decisões pendentes da equipe.** (1) O efeito específico a excluir, que fixa o número de frases por condição de menção explícita. (2) Se o gêmeo intrarregional integra a regra do desenho pareado, dado que sua construção se mostrou frágil nos rótulos de lugar e de macrorregião. (3) As condições implícitas, já registradas acima. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
+**Decisões da equipe, 14/09/2026.**
+
+1. **Efeito específico a excluir: 0,08, com 20 frases por condição de menção explícita**, pelo desvio-padrão combinado e com correção de Holm. Coerente com o 0,08 da meta de direção e com a ordem dos efeitos já observados. **Declarado:** o gentílico, de maior dispersão, fica com menos poder que as demais condições — exigiria 46 frases para a mesma cobertura.
+2. **O gêmeo intrarregional não integra a regra.** Sua construção mostrou-se frágil nos rótulos de lugar e de macrorregião, o resultado foi inconclusivo, e o custo por frase aumentaria em 50%. Cada frase nova nasce apenas com o gêmeo inter-regional. Os 29 gêmeos intrarregionais medidos permanecem no conjunto, como registro.
+3. **As condições de sinalização implícita ficam fora do crescimento por ora.** Um gêmeo para elas exigiria marcadores equivalentes de outra variedade, o que é desenho de instrumento novo.
+
+**Consequência declarada para a análise de direção.** A meta de 40 pares por condição foi dimensionada para a análise de direção, sobre escore de viés, e não é atingida com 20 frases. Pela tabela de `meta_pares_minimos.md`, com 20 pares por condição e o grupo de referência de 86, o menor viés de valência excluível sob correção de Holm fica em torno de 0,10, e não de 0,08. A equipe optou por dimensionar pela pergunta de especificidade, que é a que decide a interpretação de 1.17; a análise de direção segue com a cobertura menor, a declarar no artigo.
+
+**Volume implicado.** Condições `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo` de 8 para 20 frases, e `controle_explicito` de 5 para 20: 51 frases novas, cada uma com par de teste e gêmeo inter-regional, perfazendo 102 pares e cerca de 2.900 medições. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
 ---
 

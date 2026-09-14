@@ -37,7 +37,7 @@ Este bloco determina o que fazer com todo o resto. Enquanto não for respondido,
 
 ## 1.5 Oito pares por condição é defensável na submissão, ou precisamos escalar antes?
 
-**Contexto.** Os resultados atuais repousam sobre oito pares por condição, com estatística por conglomerado no nível do par e correção de Holm. Calculamos que excluir efeitos de viés acima de 0,08 exigiria 40 pares por condição — 37 no cálculo original, revisto em 14/09/2026 — e 80 no grupo de referência, já superado com 86 pares medidos: entre 246 e 286 pares no total, contra os 1.508 do CrowS-Pairs.
+**Contexto.** Os resultados atuais repousam sobre oito pares por condição, com estatística por conglomerado no nível do par e correção de Holm. Calculamos que excluir efeitos de viés acima de 0,08 exigiria 40 pares por condição — 37 no cálculo original, revisto em 14/09/2026 — e 80 no grupo de referência, já superado com 86 pares medidos: entre 246 e 286 pares no total, contra os 1.508 do CrowS-Pairs. **Atualização de 14/09/2026:** nas condições de menção explícita a equipe adotou desenho pareado — cada frase com um gêmeo de outra região — e dimensionou por especificidade, em 20 frases por condição; a análise de direção passa a excluir vieses a partir de cerca de 0,10.
 
 ---
 
