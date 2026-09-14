@@ -72,7 +72,9 @@ Nove decisões foram tomadas ou avançadas numa única rodada, em resposta diret
 
 Composição por camada: 39 arquivos de vox-pop, 32 de podcast, rádio e TV, 12 de vlog, vindos de **65 canais distintos**. "Pessoas úteis sob o teto" é o critério de conclusão adotado em 12/09/2026: falantes que conservam ao menos 0,7 min de fala depois de aplicado por recorte o teto de 5% (`docs/plano_corpus/01-verificar-falantes.md`, seção 7.1).
 
-Na verificação de 77 arquivos, feita antes da rodada de margem, o corpus tinha **207 falantes distintos** confirmados por conferência humana. Os 6 arquivos da margem ainda não passaram pela comparação de vozes, de modo que a contagem de falantes distintos do corpus fechado depende de uma última execução da etapa 1 sobre os 83 — e a margem de +3 em PB e RJ existe justamente para que essa execução não possa derrubar estado algum abaixo do piso.
+O corpus tem **216 falantes distintos**, apurados por comparação de vozes e conferência humana sobre os 83 arquivos em 14/09/2026: 223 rótulos com embedding, 7 fusões confirmadas, 18 pares conferidos à escuta. Outros 24 rótulos ficaram sem embedding, por terem menos de 8 s de fala — não são falantes verificados nem descartados, e o número limita o que se pode afirmar, sobretudo em RJ, que concentra 7 deles.
+
+**A camada de coleta está encerrada.** O plano de `docs/plano_corpus/` cumpriu as etapas 1 e 2; resta a etapa 3, de validação.
 
 (Coluna de canais disponíveis atualizada em 31/08/2026, após as rejeições da inspeção de conteúdo e a rodada de reforço de PE e BA.)
 

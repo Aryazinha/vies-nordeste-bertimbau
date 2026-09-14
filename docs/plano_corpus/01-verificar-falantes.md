@@ -285,6 +285,28 @@ Repetida depois da etapa 2, com `RECALCULAR = True` para forçar nova passagem d
 
 ---
 
+### 7.3 Terceira execução, sobre os 83 arquivos — 14/09/2026
+
+Repetida depois da rodada de margem para PB e RJ, que acrescentou 6 arquivos.
+
+| UF | Arquivos | Rótulos com embedding | Sem embedding | Pares acima de 0,75 | Fusões | Falantes distintos | Pessoas úteis |
+|---|---|---|---|---|---|---|---|
+| PB | 13 | 35 | 2 | 5 | 4 | 31 | 23 |
+| PE | 12 | 33 | 2 | 2 | 2 | 31 | 21 |
+| CE | 15 | 38 | 6 | 1 | 1 | 37 | 27 |
+| BA | 12 | 32 | 3 | 0 | 0 | 32 | 22 |
+| SP | 14 | 40 | 4 | 0 | 0 | 40 | 21 |
+| RJ | 17 | 45 | 7 | 0 | 0 | 45 | 23 |
+| **Total** | **83** | **223** | **24** | **8** | **7** | **216** | — |
+
+**Três pares novos apareceram, todos em PB, e todos foram julgados pessoas distintas.** Vieram dos três arquivos acrescentados àquele estado; nenhum era de canal já presente no corpus. As sete fusões do corpus continuam sendo as mesmas de 10 e 12/09.
+
+Uma observação que a conferência suscitou e que vale para as próximas rodadas: **a mesma voz apareceu em dois pares diferentes** — comparada contra duas outras. Não é anomalia, e é a razão de a apuração agrupar por componentes conexos em vez de subtrair fusões: se os dois pares fossem confirmados, as três vozes seriam uma pessoa, e não duas fusões independentes.
+
+**Estado final do corpus:** 83 arquivos, 7,96 h, 65 canais, **216 falantes distintos**, e os seis estados acima do piso com margem — PB +3, PE +1, CE +7, BA +2, SP +1, RJ +3. **A etapa 1 está encerrada.**
+
+---
+
 ## 8. Ao terminar
 
 1. Atualizar este documento com os números apurados, o limiar calibrado e a data.

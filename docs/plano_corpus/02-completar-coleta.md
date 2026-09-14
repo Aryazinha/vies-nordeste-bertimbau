@@ -203,7 +203,29 @@ Corpus após a rodada: **83 arquivos, 7,96 h, 65 canais** — 39 de vox-pop, 32 
 
 **A anonimização dos 6 confirmou o padrão da rodada anterior, agora em escala menor:** dos 22 nomes detectados, apenas 4 foram mascarados. O detector confundiu com pessoa privada uma instituição (`Draco`, delegacia), um hospital (`Trauma`), duas figuras históricas da engenharia (`Costa Nunes`, `Manuel Rocha`), um serviço creditado (`Carlos Drone BH`), um verbo (`nominei`) e três expressões correntes (`Deus der`, `Senhor Jesus`, `Homicidas`). Em sentido inverso, `Roberto` fora classificado como equipe do canal e é um jogador citado por outro — foi mascarado na revisão.
 
-**Ressalva:** as vozes dos 6 arquivos novos ainda não passaram pela comparação da etapa 1, de modo que os números acima não descontam eventuais fusões entre eles e o corpus existente. A margem de +3 absorve até três fusões por estado sem que o piso seja perdido, mas fechar o corpus exige uma última passagem da etapa 1 sobre os 83.
+**Ressalva, resolvida no mesmo dia:** as vozes dos 6 arquivos novos passaram pela comparação da etapa 1 em 14/09/2026 (seção 7.3 daquele documento). Surgiram três pares novos, todos em PB, e os três foram julgados **pessoas distintas** — nenhuma fusão nova. Os números desta seção ficam, portanto, confirmados, e a margem de +3 em PB e RJ é real.
+
+---
+
+## Etapa 2 encerrada — 14/09/2026
+
+**O corpus está completo pelo critério adotado.**
+
+| UF | Arquivos | Falantes distintos | Pessoas úteis | Piso | Margem |
+|---|---|---|---|---|---|
+| PB | 13 | 31 | 23 | 20 | +3 |
+| PE | 12 | 31 | 21 | 20 | +1 |
+| CE | 15 | 37 | 27 | 20 | +7 |
+| BA | 12 | 32 | 22 | 20 | +2 |
+| SP | 14 | 40 | 21 | 20 | +1 |
+| RJ | 17 | 45 | 23 | 20 | +3 |
+| **Total** | **83** | **216** | — | **120** | — |
+
+**O que a etapa entregou:** de 52 para 83 arquivos, de 5,52 h para 7,96 h, de 35 para 65 canais, de 148 para 216 falantes distintos — e, no número que o critério mede, de 63 para 137 pessoas úteis sob o teto.
+
+**O que fica registrado como limitação, e deve constar da ficha do conjunto:** 24 rótulos de locutor ficaram sem embedding, por terem menos de 8 s de fala. Não são falantes verificados nem descartados, e o seu número limita o que se pode afirmar sobre a contagem — sobretudo em RJ, que concentra 7 deles, e em CE, com 6.
+
+**Próximo passo:** [`03-validar.md`](03-validar.md). A composição do corpus está estável, que era a condição para começar aquela etapa.
 
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 
