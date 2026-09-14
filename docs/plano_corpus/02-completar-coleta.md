@@ -188,6 +188,23 @@ O vlog passa a ser **reserva**, e não alternativa: `ORDEM_DAS_CAMADAS` consome 
 
 Digno de registro para a etapa 3: o vídeo de vox-pop de RJ é de canal carioca, mas seu assunto é Campos do Jordão, em São Paulo. A regra de atribuição do projeto deriva `estado_alvo` do canal, e não do conteúdo; o caso é candidato natural à checagem de coerência dialetal prevista naquela etapa.
 
+#### Resultado da rodada de margem
+
+Os 6 arquivos foram transcritos, diarizados e anonimizados. **A margem pretendida foi obtida:**
+
+| UF | Pessoas úteis antes | Depois | Margem sobre o piso |
+|---|---|---|---|
+| PB | 20 | **23** | +3 |
+| RJ | 20 | **23** | +3 |
+
+Os demais estados não se alteram: PE 21, CE 27, BA 22, SP 21.
+
+Corpus após a rodada: **83 arquivos, 7,96 h, 65 canais** — 39 de vox-pop, 32 de podcast, rádio e TV, 12 de vlog.
+
+**A anonimização dos 6 confirmou o padrão da rodada anterior, agora em escala menor:** dos 22 nomes detectados, apenas 4 foram mascarados. O detector confundiu com pessoa privada uma instituição (`Draco`, delegacia), um hospital (`Trauma`), duas figuras históricas da engenharia (`Costa Nunes`, `Manuel Rocha`), um serviço creditado (`Carlos Drone BH`), um verbo (`nominei`) e três expressões correntes (`Deus der`, `Senhor Jesus`, `Homicidas`). Em sentido inverso, `Roberto` fora classificado como equipe do canal e é um jogador citado por outro — foi mascarado na revisão.
+
+**Ressalva:** as vozes dos 6 arquivos novos ainda não passaram pela comparação da etapa 1, de modo que os números acima não descontam eventuais fusões entre eles e o corpus existente. A margem de +3 absorve até três fusões por estado sem que o piso seja perdido, mas fechar o corpus exige uma última passagem da etapa 1 sobre os 83.
+
 `selecionar_videos.py` exclui automaticamente canais marcados `a_confirmar` e `rejeitado`, e deriva `estado_alvo`, `tipo_fonte` e `canal_tem_participacao_ouvinte` do próprio `fontes.json` — nunca digitados à mão.
 
 **Perda de coleta não é ruído.** Vídeos com restrição etária falham no download, e a restrição recai tipicamente sobre matéria de violência, que é parcela expressiva do vox-pop policial. Perda desigual entre estados é viés de amostragem. Conferir se as falhas se concentram em algum estado ou camada, e registrar (`docs/pendencias.md`, 4.5).
