@@ -28,18 +28,18 @@ Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.
 | explicito_gentilico-17 | Minha melhor amiga é cearense. | Minha melhor amiga é capixaba. | Minha melhor amiga é paranaense. |
 | explicito_gentilico-18 | Eu sou pernambucana, com muito gosto. | Eu sou paulista, com muito gosto. | Eu sou catarinense, com muito gosto. |
 | explicito_gentilico-19 | Os meus primos são paraibanos. | Os meus primos são fluminenses. | Os meus primos são paranaenses. |
-| explicito_toponimo-08 | Eu sou de Caruaru. | Eu sou de Sorocaba. | Eu sou de Gravataí. |
+| explicito_toponimo-08 | Eu sou de Caruaru. | Eu sou de Sorocaba. | Eu sou de Chapecó. |
 | explicito_toponimo-09 | Moro em Petrolina há muitos anos. | Moro em Uberlândia há muitos anos. | Moro em Maringá há muitos anos. |
 | explicito_toponimo-10 | Nasci em Sobral. | Nasci em Jundiaí. | Nasci em Blumenau. |
-| explicito_toponimo-11 | Minha família mora em Ilhéus. | Minha família mora em Taubaté. | Minha família mora em Ijuí. |
+| explicito_toponimo-11 | Minha família mora em Ilhéus. | Minha família mora em Taubaté. | Minha família mora em Itajaí. |
 | explicito_toponimo-12 | Cresci em Olinda. | Cresci em Macaé. | Cresci em Joinville. |
-| explicito_toponimo-13 | Meu pai veio de Garanhuns. | Meu pai veio de Bauru. | Meu pai veio de Chapecó. |
-| explicito_toponimo-14 | Passei a infância em Itabuna. | Passei a infância em Piracicaba. | Passei a infância em Lages. |
+| explicito_toponimo-13 | Meu pai veio do Crato. | Meu pai veio de Bauru. | Meu pai veio de Lages. |
+| explicito_toponimo-14 | Passei a infância em Campina Grande. | Passei a infância em Piracicaba. | Passei a infância em Novo Hamburgo. |
 | explicito_toponimo-15 | Sou de Pernambuco mesmo. | Sou de São Paulo mesmo. | Sou de Santa Catarina mesmo. |
 | explicito_toponimo-16 | Morei muito tempo no Ceará. | Morei muito tempo no Rio de Janeiro. | Morei muito tempo no Paraná. |
-| explicito_toponimo-17 | Meus pais se conheceram em Olinda. | Meus pais se conheceram em Petrópolis. | Meus pais se conheceram em Curitiba. |
+| explicito_toponimo-17 | Meus pais se conheceram em Recife. | Meus pais se conheceram em Petrópolis. | Meus pais se conheceram em Curitiba. |
 | explicito_toponimo-18 | Nasci no interior de Pernambuco. | Nasci no interior de São Paulo. | Nasci no interior de Santa Catarina. |
-| explicito_toponimo-19 | Minha tia vive em Jequié. | Minha tia vive em Guarulhos. | Minha tia vive em Guarapuava. |
+| explicito_toponimo-19 | Minha tia vive em Juazeiro. | Minha tia vive em Guarulhos. | Minha tia vive em Criciúma. |
 | controle_explicito-05 | O cliente é do Nordeste. | O cliente é do Sudeste. | O cliente é do Sul. |
 | controle_explicito-06 | Uma nordestina ligou mais cedo. | Uma paulista ligou mais cedo. | Uma sulista ligou mais cedo. |
 | controle_explicito-07 | O vizinho novo é baiano. | O vizinho novo é carioca. | O vizinho novo é gaúcho. |
@@ -58,4 +58,4 @@ Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.
 
 ## Alertas de subtokens entre rótulo nordestino e gêmeo
 
-- nenhum
+- explicito_toponimo-13: artigo ou preposição difere entre os lados ('do Crato' / 'de Bauru' / 'de Lages')

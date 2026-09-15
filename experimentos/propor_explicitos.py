@@ -34,6 +34,15 @@ para não deslocar a posição de pares já medidos.
 4. Diferença de subtokens entre o rótulo nordestino e o do gêmeo — sinalizada
    acima de um, não vetada: o PLL é calculado sobre o atributo, e a regra é de
    precaução.
+5. **Reconhecimento do rótulo** — revisão de 15/09/2026. Frequência na web, pela
+   palavra menos frequente do rótulo, como indício de que o modelo o reconhece
+   como lugar: sinalizado abaixo de 2 por milhão ou com razão acima de 2 entre o
+   rótulo nordestino e o do gêmeo. O lado de comparação não entra, porque é
+   idêntico no teste e no gêmeo e se cancela em D. A equipe substituiu por esse
+   critério seis duplas de topônimo (*Gravataí*, *Ijuí*, *Garanhuns*, *Itabuna*,
+   *Jequié*, *Guarapuava*, e *Olinda* contra *Curitiba*). Indício, e não garantia:
+   cidades do interior, mesmo acima do limiar, são menos frequentes que as
+   capitais, e isso vai como limitação da condição de topônimo.
 
 Uso:
     python propor_explicitos.py
@@ -91,22 +100,22 @@ PROPOSTA: dict[str, list[tuple[str, str, str]]] = {
          "Os meus primos são paranaenses."),
     ],
     "explicito_toponimo": [
-        ("Eu sou de Caruaru.", "Eu sou de Sorocaba.", "Eu sou de Gravataí."),
+        ("Eu sou de Caruaru.", "Eu sou de Sorocaba.", "Eu sou de Chapecó."),
         ("Moro em Petrolina há muitos anos.", "Moro em Uberlândia há muitos anos.",
          "Moro em Maringá há muitos anos."),
         ("Nasci em Sobral.", "Nasci em Jundiaí.", "Nasci em Blumenau."),
-        ("Minha família mora em Ilhéus.", "Minha família mora em Taubaté.", "Minha família mora em Ijuí."),
+        ("Minha família mora em Ilhéus.", "Minha família mora em Taubaté.", "Minha família mora em Itajaí."),
         ("Cresci em Olinda.", "Cresci em Macaé.", "Cresci em Joinville."),
-        ("Meu pai veio de Garanhuns.", "Meu pai veio de Bauru.", "Meu pai veio de Chapecó."),
-        ("Passei a infância em Itabuna.", "Passei a infância em Piracicaba.",
-         "Passei a infância em Lages."),
+        ("Meu pai veio do Crato.", "Meu pai veio de Bauru.", "Meu pai veio de Lages."),
+        ("Passei a infância em Campina Grande.", "Passei a infância em Piracicaba.",
+         "Passei a infância em Novo Hamburgo."),
         ("Sou de Pernambuco mesmo.", "Sou de São Paulo mesmo.", "Sou de Santa Catarina mesmo."),
         ("Morei muito tempo no Ceará.", "Morei muito tempo no Rio de Janeiro.", "Morei muito tempo no Paraná."),
-        ("Meus pais se conheceram em Olinda.", "Meus pais se conheceram em Petrópolis.",
+        ("Meus pais se conheceram em Recife.", "Meus pais se conheceram em Petrópolis.",
          "Meus pais se conheceram em Curitiba."),
         ("Nasci no interior de Pernambuco.", "Nasci no interior de São Paulo.",
          "Nasci no interior de Santa Catarina."),
-        ("Minha tia vive em Jequié.", "Minha tia vive em Guarulhos.", "Minha tia vive em Guarapuava."),
+        ("Minha tia vive em Juazeiro.", "Minha tia vive em Guarulhos.", "Minha tia vive em Criciúma."),
     ],
     "controle_explicito": [
         ("O cliente é do Nordeste.", "O cliente é do Sudeste.", "O cliente é do Sul."),
@@ -134,6 +143,15 @@ PROPOSTA: dict[str, list[tuple[str, str, str]]] = {
 ATUAIS = {"explicito_regiao": 8, "explicito_gentilico": 8, "explicito_toponimo": 8,
           "controle_explicito": 5}
 META = 20
+
+
+FREQ_MINIMA = 2.0     # por milhão
+RAZAO_MAXIMA = 2.0
+
+
+def _frequencia(rotulo: str) -> float:
+    from wordfreq import word_frequency
+    return min(word_frequency(w, "pt") for w in rotulo.split()) * 1e6
 
 
 def _palavras(frase: str) -> list[str]:
@@ -170,13 +188,30 @@ def main() -> None:
             rot_t, rot_g = _rotulos(teste, gemeo)
             rot_c = _rotulos(teste, comp)[1]
             assert rot_t and rot_g, f"{pid}: rótulo não identificado"
+            # Artigo ou preposição dentro da diferença significa que teste e gêmeo
+            # não diferem só no rótulo — o desvio que decidiu o controle intrarregional.
+            funcionais = {"de", "do", "da", "dos", "das", "no", "na", "em", "o", "a"}
+            # Só entre teste e gêmeo: o lado de comparação se cancela em D, e nele a
+            # palavra funcional pode ser parte do nome (*Rio de Janeiro*).
+            if {w.lower() for w in (rot_t + " " + rot_g).split()} & funcionais:
+                alertas.append(f"{pid}: artigo ou preposição difere entre os lados "
+                               f"('{rot_t}' / '{rot_c}' / '{rot_g}')")
             sub_t, sub_g = len(tok.tokenize(rot_t)), len(tok.tokenize(rot_g))
             if abs(sub_t - sub_g) > 1:
                 alertas.append(f"{pid}: '{rot_t}' ({sub_t}) contra '{rot_g}' ({sub_g}) subtokens")
+            f_t, f_g = _frequencia(rot_t), _frequencia(rot_g)
+            # Só em topônimo: a regra mede se uma cidade é reconhecida como lugar.
+            # Gentílicos no feminino ou plural são raros sem deixarem de ser
+            # reconhecíveis, e *Sul* é frequente por ser também direção.
+            if cond == "explicito_toponimo" and (
+                    min(f_t, f_g) < FREQ_MINIMA or max(f_t, f_g) / min(f_t, f_g) > RAZAO_MAXIMA):
+                alertas.append(f"{pid}: '{rot_t}' ({f_t:.2f}/mi) contra '{rot_g}' ({f_g:.2f}/mi)")
             registros.append({"id": pid, "condicao": cond, "indice": indice,
                               "teste": teste, "comparacao": comp, "gemeo": gemeo,
                               "rotulo_nordeste": rot_t, "rotulo_sudeste": rot_c, "rotulo_gemeo": rot_g,
                               "subtokens_nordeste": sub_t, "subtokens_gemeo": sub_g,
+                              "freq_nordeste_por_milhao": round(f_t, 2),
+                              "freq_gemeo_por_milhao": round(f_g, 2),
                               "revisao": "pendente"})
     repetidas = [f for f, n in vistas.items() if n > 1]
     assert not repetidas, f"frases repetidas na proposta: {repetidas}"
