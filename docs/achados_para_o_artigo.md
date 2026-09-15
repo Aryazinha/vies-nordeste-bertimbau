@@ -385,7 +385,7 @@ A impossibilidade não é acidente deste conjunto de itens: é o item 1.1 operan
 
 **Consequência prática, e citável:** medir viés de prestígio ocupacional em português por pseudo-verossimilhança sobre este modelo exige AUL, e não PLL. Não se trata de preferência entre métricas, e sim de condição de possibilidade — o que confirma, por via independente, a conclusão já registrada em 1.1.
 
-**Estado no projeto:** o eixo permanece sem medição válida. O valor de −0,2706 observado na condição de gentílico, que significaria ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino, **não deve ser citado em nenhuma direção**.
+**Estado no projeto:** o eixo permanece sem medição válida. **Decisão de 15/09/2026:** declarado como limitação do dataset v1, com a medição por AUL adiada para fase posterior (`docs/criterio_conclusao_v1.md`, seção 3). O valor de −0,2706 observado na condição de gentílico, que significaria ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino, **não deve ser citado em nenhuma direção**.
 
 # 2. CONDICIONAL — depende de verificação nomeada
 
