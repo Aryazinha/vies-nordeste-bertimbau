@@ -345,6 +345,26 @@ Tabela em `experimentos/resultados/tabelas/meta_pareada.md`. Desvio-padrão de D
 
 **Volume implicado.** Condições `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo` de 8 para 20 frases, e `controle_explicito` de 5 para 20: 51 frases novas, cada uma com par de teste e gêmeo inter-regional, perfazendo 102 pares e cerca de 2.900 medições. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
+### 2.14 Filtro 1 inviável na forma prevista — ABERTA em 15/09/2026
+
+O protocolo de validação (`docs/pares_minimos_v1.md` §7; `docs/dataset-spec.md` §2.3) prevê cinco juízes falantes nativos por variedade. Em 15/09/2026 a equipe registrou não dispor de contatos nos estados-alvo, o que inviabiliza o recrutamento tanto na forma original (30 juízes) quanto na reduzida discutida na mesma data (cerca de dez juízes, só para as condições implícitas, em nível de macrorregião).
+
+**Por que importa.** Os pares de menção explícita e de calibração dispensam juízes com justificativa declarável: a região está escrita no enunciado, ou o enunciado é neutro. As condições de sinalização implícita não: seu resultado é nulo, e sem validação de que os enunciados soam nordestinos, naturais e não caricatos, o nulo admite a leitura de que o instrumento, e não o modelo, falhou.
+
+**Alternativas identificadas, a decidir.** (a) Substituir o Filtro 1 pela combinação de fonte dialetológica documentada e ocorrência no corpus de áudio próprio (Filtro 2), declarando a ausência de juízes como limitação; (b) consultar a orientação sobre acesso a juízes pela rede do programa; (c) painel pago de respondentes; (d) retirar a validação sem substituto, declarando a limitação. Julgamento por modelo de linguagem foi considerado e não é recomendado como substituto, por circularidade: seria um modelo validando o instrumento com que se mede viés em outro modelo.
+
+**Decisão de 15/09/2026: alternativa (a).** Os 25 pares de sinalização implícita são validados por fonte dialetológica documentada e por ocorrência no corpus de áudio próprio; a ausência de juízes é declarada como limitação, e a consulta (b) à orientação corre em paralelo, como reforço eventual. Menção explícita e calibração ficam fora da validação, com justificativa declarada.
+
+**Assimetria do filtro, a declarar.** O corpus tem 7,96 h. A meta original de 50 h foi derivada precisamente para que a **ausência** de uma variante rara — a negação pós-verbal, com produtividade máxima de 5,6% — fosse informativa (`docs/dataset-spec.md` §1.5). Com o volume atual, o Filtro 2 pode **confirmar** um traço, quando ele ocorre, mas não pode **reprovar** traço raro por ausência. Item sem ocorrência é classificado como "não confirmado no corpus", e não como reprovado. A coleta não é ampliada por esse motivo: a meta do corpus foi redefinida em cobertura de falantes (item 7 do `dataset-spec`) e está cumprida, e ampliar a coleta para servir ao filtro reabriria a função instrumental abandonada em 29/08/2026.
+
+**Questão ética associada, independente da alternativa:** a dispensa de comitê de ética registrada no item 9 do `dataset-spec` foi decidida para o corpus de áudio, e não se estende automaticamente a participantes humanos respondendo a questionário. A confirmar com a orientação caso (b) ou (c) sejam adotadas.
+
+### 2.13 `docs/dataset-spec.md` desatualizado no quadro de abertura — ABERTA em 15/09/2026
+
+O quadro "Estado por camada — leia primeiro", que é a primeira coisa que o leitor encontra, descreve a situação de 28/08/2026: a camada de definição dos pares mínimos como "aberta", sem objeto de execução, e o corpus de áudio a "11% da meta vigente". Os dois pontos estão superados — os pares têm tamanho, formato, desenho pareado e 204 pares medidos, e a coleta do corpus está encerrada com 83 arquivos e 216 falantes distintos. O parágrafo introdutório ("nenhuma definição de entrega") e a seção "A circularidade que a tabela não mostra" repousam sobre a mesma premissa superada. Há ainda contradição interna: §2.2.3 marca a licença como `PENDENTE`, e o item 8 do registro a dá como decidida em 31/08/2026 (CC BY 4.0).
+
+**Encerra a pendência:** reescrever o quadro por camada e o parágrafo introdutório com o estado vigente, marcar como histórica a seção da circularidade, e alinhar §2.2.3 ao item 8 — na rodada de atualização de documentos posterior à medição de 2.12, para que os números mudem uma única vez.
+
 ### 2.12 Crescimento das condições de menção explícita a 20 frases pareadas — REGISTRO PRÉVIO em 15/09/2026
 
 Execução das decisões de 2.11. Branch `crescimento-explicitos`. **Esta seção é versionada antes da medição**, junto com os pares e a análise.
@@ -664,7 +684,7 @@ A partição dos atributos entre favoráveis e desfavoráveis, e entre alto e ba
 
 Não foi submetida a juízes. Como a medida de viés é inteiramente definida por essa partição, ela deve integrar o Filtro 1 quando este for aplicado, sob pena de o escore de viés depender de julgamento não validado de uma única fonte.
 
-### D10 Proposta de linha de análise por sentimento, discutida com a orientação em 31/08/2026
+### D10 Proposta de linha de análise por sentimento, discutida com a orientação em 31/08/2026 — DECIDIDA em 15/09/2026: segundo artigo
 
 **Aberta em 31/08/2026.** Três ideias trazidas de conversa com a orientação, ainda não integradas ao roadmap nem confrontadas com o desenho vigente. Registradas aqui como surgiram, em linguagem próxima do original, para não se perderem antes de decididas:
 
@@ -705,6 +725,13 @@ Não foi submetida a juízes. Como a medida de viés é inteiramente definida po
 Só a ideia 3 faz da análise de sentimento um campo do dataset. Nas ideias 1 e 2 ela é ferramenta de análise, não dado armazenado — a diferença entre "está no banco de dados" e "roda sobre o banco de dados", que já foi discutida nesta mesma conversa a propósito da natureza do corpus.
 
 **Segue pendente:** qual das três ideias a equipe pretende de fato executar. Enquanto isso não for decidido, não é possível saber se "análise de sentimento" deve ou não entrar como um dos itens declarados em aberto de *features textuais*.
+
+**Decisão de 15/09/2026 — o sentimento vai para um segundo artigo.** A equipe dividiu o trabalho em duas publicações. A **primeira** é o artigo do conjunto de dados — corpus de áudio e pares mínimos, com as medições que os caracterizam —, e nenhuma das três ideias entra nela. A **segunda** é um artigo de análise de sentimento com PLN, construído sobre o conjunto publicado. Consequências:
+
+- As três ideias ficam registradas como insumo do segundo artigo, sem prazo, e **fora do critério de conclusão do dataset v1**.
+- A ideia 1 perde a função que tinha: a validação da transcrição na primeira fase é o WER direto, já planejado.
+- As listas de *features* de texto e de áudio, que só se tornam campos do esquema se a ideia 3 for executada, também saem da v1.
+- As tensões registradas acima continuam válidas e são o ponto de partida do segundo artigo: o viés próprio do classificador de sentimento, que se confundiria com diferença regional, e o conflito da ideia 3 com o item 1 dos usos desaconselhados de `docs/ficha_conjunto.md`, cuja moldura de interpretação precisa ser explicitada antes de qualquer execução.
 
 **Quarta atualização, 31/08/2026 — três decisões de método, respondendo perguntas da equipe.**
 

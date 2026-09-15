@@ -47,6 +47,8 @@ Aplicação do Filtro 1 descrito em `docs/pares_minimos_v1.md`, seção 7. Não 
 
 **Por que o passo 3 está suspenso, e não apenas bloqueado.** Convocar juízes exige um conjunto de itens que valha a pena validar, e o passo 5 mostrou que o conjunto atual não produz resposta mensurável no modelo. Validar itens que não medem nada gastaria a disponibilidade dos juízes sem contrapartida.
 
+**Substituído em 15/09/2026.** A equipe registrou não dispor de contatos nos estados-alvo, o que inviabiliza o recrutamento. O passo passa a ser executado **sem juízes**, e só onde é exigível: os 25 pares de sinalização implícita são validados por fonte dialetológica documentada e por ocorrência no corpus de áudio próprio; menção explícita e calibração ficam fora, com justificativa declarada. Com 7,96 h de corpus, a ocorrência confirma um traço mas não reprova traço raro por ausência. A ausência de juízes vai como limitação, e o acesso a juízes pela rede da orientação fica como reforço eventual (`docs/pendencias.md` 2.14).
+
 ### Passo 4 — Coleta do corpus de áudio
 
 Execução do pipeline já implementado em `pipeline_coleta_piloto/`. É o passo mais longo em tempo de calendário — coleta, transcrição e verificação manual de WER e DER — e é pré-requisito do Filtro 2 do protocolo de validação, segundo o qual um marcador só integra o experimento se ocorrer em fala espontânea no corpus coletado. Por isso está no caminho crítico, ainda que seja o menos avançado.
@@ -99,7 +101,7 @@ Resultado em `experimentos/resultados/relatorios/sensibilidade_guise.md`. Com co
 |---|---|---|---|
 | **5.1** Marcadores construcionais pareados em frequência | baixo | se ainda existe instrumento possível neste modelo | **Concluído** em 28/08/2026 — resposta negativa |
 | **5.2** BERTimbau Large, ou métrica baseada em representação | médio | se o limite é do modelo ou da métrica | Não iniciado |
-| **5.3** Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés | Não iniciado, e hoje o mais amparado |
+| **5.3** Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés | **Adotado em 15/09/2026** como primeiro artigo — ver "Situação do artigo" |
 | **5.4** Menção explícita em volume | baixo | se o modelo responde ao rótulo regional, ainda que não à variedade | **Concluído** em 29/08/2026 — resposta afirmativa |
 | **5.5** Direção do efeito, e não sua magnitude | baixo | se a resposta é preconceituosa, e não apenas diferente | **Concluído** em 29/08/2026 — nenhum viés de valência sobrevive |
 | **5.6** Eixo ocupacional por AUL | baixo | o único eixo que o PLL não consegue medir neste modelo | Aberto, e é a última medição pendente |
@@ -226,3 +228,12 @@ O artigo, portanto, **não é sobre viés medido**. É sobre o que o modelo dist
 **E ganha uma contribuição metodológica que não existiria sem o resultado negativo:** a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à assimetria de tokenização (1.1, consequência demonstrada, e 1.20). O projeto encontrou um viés aparente a p = 0,049 e o desfez. Isso é resultado de método com valor próprio, e é o tipo de coisa que a literatura de *bias probing* raramente reporta.
 
 **A ressalva que preserva a honestidade do texto:** não detectar não é demonstrar ausência. O eixo ocupacional segue sem medição válida, a classificação de valência não passou por juízes, e são oito pares por condição.
+
+**Decisão de 15/09/2026 — dois artigos, e o primeiro é o do conjunto de dados.** A equipe dividiu a produção em duas publicações:
+
+1. **Primeiro artigo: recurso e método** — o segundo caminho acima, que é o passo 5.3. A contribuição central são os dois conjuntos de dados — o corpus de fala regional e os pares mínimos com desenho pareado —, com protocolo de construção e validação. As medições no BERTimbau (1.15, 1.17, 1.19) entram como **demonstração de uso** e caracterização do recurso, no papel que ocupam no CrowS-Pairs, e as contribuições de método (1.1, 1.14, 1.16, e o controle de moldura de 1.17-A) entram como achados de construção.
+2. **Segundo artigo: análise de sentimento com PLN**, construída sobre o conjunto publicado (`docs/pendencias.md` D10).
+
+**Isto substitui a recomendação de 29/08/2026 pelo terceiro caminho.** Duas razões tornam a mudança coerente com o estado do projeto, e não apenas preferência. Primeiro, o contraste que sustentava aquele caminho enfraqueceu: desde o controle de moldura, a resposta à menção explícita não se mostrou específica do Nordeste (1.17), e um artigo centrado no modelo perderia seu resultado positivo mais forte. Segundo, o artigo de recurso não depende de haver viés detectado, e acomoda sem perda o nulo, o positivo qualificado e a ausência de direção.
+
+**Consequências para o plano.** O critério de conclusão do conjunto passa a ser o critério de conclusão do primeiro artigo, e deve ser escrito como lista fechada (a registrar em documento próprio). A validação por juízes do Passo 3 foi substituída em 15/09/2026 por fonte dialetológica e ocorrência no corpus (`docs/pendencias.md` 2.14). O passo 5.6, eixo ocupacional por AUL, deixa de ser pré-requisito automático: num artigo de recurso ele pode ser declarado como limitação, e a decisão entra no critério de conclusão.
