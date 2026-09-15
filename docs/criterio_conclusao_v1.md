@@ -1,6 +1,6 @@
 # Critério de conclusão do dataset v1
 
-**Situação:** proposto em 15/09/2026, aguardando aprovação da equipe item a item.
+**Situação:** aprovado pela equipe em 15/09/2026, sem alterações.
 **Função:** fixar, em lista fechada, o que precisa estar feito para que o conjunto de dados v1 seja declarado concluído, e o que fica de fora por decisão. Corresponde ao item 3 do plano de fechamento (`docs/roadmap.md`, "Plano de fechamento do dataset v1"), cuja numeração é citada entre colchetes.
 
 ---
@@ -78,7 +78,7 @@ Não impedem a conclusão. Devem constar da ficha do conjunto e do artigo, com a
 | Item | Destino |
 |---|---|
 | Análise de sentimento com PLN, nas três formas propostas pela orientação | segundo artigo (`docs/pendencias.md` D10) |
-| Medição do eixo ocupacional por AUL (passo 5.6) | fase posterior [16] |
+| Medição do eixo ocupacional por AUL (passo 5.6) | fase posterior, prevista pela equipe para logo após a conclusão da v1. Não depende da validação humana nem altera o conteúdo do conjunto; seus resultados vão ao artigo, se houver tempo antes da submissão, ou a uma versão 1.1 das medições [16] |
 | Resolução do gentílico e confirmação do sinal de direção | fase posterior (2.12) |
 | Crescimento das condições de sinalização implícita | fase posterior (2.11) |
 | Hipótese de marcação de registro | fase posterior (2.9) |

@@ -107,7 +107,7 @@ Resultado em `experimentos/resultados/relatorios/sensibilidade_guise.md`. Com co
 | **5.3** Reposicionar como artigo de método e recurso | — | encerra a dependência de um resultado de viés | **Adotado em 15/09/2026** como primeiro artigo — ver "Situação do artigo" |
 | **5.4** Menção explícita em volume | baixo | se o modelo responde ao rótulo regional, ainda que não à variedade | **Concluído** em 29/08/2026 — resposta afirmativa |
 | **5.5** Direção do efeito, e não sua magnitude | baixo | se a resposta é preconceituosa, e não apenas diferente | **Concluído** em 29/08/2026 — nenhum viés de valência sobrevive |
-| **5.6** Eixo ocupacional por AUL | baixo | o único eixo que o PLL não consegue medir neste modelo | **Adiado** em 15/09/2026 para fase posterior; declarado limitação na v1 |
+| **5.6** Eixo ocupacional por AUL | baixo | o único eixo que o PLL não consegue medir neste modelo | **Adiado** em 15/09/2026 para logo após a conclusão da v1; declarado limitação na v1 |
 
 Os quatro não se excluem. O 5.1 era o mais barato e determinava se os demais eram necessários; a resposta dele é que sim.
 
@@ -255,7 +255,7 @@ Aprovado pela equipe em 15/09/2026. **Numeração estável:** os itens não são
 |---|---|---|---|---|---|
 | 1 | 1 — rodada atual | Analisar a medição dos 102 pares contra as regras registradas | assistente | **concluído** 15/09 | — |
 | 2 | 1 — rodada atual | Atualizar documentos e integrar à `main` | assistente | **concluído** 15/09 | 1 |
-| 3 | 2 — congelar escopo | Escrever o "Critério de conclusão do dataset v1", com as decisões 13, 15 e 16 (`docs/criterio_conclusao_v1.md`) | assistente | **proposto** 15/09, aguardando aprovação | 2 |
+| 3 | 2 — congelar escopo | Escrever o "Critério de conclusão do dataset v1", com as decisões 13, 15 e 16 (`docs/criterio_conclusao_v1.md`) | assistente | **concluído** 15/09 (aprovado sem alterações) | 2 |
 | 4 | 3 — validar pares | Validar os 25 pares implícitos por fonte e corpus | assistente | **concluído** 15/09 | — |
 | 5 | 3 — validar corpus | Regerar a amostra do WER sobre os 83 arquivos | assistente | a fazer | — |
 | 6 | 3 — validar corpus | Gerar a amostra de coerência dialetal, 10 falantes por estado | assistente | a fazer | — |
