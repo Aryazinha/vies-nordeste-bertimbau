@@ -345,6 +345,28 @@ Tabela em `experimentos/resultados/tabelas/meta_pareada.md`. Desvio-padrão de D
 
 **Volume implicado.** Condições `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo` de 8 para 20 frases, e `controle_explicito` de 5 para 20: 51 frases novas, cada uma com par de teste e gêmeo inter-regional, perfazendo 102 pares e cerca de 2.900 medições. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
+### 2.12 Crescimento das condições de menção explícita a 20 frases pareadas — REGISTRO PRÉVIO em 15/09/2026
+
+Execução das decisões de 2.11. Branch `crescimento-explicitos`. **Esta seção é versionada antes da medição**, junto com os pares e a análise.
+
+**Construção e revisão.** 51 frases novas — 12 em cada uma de `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo`, e 15 em `controle_explicito` —, cada uma com par de teste (rótulo nordestino contra rótulo do Sudeste) e gêmeo inter-regional (rótulo do Sul na mesma frase). Proposta em `experimentos/propor_explicitos.py`, com cinco conferências automáticas: ineditismo, ausência de palavra de atributo, rótulo como única diferença, diferença de subtokens e, em topônimo, reconhecimento pela frequência (≥ 2 por milhão, razão ≤ 2 entre Nordeste e Sul), além de igualdade de artigo e preposição entre teste e gêmeo. Revisão da equipe em três rodadas: seis duplas de topônimo substituídas por reconhecimento; `explicito_toponimo-13` substituído por diferença de preposição (*do Crato* / *de Lages* → *de Olinda* / *de Londrina*); *curitibano(a)* revertido a *paranaense* e *catarinense*, por raridade, ao custo de diferença de subtokens contra *paraibano(a)*. **Limitação declarada:** as cidades do interior, mesmo acima do limiar, são menos frequentes que as capitais, e o topônimo é a condição com menos informação para o modelo.
+
+**Correção de medição feita junto.** `teste_explicito.py` media apenas condições ausentes do arquivo bruto; pares acrescentados a condição já medida teriam ficado sem medição, sem aviso. Passa a medir par a par o que falta e a falhar se os faltantes não forem o final da lista. O controle intrarregional não acompanha o crescimento, e a análise correspondente passa a ler só as frases que têm esse gêmeo.
+
+**Análise primária — a de 2.10, estendida a 20 frases.** D = |Δ| do par de teste − |Δ| do gêmeo; teste unilateral de média de D > 0 por permutação exata de sinais no nível da frase, por condição; correção de Holm sobre as quatro condições. `experimentos/analise_moldura.py`.
+
+**Regras de decisão, por condição, registradas antes da medição.**
+
+1. p Holm < 0,05: **especificidade do Nordeste detectada** naquela condição; 1.17 é revisto.
+2. p Holm ≥ 0,05 e limite superior do IC 95% de D abaixo de 0,08: **efeito específico acima de 0,08 excluído** naquela condição — o objetivo do dimensionamento.
+3. Nos demais casos: **inconclusivo** na resolução pretendida.
+
+**Expectativa registrada.** Pelos valores de 2.10 com oito frases (D médio de +0,028 na macrorregião, +0,016 no gentílico, −0,001 no topônimo) e pela dispersão de D, espera-se a regra 2 em macrorregião e topônimo e a regra 3 no gentílico, cuja dispersão (0,17) exigiria 46 frases (`meta_pareada.md`). Para `controle_explicito`, cujos cinco pares originais tinham D positivo, a indicação de 2.10 é testada pela primeira vez com poder: resultado pela regra 1 sustentaria que a especificidade aparece em menção de terceira pessoa e não em autoidentificação — leitura a registrar como exploratória, porque a hipótese nasceu dos cinco pares.
+
+**Secundária registrada.** A mesma análise restrita às frases novas, como replicação com frases que não participaram de nenhuma decisão anterior. Não entra nas regras de decisão.
+
+**Reanálises decorrentes, sem estatuto confirmatório novo.** `teste_explicito.py` (resíduo contra o grupo de referência, 1.17) e `analise_valencia.py` (direção, 1.19) serão regerados com 20 frases por condição; seus valores entram nos documentos na rodada de atualização, e a meta pareada é recalculada sobre a dispersão de D observada.
+
 ---
 
 ## 3. Bibliografia e verificação de fontes

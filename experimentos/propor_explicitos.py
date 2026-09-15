@@ -85,11 +85,11 @@ PROPOSTA: dict[str, list[tuple[str, str, str]]] = {
         ("Sou baiana de nascimento.", "Sou carioca de nascimento.", "Sou gaúcha de nascimento."),
         ("Minha avó é pernambucana.", "Minha avó é mineira.", "Minha avó é paranaense."),
         ("Meu vizinho é cearense.", "Meu vizinho é paulista.", "Meu vizinho é catarinense."),
-        ("Ela é paraibana, como a mãe.", "Ela é capixaba, como a mãe.", "Ela é curitibana, como a mãe."),
+        ("Ela é paraibana, como a mãe.", "Ela é capixaba, como a mãe.", "Ela é paranaense, como a mãe."),
         ("Somos todos baianos aqui.", "Somos todos mineiros aqui.", "Somos todos gaúchos aqui."),
         ("Meu sogro é cearense.", "Meu sogro é fluminense.", "Meu sogro é catarinense."),
         ("Sou pernambucano desde sempre.", "Sou paulistano desde sempre.", "Sou paranaense desde sempre."),
-        ("O noivo dela é paraibano.", "O noivo dela é carioca.", "O noivo dela é curitibano."),
+        ("O noivo dela é paraibano.", "O noivo dela é carioca.", "O noivo dela é catarinense."),
         ("A família do meu pai é baiana.", "A família do meu pai é mineira.",
          "A família do meu pai é gaúcha."),
         ("Minha melhor amiga é cearense.", "Minha melhor amiga é capixaba.",
@@ -106,7 +106,7 @@ PROPOSTA: dict[str, list[tuple[str, str, str]]] = {
         ("Nasci em Sobral.", "Nasci em Jundiaí.", "Nasci em Blumenau."),
         ("Minha família mora em Ilhéus.", "Minha família mora em Taubaté.", "Minha família mora em Itajaí."),
         ("Cresci em Olinda.", "Cresci em Macaé.", "Cresci em Joinville."),
-        ("Meu pai veio do Crato.", "Meu pai veio de Bauru.", "Meu pai veio de Lages."),
+        ("Meu pai veio de Olinda.", "Meu pai veio de Bauru.", "Meu pai veio de Londrina."),
         ("Passei a infância em Campina Grande.", "Passei a infância em Piracicaba.",
          "Passei a infância em Novo Hamburgo."),
         ("Sou de Pernambuco mesmo.", "Sou de São Paulo mesmo.", "Sou de Santa Catarina mesmo."),
@@ -128,7 +128,7 @@ PROPOSTA: dict[str, list[tuple[str, str, str]]] = {
         ("Um casal do Nordeste alugou a casa.", "Um casal do Sudeste alugou a casa.",
          "Um casal do Sul alugou a casa."),
         ("O rapaz do terceiro andar é paraibano.", "O rapaz do terceiro andar é capixaba.",
-         "O rapaz do terceiro andar é curitibano."),
+         "O rapaz do terceiro andar é paranaense."),
         ("A reunião foi com um grupo de nordestinos.", "A reunião foi com um grupo de paulistas.",
          "A reunião foi com um grupo de sulistas."),
         ("Ela tem parentes em Recife.", "Ela tem parentes em Niterói.", "Ela tem parentes em Curitiba."),
@@ -145,6 +145,9 @@ ATUAIS = {"explicito_regiao": 8, "explicito_gentilico": 8, "explicito_toponimo":
 META = 20
 
 
+REVISAO = ("aprovada pela equipe em 15/09/2026, em três rodadas: seis duplas de topônimo "
+           "trocadas por reconhecimento; toponimo-13 trocado por diferença de preposição; "
+           "curitibano(a) revertido a paranaense e catarinense por raridade")
 FREQ_MINIMA = 2.0     # por milhão
 RAZAO_MAXIMA = 2.0
 
@@ -212,7 +215,7 @@ def main() -> None:
                               "subtokens_nordeste": sub_t, "subtokens_gemeo": sub_g,
                               "freq_nordeste_por_milhao": round(f_t, 2),
                               "freq_gemeo_por_milhao": round(f_g, 2),
-                              "revisao": "pendente"})
+                              "revisao": REVISAO})
     repetidas = [f for f, n in vistas.items() if n > 1]
     assert not repetidas, f"frases repetidas na proposta: {repetidas}"
 
@@ -223,7 +226,7 @@ def main() -> None:
                      encoding="utf-8")
 
     L = ["# Proposta de crescimento das condições de menção explícita", "",
-         "Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.", "",
+         "Gerado por `experimentos/propor_explicitos.py`. ", f"Revisão: {REVISAO}.", "",
          "| código | teste (Nordeste) | comparação (Sudeste) | gêmeo (Sul) |", "|---|---|---|---|"]
     for r in registros:
         L.append(f"| {r['id']} | {r['teste']} | {r['comparacao']} | {r['gemeo']} |")

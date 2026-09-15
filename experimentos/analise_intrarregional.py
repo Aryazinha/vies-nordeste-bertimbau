@@ -44,8 +44,8 @@ from pathlib import Path
 
 from analise_moldura import ic_media, p_sinais_exato
 from teste_construcional import holm, p_permutacao
-from teste_explicito import (CALIBRACAO, EXCLUIDOS_DA_CALIBRACAO, TESTE_DO_CONTROLE,
-                             TESTE_DO_INTRA)
+from teste_explicito import (CALIBRACAO, CONTROLE_INTRARREGIONAL, EXCLUIDOS_DA_CALIBRACAO,
+                             TESTE_DO_CONTROLE, TESTE_DO_INTRA)
 
 SAIDA = Path(__file__).resolve().parent / "resultados"
 PARES_MEDIDOS = SAIDA / "dados" / "explicito_pares.json"
@@ -76,8 +76,10 @@ def main() -> None:
     e_series, d2_series, detalhe = {}, {}, []
     for intra, teste in TESTE_DO_INTRA.items():
         inter = inter_de[teste]
-        es, d2s, i = [], [], 0
-        while (teste, i) in por_chave:
+        # Só as frases que têm gêmeo intrarregional: o controle ficou fora da regra
+        # do desenho pareado e não acompanha o crescimento das condições (2.11).
+        es, d2s = [], []
+        for i in range(len(CONTROLE_INTRARREGIONAL[intra])):
             t, g1, g2 = por_chave[(teste, i)], por_chave.get((inter, i)), por_chave.get((intra, i))
             if g1 is None or g2 is None:
                 raise SystemExit(f"{teste}-{i:02d}: gêmeo sem medição; rode teste_explicito.py")
@@ -86,7 +88,6 @@ def main() -> None:
             d2s.append(d2)
             detalhe.append((teste, i, t["a"], g1["a"], g2["a"], t["mediana"],
                             g1["mediana"], g2["mediana"], e))
-            i += 1
         e_series[teste], d2_series[teste] = es, d2s
 
     L = []

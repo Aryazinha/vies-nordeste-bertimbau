@@ -163,7 +163,9 @@ ORDEM = ("controle_neutro", "controle_frequencia", "calibracao_extra",
          "explicito_gentilico", "controle_conteudo")
 
 # Marcadores que nomeiam pessoa, para o reagrupamento do passo 5.4.
-PESSOA = ("nordestino", "pernambucano", "paraibano", "baiano", "cearense")
+PESSOA = ("nordestino", "pernambucano", "paraibano", "baiano", "cearense",
+          # formas femininas; as plurais já contêm a masculina singular
+          "nordestina", "pernambucana", "paraibana", "baiana")
 
 # Enunciado nordestino de cada par, para o reagrupamento pessoa/lugar. Montado
 # no nivel do modulo, e nao dentro do bloco principal: uma variavel atribuida la

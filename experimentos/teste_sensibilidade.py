@@ -133,6 +133,23 @@ CONDICOES = {
         ("Ele nasceu na Paraíba.", "Ele nasceu em São Paulo."),
         ("Ela mora no Ceará.", "Ela mora no Rio de Janeiro."),
         ("O rapaz veio de Pernambuco.", "O rapaz veio de São Paulo."),
+        # Crescimento a 20 pares, 15/09/2026 (`docs/pendencias.md` 2.12), medido por
+        # `teste_explicito.py`, e não por este script. Acrescentar sempre ao final.
+        ("O cliente é do Nordeste.", "O cliente é do Sudeste."),
+        ("Uma nordestina ligou mais cedo.", "Uma paulista ligou mais cedo."),
+        ("O vizinho novo é baiano.", "O vizinho novo é carioca."),
+        ("A encomenda veio do Ceará.", "A encomenda veio do Rio de Janeiro."),
+        ("O menino nasceu em Pernambuco.", "O menino nasceu em São Paulo."),
+        ("Chegou uma carta de Recife.", "Chegou uma carta de Campinas."),
+        ("A moça da recepção é cearense.", "A moça da recepção é mineira."),
+        ("Um casal do Nordeste alugou a casa.", "Um casal do Sudeste alugou a casa."),
+        ("O rapaz do terceiro andar é paraibano.", "O rapaz do terceiro andar é capixaba."),
+        ("A reunião foi com um grupo de nordestinos.", "A reunião foi com um grupo de paulistas."),
+        ("Ela tem parentes em Recife.", "Ela tem parentes em Niterói."),
+        ("Hoje chegou um hóspede baiano.", "Hoje chegou um hóspede mineiro."),
+        ("O pacote saiu de Pernambuco ontem.", "O pacote saiu de São Paulo ontem."),
+        ("A senhora do lado é nordestina.", "A senhora do lado é paulista."),
+        ("O inquilino é do Ceará.", "O inquilino é do Rio de Janeiro."),
     ],
     "controle_conteudo": [
         ("Fui preso ontem à noite.", "Defendi minha tese ontem à noite."),

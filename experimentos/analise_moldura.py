@@ -60,7 +60,19 @@ PARES_MEDIDOS = SAIDA / "dados" / "explicito_pares.json"
 TABELA = SAIDA / "tabelas" / "moldura_tabelas.md"
 
 SEMENTE = 20260914
-PESSOA = ("nordestino", "pernambucano", "paraibano", "baiano", "cearense")
+PESSOA = ("nordestino", "pernambucano", "paraibano", "baiano", "cearense",
+          "nordestina", "pernambucana", "paraibana", "baiana")
+
+# Frases por condição antes do crescimento de 15/09/2026; as seguintes são as novas.
+ORIGINAIS = {"explicito_regiao": 8, "explicito_gentilico": 8, "explicito_toponimo": 8,
+             "controle_explicito": 5}
+# Efeito específico a excluir, decidido em 2.11.
+EFEITO_ALVO = 0.08
+
+
+def _resumo(teste: str, ds: list[float]) -> dict:
+    return {"teste": teste, "n": len(ds), "media": statistics.mean(ds), "ic": ic_media(ds),
+            "positivos": sum(1 for d in ds if d > 0), "p": p_sinais_exato(ds)}
 
 
 def p_sinais_exato(ds: list[float]) -> float:
@@ -112,16 +124,32 @@ def main() -> None:
                        "ic": ic_media(ds), "positivos": sum(1 for d in ds if d > 0),
                        "p": p_sinais_exato(ds)})
 
-    ajustados = holm({r["teste"]: r["p"] for r in resumo})
-    add("## Resultado registrado")
-    add("")
-    add("| condição de teste | frases | D médio | IC 95% | D > 0 | p exato | p Holm |")
-    add("|---|---|---|---|---|---|---|")
-    for r in resumo:
-        add(f"| `{r['teste']}` | {r['n']} | {r['media']:+.4f} | "
-            f"{r['ic'][0]:+.4f}–{r['ic'][1]:+.4f} | {r['positivos']}/{r['n']} | "
-            f"{r['p']:.4f} | {ajustados[r['teste']]:.4f} |")
-    add("")
+    def tabela(titulo: str, linhas: list[dict]) -> None:
+        # Regras de decisão registradas em `docs/pendencias.md` 2.12: especificidade
+        # detectada se p Holm < 0,05; efeito acima de 0,08 excluído se não detectada
+        # e o limite superior do IC 95% ficar abaixo de 0,08; inconclusivo no resto.
+        ajust = holm({r["teste"]: r["p"] for r in linhas})
+        add(f"## {titulo}")
+        add("")
+        add("| condição de teste | frases | D médio | IC 95% | D > 0 | p exato | p Holm | leitura |")
+        add("|---|---|---|---|---|---|---|---|")
+        for r in linhas:
+            if ajust[r["teste"]] < 0.05:
+                leitura = "especificidade detectada"
+            elif r["ic"][1] < EFEITO_ALVO:
+                leitura = f"exclui D > {EFEITO_ALVO:.2f}"
+            else:
+                leitura = "inconclusivo"
+            add(f"| `{r['teste']}` | {r['n']} | {r['media']:+.4f} | "
+                f"{r['ic'][0]:+.4f}–{r['ic'][1]:+.4f} | {r['positivos']}/{r['n']} | "
+                f"{r['p']:.4f} | {ajust[r['teste']]:.4f} | {leitura} |")
+        add("")
+
+    tabela("Resultado registrado — todas as frases", resumo)
+    novos = [_resumo(t, ds[ORIGINAIS[t]:]) for t, ds in ds_por_condicao.items()
+             if len(ds) - ORIGINAIS[t] >= 2]
+    if novos:
+        tabela("Secundário registrado — só as frases acrescentadas em 15/09/2026", novos)
 
     add("## Por frase")
     add("")

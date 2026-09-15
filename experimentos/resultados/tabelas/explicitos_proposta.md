@@ -1,6 +1,7 @@
 # Proposta de crescimento das condições de menção explícita
 
-Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.
+Gerado por `experimentos/propor_explicitos.py`. 
+Revisão: aprovada pela equipe em 15/09/2026, em três rodadas: seis duplas de topônimo trocadas por reconhecimento; toponimo-13 trocado por diferença de preposição; curitibano(a) revertido a paranaense e catarinense por raridade.
 
 | código | teste (Nordeste) | comparação (Sudeste) | gêmeo (Sul) |
 |---|---|---|---|
@@ -19,11 +20,11 @@ Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.
 | explicito_gentilico-08 | Sou baiana de nascimento. | Sou carioca de nascimento. | Sou gaúcha de nascimento. |
 | explicito_gentilico-09 | Minha avó é pernambucana. | Minha avó é mineira. | Minha avó é paranaense. |
 | explicito_gentilico-10 | Meu vizinho é cearense. | Meu vizinho é paulista. | Meu vizinho é catarinense. |
-| explicito_gentilico-11 | Ela é paraibana, como a mãe. | Ela é capixaba, como a mãe. | Ela é curitibana, como a mãe. |
+| explicito_gentilico-11 | Ela é paraibana, como a mãe. | Ela é capixaba, como a mãe. | Ela é paranaense, como a mãe. |
 | explicito_gentilico-12 | Somos todos baianos aqui. | Somos todos mineiros aqui. | Somos todos gaúchos aqui. |
 | explicito_gentilico-13 | Meu sogro é cearense. | Meu sogro é fluminense. | Meu sogro é catarinense. |
 | explicito_gentilico-14 | Sou pernambucano desde sempre. | Sou paulistano desde sempre. | Sou paranaense desde sempre. |
-| explicito_gentilico-15 | O noivo dela é paraibano. | O noivo dela é carioca. | O noivo dela é curitibano. |
+| explicito_gentilico-15 | O noivo dela é paraibano. | O noivo dela é carioca. | O noivo dela é catarinense. |
 | explicito_gentilico-16 | A família do meu pai é baiana. | A família do meu pai é mineira. | A família do meu pai é gaúcha. |
 | explicito_gentilico-17 | Minha melhor amiga é cearense. | Minha melhor amiga é capixaba. | Minha melhor amiga é paranaense. |
 | explicito_gentilico-18 | Eu sou pernambucana, com muito gosto. | Eu sou paulista, com muito gosto. | Eu sou catarinense, com muito gosto. |
@@ -33,7 +34,7 @@ Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.
 | explicito_toponimo-10 | Nasci em Sobral. | Nasci em Jundiaí. | Nasci em Blumenau. |
 | explicito_toponimo-11 | Minha família mora em Ilhéus. | Minha família mora em Taubaté. | Minha família mora em Itajaí. |
 | explicito_toponimo-12 | Cresci em Olinda. | Cresci em Macaé. | Cresci em Joinville. |
-| explicito_toponimo-13 | Meu pai veio do Crato. | Meu pai veio de Bauru. | Meu pai veio de Lages. |
+| explicito_toponimo-13 | Meu pai veio de Olinda. | Meu pai veio de Bauru. | Meu pai veio de Londrina. |
 | explicito_toponimo-14 | Passei a infância em Campina Grande. | Passei a infância em Piracicaba. | Passei a infância em Novo Hamburgo. |
 | explicito_toponimo-15 | Sou de Pernambuco mesmo. | Sou de São Paulo mesmo. | Sou de Santa Catarina mesmo. |
 | explicito_toponimo-16 | Morei muito tempo no Ceará. | Morei muito tempo no Rio de Janeiro. | Morei muito tempo no Paraná. |
@@ -48,7 +49,7 @@ Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.
 | controle_explicito-10 | Chegou uma carta de Recife. | Chegou uma carta de Campinas. | Chegou uma carta de Curitiba. |
 | controle_explicito-11 | A moça da recepção é cearense. | A moça da recepção é mineira. | A moça da recepção é catarinense. |
 | controle_explicito-12 | Um casal do Nordeste alugou a casa. | Um casal do Sudeste alugou a casa. | Um casal do Sul alugou a casa. |
-| controle_explicito-13 | O rapaz do terceiro andar é paraibano. | O rapaz do terceiro andar é capixaba. | O rapaz do terceiro andar é curitibano. |
+| controle_explicito-13 | O rapaz do terceiro andar é paraibano. | O rapaz do terceiro andar é capixaba. | O rapaz do terceiro andar é paranaense. |
 | controle_explicito-14 | A reunião foi com um grupo de nordestinos. | A reunião foi com um grupo de paulistas. | A reunião foi com um grupo de sulistas. |
 | controle_explicito-15 | Ela tem parentes em Recife. | Ela tem parentes em Niterói. | Ela tem parentes em Curitiba. |
 | controle_explicito-16 | Hoje chegou um hóspede baiano. | Hoje chegou um hóspede mineiro. | Hoje chegou um hóspede gaúcho. |
@@ -58,4 +59,6 @@ Gerado por `experimentos/propor_explicitos.py`. Revisão humana pendente.
 
 ## Alertas de subtokens entre rótulo nordestino e gêmeo
 
-- explicito_toponimo-13: artigo ou preposição difere entre os lados ('do Crato' / 'de Bauru' / 'de Lages')
+- explicito_gentilico-11: 'paraibana' (3) contra 'paranaense' (1) subtokens
+- explicito_gentilico-15: 'paraibano' (3) contra 'catarinense' (1) subtokens
+- controle_explicito-13: 'paraibano' (3) contra 'paranaense' (1) subtokens
