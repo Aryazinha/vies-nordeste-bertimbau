@@ -8,11 +8,11 @@ da equipe (`docs/pendencias.md` 2.11, parte b).
 
 | condição | frases | D médio | desvio-padrão |
 |---|---|---|---|
-| `explicito_regiao` | 8 | +0.0279 | 0.0641 |
-| `explicito_gentilico` | 8 | +0.0158 | 0.1705 |
-| `explicito_toponimo` | 8 | -0.0010 | 0.0772 |
-| `controle_explicito` | 5 | +0.0398 | 0.0436 |
-| **combinado** | 29 | — | **0.1061** |
+| `explicito_regiao` | 20 | -0.0210 | 0.1027 |
+| `explicito_gentilico` | 20 | +0.0147 | 0.1612 |
+| `explicito_toponimo` | 20 | +0.0108 | 0.0637 |
+| `controle_explicito` | 20 | +0.0262 | 0.0465 |
+| **combinado** | 80 | — | **0.1034** |
 
 A dispersão é heterogênea: o gentílico tem desvio-padrão várias vezes maior que o
 topônimo. Dimensionar pelo combinado subestima o necessário no gentílico; a última
@@ -20,21 +20,21 @@ coluna da tabela seguinte dimensiona pelo maior desvio-padrão observado.
 
 ## Frases necessárias por condição
 
-| efeito específico a excluir (δ) | α = 0,05, σ combinado | Holm (α/4), σ combinado | Holm, σ máximo (0.170) |
+| efeito específico a excluir (δ) | α = 0,05, σ combinado | Holm (α/4), σ combinado | Holm, σ máximo (0.161) |
 |---|---|---|---|
-| 0.03 | 79 | 122 | 310 |
-| 0.05 | 30 | 46 | 113 |
-| 0.08 | 13 | 20 | 46 |
-| 0.10 | 9 | 14 | 31 |
+| 0.03 | 75 | 116 | 277 |
+| 0.05 | 28 | 44 | 102 |
+| 0.08 | 12 | 19 | 42 |
+| 0.10 | 8 | 13 | 28 |
 
 ## Menor efeito específico detectável, por número de frases
 
 | frases por condição | Holm, σ combinado | Holm, σ máximo |
 |---|---|---|
-| 8 (atual) | 0.140 | 0.224 |
-| 16 | 0.089 | 0.143 |
-| 24 | 0.071 | 0.113 |
-| 40 | 0.053 | 0.086 |
+| 8 (atual) | 0.136 | 0.212 |
+| 16 | 0.087 | 0.135 |
+| 24 | 0.069 | 0.107 |
+| 40 | 0.052 | 0.081 |
 
 ## Custo implicado
 

@@ -4,7 +4,7 @@
     "gerado_por": "experimentos/empacotar_pares.py",
     "licenca": "CC BY 4.0 (ver LICENSE-DATA.md)",
     "modelo_medido": "neuralmind/bert-base-portuguese-cased",
-    "n_pares": 204,
+    "n_pares": 306,
     "n_condicoes": 22,
     "molduras": {
       "T1a": "— {enunciado} Quem falou isso é uma pessoa {atributo}.",
@@ -665,6 +665,291 @@
         "razao_frequencia": 36.73545448924015,
         "previsto_pela_reta": 0.1679301483873462,
         "residuo": 0.01850674316843992
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-05",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "O cliente é do Nordeste.",
+      "lado_b": "O cliente é do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.29425644874572754,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": 0.13609398113316504
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-06",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Uma nordestina ligou mais cedo.",
+      "lado_b": "Uma paulista ligou mais cedo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3047475814819336,
+        "razao_frequencia": 37.97297297297295,
+        "previsto_pela_reta": 0.16803537314466627,
+        "residuo": 0.13671220833726733
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-07",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "O vizinho novo é baiano.",
+      "lado_b": "O vizinho novo é carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3056977689266205,
+        "razao_frequencia": 3.235602094240842,
+        "previsto_pela_reta": 0.16021422514157188,
+        "residuo": 0.1454835437850486
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-08",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "A encomenda veio do Ceará.",
+      "lado_b": "A encomenda veio do Rio de Janeiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.13065814971923828,
+        "razao_frequencia": 50.12372390206125,
+        "previsto_pela_reta": 0.16891706429671968,
+        "residuo": -0.0382589145774814
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-09",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "O menino nasceu em Pernambuco.",
+      "lado_b": "O menino nasceu em São Paulo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21706199645996094,
+        "razao_frequencia": 36.73545448924015,
+        "previsto_pela_reta": 0.1679301483873462,
+        "residuo": 0.049131848072614726
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-10",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Chegou uma carta de Recife.",
+      "lado_b": "Chegou uma carta de Campinas.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2086775302886963,
+        "razao_frequencia": 1.7359550561797779,
+        "previsto_pela_reta": 0.15823673103645183,
+        "residuo": 0.050440799252244456
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-11",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "A moça da recepção é cearense.",
+      "lado_b": "A moça da recepção é mineira.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3396415710449219,
+        "razao_frequencia": 1.0959752321981444,
+        "previsto_pela_reta": 0.1567760952861233,
+        "residuo": 0.18286547575879858
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-12",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Um casal do Nordeste alugou a casa.",
+      "lado_b": "Um casal do Sudeste alugou a casa.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.14021432399749756,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": -0.017948143615064943
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-13",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "O rapaz do terceiro andar é paraibano.",
+      "lado_b": "O rapaz do terceiro andar é capixaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.29122424125671387,
+        "razao_frequencia": 1.0980392156862746,
+        "previsto_pela_reta": 0.1567820706309227,
+        "residuo": 0.13444217062579117
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-14",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "A reunião foi com um grupo de nordestinos.",
+      "lado_b": "A reunião foi com um grupo de paulistas.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.27942728996276855,
+        "razao_frequencia": 1.78205128205128,
+        "previsto_pela_reta": 0.15831996291842243,
+        "residuo": 0.12110732704434612
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-15",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela tem parentes em Recife.",
+      "lado_b": "Ela tem parentes em Niterói.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.15662086009979248,
+        "razao_frequencia": 3.8916876574307313,
+        "previsto_pela_reta": 0.16080058386760027,
+        "residuo": -0.004179723767807786
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-16",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Hoje chegou um hóspede baiano.",
+      "lado_b": "Hoje chegou um hóspede mineiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.28160738945007324,
+        "razao_frequencia": 1.4764397905759166,
+        "previsto_pela_reta": 0.15772247717709925,
+        "residuo": 0.12388491227297399
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-17",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "O pacote saiu de Pernambuco ontem.",
+      "lado_b": "O pacote saiu de São Paulo ontem.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11992502212524414,
+        "razao_frequencia": 36.73545448924015,
+        "previsto_pela_reta": 0.1679301483873462,
+        "residuo": -0.04800512626210207
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-18",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "A senhora do lado é nordestina.",
+      "lado_b": "A senhora do lado é paulista.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3832358121871948,
+        "razao_frequencia": 37.97297297297295,
+        "previsto_pela_reta": 0.16803537314466627,
+        "residuo": 0.21520043904252856
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "controle_explicito-19",
+      "condicao": "controle_explicito",
+      "papel": "controle: menção explícita não regional",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "O inquilino é do Ceará.",
+      "lado_b": "O inquilino é do Rio de Janeiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21586281061172485,
+        "razao_frequencia": 50.12372390206125,
+        "previsto_pela_reta": 0.16891706429671968,
+        "residuo": 0.04694574631500517
       },
       "anotacoes_juizes": []
     },
@@ -1334,6 +1619,234 @@
       "anotacoes_juizes": []
     },
     {
+      "id": "explicito_regiao-08",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Cresci no Nordeste.",
+      "lado_b": "Cresci no Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1764964461326599,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": 0.01833397852009741
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-09",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Meus avós são do Nordeste.",
+      "lado_b": "Meus avós são do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.17366063594818115,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": 0.01549816833561865
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-10",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Voltei para o Nordeste no ano passado.",
+      "lado_b": "Voltei para o Sudeste no ano passado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.09873044490814209,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": -0.05943202270442041
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-11",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela passou a infância no Nordeste.",
+      "lado_b": "Ela passou a infância no Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.14190131425857544,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": -0.016261153353987062
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-12",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu sotaque é do Nordeste.",
+      "lado_b": "Meu sotaque é do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1635500192642212,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": 0.00538755165165869
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-13",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "A gente se mudou do Nordeste ainda pequeno.",
+      "lado_b": "A gente se mudou do Sudeste ainda pequeno.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.05118215084075928,
+        "razao_frequencia": 1.6958333333333342,
+        "previsto_pela_reta": 0.1581624676125625,
+        "residuo": -0.10698031677180322
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-14",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou nordestino de coração.",
+      "lado_b": "Sou paulista de coração.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3726903200149536,
+        "razao_frequencia": 13.161592505854797,
+        "previsto_pela_reta": 0.1646702847416195,
+        "residuo": 0.20802003527333413
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-15",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu marido é nordestino.",
+      "lado_b": "Meu marido é carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2986675500869751,
+        "razao_frequencia": 7.236533957845443,
+        "previsto_pela_reta": 0.1627705896739068,
+        "residuo": 0.13589696041306829
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-16",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela se considera nordestina.",
+      "lado_b": "Ela se considera carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.41462039947509766,
+        "razao_frequencia": 20.878378378378397,
+        "previsto_pela_reta": 0.1661356780769536,
+        "residuo": 0.24848472139814407
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-17",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Todo mundo aqui em casa é nordestino.",
+      "lado_b": "Todo mundo aqui em casa é mineiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.32314793268839503,
+        "razao_frequencia": 3.302107728337237,
+        "previsto_pela_reta": 0.16027884170943418,
+        "residuo": 0.16286909097896085
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-18",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Eu sou nordestina, sim.",
+      "lado_b": "Eu sou mineira, sim.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.4065420627593994,
+        "razao_frequencia": 4.364864864864862,
+        "previsto_pela_reta": 0.16116499976393747,
+        "residuo": 0.24537706299546194
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_regiao-19",
+      "condicao": "explicito_regiao",
+      "papel": "teste: menção explícita à macrorregião",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Ele é nordestino da gema.",
+      "lado_b": "Ele é paulista da gema.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.33542436361312866,
+        "razao_frequencia": 13.161592505854797,
+        "previsto_pela_reta": 0.1646702847416195,
+        "residuo": 0.17075407887150917
+      },
+      "anotacoes_juizes": []
+    },
+    {
       "id": "explicito_gentilico-00",
       "condicao": "explicito_gentilico",
       "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
@@ -1486,6 +1999,234 @@
       "anotacoes_juizes": []
     },
     {
+      "id": "explicito_gentilico-08",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou baiana de nascimento.",
+      "lado_b": "Sou carioca de nascimento.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3312220573425293,
+        "razao_frequencia": 4.896988906497623,
+        "previsto_pela_reta": 0.1615303333540069,
+        "residuo": 0.1696917239885224
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-09",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha avó é pernambucana.",
+      "lado_b": "Minha avó é mineira.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2529631704092026,
+        "razao_frequencia": 2.820960698689955,
+        "previsto_pela_reta": 0.15977869077246118,
+        "residuo": 0.0931844796367414
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-10",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu vizinho é cearense.",
+      "lado_b": "Meu vizinho é paulista.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3217742443084717,
+        "razao_frequencia": 7.937853107344619,
+        "previsto_pela_reta": 0.16306436150935513,
+        "residuo": 0.15870988279911655
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-11",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela é paraibana, como a mãe.",
+      "lado_b": "Ela é capixaba, como a mãe.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18806950251261378,
+        "razao_frequencia": 1.316129032258065,
+        "previsto_pela_reta": 0.15735744374518656,
+        "residuo": 0.03071205876742722
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-12",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Somos todos baianos aqui.",
+      "lado_b": "Somos todos mineiros aqui.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.28744006156921387,
+        "razao_frequencia": 2.1874999999999982,
+        "previsto_pela_reta": 0.1589710030413537,
+        "residuo": 0.12846905852786017
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-13",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu sogro é cearense.",
+      "lado_b": "Meu sogro é fluminense.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.48497474193573,
+        "razao_frequencia": 3.983050847457622,
+        "previsto_pela_reta": 0.16087428102019657,
+        "residuo": 0.3241004609155334
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-14",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou pernambucano desde sempre.",
+      "lado_b": "Sou paulistano desde sempre.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.265017032623291,
+        "razao_frequencia": 1.121212121212121,
+        "previsto_pela_reta": 0.1568483969494949,
+        "residuo": 0.10816863567379612
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-15",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "O noivo dela é paraibano.",
+      "lado_b": "O noivo dela é carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.5585571527481079,
+        "razao_frequencia": 13.794642857142858,
+        "previsto_pela_reta": 0.16481947998621416,
+        "residuo": 0.39373767276189375
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-16",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "A família do meu pai é baiana.",
+      "lado_b": "A família do meu pai é mineira.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1853022575378418,
+        "razao_frequencia": 1.0237717908082395,
+        "previsto_pela_reta": 0.1565596550409908,
+        "residuo": 0.028742602496850983
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-17",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha melhor amiga é cearense.",
+      "lado_b": "Minha melhor amiga é capixaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.34461975097656206,
+        "razao_frequencia": 3.4705882352941186,
+        "previsto_pela_reta": 0.1604368841754944,
+        "residuo": 0.18418286680106766
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-18",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Eu sou pernambucana, com muito gosto.",
+      "lado_b": "Eu sou paulista, com muito gosto.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.48949489990870143,
+        "razao_frequencia": 24.541484716157196,
+        "previsto_pela_reta": 0.16664906415318997,
+        "residuo": 0.32284583575551146
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_gentilico-19",
+      "condicao": "explicito_gentilico",
+      "papel": "teste: menção explícita por gentílico de estado (rótulo de pessoa)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Os meus primos são paraibanos.",
+      "lado_b": "Os meus primos são fluminenses.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3176754117012024,
+        "razao_frequencia": 1.0970873786407769,
+        "previsto_pela_reta": 0.1567793164075049,
+        "residuo": 0.1608960952936975
+      },
+      "anotacoes_juizes": []
+    },
+    {
       "id": "explicito_toponimo-00",
       "condicao": "explicito_toponimo",
       "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
@@ -1634,6 +2375,234 @@
         "razao_frequencia": 30.219352591413443,
         "previsto_pela_reta": 0.16731002374307635,
         "residuo": -0.059749746757907896
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-08",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Eu sou de Caruaru.",
+      "lado_b": "Eu sou de Sorocaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.33467698097229004,
+        "razao_frequencia": 3.5454545454545476,
+        "previsto_pela_reta": 0.16050466499137805,
+        "residuo": 0.17417231598091198
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-09",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Moro em Petrolina há muitos anos.",
+      "lado_b": "Moro em Uberlândia há muitos anos.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.14249902963638306,
+        "razao_frequencia": 1.9958333333333313,
+        "previsto_pela_reta": 0.15867978090113125,
+        "residuo": -0.01618075126474819
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-10",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Nasci em Sobral.",
+      "lado_b": "Nasci em Jundiaí.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18273580074310303,
+        "razao_frequencia": 1.0471976401179948,
+        "previsto_pela_reta": 0.15663150661523617,
+        "residuo": 0.026104294127866856
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-11",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha família mora em Ilhéus.",
+      "lado_b": "Minha família mora em Taubaté.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11846351623535156,
+        "razao_frequencia": 1.7418181818181806,
+        "previsto_pela_reta": 0.15824743943331077,
+        "residuo": -0.0397839231979592
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-12",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Cresci em Olinda.",
+      "lado_b": "Cresci em Macaé.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.22133060296376517,
+        "razao_frequencia": 2.2915254237288107,
+        "previsto_pela_reta": 0.1591185499713685,
+        "residuo": 0.062212052992396655
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-13",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu pai veio de Olinda.",
+      "lado_b": "Meu pai veio de Bauru.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.22712922096252441,
+        "razao_frequencia": 1.5123042505592823,
+        "previsto_pela_reta": 0.15779870131598403,
+        "residuo": 0.06933051964654038
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-14",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Passei a infância em Campina Grande.",
+      "lado_b": "Passei a infância em Piracicaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.20278501510620117,
+        "razao_frequencia": 13.02387891436314,
+        "previsto_pela_reta": 0.16463687935374013,
+        "residuo": 0.03814813575246104
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-15",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou de Pernambuco mesmo.",
+      "lado_b": "Sou de São Paulo mesmo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2776775360107422,
+        "razao_frequencia": 36.73545448924015,
+        "previsto_pela_reta": 0.1679301483873462,
+        "residuo": 0.10974738762339598
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-16",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Morei muito tempo no Ceará.",
+      "lado_b": "Morei muito tempo no Rio de Janeiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.120758056640625,
+        "razao_frequencia": 50.12372390206125,
+        "previsto_pela_reta": 0.16891706429671968,
+        "residuo": -0.04815900765609468
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-17",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Meus pais se conheceram em Recife.",
+      "lado_b": "Meus pais se conheceram em Petrópolis.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21618551015853882,
+        "razao_frequencia": 6.306122448979599,
+        "previsto_pela_reta": 0.1623335186522353,
+        "residuo": 0.053851991506303515
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-18",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Nasci no interior de Pernambuco.",
+      "lado_b": "Nasci no interior de São Paulo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.09516474604606628,
+        "razao_frequencia": 36.73545448924015,
+        "previsto_pela_reta": 0.1679301483873462,
+        "residuo": -0.07276540234127993
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "explicito_toponimo-19",
+      "condicao": "explicito_toponimo",
+      "papel": "teste: menção explícita por topônimo (rótulo de lugar)",
+      "grupo": "teste",
+      "par_de_teste": null,
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha tia vive em Juazeiro.",
+      "lado_b": "Minha tia vive em Guarulhos.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1904003620147705,
+        "razao_frequencia": 1.023217247097844,
+        "previsto_pela_reta": 0.15655793429651194,
+        "residuo": 0.03384242771825857
       },
       "anotacoes_juizes": []
     },
@@ -3025,6 +3994,234 @@
       "anotacoes_juizes": []
     },
     {
+      "id": "moldura_explicito_regiao-08",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-08",
+      "excluido_da_calibracao": null,
+      "lado_a": "Cresci no Sul.",
+      "lado_b": "Cresci no Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18384623527526855,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": 0.019174726373619916
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-09",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-09",
+      "excluido_da_calibracao": null,
+      "lado_a": "Meus avós são do Sul.",
+      "lado_b": "Meus avós são do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.16053684552510594,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": -0.0041346633765426966
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-10",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-10",
+      "excluido_da_calibracao": null,
+      "lado_a": "Voltei para o Sul no ano passado.",
+      "lado_b": "Voltei para o Sudeste no ano passado.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.07887208461761475,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": -0.08579942428403389
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-11",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-11",
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela passou a infância no Sul.",
+      "lado_b": "Ela passou a infância no Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11142587661743164,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": -0.053245632284217
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-12",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-12",
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu sotaque é do Sul.",
+      "lado_b": "Meu sotaque é do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11955966055393219,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": -0.04511184834771645
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-13",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-13",
+      "excluido_da_calibracao": null,
+      "lado_a": "A gente se mudou do Sul ainda pequeno.",
+      "lado_b": "A gente se mudou do Sudeste ainda pequeno.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.16949260234832764,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": 0.004821093446678998
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-14",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-14",
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou sulista de coração.",
+      "lado_b": "Sou paulista de coração.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.32923710346221924,
+        "razao_frequencia": 25.662100456620998,
+        "previsto_pela_reta": 0.16679086872644489,
+        "residuo": 0.16244623473577435
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-15",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-15",
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu marido é sulista.",
+      "lado_b": "Meu marido é carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.43677234649658203,
+        "razao_frequencia": 14.109589041095909,
+        "previsto_pela_reta": 0.1648911736587322,
+        "residuo": 0.27188117283784985
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-16",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-16",
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela se considera sulista.",
+      "lado_b": "Ela se considera carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.47927093505859375,
+        "razao_frequencia": 14.109589041095909,
+        "previsto_pela_reta": 0.1648911736587322,
+        "residuo": 0.31437976139986157
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-17",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-17",
+      "excluido_da_calibracao": null,
+      "lado_a": "Todo mundo aqui em casa é sulista.",
+      "lado_b": "Todo mundo aqui em casa é mineiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3701399564743042,
+        "razao_frequencia": 6.438356164383563,
+        "previsto_pela_reta": 0.16239942569425958,
+        "residuo": 0.20774053078004462
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-18",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-18",
+      "excluido_da_calibracao": null,
+      "lado_a": "Eu sou sulista, sim.",
+      "lado_b": "Eu sou mineira, sim.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.7607373595237732,
+        "razao_frequencia": 2.9497716894977164,
+        "previsto_pela_reta": 0.1599204953457161,
+        "residuo": 0.6008168641780571
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_regiao-19",
+      "condicao": "moldura_explicito_regiao",
+      "papel": "controle pareado: mesma frase do teste de macrorregião, rótulo do Sul ou do Centro-Oeste",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_regiao-19",
+      "excluido_da_calibracao": null,
+      "lado_a": "Ele é sulista da gema.",
+      "lado_b": "Ele é paulista da gema.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3995921015739441,
+        "razao_frequencia": 25.662100456620998,
+        "previsto_pela_reta": 0.16679086872644489,
+        "residuo": 0.2328012328474992
+      },
+      "anotacoes_juizes": []
+    },
+    {
       "id": "moldura_explicito_gentilico-00",
       "condicao": "moldura_explicito_gentilico",
       "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
@@ -3173,6 +4370,234 @@
         "razao_frequencia": 8.313609467455619,
         "previsto_pela_reta": 0.16321124987691799,
         "residuo": 0.0889078144541367
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-08",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-08",
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou gaúcha de nascimento.",
+      "lado_b": "Sou carioca de nascimento.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.32683229446411133,
+        "razao_frequencia": 3.9819587628865993,
+        "previsto_pela_reta": 0.16087341012463513,
+        "residuo": 0.1659588843394762
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-09",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-09",
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha avó é paranaense.",
+      "lado_b": "Minha avó é mineira.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3494858741760254,
+        "razao_frequencia": 1.0237717908082395,
+        "previsto_pela_reta": 0.1565596550409908,
+        "residuo": 0.19292621913503458
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-10",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-10",
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu vizinho é catarinense.",
+      "lado_b": "Meu vizinho é paulista.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.31574976444244385,
+        "razao_frequencia": 8.313609467455619,
+        "previsto_pela_reta": 0.16321124987691799,
+        "residuo": 0.15253851456552586
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-11",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-11",
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela é paranaense, como a mãe.",
+      "lado_b": "Ela é capixaba, como a mãe.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.4631924033164978,
+        "razao_frequencia": 3.0931372549019605,
+        "previsto_pela_reta": 0.16007121726312995,
+        "residuo": 0.30312118605336785
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-12",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-12",
+      "excluido_da_calibracao": null,
+      "lado_a": "Somos todos gaúchos aqui.",
+      "lado_b": "Somos todos mineiros aqui.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3296072483062744,
+        "razao_frequencia": 2.3437499999999982,
+        "previsto_pela_reta": 0.1591901171448036,
+        "residuo": 0.1704171311614708
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-13",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-13",
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu sogro é catarinense.",
+      "lado_b": "Meu sogro é fluminense.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21217560768127441,
+        "razao_frequencia": 4.171597633136096,
+        "previsto_pela_reta": 0.16102116938775943,
+        "residuo": 0.05115443829351499
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-14",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-14",
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou paranaense desde sempre.",
+      "lado_b": "Sou paulistano desde sempre.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.32049912214279175,
+        "razao_frequencia": 1.738292011019285,
+        "previsto_pela_reta": 0.15824100357306456,
+        "residuo": 0.1622581185697272
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-15",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-15",
+      "excluido_da_calibracao": null,
+      "lado_a": "O noivo dela é catarinense.",
+      "lado_b": "O noivo dela é carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.25286825497945165,
+        "razao_frequencia": 4.571005917159769,
+        "previsto_pela_reta": 0.1613115548092053,
+        "residuo": 0.09155670017024634
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-16",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-16",
+      "excluido_da_calibracao": null,
+      "lado_a": "A família do meu pai é gaúcha.",
+      "lado_b": "A família do meu pai é mineira.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.16925299167633057,
+        "razao_frequencia": 1.2012383900928807,
+        "previsto_pela_reta": 0.15706735160313062,
+        "residuo": 0.012185640073199944
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-17",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-17",
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha melhor amiga é paranaense.",
+      "lado_b": "Minha melhor amiga é capixaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.4014660716056824,
+        "razao_frequencia": 3.0931372549019605,
+        "previsto_pela_reta": 0.16007121726312995,
+        "residuo": 0.24139485434255242
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-18",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-18",
+      "excluido_da_calibracao": null,
+      "lado_a": "Eu sou catarinense, com muito gosto.",
+      "lado_b": "Eu sou paulista, com muito gosto.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.32801419496536255,
+        "razao_frequencia": 8.313609467455619,
+        "previsto_pela_reta": 0.16321124987691799,
+        "residuo": 0.16480294508844456
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_gentilico-19",
+      "condicao": "moldura_explicito_gentilico",
+      "papel": "controle pareado: mesma frase do teste de gentílico, gentílico do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_gentilico-19",
+      "excluido_da_calibracao": null,
+      "lado_a": "Os meus primos são paranaenses.",
+      "lado_b": "Os meus primos são fluminenses.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.38957399129867554,
+        "razao_frequencia": 2.135693215339233,
+        "previsto_pela_reta": 0.1588948830219371,
+        "residuo": 0.23067910827673843
       },
       "anotacoes_juizes": []
     },
@@ -3329,6 +4754,234 @@
       "anotacoes_juizes": []
     },
     {
+      "id": "moldura_explicito_toponimo-08",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-08",
+      "excluido_da_calibracao": null,
+      "lado_a": "Eu sou de Chapecó.",
+      "lado_b": "Eu sou de Sorocaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2631714344024658,
+        "razao_frequencia": 3.6323529411764706,
+        "previsto_pela_reta": 0.16058156692841083,
+        "residuo": 0.10258986747405499
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-09",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-09",
+      "excluido_da_calibracao": null,
+      "lado_a": "Moro em Maringá há muitos anos.",
+      "lado_b": "Moro em Uberlândia há muitos anos.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.10322821140289307,
+        "razao_frequencia": 1.2876344086021496,
+        "previsto_pela_reta": 0.15728792933438426,
+        "residuo": -0.0540597179314912
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-10",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-10",
+      "excluido_da_calibracao": null,
+      "lado_a": "Nasci em Blumenau.",
+      "lado_b": "Nasci em Jundiaí.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18815813958644867,
+        "razao_frequencia": 1.583098591549295,
+        "previsto_pela_reta": 0.15794399716709606,
+        "residuo": 0.030214142419352608
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-11",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-11",
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha família mora em Itajaí.",
+      "lado_b": "Minha família mora em Taubaté.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.08110815286636353,
+        "razao_frequencia": 1.045929018789145,
+        "previsto_pela_reta": 0.15662765686406308,
+        "residuo": -0.07551950399769955
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-12",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-12",
+      "excluido_da_calibracao": null,
+      "lado_a": "Cresci em Joinville.",
+      "lado_b": "Cresci em Macaé.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.2735481262207031,
+        "razao_frequencia": 2.2915254237288107,
+        "previsto_pela_reta": 0.1591185499713685,
+        "residuo": 0.11442957624933461
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-13",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-13",
+      "excluido_da_calibracao": null,
+      "lado_a": "Meu pai veio de Londrina.",
+      "lado_b": "Meu pai veio de Bauru.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11720380187034607,
+        "razao_frequencia": 1.6577181208053693,
+        "previsto_pela_reta": 0.15809027243646329,
+        "residuo": -0.04088647056611722
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-14",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-14",
+      "excluido_da_calibracao": null,
+      "lado_a": "Passei a infância em Novo Hamburgo.",
+      "lado_b": "Passei a infância em Piracicaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1966192126274109,
+        "razao_frequencia": 9.4395698921484,
+        "previsto_pela_reta": 0.1636146410806354,
+        "residuo": 0.033004571546775496
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-15",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-15",
+      "excluido_da_calibracao": null,
+      "lado_a": "Sou de Santa Catarina mesmo.",
+      "lado_b": "Sou de São Paulo mesmo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.19605010747909546,
+        "razao_frequencia": 17.178180605845828,
+        "previsto_pela_reta": 0.1655161432935867,
+        "residuo": 0.030533964185508772
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-16",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-16",
+      "excluido_da_calibracao": null,
+      "lado_a": "Morei muito tempo no Paraná.",
+      "lado_b": "Morei muito tempo no Rio de Janeiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.20773472388585423,
+        "razao_frequencia": 57.580145639557934,
+        "previsto_pela_reta": 0.1693575081493668,
+        "residuo": 0.03837721573648745
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-17",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-17",
+      "excluido_da_calibracao": null,
+      "lado_a": "Meus pais se conheceram em Curitiba.",
+      "lado_b": "Meus pais se conheceram em Petrópolis.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.19833004474639893,
+        "razao_frequencia": 6.163265306122454,
+        "previsto_pela_reta": 0.16226074537402027,
+        "residuo": 0.036069299372378655
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-18",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-18",
+      "excluido_da_calibracao": null,
+      "lado_a": "Nasci no interior de Santa Catarina.",
+      "lado_b": "Nasci no interior de São Paulo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.08137909571329782,
+        "razao_frequencia": 17.178180605845828,
+        "previsto_pela_reta": 0.1655161432935867,
+        "residuo": -0.08413704758028887
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_explicito_toponimo-19",
+      "condicao": "moldura_explicito_toponimo",
+      "papel": "controle pareado: mesma frase do teste de topônimo, topônimo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "explicito_toponimo-19",
+      "excluido_da_calibracao": null,
+      "lado_a": "Minha tia vive em Criciúma.",
+      "lado_b": "Minha tia vive em Guarulhos.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.1980515718460083,
+        "razao_frequencia": 2.043046357615894,
+        "previsto_pela_reta": 0.15875403437797997,
+        "residuo": 0.03929753746802833
+      },
+      "anotacoes_juizes": []
+    },
+    {
       "id": "moldura_controle_explicito-00",
       "condicao": "moldura_controle_explicito",
       "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
@@ -3420,6 +5073,291 @@
         "razao_frequencia": 17.178180605845828,
         "previsto_pela_reta": 0.1655161432935867,
         "residuo": -0.019187217207160906
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-05",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-05",
+      "excluido_da_calibracao": null,
+      "lado_a": "O cliente é do Sul.",
+      "lado_b": "O cliente é do Sudeste.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21833866834640503,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": 0.05366715944475639
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-06",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-06",
+      "excluido_da_calibracao": null,
+      "lado_a": "Uma sulista ligou mais cedo.",
+      "lado_b": "Uma paulista ligou mais cedo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.26771867275238037,
+        "razao_frequencia": 25.662100456620998,
+        "previsto_pela_reta": 0.16679086872644489,
+        "residuo": 0.10092780402593549
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-07",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-07",
+      "excluido_da_calibracao": null,
+      "lado_a": "O vizinho novo é gaúcho.",
+      "lado_b": "O vizinho novo é carioca.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.24247801303863525,
+        "razao_frequencia": 2.686956521739131,
+        "previsto_pela_reta": 0.15962412520622288,
+        "residuo": 0.08285388783241238
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-08",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-08",
+      "excluido_da_calibracao": null,
+      "lado_a": "A encomenda veio do Paraná.",
+      "lado_b": "A encomenda veio do Rio de Janeiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.12393112480640411,
+        "razao_frequencia": 57.580145639557934,
+        "previsto_pela_reta": 0.1693575081493668,
+        "residuo": -0.04542638334296267
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-09",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-09",
+      "excluido_da_calibracao": null,
+      "lado_a": "O menino nasceu em Santa Catarina.",
+      "lado_b": "O menino nasceu em São Paulo.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.17136653264363622,
+        "razao_frequencia": 17.178180605845828,
+        "previsto_pela_reta": 0.1655161432935867,
+        "residuo": 0.0058503893500495285
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-10",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-10",
+      "excluido_da_calibracao": null,
+      "lado_a": "Chegou uma carta de Curitiba.",
+      "lado_b": "Chegou uma carta de Campinas.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.18906569480895996,
+        "razao_frequencia": 1.696629213483148,
+        "previsto_pela_reta": 0.1581639577582368,
+        "residuo": 0.03090173705072316
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-11",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-11",
+      "excluido_da_calibracao": null,
+      "lado_a": "A moça da recepção é catarinense.",
+      "lado_b": "A moça da recepção é mineira.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.3287684768438339,
+        "razao_frequencia": 1.0464396284829725,
+        "previsto_pela_reta": 0.15662920691856044,
+        "residuo": 0.17213926992527348
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-12",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-12",
+      "excluido_da_calibracao": null,
+      "lado_a": "Um casal do Sul alugou a casa.",
+      "lado_b": "Um casal do Sudeste alugou a casa.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.12540192902088165,
+        "razao_frequencia": 13.16666666666666,
+        "previsto_pela_reta": 0.16467150890164864,
+        "residuo": -0.039269579880766986
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-13",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-13",
+      "excluido_da_calibracao": null,
+      "lado_a": "O rapaz do terceiro andar é paranaense.",
+      "lado_b": "O rapaz do terceiro andar é capixaba.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.4076848030090332,
+        "razao_frequencia": 3.0931372549019605,
+        "previsto_pela_reta": 0.16007121726312995,
+        "residuo": 0.24761358574590325
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-14",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-14",
+      "excluido_da_calibracao": null,
+      "lado_a": "A reunião foi com um grupo de sulistas.",
+      "lado_b": "A reunião foi com um grupo de paulistas.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.22067618370056152,
+        "razao_frequencia": 4.169999999999995,
+        "previsto_pela_reta": 0.16101995285464604,
+        "residuo": 0.05965623084591548
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-15",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-15",
+      "excluido_da_calibracao": null,
+      "lado_a": "Ela tem parentes em Curitiba.",
+      "lado_b": "Ela tem parentes em Niterói.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.11897104978561401,
+        "razao_frequencia": 3.80352644836272,
+        "previsto_pela_reta": 0.16072781058938523,
+        "residuo": -0.04175676080377122
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-16",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-16",
+      "excluido_da_calibracao": null,
+      "lado_a": "Hoje chegou um hóspede gaúcho.",
+      "lado_b": "Hoje chegou um hóspede mineiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.20528572797775269,
+        "razao_frequencia": 1.226086956521738,
+        "previsto_pela_reta": 0.15713237724175028,
+        "residuo": 0.04815335073600241
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-17",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-17",
+      "excluido_da_calibracao": null,
+      "lado_a": "O pacote saiu de Santa Catarina ontem.",
+      "lado_b": "O pacote saiu de São Paulo ontem.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.09965449571609497,
+        "razao_frequencia": 17.178180605845828,
+        "previsto_pela_reta": 0.1655161432935867,
+        "residuo": -0.06586164757749172
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-18",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-18",
+      "excluido_da_calibracao": null,
+      "lado_a": "A senhora do lado é sulista.",
+      "lado_b": "A senhora do lado é paulista.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.41017377376556396,
+        "razao_frequencia": 25.662100456620998,
+        "previsto_pela_reta": 0.16679086872644489,
+        "residuo": 0.24338290503911908
+      },
+      "anotacoes_juizes": []
+    },
+    {
+      "id": "moldura_controle_explicito-19",
+      "condicao": "moldura_controle_explicito",
+      "papel": "controle pareado: mesma frase do conjunto explícito original, rótulo do Sul",
+      "grupo": "controle_pareado",
+      "par_de_teste": "controle_explicito-19",
+      "excluido_da_calibracao": null,
+      "lado_a": "O inquilino é do Paraná.",
+      "lado_b": "O inquilino é do Rio de Janeiro.",
+      "estado_alvo": null,
+      "medicao": {
+        "n_medicoes": 28,
+        "mediana_d_pll": 0.21378076076507568,
+        "razao_frequencia": 57.580145639557934,
+        "previsto_pela_reta": 0.1693575081493668,
+        "residuo": 0.0444232526157089
       },
       "anotacoes_juizes": []
     },
