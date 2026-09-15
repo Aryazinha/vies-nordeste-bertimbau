@@ -553,6 +553,16 @@ O cálculo de WER e DER exige transcrição manual de referência: 20 minutos po
 
 **Decisão da equipe, 31/08/2026: o trabalho de transcrição manual fica adiado deliberadamente**, para execução posterior. Até lá, o WER permanece declarado como não medido na ficha do conjunto, e o corpus não deve ser usado para comparar desempenho de reconhecimento de fala entre variedades.
 
+**Atualização de 15/09/2026.** A medida entrou na v1 (decisão 13 do plano de fechamento), e a amostra foi regerada sobre os 83 arquivos, na máquina local, por `pipeline_coleta_piloto/preparar_amostra_wer.py`: 900 trechos, 120,6 min, cerca de 20 min por estado (`docs/plano_corpus/03-validar.md`, "Amostras geradas em 15/09/2026"). Duas ressalvas: (a) por decisão da equipe, **os trechos com nome mascarado foram excluídos do sorteio** — de 2,0 a 5,4 min elegíveis por estado —, o que deve constar como limitação da medida; (b) a amostra **não é estratificada por camada**, ao contrário do que o primeiro parágrafo deste item previa (4.11). Resta a transcrição manual, item 11 do plano.
+
+### 4.11 A amostra do WER não é estratificada por camada — ABERTA em 15/09/2026
+
+**O problema.** O sorteio da amostra do WER, que reproduz a seção 6.4 do notebook, acumula trechos por estado sem controlar a camada de fonte. A composição resultante difere bastante entre estados: a camada de vox-pop responde por 13,5 dos 20 minutos do Ceará e por 4,5 dos 20 do Rio de Janeiro; a de vlog, por 8,5 minutos no Rio de Janeiro e 2,4 no Ceará e na Bahia.
+
+**Por que importa.** O erro do reconhecedor depende das condições de gravação, e a entrevista de rua, com ruído de ambiente, tende a produzir WER mais alto. Uma diferença de WER entre estados pode, portanto, refletir a composição de camadas da amostra, e não a variedade — e, dado que a camada de vox-pop pesa mais em três dos estados nordestinos, a confusão iria na direção de atribuir ao sotaque nordestino um erro que é da condição de gravação.
+
+**O que encerraria.** Não exige refazer a amostra nem acrescentar transcrição. Basta que o relatório do WER, depois do item 11, apresente o valor também por estado e camada, ou uma média por estado ponderada por uma composição comum de camadas, e que a comparação entre Nordeste e Sudeste seja lida sob essa ressalva. Por estar contido na leitura da condição C6, e não ampliar o escopo, é tratado como parte do item 11; a extensão de `medir_wer.py` para o recorte por camada é pequena e será feita quando houver referências a medir.
+
 ### 4.10 Anonimização das transcrições — RESOLVIDA em 02/09/2026
 
 A seção 1.4.2 do protocolo exige mascarar nomes próprios de terceiros — não o do autor do vídeo — antes de qualquer publicação. Com a decisão de 31/08/2026 que autorizou publicar as transcrições, a anonimização deixou de ser cláusula de protocolo e passou a ser pré-condição técnica de entrega.
@@ -877,6 +887,8 @@ Os dois casos identificados denunciaram-se pelo nome do canal, o que é acidente
 **Investigado em 31/08/2026: as duas vias automáticas óbvias não funcionam, e por motivos já documentados no projeto.** Densidade de marcadores lexicais regionais é sinal fraco demais — o item 2.4 de `docs/achados_para_o_artigo.md` mediu zero ocorrências desses itens em 30 mil palavras de fala nordestina genuína, então um detector assim marcaria quase todo falante verdadeiro como suspeito. Densidade de contextos de palatalização mede apenas contexto ortográfico, não realização fonética, e os mesmos contextos existem em qualquer fala do português — não separa quem palataliza de quem não palataliza sem análise acústica do áudio, que o projeto não tem.
 
 **Encaminhamento adotado: protocolo de curadoria manual, operacionalizado em vez de deixado como frase.** `pipeline_coleta_piloto/preparar_amostra_coerencia.py` amostra locutores por estado (10 de 20, dimensionado para poder de detecção adequado a um primeiro descarte) e recorta o segmento mais longo de cada um, gerando uma planilha para veredito humano — coerente, suspeito ou inconclusivo. Não decide nada sozinho; prepara o material para quem vai ouvir. Requer ambiente com áudio; não foi executado.
+
+**Atualização de 15/09/2026: amostra gerada**, item 6 do plano de fechamento, na máquina local: 10 pessoas por estado, 60 ao todo, entre 27 e 38 elegíveis por estado. O script foi revisto antes da execução para ler os registros anonimizados — a pasta de originais tem 31 dos 83 arquivos localmente — e para sortear pessoas em vez de rótulos de diarização, com a fusão confirmada na conferência de reincidência (6.4). Planilhas em `dataset_raw/diarizacao/coerencia_{UF}.json`, fora do versionamento. Resta a escuta, item 10 do plano, que encerra a condição C5.
 
 ### 6.3 Precisão da triagem automática
 

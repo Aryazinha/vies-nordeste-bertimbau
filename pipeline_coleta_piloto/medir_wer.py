@@ -23,10 +23,10 @@ só, não apenas controle de qualidade.
 
 ## Passo a passo, para quem for preencher a amostra
 
-1. Gere ou recupere `amostra_wer.json` (produzido pela célula 6.4 do notebook
-   Colab; é baixado separadamente do zip principal de resultados).
-2. Para cada item, ouça o trecho [`inicio_s`, `fim_s`] do arquivo `id`
-   correspondente e digite exatamente o que foi dito em `referencia_manual`
+1. Gere `amostra_wer.json` com `preparar_amostra_wer.py`, que reproduz na
+   máquina local a seção 6.4 do notebook e grava em `dataset_raw/`.
+2. Para cada item, ouça o trecho [`inicio_s`, `fim_s`] do arquivo de áudio
+   indicado em `arquivo` e digite exatamente o que foi dito em `referencia_manual`
    — sem corrigir gramática, sem expandir números por extenso, mantendo a
    mesma convenção ortográfica do restante da transcrição automática.
 3. Rode este script sobre o arquivo preenchido.

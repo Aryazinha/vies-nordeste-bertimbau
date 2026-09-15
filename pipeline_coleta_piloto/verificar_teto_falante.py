@@ -111,14 +111,16 @@ def carregar_vereditos(caminho: Path | None) -> list[dict]:
     return list(dados.values()) if isinstance(dados, dict) else list(dados)
 
 
-def fala_por_pessoa(fala_estado: dict[tuple[str, str], float], vereditos: list[dict],
-                    estado: str) -> tuple[list[float], int, int]:
+def pessoa_por_rotulo(rotulos, vereditos: list[dict],
+                      estado: str) -> tuple[dict[tuple[str, str], tuple[str, str]], int, int]:
     """
-    Funde os rótulos confirmados como mesma pessoa e devolve a fala de cada
-    pessoa, o número de fusões efetivas e o de vereditos sem rótulo
-    correspondente — que não podem ser descartados em silêncio.
+    Funde os rótulos confirmados como mesma pessoa, por componentes conexos, e
+    devolve o representante de cada rótulo, o número de fusões efetivas e o de
+    vereditos sem rótulo correspondente — que não podem ser descartados em
+    silêncio. Usada também por `preparar_amostra_coerencia.py`, para que a
+    amostra sorteie pessoas, e não rótulos, pela mesma regra.
     """
-    pai = {rotulo: rotulo for rotulo in fala_estado}
+    pai = {rotulo: rotulo for rotulo in rotulos}
 
     def raiz(x):
         while pai[x] != x:
@@ -139,9 +141,16 @@ def fala_por_pessoa(fala_estado: dict[tuple[str, str], float], vereditos: list[d
             pai[ra] = rb
             fusoes += 1
 
+    return {rotulo: raiz(rotulo) for rotulo in pai}, fusoes, orfaos
+
+
+def fala_por_pessoa(fala_estado: dict[tuple[str, str], float], vereditos: list[dict],
+                    estado: str) -> tuple[list[float], int, int]:
+    """Fala de cada pessoa, depois das fusões; ver `pessoa_por_rotulo`."""
+    pessoa, fusoes, orfaos = pessoa_por_rotulo(fala_estado, vereditos, estado)
     por_pessoa: dict[tuple[str, str], float] = defaultdict(float)
     for rotulo, segundos in fala_estado.items():
-        por_pessoa[raiz(rotulo)] += segundos
+        por_pessoa[pessoa[rotulo]] += segundos
     return list(por_pessoa.values()), fusoes, orfaos
 
 
