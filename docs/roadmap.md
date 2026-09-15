@@ -270,5 +270,8 @@ Aprovado pela equipe em 15/09/2026. **Numeração estável:** os itens não são
 | 15 | 2 — decisão | Integrar a branch `etapa3-situacao` | equipe | **decidida e executada** 15/09 | — |
 | 16 | 2 — decisão | Eixo ocupacional por AUL: medir ou declarar limitação | equipe | **decidida** 15/09: limitação na v1, medição em fase posterior | — |
 | 17 | 4 — fechar | Consolidar a documentação (`docs/pendencias.md` 2.15) | assistente | a fazer | 2 |
+| 18 | depois da v1 | AUL para o eixo de prestígio ocupacional, **se houver tempo** antes da submissão (`docs/plano_aul_eixo_ocupacional.md`) | sessão própria | a fazer, após a v1 | v1 concluída |
+
+**Retomada por sessão nova:** `docs/retomada_fechamento_v1.md`.
 
 **Fora da v1, de propósito:** análise de sentimento (segundo artigo), crescimento das condições implícitas, resolução do gentílico, confirmação do sinal de direção, hipótese de marcação de registro, controle intrarregional, coleta de mais áudio, juízes como filtro obrigatório, e juntar as listas de pares num só módulo.
