@@ -345,6 +345,20 @@ Tabela em `experimentos/resultados/tabelas/meta_pareada.md`. Desvio-padrão de D
 
 **Volume implicado.** Condições `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo` de 8 para 20 frases, e `controle_explicito` de 5 para 20: 51 frases novas, cada uma com par de teste e gêmeo inter-regional, perfazendo 102 pares e cerca de 2.900 medições. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
+### 2.15 Dispersão e defasagem da documentação — ABERTA em 15/09/2026
+
+Levantamento de 15/09/2026, só de leitura. **A estrutura do repositório está organizada**: código, dados e documentos separados; resultados divididos em `dados/`, `tabelas/`, `relatorios/` e `historico/`; áudio fora do versionamento; licenças, `README.md` e `pyproject.toml` na raiz. **A documentação, não.** São cerca de 100 mil palavras em 29 arquivos de texto, com cinco problemas:
+
+1. **O mesmo resultado é repetido em muitos arquivos.** As três conclusões do projeto e seus valores aparecem em `CLAUDE.md`, `README.md`, `docs/achados_para_o_artigo.md`, `docs/resumo_para_orientacao.md`, `docs/questoes_para_orientacao.md`, `docs/roadmap.md` e `docs/dataset-spec.md`. Cada revisão de 14 e 15/09/2026 exigiu editar cerca de dez arquivos, e cada cópia é um ponto em que a versão antiga pode sobreviver.
+2. **Documentos defasados sem aviso.** O quadro de abertura de `docs/dataset-spec.md` (ver 2.13); `docs/pares_minimos_v1.md`, de 31/08, que desconhece o desenho pareado e a calibração ampliada; `docs/resumo_para_orientacao.md`, datado de 31/08 e só parcialmente revisto; `AUDITORIA.md`, de 29/08, com etapas C a F sem situação conhecida; a tabela "Prioridade" do topo deste arquivo, de 31/08, cujos itens 3 e 4 estão resolvidos; e o cabeçalho "Estado atual" do `CLAUDE.md`, que ainda diz 29/08.
+3. **Este arquivo cresceu além da função.** Com cerca de 19 mil palavras, mistura o que está aberto com o histórico do que foi resolvido, e deixou de ser consultável como "registro do que está aberto".
+4. **As listas de pares estão espalhadas em três módulos** (`teste_sensibilidade.py`, `teste_construcional.py`, `teste_explicito.py`), com a medição associada ao par pela posição. A condição `controle_explicito` vive em um módulo e é medida por outro.
+5. **`CLAUDE.md`, a memória oficial do projeto, está fora do versionamento** (`.gitignore`), apesar do precedente de perda de material que motivou este arquivo. `docs/protocolo.md` existe e é citado, mas não consta do índice do `CLAUDE.md`.
+
+**Conduta proposta, a decidir.** Não reorganizar agora, para não reabrir o escopo da v1. Os itens 1 a 3 e 5 são consolidação de documentos, sem risco para dados ou medições, e cabem no fechamento da v1: um único documento de resultados, com os demais remetendo a ele em vez de repetir valores; histórico de pendências resolvidas movido para arquivo próprio; aviso de "histórico" nos documentos superados; e decisão sobre versionar o `CLAUDE.md`. O item 4 é refatoração de código com risco de deslocar medições, e fica para a v2.
+
+**Decisão de 15/09/2026.** Os itens 1, 2, 3 e 5 entram no plano de fechamento da v1 como **item 17**, na fase final, depois da atualização de documentos do item 2. O item 4 fica para a v2.
+
 ### 2.14 Filtro 1 inviável na forma prevista — ABERTA em 15/09/2026
 
 O protocolo de validação (`docs/pares_minimos_v1.md` §7; `docs/dataset-spec.md` §2.3) prevê cinco juízes falantes nativos por variedade. Em 15/09/2026 a equipe registrou não dispor de contatos nos estados-alvo, o que inviabiliza o recrutamento tanto na forma original (30 juízes) quanto na reduzida discutida na mesma data (cerca de dez juízes, só para as condições implícitas, em nível de macrorregião).
