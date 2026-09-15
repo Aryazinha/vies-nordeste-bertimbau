@@ -379,6 +379,16 @@ O protocolo de validação (`docs/pares_minimos_v1.md` §7; `docs/dataset-spec.m
 
 **Encerra a execução:** conferência humana dos trechos (item 8 do plano) e classificação final por par — um par de feixe só é confirmado se todos os seus traços o forem.
 
+**Conferência humana e classificação final, 15/09/2026 — execução encerrada.** A equipe conferiu 46 trechos em sete traços, com leitura comparada do assistente; duas divergências foram resolvidas pela equipe (um *rapaz* que abre resposta a pergunta, mantido; uma negação em frase cortada, sem verbo antes, excluída). Critério adotado no imperativo: *veja bem* e *veja só* são marcadores de conversa, e não ordem, e foram excluídos. Pelo mesmo critério, parte de *olha* seria marcador, e a referência de indicativo não foi conferida — **a proporção entre as duas formas não é usada**. Registro em `experimentos/resultados/dados/filtro2_conferencia.json`, sem reprodução de transcrição.
+
+| Situação | Pares | Traços |
+|---|---|---|
+| **confirmado** (7) | `A-00`, `A-01`, `A-02`, `A-03`, `A-04`, `C-04`, `D-04` | imperativo (fonte verificada; 7 ocorrências em 5 arquivos), negação pós-verbal (fonte verificada; 3 em 3), *rapaz* (6 em 5) |
+| **confirmado com ressalva** (5) | `B-04`, `D-03`, `D-00`, `D-01`, `D-06` | *menino*: uma ocorrência, na forma *menina*; *lhe*: duas do mesmo falante; *tu* sem flexão: também em São Paulo, não exclusivo |
+| **não confirmado no corpus** (13) | `B-00` a `B-03`, `C-00` a `C-03`, `D-02`, `D-05`, `D-07`, `D-08`, `D-09` | léxico regional, *visse*, comitativo com *mais*, *massa*, *que foi que*, *tá com*, *toda vida* |
+
+**Consequência para o dataset.** A situação de validação passa a constar de cada par em `pares_minimos.json` (esquema 1.3). Pares não confirmados permanecem no conjunto, marcados, porque o resultado nulo das famílias implícitas depende deles e a regra de assimetria impede lê-los como reprovados. **Limitações a declarar:** ausência de juízes; corpus de 7,96 h, incapaz de reprovar traço raro; conferência feita pela própria equipe; candidatos de apresentador e repórter, que podem não ser da variedade do estado.
+
 **Questão ética associada, independente da alternativa:** a dispensa de comitê de ética registrada no item 9 do `dataset-spec` foi decidida para o corpus de áudio, e não se estende automaticamente a participantes humanos respondendo a questionário. A confirmar com a orientação caso (b) ou (c) sejam adotadas.
 
 ### 2.13 `docs/dataset-spec.md` desatualizado no quadro de abertura — ABERTA em 15/09/2026

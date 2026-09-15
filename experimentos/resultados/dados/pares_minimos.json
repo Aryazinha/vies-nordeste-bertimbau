@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "versao_esquema": "1.2",
+    "versao_esquema": "1.3",
     "gerado_por": "experimentos/empacotar_pares.py",
     "licenca": "CC BY 4.0 (ver LICENSE-DATA.md)",
     "modelo_medido": "neuralmind/bert-base-portuguese-cased",
@@ -92,7 +92,7 @@
     "advertencias": [
       "Os pares de resultado nulo integram o conjunto por decisão da equipe: o nulo controlado das quatro famílias de sinalização dialetal é um dos resultados do trabalho, e sem os pares ele não é verificável.",
       "A extensão em subtokens está publicada porque foi uma diferença de extensão que produziu o viés aparente de +0,195 no eixo de caráter, desfeito ao se restringir a medição a atributos de token único. Qualquer conjunto derivado deve balancear subtokens entre os polos.",
-      "Nenhum item foi validado por juízes falantes nativos: o campo 'anotacoes_juizes' está vazio em todos os pares, e não por omissão do empacotamento.",
+      "Nenhum item foi validado por juízes falantes nativos: o campo 'anotacoes_juizes' está vazio em todos os pares, e não por omissão do empacotamento. Os pares de sinalização implícita foram validados, em substituição, por fonte dialetológica e ocorrência no corpus de áudio próprio (campo 'validacao'); 'nao_confirmado' não equivale a reprovado, porque o corpus, de 7,96 h, não permite reprovar traço raro.",
       "O eixo de prestígio ocupacional (moldura T2) não tem medição válida por PLL, e exige AUL. Ver docs/achados_para_o_artigo.md.",
       "Pares com 'excluido_da_calibracao' preenchido permanecem no conjunto mas não entram no ajuste da reta nem no grupo de referência; o campo traz o motivo. A ausência de carga regional nos pares de calibração é juízo da equipe, registrado em calibracao_revisao.json, e não foi validada por juízes."
     ]
@@ -115,7 +115,11 @@
         "previsto_pela_reta": 0.15983861464254068,
         "residuo": -0.031860587775627836
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_neutro-01",
@@ -134,7 +138,11 @@
         "previsto_pela_reta": 0.15692044564123478,
         "residuo": -0.08433486290808048
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_neutro-02",
@@ -153,7 +161,11 @@
         "previsto_pela_reta": 0.1572954436627105,
         "residuo": -0.1231307765331939
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_neutro-03",
@@ -172,7 +184,11 @@
         "previsto_pela_reta": 0.16014358701140638,
         "residuo": -0.057549827315717644
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_neutro-04",
@@ -191,7 +207,11 @@
         "previsto_pela_reta": 0.16175213491885032,
         "residuo": -0.04871335661379661
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "dialeto_A-00",
@@ -210,7 +230,15 @@
         "previsto_pela_reta": 0.16050605670692356,
         "residuo": -0.0704534222293082
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado",
+        "tracos": [
+          "imperativo"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_A-01",
@@ -229,7 +257,15 @@
         "previsto_pela_reta": 0.1643779487258462,
         "residuo": -0.05935182281794826
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado",
+        "tracos": [
+          "imperativo"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_A-02",
@@ -248,7 +284,15 @@
         "previsto_pela_reta": 0.16226058957452436,
         "residuo": -0.0705459689843144
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado",
+        "tracos": [
+          "imperativo"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_A-03",
@@ -267,7 +311,15 @@
         "previsto_pela_reta": 0.15648504170737482,
         "residuo": -0.0987959710057757
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado",
+        "tracos": [
+          "negacao_posverbal"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_A-04",
@@ -286,7 +338,15 @@
         "previsto_pela_reta": 0.15648504170737482,
         "residuo": -0.08227648410163141
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado",
+        "tracos": [
+          "negacao_posverbal"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_B-00",
@@ -305,7 +365,15 @@
         "previsto_pela_reta": 0.16782150212231223,
         "residuo": 0.15554037150439676
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "lexico_regional"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_B-01",
@@ -324,7 +392,15 @@
         "previsto_pela_reta": 0.17316570970186365,
         "residuo": 0.06167361048093664
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "lexico_regional"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_B-02",
@@ -343,7 +419,15 @@
         "previsto_pela_reta": 0.18573611402222756,
         "residuo": -0.08438938283631447
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "lexico_regional"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_B-03",
@@ -362,7 +446,15 @@
         "previsto_pela_reta": 0.17199230706004828,
         "residuo": 0.1206957646677044
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "lexico_regional"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_B-04",
@@ -381,7 +473,17 @@
         "previsto_pela_reta": 0.1627037379062855,
         "residuo": 0.11587734491460683
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado_com_ressalva",
+        "tracos": [
+          "vocativo_menino"
+        ],
+        "ressalvas": [
+          "uma única ocorrência, na forma feminina 'menina'"
+        ],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_C-00",
@@ -400,7 +502,16 @@
         "previsto_pela_reta": 0.17711908265200182,
         "residuo": 0.06326948956403211
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "imperativo",
+          "lexico_regional"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_C-01",
@@ -419,7 +530,16 @@
         "previsto_pela_reta": 0.17316570970186365,
         "residuo": 0.10868152883878576
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "negacao_posverbal",
+          "lexico_regional"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_C-02",
@@ -438,7 +558,16 @@
         "previsto_pela_reta": 0.1723912799126939,
         "residuo": -0.08514978923072761
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "imperativo",
+          "lexico_regional"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_C-03",
@@ -457,7 +586,17 @@
         "previsto_pela_reta": 0.16240636501795894,
         "residuo": -0.025270899078119108
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "imperativo",
+          "negacao_posverbal",
+          "visse"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_C-04",
@@ -476,7 +615,16 @@
         "previsto_pela_reta": 0.16229765505551944,
         "residuo": 0.0015980711483990218
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado",
+        "tracos": [
+          "imperativo",
+          "vocativo_rapaz"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "controle_raridade-00",
@@ -495,7 +643,11 @@
         "previsto_pela_reta": 0.16847898911046644,
         "residuo": 0.16616830874872546
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_raridade-01",
@@ -514,7 +666,11 @@
         "previsto_pela_reta": 0.16694961362918534,
         "residuo": 0.07291115945736251
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_raridade-02",
@@ -533,7 +689,11 @@
         "previsto_pela_reta": 0.18178637891040483,
         "residuo": -0.01677968173251787
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_raridade-03",
@@ -552,7 +712,11 @@
         "previsto_pela_reta": 0.1641005048928053,
         "residuo": 0.11427369020607164
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_raridade-04",
@@ -571,7 +735,11 @@
         "previsto_pela_reta": 0.17103846982802867,
         "residuo": 0.013049521886448867
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_explicito-00",
@@ -590,7 +758,11 @@
         "previsto_pela_reta": 0.1646702847416195,
         "residuo": 0.11377460146596108
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-01",
@@ -609,7 +781,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.15978334055966345
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-02",
@@ -628,7 +804,11 @@
         "previsto_pela_reta": 0.16256918360115044,
         "residuo": 0.026020568119278026
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-03",
@@ -647,7 +827,11 @@
         "previsto_pela_reta": 0.16891706429671968,
         "residuo": 0.040462906730654585
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-04",
@@ -666,7 +850,11 @@
         "previsto_pela_reta": 0.1679301483873462,
         "residuo": 0.01850674316843992
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-05",
@@ -685,7 +873,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.13609398113316504
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-06",
@@ -704,7 +896,11 @@
         "previsto_pela_reta": 0.16803537314466627,
         "residuo": 0.13671220833726733
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-07",
@@ -723,7 +919,11 @@
         "previsto_pela_reta": 0.16021422514157188,
         "residuo": 0.1454835437850486
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-08",
@@ -742,7 +942,11 @@
         "previsto_pela_reta": 0.16891706429671968,
         "residuo": -0.0382589145774814
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-09",
@@ -761,7 +965,11 @@
         "previsto_pela_reta": 0.1679301483873462,
         "residuo": 0.049131848072614726
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-10",
@@ -780,7 +988,11 @@
         "previsto_pela_reta": 0.15823673103645183,
         "residuo": 0.050440799252244456
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-11",
@@ -799,7 +1011,11 @@
         "previsto_pela_reta": 0.1567760952861233,
         "residuo": 0.18286547575879858
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-12",
@@ -818,7 +1034,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": -0.017948143615064943
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-13",
@@ -837,7 +1057,11 @@
         "previsto_pela_reta": 0.1567820706309227,
         "residuo": 0.13444217062579117
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-14",
@@ -856,7 +1080,11 @@
         "previsto_pela_reta": 0.15831996291842243,
         "residuo": 0.12110732704434612
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-15",
@@ -875,7 +1103,11 @@
         "previsto_pela_reta": 0.16080058386760027,
         "residuo": -0.004179723767807786
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-16",
@@ -894,7 +1126,11 @@
         "previsto_pela_reta": 0.15772247717709925,
         "residuo": 0.12388491227297399
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-17",
@@ -913,7 +1149,11 @@
         "previsto_pela_reta": 0.1679301483873462,
         "residuo": -0.04800512626210207
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-18",
@@ -932,7 +1172,11 @@
         "previsto_pela_reta": 0.16803537314466627,
         "residuo": 0.21520043904252856
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_explicito-19",
@@ -951,7 +1195,11 @@
         "previsto_pela_reta": 0.16891706429671968,
         "residuo": 0.04694574631500517
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "controle_conteudo-00",
@@ -970,7 +1218,11 @@
         "previsto_pela_reta": 0.16085982066856888,
         "residuo": 0.3599954869104717
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_conteudo-01",
@@ -989,7 +1241,11 @@
         "previsto_pela_reta": 0.1568605760918086,
         "residuo": 0.5054777999534185
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_conteudo-02",
@@ -1008,7 +1264,11 @@
         "previsto_pela_reta": 0.15917205457245293,
         "residuo": 0.4705793892904621
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_conteudo-03",
@@ -1027,7 +1287,11 @@
         "previsto_pela_reta": 0.16150437714412758,
         "residuo": 0.1998586761777108
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_conteudo-04",
@@ -1046,7 +1310,11 @@
         "previsto_pela_reta": 0.15899074986768885,
         "residuo": 0.17533003374742345
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "dialeto_D-00",
@@ -1065,7 +1333,17 @@
         "previsto_pela_reta": 0.16183023063274865,
         "residuo": -0.02919606772991662
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado_com_ressalva",
+        "tracos": [
+          "lhe_segunda_pessoa"
+        ],
+        "ressalvas": [
+          "as duas ocorrências são do mesmo falante"
+        ],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-01",
@@ -1084,7 +1362,17 @@
         "previsto_pela_reta": 0.16183023063274865,
         "residuo": -0.053112193027463006
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado_com_ressalva",
+        "tracos": [
+          "lhe_segunda_pessoa"
+        ],
+        "ressalvas": [
+          "as duas ocorrências são do mesmo falante"
+        ],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-02",
@@ -1103,7 +1391,15 @@
         "previsto_pela_reta": 0.1659554131713957,
         "residuo": -0.03750895340119306
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "comitativo_mais"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-03",
@@ -1122,7 +1418,17 @@
         "previsto_pela_reta": 0.1627037379062855,
         "residuo": 0.03860470623605611
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado_com_ressalva",
+        "tracos": [
+          "vocativo_menino"
+        ],
+        "ressalvas": [
+          "uma única ocorrência, na forma feminina 'menina'"
+        ],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-04",
@@ -1141,7 +1447,15 @@
         "previsto_pela_reta": 0.16408925340411532,
         "residuo": -0.08527236268756258
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado",
+        "tracos": [
+          "vocativo_rapaz"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-05",
@@ -1160,7 +1474,15 @@
         "previsto_pela_reta": 0.15854310649353662,
         "residuo": 0.07186186653655371
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "massa_avaliativo"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-06",
@@ -1179,7 +1501,17 @@
         "previsto_pela_reta": 0.16321208255530426,
         "residuo": -0.07411160247565338
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "confirmado_com_ressalva",
+        "tracos": [
+          "tu_sem_flexao"
+        ],
+        "ressalvas": [
+          "ocorre também no Sudeste (um arquivo de SP), além do registro para o Rio de Janeiro; não é exclusivo do Nordeste"
+        ],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-07",
@@ -1198,7 +1530,15 @@
         "previsto_pela_reta": 0.15985084464921423,
         "residuo": -0.07267702510728308
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "que_foi_que"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-08",
@@ -1217,7 +1557,15 @@
         "previsto_pela_reta": 0.1576957263019258,
         "residuo": -0.06516785993840041
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "ta_com_tempo"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "dialeto_D-09",
@@ -1236,7 +1584,15 @@
         "previsto_pela_reta": 0.1571382220797835,
         "residuo": 0.05716038383910077
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "nao_confirmado",
+        "tracos": [
+          "toda_vida"
+        ],
+        "ressalvas": [],
+        "procedencia": "fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (filtro2_conferencia.json)"
+      }
     },
     {
       "id": "controle_frequencia-00",
@@ -1255,7 +1611,11 @@
         "previsto_pela_reta": 0.15692044564123478,
         "residuo": -0.017513645371154213
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-01",
@@ -1274,7 +1634,11 @@
         "previsto_pela_reta": 0.1566281738417097,
         "residuo": -0.036916715158695795
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-02",
@@ -1293,7 +1657,11 @@
         "previsto_pela_reta": 0.15983861464254068,
         "residuo": -0.03143642125519108
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-03",
@@ -1312,7 +1680,11 @@
         "previsto_pela_reta": 0.1600648648142143,
         "residuo": -0.015312799473536115
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-04",
@@ -1331,7 +1703,11 @@
         "previsto_pela_reta": 0.16166499439660298,
         "residuo": -0.005962463058864942
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-05",
@@ -1350,7 +1726,11 @@
         "previsto_pela_reta": 0.16014358701140638,
         "residuo": -0.057549827315717644
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-06",
@@ -1369,7 +1749,11 @@
         "previsto_pela_reta": 0.16854235854145622,
         "residuo": 0.03482666287425423
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-07",
@@ -1388,7 +1772,11 @@
         "previsto_pela_reta": 0.17147542553872697,
         "residuo": -0.051252737817474525
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-08",
@@ -1407,7 +1795,11 @@
         "previsto_pela_reta": 0.1613829467421759,
         "residuo": 0.08272263072669617
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-09",
@@ -1426,7 +1818,11 @@
         "previsto_pela_reta": 0.1578100762381298,
         "residuo": 0.031466380594755955
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-10",
@@ -1445,7 +1841,11 @@
         "previsto_pela_reta": 0.15793777491146527,
         "residuo": -0.04596043612057171
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "controle_frequencia-11",
@@ -1464,7 +1864,11 @@
         "previsto_pela_reta": 0.15677661282785407,
         "residuo": -0.024208332925713477
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "explicito_regiao-00",
@@ -1483,7 +1887,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.06008721099919287
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-01",
@@ -1502,7 +1910,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.049289352760972654
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-02",
@@ -1521,7 +1933,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": -0.03523927225047144
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-03",
@@ -1540,7 +1956,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.009863184954982923
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-04",
@@ -1559,7 +1979,11 @@
         "previsto_pela_reta": 0.15860562569220021,
         "residuo": 0.14855355971734568
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-05",
@@ -1578,7 +2002,11 @@
         "previsto_pela_reta": 0.16027884170943418,
         "residuo": 0.11860348298615297
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-06",
@@ -1597,7 +2025,11 @@
         "previsto_pela_reta": 0.15963150617505875,
         "residuo": 0.20586250665758285
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-07",
@@ -1616,7 +2048,11 @@
         "previsto_pela_reta": 0.1627705896739068,
         "residuo": 0.15674249283036565
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-08",
@@ -1635,7 +2071,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.01833397852009741
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-09",
@@ -1654,7 +2094,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.01549816833561865
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-10",
@@ -1673,7 +2117,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": -0.05943202270442041
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-11",
@@ -1692,7 +2140,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": -0.016261153353987062
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-12",
@@ -1711,7 +2163,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": 0.00538755165165869
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-13",
@@ -1730,7 +2186,11 @@
         "previsto_pela_reta": 0.1581624676125625,
         "residuo": -0.10698031677180322
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-14",
@@ -1749,7 +2209,11 @@
         "previsto_pela_reta": 0.1646702847416195,
         "residuo": 0.20802003527333413
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-15",
@@ -1768,7 +2232,11 @@
         "previsto_pela_reta": 0.1627705896739068,
         "residuo": 0.13589696041306829
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-16",
@@ -1787,7 +2255,11 @@
         "previsto_pela_reta": 0.1661356780769536,
         "residuo": 0.24848472139814407
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-17",
@@ -1806,7 +2278,11 @@
         "previsto_pela_reta": 0.16027884170943418,
         "residuo": 0.16286909097896085
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-18",
@@ -1825,7 +2301,11 @@
         "previsto_pela_reta": 0.16116499976393747,
         "residuo": 0.24537706299546194
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_regiao-19",
@@ -1844,7 +2324,11 @@
         "previsto_pela_reta": 0.1646702847416195,
         "residuo": 0.17075407887150917
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-00",
@@ -1863,7 +2347,11 @@
         "previsto_pela_reta": 0.1568483969494949,
         "residuo": 0.06380084545162815
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-01",
@@ -1882,7 +2370,11 @@
         "previsto_pela_reta": 0.15801822647389233,
         "residuo": 0.16112769141856373
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-02",
@@ -1901,7 +2393,11 @@
         "previsto_pela_reta": 0.16021422514157188,
         "residuo": 0.05787487855715859
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-03",
@@ -1920,7 +2416,11 @@
         "previsto_pela_reta": 0.159923839720126,
         "residuo": 0.13565106376803318
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-04",
@@ -1939,7 +2439,11 @@
         "previsto_pela_reta": 0.16116466644164246,
         "residuo": 0.05231757439418344
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-05",
@@ -1958,7 +2462,11 @@
         "previsto_pela_reta": 0.16306436150935513,
         "residuo": 0.058360754552809174
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-06",
@@ -1977,7 +2485,11 @@
         "previsto_pela_reta": 0.16481947998621416,
         "residuo": 0.3335244049587016
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-07",
@@ -1996,7 +2508,11 @@
         "previsto_pela_reta": 0.16482263504528927,
         "residuo": 0.2951117187831409
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-08",
@@ -2015,7 +2531,11 @@
         "previsto_pela_reta": 0.1615303333540069,
         "residuo": 0.1696917239885224
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-09",
@@ -2034,7 +2554,11 @@
         "previsto_pela_reta": 0.15977869077246118,
         "residuo": 0.0931844796367414
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-10",
@@ -2053,7 +2577,11 @@
         "previsto_pela_reta": 0.16306436150935513,
         "residuo": 0.15870988279911655
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-11",
@@ -2072,7 +2600,11 @@
         "previsto_pela_reta": 0.15735744374518656,
         "residuo": 0.03071205876742722
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-12",
@@ -2091,7 +2623,11 @@
         "previsto_pela_reta": 0.1589710030413537,
         "residuo": 0.12846905852786017
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-13",
@@ -2110,7 +2646,11 @@
         "previsto_pela_reta": 0.16087428102019657,
         "residuo": 0.3241004609155334
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-14",
@@ -2129,7 +2669,11 @@
         "previsto_pela_reta": 0.1568483969494949,
         "residuo": 0.10816863567379612
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-15",
@@ -2148,7 +2692,11 @@
         "previsto_pela_reta": 0.16481947998621416,
         "residuo": 0.39373767276189375
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-16",
@@ -2167,7 +2715,11 @@
         "previsto_pela_reta": 0.1565596550409908,
         "residuo": 0.028742602496850983
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-17",
@@ -2186,7 +2738,11 @@
         "previsto_pela_reta": 0.1604368841754944,
         "residuo": 0.18418286680106766
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-18",
@@ -2205,7 +2761,11 @@
         "previsto_pela_reta": 0.16664906415318997,
         "residuo": 0.32284583575551146
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_gentilico-19",
@@ -2224,7 +2784,11 @@
         "previsto_pela_reta": 0.1567793164075049,
         "residuo": 0.1608960952936975
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-00",
@@ -2243,7 +2807,11 @@
         "previsto_pela_reta": 0.16460103129356196,
         "residuo": 0.0957079496482105
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-01",
@@ -2262,7 +2830,11 @@
         "previsto_pela_reta": 0.1679301483873462,
         "residuo": 0.15611384079417234
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-02",
@@ -2281,7 +2853,11 @@
         "previsto_pela_reta": 0.16010523358161316,
         "residuo": 0.017208332626272582
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-03",
@@ -2300,7 +2876,11 @@
         "previsto_pela_reta": 0.16094884357623399,
         "residuo": 0.009375481985289452
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-04",
@@ -2319,7 +2899,11 @@
         "previsto_pela_reta": 0.16204344526186398,
         "residuo": -0.039636128100303925
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-05",
@@ -2338,7 +2922,11 @@
         "previsto_pela_reta": 0.16072298601333454,
         "residuo": -0.01122345045272663
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-06",
@@ -2357,7 +2945,11 @@
         "previsto_pela_reta": 0.16080058386760027,
         "residuo": 0.0474228782371971
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-07",
@@ -2376,7 +2968,11 @@
         "previsto_pela_reta": 0.16731002374307635,
         "residuo": -0.059749746757907896
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-08",
@@ -2395,7 +2991,11 @@
         "previsto_pela_reta": 0.16050466499137805,
         "residuo": 0.17417231598091198
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-09",
@@ -2414,7 +3014,11 @@
         "previsto_pela_reta": 0.15867978090113125,
         "residuo": -0.01618075126474819
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-10",
@@ -2433,7 +3037,11 @@
         "previsto_pela_reta": 0.15663150661523617,
         "residuo": 0.026104294127866856
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-11",
@@ -2452,7 +3060,11 @@
         "previsto_pela_reta": 0.15824743943331077,
         "residuo": -0.0397839231979592
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-12",
@@ -2471,7 +3083,11 @@
         "previsto_pela_reta": 0.1591185499713685,
         "residuo": 0.062212052992396655
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-13",
@@ -2490,7 +3106,11 @@
         "previsto_pela_reta": 0.15779870131598403,
         "residuo": 0.06933051964654038
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-14",
@@ -2509,7 +3129,11 @@
         "previsto_pela_reta": 0.16463687935374013,
         "residuo": 0.03814813575246104
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-15",
@@ -2528,7 +3152,11 @@
         "previsto_pela_reta": 0.1679301483873462,
         "residuo": 0.10974738762339598
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-16",
@@ -2547,7 +3175,11 @@
         "previsto_pela_reta": 0.16891706429671968,
         "residuo": -0.04815900765609468
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-17",
@@ -2566,7 +3198,11 @@
         "previsto_pela_reta": 0.1623335186522353,
         "residuo": 0.053851991506303515
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-18",
@@ -2585,7 +3221,11 @@
         "previsto_pela_reta": 0.1679301483873462,
         "residuo": -0.07276540234127993
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "explicito_toponimo-19",
@@ -2604,7 +3244,11 @@
         "previsto_pela_reta": 0.15655793429651194,
         "residuo": 0.03384242771825857
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "calibracao_extra-00",
@@ -2623,7 +3267,11 @@
         "previsto_pela_reta": 0.16897776247531618,
         "residuo": -0.010133574619595659
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_extra-01",
@@ -2642,7 +3290,11 @@
         "previsto_pela_reta": 0.16751880701559493,
         "residuo": 0.01008038465005448
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_extra-02",
@@ -2661,7 +3313,11 @@
         "previsto_pela_reta": 0.1669308141204925,
         "residuo": -0.03264933778178791
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_extra-03",
@@ -2680,7 +3336,11 @@
         "previsto_pela_reta": 0.16122959046274302,
         "residuo": 0.02511026473134878
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-00",
@@ -2699,7 +3359,11 @@
         "previsto_pela_reta": 0.1574964172637251,
         "residuo": 0.04239681889655322
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-01",
@@ -2718,7 +3382,11 @@
         "previsto_pela_reta": 0.15781034123832385,
         "residuo": 0.06294857370918591
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-02",
@@ -2737,7 +3405,11 @@
         "previsto_pela_reta": 0.1603691484001134,
         "residuo": -0.024537077095792115
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-03",
@@ -2756,7 +3428,11 @@
         "previsto_pela_reta": 0.16467443611649113,
         "residuo": -0.034478997254644206
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-04",
@@ -2775,7 +3451,11 @@
         "previsto_pela_reta": 0.17060540512444192,
         "residuo": -0.05750648573280984
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-05",
@@ -2794,7 +3474,11 @@
         "previsto_pela_reta": 0.15670343801337022,
         "residuo": 0.027825628072445208
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-06",
@@ -2813,7 +3497,11 @@
         "previsto_pela_reta": 0.15809921638377541,
         "residuo": -0.004988593024095239
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-07",
@@ -2832,7 +3520,11 @@
         "previsto_pela_reta": 0.16014071702145646,
         "residuo": -0.038726532451143963
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-08",
@@ -2851,7 +3543,11 @@
         "previsto_pela_reta": 0.1667955556447923,
         "residuo": -0.08847541003779766
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-09",
@@ -2870,7 +3566,11 @@
         "previsto_pela_reta": 0.15655630636144974,
         "residuo": -0.058490930079711456
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-10",
@@ -2889,7 +3589,11 @@
         "previsto_pela_reta": 0.1580853915632617,
         "residuo": 0.027148678260957043
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-11",
@@ -2908,7 +3612,11 @@
         "previsto_pela_reta": 0.16320858487342646,
         "residuo": 0.01273741236473272
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-12",
@@ -2927,7 +3635,11 @@
         "previsto_pela_reta": 0.1667922834148458,
         "residuo": 0.05204783880805458
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-13",
@@ -2946,7 +3658,11 @@
         "previsto_pela_reta": 0.1711105778648012,
         "residuo": -0.07383913545147111
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-14",
@@ -2965,7 +3681,11 @@
         "previsto_pela_reta": 0.1567772840515328,
         "residuo": -0.0485031321699968
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-15",
@@ -2984,7 +3704,11 @@
         "previsto_pela_reta": 0.15787532365755663,
         "residuo": -0.00841667688326464
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-16",
@@ -3003,7 +3727,11 @@
         "previsto_pela_reta": 0.16123395695493958,
         "residuo": 0.10039866433335998
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-17",
@@ -3022,7 +3750,11 @@
         "previsto_pela_reta": 0.16321238556497172,
         "residuo": 0.0012723537386171435
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-18",
@@ -3041,7 +3773,11 @@
         "previsto_pela_reta": 0.16825788131818284,
         "residuo": -0.07114325872525681
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-19",
@@ -3060,7 +3796,11 @@
         "previsto_pela_reta": 0.15787635685070628,
         "residuo": -0.059937103997312724
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-20",
@@ -3079,7 +3819,11 @@
         "previsto_pela_reta": 0.16021073097938648,
         "residuo": -0.044941626339697505
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-21",
@@ -3098,7 +3842,11 @@
         "previsto_pela_reta": 0.16322528368103228,
         "residuo": 0.1804213618649272
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-22",
@@ -3117,7 +3865,11 @@
         "previsto_pela_reta": 0.16810721989149988,
         "residuo": -0.08238227005476892
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-23",
@@ -3136,7 +3888,11 @@
         "previsto_pela_reta": 0.17177845396524047,
         "residuo": -0.05083443083291625
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-24",
@@ -3155,7 +3911,11 @@
         "previsto_pela_reta": 0.15677986315545742,
         "residuo": 0.0037774664992361873
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-25",
@@ -3174,7 +3934,11 @@
         "previsto_pela_reta": 0.15882576495762724,
         "residuo": -0.0627199360763635
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-26",
@@ -3193,7 +3957,11 @@
         "previsto_pela_reta": 0.16014870415265428,
         "residuo": -0.05286493311459886
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-27",
@@ -3212,7 +3980,11 @@
         "previsto_pela_reta": 0.1632850267327684,
         "residuo": 0.1689739130102736
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-28",
@@ -3231,7 +4003,11 @@
         "previsto_pela_reta": 0.16687168883627446,
         "residuo": -0.004225275986848187
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-29",
@@ -3250,7 +4026,11 @@
         "previsto_pela_reta": 0.15655833484069853,
         "residuo": 0.01888099311454744
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-30",
@@ -3269,7 +4049,11 @@
         "previsto_pela_reta": 0.15984796901652454,
         "residuo": -0.010594243010970339
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-31",
@@ -3288,7 +4072,11 @@
         "previsto_pela_reta": 0.16072721807169246,
         "residuo": -0.01830895272898006
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-32",
@@ -3307,7 +4095,11 @@
         "previsto_pela_reta": 0.16488901454984817,
         "residuo": -0.01026002246915969
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-33",
@@ -3326,7 +4118,11 @@
         "previsto_pela_reta": 0.16840430645868043,
         "residuo": 0.0011920079715563858
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-34",
@@ -3345,7 +4141,11 @@
         "previsto_pela_reta": 0.15794584917782187,
         "residuo": -0.041125513789638274
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-35",
@@ -3364,7 +4164,11 @@
         "previsto_pela_reta": 0.16489361597853636,
         "residuo": 0.012769471866312276
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-36",
@@ -3383,7 +4187,11 @@
         "previsto_pela_reta": 0.15655734162243662,
         "residuo": -0.025246044205749607
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-37",
@@ -3402,7 +4210,11 @@
         "previsto_pela_reta": 0.15809791104892526,
         "residuo": 0.12762064916988577
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-38",
@@ -3421,7 +4233,11 @@
         "previsto_pela_reta": 0.16050822652105368,
         "residuo": -0.0176285020184902
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-39",
@@ -3440,7 +4256,11 @@
         "previsto_pela_reta": 0.16343136845410888,
         "residuo": -0.08379145680249755
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-40",
@@ -3459,7 +4279,11 @@
         "previsto_pela_reta": 0.1693522576028863,
         "residuo": -0.030449434472596293
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-41",
@@ -3478,7 +4302,11 @@
         "previsto_pela_reta": 0.15648504170737482,
         "residuo": -0.011276384919502502
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-42",
@@ -3497,7 +4325,11 @@
         "previsto_pela_reta": 0.1621125902700591,
         "residuo": -0.06161057610990284
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-43",
@@ -3516,7 +4348,11 @@
         "previsto_pela_reta": 0.16453312263350003,
         "residuo": 0.05203045978684909
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-44",
@@ -3535,7 +4371,11 @@
         "previsto_pela_reta": 0.16686783653629378,
         "residuo": 0.025522724567527022
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-45",
@@ -3554,7 +4394,11 @@
         "previsto_pela_reta": 0.17395645918385994,
         "residuo": -0.006664311309027782
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-46",
@@ -3573,7 +4417,11 @@
         "previsto_pela_reta": 0.15757918685057035,
         "residuo": 0.164303418702103
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-47",
@@ -3592,7 +4440,11 @@
         "previsto_pela_reta": 0.16042912663462422,
         "residuo": -0.0537293023014333
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-48",
@@ -3611,7 +4463,11 @@
         "previsto_pela_reta": 0.15816907861500282,
         "residuo": 0.01159985086650353
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-49",
@@ -3630,7 +4486,11 @@
         "previsto_pela_reta": 0.16116935953131736,
         "residuo": 0.07052200094231545
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-50",
@@ -3649,7 +4509,11 @@
         "previsto_pela_reta": 0.1632760005759208,
         "residuo": -0.0402002769278495
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-51",
@@ -3668,7 +4532,11 @@
         "previsto_pela_reta": 0.16700122072802967,
         "residuo": 0.021017488693128167
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-52",
@@ -3687,7 +4555,11 @@
         "previsto_pela_reta": 0.15773229843950798,
         "residuo": -0.06182782894945671
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-53",
@@ -3706,7 +4578,11 @@
         "previsto_pela_reta": 0.15786222398788435,
         "residuo": 0.1665399891087343
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-54",
@@ -3725,7 +4601,11 @@
         "previsto_pela_reta": 0.15692428279733986,
         "residuo": 0.018360579720970688
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-55",
@@ -3744,7 +4624,11 @@
         "previsto_pela_reta": 0.17125578691981674,
         "residuo": -0.008220870995744478
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-56",
@@ -3763,7 +4647,11 @@
         "previsto_pela_reta": 0.1722089229554783,
         "residuo": -0.054457592818225486
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-57",
@@ -3782,7 +4670,11 @@
         "previsto_pela_reta": 0.171689611953331,
         "residuo": 0.0011341151775589031
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-58",
@@ -3801,7 +4693,11 @@
         "previsto_pela_reta": 0.17695969070863035,
         "residuo": 0.01745343480635378
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-59",
@@ -3820,7 +4716,11 @@
         "previsto_pela_reta": 0.17322890574807195,
         "residuo": 0.05277092640524836
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "calibracao_v2-60",
@@ -3839,7 +4739,11 @@
         "previsto_pela_reta": 0.17257553424009642,
         "residuo": 0.04384285126557985
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "enunciado sem marcação regional pretendida"
+      }
     },
     {
       "id": "moldura_explicito_regiao-00",
@@ -3858,7 +4762,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.0265393539600898
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-01",
@@ -3877,7 +4785,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": 0.008981974489159467
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-02",
@@ -3896,7 +4808,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.0504082127743293
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-03",
@@ -3915,7 +4831,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.04957869493299019
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-04",
@@ -3934,7 +4854,11 @@
         "previsto_pela_reta": 0.156841334170845,
         "residuo": 0.23421222322509005
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-05",
@@ -3953,7 +4877,11 @@
         "previsto_pela_reta": 0.16239942569425958,
         "residuo": 0.12123130302735907
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-06",
@@ -3972,7 +4900,11 @@
         "previsto_pela_reta": 0.16139579769641396,
         "residuo": 0.07209019902676109
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-07",
@@ -3991,7 +4923,11 @@
         "previsto_pela_reta": 0.1648911736587322,
         "residuo": 0.15050430077516672
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-08",
@@ -4010,7 +4946,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": 0.019174726373619916
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-09",
@@ -4029,7 +4969,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.0041346633765426966
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-10",
@@ -4048,7 +4992,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.08579942428403389
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-11",
@@ -4067,7 +5015,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.053245632284217
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-12",
@@ -4086,7 +5038,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.04511184834771645
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-13",
@@ -4105,7 +5061,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": 0.004821093446678998
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-14",
@@ -4124,7 +5084,11 @@
         "previsto_pela_reta": 0.16679086872644489,
         "residuo": 0.16244623473577435
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-15",
@@ -4143,7 +5107,11 @@
         "previsto_pela_reta": 0.1648911736587322,
         "residuo": 0.27188117283784985
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-16",
@@ -4162,7 +5130,11 @@
         "previsto_pela_reta": 0.1648911736587322,
         "residuo": 0.31437976139986157
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-17",
@@ -4181,7 +5153,11 @@
         "previsto_pela_reta": 0.16239942569425958,
         "residuo": 0.20774053078004462
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-18",
@@ -4200,7 +5176,11 @@
         "previsto_pela_reta": 0.1599204953457161,
         "residuo": 0.6008168641780571
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_regiao-19",
@@ -4219,7 +5199,11 @@
         "previsto_pela_reta": 0.16679086872644489,
         "residuo": 0.2328012328474992
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-00",
@@ -4238,7 +5222,11 @@
         "previsto_pela_reta": 0.15824100357306456,
         "residuo": 0.08810743707406068
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-01",
@@ -4257,7 +5245,11 @@
         "previsto_pela_reta": 0.15845978211786618,
         "residuo": 0.45142453957173956
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-02",
@@ -4276,7 +5268,11 @@
         "previsto_pela_reta": 0.15962412520622288,
         "residuo": 0.04206809834266628
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-03",
@@ -4295,7 +5291,11 @@
         "previsto_pela_reta": 0.16123994793256102,
         "residuo": 0.27602783237139406
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-04",
@@ -4314,7 +5314,11 @@
         "previsto_pela_reta": 0.1613115548092053,
         "residuo": -0.0019985913234875363
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-05",
@@ -4333,7 +5337,11 @@
         "previsto_pela_reta": 0.16152382027393555,
         "residuo": -0.03414106499439454
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-06",
@@ -4352,7 +5360,11 @@
         "previsto_pela_reta": 0.1615303333540069,
         "residuo": 0.12499659499135529
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-07",
@@ -4371,7 +5383,11 @@
         "previsto_pela_reta": 0.16321124987691799,
         "residuo": 0.0889078144541367
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-08",
@@ -4390,7 +5406,11 @@
         "previsto_pela_reta": 0.16087341012463513,
         "residuo": 0.1659588843394762
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-09",
@@ -4409,7 +5429,11 @@
         "previsto_pela_reta": 0.1565596550409908,
         "residuo": 0.19292621913503458
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-10",
@@ -4428,7 +5452,11 @@
         "previsto_pela_reta": 0.16321124987691799,
         "residuo": 0.15253851456552586
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-11",
@@ -4447,7 +5475,11 @@
         "previsto_pela_reta": 0.16007121726312995,
         "residuo": 0.30312118605336785
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-12",
@@ -4466,7 +5498,11 @@
         "previsto_pela_reta": 0.1591901171448036,
         "residuo": 0.1704171311614708
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-13",
@@ -4485,7 +5521,11 @@
         "previsto_pela_reta": 0.16102116938775943,
         "residuo": 0.05115443829351499
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-14",
@@ -4504,7 +5544,11 @@
         "previsto_pela_reta": 0.15824100357306456,
         "residuo": 0.1622581185697272
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-15",
@@ -4523,7 +5567,11 @@
         "previsto_pela_reta": 0.1613115548092053,
         "residuo": 0.09155670017024634
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-16",
@@ -4542,7 +5590,11 @@
         "previsto_pela_reta": 0.15706735160313062,
         "residuo": 0.012185640073199944
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-17",
@@ -4561,7 +5613,11 @@
         "previsto_pela_reta": 0.16007121726312995,
         "residuo": 0.24139485434255242
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-18",
@@ -4580,7 +5636,11 @@
         "previsto_pela_reta": 0.16321124987691799,
         "residuo": 0.16480294508844456
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_gentilico-19",
@@ -4599,7 +5659,11 @@
         "previsto_pela_reta": 0.1588948830219371,
         "residuo": 0.23067910827673843
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-00",
@@ -4618,7 +5682,11 @@
         "previsto_pela_reta": 0.16504147514620907,
         "residuo": 0.010768623501862223
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-01",
@@ -4637,7 +5705,11 @@
         "previsto_pela_reta": 0.1655161432935867,
         "residuo": 0.035660619287284895
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-02",
@@ -4656,7 +5728,11 @@
         "previsto_pela_reta": 0.16504147514620907,
         "residuo": 0.056498141438568766
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-03",
@@ -4675,7 +5751,11 @@
         "previsto_pela_reta": 0.16102161685444902,
         "residuo": 0.02673301418803145
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-04",
@@ -4694,7 +5774,11 @@
         "previsto_pela_reta": 0.15809936033461458,
         "residuo": 0.06697556667751092
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-05",
@@ -4713,7 +5797,11 @@
         "previsto_pela_reta": 0.16218629779985452,
         "residuo": -0.01884451809099222
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-06",
@@ -4732,7 +5820,11 @@
         "previsto_pela_reta": 0.16072781058938523,
         "residuo": 0.02632849243490676
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-07",
@@ -4751,7 +5843,11 @@
         "previsto_pela_reta": 0.15809936033461458,
         "residuo": 0.02816092265870207
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-08",
@@ -4770,7 +5866,11 @@
         "previsto_pela_reta": 0.16058156692841083,
         "residuo": 0.10258986747405499
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-09",
@@ -4789,7 +5889,11 @@
         "previsto_pela_reta": 0.15728792933438426,
         "residuo": -0.0540597179314912
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-10",
@@ -4808,7 +5912,11 @@
         "previsto_pela_reta": 0.15794399716709606,
         "residuo": 0.030214142419352608
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-11",
@@ -4827,7 +5935,11 @@
         "previsto_pela_reta": 0.15662765686406308,
         "residuo": -0.07551950399769955
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-12",
@@ -4846,7 +5958,11 @@
         "previsto_pela_reta": 0.1591185499713685,
         "residuo": 0.11442957624933461
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-13",
@@ -4865,7 +5981,11 @@
         "previsto_pela_reta": 0.15809027243646329,
         "residuo": -0.04088647056611722
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-14",
@@ -4884,7 +6004,11 @@
         "previsto_pela_reta": 0.1636146410806354,
         "residuo": 0.033004571546775496
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-15",
@@ -4903,7 +6027,11 @@
         "previsto_pela_reta": 0.1655161432935867,
         "residuo": 0.030533964185508772
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-16",
@@ -4922,7 +6050,11 @@
         "previsto_pela_reta": 0.1693575081493668,
         "residuo": 0.03837721573648745
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-17",
@@ -4941,7 +6073,11 @@
         "previsto_pela_reta": 0.16226074537402027,
         "residuo": 0.036069299372378655
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-18",
@@ -4960,7 +6096,11 @@
         "previsto_pela_reta": 0.1655161432935867,
         "residuo": -0.08413704758028887
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_explicito_toponimo-19",
@@ -4979,7 +6119,11 @@
         "previsto_pela_reta": 0.15875403437797997,
         "residuo": 0.03929753746802833
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-00",
@@ -4998,7 +6142,11 @@
         "previsto_pela_reta": 0.16679086872644489,
         "residuo": 0.10834262183599408
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-01",
@@ -5017,7 +6165,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": 0.04062941826052177
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-02",
@@ -5036,7 +6188,11 @@
         "previsto_pela_reta": 0.16117804742140987,
         "residuo": -0.006043131115867878
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-03",
@@ -5055,7 +6211,11 @@
         "previsto_pela_reta": 0.1693575081493668,
         "residuo": 0.030721694502610752
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-04",
@@ -5074,7 +6234,11 @@
         "previsto_pela_reta": 0.1655161432935867,
         "residuo": -0.019187217207160906
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-05",
@@ -5093,7 +6257,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": 0.05366715944475639
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-06",
@@ -5112,7 +6280,11 @@
         "previsto_pela_reta": 0.16679086872644489,
         "residuo": 0.10092780402593549
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-07",
@@ -5131,7 +6303,11 @@
         "previsto_pela_reta": 0.15962412520622288,
         "residuo": 0.08285388783241238
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-08",
@@ -5150,7 +6326,11 @@
         "previsto_pela_reta": 0.1693575081493668,
         "residuo": -0.04542638334296267
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-09",
@@ -5169,7 +6349,11 @@
         "previsto_pela_reta": 0.1655161432935867,
         "residuo": 0.0058503893500495285
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-10",
@@ -5188,7 +6372,11 @@
         "previsto_pela_reta": 0.1581639577582368,
         "residuo": 0.03090173705072316
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-11",
@@ -5207,7 +6395,11 @@
         "previsto_pela_reta": 0.15662920691856044,
         "residuo": 0.17213926992527348
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-12",
@@ -5226,7 +6418,11 @@
         "previsto_pela_reta": 0.16467150890164864,
         "residuo": -0.039269579880766986
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-13",
@@ -5245,7 +6441,11 @@
         "previsto_pela_reta": 0.16007121726312995,
         "residuo": 0.24761358574590325
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-14",
@@ -5264,7 +6464,11 @@
         "previsto_pela_reta": 0.16101995285464604,
         "residuo": 0.05965623084591548
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-15",
@@ -5283,7 +6487,11 @@
         "previsto_pela_reta": 0.16072781058938523,
         "residuo": -0.04175676080377122
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-16",
@@ -5302,7 +6510,11 @@
         "previsto_pela_reta": 0.15713237724175028,
         "residuo": 0.04815335073600241
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-17",
@@ -5321,7 +6533,11 @@
         "previsto_pela_reta": 0.1655161432935867,
         "residuo": -0.06586164757749172
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-18",
@@ -5340,7 +6556,11 @@
         "previsto_pela_reta": 0.16679086872644489,
         "residuo": 0.24338290503911908
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "moldura_controle_explicito-19",
@@ -5359,7 +6579,11 @@
         "previsto_pela_reta": 0.1693575081493668,
         "residuo": 0.0444232526157089
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-00",
@@ -5378,7 +6602,11 @@
         "previsto_pela_reta": 0.15992114597567264,
         "residuo": 0.20750763362637814
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-01",
@@ -5397,7 +6625,11 @@
         "previsto_pela_reta": 0.15992114597567264,
         "residuo": 0.23809840625516232
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-02",
@@ -5416,7 +6648,11 @@
         "previsto_pela_reta": 0.15992114597567264,
         "residuo": 0.044987741569595396
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-03",
@@ -5435,7 +6671,11 @@
         "previsto_pela_reta": 0.1587867787779458,
         "residuo": 0.08833813157666845
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-04",
@@ -5454,7 +6694,11 @@
         "previsto_pela_reta": 0.16006466055690172,
         "residuo": 0.04201099967182753
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-05",
@@ -5473,7 +6717,11 @@
         "previsto_pela_reta": 0.16087648473956012,
         "residuo": 0.02645769513867474
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-06",
@@ -5492,7 +6740,11 @@
         "previsto_pela_reta": 0.15839124985515884,
         "residuo": 0.032841848651768646
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_regiao-07",
@@ -5511,7 +6763,11 @@
         "previsto_pela_reta": 0.1583847367750875,
         "residuo": 0.008781257869077547
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-00",
@@ -5530,7 +6786,11 @@
         "previsto_pela_reta": 0.16079454725522405,
         "residuo": 0.0015464315261584927
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-01",
@@ -5549,7 +6809,11 @@
         "previsto_pela_reta": 0.1583152553974402,
         "residuo": 0.266447783357023
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-02",
@@ -5568,7 +6832,11 @@
         "previsto_pela_reta": 0.1583847367750875,
         "residuo": -0.010734494923280852
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-03",
@@ -5587,7 +6855,11 @@
         "previsto_pela_reta": 0.15868640425040154,
         "residuo": 0.12082229075596901
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-04",
@@ -5606,7 +6878,11 @@
         "previsto_pela_reta": 0.16511650890976207,
         "residuo": 0.06689671664565786
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-05",
@@ -5625,7 +6901,11 @@
         "previsto_pela_reta": 0.1583847367750875,
         "residuo": 0.021079523962013597
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-06",
@@ -5644,7 +6924,11 @@
         "previsto_pela_reta": 0.15897678967184745,
         "residuo": -0.035014029700228794
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_gentilico-07",
@@ -5663,7 +6947,11 @@
         "previsto_pela_reta": 0.16701620397747474,
         "residuo": 0.17667590501128716
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-00",
@@ -5682,7 +6970,11 @@
         "previsto_pela_reta": 0.16229819209082497,
         "residuo": 0.4516017392207824
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-01",
@@ -5701,7 +6993,11 @@
         "previsto_pela_reta": 0.16522603237265385,
         "residuo": 0.13863463199502193
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-02",
@@ -5720,7 +7016,11 @@
         "previsto_pela_reta": 0.1618975798229429,
         "residuo": 0.024145762131606407
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-03",
@@ -5739,7 +7039,11 @@
         "previsto_pela_reta": 0.162700532905311,
         "residuo": -0.08523261450931491
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-04",
@@ -5758,7 +7062,11 @@
         "previsto_pela_reta": 0.15801797649200985,
         "residuo": -0.010709626882634854
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-05",
@@ -5777,7 +7085,11 @@
         "previsto_pela_reta": 0.16039593210710149,
         "residuo": -0.04888088694108586
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-06",
@@ -5796,7 +7108,11 @@
         "previsto_pela_reta": 0.1652643857364594,
         "residuo": 0.04438058754158625
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_explicito_toponimo-07",
@@ -5815,7 +7131,11 @@
         "previsto_pela_reta": 0.16295978493824992,
         "residuo": -0.054470485124343715
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_controle_explicito-00",
@@ -5834,7 +7154,11 @@
         "previsto_pela_reta": 0.16087648473956012,
         "residuo": 0.02824603316408586
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_controle_explicito-01",
@@ -5853,7 +7177,11 @@
         "previsto_pela_reta": 0.15992114597567264,
         "residuo": 0.3399466707904306
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_controle_explicito-02",
@@ -5872,7 +7200,11 @@
         "previsto_pela_reta": 0.16522603237265385,
         "residuo": 0.032546470526516075
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_controle_explicito-03",
@@ -5891,7 +7223,11 @@
         "previsto_pela_reta": 0.1666142250939827,
         "residuo": 0.10989708643708421
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     },
     {
       "id": "intra_controle_explicito-04",
@@ -5910,7 +7246,11 @@
         "previsto_pela_reta": 0.16522603237265385,
         "residuo": -0.020362307664096718
       },
-      "anotacoes_juizes": []
+      "anotacoes_juizes": [],
+      "validacao": {
+        "situacao": "dispensada",
+        "motivo": "região escrita no enunciado; não há variedade a reconhecer"
+      }
     }
   ]
 }

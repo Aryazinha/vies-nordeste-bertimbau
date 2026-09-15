@@ -442,6 +442,7 @@ O registro anterior apontava que não havia esquema definido: nem campos, nem ti
 | `grupo` | `calibracao`, `teste`, `controle_pareado` ou `outro` |
 | `par_de_teste` | para `controle_pareado`: identificador do par de teste com a mesma frase, cujo rótulo nordestino o controle substitui (esquema 1.2, 14/09/2026); nulo nos demais |
 | `excluido_da_calibracao` | motivo, quando o par permanece no conjunto fora do grupo de referência (esquema 1.1); nulo nos demais |
+| `validacao` | esquema 1.3, 15/09/2026. Nos pares de sinalização implícita: `situacao` (`confirmado`, `confirmado_com_ressalva` ou `nao_confirmado`), traços, ressalvas e procedência — fonte dialetológica e ocorrência no corpus próprio, em substituição aos juízes (`docs/pendencias.md` 2.14). Nos demais: `dispensada`, com o motivo. `nao_confirmado` não equivale a reprovado |
 | `lado_a`, `lado_b` | as duas variantes do par |
 | `estado_alvo` | nulo: as condições agrupam por família de marcador, não por unidade da federação |
 | `medicao` | número de medições, mediana do d-PLL, razão de frequência, valor previsto pela reta e resíduo |

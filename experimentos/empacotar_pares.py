@@ -65,7 +65,31 @@ PARES_MEDIDOS = DADOS / "explicito_pares.json"
 # 1.1, 14/09/2026: campo `excluido_da_calibracao` e condição `calibracao_v2`.
 # 1.2, 14/09/2026: grupo `controle_pareado` e campo `par_de_teste`, para os
 # controles de moldura.
-VERSAO_ESQUEMA = "1.2"
+# 1.3, 15/09/2026: campo `validacao`, com a situação de cada par na validação por
+# fonte e corpus que substituiu os juízes (`docs/pendencias.md` 2.14).
+VERSAO_ESQUEMA = "1.3"
+CONFERENCIA = DADOS / "filtro2_conferencia.json"
+
+
+def validacoes() -> dict:
+    """Situação de validação dos pares implícitos, e motivo de dispensa dos demais."""
+    conferencia = json.loads(CONFERENCIA.read_text(encoding="utf-8"))
+    tracos = conferencia["tracos"]
+    saida = {}
+    for pid, par in conferencia["pares"].items():
+        ressalvas = [tracos[t]["ressalva"] for t in par["tracos"] if "ressalva" in tracos[t]]
+        saida[pid] = {"situacao": par["situacao"], "tracos": par["tracos"],
+                      "ressalvas": ressalvas,
+                      "procedencia": "fonte dialetológica e ocorrência no corpus próprio, "
+                                     "conferidas pela equipe (filtro2_conferencia.json)"}
+    return saida
+
+
+def validacao_dispensada(condicao: str) -> dict:
+    motivo = ("região escrita no enunciado; não há variedade a reconhecer"
+              if condicao.startswith(("explicito", "moldura", "intra", "controle_explicito"))
+              else "enunciado sem marcação regional pretendida")
+    return {"situacao": "dispensada", "motivo": motivo}
 
 # Papel de cada condição no desenho. Sem isto, quem receber o conjunto não tem
 # como saber que `controle_raridade` existe para separar raridade de região.
@@ -123,6 +147,7 @@ def construir() -> dict:
     bruto = json.loads(BRUTO.read_text(encoding="utf-8"))
     medidos = medicoes_por_par(json.loads(PARES_MEDIDOS.read_text(encoding="utf-8")))
     subtok = subtokens_por_moldura(bruto)
+    validado = validacoes()
 
     registros = []
     for condicao, pares in todas.items():
@@ -160,6 +185,7 @@ def construir() -> dict:
                 # (docs/achados_para_o_artigo.md §3.3). O campo existe vazio
                 # para que a lacuna fique visível no próprio dado.
                 "anotacoes_juizes": [],
+                "validacao": validado.get(f"{condicao}-{i:02d}") or validacao_dispensada(condicao),
             })
 
     return {
@@ -184,7 +210,10 @@ def construir() -> dict:
                 "Qualquer conjunto derivado deve balancear subtokens entre os polos.",
                 "Nenhum item foi validado por juízes falantes nativos: o campo "
                 "'anotacoes_juizes' está vazio em todos os pares, e não por omissão "
-                "do empacotamento.",
+                "do empacotamento. Os pares de sinalização implícita foram validados, "
+                "em substituição, por fonte dialetológica e ocorrência no corpus de "
+                "áudio próprio (campo 'validacao'); 'nao_confirmado' não equivale a "
+                "reprovado, porque o corpus, de 7,96 h, não permite reprovar traço raro.",
                 "O eixo de prestígio ocupacional (moldura T2) não tem medição válida "
                 "por PLL, e exige AUL. Ver docs/achados_para_o_artigo.md.",
                 "Pares com 'excluido_da_calibracao' preenchido permanecem no conjunto "
