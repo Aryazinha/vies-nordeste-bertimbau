@@ -75,9 +75,27 @@ def _resumo(teste: str, ds: list[float]) -> dict:
             "positivos": sum(1 for d in ds if d > 0), "p": p_sinais_exato(ds)}
 
 
+N_EXATO_MAXIMO = 20
+N_SORTEIOS = 200_000
+
+
 def p_sinais_exato(ds: list[float]) -> float:
-    """P(média com sinais permutados ≥ média observada), sobre as 2^n atribuições."""
+    """
+    P(média com sinais permutados ≥ média observada).
+
+    Exato, sobre as 2^n atribuições, até `N_EXATO_MAXIMO` frases; acima disso, por
+    sorteio de `N_SORTEIOS` atribuições com semente fixa. Correção de 15/09/2026:
+    com o crescimento a 20 frases por condição, o reagrupamento exploratório
+    pessoa/lugar passou a ter 30 frases, e 2^30 atribuições não terminam em tempo
+    útil. As análises registradas, com até 20 frases por condição, seguem exatas.
+    """
     n, observado = len(ds), statistics.mean(ds)
+    if n > N_EXATO_MAXIMO:
+        rng = random.Random(SEMENTE)
+        extremos = sum(
+            1 for _ in range(N_SORTEIOS)
+            if sum(d if rng.random() < 0.5 else -d for d in ds) / n >= observado - 1e-12)
+        return (extremos + 1) / (N_SORTEIOS + 1)
     extremos = 0
     for mascara in range(2 ** n):
         soma = sum(-d if (mascara >> i) & 1 else d for i, d in enumerate(ds))
