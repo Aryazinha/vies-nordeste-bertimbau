@@ -391,11 +391,13 @@ O protocolo de validação (`docs/pares_minimos_v1.md` §7; `docs/dataset-spec.m
 
 **Questão ética associada, independente da alternativa:** a dispensa de comitê de ética registrada no item 9 do `dataset-spec` foi decidida para o corpus de áudio, e não se estende automaticamente a participantes humanos respondendo a questionário. A confirmar com a orientação caso (b) ou (c) sejam adotadas.
 
-### 2.13 `docs/dataset-spec.md` desatualizado no quadro de abertura — ABERTA em 15/09/2026
+### 2.13 `docs/dataset-spec.md` desatualizado no quadro de abertura — ABERTA e ENCERRADA em 15/09/2026
 
 O quadro "Estado por camada — leia primeiro", que é a primeira coisa que o leitor encontra, descreve a situação de 28/08/2026: a camada de definição dos pares mínimos como "aberta", sem objeto de execução, e o corpus de áudio a "11% da meta vigente". Os dois pontos estão superados — os pares têm tamanho, formato, desenho pareado e 204 pares medidos, e a coleta do corpus está encerrada com 83 arquivos e 216 falantes distintos. O parágrafo introdutório ("nenhuma definição de entrega") e a seção "A circularidade que a tabela não mostra" repousam sobre a mesma premissa superada. Há ainda contradição interna: §2.2.3 marca a licença como `PENDENTE`, e o item 8 do registro a dá como decidida em 31/08/2026 (CC BY 4.0).
 
 **Encerra a pendência:** reescrever o quadro por camada e o parágrafo introdutório com o estado vigente, marcar como histórica a seção da circularidade, e alinhar §2.2.3 ao item 8 — na rodada de atualização de documentos posterior à medição de 2.12, para que os números mudem uma única vez.
+
+**Encerrada em 15/09/2026**, no item 2 do plano de fechamento: quadro por camada e parágrafo introdutório reescritos; seções 2.1 e "A circularidade que a tabela não mostra" marcadas como histórico; §2.2.3 alinhada ao item 8 (CC BY 4.0); §2.3 e §2.5 atualizadas com a validação e o conteúdo de 306 pares. Na mesma rodada, `CLAUDE.md` (v2.4), `README.md`, `docs/resumo_para_orientacao.md`, `docs/questoes_para_orientacao.md`, `docs/roadmap.md` e os itens 1.1, 1.14, 1.15, 3.1, 3.3 e 3.7 dos achados; o plano de fechamento passou a constar de `docs/roadmap.md`.
 
 ### 2.12 Crescimento das condições de menção explícita a 20 frases pareadas — REGISTRO PRÉVIO em 15/09/2026
 

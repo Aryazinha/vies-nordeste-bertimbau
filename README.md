@@ -11,8 +11,8 @@ Trabalho de pesquisa acadêmica, em andamento. Este arquivo descreve o repositó
 Três resultados que se sustentam mutuamente e **não devem ser citados em separado**:
 
 1. **O modelo não responde à sinalização dialetal implícita.** Quatro famílias de marcadores foram testadas — morfossintática, lexical, feixe combinado e construcional — e nenhuma produz efeito acima do grupo de referência de pares não regionais que sobreviva à correção de multiplicidade. O caso mais limpo é a negação pós-verbal, cujos dois lados empregam as mesmas palavras em ordem diferente.
-2. **O modelo responde à menção explícita de região em enunciados sobre a pessoa**, acima do grupo de referência não regional, com duas condições sobreviventes à correção de Holm — **mas sem especificidade detectável para o Nordeste**: rótulos do Sul na mesma frase produzem resposta equivalente, em teste com predição registrada antes da medição.
-3. **Essa resposta não é depreciativa de forma detectável.** O único viés candidato revelou-se **artefato de tokenização**: caiu de +0,195 para +0,031 ao se restringir a análise a atributos de token único — e a restrição *aumentou* o poder do teste em vez de reduzi-lo.
+2. **O modelo responde à menção explícita de região**, acima do grupo de referência não regional. Comparado a rótulos do Sul na mesma frase, com regras de decisão registradas antes da medição: **sem especificidade para o Nordeste acima de 0,08** quando a pessoa fala de si, em macrorregião e topônimo; gentílico sem resolução; e **sinal pequeno e exploratório** em frases sobre terceiros.
+3. **Nenhum viés depreciativo sobrevive à correção** quando se controla o artefato de tokenização, que produzia viés aparente na análise completa. **Há, porém, sinal exploratório** em rótulos de pessoa, a confirmar em fase posterior.
 
 > **Advertência.** Não afirmar que o BERTimbau não apresenta viés regional. Não detectar não é demonstrar ausência, e o eixo de prestígio ocupacional segue sem medição válida. O filtro do que pode e do que não pode ser escrito está em [`docs/achados_para_o_artigo.md`](docs/achados_para_o_artigo.md), e deve ser consultado antes de qualquer trecho do artigo.
 
@@ -119,7 +119,7 @@ A especificação completa está em [`docs/dataset-spec.md`](docs/dataset-spec.m
 
 ## Estado e limitações
 
-O corpus de áudio concluiu a coleta e a verificação de falantes distintos (`docs/plano_corpus/`). O conjunto de pares mínimos está **em construção**: 204 pares medidos, dos quais 86 formam o grupo de referência não regional e já superam a meta de 80, e 58 são controles pareados de moldura; faltam frases nas condições de menção explícita, cuja meta é de 20 por condição, cada uma com seu gêmeo, e nenhum par foi validado por juízes.
+O corpus de áudio concluiu a coleta e a verificação de falantes distintos (`docs/plano_corpus/`). A validação do corpus — erro de transcrição por variedade, coerência dialetal e participação de ouvinte — ainda não foi feita. O conjunto de pares mínimos está **concluído para a v1**: 306 pares medidos, entre eles 86 de referência não regional, 80 de menção explícita com 80 gêmeos de moldura e 25 de sinalização implícita. Os 25 implícitos foram validados por fonte dialetológica e ocorrência no corpus, e não por juízes; a situação de cada par consta do arquivo publicado.
 
 Nenhum item passou pelo protocolo de validação, e o eixo de prestígio ocupacional não é mensurável por pseudo-verossimilhança neste modelo — exige AUL, e é a última medição pendente.
 

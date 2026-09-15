@@ -65,14 +65,17 @@ Execução do pipeline já implementado em `pipeline_coleta_piloto/`. É o passo
 
 ## Situação dos dois conjuntos de dados
 
-Atualizada em 28/08/2026. A redação anterior descrevia o estado de 26/08 — um vídeo avulso, sem transcrição — e permaneceu no arquivo depois do piloto e da coleta, o que é defeito de manutenção do próprio plano canônico.
+Atualizada em 15/09/2026. A versão de 28/08/2026 está no histórico do repositório.
 
 | Conjunto | Situação |
 |---|---|
-| **Corpus de áudio** | **Especificação fechada, execução em curso.** Esquema de oito campos definido em `docs/protocolo.md`, seção 1.4.1, e implementado. Regra de atribuição por canal estabelecida e verificada contra contaminação. Meta de volume derivada de requisito estatístico, e não arbitrada. Coletados 52 trechos, 5,52 h, cerca de 0,92 h por estado, contra meta revista de cerca de 6,4 h por estado. Esteira validada de ponta a ponta, com 88 canais verificados disponíveis. |
-| **Pares mínimos** | **Especificação aberta, e o conteúdo perdeu sustentação.** Doze itens rascunhados, nenhum validado por juízes. Os quatro blocos testados — morfossintático, lexical, feixe e construcional — não produzem resposta no modelo, de modo que o conjunto atual não serve como instrumento de medição de viés. Faltam, além do conteúdo, quatro definições formais: tamanho-alvo, formato de publicação, licença e ficha de conjunto de dados. |
+| **Corpus de áudio** | **Coleta concluída, validação por fazer.** Entregável autônomo desde 29/08/2026. 83 arquivos, 7,96 h, 65 canais, 216 falantes distintos; todos os estados acima do piso de 20 pessoas úteis sob o teto de 5% por falante. Transcrições anonimizadas. Restam erro de transcrição por variedade, coerência dialetal e participação de ouvinte (itens 5, 6, 9, 10 e 11 do plano de fechamento, ao final deste arquivo). |
+| **Pares mínimos** | **Concluídos para a v1.** 306 pares medidos, esquema 1.3, licença CC BY 4.0: 86 de referência não regional, 80 de menção explícita com 80 gêmeos de moldura, 25 de sinalização implícita e 35 de controle. Os 25 implícitos validados por fonte e corpus, sem juízes: 7 confirmados, 5 com ressalva, 13 não confirmados. Falta a ficha (item 7). |
 
-### Por que a assimetria importa
+### Por que a assimetria importa — histórico, superado
+
+> **Superado em 15/09/2026.** O raciocínio abaixo descreve a situação de 28/08/2026, antes de o passo 5.3 ser adotado e de os pares serem concluídos. Conservado como registro.
+
 
 O princípio de ordenação deste arquivo estabelece que a contribuição publicável do projeto é o dataset, e os precedentes adotados — CrowS-Pairs e French CrowS-Pairs — são artigos de conjunto de dados. Ocorre que o conjunto que sustentaria essa contribuição é o de **pares mínimos**, e é justamente o que não está definido. O corpus de áudio, bem especificado, tem no desenho original função **instrumental**: serve ao Filtro 2, isto é, a confirmar que os marcadores ocorrem em fala espontânea.
 
@@ -166,6 +169,10 @@ Os passos 5.4 e 5.5 foram reanalisados com 86 pares não regionais distintos, em
 
 **Controle de moldura, 14/09/2026 — o resultado de 5.4 muda de alcance.** Com predição e análise versionadas antes da medição, cada par de menção explícita recebeu um gêmeo com a mesma frase e rótulo do Sul no lugar do nordestino (`docs/pendencias.md` 2.10). A resposta ao rótulo nordestino não é detectavelmente maior que a ao rótulo do Sul — p ajustados de 0,36 na macrorregião e 0,80 no gentílico —, e a distinção pessoa/lugar desaparece. O "primeiro resultado positivo" de 5.4 subsiste como resposta a rótulo regional em enunciado sobre a pessoa, sem especificidade detectável para o Nordeste; o item 1.17 dos achados foi reformulado nessa direção.
 
+### Revisão de 15/09/2026 — menção explícita a 20 frases pareadas
+
+Com regras de decisão registradas antes da medição (`docs/pendencias.md` 2.12): sem especificidade para o Nordeste acima de 0,08 em macrorregião e topônimo; gentílico inconclusivo; especificidade pequena e exploratória na menção em terceira pessoa. Na direção, nenhum viés sobrevive na versão controlada da tokenização, mas as estimativas subiram e há sinal exploratório em rótulos de pessoa. Itens 1.17 e 1.19 dos achados reescritos; resolução do gentílico e do sinal de direção adiada para fase posterior ao dataset.
+
 ### 5.6 — Eixo ocupacional por AUL (aberto)
 
 Aberto em 29/08/2026 pelo resultado do 5.5. É a última medição pendente para fechar a seção de Resultados, e a única que exige nova passagem pelo modelo: os escores de AUL não foram gravados, porque as medições dos passos 5.1 e 5.4 empregaram o atalho de PLL apenas, por economia de tempo de máquina.
@@ -222,12 +229,12 @@ Segue-se uma recomendação, e não apenas o registro de uma opção. **O artigo
 O artigo, portanto, **não é sobre viés medido**. É sobre o que o modelo distingue e o que não distingue, com três resultados que se sustentam mutuamente:
 
 1. Não responde à sinalização dialetal implícita, em quatro famílias (1.15).
-2. Responde à menção explícita de região em enunciados sobre a pessoa, sem especificidade detectável para o Nordeste (1.17, reformulado em 14/09/2026 pelo controle de moldura).
+2. Responde à menção explícita de região; sem especificidade para o Nordeste acima de 0,08 na autoidentificação, com sinal pequeno e exploratório em terceira pessoa (1.17, reescrito em 15/09/2026).
 3. Essa resposta não se organiza por valência dos atributos de caráter (1.19).
 
 **E ganha uma contribuição metodológica que não existiria sem o resultado negativo:** a demonstração, em caso concreto, de que uma medição de viés por pseudo-verossimilhança em português pode produzir efeito significativo inteiramente atribuível à assimetria de tokenização (1.1, consequência demonstrada, e 1.20). O projeto encontrou um viés aparente a p = 0,049 e o desfez. Isso é resultado de método com valor próprio, e é o tipo de coisa que a literatura de *bias probing* raramente reporta.
 
-**A ressalva que preserva a honestidade do texto:** não detectar não é demonstrar ausência. O eixo ocupacional segue sem medição válida, a classificação de valência não passou por juízes, e são oito pares por condição.
+**A ressalva que preserva a honestidade do texto:** não detectar não é demonstrar ausência. O eixo ocupacional segue sem medição válida, a classificação de valência não passou por juízes, e, desde 15/09/2026, são 20 frases por condição de menção explícita, com sinal exploratório de direção em rótulos de pessoa declarado em 1.19.
 
 **Decisão de 15/09/2026 — dois artigos, e o primeiro é o do conjunto de dados.** A equipe dividiu a produção em duas publicações:
 
@@ -237,3 +244,31 @@ O artigo, portanto, **não é sobre viés medido**. É sobre o que o modelo dist
 **Isto substitui a recomendação de 29/08/2026 pelo terceiro caminho.** Duas razões tornam a mudança coerente com o estado do projeto, e não apenas preferência. Primeiro, o contraste que sustentava aquele caminho enfraqueceu: desde o controle de moldura, a resposta à menção explícita não se mostrou específica do Nordeste (1.17), e um artigo centrado no modelo perderia seu resultado positivo mais forte. Segundo, o artigo de recurso não depende de haver viés detectado, e acomoda sem perda o nulo, o positivo qualificado e a ausência de direção.
 
 **Consequências para o plano.** O critério de conclusão do conjunto passa a ser o critério de conclusão do primeiro artigo, e deve ser escrito como lista fechada (a registrar em documento próprio). A validação por juízes do Passo 3 foi substituída em 15/09/2026 por fonte dialetológica e ocorrência no corpus (`docs/pendencias.md` 2.14). O passo 5.6, eixo ocupacional por AUL, deixa de ser pré-requisito automático: num artigo de recurso ele pode ser declarado como limitação, e a decisão entra no critério de conclusão.
+
+---
+
+## Plano de fechamento do dataset v1
+
+Aprovado pela equipe em 15/09/2026. **Numeração estável:** os itens não são renumerados; item novo recebe o número seguinte. Escopo congelado — o que surgir depois vai para fase posterior, salvo se invalidar a v1, e quem decide é a equipe. Visualização em página própria, fora do repositório; este quadro é a fonte.
+
+| # | Fase | Item | Responsável | Situação | Depende de |
+|---|---|---|---|---|---|
+| 1 | 1 — rodada atual | Analisar a medição dos 102 pares contra as regras registradas | assistente | **concluído** 15/09 | — |
+| 2 | 1 — rodada atual | Atualizar documentos e integrar à `main` | assistente | **concluído** 15/09 | 1 |
+| 3 | 2 — congelar escopo | Escrever o "Critério de conclusão do dataset v1", com as decisões 13, 15 e 16 | assistente | a fazer | 2 |
+| 4 | 3 — validar pares | Validar os 25 pares implícitos por fonte e corpus | assistente | **concluído** 15/09 | — |
+| 5 | 3 — validar corpus | Regerar a amostra do WER sobre os 83 arquivos | assistente | a fazer | — |
+| 6 | 3 — validar corpus | Gerar a amostra de coerência dialetal, 10 falantes por estado | assistente | a fazer | — |
+| 7 | 4 — fechar | Fechar a ficha do conjunto | assistente | a fazer | 4, 8, 9, 10, 11 |
+| 8 | 3 — validar pares | Conferir os trechos encontrados na busca | equipe | **concluído** 15/09 | 4 |
+| 9 | 3 — validar corpus | Ouvir 2 arquivos: participação de ouvinte (15 min) | equipe | a fazer | — |
+| 10 | 3 — validar corpus | Ouvir os 60 falantes da coerência dialetal (cerca de 1 h) | equipe | a fazer | 6 |
+| 11 | 3 — validar corpus | Transcrever 2 h de áudio para o WER (8 a 16 h) | equipe | a fazer | 5, 13 |
+| 12 | 3 — orientação | Consulta à orientação: juízes como reforço e comitê de ética | equipe | a fazer | — |
+| 13 | 2 — decisão | O WER entra na v1? (sugestão: sim) | equipe | aberta | — |
+| 14 | 2 — decisão | Análise de sentimento e listas de *features* | equipe | **decidida** 15/09: segundo artigo | — |
+| 15 | 2 — decisão | Integrar a branch `etapa3-situacao` (sugestão: sim) | equipe | aberta | — |
+| 16 | 2 — decisão | Eixo ocupacional por AUL: medir ou declarar limitação (sugestão: limitação) | equipe | aberta | — |
+| 17 | 4 — fechar | Consolidar a documentação (`docs/pendencias.md` 2.15) | assistente | a fazer | 2 |
+
+**Fora da v1, de propósito:** análise de sentimento (segundo artigo), crescimento das condições implícitas, resolução do gentílico, confirmação do sinal de direção, hipótese de marcação de registro, controle intrarregional, coleta de mais áudio, juízes como filtro obrigatório, e juntar as listas de pares num só módulo.

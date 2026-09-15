@@ -37,7 +37,9 @@ O confundidor de frequência descrito por Kaneko e Bollegala (2022) encontra-se,
 
 O item deixa de ser advertência metodológica e passa a ter **caso documentado**. No passo 5.5, uma medição de viés de valência produziu efeito aparentemente significativo — a condição de menção explícita à macrorregião apresentava viés de +0,1952, com sete de oito pares positivos e p ajustado de 0,0486 contra o grupo de referência de 26 pares — e de **0,0018** contra o grupo ampliado a 86 pares, em 14/09/2026. Restrita a análise aos atributos de **token único**, o efeito caiu para +0,0309, com três de oito pares positivos e p ajustado de 1,0000.
 
-**A restrição aumentou o poder do teste em vez de reduzi-lo:** o controle positivo passou de +0,2352 para +0,4758, e seu p ajustado caiu de 0,0052 para 0,0004 com o grupo de 86 pares (de 0,0556, que não sobrevivia à correção, para 0,0013 com o de 26). Com menos atributos e mais poder, o efeito da condição regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído. A ampliação do grupo de referência torna o caso mais agudo, e não mais brando: o artefato passa a exibir significância forte na versão completa e continua a desaparecer por inteiro na restrita.
+**A restrição aumentou o poder do teste em vez de reduzi-lo:** o controle positivo passou de +0,2352 para +0,4758, e seu p ajustado caiu de 0,0052 para 0,0004 com o grupo de 86 pares (de 0,0556, que não sobrevivia à correção, para 0,0013 com o de 26). Com menos atributos e mais poder, o efeito da condição regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído. A ampliação do grupo de referência torna o caso mais agudo, e não mais brando: o artefato passa a exibir significância forte na versão completa e continua sem sobreviver à correção na restrita.
+
+**Atualização de 15/09/2026, com 20 frases por condição.** Na versão completa, a macrorregião vai a +0,2119 (p Holm 0,0004) e a menção em terceira pessoa a +0,1571 (0,0020); na restrita, nenhuma condição sobrevive à correção — macrorregião +0,0945 (Holm 0,4049) —, com o controle positivo a 0,0004. A demonstração do artefato se mantém. A estimativa restrita, porém, subiu de +0,0309 para +0,0945, e há sinal exploratório em rótulos de pessoa; o registro está em 1.19, e não autoriza escrever que o efeito "desaparece por inteiro".
 
 O mecanismo é identificável no próprio repertório: entre os atributos multi-token, os desfavoráveis fragmentam-se mais que os favoráveis — *burra* (2), *grosseira* (3), *ignorante* (2), *preguiçosa* (3), média de 2,5 tokens, contra *culta*, *educada*, *honesta* e *trabalhadora*, todos de 2.
 
@@ -194,7 +196,7 @@ Em teste com condições de controle que estabelecem piso e teto de sensibilidad
 
 **Seção do artigo:** Resultados, e Ameaças à Validade.
 
-Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso. A reprodução impede a leitura dialetal do bloco lexical, e **esta é a parte do item que se sustenta**. Com o grupo de referência de 86 pares, as duas condições seguem indistinguíveis: resíduo de +0,074 no bloco lexical e de +0,070 no controle de raridade, e o bloco lexical não sobrevive à correção de Holm (p ajustado 0,084).
+Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso. A reprodução impede a leitura dialetal do bloco lexical, e **esta é a parte do item que se sustenta**. Com o grupo de referência de 86 pares, as duas condições seguem indistinguíveis: resíduo de +0,074 no bloco lexical e de +0,070 no controle de raridade, e o bloco lexical não sobrevive à correção de Holm (p ajustado 0,070, com as condições de menção explícita a 20 frases).
 
 ### Revisão de 14/09/2026: a frequência não é o mecanismo
 
@@ -221,7 +223,7 @@ Quatro famílias foram testadas contra o mesmo grupo de referência, e nenhuma a
 | Família | Pares | Resíduo médio | Pares acima da reta | p | p Holm |
 |---|---|---|---|---|---|
 | morfossintática — imperativo e negação | 5 | −0,0763 | 0/5 | 0,9997 | 1,0000 |
-| lexical — itens regionais | 5 | +0,0739 | 4/5 | 0,0140 | 0,0840 |
+| lexical — itens regionais | 5 | +0,0739 | 4/5 | 0,0140 | 0,0700 |
 | feixe combinado | 5 | +0,0126 | 3/5 | 0,3145 | 0,9435 |
 | **construcional** | **10** | **−0,0249** | **3/10** | **0,8885** | **1,0000** |
 
@@ -481,7 +483,7 @@ A vedação, portanto, muda de fundamento — e deixa de ser sobre ausência de 
 
 **Formulação correta, em três partes que não devem ser separadas:**
 1. O BERTimbau Base **não** exibe resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas (1.15).
-2. O BERTimbau Base **exibe** resposta à menção explícita de região em enunciados sobre a pessoa, acima do grupo de referência não regional, sem especificidade detectável para o Nordeste (1.17).
+2. O BERTimbau Base **exibe** resposta à menção explícita de região, acima do grupo de referência não regional; na autoidentificação, sem especificidade para o Nordeste acima de 0,08 em macrorregião e topônimo, e com o gentílico sem resolução; na menção em terceira pessoa, com sinal de especificidade pequeno e exploratório (1.17).
 3. **Não se sabe** se essa resposta é depreciativa: a medida é de magnitude, e a de direção não tem poder estatístico (3.7).
 
 **Formulação incorreta, e a mais tentadora:** que o modelo apresente, ou deixe de apresentar, viés regional. Distinguir não é depreciar.
@@ -495,6 +497,8 @@ Registrado em revisão anterior do projeto e **não confirmado por nenhuma fonte
 ## 3.3 Que os marcadores dialetais do instrumento estejam validados
 
 Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2 em volume suficiente. Os itens são candidatos, e o texto deve tratá-los como tais.
+
+**Requalificado em 15/09/2026.** O Filtro 1 foi julgado inviável e substituído, para os 25 pares de sinalização implícita, por fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (`docs/pendencias.md` 2.14; `experimentos/resultados/dados/filtro2_conferencia.json`): 7 confirmados, 5 confirmados com ressalva, 13 não confirmados no corpus. **Pode ser escrito** que os pares foram validados por esse procedimento, com a classificação de cada um. **Continua vedado** escrever que foram validados por juízes, ou tratar "não confirmado" como reprovado — o corpus, de 7,96 h, não permite reprovar traço raro. As limitações a declarar junto: ausência de juízes, conferência feita pela própria equipe e candidatos de apresentador ou repórter que podem não ser da variedade do estado.
 
 ## 3.4 Balanceamento de frequência lexical entre condições — parcialmente endereçado
 
@@ -510,15 +514,16 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 
 **Aberto em 29/08/2026 e requalificado no mesmo dia, depois de o passo 5.5 responder à pergunta.** A redação original vedava qualquer leitura de direção por subdimensionamento da análise. O subdimensionamento era erro de desenho — grupo de referência de cinco pares em vez de vinte e seis — e foi corrigido.
 
-**Deixa de ser vedado:** afirmar que, nas condições testadas e no eixo de caráter, a resposta do modelo à menção explícita **não se organiza por valência**. É o item 1.19, com controle positivo sobrevivente à correção e artefato de segmentação controlado.
+**Deixa de ser vedado:** afirmar que, nas condições testadas e no eixo de caráter, nenhum viés de valência na resposta à menção explícita **sobrevive à correção** na versão controlada da tokenização. É o item 1.19, com controle positivo sobrevivente à correção e artefato de segmentação controlado — e com o sinal exploratório em rótulos de pessoa declarado ali, que impede a formulação mais forte de que a resposta "não se organiza por valência" (revisão de 15/09/2026).
 
 **Continua vedado, e sem atenuação:**
 
 - Afirmar que o BERTimbau **não apresenta viés regional**. Um instrumento que não detecta não demonstra ausência. O que se mostrou é que este instrumento, neste modelo, nesta métrica e neste repertório de atributos, não detecta.
 - Citar qualquer valor do eixo de **prestígio ocupacional**, em qualquer direção, inclusive o −0,2706 da condição de gentílico. Aquele eixo não tem medição válida por impossibilidade instrumental — ver 1.20.
-- Citar o viés de +0,1952 da condição de macrorregião como resultado. Ele não sobrevive ao controle de tokenização, e sua história pertence a 1.1, não a Resultados.
+- Citar como resultado os vieses significativos da versão completa do eixo de caráter — macrorregião a +0,2119 com 20 frases (+0,1952 com oito), terceira pessoa a +0,1571. Não sobrevivem ao controle de tokenização, e sua história pertence a 1.1, não a Resultados.
+- Citar o sinal exploratório em rótulos de pessoa (1.19) como resultado confirmado.
 
-**Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita de região em enunciados sobre a pessoa, sem especificidade detectável para o Nordeste (1.17); e essa resposta não é depreciativa de forma detectável no eixo de caráter (1.19), permanecendo o eixo ocupacional sem medição (1.20).
+**Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita de região, sem especificidade para o Nordeste acima de 0,08 na autoidentificação e com sinal pequeno e exploratório na menção em terceira pessoa (1.17); e, no eixo de caráter, nenhum viés dessa resposta sobrevive à correção na versão controlada da tokenização, com sinal exploratório em rótulos de pessoa declarado (1.19), permanecendo o eixo ocupacional sem medição (1.20).
 
 **Libera afirmação mais forte:** medição do eixo ocupacional por AUL, e validação da classificação de valência por juízes.
 
