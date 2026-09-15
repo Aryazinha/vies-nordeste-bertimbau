@@ -399,6 +399,32 @@ Execução das decisões de 2.11. Branch `crescimento-explicitos`. **Esta seçã
 
 **Secundária registrada.** A mesma análise restrita às frases novas, como replicação com frases que não participaram de nenhuma decisão anterior. Não entra nas regras de decisão.
 
+#### Resultado, 15/09/2026
+
+Medição local: 2.856 medições em 102 pares, em 901 s; as anteriores intactas. Análise primária em `experimentos/resultados/tabelas/moldura_tabelas.md`. A primeira execução de `analise_moldura.py` não terminou: o reagrupamento exploratório pessoa/lugar passou a 30 frases, e a permutação exata de 2^30 atribuições foi interrompida; a função passou a sortear 200 mil atribuições acima de 20 frases (`79d62d3`). A análise primária, com 20 frases por condição, seguiu exata.
+
+| Condição | Frases | D médio | IC 95% | D > 0 | p Holm | Regra | Expectativa registrada |
+|---|---|---|---|---|---|---|---|
+| macrorregião | 20 | −0,0210 | −0,0704 a +0,0188 | 11/20 | 0,7922 | 2 — exclui D > 0,08 | confirmada |
+| gentílico de estado | 20 | +0,0147 | −0,0537 a +0,0852 | 11/20 | 0,6861 | 3 — inconclusivo | confirmada |
+| topônimo | 20 | +0,0108 | −0,0163 a +0,0383 | 12/20 | 0,6790 | 2 — exclui D > 0,08 | confirmada |
+| conjunto explícito original | 20 | +0,0262 | +0,0052 a +0,0446 | 18/20 | 0,0409 | 1 — especificidade detectada | leitura exploratória, como registrado |
+
+**Leitura.** Nos enunciados de autoidentificação não há resposta específica ao Nordeste acima de 0,08 em macrorregião e topônimo, e o gentílico permanece sem resolução, como previsto pela sua dispersão. Na menção em terceira pessoa, a especificidade é detectada, com três qualificações que acompanham o registro prévio: (a) a hipótese nasceu dos cinco pares originais, e a leitura é exploratória; (b) o efeito é pequeno — o limite superior do intervalo, +0,045, fica abaixo do próprio limiar de 0,08; (c) restrita às quinze frases novas, que não participaram de decisão anterior, a condição não sobrevive à correção (D +0,0217, 13/15, p Holm 0,2046). Os gêmeos sem Nordeste seguem acima do grupo de referência em macrorregião, gentílico e conjunto original, confirmando o efeito de moldura; o reagrupamento pessoa/lugar sobre D segue nulo (−0,009 contra +0,013).
+
+**Consequência:** a regra 1 exige revisão de 1.17, que passa a registrar especificidade pequena, exploratória e não replicada isoladamente na menção em terceira pessoa, mantendo a ausência de especificidade acima de 0,08 na autoidentificação. Texto a propor à equipe no item 2 do plano de fechamento.
+
+**Reanálise de direção (1.19), com 20 frases por condição — e um sinal novo a declarar.** Tabela em `experimentos/resultados/tabelas/valencia_tabelas.md`.
+
+- *Eixo de caráter completo:* macrorregião +0,2119 (p Holm 0,0004) e conjunto explícito original +0,1571 (0,0020); gentílico e topônimo não sobrevivem.
+- *Eixo de caráter restrito a token único, que é o controle do artefato de 1.1:* **nenhuma condição sobrevive à correção** — macrorregião +0,0945 (p bruto 0,058, Holm 0,405), conjunto original +0,0684 (Holm 0,798) —, com o controle positivo a +0,4758 (Holm 0,0004). A formulação de 1.19 segue sustentada pela análise registrada.
+- **Mas as estimativas subiram, e há sinal exploratório.** Com oito frases, a macrorregião restrita valia +0,0309; com vinte, +0,0945. No reagrupamento exploratório pessoa/lugar restrito a token único, rótulo de pessoa rende +0,1226 com p = 0,0057, contra −0,0071 de lugar. É análise posterior aos dados, sobre agrupamento que o controle de moldura desfez em |Δ|, e não tem estatuto confirmatório — mas é a primeira vez que um sinal de direção aparece na versão controlada da tokenização, e **não pode ser omitido** ao se escrever 1.19. Com 20 frases, a análise de direção exclui vieses a partir de cerca de 0,10 (2.11), e +0,09 está dentro dessa margem.
+- *Eixo de ocupação:* sem medição válida; valores não citáveis (1.20).
+
+**Meta pareada recalculada.** Desvio-padrão combinado de D: 0,1034 com 80 frases (era 0,106 com 29). Para excluir 0,08 sob Holm, 19 frases por condição — as 20 adotadas bastam pelo desvio combinado. Pelo desvio do gentílico (0,161), seriam 42, o que confirma a leitura inconclusiva daquela condição.
+
+**Consequência adicional:** o item 1.19 também é revisto no item 2 do plano — mantendo a ausência de viés sobrevivente à correção na versão controlada, e declarando o aumento das estimativas e o sinal exploratório em rótulos de pessoa.
+
 **Reanálises decorrentes, sem estatuto confirmatório novo.** `teste_explicito.py` (resíduo contra o grupo de referência, 1.17) e `analise_valencia.py` (direção, 1.19) serão regerados com 20 frases por condição; seus valores entram nos documentos na rodada de atualização, e a meta pareada é recalculada sobre a dispersão de D observada.
 
 ---
