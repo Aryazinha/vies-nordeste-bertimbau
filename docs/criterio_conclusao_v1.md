@@ -78,7 +78,7 @@ Não impedem a conclusão. Devem constar da ficha do conjunto e do artigo, com a
 | Item | Destino |
 |---|---|
 | Análise de sentimento com PLN, nas três formas propostas pela orientação | segundo artigo (`docs/pendencias.md` D10) |
-| Medição do eixo ocupacional por AUL (passo 5.6) | fase posterior, prevista pela equipe para logo após a conclusão da v1. Não depende da validação humana nem altera o conteúdo do conjunto; seus resultados vão ao artigo, se houver tempo antes da submissão, ou a uma versão 1.1 das medições [16] |
+| Medição do eixo ocupacional por AUL (passo 5.6) | fase posterior, prevista pela equipe para logo após a conclusão da v1. Não depende da validação humana nem altera o conteúdo do conjunto; seus resultados vão ao artigo, se houver tempo antes da submissão, ou a uma versão 1.1 das medições. Plano em `docs/plano_aul_eixo_ocupacional.md` [16, 18] |
 | Resolução do gentílico e confirmação do sinal de direção | fase posterior (2.12) |
 | Crescimento das condições de sinalização implícita | fase posterior (2.11) |
 | Hipótese de marcação de registro | fase posterior (2.9) |

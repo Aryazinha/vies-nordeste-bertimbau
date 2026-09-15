@@ -345,6 +345,16 @@ Tabela em `experimentos/resultados/tabelas/meta_pareada.md`. Desvio-padrão de D
 
 **Volume implicado.** Condições `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo` de 8 para 20 frases, e `controle_explicito` de 5 para 20: 51 frases novas, cada uma com par de teste e gêmeo inter-regional, perfazendo 102 pares e cerca de 2.900 medições. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
+### 2.16 AUL para o eixo ocupacional — ABERTA em 15/09/2026, para depois da v1
+
+Decisão da equipe de 15/09/2026: o eixo de prestígio ocupacional, declarado limitação do dataset v1 (decisão 16 do plano de fechamento), será **retomado ao final, caso haja tempo antes da submissão**, para entregar o conjunto mais completo. Não começa antes da marca `dataset-v1.0`. Item 18 do plano em `docs/roadmap.md`.
+
+**Por que importa.** É a única limitação da v1 que decorre de impossibilidade de medição, e não de volume ou de validação: o PLL não compara ocupações de baixo prestígio, fragmentadas em subtokens, com as de alto prestígio, inteiras (achados 1.1 e 1.20). O AUL, de Kaneko e Bollegala (2022), é a via proposta na literatura para esse caso.
+
+**Plano completo** em `docs/plano_aul_eixo_ocupacional.md`: o que já existe no código, as quatro variantes candidatas, a escolha da variante sem olhar as condições de teste (controle positivo, sanidade e independência do comprimento do atributo), registro prévio, análise, e critério de abandono — se nenhuma variante se validar, a limitação permanece e a tentativa é registrada como resultado de método.
+
+**Encerra a pendência:** execução do plano até A5, ou abandono registrado em A6.
+
 ### 2.15 Dispersão e defasagem da documentação — ABERTA em 15/09/2026
 
 Levantamento de 15/09/2026, só de leitura. **A estrutura do repositório está organizada**: código, dados e documentos separados; resultados divididos em `dados/`, `tabelas/`, `relatorios/` e `historico/`; áudio fora do versionamento; licenças, `README.md` e `pyproject.toml` na raiz. **A documentação, não.** São cerca de 100 mil palavras em 29 arquivos de texto, com cinco problemas:
