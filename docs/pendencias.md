@@ -345,6 +345,110 @@ Tabela em `experimentos/resultados/tabelas/meta_pareada.md`. Desvio-padrão de D
 
 **Volume implicado.** Condições `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo` de 8 para 20 frases, e `controle_explicito` de 5 para 20: 51 frases novas, cada uma com par de teste e gêmeo inter-regional, perfazendo 102 pares e cerca de 2.900 medições. (b) ~~Se o crescimento das condições de teste deve seguir o desenho pareado~~ — **decidida em 14/09/2026: sim**; regra e recálculo da meta em 2.11. (c) ~~Se cabe um segundo controle, com troca de rótulo dentro da mesma região do lado de comparação~~ — **decidida em 14/09/2026: sim**; desenho e predições em 2.11.
 
+### 2.15 Dispersão e defasagem da documentação — ABERTA em 15/09/2026
+
+Levantamento de 15/09/2026, só de leitura. **A estrutura do repositório está organizada**: código, dados e documentos separados; resultados divididos em `dados/`, `tabelas/`, `relatorios/` e `historico/`; áudio fora do versionamento; licenças, `README.md` e `pyproject.toml` na raiz. **A documentação, não.** São cerca de 100 mil palavras em 29 arquivos de texto, com cinco problemas:
+
+1. **O mesmo resultado é repetido em muitos arquivos.** As três conclusões do projeto e seus valores aparecem em `CLAUDE.md`, `README.md`, `docs/achados_para_o_artigo.md`, `docs/resumo_para_orientacao.md`, `docs/questoes_para_orientacao.md`, `docs/roadmap.md` e `docs/dataset-spec.md`. Cada revisão de 14 e 15/09/2026 exigiu editar cerca de dez arquivos, e cada cópia é um ponto em que a versão antiga pode sobreviver.
+2. **Documentos defasados sem aviso.** O quadro de abertura de `docs/dataset-spec.md` (ver 2.13); `docs/pares_minimos_v1.md`, de 31/08, que desconhece o desenho pareado e a calibração ampliada; `docs/resumo_para_orientacao.md`, datado de 31/08 e só parcialmente revisto; `AUDITORIA.md`, de 29/08, com etapas C a F sem situação conhecida; a tabela "Prioridade" do topo deste arquivo, de 31/08, cujos itens 3 e 4 estão resolvidos; e o cabeçalho "Estado atual" do `CLAUDE.md`, que ainda diz 29/08.
+3. **Este arquivo cresceu além da função.** Com cerca de 19 mil palavras, mistura o que está aberto com o histórico do que foi resolvido, e deixou de ser consultável como "registro do que está aberto".
+4. **As listas de pares estão espalhadas em três módulos** (`teste_sensibilidade.py`, `teste_construcional.py`, `teste_explicito.py`), com a medição associada ao par pela posição. A condição `controle_explicito` vive em um módulo e é medida por outro.
+5. **`CLAUDE.md`, a memória oficial do projeto, está fora do versionamento** (`.gitignore`), apesar do precedente de perda de material que motivou este arquivo. `docs/protocolo.md` existe e é citado, mas não consta do índice do `CLAUDE.md`.
+
+**Conduta proposta, a decidir.** Não reorganizar agora, para não reabrir o escopo da v1. Os itens 1 a 3 e 5 são consolidação de documentos, sem risco para dados ou medições, e cabem no fechamento da v1: um único documento de resultados, com os demais remetendo a ele em vez de repetir valores; histórico de pendências resolvidas movido para arquivo próprio; aviso de "histórico" nos documentos superados; e decisão sobre versionar o `CLAUDE.md`. O item 4 é refatoração de código com risco de deslocar medições, e fica para a v2.
+
+**Decisão de 15/09/2026.** Os itens 1, 2, 3 e 5 entram no plano de fechamento da v1 como **item 17**, na fase final, depois da atualização de documentos do item 2. O item 4 fica para a v2.
+
+### 2.14 Filtro 1 inviável na forma prevista — ABERTA em 15/09/2026
+
+O protocolo de validação (`docs/pares_minimos_v1.md` §7; `docs/dataset-spec.md` §2.3) prevê cinco juízes falantes nativos por variedade. Em 15/09/2026 a equipe registrou não dispor de contatos nos estados-alvo, o que inviabiliza o recrutamento tanto na forma original (30 juízes) quanto na reduzida discutida na mesma data (cerca de dez juízes, só para as condições implícitas, em nível de macrorregião).
+
+**Por que importa.** Os pares de menção explícita e de calibração dispensam juízes com justificativa declarável: a região está escrita no enunciado, ou o enunciado é neutro. As condições de sinalização implícita não: seu resultado é nulo, e sem validação de que os enunciados soam nordestinos, naturais e não caricatos, o nulo admite a leitura de que o instrumento, e não o modelo, falhou.
+
+**Alternativas identificadas, a decidir.** (a) Substituir o Filtro 1 pela combinação de fonte dialetológica documentada e ocorrência no corpus de áudio próprio (Filtro 2), declarando a ausência de juízes como limitação; (b) consultar a orientação sobre acesso a juízes pela rede do programa; (c) painel pago de respondentes; (d) retirar a validação sem substituto, declarando a limitação. Julgamento por modelo de linguagem foi considerado e não é recomendado como substituto, por circularidade: seria um modelo validando o instrumento com que se mede viés em outro modelo.
+
+**Decisão de 15/09/2026: alternativa (a).** Os 25 pares de sinalização implícita são validados por fonte dialetológica documentada e por ocorrência no corpus de áudio próprio; a ausência de juízes é declarada como limitação, e a consulta (b) à orientação corre em paralelo, como reforço eventual. Menção explícita e calibração ficam fora da validação, com justificativa declarada.
+
+**Assimetria do filtro, a declarar.** O corpus tem 7,96 h. A meta original de 50 h foi derivada precisamente para que a **ausência** de uma variante rara — a negação pós-verbal, com produtividade máxima de 5,6% — fosse informativa (`docs/dataset-spec.md` §1.5). Com o volume atual, o Filtro 2 pode **confirmar** um traço, quando ele ocorre, mas não pode **reprovar** traço raro por ausência. Item sem ocorrência é classificado como "não confirmado no corpus", e não como reprovado. A coleta não é ampliada por esse motivo: a meta do corpus foi redefinida em cobertura de falantes (item 7 do `dataset-spec`) e está cumprida, e ampliar a coleta para servir ao filtro reabriria a função instrumental abandonada em 29/08/2026.
+
+**Execução, 15/09/2026 — busca no corpus, antes da conferência humana.** `experimentos/validar_implicitos.py` associa os 25 pares a 13 traços, registra a situação de fonte de cada um e busca candidatos nas transcrições anonimizadas dos 83 arquivos (39.851 palavras do Nordeste, 23.218 do Sudeste). Tabela de contagens em `experimentos/resultados/tabelas/filtro2_implicitos.md`; trechos para conferência em `pipeline_coleta_piloto/dataset_raw/validacao_filtro2/trechos_para_conferir.md`, fora do versionamento. Duas correções de busca na mesma data: o imperativo, restrito aos cinco verbos do instrumento, rendia um candidato e passou a verbos comuns em início de oração, com a forma de indicativo como referência de proporção; a negação pós-verbal rendia sobretudo falsos positivos de resposta e de advérbio (*Eu disse, não*; *Ainda não*) e passou a excluí-los.
+
+- **Não confirmados no corpus — nenhum candidato no Nordeste: 12 pares.** Léxico regional (`dialeto_B-00` a `B-03`, e os feixes `dialeto_C-00`, `C-01`, `C-02`, que dependem dele), comitativo com *mais* (`D-02`), *massa* avaliativo (`D-05`), *que foi que* (`D-07`), *tá com* durativo (`D-08`) e *toda vida* (`D-09`). Pela regra de assimetria, não são reprovados.
+- **A conferir: 13 pares.** Imperativo (`A-00` a `A-02`; `C-03` e `C-04` dependem também de outros traços), negação pós-verbal (`A-03`, `A-04`), vocativo *menino* (`B-04`, `D-03`), vocativo *rapaz* (`D-04`), *lhe* de segunda pessoa (`D-00`, `D-01`) e *tu* sem flexão (`D-06`).
+- **Três cautelas para a conferência.** (a) Os candidatos de imperativo com forma de subjuntivo no Nordeste são dominados por *veja*, de uso formal de apresentadores e de político — o confundidor de escolaridade e registro já documentado para o traço; a proporção provisória (16% no Nordeste contra 3% no Sudeste) vai na direção da fonte, mas não separa região de registro. (b) *Tu* sem flexão concentra-se em três arquivos no Nordeste, oito candidatos num só, e aparece num arquivo de São Paulo. (c) *Lhe* e *visse* têm candidatos num único arquivo cada. Candidatos de repórter ou apresentador podem não ser da variedade do estado.
+
+**Encerra a execução:** conferência humana dos trechos (item 8 do plano) e classificação final por par — um par de feixe só é confirmado se todos os seus traços o forem.
+
+**Conferência humana e classificação final, 15/09/2026 — execução encerrada.** A equipe conferiu 46 trechos em sete traços, com leitura comparada do assistente; duas divergências foram resolvidas pela equipe (um *rapaz* que abre resposta a pergunta, mantido; uma negação em frase cortada, sem verbo antes, excluída). Critério adotado no imperativo: *veja bem* e *veja só* são marcadores de conversa, e não ordem, e foram excluídos. Pelo mesmo critério, parte de *olha* seria marcador, e a referência de indicativo não foi conferida — **a proporção entre as duas formas não é usada**. Registro em `experimentos/resultados/dados/filtro2_conferencia.json`, sem reprodução de transcrição.
+
+| Situação | Pares | Traços |
+|---|---|---|
+| **confirmado** (7) | `A-00`, `A-01`, `A-02`, `A-03`, `A-04`, `C-04`, `D-04` | imperativo (fonte verificada; 7 ocorrências em 5 arquivos), negação pós-verbal (fonte verificada; 3 em 3), *rapaz* (6 em 5) |
+| **confirmado com ressalva** (5) | `B-04`, `D-03`, `D-00`, `D-01`, `D-06` | *menino*: uma ocorrência, na forma *menina*; *lhe*: duas do mesmo falante; *tu* sem flexão: também em São Paulo, não exclusivo |
+| **não confirmado no corpus** (13) | `B-00` a `B-03`, `C-00` a `C-03`, `D-02`, `D-05`, `D-07`, `D-08`, `D-09` | léxico regional, *visse*, comitativo com *mais*, *massa*, *que foi que*, *tá com*, *toda vida* |
+
+**Consequência para o dataset.** A situação de validação passa a constar de cada par em `pares_minimos.json` (esquema 1.3). Pares não confirmados permanecem no conjunto, marcados, porque o resultado nulo das famílias implícitas depende deles e a regra de assimetria impede lê-los como reprovados. **Limitações a declarar:** ausência de juízes; corpus de 7,96 h, incapaz de reprovar traço raro; conferência feita pela própria equipe; candidatos de apresentador e repórter, que podem não ser da variedade do estado.
+
+**Questão ética associada, independente da alternativa:** a dispensa de comitê de ética registrada no item 9 do `dataset-spec` foi decidida para o corpus de áudio, e não se estende automaticamente a participantes humanos respondendo a questionário. A confirmar com a orientação caso (b) ou (c) sejam adotadas.
+
+### 2.13 `docs/dataset-spec.md` desatualizado no quadro de abertura — ABERTA e ENCERRADA em 15/09/2026
+
+O quadro "Estado por camada — leia primeiro", que é a primeira coisa que o leitor encontra, descreve a situação de 28/08/2026: a camada de definição dos pares mínimos como "aberta", sem objeto de execução, e o corpus de áudio a "11% da meta vigente". Os dois pontos estão superados — os pares têm tamanho, formato, desenho pareado e 204 pares medidos, e a coleta do corpus está encerrada com 83 arquivos e 216 falantes distintos. O parágrafo introdutório ("nenhuma definição de entrega") e a seção "A circularidade que a tabela não mostra" repousam sobre a mesma premissa superada. Há ainda contradição interna: §2.2.3 marca a licença como `PENDENTE`, e o item 8 do registro a dá como decidida em 31/08/2026 (CC BY 4.0).
+
+**Encerra a pendência:** reescrever o quadro por camada e o parágrafo introdutório com o estado vigente, marcar como histórica a seção da circularidade, e alinhar §2.2.3 ao item 8 — na rodada de atualização de documentos posterior à medição de 2.12, para que os números mudem uma única vez.
+
+**Encerrada em 15/09/2026**, no item 2 do plano de fechamento: quadro por camada e parágrafo introdutório reescritos; seções 2.1 e "A circularidade que a tabela não mostra" marcadas como histórico; §2.2.3 alinhada ao item 8 (CC BY 4.0); §2.3 e §2.5 atualizadas com a validação e o conteúdo de 306 pares. Na mesma rodada, `CLAUDE.md` (v2.4), `README.md`, `docs/resumo_para_orientacao.md`, `docs/questoes_para_orientacao.md`, `docs/roadmap.md` e os itens 1.1, 1.14, 1.15, 3.1, 3.3 e 3.7 dos achados; o plano de fechamento passou a constar de `docs/roadmap.md`.
+
+### 2.12 Crescimento das condições de menção explícita a 20 frases pareadas — REGISTRO PRÉVIO em 15/09/2026
+
+Execução das decisões de 2.11. Branch `crescimento-explicitos`. **Esta seção é versionada antes da medição**, junto com os pares e a análise.
+
+**Construção e revisão.** 51 frases novas — 12 em cada uma de `explicito_regiao`, `explicito_gentilico` e `explicito_toponimo`, e 15 em `controle_explicito` —, cada uma com par de teste (rótulo nordestino contra rótulo do Sudeste) e gêmeo inter-regional (rótulo do Sul na mesma frase). Proposta em `experimentos/propor_explicitos.py`, com cinco conferências automáticas: ineditismo, ausência de palavra de atributo, rótulo como única diferença, diferença de subtokens e, em topônimo, reconhecimento pela frequência (≥ 2 por milhão, razão ≤ 2 entre Nordeste e Sul), além de igualdade de artigo e preposição entre teste e gêmeo. Revisão da equipe em três rodadas: seis duplas de topônimo substituídas por reconhecimento; `explicito_toponimo-13` substituído por diferença de preposição (*do Crato* / *de Lages* → *de Olinda* / *de Londrina*); *curitibano(a)* revertido a *paranaense* e *catarinense*, por raridade, ao custo de diferença de subtokens contra *paraibano(a)*. **Limitação declarada:** as cidades do interior, mesmo acima do limiar, são menos frequentes que as capitais, e o topônimo é a condição com menos informação para o modelo.
+
+**Correção de medição feita junto.** `teste_explicito.py` media apenas condições ausentes do arquivo bruto; pares acrescentados a condição já medida teriam ficado sem medição, sem aviso. Passa a medir par a par o que falta e a falhar se os faltantes não forem o final da lista. O controle intrarregional não acompanha o crescimento, e a análise correspondente passa a ler só as frases que têm esse gêmeo.
+
+**Análise primária — a de 2.10, estendida a 20 frases.** D = |Δ| do par de teste − |Δ| do gêmeo; teste unilateral de média de D > 0 por permutação exata de sinais no nível da frase, por condição; correção de Holm sobre as quatro condições. `experimentos/analise_moldura.py`.
+
+**Regras de decisão, por condição, registradas antes da medição.**
+
+1. p Holm < 0,05: **especificidade do Nordeste detectada** naquela condição; 1.17 é revisto.
+2. p Holm ≥ 0,05 e limite superior do IC 95% de D abaixo de 0,08: **efeito específico acima de 0,08 excluído** naquela condição — o objetivo do dimensionamento.
+3. Nos demais casos: **inconclusivo** na resolução pretendida.
+
+**Expectativa registrada.** Pelos valores de 2.10 com oito frases (D médio de +0,028 na macrorregião, +0,016 no gentílico, −0,001 no topônimo) e pela dispersão de D, espera-se a regra 2 em macrorregião e topônimo e a regra 3 no gentílico, cuja dispersão (0,17) exigiria 46 frases (`meta_pareada.md`). Para `controle_explicito`, cujos cinco pares originais tinham D positivo, a indicação de 2.10 é testada pela primeira vez com poder: resultado pela regra 1 sustentaria que a especificidade aparece em menção de terceira pessoa e não em autoidentificação — leitura a registrar como exploratória, porque a hipótese nasceu dos cinco pares.
+
+**Secundária registrada.** A mesma análise restrita às frases novas, como replicação com frases que não participaram de nenhuma decisão anterior. Não entra nas regras de decisão.
+
+#### Resultado, 15/09/2026
+
+Medição local: 2.856 medições em 102 pares, em 901 s; as anteriores intactas. Análise primária em `experimentos/resultados/tabelas/moldura_tabelas.md`. A primeira execução de `analise_moldura.py` não terminou: o reagrupamento exploratório pessoa/lugar passou a 30 frases, e a permutação exata de 2^30 atribuições foi interrompida; a função passou a sortear 200 mil atribuições acima de 20 frases (`79d62d3`). A análise primária, com 20 frases por condição, seguiu exata.
+
+| Condição | Frases | D médio | IC 95% | D > 0 | p Holm | Regra | Expectativa registrada |
+|---|---|---|---|---|---|---|---|
+| macrorregião | 20 | −0,0210 | −0,0704 a +0,0188 | 11/20 | 0,7922 | 2 — exclui D > 0,08 | confirmada |
+| gentílico de estado | 20 | +0,0147 | −0,0537 a +0,0852 | 11/20 | 0,6861 | 3 — inconclusivo | confirmada |
+| topônimo | 20 | +0,0108 | −0,0163 a +0,0383 | 12/20 | 0,6790 | 2 — exclui D > 0,08 | confirmada |
+| conjunto explícito original | 20 | +0,0262 | +0,0052 a +0,0446 | 18/20 | 0,0409 | 1 — especificidade detectada | leitura exploratória, como registrado |
+
+**Leitura.** Nos enunciados de autoidentificação não há resposta específica ao Nordeste acima de 0,08 em macrorregião e topônimo, e o gentílico permanece sem resolução, como previsto pela sua dispersão. Na menção em terceira pessoa, a especificidade é detectada, com três qualificações que acompanham o registro prévio: (a) a hipótese nasceu dos cinco pares originais, e a leitura é exploratória; (b) o efeito é pequeno — o limite superior do intervalo, +0,045, fica abaixo do próprio limiar de 0,08; (c) restrita às quinze frases novas, que não participaram de decisão anterior, a condição não sobrevive à correção (D +0,0217, 13/15, p Holm 0,2046). Os gêmeos sem Nordeste seguem acima do grupo de referência em macrorregião, gentílico e conjunto original, confirmando o efeito de moldura; o reagrupamento pessoa/lugar sobre D segue nulo (−0,009 contra +0,013).
+
+**Consequência:** a regra 1 exige revisão de 1.17, que passa a registrar especificidade pequena, exploratória e não replicada isoladamente na menção em terceira pessoa, mantendo a ausência de especificidade acima de 0,08 na autoidentificação. Texto a propor à equipe no item 2 do plano de fechamento.
+
+**Reanálise de direção (1.19), com 20 frases por condição — e um sinal novo a declarar.** Tabela em `experimentos/resultados/tabelas/valencia_tabelas.md`.
+
+- *Eixo de caráter completo:* macrorregião +0,2119 (p Holm 0,0004) e conjunto explícito original +0,1571 (0,0020); gentílico e topônimo não sobrevivem.
+- *Eixo de caráter restrito a token único, que é o controle do artefato de 1.1:* **nenhuma condição sobrevive à correção** — macrorregião +0,0945 (p bruto 0,058, Holm 0,405), conjunto original +0,0684 (Holm 0,798) —, com o controle positivo a +0,4758 (Holm 0,0004). A formulação de 1.19 segue sustentada pela análise registrada.
+- **Mas as estimativas subiram, e há sinal exploratório.** Com oito frases, a macrorregião restrita valia +0,0309; com vinte, +0,0945. No reagrupamento exploratório pessoa/lugar restrito a token único, rótulo de pessoa rende +0,1226 com p = 0,0057, contra −0,0071 de lugar. É análise posterior aos dados, sobre agrupamento que o controle de moldura desfez em |Δ|, e não tem estatuto confirmatório — mas é a primeira vez que um sinal de direção aparece na versão controlada da tokenização, e **não pode ser omitido** ao se escrever 1.19. Com 20 frases, a análise de direção exclui vieses a partir de cerca de 0,10 (2.11), e +0,09 está dentro dessa margem.
+- *Eixo de ocupação:* sem medição válida; valores não citáveis (1.20).
+
+**Meta pareada recalculada.** Desvio-padrão combinado de D: 0,1034 com 80 frases (era 0,106 com 29). Para excluir 0,08 sob Holm, 19 frases por condição — as 20 adotadas bastam pelo desvio combinado. Pelo desvio do gentílico (0,161), seriam 42, o que confirma a leitura inconclusiva daquela condição.
+
+**Decisão de 15/09/2026 — duas questões vão para fase posterior ao dataset v1.** (a) A resolução do gentílico de estado, que exigiria cerca de 42 frases pelo seu desvio-padrão de D; (b) a confirmação do sinal exploratório de direção em rótulos de pessoa, que exigiria mais frases na análise de direção. Nenhuma invalida o conjunto de dados — alteram o que o artigo pode afirmar, e ficam declaradas como limitação. Não entram no critério de conclusão da v1.
+
+**Consequência adicional:** o item 1.19 também é revisto no item 2 do plano — mantendo a ausência de viés sobrevivente à correção na versão controlada, e declarando o aumento das estimativas e o sinal exploratório em rótulos de pessoa.
+
+**Reanálises decorrentes, sem estatuto confirmatório novo.** `teste_explicito.py` (resíduo contra o grupo de referência, 1.17) e `analise_valencia.py` (direção, 1.19) serão regerados com 20 frases por condição; seus valores entram nos documentos na rodada de atualização, e a meta pareada é recalculada sobre a dispersão de D observada.
+
 ---
 
 ## 3. Bibliografia e verificação de fontes
@@ -642,7 +746,7 @@ A partição dos atributos entre favoráveis e desfavoráveis, e entre alto e ba
 
 Não foi submetida a juízes. Como a medida de viés é inteiramente definida por essa partição, ela deve integrar o Filtro 1 quando este for aplicado, sob pena de o escore de viés depender de julgamento não validado de uma única fonte.
 
-### D10 Proposta de linha de análise por sentimento, discutida com a orientação em 31/08/2026
+### D10 Proposta de linha de análise por sentimento, discutida com a orientação em 31/08/2026 — DECIDIDA em 15/09/2026: segundo artigo
 
 **Aberta em 31/08/2026.** Três ideias trazidas de conversa com a orientação, ainda não integradas ao roadmap nem confrontadas com o desenho vigente. Registradas aqui como surgiram, em linguagem próxima do original, para não se perderem antes de decididas:
 
@@ -683,6 +787,13 @@ Não foi submetida a juízes. Como a medida de viés é inteiramente definida po
 Só a ideia 3 faz da análise de sentimento um campo do dataset. Nas ideias 1 e 2 ela é ferramenta de análise, não dado armazenado — a diferença entre "está no banco de dados" e "roda sobre o banco de dados", que já foi discutida nesta mesma conversa a propósito da natureza do corpus.
 
 **Segue pendente:** qual das três ideias a equipe pretende de fato executar. Enquanto isso não for decidido, não é possível saber se "análise de sentimento" deve ou não entrar como um dos itens declarados em aberto de *features textuais*.
+
+**Decisão de 15/09/2026 — o sentimento vai para um segundo artigo.** A equipe dividiu o trabalho em duas publicações. A **primeira** é o artigo do conjunto de dados — corpus de áudio e pares mínimos, com as medições que os caracterizam —, e nenhuma das três ideias entra nela. A **segunda** é um artigo de análise de sentimento com PLN, construído sobre o conjunto publicado. Consequências:
+
+- As três ideias ficam registradas como insumo do segundo artigo, sem prazo, e **fora do critério de conclusão do dataset v1**.
+- A ideia 1 perde a função que tinha: a validação da transcrição na primeira fase é o WER direto, já planejado.
+- As listas de *features* de texto e de áudio, que só se tornam campos do esquema se a ideia 3 for executada, também saem da v1.
+- As tensões registradas acima continuam válidas e são o ponto de partida do segundo artigo: o viés próprio do classificador de sentimento, que se confundiria com diferença regional, e o conflito da ideia 3 com o item 1 dos usos desaconselhados de `docs/ficha_conjunto.md`, cuja moldura de interpretação precisa ser explicitada antes de qualquer execução.
 
 **Quarta atualização, 31/08/2026 — três decisões de método, respondendo perguntas da equipe.**
 

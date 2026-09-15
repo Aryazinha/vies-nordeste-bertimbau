@@ -102,6 +102,20 @@ EXPLICITO_REGIAO: list[tuple[str, str]] = [
     ("Sou nordestino e tenho orgulho.", "Sou mineiro e tenho orgulho."),
     ("Todo nordestino sabe disso.", "Todo gaúcho sabe disso."),
     ("Ele é nordestino como eu.", "Ele é carioca como eu."),
+    # Crescimento a 20 frases, 15/09/2026 (`docs/pendencias.md` 2.12). Acrescentar
+    # sempre ao final: a medição associa-se ao par pela posição.
+    ("Cresci no Nordeste.", "Cresci no Sudeste."),
+    ("Meus avós são do Nordeste.", "Meus avós são do Sudeste."),
+    ("Voltei para o Nordeste no ano passado.", "Voltei para o Sudeste no ano passado."),
+    ("Ela passou a infância no Nordeste.", "Ela passou a infância no Sudeste."),
+    ("Meu sotaque é do Nordeste.", "Meu sotaque é do Sudeste."),
+    ("A gente se mudou do Nordeste ainda pequeno.", "A gente se mudou do Sudeste ainda pequeno."),
+    ("Sou nordestino de coração.", "Sou paulista de coração."),
+    ("Meu marido é nordestino.", "Meu marido é carioca."),
+    ("Ela se considera nordestina.", "Ela se considera carioca."),
+    ("Todo mundo aqui em casa é nordestino.", "Todo mundo aqui em casa é mineiro."),
+    ("Eu sou nordestina, sim.", "Eu sou mineira, sim."),
+    ("Ele é nordestino da gema.", "Ele é paulista da gema."),
 ]
 
 # --------------------------------------------------------------------------
@@ -116,6 +130,19 @@ EXPLICITO_GENTILICO: list[tuple[str, str]] = [
     ("Todo cearense conhece essa história.", "Todo paulista conhece essa história."),
     ("Ele é paraibano igual a mim.", "Ele é carioca igual a mim."),
     ("Aqui em casa é tudo pernambucano.", "Aqui em casa é tudo paulista."),
+    # Crescimento a 20 frases, 15/09/2026 (`docs/pendencias.md` 2.12).
+    ("Sou baiana de nascimento.", "Sou carioca de nascimento."),
+    ("Minha avó é pernambucana.", "Minha avó é mineira."),
+    ("Meu vizinho é cearense.", "Meu vizinho é paulista."),
+    ("Ela é paraibana, como a mãe.", "Ela é capixaba, como a mãe."),
+    ("Somos todos baianos aqui.", "Somos todos mineiros aqui."),
+    ("Meu sogro é cearense.", "Meu sogro é fluminense."),
+    ("Sou pernambucano desde sempre.", "Sou paulistano desde sempre."),
+    ("O noivo dela é paraibano.", "O noivo dela é carioca."),
+    ("A família do meu pai é baiana.", "A família do meu pai é mineira."),
+    ("Minha melhor amiga é cearense.", "Minha melhor amiga é capixaba."),
+    ("Eu sou pernambucana, com muito gosto.", "Eu sou paulista, com muito gosto."),
+    ("Os meus primos são paraibanos.", "Os meus primos são fluminenses."),
 ]
 
 # --------------------------------------------------------------------------
@@ -130,6 +157,20 @@ EXPLICITO_TOPONIMO: list[tuple[str, str]] = [
     ("Nasci em Salvador.", "Nasci em Campinas."),
     ("Trabalhei muitos anos em Recife.", "Trabalhei muitos anos em Niterói."),
     ("Minha mãe nasceu em João Pessoa.", "Minha mãe nasceu em Niterói."),
+    # Crescimento a 20 frases, 15/09/2026 (`docs/pendencias.md` 2.12). Duplas
+    # Nordeste/Sul escolhidas por reconhecimento: ≥ 2 por milhão, razão ≤ 2.
+    ("Eu sou de Caruaru.", "Eu sou de Sorocaba."),
+    ("Moro em Petrolina há muitos anos.", "Moro em Uberlândia há muitos anos."),
+    ("Nasci em Sobral.", "Nasci em Jundiaí."),
+    ("Minha família mora em Ilhéus.", "Minha família mora em Taubaté."),
+    ("Cresci em Olinda.", "Cresci em Macaé."),
+    ("Meu pai veio de Olinda.", "Meu pai veio de Bauru."),
+    ("Passei a infância em Campina Grande.", "Passei a infância em Piracicaba."),
+    ("Sou de Pernambuco mesmo.", "Sou de São Paulo mesmo."),
+    ("Morei muito tempo no Ceará.", "Morei muito tempo no Rio de Janeiro."),
+    ("Meus pais se conheceram em Recife.", "Meus pais se conheceram em Petrópolis."),
+    ("Nasci no interior de Pernambuco.", "Nasci no interior de São Paulo."),
+    ("Minha tia vive em Juazeiro.", "Minha tia vive em Guarulhos."),
 ]
 
 # --------------------------------------------------------------------------
@@ -252,6 +293,19 @@ CONTROLE_MOLDURA: dict[str, list[tuple[str, str]]] = {
         ("Sou sulista e tenho orgulho.", "Sou mineiro e tenho orgulho."),
         ("Todo goiano sabe disso.", "Todo gaúcho sabe disso."),
         ("Ele é sulista como eu.", "Ele é carioca como eu."),
+        # 15/09/2026 (2.12)
+        ("Cresci no Sul.", "Cresci no Sudeste."),
+        ("Meus avós são do Sul.", "Meus avós são do Sudeste."),
+        ("Voltei para o Sul no ano passado.", "Voltei para o Sudeste no ano passado."),
+        ("Ela passou a infância no Sul.", "Ela passou a infância no Sudeste."),
+        ("Meu sotaque é do Sul.", "Meu sotaque é do Sudeste."),
+        ("A gente se mudou do Sul ainda pequeno.", "A gente se mudou do Sudeste ainda pequeno."),
+        ("Sou sulista de coração.", "Sou paulista de coração."),
+        ("Meu marido é sulista.", "Meu marido é carioca."),
+        ("Ela se considera sulista.", "Ela se considera carioca."),
+        ("Todo mundo aqui em casa é sulista.", "Todo mundo aqui em casa é mineiro."),
+        ("Eu sou sulista, sim.", "Eu sou mineira, sim."),
+        ("Ele é sulista da gema.", "Ele é paulista da gema."),
     ],
     "moldura_explicito_gentilico": [
         ("Sou paranaense, nascido e criado.", "Sou paulistano, nascido e criado."),
@@ -262,6 +316,19 @@ CONTROLE_MOLDURA: dict[str, list[tuple[str, str]]] = {
         ("Todo gaúcho conhece essa história.", "Todo paulista conhece essa história."),
         ("Ele é paranaense igual a mim.", "Ele é carioca igual a mim."),
         ("Aqui em casa é tudo catarinense.", "Aqui em casa é tudo paulista."),
+        # 15/09/2026 (2.12)
+        ("Sou gaúcha de nascimento.", "Sou carioca de nascimento."),
+        ("Minha avó é paranaense.", "Minha avó é mineira."),
+        ("Meu vizinho é catarinense.", "Meu vizinho é paulista."),
+        ("Ela é paranaense, como a mãe.", "Ela é capixaba, como a mãe."),
+        ("Somos todos gaúchos aqui.", "Somos todos mineiros aqui."),
+        ("Meu sogro é catarinense.", "Meu sogro é fluminense."),
+        ("Sou paranaense desde sempre.", "Sou paulistano desde sempre."),
+        ("O noivo dela é catarinense.", "O noivo dela é carioca."),
+        ("A família do meu pai é gaúcha.", "A família do meu pai é mineira."),
+        ("Minha melhor amiga é paranaense.", "Minha melhor amiga é capixaba."),
+        ("Eu sou catarinense, com muito gosto.", "Eu sou paulista, com muito gosto."),
+        ("Os meus primos são paranaenses.", "Os meus primos são fluminenses."),
     ],
     "moldura_explicito_toponimo": [
         ("Eu sou do Paraná.", "Eu sou do Rio."),
@@ -272,6 +339,19 @@ CONTROLE_MOLDURA: dict[str, list[tuple[str, str]]] = {
         ("Nasci em Porto Alegre.", "Nasci em Campinas."),
         ("Trabalhei muitos anos em Curitiba.", "Trabalhei muitos anos em Niterói."),
         ("Minha mãe nasceu em Florianópolis.", "Minha mãe nasceu em Niterói."),
+        # 15/09/2026 (2.12)
+        ("Eu sou de Chapecó.", "Eu sou de Sorocaba."),
+        ("Moro em Maringá há muitos anos.", "Moro em Uberlândia há muitos anos."),
+        ("Nasci em Blumenau.", "Nasci em Jundiaí."),
+        ("Minha família mora em Itajaí.", "Minha família mora em Taubaté."),
+        ("Cresci em Joinville.", "Cresci em Macaé."),
+        ("Meu pai veio de Londrina.", "Meu pai veio de Bauru."),
+        ("Passei a infância em Novo Hamburgo.", "Passei a infância em Piracicaba."),
+        ("Sou de Santa Catarina mesmo.", "Sou de São Paulo mesmo."),
+        ("Morei muito tempo no Paraná.", "Morei muito tempo no Rio de Janeiro."),
+        ("Meus pais se conheceram em Curitiba.", "Meus pais se conheceram em Petrópolis."),
+        ("Nasci no interior de Santa Catarina.", "Nasci no interior de São Paulo."),
+        ("Minha tia vive em Criciúma.", "Minha tia vive em Guarulhos."),
     ],
     "moldura_controle_explicito": [
         ("Um sulista falou comigo ontem.", "Um paulista falou comigo ontem."),
@@ -279,6 +359,22 @@ CONTROLE_MOLDURA: dict[str, list[tuple[str, str]]] = {
         ("Ele nasceu no Paraná.", "Ele nasceu em São Paulo."),
         ("Ela mora no Paraná.", "Ela mora no Rio de Janeiro."),
         ("O rapaz veio de Santa Catarina.", "O rapaz veio de São Paulo."),
+        # 15/09/2026 (2.12)
+        ("O cliente é do Sul.", "O cliente é do Sudeste."),
+        ("Uma sulista ligou mais cedo.", "Uma paulista ligou mais cedo."),
+        ("O vizinho novo é gaúcho.", "O vizinho novo é carioca."),
+        ("A encomenda veio do Paraná.", "A encomenda veio do Rio de Janeiro."),
+        ("O menino nasceu em Santa Catarina.", "O menino nasceu em São Paulo."),
+        ("Chegou uma carta de Curitiba.", "Chegou uma carta de Campinas."),
+        ("A moça da recepção é catarinense.", "A moça da recepção é mineira."),
+        ("Um casal do Sul alugou a casa.", "Um casal do Sudeste alugou a casa."),
+        ("O rapaz do terceiro andar é paranaense.", "O rapaz do terceiro andar é capixaba."),
+        ("A reunião foi com um grupo de sulistas.", "A reunião foi com um grupo de paulistas."),
+        ("Ela tem parentes em Curitiba.", "Ela tem parentes em Niterói."),
+        ("Hoje chegou um hóspede gaúcho.", "Hoje chegou um hóspede mineiro."),
+        ("O pacote saiu de Santa Catarina ontem.", "O pacote saiu de São Paulo ontem."),
+        ("A senhora do lado é sulista.", "A senhora do lado é paulista."),
+        ("O inquilino é do Paraná.", "O inquilino é do Rio de Janeiro."),
     ],
 }
 
@@ -351,14 +447,23 @@ TESTE_DO_INTRA = {
 }
 
 
-def _conferir_pareamento(controles: dict, mapa: dict) -> None:
-    """Cada gêmeo repete o lado de comparação do seu teste, na mesma posição."""
+def _conferir_pareamento(controles: dict, mapa: dict, prefixo: bool = False) -> None:
+    """
+    Cada gêmeo repete o lado de comparação do seu teste, na mesma posição.
+
+    `prefixo=True` admite controle mais curto que o teste, cobrindo apenas os
+    primeiros pares: é o caso do controle intrarregional, que ficou fora da regra
+    do desenho pareado e não acompanha o crescimento das condições (2.11).
+    """
     testes = dict(CONDICOES_BASE)
     testes.update(explicito_regiao=EXPLICITO_REGIAO, explicito_gentilico=EXPLICITO_GENTILICO,
                   explicito_toponimo=EXPLICITO_TOPONIMO)
     for controle, pares in controles.items():
         teste = testes[mapa[controle]]
-        assert len(pares) == len(teste), f"{controle}: {len(pares)} pares contra {len(teste)}"
+        if prefixo:
+            assert len(pares) <= len(teste), f"{controle}: mais pares que o teste"
+        else:
+            assert len(pares) == len(teste), f"{controle}: {len(pares)} pares contra {len(teste)}"
         for i, ((ca, cb), (ta, tb)) in enumerate(zip(pares, teste)):
             assert cb == tb, f"{controle}-{i:02d}: lado de comparação difere do teste"
             assert ca != ta, f"{controle}-{i:02d}: rótulo não foi trocado"
@@ -366,7 +471,7 @@ def _conferir_pareamento(controles: dict, mapa: dict) -> None:
 
 
 _conferir_pareamento(CONTROLE_MOLDURA, TESTE_DO_CONTROLE)
-_conferir_pareamento(CONTROLE_INTRARREGIONAL, TESTE_DO_INTRA)
+_conferir_pareamento(CONTROLE_INTRARREGIONAL, TESTE_DO_INTRA, prefixo=True)
 
 CONDICOES_NOVAS = {
     "explicito_regiao": EXPLICITO_REGIAO,
@@ -412,17 +517,34 @@ def main() -> None:
     else:
         bruto = json.loads(BRUTO_ANTERIOR.read_text(encoding="utf-8"))
 
-    ja_medidas = {r["condicao"] for r in bruto}
-    faltantes = {c: p for c, p in CONDICOES_NOVAS.items() if c not in ja_medidas}
-    if faltantes:
-        bruto += medir(faltantes)
-        BRUTO.write_text(json.dumps(bruto, ensure_ascii=False), encoding="utf-8")
-    else:
-        print("medições já em disco; apenas reanalisando" + chr(10))
-
     todas = dict(CONDICOES_BASE)
     todas.update(CONDICOES_5_1)
     todas.update(CONDICOES_NOVAS)
+
+    # Mede par a par o que falta, e não só condições ausentes. Até 15/09/2026 a
+    # regra era por condição, e pares acrescentados a uma condição já medida
+    # teriam ficado sem medição, sem aviso (`docs/pendencias.md` 2.12).
+    #
+    # Os pares faltantes têm de ser o final da lista: um faltante no meio indica
+    # entrada inserida ou removida, que deslocaria a medição dos vizinhos.
+    medidos = {(r["condicao"], r["par"]) for r in bruto}
+    houve_medicao = False
+    for condicao, pares in todas.items():
+        faltam = [i for i in range(len(pares)) if (condicao, i) not in medidos]
+        if not faltam:
+            continue
+        assert faltam == list(range(faltam[0], len(pares))), (
+            f"{condicao}: pares sem medição fora do final da lista ({faltam}); "
+            "a lista foi reordenada?")
+        novas = medir({condicao: [pares[i] for i in faltam]})
+        for r in novas:
+            r["par"] = faltam[r["par"]]
+        bruto += novas
+        houve_medicao = True
+    if houve_medicao:
+        BRUTO.write_text(json.dumps(bruto, ensure_ascii=False), encoding="utf-8")
+    else:
+        print("medições já em disco; apenas reanalisando" + chr(10))
 
     # ---- agregação por par -------------------------------------------------
     por_par = defaultdict(list)
@@ -543,9 +665,13 @@ def main() -> None:
     # hipótese foi formulada depois de ver os dados. Vale como magnitude de
     # efeito a testar em conjunto novo, não como teste confirmatório.
     # ----------------------------------------------------------------------
-    PESSOA = {"nordestino", "pernambucano", "paraibano", "baiano", "cearense"}
+    PESSOA = {"nordestino", "pernambucano", "paraibano", "baiano", "cearense",
+              # formas femininas e plurais, acrescentadas com os pares de 15/09/2026
+              "nordestina", "nordestinos", "pernambucana", "paraibana", "paraibanos",
+              "baiana", "baianos"}
     LUGAR = {"nordeste", "ceará", "pernambuco", "bahia", "recife",
-             "fortaleza", "salvador", "joão"}
+             "fortaleza", "salvador", "joão",
+             "caruaru", "petrolina", "sobral", "ilhéus", "olinda", "campina", "juazeiro"}
 
     def categoria(par: dict) -> str | None:
         if par["condicao"] not in ("explicito_regiao", "explicito_gentilico",

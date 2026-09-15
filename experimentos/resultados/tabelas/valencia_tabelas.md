@@ -24,22 +24,22 @@ Grupo de referência: 86 pares não regionais, viés médio +0.0072, desvio-padr
 | calibração extra | 4 | +0.0873 | -0.0195–+0.1549 | 3/4 | — | — |
 | calibração ampliada | 61 | -0.0027 | -0.0391–+0.0343 | 28/61 | — | — |
 | controle de raridade | 5 | +0.0900 | -0.0747–+0.3803 | 3/5 | — | — |
-| dialetal implícito — morfossintático | 5 | +0.0633 | -0.0090–+0.1333 | 4/5 | 0.1536 | 0.6351 |
-| dialetal implícito — lexical | 5 | +0.0382 | -0.1310–+0.2923 | 2/5 | 0.2928 | 0.6351 |
-| dialetal implícito — feixe | 5 | +0.0720 | +0.0151–+0.1476 | 5/5 | 0.1208 | 0.6351 |
-| dialetal implícito — construcional | 10 | +0.0579 | -0.0293–+0.1308 | 6/10 | 0.1058 | 0.6351 |
-| menção explícita — topônimo | 8 | +0.0663 | -0.0738–+0.2611 | 5/8 | 0.1094 | 0.6351 |
-| menção explícita — conjunto original | 5 | +0.1352 | -0.1754–+0.4000 | 4/5 | 0.0221 | 0.1550 |
-| menção explícita — macrorregião | 8 | +0.1952 | +0.0582–+0.3829 | 7/8 | 0.0002 | 0.0018 |
-| menção explícita — gentílico de estado | 8 | +0.0337 | -0.4957–+0.2969 | 6/8 | 0.3243 | 0.6351 |
-| controle de conteúdo | 5 | +0.2352 | +0.0759–+0.5942 | 5/5 | 0.0006 | 0.0052 |
+| dialetal implícito — morfossintático | 5 | +0.0633 | -0.0090–+0.1333 | 4/5 | 0.1536 | 0.5292 |
+| dialetal implícito — lexical | 5 | +0.0382 | -0.1310–+0.2923 | 2/5 | 0.2928 | 0.5292 |
+| dialetal implícito — feixe | 5 | +0.0720 | +0.0151–+0.1476 | 5/5 | 0.1208 | 0.5292 |
+| dialetal implícito — construcional | 10 | +0.0579 | -0.0293–+0.1308 | 6/10 | 0.1058 | 0.5292 |
+| menção explícita — topônimo | 20 | +0.0591 | +0.0180–+0.1211 | 15/20 | 0.0598 | 0.3591 |
+| menção explícita — conjunto original | 20 | +0.1571 | +0.0396–+0.2565 | 16/20 | 0.0002 | 0.0020 |
+| menção explícita — macrorregião | 20 | +0.2119 | +0.0374–+0.3799 | 18/20 | 0.0000 | 0.0004 |
+| menção explícita — gentílico de estado | 20 | +0.0562 | -0.0542–+0.2562 | 13/20 | 0.1203 | 0.5292 |
+| controle de conteúdo | 5 | +0.2352 | +0.0759–+0.5942 | 5/5 | 0.0006 | 0.0045 |
 
 **Reagrupamento pessoa/lugar, eixo de caráter** (exploratório, pelas razões declaradas em `teste_explicito.py`):
 
 | agrupamento | pares | viés médio | positivos | p |
 |---|---|---|---|---|
-| rótulo de pessoa | 12 | +0.1390 | 10/12 | 0.0045 |
-| rótulo de lugar | 12 | +0.0577 | 8/12 | 0.0974 |
+| rótulo de pessoa | 30 | +0.1698 | 23/30 | 0.0000 |
+| rótulo de lugar | 30 | +0.0484 | 23/30 | 0.0677 |
 
 ## Eixo de caráter, restrito a token único
 
@@ -54,20 +54,20 @@ Grupo de referência: 86 pares não regionais, viés médio +0.0183, desvio-padr
 | controle de raridade | 5 | +0.1308 | -0.2254–+0.4401 | 3/5 | — | — |
 | dialetal implícito — morfossintático | 5 | +0.0173 | -0.1106–+0.1127 | 3/5 | 0.5219 | 1.0000 |
 | dialetal implícito — lexical | 5 | +0.2045 | -0.1445–+0.5639 | 3/5 | 0.0171 | 0.1372 |
-| dialetal implícito — feixe | 5 | +0.1184 | +0.0253–+0.3166 | 5/5 | 0.1130 | 0.7910 |
-| dialetal implícito — construcional | 10 | +0.0724 | -0.0328–+0.1807 | 7/10 | 0.1860 | 1.0000 |
-| menção explícita — topônimo | 8 | -0.0089 | -0.1338–+0.1658 | 3/8 | 0.6641 | 1.0000 |
-| menção explícita — conjunto original | 5 | -0.0318 | -0.4950–+0.2462 | 3/5 | 0.7313 | 1.0000 |
-| menção explícita — macrorregião | 8 | +0.0309 | -0.1235–+0.2054 | 3/8 | 0.4334 | 1.0000 |
-| menção explícita — gentílico de estado | 8 | +0.0368 | -0.0073–+0.0877 | 6/8 | 0.3979 | 1.0000 |
+| dialetal implícito — feixe | 5 | +0.1184 | +0.0253–+0.3166 | 5/5 | 0.1130 | 0.6780 |
+| dialetal implícito — construcional | 10 | +0.0724 | -0.0328–+0.1807 | 7/10 | 0.1860 | 0.7977 |
+| menção explícita — topônimo | 20 | +0.0187 | -0.0352–+0.1027 | 12/20 | 0.5018 | 1.0000 |
+| menção explícita — conjunto original | 20 | +0.0684 | -0.0573–+0.1877 | 12/20 | 0.1595 | 0.7977 |
+| menção explícita — macrorregião | 20 | +0.0945 | -0.0700–+0.2113 | 10/20 | 0.0578 | 0.4049 |
+| menção explícita — gentílico de estado | 20 | +0.0600 | -0.0383–+0.1342 | 13/20 | 0.1760 | 0.7977 |
 | controle de conteúdo | 5 | +0.4758 | +0.3174–+0.6326 | 5/5 | 0.0000 | 0.0004 |
 
 **Reagrupamento pessoa/lugar, eixo de caráter, restrito a token único** (exploratório, pelas razões declaradas em `teste_explicito.py`):
 
 | agrupamento | pares | viés médio | positivos | p |
 |---|---|---|---|---|
-| rótulo de pessoa | 12 | +0.0645 | 8/12 | 0.2048 |
-| rótulo de lugar | 12 | -0.0254 | 4/12 | 0.7895 |
+| rótulo de pessoa | 30 | +0.1226 | 21/30 | 0.0057 |
+| rótulo de lugar | 30 | -0.0071 | 14/30 | 0.7589 |
 
 ## Eixo de ocupação
 
@@ -84,15 +84,15 @@ Grupo de referência: 86 pares não regionais, viés médio +0.0062, desvio-padr
 | dialetal implícito — lexical | 5 | +0.0967 | -0.2694–+0.4516 | 3/5 | 0.2913 | 1.0000 |
 | dialetal implícito — feixe | 5 | +0.0492 | -0.1820–+0.1647 | 4/5 | 0.3870 | 1.0000 |
 | dialetal implícito — construcional | 10 | +0.1594 | +0.0827–+0.2894 | 9/10 | 0.1139 | 0.9116 |
-| menção explícita — topônimo | 8 | -0.0047 | -0.2404–+0.2031 | 3/8 | 0.5187 | 1.0000 |
-| menção explícita — conjunto original | 5 | +0.0326 | -0.3685–+0.6589 | 1/5 | 0.4267 | 1.0000 |
-| menção explícita — macrorregião | 8 | +0.0876 | -0.2742–+0.4769 | 4/8 | 0.2764 | 1.0000 |
-| menção explícita — gentílico de estado | 8 | -0.2706 | -0.5973–-0.0310 | 1/8 | 0.9710 | 1.0000 |
+| menção explícita — topônimo | 20 | -0.0080 | -0.1133–+0.1538 | 8/20 | 0.5589 | 1.0000 |
+| menção explícita — conjunto original | 20 | -0.0160 | -0.1823–+0.0125 | 6/20 | 0.5899 | 1.0000 |
+| menção explícita — macrorregião | 20 | -0.0452 | -0.2159–+0.1381 | 8/20 | 0.7021 | 1.0000 |
+| menção explícita — gentílico de estado | 20 | -0.0194 | -0.3463–+0.1196 | 6/20 | 0.5899 | 1.0000 |
 | controle de conteúdo | 5 | +1.1606 | -0.2811–+2.3287 | 4/5 | 0.0000 | 0.0004 |
 
 **Reagrupamento pessoa/lugar, eixo de ocupação** (exploratório, pelas razões declaradas em `teste_explicito.py`):
 
 | agrupamento | pares | viés médio | positivos | p |
 |---|---|---|---|---|
-| rótulo de pessoa | 12 | -0.0550 | 5/12 | 0.6829 |
-| rótulo de lugar | 12 | -0.0701 | 3/12 | 0.7411 |
+| rótulo de pessoa | 30 | +0.0282 | 14/30 | 0.4048 |
+| rótulo de lugar | 30 | -0.0766 | 8/30 | 0.8638 |

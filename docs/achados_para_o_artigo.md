@@ -37,7 +37,9 @@ O confundidor de frequência descrito por Kaneko e Bollegala (2022) encontra-se,
 
 O item deixa de ser advertência metodológica e passa a ter **caso documentado**. No passo 5.5, uma medição de viés de valência produziu efeito aparentemente significativo — a condição de menção explícita à macrorregião apresentava viés de +0,1952, com sete de oito pares positivos e p ajustado de 0,0486 contra o grupo de referência de 26 pares — e de **0,0018** contra o grupo ampliado a 86 pares, em 14/09/2026. Restrita a análise aos atributos de **token único**, o efeito caiu para +0,0309, com três de oito pares positivos e p ajustado de 1,0000.
 
-**A restrição aumentou o poder do teste em vez de reduzi-lo:** o controle positivo passou de +0,2352 para +0,4758, e seu p ajustado caiu de 0,0052 para 0,0004 com o grupo de 86 pares (de 0,0556, que não sobrevivia à correção, para 0,0013 com o de 26). Com menos atributos e mais poder, o efeito da condição regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído. A ampliação do grupo de referência torna o caso mais agudo, e não mais brando: o artefato passa a exibir significância forte na versão completa e continua a desaparecer por inteiro na restrita.
+**A restrição aumentou o poder do teste em vez de reduzi-lo:** o controle positivo passou de +0,2352 para +0,4758, e seu p ajustado caiu de 0,0052 para 0,0004 com o grupo de 86 pares (de 0,0556, que não sobrevivia à correção, para 0,0013 com o de 26). Com menos atributos e mais poder, o efeito da condição regional evaporou enquanto o do controle cresceu — o que exclui a leitura de sinal perdido por ruído. A ampliação do grupo de referência torna o caso mais agudo, e não mais brando: o artefato passa a exibir significância forte na versão completa e continua sem sobreviver à correção na restrita.
+
+**Atualização de 15/09/2026, com 20 frases por condição.** Na versão completa, a macrorregião vai a +0,2119 (p Holm 0,0004) e a menção em terceira pessoa a +0,1571 (0,0020); na restrita, nenhuma condição sobrevive à correção — macrorregião +0,0945 (Holm 0,4049) —, com o controle positivo a 0,0004. A demonstração do artefato se mantém. A estimativa restrita, porém, subiu de +0,0309 para +0,0945, e há sinal exploratório em rótulos de pessoa; o registro está em 1.19, e não autoriza escrever que o efeito "desaparece por inteiro".
 
 O mecanismo é identificável no próprio repertório: entre os atributos multi-token, os desfavoráveis fragmentam-se mais que os favoráveis — *burra* (2), *grosseira* (3), *ignorante* (2), *preguiçosa* (3), média de 2,5 tokens, contra *culta*, *educada*, *honesta* e *trabalhadora*, todos de 2.
 
@@ -194,7 +196,7 @@ Em teste com condições de controle que estabelecem piso e teto de sensibilidad
 
 **Seção do artigo:** Resultados, e Ameaças à Validade.
 
-Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso. A reprodução impede a leitura dialetal do bloco lexical, e **esta é a parte do item que se sustenta**. Com o grupo de referência de 86 pares, as duas condições seguem indistinguíveis: resíduo de +0,074 no bloco lexical e de +0,070 no controle de raridade, e o bloco lexical não sobrevive à correção de Holm (p ajustado 0,084).
+Uma condição de controle com palavras raras **não regionais**, pareadas por frequência com os itens do instrumento — *chinfrim* (0,081 por milhão) para *arretado* (0,100), *combalido* (0,071) para *aperreado* (0,000) —, reproduz o efeito do bloco dialetal quase par a par: medianas de 2,80× contra 2,71× o piso. A reprodução impede a leitura dialetal do bloco lexical, e **esta é a parte do item que se sustenta**. Com o grupo de referência de 86 pares, as duas condições seguem indistinguíveis: resíduo de +0,074 no bloco lexical e de +0,070 no controle de raridade, e o bloco lexical não sobrevive à correção de Holm (p ajustado 0,070, com as condições de menção explícita a 20 frases).
 
 ### Revisão de 14/09/2026: a frequência não é o mecanismo
 
@@ -221,7 +223,7 @@ Quatro famílias foram testadas contra o mesmo grupo de referência, e nenhuma a
 | Família | Pares | Resíduo médio | Pares acima da reta | p | p Holm |
 |---|---|---|---|---|---|
 | morfossintática — imperativo e negação | 5 | −0,0763 | 0/5 | 0,9997 | 1,0000 |
-| lexical — itens regionais | 5 | +0,0739 | 4/5 | 0,0140 | 0,0840 |
+| lexical — itens regionais | 5 | +0,0739 | 4/5 | 0,0140 | 0,0700 |
 | feixe combinado | 5 | +0,0126 | 3/5 | 0,3145 | 0,9435 |
 | **construcional** | **10** | **−0,0249** | **3/10** | **0,8885** | **1,0000** |
 
@@ -254,45 +256,47 @@ Adotou-se, por isso, estatística por conglomerado — reamostragem de pares par
 
 **Procedência:** medição própria. O ponto vale para qualquer trabalho do gênero, e a literatura consultada não o explicita.
 
-## 1.17 O modelo responde à menção explícita de região em enunciados sobre a pessoa, sem especificidade detectável para o Nordeste
+## 1.17 O modelo responde à menção explícita de região; sem especificidade para o Nordeste acima de 0,08 na autoidentificação, com sinal pequeno e exploratório na menção em terceira pessoa
 
 **Seção do artigo:** Resultados. Forma par com 1.15.
 
-Duas condições de menção explícita produzem resíduo acima do grupo de referência de 86 pares não regionais e **sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração:
+Três condições de menção explícita produzem resíduo acima do grupo de referência de 86 pares não regionais e **sobrevivem à correção de Holm** para as nove condições confrontadas com a mesma calibração. Valores com 20 frases por condição, de 15/09/2026:
 
 | Condição | Pares | Razão med. | Resíduo médio | Acima da reta | p Holm |
 |---|---|---|---|---|---|
-| gentílico de estado — *pernambucano*, *baiano*, *cearense* | 8 | 3,8× | +0,1447 | 8/8 | **0,0004** |
-| macrorregião — *Nordeste*, *nordestino* | 8 | 1,8× | +0,0892 | 7/8 | **0,0045** |
-| topônimo — *Ceará*, *Recife*, *Salvador* | 8 | 4,9× | +0,0269 | 5/8 | 0,5370 |
+| gentílico de estado — *pernambucano*, *baiana*, *cearense* | 20 | 3,4× | +0,1631 | 20/20 | **0,0004** |
+| macrorregião — *Nordeste*, *nordestino* | 20 | 1,8× | +0,0871 | 16/20 | **0,0007** |
+| menção em terceira pessoa — *O cliente é do Nordeste* | 20 | 5,3× | +0,0796 | 16/20 | **0,0007** |
+| topônimo — *Ceará*, *Caruaru*, *Recife* | 20 | 4,0× | +0,0303 | 13/20 | 0,1328 |
 
-### Controle de moldura, 14/09/2026, com predição registrada antes da medição
+### Controle de moldura, com regras de decisão registradas antes da medição
 
-Os pares acima são quase todos enunciados de autoidentificação — *Sou baiano*, *Meu pai é carioca* —, forma ausente do grupo de referência. Cada par recebeu um gêmeo com a mesma frase e o mesmo lado de comparação, trocado apenas o rótulo nordestino por rótulo equivalente do Sul, ou do Centro-Oeste onde o lado de comparação já era do Sul. Para cada frase, D é a diferença de |Δ| entre o par de teste e o gêmeo. A predição registrada — D > 0 no gentílico e na macrorregião, se a resposta fosse específica do Nordeste — **não se confirmou**:
+Os enunciados de gentílico e de macrorregião são quase todos de autoidentificação — *Sou baiano*, *Meu marido é nordestino* —, forma ausente do grupo de referência. Cada par recebeu um gêmeo com a mesma frase e o mesmo lado de comparação, trocado apenas o rótulo nordestino por rótulo equivalente do Sul. Para cada frase, D é a diferença de |Δ| entre o par de teste e o gêmeo. Com oito frases por condição, em 14/09/2026, a predição de especificidade não se confirmou; a medida foi estendida a 20 frases em 15/09/2026, com três regras registradas antes: especificidade detectada se p Holm < 0,05; efeito acima de 0,08 excluído se não detectada e o limite superior do IC 95% ficar abaixo de 0,08; inconclusivo nos demais casos.
 
-| Condição | Frases | D médio | IC 95% | D > 0 | p Holm |
-|---|---|---|---|---|---|
-| macrorregião | 8 | +0,0279 | −0,0138 a +0,0692 | 6/8 | 0,3633 |
-| gentílico de estado | 8 | +0,0158 | −0,0994 a +0,1219 | 5/8 | 0,7969 |
-| topônimo | 8 | −0,0010 | −0,0490 a +0,0494 | 4/8 | 0,7969 |
+| Condição | Frases | D médio | IC 95% | D > 0 | p Holm | Leitura |
+|---|---|---|---|---|---|---|
+| macrorregião | 20 | −0,0210 | −0,0704 a +0,0188 | 11/20 | 0,7922 | exclui D > 0,08 |
+| gentílico de estado | 20 | +0,0147 | −0,0537 a +0,0852 | 11/20 | 0,6861 | inconclusivo |
+| topônimo | 20 | +0,0108 | −0,0163 a +0,0383 | 12/20 | 0,6790 | exclui D > 0,08 |
+| menção em terceira pessoa | 20 | +0,0262 | +0,0052 a +0,0446 | 18/20 | 0,0409 | especificidade detectada |
 
-Os gêmeos, que não mencionam o Nordeste, já produzem |Δ| acima do grupo de referência: mediana de 0,2492 nos de gentílico (p = 0,0005) e de 0,2036 nos de macrorregião (p = 0,019), contra 0,1539. A resposta medida em 5.4 é, portanto, em larga medida resposta à troca de rótulo regional em enunciado que descreve a pessoa.
+As três primeiras leituras coincidem com a expectativa registrada. Os gêmeos, que não mencionam o Nordeste, produzem |Δ| acima do grupo de referência em macrorregião (mediana 0,2087), gentílico (0,3181) e terceira pessoa (0,2053), contra 0,1539: a resposta a rótulo regional é, em larga medida, resposta à troca de rótulo, qualquer que seja a região.
 
-**Formulação sustentada:** o BERTimbau Base responde à menção explícita de região em enunciados que descrevem a pessoa, acima de pares não regionais; rótulos do Sul, na mesma frase, produzem resposta equivalente, e não se detecta resposta específica ao Nordeste. O modelo não responde à sinalização dialetal implícita (1.15).
+**Formulação sustentada:** o BERTimbau Base responde à menção explícita de região acima de pares não regionais. Em enunciados de autoidentificação, não há resposta específica ao Nordeste acima de 0,08 em macrorregião e em topônimo, e o gentílico permanece sem resolução. Em menção em terceira pessoa, detecta-se resposta específica ao Nordeste **pequena** — D médio de +0,026, com limite superior de +0,045 —, a registrar como **exploratória**. O modelo não responde à sinalização dialetal implícita (1.15).
+
+**Por que a especificidade em terceira pessoa é exploratória, e não resultado:** (a) a hipótese nasceu dos cinco pares originais daquela condição, e assim foi registrada antes da medição; (b) restrita às quinze frases acrescentadas em 15/09/2026, que não participaram de decisão anterior, a condição não sobrevive à correção (D +0,0217, 13/15 positivos, p Holm 0,2046); (c) o efeito fica inteiramente abaixo do limiar de 0,08 adotado como relevante.
 
 **Formulações vedadas:**
 
-- que o modelo responda especificamente ao Nordeste, ou à categoria *nordestino*;
-- que o modelo **não** distinga o Nordeste de outras regiões — com oito frases por condição, os intervalos admitem efeito específico de até +0,07 na macrorregião e +0,12 no gentílico;
-- que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, e não de direção (3.7).
+- que o modelo responda especificamente ao Nordeste, ou à categoria *nordestino*, sem a distinção entre autoidentificação e terceira pessoa e sem as qualificações acima;
+- que o modelo **não** distinga o Nordeste de outras regiões — o gentílico está sem resolução, e a terceira pessoa tem sinal;
+- que o modelo apresente viés contra falantes nordestinos — a medida é de magnitude, e não de direção (1.19, 3.7).
 
-**O contraste com 1.15 muda de natureza.** Deixa de ser "variedade indiciada contra categoria regional nomeada" e passa a ser "sinalização linguística, sem resposta, contra rótulo geográfico explícito, com resposta" — sem que, no segundo caso, o Nordeste se destaque de outra região.
+**O contraste com 1.15 muda de natureza.** Deixa de ser "variedade indiciada contra categoria regional nomeada" e passa a ser "sinalização linguística, sem resposta, contra rótulo geográfico explícito, com resposta" — resposta que, na autoidentificação, não distingue o Nordeste de outra região acima de 0,08.
 
-**Observação sem estatuto confirmatório:** no conjunto explícito original, único cujos enunciados não são de autoidentificação (*A pessoa é do Nordeste*, *Ela mora no Ceará*), os cinco pares têm D positivo (p exato 0,031, sem possibilidade de sobreviver à correção com cinco pares). É indicação a testar em conjunto novo, e não resultado.
+**Qualificação obrigatória:** 20 frases por condição, um modelo, uma métrica, e um único tipo de rótulo alternativo (Sul). O controle com rótulo da mesma região do lado de comparação foi tentado e resultou inconclusivo (`docs/pendencias.md` 2.11), de modo que não se separou resposta a qualquer rótulo de resposta a região distinta do Sudeste. O gentílico exigiria cerca de 42 frases pela sua dispersão, resolução adiada para fase posterior ao dataset v1. Em topônimo, parte das cidades é do interior e menos frequente que as capitais. O contraste de gentílico não é simétrico, pela inexistência de *sudestino* (1.18).
 
-**Qualificação obrigatória:** oito frases por condição, um modelo, uma métrica, e um único tipo de rótulo alternativo. Como o rótulo do gêmeo nunca é do Sudeste, não se separou resposta a **qualquer** gentílico de resposta a região distinta do Sudeste (`docs/pendencias.md` 2.10, decisão c). O contraste de gentílico não é simétrico, pela inexistência de *sudestino* (1.18).
-
-**Procedência:** `experimentos/teste_explicito.py` e `experimentos/analise_moldura.py`; tabelas em `experimentos/resultados/tabelas/explicito_tabelas.md` e `moldura_tabelas.md`. Predições versionadas em `e852c5a` e análise em `f7b1cdc`, antes da medição. A redação anterior deste item, que lia o efeito como concentrado em rótulos de pessoa nordestinos, está no histórico do repositório.
+**Procedência:** `experimentos/teste_explicito.py` e `experimentos/analise_moldura.py`; tabelas em `experimentos/resultados/tabelas/explicito_tabelas.md` e `moldura_tabelas.md`. Registros prévios em `e852c5a` e `f7b1cdc` (oito frases) e `03d8571` (vinte frases); medição em `c145966`; detalhamento em `docs/pendencias.md` 2.10 e 2.12. Redações anteriores deste item estão no histórico do repositório.
 
 ## 1.17-A Rótulo de pessoa contra rótulo de lugar — exploratório, e não sustentado pelo controle de moldura
 
@@ -316,11 +320,11 @@ O fato é dado, e não apenas obstáculo de desenho: a categoria "nordestino" ex
 
 **Qualificação obrigatória:** a fonte de frequência não estratifica por variedade nem separa português brasileiro de europeu.
 
-## 1.19 A resposta do modelo à menção explícita não é depreciativa de forma detectável
+## 1.19 A resposta do modelo à menção explícita não é depreciativa de forma que sobreviva ao controle de tokenização — com sinal exploratório em rótulos de pessoa
 
 **Seção do artigo:** Resultados. Fecha o par com 1.17 e é a terceira parte da conclusão.
 
-O item 1.17 estabelece que o modelo responde à menção explícita da região. A medida ali é de **magnitude**, em valor absoluto, e não diz se a resposta é desfavorável. A medida com sinal foi executada em 29/08/2026, sobre as mesmas medições, em dois eixos separados.
+O item 1.17 estabelece que o modelo responde à menção explícita da região. A medida ali é de **magnitude**, em valor absoluto, e não diz se a resposta é desfavorável. A medida com sinal é executada sobre as mesmas medições, em dois eixos separados; os valores abaixo são de 15/09/2026, com 20 frases por condição.
 
 **Escore de viés por par:** média de Δ PLL nos atributos desfavoráveis menos média nos favoráveis, positiva quando o guise nordestino torna os desfavoráveis relativamente mais prováveis. É a definição operacional do CrowS-Pairs.
 
@@ -328,26 +332,41 @@ O item 1.17 estabelece que o modelo responde à menção explícita da região. 
 
 | Condição | Viés (7+7 atributos) | Viés (3+3, token único) |
 |---|---|---|
-| menção explícita — macrorregião | +0,1952 (p Holm 0,0018) | +0,0309 (p Holm 1,0000) |
-| menção explícita — gentílico de estado | +0,0337 | +0,0368 |
-| menção explícita — topônimo | +0,0663 | −0,0089 |
-| **controle de conteúdo — positivo** | +0,2352 (p Holm 0,0052) | **+0,4758 (p Holm 0,0004)** |
+| menção explícita — macrorregião | +0,2119 (p Holm 0,0004) | +0,0945 (p 0,058; Holm 0,4049) |
+| menção explícita — terceira pessoa | +0,1571 (p Holm 0,0020) | +0,0684 (Holm 0,7977) |
+| menção explícita — gentílico de estado | +0,0562 (Holm 0,5292) | +0,0600 (Holm 0,7977) |
+| menção explícita — topônimo | +0,0591 (Holm 0,3591) | +0,0187 (Holm 1,0000) |
+| **controle de conteúdo — positivo** | +0,2352 (p Holm 0,0045) | **+0,4758 (p Holm 0,0004)** |
 
-Valores com o grupo de referência de 86 pares distintos, de 14/09/2026. Com 26 pares, a macrorregião tinha p ajustado de 0,0486 na versão completa, e o controle positivo não sobrevivia à correção nela (0,0556). **O p de 0,0018 da macrorregião na versão completa não é resultado:** é o artefato de 1.1 com mais poder, e desaparece na versão restrita.
+**Os valores significativos da versão completa não são resultado.** A versão completa mistura atributos de extensões diferentes, e os desfavoráveis fragmentam-se mais que os favoráveis — o artefato de 1.1. Com mais frases, o artefato ganha mais significância, e continua a não sobreviver à versão restrita.
 
 **Três condições de interpretabilidade estão satisfeitas**, e sem elas o nulo não seria legível:
 
-1. *O grupo de referência é adequado.* São 86 pares não regionais distintos, com viés médio de +0,0072 no eixo de caráter — 26 pares, com média de +0,0300, até 14/09/2026 —, e não os cinco do controle neutro empregados na primeira versão da análise, erro de desenho corrigido cujo sintoma foi o controle positivo não sobreviver à correção apesar das maiores magnitudes brutas.
-2. *A verificação de sanidade passa.* O controle neutro, testado contra o grupo do qual faz parte, resulta não significativo em todos os eixos.
-3. *O teste tem poder, e o tem mais na versão restrita.* O controle positivo sobrevive à correção de Holm nas duas versões, a 0,0052 e a 0,0004.
+1. *O grupo de referência é adequado.* São 86 pares não regionais distintos, com viés médio de +0,0072 no eixo de caráter, e não os cinco do controle neutro empregados na primeira versão da análise — erro de desenho corrigido, cujo sintoma foi o controle positivo não sobreviver à correção apesar das maiores magnitudes brutas.
+2. *A verificação de sanidade passa.* O controle neutro, testado contra o grupo do qual faz parte, resulta não significativo em todos os eixos (p de 0,32 no caráter, 0,50 no restrito, 0,32 na ocupação).
+3. *O teste tem poder, e o tem mais na versão restrita.* O controle positivo sobrevive à correção de Holm nas duas versões, a 0,0045 e a 0,0004.
 
-**Formulação sustentada:** nas condições testadas, a resposta do BERTimbau Base à menção explícita da região não se organiza por valência dos atributos de caráter. O único efeito candidato mostrou-se atribuível à assimetria de tokenização (ver 1.1).
+**Formulação sustentada:** nas condições testadas, nenhuma condição de menção explícita apresenta viés de valência no eixo de caráter que sobreviva à correção de multiplicidade na versão controlada da tokenização. Os efeitos significativos da versão completa são atribuíveis à assimetria de tokenização (1.1).
 
-**Formulação vedada:** que o modelo não apresente viés regional. Um instrumento que não detecta não demonstra ausência, e o eixo de prestígio ocupacional permanece sem medição válida — ver 3.7, requalificado.
+### Sinal a declarar, sem estatuto confirmatório
 
-**Qualificação obrigatória:** oito pares por condição, seis atributos na versão restrita, um modelo, uma métrica. A classificação de valência é do projeto e não foi validada por juízes.
+Duas observações acompanham obrigatoriamente a formulação acima, porque apontam na direção oposta à de um nulo limpo:
 
-**Procedência:** `experimentos/analise_valencia.py`, relatório em `experimentos/resultados/relatorios/explicito.md`.
+- **As estimativas subiram com o volume.** Na versão restrita, a macrorregião passou de +0,0309, com oito frases, a +0,0945, com vinte, e fica a p bruto 0,058. Com 20 frases por condição, a análise de direção só exclui vieses a partir de cerca de 0,10 (`docs/pendencias.md` 2.11), e o valor observado está dentro dessa margem.
+- **Há sinal em rótulos de pessoa.** No reagrupamento exploratório pessoa/lugar, restrito a token único, rótulos de pessoa (*nordestino*, *baiano*, *cearense*) rendem +0,1226, com p = 0,0057, contra −0,0071 de rótulos de lugar. O reagrupamento é posterior aos dados, e o mesmo corte desapareceu na medida de magnitude com o controle de moldura (1.17-A); não há, portanto, base para lê-lo como resultado. É, contudo, o primeiro sinal de direção a aparecer na versão controlada da tokenização.
+
+A confirmação desse sinal exige mais frases na análise de direção e foi adiada para fase posterior ao dataset v1 (`docs/pendencias.md` 2.12).
+
+**Formulações vedadas:**
+
+- que o modelo não apresente viés regional, ou que a resposta não seja depreciativa — um instrumento que não detecta não demonstra ausência, a análise de direção tem resolução de cerca de 0,10, e há sinal exploratório declarado acima;
+- que o modelo seja depreciativo com rótulos de pessoa nordestinos — o sinal é exploratório;
+- citar qualquer valor significativo da versão completa como resultado;
+- citar qualquer valor do eixo de prestígio ocupacional, que permanece sem medição válida (1.20, 3.7).
+
+**Qualificação obrigatória:** 20 frases por condição, seis atributos na versão restrita, um modelo, uma métrica. A classificação de valência é do projeto e não foi validada por juízes.
+
+**Procedência:** `experimentos/analise_valencia.py`; tabela em `experimentos/resultados/tabelas/valencia_tabelas.md`; medição em `c145966`. A redação anterior, com oito frases por condição, está no histórico do repositório.
 
 ## 1.20 O eixo de prestígio ocupacional não é mensurável por PLL neste modelo
 
@@ -464,7 +483,7 @@ A vedação, portanto, muda de fundamento — e deixa de ser sobre ausência de 
 
 **Formulação correta, em três partes que não devem ser separadas:**
 1. O BERTimbau Base **não** exibe resposta detectável à sinalização dialetal implícita, nas quatro famílias testadas (1.15).
-2. O BERTimbau Base **exibe** resposta à menção explícita de região em enunciados sobre a pessoa, acima do grupo de referência não regional, sem especificidade detectável para o Nordeste (1.17).
+2. O BERTimbau Base **exibe** resposta à menção explícita de região, acima do grupo de referência não regional; na autoidentificação, sem especificidade para o Nordeste acima de 0,08 em macrorregião e topônimo, e com o gentílico sem resolução; na menção em terceira pessoa, com sinal de especificidade pequeno e exploratório (1.17).
 3. **Não se sabe** se essa resposta é depreciativa: a medida é de magnitude, e a de direção não tem poder estatístico (3.7).
 
 **Formulação incorreta, e a mais tentadora:** que o modelo apresente, ou deixe de apresentar, viés regional. Distinguir não é depreciar.
@@ -478,6 +497,8 @@ Registrado em revisão anterior do projeto e **não confirmado por nenhuma fonte
 ## 3.3 Que os marcadores dialetais do instrumento estejam validados
 
 Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2 em volume suficiente. Os itens são candidatos, e o texto deve tratá-los como tais.
+
+**Requalificado em 15/09/2026.** O Filtro 1 foi julgado inviável e substituído, para os 25 pares de sinalização implícita, por fonte dialetológica e ocorrência no corpus próprio, conferidas pela equipe (`docs/pendencias.md` 2.14; `experimentos/resultados/dados/filtro2_conferencia.json`): 7 confirmados, 5 confirmados com ressalva, 13 não confirmados no corpus. **Pode ser escrito** que os pares foram validados por esse procedimento, com a classificação de cada um. **Continua vedado** escrever que foram validados por juízes, ou tratar "não confirmado" como reprovado — o corpus, de 7,96 h, não permite reprovar traço raro. As limitações a declarar junto: ausência de juízes, conferência feita pela própria equipe e candidatos de apresentador ou repórter que podem não ser da variedade do estado.
 
 ## 3.4 Balanceamento de frequência lexical entre condições — parcialmente endereçado
 
@@ -493,15 +514,16 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 
 **Aberto em 29/08/2026 e requalificado no mesmo dia, depois de o passo 5.5 responder à pergunta.** A redação original vedava qualquer leitura de direção por subdimensionamento da análise. O subdimensionamento era erro de desenho — grupo de referência de cinco pares em vez de vinte e seis — e foi corrigido.
 
-**Deixa de ser vedado:** afirmar que, nas condições testadas e no eixo de caráter, a resposta do modelo à menção explícita **não se organiza por valência**. É o item 1.19, com controle positivo sobrevivente à correção e artefato de segmentação controlado.
+**Deixa de ser vedado:** afirmar que, nas condições testadas e no eixo de caráter, nenhum viés de valência na resposta à menção explícita **sobrevive à correção** na versão controlada da tokenização. É o item 1.19, com controle positivo sobrevivente à correção e artefato de segmentação controlado — e com o sinal exploratório em rótulos de pessoa declarado ali, que impede a formulação mais forte de que a resposta "não se organiza por valência" (revisão de 15/09/2026).
 
 **Continua vedado, e sem atenuação:**
 
 - Afirmar que o BERTimbau **não apresenta viés regional**. Um instrumento que não detecta não demonstra ausência. O que se mostrou é que este instrumento, neste modelo, nesta métrica e neste repertório de atributos, não detecta.
 - Citar qualquer valor do eixo de **prestígio ocupacional**, em qualquer direção, inclusive o −0,2706 da condição de gentílico. Aquele eixo não tem medição válida por impossibilidade instrumental — ver 1.20.
-- Citar o viés de +0,1952 da condição de macrorregião como resultado. Ele não sobrevive ao controle de tokenização, e sua história pertence a 1.1, não a Resultados.
+- Citar como resultado os vieses significativos da versão completa do eixo de caráter — macrorregião a +0,2119 com 20 frases (+0,1952 com oito), terceira pessoa a +0,1571. Não sobrevivem ao controle de tokenização, e sua história pertence a 1.1, não a Resultados.
+- Citar o sinal exploratório em rótulos de pessoa (1.19) como resultado confirmado.
 
-**Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita de região em enunciados sobre a pessoa, sem especificidade detectável para o Nordeste (1.17); e essa resposta não é depreciativa de forma detectável no eixo de caráter (1.19), permanecendo o eixo ocupacional sem medição (1.20).
+**Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita de região, sem especificidade para o Nordeste acima de 0,08 na autoidentificação e com sinal pequeno e exploratório na menção em terceira pessoa (1.17); e, no eixo de caráter, nenhum viés dessa resposta sobrevive à correção na versão controlada da tokenização, com sinal exploratório em rótulos de pessoa declarado (1.19), permanecendo o eixo ocupacional sem medição (1.20).
 
 **Libera afirmação mais forte:** medição do eixo ocupacional por AUL, e validação da classificação de valência por juízes.
 

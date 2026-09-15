@@ -5,7 +5,7 @@
 
 **Como ler.** Os blocos estão em ordem de consequência, e não de assunto. O Bloco 1 determina o que os outros significam; os Blocos 2 e 3 travam a publicação; os demais são resolvíveis em qualquer ordem.
 
-**Estado do projeto, em três frases.** O modelo não responde à sinalização dialetal implícita, em quatro famílias de marcadores testadas. Responde à menção explícita de região em frases sobre a pessoa, acima de um grupo de referência de 86 pares não regionais, mas sem especificidade detectável para o Nordeste: rótulos do Sul, na mesma frase, produzem resposta equivalente. Essa resposta, porém, não é depreciativa de forma detectável — o único viés candidato revelou-se artefato de tokenização.
+**Estado do projeto, em três frases.** O modelo não responde à sinalização dialetal implícita, em quatro famílias de marcadores testadas. Responde à menção explícita de região, acima de um grupo de referência de 86 pares não regionais, mas, comparado a rótulos do Sul na mesma frase, sem especificidade para o Nordeste acima de 0,08 quando a pessoa fala de si, e com sinal pequeno e exploratório em frases sobre terceiros. Nenhum viés depreciativo dessa resposta sobrevive à correção quando se controla o artefato de tokenização, embora haja sinal exploratório em rótulos de pessoa. (Atualizado em 15/09/2026.)
 
 ---
 

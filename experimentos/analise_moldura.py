@@ -60,12 +60,42 @@ PARES_MEDIDOS = SAIDA / "dados" / "explicito_pares.json"
 TABELA = SAIDA / "tabelas" / "moldura_tabelas.md"
 
 SEMENTE = 20260914
-PESSOA = ("nordestino", "pernambucano", "paraibano", "baiano", "cearense")
+PESSOA = ("nordestino", "pernambucano", "paraibano", "baiano", "cearense",
+          "nordestina", "pernambucana", "paraibana", "baiana")
+
+# Frases por condição antes do crescimento de 15/09/2026; as seguintes são as novas.
+ORIGINAIS = {"explicito_regiao": 8, "explicito_gentilico": 8, "explicito_toponimo": 8,
+             "controle_explicito": 5}
+# Efeito específico a excluir, decidido em 2.11.
+EFEITO_ALVO = 0.08
+
+
+def _resumo(teste: str, ds: list[float]) -> dict:
+    return {"teste": teste, "n": len(ds), "media": statistics.mean(ds), "ic": ic_media(ds),
+            "positivos": sum(1 for d in ds if d > 0), "p": p_sinais_exato(ds)}
+
+
+N_EXATO_MAXIMO = 20
+N_SORTEIOS = 200_000
 
 
 def p_sinais_exato(ds: list[float]) -> float:
-    """P(média com sinais permutados ≥ média observada), sobre as 2^n atribuições."""
+    """
+    P(média com sinais permutados ≥ média observada).
+
+    Exato, sobre as 2^n atribuições, até `N_EXATO_MAXIMO` frases; acima disso, por
+    sorteio de `N_SORTEIOS` atribuições com semente fixa. Correção de 15/09/2026:
+    com o crescimento a 20 frases por condição, o reagrupamento exploratório
+    pessoa/lugar passou a ter 30 frases, e 2^30 atribuições não terminam em tempo
+    útil. As análises registradas, com até 20 frases por condição, seguem exatas.
+    """
     n, observado = len(ds), statistics.mean(ds)
+    if n > N_EXATO_MAXIMO:
+        rng = random.Random(SEMENTE)
+        extremos = sum(
+            1 for _ in range(N_SORTEIOS)
+            if sum(d if rng.random() < 0.5 else -d for d in ds) / n >= observado - 1e-12)
+        return (extremos + 1) / (N_SORTEIOS + 1)
     extremos = 0
     for mascara in range(2 ** n):
         soma = sum(-d if (mascara >> i) & 1 else d for i, d in enumerate(ds))
@@ -112,16 +142,32 @@ def main() -> None:
                        "ic": ic_media(ds), "positivos": sum(1 for d in ds if d > 0),
                        "p": p_sinais_exato(ds)})
 
-    ajustados = holm({r["teste"]: r["p"] for r in resumo})
-    add("## Resultado registrado")
-    add("")
-    add("| condição de teste | frases | D médio | IC 95% | D > 0 | p exato | p Holm |")
-    add("|---|---|---|---|---|---|---|")
-    for r in resumo:
-        add(f"| `{r['teste']}` | {r['n']} | {r['media']:+.4f} | "
-            f"{r['ic'][0]:+.4f}–{r['ic'][1]:+.4f} | {r['positivos']}/{r['n']} | "
-            f"{r['p']:.4f} | {ajustados[r['teste']]:.4f} |")
-    add("")
+    def tabela(titulo: str, linhas: list[dict]) -> None:
+        # Regras de decisão registradas em `docs/pendencias.md` 2.12: especificidade
+        # detectada se p Holm < 0,05; efeito acima de 0,08 excluído se não detectada
+        # e o limite superior do IC 95% ficar abaixo de 0,08; inconclusivo no resto.
+        ajust = holm({r["teste"]: r["p"] for r in linhas})
+        add(f"## {titulo}")
+        add("")
+        add("| condição de teste | frases | D médio | IC 95% | D > 0 | p exato | p Holm | leitura |")
+        add("|---|---|---|---|---|---|---|---|")
+        for r in linhas:
+            if ajust[r["teste"]] < 0.05:
+                leitura = "especificidade detectada"
+            elif r["ic"][1] < EFEITO_ALVO:
+                leitura = f"exclui D > {EFEITO_ALVO:.2f}"
+            else:
+                leitura = "inconclusivo"
+            add(f"| `{r['teste']}` | {r['n']} | {r['media']:+.4f} | "
+                f"{r['ic'][0]:+.4f}–{r['ic'][1]:+.4f} | {r['positivos']}/{r['n']} | "
+                f"{r['p']:.4f} | {ajust[r['teste']]:.4f} | {leitura} |")
+        add("")
+
+    tabela("Resultado registrado — todas as frases", resumo)
+    novos = [_resumo(t, ds[ORIGINAIS[t]:]) for t, ds in ds_por_condicao.items()
+             if len(ds) - ORIGINAIS[t] >= 2]
+    if novos:
+        tabela("Secundário registrado — só as frases acrescentadas em 15/09/2026", novos)
 
     add("## Por frase")
     add("")

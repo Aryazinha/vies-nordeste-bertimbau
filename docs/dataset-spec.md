@@ -6,7 +6,7 @@
 
 **Convenção de procedência.** Toda afirmação não trivial indica entre parênteses o arquivo e a seção de origem. Valores marcados como *apurados* foram obtidos por leitura direta de `pipeline_coleta_piloto/dataset_raw/metadados.json` e de `pipeline_coleta_piloto/fontes.json`, e não constavam somados em documento algum.
 
-**Os dois conjuntos estão em estados incomparáveis**, e o documento não os apresenta em paralelo por isso. O corpus de áudio tem especificação fechada e execução em curso. O conjunto de pares mínimos tem desenho conceitual, mas nenhuma definição de entrega, e seu conteúdo perdeu sustentação empírica em 28/08/2026 (`docs/roadmap.md`, passo 5.1).
+**Situação em 15/09/2026.** O corpus de áudio tem especificação fechada e coleta concluída, com a validação por fazer. O conjunto de pares mínimos tem especificação fechada, 306 pares medidos e validação concluída para a v1. A redação anterior deste parágrafo, de 28/08/2026, descrevia os pares sem definição de entrega e com conteúdo sem sustentação empírica; ambas as condições estão superadas (Parte 2).
 
 ---
 
@@ -16,9 +16,11 @@ Esta seção existe para desfazer uma confusão de leitura que o restante do doc
 
 | Camada | O que é | Corpus de áudio | Pares mínimos |
 |---|---|---|---|
-| **Definir** | Esquema, critérios de inclusão, meta e regras de publicação | **Fechada** por este documento, ressalvados os pendentes de decisão listados ao final | **Aberta.** As quatro definições de entrega dependem da decisão do passo 5 (Parte 2, §2.1) |
-| **Executar** | Coleta, transcrição, diarização e curadoria | **11% da meta vigente** | Sem objeto: não há conteúdo a executar enquanto a família de marcadores não estiver decidida |
-| **Validar** | WER e DER contra referência humana; Filtros 1 e 2 | **Não iniciada.** Zero das 2 h de transcrição manual de referência | **Não iniciada.** Nenhum item submetido ao Filtro 1, nenhum juiz consultado (`docs/achados_para_o_artigo.md` §3.3) |
+| **Definir** | Esquema, critérios de inclusão, meta e regras de publicação | **Fechada** por este documento, ressalvados os pendentes de decisão listados ao final | **Fechada** em 15/09/2026: tamanho, formato (esquema 1.3), licença e desenho pareado (Parte 2) |
+| **Executar** | Coleta, transcrição, diarização e curadoria; medição dos pares | **Concluída** em 14/09/2026: 83 arquivos, 7,96 h, 216 falantes distintos | **Concluída** em 15/09/2026: 306 pares medidos |
+| **Validar** | WER e DER contra referência humana; validação dos marcadores | **Não iniciada**: erro de transcrição por variedade, coerência dialetal e participação de ouvinte (`docs/plano_corpus/03-validar.md`) | **Concluída** em 15/09/2026, sem juízes: 25 pares implícitos por fonte e corpus — 7 confirmados, 5 com ressalva, 13 não confirmados —; demais pares dispensados (`docs/pendencias.md` 2.14) |
+
+*Quadro atualizado em 15/09/2026; a versão de 28/08/2026 está no histórico do repositório.*
 
 ## Resumo de 31/08/2026 — o que ficou resolvido, o que falta
 
@@ -86,7 +88,9 @@ O corpus tem **216 falantes distintos**, apurados por comparação de vozes e co
 
 A camada de validação segue integralmente por fazer: o WER estratificado por variedade — a única medida capaz de sustentar a afirmação de que a transcrição automática não penaliza a fala nordestina, hoje apoiada apenas em confiança do modelo (`docs/achados_para_o_artigo.md` §2.1) — exige 2 h de transcrição manual de referência, das quais nenhuma foi produzida. O mecanismo já existe (`amostra_wer.json` + `jiwer` + `pipeline_coleta_piloto/medir_wer.py`); falta o trabalho humano de transcrever, e a equipe decidiu em 31/08/2026 adiar esse trabalho deliberadamente.
 
-## A circularidade que a tabela não mostra
+## A circularidade que a tabela não mostra — histórico, superado
+
+> **Superado.** Esta seção descreve a situação anterior à decisão de 29/08/2026 que tornou o corpus entregável autônomo, e à de 15/09/2026 que adotou o passo 5.3 como primeiro artigo. Conservada como registro do raciocínio.
 
 Uma das pendências não apenas falta: ela **altera o critério de conclusão das outras duas camadas**.
 
@@ -371,9 +375,11 @@ Um defeito de método foi encontrado nessa rodada e registrado em `docs/pendenci
 
 Corrigida também, na mesma revisão, uma duplicata em PE: o canal "Vlog com Diogo" (mesmo `channel_id`) aparecia duas vezes em `fontes.json`, o que inflava a contagem de vlog do estado em uma unidade — reduzida a uma entrada.
 
-**Material coletado**, apurado sobre `metadados.json`: 52 trechos, 5,52 h de áudio efetivamente coletado, distribuídas em PB 1,15 h, RJ 1,01 h, BA 1,00 h, SP 0,85 h, CE 0,79 h, PE 0,73 h. A esteira está validada de ponta a ponta, dividida entre coleta local e processamento em GPU (`docs/roadmap.md`, passo 4.3).
+> **Atualização de 15/09/2026.** Os dois parágrafos seguintes descrevem a situação de 31/08/2026 e estão superados: a coleta foi concluída com 83 arquivos e 7,96 h (ver "Camada de execução, em números", no início deste documento), e os registros transcritos, diarizados e anonimizados estão em `dataset_raw/registros_anonimizados/`, fora do versionamento (`docs/anonimizacao.md`).
 
-O diretório `dataset_raw/registros_finais/` está **vazio**, e os diretórios `transcricoes/` e `diarizacao/` também. Os produtos de transcrição e diarização do lote executado encontram-se nos pacotes `piloto_resultados (1).zip` e `(2).zip`, na raiz do projeto, mantidos fora do versionamento por conterem transcrição não anonimizada. Não foram abertos na produção deste documento.
+**Material coletado em 31/08/2026**, apurado sobre `metadados.json`: 52 trechos, 5,52 h de áudio efetivamente coletado, distribuídas em PB 1,15 h, RJ 1,01 h, BA 1,00 h, SP 0,85 h, CE 0,79 h, PE 0,73 h. A esteira está validada de ponta a ponta, dividida entre coleta local e processamento em GPU (`docs/roadmap.md`, passo 4.3).
+
+Naquela data, o diretório `dataset_raw/registros_finais/` estava **vazio**, e os diretórios `transcricoes/` e `diarizacao/` também. Os produtos de transcrição e diarização do lote executado encontravam-se nos pacotes `piloto_resultados (1).zip` e `(2).zip`, na raiz do projeto, mantidos fora do versionamento por conterem transcrição não anonimizada.
 
 > `RESOLVIDO em 31/08/2026:` os 13 canais que estavam `a_confirmar` tiveram a inspeção de conteúdo concluída — 10 aprovados, 3 rejeitados. Ver a tabela de decisões acima.
 
@@ -381,11 +387,11 @@ O diretório `dataset_raw/registros_finais/` está **vazio**, e os diretórios `
 
 ---
 
-# Parte 2 — Pares mínimos (EM ABERTO)
+# Parte 2 — Pares mínimos
 
-Esta parte **não é uma especificação**. Registra o que existe, o que falta, e por que o que falta não pode ser preenchido agora.
+**Situação em 15/09/2026: conteúdo, medição e validação concluídos para a v1** (§2.5). As quatro definições de §2.2 estão tomadas. A seção 2.1 registra por que esta parte esteve em aberto até 29/08/2026, e é conservada como histórico.
 
-## 2.1 Por que está em aberto
+## 2.1 Por que esteve em aberto — histórico, superado
 
 O conjunto de pares mínimos é, pelo princípio de ordenação do projeto, a contribuição publicável: a lacuna identificada na literatura é a inexistência de adaptação consolidada de CrowS-Pairs ou StereoSet para o português brasileiro, e os precedentes diretos são artigos de conjunto de dados (`docs/roadmap.md`, "Princípio de ordenação").
 
@@ -402,13 +408,13 @@ O nulo é legível, e não indício de aparelho quebrado: o controle de conteúd
 
 **Consequência para esta especificação.** Sem a decisão do passo 5 do roadmap — trocar de modelo ou de métrica (5.2), reposicionar como artigo de método e recurso (5.3), ou levar a menção explícita a volume (5.4) — não há critério para dizer o que o conjunto contém, e sem isso não há como fixar tamanho-alvo nem esquema de registro. Fixá-los agora seria arbitrar (`docs/pendencias.md`, D5 e D7).
 
-## 2.2 As quatro definições ausentes
+## 2.2 As quatro definições — todas tomadas em 15/09/2026
 
 Reproduzidas de `docs/pendencias.md` D7. As quatro são exigidas em submissão a veículo que aceite artigo de recurso.
 
 ### 2.2.1 Tamanho-alvo — DECIDIDO em 29/08/2026, REVISTO em 14/09/2026
 
-**Meta: 40 pares por condição de teste e 80 pares no grupo de referência não regional**, o que perfaz entre 246 e 286 pares conforme o conjunto tenha quatro ou cinco condições, contados os 86 de referência já medidos. Hoje há oito e oitenta e seis, respectivamente.
+**Meta: 40 pares por condição de teste e 80 pares no grupo de referência não regional**, o que perfaz entre 246 e 286 pares conforme o conjunto tenha quatro ou cinco condições, contados os 86 de referência já medidos. Em 15/09/2026: 20 frases com gêmeo em cada condição de menção explícita, conforme a segunda revisão abaixo, e 86 pares de referência.
 
 **Revisão de 14/09/2026.** A meta original era de 37 pares por condição. Com o grupo de referência ampliado a 86 pares distintos, o desvio-padrão do ruído passou de 0,1182 a 0,1217, e o mesmo critério — excluir efeitos acima de 0,08 — passou a exigir 40. O critério não mudou; mudou a estimativa do ruído, como a ressalva de `meta_pares_minimos.md` previa (`docs/pendencias.md` 2.8).
 
@@ -442,6 +448,7 @@ O registro anterior apontava que não havia esquema definido: nem campos, nem ti
 | `grupo` | `calibracao`, `teste`, `controle_pareado` ou `outro` |
 | `par_de_teste` | para `controle_pareado`: identificador do par de teste com a mesma frase, cujo rótulo nordestino o controle substitui (esquema 1.2, 14/09/2026); nulo nos demais |
 | `excluido_da_calibracao` | motivo, quando o par permanece no conjunto fora do grupo de referência (esquema 1.1); nulo nos demais |
+| `validacao` | esquema 1.3, 15/09/2026. Nos pares de sinalização implícita: `situacao` (`confirmado`, `confirmado_com_ressalva` ou `nao_confirmado`), traços, ressalvas e procedência — fonte dialetológica e ocorrência no corpus próprio, em substituição aos juízes (`docs/pendencias.md` 2.14). Nos demais: `dispensada`, com o motivo. `nao_confirmado` não equivale a reprovado |
 | `lado_a`, `lado_b` | as duas variantes do par |
 | `estado_alvo` | nulo: as condições agrupam por família de marcador, não por unidade da federação |
 | `medicao` | número de medições, mediana do d-PLL, razão de frequência, valor previsto pela reta e resíduo |
@@ -453,9 +460,9 @@ O cabeçalho `_meta` carrega as molduras, os atributos por moldura, a **extensã
 
 **Sobre a duplicação com o código.** A fonte da verdade continua sendo o código; `empacotar_pares.py` deriva o arquivo dela. Para que os dois não divirjam em silêncio, o modo `--verificar` refaz a derivação e falha se o arquivo em disco não corresponder ao que o código define. O formato tabular dos precedentes sai de `converter_pares.py` sob demanda e **não é publicado**, justamente para não haver dois artefatos a manter em sincronia.
 
-### 2.2.3 Licença — `PENDENTE`
+### 2.2.3 Licença — DECIDIDA em 31/08/2026
 
-Não decidida. A questão é distinta da do áudio, cuja conduta está fixada — publicar identificadores e código, não mídia. Os pares mínimos são texto de autoria do projeto e admitem licenciamento permissivo, mas a decisão não foi tomada nem registrada.
+**CC BY 4.0**, a mesma dos demais dados e da documentação (`LICENSE-DATA.md`; item 8 do registro de pendentes), declarada no cabeçalho de `pares_minimos.json`. Os pares são texto de autoria do projeto, e não há titularidade de terceiros a considerar. A marcação `PENDENTE` que constava aqui até 15/09/2026 contradizia o item 8 e foi corrigida (`docs/pendencias.md` 2.13).
 
 ### 2.2.4 Ficha de conjunto de dados — RASCUNHADA em 29/08/2026
 
@@ -479,7 +486,7 @@ O protocolo de validação **está fechado e não depende da decisão do passo 5
 
 **Calibração do Filtro 2 para variantes raras.** A negação pós-verbal tem produtividade da ordem de 5%. Antes de aplicar o filtro, deve-se estimar o volume de fala necessário para que a ausência de ocorrências seja informativa; do contrário, o filtro reprovaria o marcador por insuficiência amostral e não por inadequação. O mesmo cuidado vale para itens lexicais de baixa frequência. O cálculo correspondente está em 1.5 desta especificação.
 
-**Estado de aplicação.** Nenhum item passou pelo Filtro 1 — nenhum juiz foi consultado (`docs/achados_para_o_artigo.md` §3.3). O passo 3 do roadmap está **suspenso**, e deliberadamente: convocar juízes exige um conjunto de itens que valha a pena validar, e validar itens que não medem nada gastaria a disponibilidade dos juízes sem contrapartida (`docs/roadmap.md`, passo 3).
+**Estado de aplicação, 15/09/2026.** O Filtro 1 foi julgado inviável — a equipe não dispõe de contatos nos estados-alvo — e **substituído**, para os 25 pares de sinalização implícita, por fonte dialetológica documentada e pelo Filtro 2, com conferência humana dos trechos encontrados no corpus: 7 confirmados, 5 confirmados com ressalva, 13 não confirmados no corpus. Com 7,96 h de corpus, o Filtro 2 confirma traço mas não reprova traço raro por ausência, e a regra "marcador ausente do corpus não integra o experimento" foi abrandada para "não confirmado", com o par mantido no conjunto e marcado. Pares de menção explícita, de calibração e de controle dispensam a validação. Registro em `experimentos/resultados/dados/filtro2_conferencia.json`; decisão e limitações em `docs/pendencias.md` 2.14.
 
 ## 2.4 Princípios de desenho já fixados
 
@@ -498,9 +505,20 @@ Acrescentem-se duas exigências metodológicas estabelecidas por medição próp
 - **A comparação entre guises exige grupo de referência amplo.** O ruído no nível do par é da ordem do efeito procurado — desvio-padrão de 0,0629 contra mediana de 0,1539, com 86 pares —, de modo que o pareamento de frequência, sozinho, não basta. A calibração da resposta à frequência permanece como verificação: com o grupo ampliado, a razão de frequência não prevê a diferença de escore, e a variação dominante vem da moldura do enunciado (`docs/achados_para_o_artigo.md` §1.14, revisão de 14/09/2026).
 - **Todo par de menção explícita nasce com gêmeo de moldura** — regra adotada em 14/09/2026. O gêmeo repete a frase e o lado de comparação e troca apenas o rótulo nordestino por rótulo de outra região; a comparação dentro da dupla elimina a moldura, que no conjunto atual explicava a resposta atribuída ao Nordeste (`docs/achados_para_o_artigo.md` §1.17). O gêmeo intrarregional, testado em 14/09/2026, não integra a regra: sua construção mostrou-se frágil e o resultado, inconclusivo. As condições de sinalização implícita estão fora da regra e do crescimento por ora (`docs/pendencias.md` 2.11).
 
-## 2.5 Conteúdo existente
+## 2.5 Conteúdo existente — ATUALIZADO em 15/09/2026
 
-Doze itens rascunhados em três blocos — A morfossintático puro (4 itens), B lexical puro (4 itens), C feixe completo por estado (4 itens) —, dos quais um está suspenso por pendência bibliográfica não resolvida quanto à direção do marcador do imperativo em Fortaleza (`docs/pares_minimos_v1.md` §5 e §3.2). Nenhum validado.
+`experimentos/resultados/dados/pares_minimos.json`, esquema 1.3, **306 pares, todos medidos**, gerado a partir do código e conferido por `empacotar_pares.py --verificar`.
+
+| Grupo | Função | Pares | Validação |
+|---|---|---|---|
+| Referência não regional | calibração e grupo de referência | 87 (86 distintos; uma duplicata marcada) | dispensada |
+| Sinalização implícita | teste: imperativo, negação, léxico, feixe, construções | 25 | 7 confirmados, 5 com ressalva, 13 não confirmados |
+| Menção explícita | teste: macrorregião, gentílico, topônimo, terceira pessoa | 80 (20 por condição) | dispensada |
+| Gêmeos de moldura | controle pareado, rótulo do Sul na mesma frase | 80 | dispensada |
+| Gêmeos intrarregionais | controle pareado inconclusivo, conservado como registro | 29 | dispensada |
+| Controle de conteúdo | controle positivo do método | 5 | dispensada |
+
+**Registro anterior, de 29/08/2026, conservado como histórico.** Doze itens rascunhados em três blocos — A morfossintático puro (4 itens), B lexical puro (4 itens), C feixe completo por estado (4 itens) —, dos quais um está suspenso por pendência bibliográfica não resolvida quanto à direção do marcador do imperativo em Fortaleza (`docs/pares_minimos_v1.md` §5 e §3.2). Nenhum validado.
 
 Acrescentam-se dez marcadores construcionais formulados em 28/08/2026 (`experimentos/teste_construcional.py`, `CONSTRUCIONAIS`), que **não são itens de instrumento**: foram formulados para testar a existência de sinal, e três deles têm respaldo dialetológico cuja conferência em fonte primária permanece pendente, enquanto os demais são candidatos derivados do corpus próprio ou sem fonte alguma (`docs/pendencias.md` D6).
 
@@ -538,7 +556,7 @@ Consolidação dos pontos marcados `PENDENTE` acima, para leitura em bloco.
 
 O item 13 registrava que, ao contrário do corpus de áudio, o conjunto de pares mínimos não tinha meta **nem critério que a produzisse**. Duas coisas mudaram com o passo 5.4:
 
-**Sabe-se o que o conjunto contém.** A menção explícita à região produz resposta acima do grupo de referência não regional e sobrevive à correção de multiplicidade, mas, desde o controle de moldura de 14/09/2026, sem especificidade detectável para o Nordeste (`docs/achados_para_o_artigo.md` §1.17). A sinalização implícita, em quatro famílias, não produz. O conteúdo do conjunto deixa de ser indeterminado.
+**Sabe-se o que o conjunto contém.** A menção explícita à região produz resposta acima do grupo de referência não regional e sobrevive à correção de multiplicidade, mas sem especificidade para o Nordeste acima de 0,08 na autoidentificação e com sinal pequeno e exploratório na menção em terceira pessoa (revisão de 15/09/2026) (`docs/achados_para_o_artigo.md` §1.17). A sinalização implícita, em quatro famílias, não produz. O conteúdo do conjunto deixa de ser indeterminado.
 
 **Existe um critério estatístico disponível, e é o mesmo do corpus de áudio.** A meta do corpus foi derivada do volume necessário para que a ausência de uma variante rara fosse informativa (§1.5). O análogo aqui é o número de pares necessário para que a **análise de direção** — se a resposta é depreciativa, e não apenas diferente — atinja poder suficiente. O passo 5.5 do roadmap produzirá a estimativa de tamanho de efeito que essa conta exige.
 
