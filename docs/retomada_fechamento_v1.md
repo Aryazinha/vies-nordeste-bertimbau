@@ -43,8 +43,8 @@ O escopo da v1 está **congelado** pelo critério de conclusão aprovado em 15/0
 
 | # | Item | Quem | Depende de |
 |---|---|---|---|
-| **5** | Regerar a amostra do WER sobre os 83 arquivos | sessão | — |
-| **6** | Gerar a amostra de coerência dialetal, 10 locutores por estado | sessão | — |
+| **5** | Regerar a amostra do WER sobre os 83 arquivos — **concluído em 15/09/2026** | sessão | — |
+| **6** | Gerar a amostra de coerência dialetal, 10 locutores por estado — **concluído em 15/09/2026** | sessão | — |
 | **9** | Ouvir 2 arquivos: participação de ouvinte (cerca de 15 min) | usuário | — |
 | **10** | Ouvir os 60 locutores da amostra de coerência (cerca de 1 h) | usuário | 6 |
 | **11** | Transcrever à mão os trechos da amostra do WER (8 a 16 h) | usuário | 5 |
@@ -58,6 +58,10 @@ O escopo da v1 está **congelado** pelo critério de conclusão aprovado em 15/0
 ---
 
 ## 5. Itens da sessão: como fazer
+
+### Itens 5 e 6 — executados em 15/09/2026
+
+A branch `retomada-e-plano-aul` foi integrada à `main` no início da sessão. As duas amostras foram geradas localmente, e o registro completo está em `docs/plano_corpus/03-validar.md`, "Amostras geradas em 15/09/2026". Decisões e ajustes: **trechos com nome mascarado excluídos da amostra do WER**, por decisão da equipe; `preparar_amostra_wer.py` criado para reproduzir a seção 6.4 sem Colab; `preparar_amostra_coerencia.py` revisto para ler os registros anonimizados e sortear pessoas, e não rótulos. Arquivos: `dataset_raw/amostra_wer.json` (trechos `PB-001`…) e `dataset_raw/diarizacao/coerencia_{UF}.json` (pessoas `COE-PB-01`…). A composição por camada da amostra do WER difere entre estados, e a leitura do item 11 deve considerá-lo (`docs/pendencias.md` 4.11). O texto abaixo, das duas subseções, fica como histórico do planejamento.
 
 ### Item 5 — amostra do WER
 

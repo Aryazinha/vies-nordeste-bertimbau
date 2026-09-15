@@ -12,8 +12,38 @@ A equipe optou, nessa data, por trabalhar primeiro no conjunto de pares mínimos
 
 | Frente | O que existe | O que falta | Trabalho humano |
 |---|---|---|---|
-| 3.1 WER estratificado | ferramenta pronta; amostra desatualizada | regerar a amostra sobre os 83 arquivos e transcrever à mão | 8 a 16 h |
-| 3.2 Coerência dialetal | script pronto, corpus disponível | gerar a amostra e ouvir 10 locutores por estado | cerca de 1 h |
+| 3.1 WER estratificado | ferramenta pronta; **amostra regerada em 15/09/2026** | transcrever à mão | 8 a 16 h |
+| 3.2 Coerência dialetal | **amostra gerada em 15/09/2026** | ouvir 10 pessoas por estado | cerca de 1 h |
+
+### Amostras geradas em 15/09/2026
+
+Ambas na máquina local, sobre os 83 registros anonimizados, e gravadas em `pipeline_coleta_piloto/dataset_raw/`, fora do versionamento, por conterem transcrição ou apontarem para ela. Nos 31 registros cujo original está disponível localmente, os tempos, a diarização e o texto de todos os segmentos sem máscara coincidem com o original (1.665 segmentos comparados, nenhuma divergência).
+
+**Amostra do WER** (`amostra_wer.json`, gerada por `preparar_amostra_wer.py`). Reproduz a lógica da seção 6.4 do notebook — trechos de pelo menos 5 s, semente 20260827, acumulação até 20 minutos por estado —, com uma diferença decidida pela equipe: **trechos com nome mascarado ficam fora do sorteio**, porque a transcrição manual registra o nome pronunciado e o cálculo contaria a máscara como erro do reconhecedor. Cada trecho recebe código estável (`PB-001`…).
+
+| UF | Trechos | Minutos | Arquivos | Vox-pop | Rádio/TV/podcast | Vlog | Excluídos com máscara |
+|---|---|---|---|---|---|---|---|
+| PB | 143 | 20,1 | 13 | 8,3 | 6,9 | 4,8 | 20 (3,1 min) |
+| PE | 154 | 20,0 | 11 | 11,3 | 6,2 | 2,5 | 28 (4,6 min) |
+| CE | 166 | 20,0 | 14 | 13,5 | 4,1 | 2,4 | 34 (5,4 min) |
+| BA | 163 | 20,2 | 11 | 6,5 | 11,2 | 2,4 | 27 (3,8 min) |
+| SP | 152 | 20,2 | 13 | 5,7 | 10,3 | 4,2 | 17 (2,0 min) |
+| RJ | 122 | 20,1 | 17 | 4,5 | 7,0 | 8,5 | 18 (2,5 min) |
+
+Total: 900 trechos, 120,6 min, 79 dos 83 arquivos. **A composição por camada difere entre estados**, porque o sorteio, tal como na seção 6.4, não é estratificado por camada; o efeito sobre a comparação entre estados está registrado em `docs/pendencias.md` 4.11.
+
+**Amostra de coerência dialetal** (`diarizacao/coerencia_{UF}.json`, gerada por `preparar_amostra_coerencia.py`). O script foi revisto antes da execução em dois pontos: passou a ler os registros anonimizados, pois a pasta de registros originais contém apenas 31 dos 83 arquivos na máquina local; e passou a sortear **pessoas**, fundindo os rótulos de diarização confirmados como mesma pessoa na conferência de reincidência (`vereditos_reincidencia.json`), pela mesma função de `verificar_teto_falante.py`. Sem a fusão, a amostra poderia conter a mesma pessoa duas vezes. Cada pessoa recebe código estável (`COE-PB-01`…).
+
+| UF | Pessoas elegíveis (turno ≥ 8 s) | Amostradas | Arquivos | Canais | Duração média do segmento indicado | Escuta total |
+|---|---|---|---|---|---|---|
+| PB | 29 | 10 | 9 | 5 | 33,9 s | 5,7 min |
+| PE | 30 | 10 | 9 | 7 | 28,6 s | 4,8 min |
+| CE | 32 | 10 | 10 | 8 | 37,0 s | 6,2 min |
+| BA | 27 | 10 | 7 | 6 | 30,7 s | 5,1 min |
+| SP | 38 | 10 | 7 | 6 | 32,9 s | 5,5 min |
+| RJ | 37 | 10 | 8 | 7 | 24,4 s | 4,1 min |
+
+A escuta dos segmentos indicados soma cerca de 31 minutos, abaixo da estimativa de 1 h, que permanece como margem para ouvir além do segmento quando o trecho for insuficiente.
 | 3.3 Participação de ouvinte | relatório rodado em 14/09/2026 | ouvir 2 arquivos e preencher o campo | cerca de 15 min |
 
 ### 3.1 — a amostra precisa ser regerada

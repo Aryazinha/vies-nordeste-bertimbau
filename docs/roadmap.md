@@ -257,8 +257,8 @@ Aprovado pela equipe em 15/09/2026. **Numeração estável:** os itens não são
 | 2 | 1 — rodada atual | Atualizar documentos e integrar à `main` | assistente | **concluído** 15/09 | 1 |
 | 3 | 2 — congelar escopo | Escrever o "Critério de conclusão do dataset v1", com as decisões 13, 15 e 16 (`docs/criterio_conclusao_v1.md`) | assistente | **concluído** 15/09 (aprovado sem alterações) | 2 |
 | 4 | 3 — validar pares | Validar os 25 pares implícitos por fonte e corpus | assistente | **concluído** 15/09 | — |
-| 5 | 3 — validar corpus | Regerar a amostra do WER sobre os 83 arquivos | assistente | a fazer | — |
-| 6 | 3 — validar corpus | Gerar a amostra de coerência dialetal, 10 falantes por estado | assistente | a fazer | — |
+| 5 | 3 — validar corpus | Regerar a amostra do WER sobre os 83 arquivos | assistente | **concluído** 15/09 (900 trechos, 120,6 min; trechos com nome mascarado excluídos) | — |
+| 6 | 3 — validar corpus | Gerar a amostra de coerência dialetal, 10 falantes por estado | assistente | **concluído** 15/09 (60 pessoas, com fusão de rótulos da mesma pessoa) | — |
 | 7 | 4 — fechar | Fechar a ficha do conjunto | assistente | a fazer | 4, 8, 9, 10, 11 |
 | 8 | 3 — validar pares | Conferir os trechos encontrados na busca | equipe | **concluído** 15/09 | 4 |
 | 9 | 3 — validar corpus | Ouvir 2 arquivos: participação de ouvinte (15 min) | equipe | a fazer | — |
