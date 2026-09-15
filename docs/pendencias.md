@@ -423,6 +423,8 @@ Medição local: 2.856 medições em 102 pares, em 901 s; as anteriores intactas
 
 **Meta pareada recalculada.** Desvio-padrão combinado de D: 0,1034 com 80 frases (era 0,106 com 29). Para excluir 0,08 sob Holm, 19 frases por condição — as 20 adotadas bastam pelo desvio combinado. Pelo desvio do gentílico (0,161), seriam 42, o que confirma a leitura inconclusiva daquela condição.
 
+**Decisão de 15/09/2026 — duas questões vão para fase posterior ao dataset v1.** (a) A resolução do gentílico de estado, que exigiria cerca de 42 frases pelo seu desvio-padrão de D; (b) a confirmação do sinal exploratório de direção em rótulos de pessoa, que exigiria mais frases na análise de direção. Nenhuma invalida o conjunto de dados — alteram o que o artigo pode afirmar, e ficam declaradas como limitação. Não entram no critério de conclusão da v1.
+
 **Consequência adicional:** o item 1.19 também é revisto no item 2 do plano — mantendo a ausência de viés sobrevivente à correção na versão controlada, e declarando o aumento das estimativas e o sinal exploratório em rótulos de pessoa.
 
 **Reanálises decorrentes, sem estatuto confirmatório novo.** `teste_explicito.py` (resíduo contra o grupo de referência, 1.17) e `analise_valencia.py` (direção, 1.19) serão regerados com 20 frases por condição; seus valores entram nos documentos na rodada de atualização, e a meta pareada é recalculada sobre a dispersão de D observada.
