@@ -36,7 +36,7 @@ A v1 está concluída quando **todas** as condições abaixo estiverem satisfeit
 | C1 | Coleta | 83 arquivos, todos os estados acima do piso de 20 pessoas úteis sob o teto de 5% | **satisfeita** em 14/09/2026 |
 | C2 | Falantes distintos | verificação por comparação de vozes e conferência humana | **satisfeita** em 14/09/2026 |
 | C3 | Anonimização | nomes de terceiros mascarados e saída verificada (`docs/anonimizacao.md`) | **satisfeita** em 02/09/2026 |
-| C4 | Participação de ouvinte | os dois arquivos de canal com o formato ouvidos e o campo `participacao_ouvinte` preenchido [9] | a fazer |
+| C4 | Participação de ouvinte | os dois arquivos de canal com o formato ouvidos e o campo `participacao_ouvinte` preenchido [9] | **satisfeita** em 16/09/2026: 43 s na BA, nenhuma em PE |
 | C5 | Coerência dialetal | amostra de 10 locutores por estado gerada [6] e ouvida, com a decisão registrada por locutor [10] | parcial: amostra gerada em 15/09/2026; escuta a fazer |
 | C6 | Erro de transcrição por variedade | amostra regerada sobre os 83 arquivos [5]; trechos transcritos manualmente [11]; WER calculado **por estado** com `medir_wer.py` e reportado qualquer que seja o resultado | parcial: amostra regerada em 15/09/2026; transcrição a fazer — **incluída na v1 por decisão de 15/09/2026 [13]** |
 
