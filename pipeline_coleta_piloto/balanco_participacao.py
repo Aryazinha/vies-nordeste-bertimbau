@@ -21,13 +21,21 @@ desequilíbrio, agora escondido atrás de uma contagem de canais simétrica. O
 que precisa ser equilibrado — ou descontado na análise — é o **volume por
 estado**, e volume só se conta arquivo a arquivo.
 
-## Os dois campos, e por que são dois
+## Os campos, e por que são distintos
 
 - `canal_tem_participacao_ouvinte` vem de `fontes.json` e é fato do canal.
   Custa nada e serve para uma coisa só: dizer ao curador quais arquivos vale a
   pena ouvir.
 - `participacao_ouvinte` é fato do arquivo e só se estabelece ouvindo. Nasce
-  `nao_verificado` e assim permanece até que alguém o preencha.
+  `nao_verificado` e assim permanece até que alguém o preencha, por
+  `registrar_participacao.py`.
+- `participacao_ouvinte_s` são os **segundos de fala de ouvinte** no arquivo,
+  informados pela mesma escuta. Sem ele, este relatório contava a duração
+  inteira do arquivo em que houvesse qualquer participação — o que, no primeiro
+  arquivo verificado, teria atribuído à Bahia 516 s onde há 43 s, e disparado
+  alerta de desequilíbrio a partir de um artefato de contagem. Quando o campo
+  está ausente num arquivo marcado `sim`, a duração inteira continua sendo
+  usada, e o relatório o declara.
 
 Enquanto o segundo campo não for preenchido, este relatório mostra zero em
 todos os estados — e isso é resposta correta, não falha: significa que a
@@ -85,6 +93,7 @@ def marcar_canal(registros: list[dict]) -> int:
 def relatar(registros: list[dict]) -> None:
     por_estado = defaultdict(lambda: {"total_s": 0.0, "ouvinte_s": 0.0,
                                       "candidatos": 0, "arquivos": 0})
+    sem_segundos = []
     for r in registros:
         uf = r["estado_alvo"]
         dur = float(r.get("duracao_coletada_s") or r.get("duracao_s") or 0)
@@ -92,7 +101,11 @@ def relatar(registros: list[dict]) -> None:
         e["arquivos"] += 1
         e["total_s"] += dur
         if r.get("participacao_ouvinte") == "sim":
-            e["ouvinte_s"] += dur
+            segundos = r.get("participacao_ouvinte_s")
+            if segundos is None:
+                sem_segundos.append(r["id"])
+                segundos = dur
+            e["ouvinte_s"] += float(segundos)
         if r.get("canal_tem_participacao_ouvinte") == "sim":
             e["candidatos"] += 1
 
@@ -121,6 +134,18 @@ def relatar(registros: list[dict]) -> None:
 
     a_ouvir = sum(e["candidatos"] for e in por_estado.values())
     verificados = sum(1 for r in registros if r.get("participacao_ouvinte") != "nao_verificado")
+    a_verificar = [r["id"] for r in registros
+                   if r.get("canal_tem_participacao_ouvinte") == "sim"
+                   and r.get("participacao_ouvinte", "nao_verificado") == "nao_verificado"]
+
+    if sem_segundos:
+        print(f"\n**Contagem grosseira em {len(sem_segundos)} arquivo(s)** "
+              f"({', '.join(sem_segundos)}): marcados com participação, mas sem "
+              f"`participacao_ouvinte_s`; a duração inteira do arquivo foi contada.")
+
+    if a_verificar:
+        print(f"\n{len(a_verificar)} arquivo(s) de canal com o formato ainda por ouvir: "
+              f"{', '.join(a_verificar)}.")
 
     if verificados == 0:
         print(f"\n**Nenhum arquivo foi verificado por escuta.** Os zeros acima significam "

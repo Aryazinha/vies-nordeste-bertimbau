@@ -44,7 +44,7 @@ Total: 900 trechos, 120,6 min, 79 dos 83 arquivos. **A composição por camada d
 | RJ | 37 | 10 | 8 | 7 | 24,4 s | 4,1 min |
 
 A escuta dos segmentos indicados soma cerca de 31 minutos, abaixo da estimativa de 1 h, que permanece como margem para ouvir além do segmento quando o trecho for insuficiente.
-| 3.3 Participação de ouvinte | relatório rodado em 14/09/2026 | ouvir 2 arquivos e preencher o campo | cerca de 15 min |
+| 3.3 Participação de ouvinte | **concluída em 16/09/2026** | — | feito |
 
 ### 3.1 — a amostra precisa ser regerada
 
@@ -78,6 +78,12 @@ O relatório rodou em 14/09/2026 sobre os 83 arquivos, com este resultado:
 | RJ | 17 | desconhecida | 0 |
 
 **Os zeros de volume significam desconhecido, e não nulo** — nenhum arquivo foi verificado por escuta, e o campo `participacao_ouvinte` nasce `nao_verificado`. São **dois arquivos** a ouvir, um em PE e um na BA, e com isso a frente fica medida em vez de suposta.
+
+### Resultado da escuta, 16/09/2026 — frente 3.3 concluída
+
+Os dois arquivos foram ouvidos pela equipe, e o resultado gravado por `registrar_participacao.py`: na TV Aratu (BA, *Alô Juca*, 516 s), **43 s** de uma ouvinte ao telefone, entre 4:40 e 5:23, com o apresentador sozinho no restante; na Rádio Jornal (PE, *Super Manhã*, 176 s), **nenhuma** — a segunda voz que a diarização registrou é sobreposição do próprio apresentador.
+
+O corpus tem, portanto, **43 segundos de fala de ouvinte no grupo nordestino (0,2% de 296 min) e nada no grupo de controle**. A assimetria é do sinal previsto, e é pequena demais para afetar qualquer comparação; a conduta adotada é declará-la na ficha do conjunto, sem descontar. O relatório dispara alerta de desequilíbrio porque o controle tem zero, sem consultar a magnitude — o alerta deve ser lido junto com o percentual da tabela (`docs/pendencias.md` 1.1). Antes da medida, `balanco_participacao.py` foi corrigido: contava a duração inteira do arquivo em vez dos segundos de fala de ouvinte, o que atribuiria 516 s à Bahia.
 
 A assimetria permanece estrutural e conhecida: não há canais do formato em SP e RJ que satisfaçam a regra de atribuição, porque nas duas capitais os programas de participação pertencem a redes nacionais. Por isso a conduta é medir e descontar, não buscar equivalentes.
 

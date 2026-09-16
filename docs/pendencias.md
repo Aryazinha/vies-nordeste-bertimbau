@@ -62,6 +62,21 @@ O campo passou a existir nos dois níveis, e a distinção entre eles é o ponto
 
 **Por que isso importa, e é a parte que não pode ser perdida.** Fala de ouvinte ao telefone é o registro menos monitorado de todo o corpus, e os marcadores regionais que o projeto investiga são mais frequentes em fala informal. Se o grupo nordestino tem esse tipo de fala e o grupo de controle não, o contraste entre as regiões fica inflado **na direção que favorece a hipótese do projeto**. É viés que não pode permanecer sem medida.
 
+### Medida executada em 16/09/2026 — RESOLVIDA
+
+Os dois arquivos de canal com o formato, únicos do corpus de 83, foram ouvidos pela equipe (item 9 do plano de fechamento), e o resultado foi gravado por `registrar_participacao.py`:
+
+| Arquivo | UF | Canal | Duração | Fala de ouvinte |
+|---|---|---|---|---|
+| `kMd1ga7Tz5g` | BA | TV Aratu, *Alô Juca* | 516 s | **43 s** — uma ouvinte ao telefone, 4:40–5:23; apresentador sozinho no restante |
+| `Z_ZLH1hratI` | PE | Rádio Jornal, *Super Manhã* | 176 s | **nenhuma** — a segunda voz detectada pela diarização é sobreposição do próprio apresentador |
+
+**Resultado: a assimetria é de 43 segundos.** O corpus tem 0,2% de fala de ouvinte no grupo nordestino (43 s em 296 min) e nada no grupo de controle. A diferença existe, é do sinal previsto — inflaria o contraste regional —, e é pequena demais para afetar qualquer medida do projeto. Conduta adotada: **declarar na ficha do conjunto**, sem descontar, porque descontar 43 segundos de 5 horas de fala nordestina não altera nenhuma comparação. Se a coleta for retomada com rádios de participação, a conduta muda e o relatório volta a ser o instrumento.
+
+**Duas correções de instrumento, feitas antes da medida.** (a) `balanco_participacao.py` contava a duração **inteira** do arquivo marcado com participação, e não os segundos de fala de ouvinte; no arquivo da Bahia isso atribuiria 516 s onde há 43 s, um fator de doze. Passou a somar o novo campo `participacao_ouvinte_s`, mantendo a contagem antiga, e declarando-a, apenas quando o campo faltar. (b) O preenchimento deixou de ser edição manual do JSON e passa por `registrar_participacao.py`, que grava também a nota da escuta e a data.
+
+**Ressalva de leitura do relatório, que permanece.** O alerta de desequilíbrio dispara quando o controle tem zero e o Nordeste tem qualquer coisa, sem consultar a magnitude — de modo que ele está disparando por 43 segundos. Está tecnicamente correto e é praticamente irrelevante neste corpus; quem ler o relatório deve confrontar o alerta com o percentual da tabela, e não tomá-lo como ordem de conduta. Rever o limiar não entra na v1: escopo congelado.
+
 ### 1.2 Camada de vox-pop com apenas dois canais — AVANÇADA, e agora é a pendência de fonte mais consequente
 
 O registro original apontava PB, BA, SP e RJ com dois canais nessa camada. **Situação em 31/08/2026:** PE e CE alcançaram a meta de quatro; a Bahia subiu para três, com *azulzinho Itabuna*; **PB, SP e RJ seguem com dois**.
