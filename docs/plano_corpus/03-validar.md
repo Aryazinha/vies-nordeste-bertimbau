@@ -161,7 +161,7 @@ As 60 pessoas da amostra foram ouvidas por um membro da equipe, em seis blocos c
 | RJ | 9 | 0 | 1 |
 | **Total** | **56** | **1** | **3** |
 
-**O suspeito não é o caso previsto.** `COE-CE-04`, em canal do Ceará, é falante estrangeiro: o próprio conteúdo declara restaurante na Itália e pizzaria em Acqui Terme, com trabalho em Fortaleza. A ameaça documentada é o migrante de outra região do Brasil, e no grupo de controle — onde um nordestino migrado atenuaria o contraste entre as regiões — **nenhum caso foi identificado** em 20 pessoas.
+**O suspeito não é o caso previsto.** `COE-CE-04`, em canal do Ceará, é falante estrangeiro: o próprio conteúdo declara restaurante na Itália e pizzaria em Acqui Terme, com trabalho em Fortaleza. A ameaça documentada é o migrante de outra região do Brasil, e no grupo de controle — onde um nordestino migrado atenuaria o contraste entre as regiões — **nenhum caso foi identificado** em 20 pessoas. As 20 pessoas de São Paulo e do Rio de Janeiro foram reconferidas na mesma sessão, com a pergunta dirigida e única — *esta pessoa soa nordestina?* —, e a resposta foi negativa em todas. A reconferência é reafirmação pelo mesmo ouvinte, e não escuta cega independente: não constitui medida de concordância (`docs/pendencias.md` 6.6).
 
 **Os três inconclusivos têm duas causas, e nenhuma é sotaque.** `COE-BA-10` tem ruído de ambiente em toda a fala da pessoa, sem trecho mais limpo no arquivo. `COE-CE-06` e `COE-RJ-09` são defeitos de diarização — fusão de dois locutores num rótulo, no primeiro, e rótulo espúrio sobre passagem musical, no segundo —, registrados em `docs/pendencias.md` 4.12, com a consequência que têm sobre a contagem de pessoas distintas.
 
