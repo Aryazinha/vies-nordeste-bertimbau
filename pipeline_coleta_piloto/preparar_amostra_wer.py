@@ -1,46 +1,43 @@
 """
 preparar_amostra_wer.py
 
-Gera `amostra_wer.json`, insumo da medição do WER por estado
-(`medir_wer.py`; condição C6 de `docs/criterio_conclusao_v1.md`, item 5 do
-plano de fechamento em `docs/roadmap.md`).
+Gera `amostra_wer.json`, insumo da medição do WER por estado (`medir_wer.py`;
+condição C6 de `docs/criterio_conclusao_v1.md`, item 5 do plano de fechamento).
 
-## Por que existe, se o notebook já gerava a amostra
+## Duas gerações desta amostra, e por que a segunda existe
 
-A amostra era produzida pela seção "6.4 Amostra para transcrição manual" de
-`notebooks/piloto_colab.ipynb`, e foi sorteada quando o corpus tinha 52
-arquivos. Com o corpus final de 83 arquivos na máquina local, e sem exigência
-de GPU, a regeração dispensa o Colab. Este script reproduz a lógica daquela
-seção — trechos de transcrição de pelo menos 5 s, embaralhados por estado com a
-semente 20260827, acumulados até atingir 20 minutos por estado, com
-`hipotese_asr` preenchida e `referencia_manual` em branco —, com uma única
-diferença deliberada, descrita a seguir.
+A primeira versão, de 15/09/2026, reproduzia a seção 6.4 do notebook: um
+trecho por segmento do ASR, com pelo menos 5 s, até 20 minutos por estado. O
+teste de transcrição de 17/09/2026, com dez trechos, mostrou um artefato que
+inviabilizava a medida: **as marcas de tempo de palavra do `faster-whisper` são
+aproximadas, e o recorte entra no meio da palavra das pontas.** Quem transcreve
+ouve "crian", "soci", "priva"; a hipótese do ASR traz a palavra inteira, e a
+diferença conta como erro que não houve. Em trechos de 17 palavras medianas, os
+dois extremos respondem por cerca de 12% de erro espúrio.
 
-## A diferença: trechos com nome mascarado ficam fora do sorteio
+Duas saídas foram consideradas e uma foi descartada com dado: restringir a
+amostra a segmentos cercados de silêncio deixaria de fora 94% do material, pois
+apenas 6% dos segmentos elegíveis têm pausa de 0,4 s dos dois lados.
 
-Os registros disponíveis localmente são os anonimizados, nos quais nomes de
-terceiros aparecem como `[NOME_1]`. A transcrição manual registra o nome
-efetivamente pronunciado, e o cálculo contaria a máscara como erro de
-transcrição que o `faster-whisper` não cometeu. A equipe decidiu, em
-15/09/2026, excluir do sorteio os trechos com máscara, em vez de impor ao
-transcritor uma convenção adicional. O custo, de 2 a 5 minutos elegíveis por
-estado, é declarado como limitação da medida: os trechos com nome próprio,
-possivelmente mais difíceis para o reconhecedor, ficam sub-representados, e de
-forma aproximadamente igual nos seis estados.
+A saída adotada é **agrupar segmentos consecutivos do mesmo arquivo em blocos
+de cerca de 30 segundos**. O artefato de borda continua existindo — duas
+palavras por bloco, no máximo —, mas passa a pesar sobre 80 palavras em vez de
+17, e incide igualmente em todos os estados. O volume por estado não muda, e o
+número de arquivos a abrir cai de 900 para cerca de 240.
 
-Fora dos trechos mascarados, o texto anonimizado coincide com o original, e os
-tempos e a diarização são idênticos — verificado nos 31 registros cujo
-original está na máquina local.
+## Regras do sorteio
 
-## Instantes
+- Blocos de segmentos **consecutivos** do mesmo arquivo, com no máximo 2 s de
+  intervalo entre segmentos vizinhos, somando de 20 s a 35 s.
+- Blocos que contenham nome mascarado (`[NOME_n]`) ficam fora, por decisão da
+  equipe de 15/09/2026: a transcrição manual registraria o nome pronunciado, e
+  a máscara contaria como erro do reconhecedor.
+- Sorteio por estado com semente fixa, acumulando até 20 minutos.
+- `recorte_inicio_s` e `recorte_fim_s` trazem 0,4 s de folga de cada lado, para
+  que as palavras das pontas sejam audíveis por inteiro; quem transcreve é
+  instruído a ignorar fragmento solto nas bordas.
 
-`inicio_s` e `fim_s` referem-se ao arquivo de áudio local indicado em
-`arquivo`. Nos arquivos coletados como recorte de um vídeo mais longo (campo
-`trecho` do registro), o instante no YouTube é o do áudio somado a
-`trecho.inicio_s`; a escuta deve ser feita no arquivo local.
-
-A saída contém transcrição e por isso é gravada em `dataset_raw/`, fora do
-versionamento.
+A saída contém transcrição e fica em `dataset_raw/`, fora do versionamento.
 
 Uso:
     python preparar_amostra_wer.py
@@ -57,81 +54,88 @@ from pathlib import Path
 
 from config import BASE_DIR, ESTADOS_VALIDOS
 
-SEMENTE = 20260827          # a mesma da seção 6.4 do notebook
-DURACAO_MINIMA_S = 5
+SEMENTE = 20260917           # sorteio de blocos; a semente 20260827 era a dos trechos avulsos
+BLOCO_ALVO_S = 30.0
+BLOCO_MIN_S = 20.0
+BLOCO_MAX_S = 35.0
+INTERVALO_MAX_S = 2.0
 MINUTOS_POR_ESTADO = 20
+MARGEM_S = 0.4
 MASCARA = re.compile(r"\[NOME_\d+\]")
 
 
-def carregar_registros(pasta: Path) -> list[dict]:
-    """Registros com transcrição e diarização, na ordem do nome do arquivo, como no notebook."""
-    registros = []
-    for caminho in sorted(pasta.glob("*.json")):
-        reg = json.loads(caminho.read_text(encoding="utf-8"))
-        if reg.get("transcricao") and reg.get("diarizacao"):
-            registros.append(reg)
-    return registros
+def blocos_do_registro(reg: dict) -> list[dict]:
+    """Blocos de segmentos consecutivos, sem máscara, entre BLOCO_MIN_S e BLOCO_MAX_S."""
+    segs = sorted(reg["transcricao"]["segmentos"], key=lambda s: s["start"])
+    blocos, i = [], 0
+    while i < len(segs):
+        corrente = [segs[i]]
+        j = i + 1
+        while j < len(segs):
+            if segs[j]["start"] - corrente[-1]["end"] > INTERVALO_MAX_S:
+                break
+            if segs[j]["end"] - corrente[0]["start"] > BLOCO_MAX_S:
+                break
+            corrente.append(segs[j])
+            if corrente[-1]["end"] - corrente[0]["start"] >= BLOCO_ALVO_S:
+                j += 1
+                break
+            j += 1
+        duracao = corrente[-1]["end"] - corrente[0]["start"]
+        texto = " ".join(s["text"].strip() for s in corrente)
+        if duracao >= BLOCO_MIN_S and not MASCARA.search(texto):
+            blocos.append({
+                "id": reg["id"], "arquivo": reg["arquivo"], "canal": reg["canal"],
+                "estado": reg["estado_alvo"], "camada": reg["tipo_fonte"],
+                "inicio_s": round(corrente[0]["start"], 2),
+                "fim_s": round(corrente[-1]["end"], 2),
+                "recorte_inicio_s": round(max(0.0, corrente[0]["start"] - MARGEM_S), 2),
+                "recorte_fim_s": round(corrente[-1]["end"] + MARGEM_S, 2),
+                "n_segmentos": len(corrente),
+                "hipotese_asr": texto,
+                "referencia_manual": "",
+            })
+        i = max(j, i + 1)
+    return blocos
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Regera a amostra do WER sobre o corpus local.")
+    ap = argparse.ArgumentParser(description="Sorteia a amostra do WER em blocos.")
     ap.add_argument("--registros", default=str(BASE_DIR / "registros_anonimizados"))
     ap.add_argument("--saida", default=str(BASE_DIR / "amostra_wer.json"))
     args = ap.parse_args()
 
-    registros = carregar_registros(Path(args.registros))
-    if not registros:
-        raise SystemExit(f"nenhum registro em {args.registros}")
-
-    random.seed(SEMENTE)
     por_estado: dict[str, list[dict]] = defaultdict(list)
-    excluidos: dict[str, list[float]] = defaultdict(list)
-    for r in registros:
-        for seg in r["transcricao"]["segmentos"]:
-            duracao = seg["end"] - seg["start"]
-            if duracao < DURACAO_MINIMA_S:
-                continue
-            if MASCARA.search(seg["text"]):
-                excluidos[r["estado_alvo"]].append(duracao)
-                continue
-            por_estado[r["estado_alvo"]].append({
-                "id": r["id"], "arquivo": r["arquivo"], "canal": r["canal"],
-                "estado": r["estado_alvo"], "camada": r["tipo_fonte"],
-                "inicio_s": round(seg["start"], 2), "fim_s": round(seg["end"], 2),
-                "hipotese_asr": seg["text"].strip(), "referencia_manual": "",
-            })
+    for caminho in sorted(Path(args.registros).glob("*.json")):
+        reg = json.loads(caminho.read_text(encoding="utf-8"))
+        if reg.get("transcricao") and reg.get("diarizacao"):
+            for bloco in blocos_do_registro(reg):
+                por_estado[bloco["estado"]].append(bloco)
 
+    rng = random.Random(SEMENTE)
     selecao = []
-    print(f"{len(registros)} registros lidos de {args.registros}\n")
-    print(f"{'UF':4} {'trechos':>7} {'min':>5} {'arquivos':>8} {'excluídos c/ máscara':>21}")
-    # Mesma iteração do notebook: estados na ordem em que aparecem no corpus,
-    # embaralhados em sequência sobre um único gerador.
-    for uf, itens in por_estado.items():
-        random.shuffle(itens)
+    print(f"{'UF':4} {'blocos':>6} {'min':>5} {'arquivos':>8} {'palavras':>8} {'candidatos':>10}")
+    for uf in ESTADOS_VALIDOS:
+        candidatos = por_estado.get(uf, [])
+        rng.shuffle(candidatos)
         acumulado, escolhidos = 0.0, []
-        for i in itens:
+        for bloco in candidatos:
             if acumulado >= MINUTOS_POR_ESTADO * 60:
                 break
-            escolhidos.append(i)
-            acumulado += i["fim_s"] - i["inicio_s"]
+            escolhidos.append(bloco)
+            acumulado += bloco["fim_s"] - bloco["inicio_s"]
+        for posicao, bloco in enumerate(escolhidos, 1):
+            bloco["codigo"] = f"{uf}-B{posicao:02d}"
         selecao.extend(escolhidos)
-        print(f"{uf:4} {len(escolhidos):>7} {acumulado / 60:>5.1f} "
-              f"{len({i['id'] for i in escolhidos}):>8} "
-              f"{len(excluidos[uf]):>6} ({sum(excluidos[uf]) / 60:.1f} min)")
+        palavras = sum(len(b["hipotese_asr"].split()) for b in escolhidos)
+        print(f"{uf:4} {len(escolhidos):>6} {acumulado/60:>5.1f} "
+              f"{len({b['id'] for b in escolhidos}):>8} {palavras:>8} {len(candidatos):>10}")
 
-    # Código estável por trecho, para conduzir a transcrição por referência, e
-    # não por posição na lista: PB-001, PB-002...
-    ordem = {uf: i for i, uf in enumerate(ESTADOS_VALIDOS)}
-    selecao.sort(key=lambda i: (ordem[i["estado"]], i["id"], i["inicio_s"]))
-    contagem: dict[str, int] = defaultdict(int)
-    for item in selecao:
-        contagem[item["estado"]] += 1
-        item["codigo"] = f"{item['estado']}-{contagem[item['estado']]:03d}"
-    selecao = [{"codigo": i.pop("codigo"), **i} for i in selecao]
-
+    selecao.sort(key=lambda b: (ESTADOS_VALIDOS.index(b["estado"]), b["codigo"]))
+    selecao = [{"codigo": b.pop("codigo"), **b} for b in selecao]
     Path(args.saida).write_text(json.dumps(selecao, ensure_ascii=False, indent=2), encoding="utf-8")
-    total_min = sum(i["fim_s"] - i["inicio_s"] for i in selecao) / 60
-    print(f"\n{len(selecao)} trechos, {total_min:.1f} min, gravados em {args.saida}")
+    total = sum(b["fim_s"] - b["inicio_s"] for b in selecao) / 60
+    print(f"\n{len(selecao)} blocos, {total:.1f} min, em {args.saida}")
 
 
 if __name__ == "__main__":
