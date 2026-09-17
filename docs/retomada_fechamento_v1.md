@@ -46,7 +46,7 @@ O escopo da v1 está **congelado** pelo critério de conclusão aprovado em 15/0
 | **5** | Regerar a amostra do WER sobre os 83 arquivos — **concluído em 15/09/2026** | sessão | — |
 | **6** | Gerar a amostra de coerência dialetal, 10 locutores por estado — **concluído em 15/09/2026** | sessão | — |
 | **9** | Ouvir 2 arquivos: participação de ouvinte — **concluído em 16/09/2026** | usuário | — |
-| **10** | Ouvir os 60 locutores da amostra de coerência (cerca de 1 h) | usuário | 6 |
+| **10** | Ouvir os 60 locutores da amostra de coerência — **concluído em 17/09/2026** | usuário | 6 |
 | **11** | Transcrever à mão os trechos da amostra do WER (8 a 16 h) | usuário | 5 |
 | **12** | Consultar a orientação sobre comitê de ética | usuário | — |
 | **7** | Fechar a ficha do conjunto | sessão | 9, 10, 11 |

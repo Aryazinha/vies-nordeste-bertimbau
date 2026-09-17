@@ -13,7 +13,7 @@ A equipe optou, nessa data, por trabalhar primeiro no conjunto de pares mínimos
 | Frente | O que existe | O que falta | Trabalho humano |
 |---|---|---|---|
 | 3.1 WER estratificado | ferramenta pronta; **amostra regerada em 15/09/2026** | transcrever à mão | 8 a 16 h |
-| 3.2 Coerência dialetal | **amostra gerada em 15/09/2026** | ouvir 10 pessoas por estado | cerca de 1 h |
+| 3.2 Coerência dialetal | **concluída em 17/09/2026** | — | feito |
 
 ### Amostras geradas em 15/09/2026
 
@@ -146,6 +146,26 @@ python preparar_amostra_coerencia.py --estado PE --n 10
 ```
 
 Requer o áudio, portanto o mesmo ambiente da etapa 1.
+
+### Resultado da escuta, 17/09/2026 — frente 3.2 concluída
+
+As 60 pessoas da amostra foram ouvidas por um membro da equipe, em seis blocos conduzidos em sessão, com os clipes recortados por `preparar_clipes_coerencia.py` e o veredito de cada pessoa gravado por `registrar_coerencia.py`.
+
+| UF | Coerente | Suspeito | Inconclusivo |
+|---|---|---|---|
+| PB | 10 | 0 | 0 |
+| PE | 10 | 0 | 0 |
+| CE | 8 | 1 | 1 |
+| BA | 9 | 0 | 1 |
+| SP | 10 | 0 | 0 |
+| RJ | 9 | 0 | 1 |
+| **Total** | **56** | **1** | **3** |
+
+**O suspeito não é o caso previsto.** `COE-CE-04`, em canal do Ceará, é falante estrangeiro: o próprio conteúdo declara restaurante na Itália e pizzaria em Acqui Terme, com trabalho em Fortaleza. A ameaça documentada é o migrante de outra região do Brasil, e no grupo de controle — onde um nordestino migrado atenuaria o contraste entre as regiões — **nenhum caso foi identificado** em 20 pessoas.
+
+**Os três inconclusivos têm duas causas, e nenhuma é sotaque.** `COE-BA-10` tem ruído de ambiente em toda a fala da pessoa, sem trecho mais limpo no arquivo. `COE-CE-06` e `COE-RJ-09` são defeitos de diarização — fusão de dois locutores num rótulo, no primeiro, e rótulo espúrio sobre passagem musical, no segundo —, registrados em `docs/pendencias.md` 4.12, com a consequência que têm sobre a contagem de pessoas distintas.
+
+**O que o resultado autoriza dizer, e o que não autoriza.** Autoriza: numa amostra de dez pessoas por estado, uma pessoa foi julgada incoerente com a variedade do estado, nenhuma delas no grupo de controle. Não autoriza afirmar que o corpus está livre de falante migrante: a amostra foi dimensionada para detectar uma taxa real de 15% com cerca de 80% de chance, de modo que taxas menores passam despercebidas com facilidade. O julgamento é de um único ouvinte, sem medida de concordância entre juízes (`docs/pendencias.md` 6.6).
 
 ---
 
