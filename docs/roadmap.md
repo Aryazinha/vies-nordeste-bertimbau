@@ -262,7 +262,7 @@ Aprovado pela equipe em 15/09/2026. **Numeração estável:** os itens não são
 | 7 | 4 — fechar | Fechar a ficha do conjunto | assistente | a fazer | 4, 8, 9, 10, 11 |
 | 8 | 3 — validar pares | Conferir os trechos encontrados na busca | equipe | **concluído** 15/09 | 4 |
 | 9 | 3 — validar corpus | Ouvir 2 arquivos: participação de ouvinte (15 min) | equipe | **concluído** 16/09 (43 s na BA; nenhuma em PE) | — |
-| 10 | 3 — validar corpus | Ouvir os 60 falantes da coerência dialetal (cerca de 1 h) | equipe | a fazer | 6 |
+| 10 | 3 — validar corpus | Ouvir os 60 falantes da coerência dialetal (cerca de 1 h) | equipe | **concluído** 17/09 (56 coerentes, 1 suspeito, 3 inconclusivos) | 6 |
 | 11 | 3 — validar corpus | Transcrever 2 h de áudio para o WER (8 a 16 h) | equipe | a fazer | 5, 13 |
 | 12 | 3 — orientação | Consulta à orientação: juízes como reforço e comitê de ética | equipe | a fazer | — |
 | 13 | 2 — decisão | O WER entra na v1? | equipe | **decidida** 15/09: entra | — |

@@ -578,6 +578,23 @@ O cálculo de WER e DER exige transcrição manual de referência: 20 minutos po
 
 **O que encerraria.** Não exige refazer a amostra nem acrescentar transcrição. Basta que o relatório do WER, depois do item 11, apresente o valor também por estado e camada, ou uma média por estado ponderada por uma composição comum de camadas, e que a comparação entre Nordeste e Sudeste seja lida sob essa ressalva. Por estar contido na leitura da condição C6, e não ampliar o escopo, é tratado como parte do item 11; a extensão de `medir_wer.py` para o recorte por camada é pequena e será feita quando houver referências a medir.
 
+### 4.12 Diarização funde locutores num arquivo do Ceará — ABERTA em 17/09/2026
+
+**O caso.** Na escuta da amostra de coerência dialetal (item 10), a equipe identificou que o trecho de `COE-CE-06` — arquivo `eKZAtOB8XFo`, canal TMA — contém duas pessoas, embora o `pyannote` tenha atribuído toda a passagem a um único rótulo. A transcrição confirma a alternância de pergunta e resposta dentro do rótulo. Um segundo trecho da mesma etiqueta, recortado em ponto distinto do arquivo, apresenta o mesmo defeito, o que indica fusão de locutores na própria etiqueta, e não sobreposição pontual. O item foi registrado como `inconclusivo`.
+
+**Por que importa além deste item.** A ameaça "Erros de diarização" (Parte 3 do `CLAUDE.md`) prevê a fusão, e o projeto não tem medida de DER. A fusão afeta três frentes: a contagem de pessoas distintas por estado, e portanto o teto de 5% por falante; a amostra de coerência, que supõe um locutor por item; e qualquer análise futura por falante. O rótulo fundido inflaciona a fala atribuída a uma pessoa e reduz a contagem de pessoas — na direção de piorar o teto, e não de mascará-lo.
+
+**O que se sabe hoje.** Um caso confirmado por escuta, em 30 pessoas ouvidas até 17/09/2026 (PB, PE e CE). Não há estimativa de frequência: a amostra foi desenhada para detectar falante migrante, não fusão de locutores, e o que se observa é subproduto.
+
+**O que encerraria.** Duas condutas possíveis, e a escolha é da equipe: (a) declarar na ficha do conjunto a taxa observada de fusão na amostra de coerência, como limitação, sem medida de DER; ou (b) medir DER numa amostra própria, o que é trabalho humano novo e, pela regra de escopo, está **fora da v1** — vai para fase posterior. A conduta (a) é suficiente para a v1 e não acrescenta trabalho.
+
+**Segundo caso, de outra natureza, em 17/09/2026: rótulo sem pessoa.** Na escuta do Rio de Janeiro, o item `COE-RJ-09` — arquivo `rocdHIyi5a0`, Jornal O São Gonçalo — mostrou-se injulgável. A inspeção revelou o motivo: o rótulo `SPEAKER_02` reúne 37 s distribuídos em 35 fragmentos, quase todos abaixo de um segundo, e os dois únicos trechos longos (7,2 s e 9,3 s) caem sobre uma passagem musical, sem nenhuma palavra transcrita atribuída a ele. Não é fusão de duas pessoas, e sim **rótulo espúrio**, provavelmente música e ruído de fundo tomados por locutor.
+
+**Consequência, e esta é desfavorável.** A contagem de pessoas distintas por estado — que sustenta o piso de 20 e o teto de 5% por falante (`verificar_teto_falante.py`) — trata cada rótulo como uma pessoa. Rótulo espúrio **infla** essa contagem e faz o teto parecer mais satisfeito do que está; a fusão de locutores, descrita acima, atua na direção contrária. As duas distorções existem no mesmo corpus e não se cancelam de modo verificado.
+
+**O que se observou até agora:** em 60 pessoas ouvidas, um caso de fusão (CE) e um de rótulo espúrio (RJ), ambos identificados por escuta e registrados como `inconclusivo` na amostra. A conduta (a) acima passa a incluir também a declaração do rótulo espúrio e do seu efeito sobre a contagem de falantes.
+
+
 ### 4.10 Anonimização das transcrições — RESOLVIDA em 02/09/2026
 
 A seção 1.4.2 do protocolo exige mascarar nomes próprios de terceiros — não o do autor do vídeo — antes de qualquer publicação. Com a decisão de 31/08/2026 que autorizou publicar as transcrições, a anonimização deixou de ser cláusula de protocolo e passou a ser pré-condição técnica de entrega.
@@ -903,7 +920,7 @@ Os dois casos identificados denunciaram-se pelo nome do canal, o que é acidente
 
 **Encaminhamento adotado: protocolo de curadoria manual, operacionalizado em vez de deixado como frase.** `pipeline_coleta_piloto/preparar_amostra_coerencia.py` amostra locutores por estado (10 de 20, dimensionado para poder de detecção adequado a um primeiro descarte) e recorta o segmento mais longo de cada um, gerando uma planilha para veredito humano — coerente, suspeito ou inconclusivo. Não decide nada sozinho; prepara o material para quem vai ouvir. Requer ambiente com áudio; não foi executado.
 
-**Atualização de 15/09/2026: amostra gerada**, item 6 do plano de fechamento, na máquina local: 10 pessoas por estado, 60 ao todo, entre 27 e 38 elegíveis por estado. O script foi revisto antes da execução para ler os registros anonimizados — a pasta de originais tem 31 dos 83 arquivos localmente — e para sortear pessoas em vez de rótulos de diarização, com a fusão confirmada na conferência de reincidência (6.4). Planilhas em `dataset_raw/diarizacao/coerencia_{UF}.json`, fora do versionamento. Resta a escuta, item 10 do plano, que encerra a condição C5.
+**Atualização de 15/09/2026: amostra gerada**, item 6 do plano de fechamento, na máquina local: 10 pessoas por estado, 60 ao todo, entre 27 e 38 elegíveis por estado. O script foi revisto antes da execução para ler os registros anonimizados — a pasta de originais tem 31 dos 83 arquivos localmente — e para sortear pessoas em vez de rótulos de diarização, com a fusão confirmada na conferência de reincidência (6.4). Planilhas em `dataset_raw/diarizacao/coerencia_{UF}.json`, fora do versionamento. **Executada em 17/09/2026, e a pendência se resolve:** as 60 pessoas foram ouvidas, com 56 coerentes, 1 suspeito e 3 inconclusivos (`docs/plano_corpus/03-validar.md`, "Resultado da escuta, 17/09/2026"). O único suspeito é falante estrangeiro em canal do Ceará, e não migrante de outra região do Brasil; no grupo de controle, onde a ameaça é mais consequente, nenhum caso foi identificado. Os inconclusivos decorrem de ruído (1) e de defeito de diarização (2, item 4.12), não de dúvida sobre sotaque. Limitações do procedimento em 6.6.
 
 ### 6.3 Precisão da triagem automática
 
@@ -957,6 +974,16 @@ A fonte de frequência lexical trata forma acentuada e não acentuada como palav
 Pertence à classe descrita na seção 5-A. O encaminhamento é o mesmo: toda consulta de frequência deve partir da forma tal como ocorre no enunciado medido, e não de transcrição manual do item, e valores destinados ao artigo devem ser regerados por código a partir dos próprios enunciados. Implementado em `experimentos/teste_construcional.py`, cuja função `razao_frequencia` extrai as palavras diretamente dos dois lados do par. Falta reconferir os valores do adendo B de `experimentos/resultados/relatorios/piloto_medicoes.md`, que foram digitados a partir de consulta avulsa.
 
 ---
+
+### 6.6 Coerência dialetal julgada por um único ouvinte, sem medida de concordância — ABERTA em 17/09/2026
+
+**A questão, levantada pela equipe durante a escuta do item 10.** O veredito de coerência dialetal é percepção de uma pessoa, e não medida. Não há segundo ouvinte, e portanto não há medida de concordância entre juízes — um kappa de Cohen, por exemplo — que permita dizer o quanto o julgamento é reprodutível.
+
+**O que sustenta o procedimento assim mesmo.** Primeiro, a finalidade declarada da amostra é **primeiro descarte**, e não estimativa da taxa de migração (`docs/plano_corpus/03-validar.md`, 3.2). Segundo, e principal, o erro por omissão é **conservador**: deixar passar um falante migrante atenua o contraste entre as regiões e empurra o resultado na direção de ausência de viés, que é a direção contrária à hipótese do projeto — de modo que o julgamento frouxo não fabrica achado. Terceiro, a amostra não se limitou a confirmar o esperado: produziu um suspeito (falante estrangeiro em canal do Ceará) e dois problemas de diarização, o que indica que o instrumento discrimina.
+
+**O que não se pode escrever.** Que a coerência dialetal do corpus foi *verificada* ou *validada por juízes*. Sustenta-se: uma amostra de dez pessoas por estado foi ouvida por um membro da equipe, com o veredito e a nota registrados por pessoa.
+
+**O que encerraria, em ordem de custo.** (a) Declarar a limitação na ficha do conjunto — suficiente para a v1, e é a conduta adotada. (b) Reescuta cega de um subconjunto pelo mesmo ouvinte, dias depois, com os clipes embaralhados e sem rótulo, medindo a consistência consigo mesmo; não envolve terceiros e por isso não toca a questão ética do item 12. (c) Segundo ouvinte independente, com medida de concordância, pela rede da orientação; é o padrão da área, está previsto como **reforço opcional** pela decisão de 15/09/2026 e depende da resposta do item 12. As opções (b) e (c) são fase posterior, salvo decisão expressa da equipe.
 
 ## 7. Encerradas
 
