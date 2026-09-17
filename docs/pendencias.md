@@ -578,6 +578,17 @@ O cálculo de WER e DER exige transcrição manual de referência: 20 minutos po
 
 **O que encerraria.** Não exige refazer a amostra nem acrescentar transcrição. Basta que o relatório do WER, depois do item 11, apresente o valor também por estado e camada, ou uma média por estado ponderada por uma composição comum de camadas, e que a comparação entre Nordeste e Sudeste seja lida sob essa ressalva. Por estar contido na leitura da condição C6, e não ampliar o escopo, é tratado como parte do item 11; a extensão de `medir_wer.py` para o recorte por camada é pequena e será feita quando houver referências a medir.
 
+### 4.12 Diarização funde locutores num arquivo do Ceará — ABERTA em 17/09/2026
+
+**O caso.** Na escuta da amostra de coerência dialetal (item 10), a equipe identificou que o trecho de `COE-CE-06` — arquivo `eKZAtOB8XFo`, canal TMA — contém duas pessoas, embora o `pyannote` tenha atribuído toda a passagem a um único rótulo. A transcrição confirma a alternância de pergunta e resposta dentro do rótulo. Um segundo trecho da mesma etiqueta, recortado em ponto distinto do arquivo, apresenta o mesmo defeito, o que indica fusão de locutores na própria etiqueta, e não sobreposição pontual. O item foi registrado como `inconclusivo`.
+
+**Por que importa além deste item.** A ameaça "Erros de diarização" (Parte 3 do `CLAUDE.md`) prevê a fusão, e o projeto não tem medida de DER. A fusão afeta três frentes: a contagem de pessoas distintas por estado, e portanto o teto de 5% por falante; a amostra de coerência, que supõe um locutor por item; e qualquer análise futura por falante. O rótulo fundido inflaciona a fala atribuída a uma pessoa e reduz a contagem de pessoas — na direção de piorar o teto, e não de mascará-lo.
+
+**O que se sabe hoje.** Um caso confirmado por escuta, em 30 pessoas ouvidas até 17/09/2026 (PB, PE e CE). Não há estimativa de frequência: a amostra foi desenhada para detectar falante migrante, não fusão de locutores, e o que se observa é subproduto.
+
+**O que encerraria.** Duas condutas possíveis, e a escolha é da equipe: (a) declarar na ficha do conjunto a taxa observada de fusão na amostra de coerência, como limitação, sem medida de DER; ou (b) medir DER numa amostra própria, o que é trabalho humano novo e, pela regra de escopo, está **fora da v1** — vai para fase posterior. A conduta (a) é suficiente para a v1 e não acrescenta trabalho.
+
+
 ### 4.10 Anonimização das transcrições — RESOLVIDA em 02/09/2026
 
 A seção 1.4.2 do protocolo exige mascarar nomes próprios de terceiros — não o do autor do vídeo — antes de qualquer publicação. Com a decisão de 31/08/2026 que autorizou publicar as transcrições, a anonimização deixou de ser cláusula de protocolo e passou a ser pré-condição técnica de entrega.
