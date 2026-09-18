@@ -33,7 +33,7 @@ O escopo da v1 está **congelado** pelo critério de conclusão aprovado em 15/0
 ## 3. Estado do repositório
 
 - Branch principal: `main`. O usuário exige **branch por conjunto de alterações** e **merge só com pedido explícito**, a cada vez.
-- Esta retomada e o plano do AUL foram criados na branch `retomada-e-plano-aul`, enviada ao GitHub **sem merge**. **Primeira ação da sessão:** perguntar ao usuário se integra essa branch à `main`.
+- **Situação em 17/09/2026:** as branches dos itens 5, 6, 9 e 10 foram integradas à `main` e apagadas. O trabalho do item 11 está na branch `item11-wer`, enviada ao GitHub; conferir com `git log --oneline main..item11-wer` se ela já foi integrada e, se não, perguntar ao usuário antes de qualquer merge.
 - `CLAUDE.md` está fora do versionamento (`.gitignore`); decidir se passa a ser versionado é parte do item 17.
 - Áudio e transcrições ficam em `pipeline_coleta_piloto/dataset_raw/`, fora do versionamento. **Nunca versionar trecho de transcrição**; arquivos versionados levam só contagens, identificadores de vídeo e instantes.
 
@@ -47,7 +47,7 @@ O escopo da v1 está **congelado** pelo critério de conclusão aprovado em 15/0
 | **6** | Gerar a amostra de coerência dialetal, 10 locutores por estado — **concluído em 15/09/2026** | sessão | — |
 | **9** | Ouvir 2 arquivos: participação de ouvinte — **concluído em 16/09/2026** | usuário | — |
 | **10** | Ouvir os 60 locutores da amostra de coerência — **concluído em 17/09/2026** | usuário | 6 |
-| **11** | Transcrever à mão os trechos da amostra do WER (8 a 16 h) | usuário | 5 |
+| **11** | Transcrever à mão a amostra do WER — **em andamento**: 5 de 241 blocos em 17/09/2026 | usuário | 5 |
 | **12** | Consultar a orientação sobre comitê de ética | usuário | — |
 | **7** | Fechar a ficha do conjunto | sessão | 9, 10, 11 |
 | **17** | Consolidar a documentação | sessão | — |
@@ -126,7 +126,21 @@ Para cada um dos 60 locutores, informar arquivo e instante do segmento recortado
 
 ### Item 11 — transcrição para o WER
 
-É o item mais longo e o de maior valor: o WER por estado é resultado publicável. Dividir por estado, e dizer ao usuário que pode ser feito em sessões curtas e por mais de uma pessoa. Dar a convenção da seção 5 com exemplos. Ao final, rodar `medir_wer.py`, reportar **por estado** e comparar Nordeste com Sudeste, **qualquer que seja o resultado**.
+É o item mais longo e o de maior valor: o WER por estado é resultado publicável. Dividir por estado, e dizer ao usuário que pode ser feito em sessões curtas e por mais de uma pessoa. Ao final, rodar `medir_wer.py`, reportar **por estado** e comparar Nordeste com Sudeste, **qualquer que seja o resultado**.
+
+#### Situação em 17/09/2026, e como retomar
+
+**Feito:** instrumento calibrado por um teste de dez trechos, que corrigiu quatro pontos (`docs/plano_corpus/03-validar.md`, "Teste de calibração"); amostra refeita em **241 blocos de cerca de 30 s**, 121,9 min, cerca de 40 por estado; clipes da Paraíba recortados; **5 blocos transcritos** (`PB-B01` a `PB-B05`), gravados com nota individual.
+
+**Estado dos arquivos**, todos em `pipeline_coleta_piloto/dataset_raw/`, fora do versionamento: `amostra_wer.json` (a amostra, com `referencia_manual` por bloco) e `escuta_wer/PB/` (os 40 clipes da Paraíba, `PB-B01.wav` a `PB-B40.wav`).
+
+**Como continuar, com o usuário:**
+
+1. Recortar os clipes do estado da vez: `python preparar_clipes_wer.py --estado PE`.
+2. Informar a pasta pelo **caminho absoluto completo** e listar os códigos; o usuário transcreve e responde **na conversa**, em lotes de cinco a dez, no formato `PB-B06: texto`.
+3. Gravar cada lote: montar um JSON `{codigo: {texto, nota}}` em `dataset_raw/` e rodar `python registrar_referencia_wer.py --arquivo <lote>.json`. O script recusa código inexistente e informa o progresso por estado.
+4. **As convenções vigentes estão em `03-validar.md`**, seção "Convenções da transcrição manual". As duas que já causaram erro: transcrever **todas as vozes** do bloco, e padronizar a **grafia** da pronúncia regional preservando a **forma** gramatical.
+5. Não citar valor parcial de WER, em hipótese alguma, nem em conversa: vedado 3.8 de `docs/achados_para_o_artigo.md`. Ao final dos 241 blocos, rodar `python medir_wer.py`.
 
 ### Item 12 — orientação
 
