@@ -12,7 +12,7 @@ A equipe optou, nessa data, por trabalhar primeiro no conjunto de pares mínimos
 
 | Frente | O que existe | O que falta | Trabalho humano |
 |---|---|---|---|
-| 3.1 WER estratificado | ferramenta pronta; **amostra regerada em 15/09/2026** | transcrever à mão | 8 a 16 h |
+| 3.1 WER estratificado | ferramenta pronta; **amostra refeita em blocos em 17/09/2026** | transcrever à mão | 8 a 16 h |
 | 3.2 Coerência dialetal | **concluída em 17/09/2026** | — | feito |
 
 ### Amostras geradas em 15/09/2026
@@ -30,7 +30,7 @@ Ambas na máquina local, sobre os 83 registros anonimizados, e gravadas em `pipe
 | SP | 152 | 20,2 | 13 | 5,7 | 10,3 | 4,2 | 17 (2,0 min) |
 | RJ | 122 | 20,1 | 17 | 4,5 | 7,0 | 8,5 | 18 (2,5 min) |
 
-Total: 900 trechos, 120,6 min, 79 dos 83 arquivos. **A composição por camada difere entre estados**, porque o sorteio, tal como na seção 6.4, não é estratificado por camada; o efeito sobre a comparação entre estados está registrado em `docs/pendencias.md` 4.11.
+Total: 900 trechos, 120,6 min, 79 dos 83 arquivos. **Esta amostra foi substituída em 17/09/2026** pela amostra em blocos descrita adiante; o quadro fica como registro. **A composição por camada difere entre estados**, porque o sorteio, tal como na seção 6.4, não é estratificado por camada; o efeito sobre a comparação entre estados está registrado em `docs/pendencias.md` 4.11.
 
 **Amostra de coerência dialetal** (`diarizacao/coerencia_{UF}.json`, gerada por `preparar_amostra_coerencia.py`). O script foi revisto antes da execução em dois pontos: passou a ler os registros anonimizados, pois a pasta de registros originais contém apenas 31 dos 83 arquivos na máquina local; e passou a sortear **pessoas**, fundindo os rótulos de diarização confirmados como mesma pessoa na conferência de reincidência (`vereditos_reincidencia.json`), pela mesma função de `verificar_teto_falante.py`. Sem a fusão, a amostra poderia conter a mesma pessoa duas vezes. Cada pessoa recebe código estável (`COE-PB-01`…).
 
@@ -113,7 +113,29 @@ Medido corretamente, o WER estratificado é **resultado publicável por si só**
 
 **O que existe.** O notebook gera `amostra_wer.json`, com até 20 minutos de trechos por estado, cada um trazendo `hipotese_asr` — o que o modelo transcreveu — e `referencia_manual` em branco. `pipeline_coleta_piloto/medir_wer.py` fecha a conta com a biblioteca `jiwer`, e informa quantos trechos ainda faltam preencher em vez de tratá-los como acerto.
 
-**O que falta.** Trabalho humano: ouvir cada trecho e digitar exatamente o que foi dito, sem corrigir gramática nem expandir números por extenso, mantendo a convenção ortográfica do restante.
+**O que falta.** Trabalho humano: ouvir cada bloco e digitar o que foi dito, segundo as convenções fixadas em 17/09/2026 e reproduzidas abaixo.
+
+### Teste de calibração, 17/09/2026, e o que ele corrigiu
+
+Antes de iniciar as 8 a 16 horas de transcrição, dez trechos de seis estados foram transcritos por um membro da equipe e comparados com a saída do reconhecedor. O teste custou quinze minutos e alterou quatro pontos do procedimento. **Nenhum número dele é resultado:** sete blocos medidos não estimam WER de nada, e os valores não devem ser citados.
+
+1. **Acentuação, maiúsculas e pontuação passam a ser ignoradas nos dois lados.** O `jiwer` não normaliza coisa alguma por conta própria — "Ele disse que sim." contra "ele disse que sim" divergia em 50%. Num bloco do teste, ignorar acento reduziu o erro medido de 0,27 para 0,07, diferença que era apenas acentuação não digitada por quem transcreve.
+2. **A amostra foi refeita em blocos de cerca de 30 segundos.** As marcas de tempo por palavra do `faster-whisper` são aproximadas, e o recorte por segmento cortava a primeira e a última palavra ao meio: quem transcreve ouvia "crian", "soci", "priva", enquanto a hipótese trazia a palavra inteira. Em trechos de 17 palavras medianas, o artefato respondia por cerca de 12% de erro espúrio. Restringir a amostra a segmentos cercados de silêncio foi descartado com dado — apenas 6% dos segmentos elegíveis têm pausa de 0,4 s dos dois lados. A amostra vigente tem **241 blocos, 121,9 min, cerca de 40 blocos por estado**, sorteados com a semente 20260917, com 0,4 s de folga de cada lado no recorte do áudio.
+3. **O resultado será reportado com e sem equivalências de fala reduzida** (decisão da equipe em 17/09/2026). O reconhecedor regulariza a ortografia — escreve *para* onde se disse *pra*, *está* onde se disse *tá* —, o que não é falha de compreensão; como as formas reduzidas podem ser mais frequentes numa variedade, contá-las como erro recairia sobre ela na direção que favorece a hipótese do projeto. A lista é curta e está declarada em `pipeline_coleta_piloto/normalizar_wer.py`; o teste mostrou que expansões ambiciosas pioram a medida.
+4. **Blocos com trecho inaudível saem do cálculo principal**, e a frequência dessas marcas por estado é reportada à parte: ela mede o que o ouvinte humano não entendeu, não o que a máquina errou, e contá-la como erro puniria a máquina mais onde o áudio é pior.
+
+### Convenções da transcrição manual, versão de 17/09/2026
+
+- Escrever o que foi dito, sem corrigir gramática: *nós vai*, *os menino*.
+- Preservar a forma falada na grafia: *tá*, *pra*, *cê*, *né*.
+- Registrar repetição e gaguejo: *o o cara foi*.
+- Não registrar ruído de hesitação sem forma de palavra ("ãh", "hum").
+- Números por extenso, como falados; algarismos na hipótese são convertidos na normalização.
+- Acento, maiúscula e pontuação são dispensáveis.
+- Palavra incompreensível: `[?]`; bloco incompreensível: `[inaudível]`.
+- **Transcrever tudo o que for falado no bloco, por qualquer voz.** A medida é da transcrição do áudio, e não de um falante: a hipótese do reconhecedor cobre o trecho inteiro, de modo que transcrever apenas o falante principal produziria omissões que seriam contadas como erro da máquina. A regra contrária, herdada da escuta de coerência dialetal, vigorou por engano no primeiro lote de 17/09/2026 e foi corrigida no mesmo dia.
+- **Grafia padrão para a mesma palavra; forma gramatical como foi dita.** Pronúncia regional não se escreve foneticamente: quem ouve *nu combati* escreve *no combate*, quem ouve *homi* escreve *homem*, quem ouve *combustivis* escreve *combustíveis*. Já a variação de forma permanece: *nós vai*, *os menino*, *tá*, *pra*, *cê*. A razão é de validade: a fala nordestina apresenta mais fenômenos de pronúncia sem correspondência ortográfica, e respelá-los criaria erro artificial concentrado num dos grupos, **na direção que favorece a hipótese do projeto**. Erro de digitação da referência tem o mesmo efeito, e por isso cada lote passa por conferência de grafia antes de entrar no cálculo.
+- Fragmento de palavra solto no começo ou no fim do áudio, vindo da folga de recorte, deve ser ignorado.
 
 **Custo estimado:** 2 h de áudio ao todo; transcrição manual cuidadosa de fala espontânea com ruído leva de 4 a 8 vezes o tempo do áudio, o que dá **8 a 16 horas**. Divisível entre pessoas, porque os seis estados são arquivos independentes.
 
