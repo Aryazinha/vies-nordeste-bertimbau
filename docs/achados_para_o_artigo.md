@@ -387,6 +387,22 @@ A impossibilidade não é acidente deste conjunto de itens: é o item 1.1 operan
 
 **Estado no projeto:** o eixo permanece sem medição válida. **Decisão de 15/09/2026:** declarado como limitação do dataset v1, com a medição por AUL adiada para fase posterior (`docs/criterio_conclusao_v1.md`, seção 3). O valor de −0,2706 observado na condição de gentílico, que significaria ocupações de alto prestígio tornando-se mais prováveis sob o guise nordestino, **não deve ser citado em nenhuma direção**.
 
+## 1.21 Medir WER em corpus dialetal exige normalização declarada, sob pena de fabricar diferença entre variedades
+
+**Estado:** sustentado, com demonstração quantitativa em teste de calibração de 17/09/2026, sobre dez trechos transcritos por um membro da equipe antes do início da transcrição em escala.
+
+O achado não é sobre o corpus nem sobre o modelo-alvo: é sobre o **procedimento de medição do WER quando as variedades comparadas diferem em pronúncia e em registro**. Três fontes de erro artificial foram identificadas, e as três recaem de modo desigual sobre a variedade menos próxima da norma escrita — isto é, empurram o resultado na direção da hipótese que o projeto investiga.
+
+1. **Ausência de normalização.** `jiwer` compara cadeias literais e não normaliza nada por conta própria. Sem tratamento, acentuação, maiúsculas e pontuação contam como erro: num bloco do teste, o erro medido caiu de 0,27 para 0,07 apenas ao se ignorar acentuação que o transcritor humano não havia digitado. A normalização adotada — caixa, pontuação, acentuação e algarismos por extenso — está declarada em `pipeline_coleta_piloto/normalizar_wer.py`.
+2. **Grafia fonética da pronúncia regional.** Instruído a "preservar a fala", o transcritor grafa *nu combati* onde o reconhecedor escreve *no combate*. Como a fala nordestina apresenta mais fenômenos de pronúncia sem correspondência ortográfica, respelá-los concentra erro artificial num dos grupos. A convenção corrigida distingue **grafia**, que se padroniza, de **forma gramatical**, que se preserva (*nós vai*, *os menino*, *tá*, *pra*).
+3. **Regularização ortográfica pelo próprio reconhecedor.** O `faster-whisper` escreve a forma plena onde se disse a reduzida — *para* por *pra*, *está* por *tá*. Isso não é falha de compreensão, e contá-lo como erro penaliza a variedade em que a forma reduzida for mais frequente. Por decisão da equipe em 17/09/2026, o resultado será reportado **com e sem** uma lista curta e declarada de equivalências, e a diferença entre os dois valores integra o relato. No teste, das 17 substituições observadas, 10 desapareciam sob as equivalências.
+
+Acrescente-se um quarto ponto, de instrução e não de normalização: **a referência humana deve cobrir todas as vozes do bloco**. Transcrever apenas o falante principal — regra correta na escuta de coerência dialetal e equivocadamente herdada por ela no primeiro lote — produz omissões contadas como erro da máquina: num bloco com segunda voz, o erro medido caiu de 0,609 para 0,058 depois de completada a referência.
+
+**Por que é publicável.** O artigo é de recurso e método. Um protocolo de WER estratificado por variedade que não declare estas escolhas produz números incomparáveis entre estudos e, pior, produz diferença regional onde não há. As decisões estão versionadas e datadas, e o módulo de normalização acompanha o conjunto.
+
+---
+
 # 2. CONDICIONAL — depende de verificação nomeada
 
 ## 2.1 A transcrição automática não penaliza a fala nordestina
@@ -398,6 +414,14 @@ A impossibilidade não é acidente deste conjunto de itens: é o item 1.1 operan
 **Se confirmado:** remove confundidor previsto na Parte 3 de `docs/protocolo.md`, e constitui resultado secundário publicável.
 **Se não confirmado:** torna-se limitação central.
 **Ressalva de balanceamento:** o material nordestino tem o dobro de palavras do sudestino (30 mil contra 15 mil), o que não invalida a comparação de médias mas deve ser declarado.
+
+### Medição do WER iniciada em 17/09/2026
+
+A medição que libera esta afirmação está em curso (item 11 do plano de fechamento). A amostra tem **241 blocos de cerca de 30 segundos, 121,9 minutos, aproximadamente 40 blocos por estado**, sorteada com semente fixa sobre os 83 registros e recortada em arquivos próprios para a transcrição manual.
+
+**Nenhum valor parcial pode ser citado, e o vedado 3.8 registra a razão.** Em 17/09/2026 havia cinco blocos transcritos, todos da Paraíba, o que é 2% da amostra e um único estado — e a afirmação de 2.1 é comparativa por natureza, de modo que resultado de um estado isolado não a sustenta nem a refuta.
+
+**O que a medição entregará:** WER por estado, WER por estado e camada de fonte — exigido pela composição desigual de camadas entre estados (`docs/pendencias.md` 4.11) —, em duas versões, com e sem equivalências de fala reduzida (1.21), e a frequência por estado de trechos marcados como incompreensíveis pelo ouvinte humano, que é medida distinta e informativa por si só.
 
 ## 2.2 Rendimento por camada e revisão da meta de volume
 
@@ -526,6 +550,16 @@ Nenhum item passou pelo Filtro 1, de juízes falantes nativos, nem pelo Filtro 2
 **Formulação correta, em três partes que não devem ser separadas:** o modelo não responde à sinalização dialetal implícita (1.15); responde à menção explícita de região, sem especificidade para o Nordeste acima de 0,08 na autoidentificação e com sinal pequeno e exploratório na menção em terceira pessoa (1.17); e, no eixo de caráter, nenhum viés dessa resposta sobrevive à correção na versão controlada da tokenização, com sinal exploratório em rótulos de pessoa declarado (1.19), permanecendo o eixo ocupacional sem medição (1.20).
 
 **Libera afirmação mais forte:** medição do eixo ocupacional por AUL, e validação da classificação de valência por juízes.
+
+## 3.8 Qualquer valor parcial de WER, enquanto a amostra não estiver completa
+
+**Aberto em 17/09/2026, no início da transcrição manual.**
+
+Vedado citar WER medido sobre parte da amostra — por estado ou agregado —, em qualquer direção, inclusive como indício ou tendência. A afirmação de 2.1 é **comparativa entre variedades**, e valores obtidos antes de os seis estados estarem transcritos não a informam: com um estado medido não há comparação, e com dois ou três a comparação recai sobre o subconjunto que foi transcrito primeiro, que é ordem de trabalho e não sorteio.
+
+Vedado igualmente citar os valores do **teste de calibração** de 17/09/2026, que existiu para corrigir o instrumento e foi medido sobre dez trechos, sob convenções depois alteradas. Seus números aparecem em 1.21 e em `docs/plano_corpus/03-validar.md` apenas como demonstração do artefato que motivou cada correção.
+
+**Encerra-se quando** os 241 blocos tiverem referência manual e `medir_wer.py` for executado sobre a amostra completa; o resultado será reportado qualquer que seja, conforme 2.1.
 
 ## 3.5 Qualquer afirmação de significância estatística — parcialmente endereçado
 
