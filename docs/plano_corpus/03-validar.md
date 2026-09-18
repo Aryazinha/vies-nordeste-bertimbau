@@ -133,7 +133,8 @@ Antes de iniciar as 8 a 16 horas de transcrição, dez trechos de seis estados f
 - Números por extenso, como falados; algarismos na hipótese são convertidos na normalização.
 - Acento, maiúscula e pontuação são dispensáveis.
 - Palavra incompreensível: `[?]`; bloco incompreensível: `[inaudível]`.
-- Havendo segunda voz, transcrever apenas o falante principal e registrar o código do bloco.
+- **Transcrever tudo o que for falado no bloco, por qualquer voz.** A medida é da transcrição do áudio, e não de um falante: a hipótese do reconhecedor cobre o trecho inteiro, de modo que transcrever apenas o falante principal produziria omissões que seriam contadas como erro da máquina. A regra contrária, herdada da escuta de coerência dialetal, vigorou por engano no primeiro lote de 17/09/2026 e foi corrigida no mesmo dia.
+- **Grafia padrão para a mesma palavra; forma gramatical como foi dita.** Pronúncia regional não se escreve foneticamente: quem ouve *nu combati* escreve *no combate*, quem ouve *homi* escreve *homem*, quem ouve *combustivis* escreve *combustíveis*. Já a variação de forma permanece: *nós vai*, *os menino*, *tá*, *pra*, *cê*. A razão é de validade: a fala nordestina apresenta mais fenômenos de pronúncia sem correspondência ortográfica, e respelá-los criaria erro artificial concentrado num dos grupos, **na direção que favorece a hipótese do projeto**. Erro de digitação da referência tem o mesmo efeito, e por isso cada lote passa por conferência de grafia antes de entrar no cálculo.
 - Fragmento de palavra solto no começo ou no fim do áudio, vindo da folga de recorte, deve ser ignorado.
 
 **Custo estimado:** 2 h de áudio ao todo; transcrição manual cuidadosa de fala espontânea com ruído leva de 4 a 8 vezes o tempo do áudio, o que dá **8 a 16 horas**. Divisível entre pessoas, porque os seis estados são arquivos independentes.
